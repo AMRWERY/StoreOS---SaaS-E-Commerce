@@ -60,17 +60,16 @@ defineProps<{
 defineEmits(['close']);
 
 const route = useRoute();
-const localePath = useLocalePath();
 
 const navItems = computed(() => [
-  { name: 'Dashboard', icon: 'ph:grid-four-fill', active: route.path.endsWith('/dashboard'), to: localePath('/dashboard') },
-  { name: 'Orders', icon: 'ph:shopping-cart-fill', active: route.path.includes('/dashboard/orders'), to: localePath('/dashboard/orders') },
-  { name: 'Products', icon: 'ph:package-fill', active: route.path.includes('/dashboard/products'), to: localePath('/dashboard/products') },
-  { name: 'Inventory', icon: 'ph:stack-fill', active: route.path.includes('/dashboard/inventory'), to: localePath('/dashboard/inventory') },
-  { name: 'Customers', icon: 'ph:users-fill', active: route.path.includes('/dashboard/customers'), to: localePath('/dashboard/customers') },
-  { name: 'Analytics', icon: 'ph:chart-bar-fill', active: route.path.includes('/dashboard/analytics'), to: localePath('/dashboard/analytics') },
-  { name: 'Coupons', icon: 'ph:ticket-fill', active: route.path.includes('/dashboard/coupons'), to: localePath('/dashboard/coupons') },
-  { name: 'Settings', icon: 'ph:gear-six-fill', active: route.path.includes('/dashboard/settings'), to: localePath('/dashboard/settings') },
+  { name: 'Dashboard', icon: 'ph:grid-four-fill', active: route.path.endsWith('/dashboard'), to: '/dashboard' },
+  { name: 'Orders', icon: 'ph:shopping-cart-fill', active: route.path.includes('/dashboard/orders'), to: '/dashboard/orders' },
+  { name: 'Products', icon: 'ph:package-fill', active: route.path.includes('/dashboard/products'), to: '/dashboard/products' },
+  { name: 'Inventory', icon: 'ph:stack-fill', active: route.path.includes('/dashboard/inventory'), to: '/dashboard/inventory' },
+  { name: 'Customers', icon: 'ph:users-fill', active: route.path.includes('/dashboard/customers'), to: '/dashboard/customers' },
+  { name: 'Analytics', icon: 'ph:chart-bar-fill', active: route.path.includes('/dashboard/analytics'), to: '/dashboard/analytics' },
+  { name: 'Coupons', icon: 'ph:ticket-fill', active: route.path.includes('/dashboard/coupons'), to: '/dashboard/coupons' },
+  { name: 'Settings', icon: 'ph:gear-six-fill', active: route.path.includes('/dashboard/settings'), to: '/dashboard/settings' },
 ])
 </script>
 
