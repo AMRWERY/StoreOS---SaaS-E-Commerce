@@ -1,0 +1,22 @@
+{
+  "name": "storeos",
+  "private": true,
+  "scripts": {
+    "dev:web": "turbo run dev --filter=@storeos/web",
+    "dev:storefront": "turbo run dev --filter=@storeos/storefront",
+    "build": "turbo run build --concurrency=1",
+    "build:web": "turbo run build --filter=@storeos/web",
+    "build:storefront": "turbo run build --filter=@storeos/storefront",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@10.28.1"
+}

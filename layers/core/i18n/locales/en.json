@@ -1,0 +1,17 @@
+{
+  "auth": {
+    "title": "Welcome back to StoreOS",
+    "subtitle": "Enter your credentials to access your dashboard",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "orContinueWith": "Or continue with",
+    "signInWithGoogle": "Sign in with Google",
+    "noAccount": "Don't have an account?",
+    "registerNow": "Register now",
+    "or": "or",
+    "startFreeTrial": "Start free trial",
+    "copyright": "© 2026 STOREOS. ALL RIGHTS RESERVED. BUILT FOR MODERN COMMERCE."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "auth": {
+    "title": "مرحباً بعودتك إلى StoreOS",
+    "subtitle": "أدخل بيانات حسابك للوصول إلى لوحة التحكم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "signIn": "تسجيل الدخول",
+    "orContinueWith": "أو تابع بـ",
+    "signInWithGoogle": "تسجيل الدخول بجوجل",
+    "noAccount": "ليس لديك حساب؟",
+    "registerNow": "سجّل الآن",
+    "or": "أو",
+    "startFreeTrial": "ابدأ تجربتك المجانية",
+    "copyright": "© 2026 STOREOS. جميع الحقوق محفوظة. مصمّم للتجارة الحديثة."
+  }
+}

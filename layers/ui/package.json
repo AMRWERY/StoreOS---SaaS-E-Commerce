@@ -1,0 +1,10 @@
+{
+  "name": "@storeos/ui",
+  "type": "module",
+  "private": true,
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "lint": "echo \"No lint configured\"",
+    "clean": "rm -rf .nuxt"
+  }
+}
