@@ -10,44 +10,49 @@
           View Full Log
         </button>
       </div>
-      <table class="w-full text-start">
-        <thead class="text-[9px] font-black text-gray-600 tracking-widest border-b border-white/5 bg-black/40">
-          <tr>
-            <th class="px-6 py-4">Date & Time</th>
-            <th class="px-6 py-4">Product</th>
-            <th class="px-6 py-4">Type</th>
-            <th class="px-6 py-4 text-end">Qty Change</th>
-            <th class="px-6 py-4 text-end">New Stock</th>
-            <th class="px-6 py-4">Reason</th>
-            <th class="px-6 py-4 text-end">Staff</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-white/[0.03]">
-          <tr v-for="log in historyLogs" :key="log.id" class="group hover:bg-white/[0.02] transition-colors">
-            <td class="px-6 py-4 text-[10px] font-bold text-gray-500 tracking-widest">{{ log.date }}</td>
-            <td class="px-6 py-4 text-xs font-bold">{{ log.product }}</td>
-            <td class="px-6 py-4">
-              <span class="text-[9px] font-black tracking-widest px-2.5 py-1 rounded"
-                :class="log.type === 'Add' ? 'bg-emerald-500/10 text-emerald-500' : log.type === 'Remove' ? 'bg-red-500/10 text-red-500' : 'bg-blue-500/10 text-blue-500'">
-                {{ log.type }}
-              </span>
-            </td>
-            <td class="px-6 py-4 text-sm font-bold text-end">
-              <span :class="log.change > 0 ? 'text-emerald-500' : log.change < 0 ? 'text-red-500' : 'text-gray-400'">
-                {{ log.change > 0 ? '+' + log.change : log.change }}
-              </span>
-            </td>
-            <td class="px-6 py-4 text-sm font-bold text-gray-300 text-end">{{ log.newStock }}</td>
-            <td class="px-6 py-4 text-xs font-medium text-gray-400">{{ log.reason }}</td>
-            <td class="px-6 py-4 text-xs font-bold text-gray-500 text-end tracking-wider">{{ log.staff }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <VTable :headers="headers" :items="historyLogs">
+        <template #cell(date)="{ item }">
+          <span class="text-[10px] font-bold text-gray-500 tracking-widest">{{ item.date }}</span>
+        </template>
+        <template #cell(product)="{ item }">
+          <span class="text-xs font-bold">{{ item.product }}</span>
+        </template>
+        <template #cell(type)="{ item }">
+          <span class="text-[9px] font-black tracking-widest px-2.5 py-1 rounded"
+            :class="item.type === 'Add' ? 'bg-emerald-500/10 text-emerald-500' : item.type === 'Remove' ? 'bg-red-500/10 text-red-500' : 'bg-blue-500/10 text-blue-500'">
+            {{ item.type }}
+          </span>
+        </template>
+        <template #cell(change)="{ item }">
+          <span :class="item.change > 0 ? 'text-emerald-500' : item.change < 0 ? 'text-red-500' : 'text-gray-400'">
+            {{ item.change > 0 ? '+' + item.change : item.change }}
+          </span>
+        </template>
+        <template #cell(newStock)="{ item }">
+          <span class="text-sm font-bold text-gray-300">{{ item.newStock }}</span>
+        </template>
+        <template #cell(reason)="{ item }">
+          <span class="text-xs font-medium text-gray-400">{{ item.reason }}</span>
+        </template>
+        <template #cell(staff)="{ item }">
+          <span class="text-xs font-bold text-gray-500 tracking-wider">{{ item.staff }}</span>
+        </template>
+      </VTable>
     </section>
   </div>
 </template>
 
 <script lang="ts" setup>
+const headers = [
+  { label: 'Date & Time', key: 'date', align: 'start' },
+  { label: 'Product', key: 'product', align: 'start' },
+  { label: 'Type', key: 'type', align: 'start' },
+  { label: 'Qty Change', key: 'change', align: 'end' },
+  { label: 'New Stock', key: 'newStock', align: 'end' },
+  { label: 'Reason', key: 'reason', align: 'start' },
+  { label: 'Staff', key: 'staff', align: 'end' }
+]
+
 defineProps<{
   historyLogs: any[]
 }>()

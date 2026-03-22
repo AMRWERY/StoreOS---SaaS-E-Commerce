@@ -89,32 +89,28 @@
               </div>
 
               <div class="p-8">
-                <table class="w-full text-start">
-                  <thead class="text-[10px] font-black text-gray-700 tracking-widest">
-                    <tr class="border-b border-white/5">
-                      <th class="pb-4">Product</th>
-                      <th class="pb-4 text-center">Qty</th>
-                      <th class="pb-4 text-end">Unit Price</th>
-                      <th class="pb-4 text-end">Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="group">
-                      <td class="py-6 flex items-center gap-4">
-                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=80"
-                          class="w-14 h-14 rounded-xl object-cover grayscale opacity-70 border border-white/5" />
-                        <div>
-                          <h5 class="text-sm font-bold">Velocity Elite Runner</h5>
-                          <p class="text-[10px] text-gray-600 font-bold mt-1">Size: 42 | Crimson</p>
-                          <p class="text-[9px] text-gray-700 font-medium">SKU: VER-42-CRIM</p>
-                        </div>
-                      </td>
-                      <td class="py-6 text-center font-bold text-sm">1</td>
-                      <td class="py-6 text-end font-bold text-sm text-gray-500">$189.00</td>
-                      <td class="py-6 text-end font-bold text-sm">$189.00</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <VTable :headers="itemHeaders" :items="orderItems">
+                  <template #cell(product)="{ item }">
+                    <div class="py-2 flex items-center gap-4 text-start">
+                      <img :src="item.image"
+                        class="w-14 h-14 rounded-xl object-cover grayscale opacity-70 border border-white/5" />
+                      <div>
+                        <h5 class="text-sm font-bold">{{ item.name }}</h5>
+                        <p class="text-[10px] text-gray-600 font-bold mt-1">Size: {{ item.size }} | {{ item.color }}</p>
+                        <p class="text-[9px] text-gray-700 font-medium">SKU: {{ item.sku }}</p>
+                      </div>
+                    </div>
+                  </template>
+                  <template #cell(qty)="{ item }">
+                    <span class="text-sm font-bold">{{ item.qty }}</span>
+                  </template>
+                  <template #cell(unitPrice)="{ item }">
+                    <span class="text-sm font-bold text-gray-500">${{ item.unitPrice.toFixed(2) }}</span>
+                  </template>
+                  <template #cell(total)="{ item }">
+                    <span class="text-sm font-bold">${{ (item.qty * item.unitPrice).toFixed(2) }}</span>
+                  </template>
+                </VTable>
 
                 <!-- Summary -->
                 <div class="mt-8 pt-8 border-t border-white/5 flex flex-col items-end space-y-4">
@@ -273,6 +269,26 @@
 // Order Metadata
 const orderId = "ORD-0889"
 const createdAt = "Oct 24, 2023, 10:45 AM"
+
+const itemHeaders = [
+  { label: 'Product', key: 'product', align: 'start' },
+  { label: 'Qty', key: 'qty', align: 'center' },
+  { label: 'Unit Price', key: 'unitPrice', align: 'end' },
+  { label: 'Total', key: 'total', align: 'end' }
+]
+
+const orderItems = [
+  {
+    id: 1,
+    name: 'Velocity Elite Runner',
+    size: '42',
+    color: 'Crimson',
+    sku: 'VER-42-CRIM',
+    qty: 1,
+    unitPrice: 189.00,
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=80'
+  }
+]
 
 // Timeline steps
 const timeline = [

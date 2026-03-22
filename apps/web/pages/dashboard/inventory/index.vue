@@ -2,7 +2,13 @@
   <div>
     <div class="min-h-screen text-[#e1e1e1] font-sans flex flex-col overflow-hidden pb-10 -mt-10">
       <div class="flex-1 overflow-y-auto space-y-8 p-6 lg:p-8">
-        <inventory-header :totalProducts="1240" @adjust="openAdjustmentModal()" />
+        <inventory-header 
+          :totalProducts="1240" 
+          v-model:search="searchQuery"
+          v-model:category="selectedCategory"
+          v-model:status="selectedStatus"
+          @adjust="openAdjustmentModal()" 
+        />
 
         <!-- Alert Banner -->
         <VAlertBanner v-if="lowStockCount > 0" variant="warning" icon="ph:warning-bold">
@@ -14,9 +20,14 @@
         <!-- Componented Layout -->
         <inventory-summary-cards :outOfStockCount="outOfStockCount" :lowStockCount="lowStockCount" />
 
-        <inventory-table :items="stockList" @adjust="openAdjustmentModal" @quick-adjust="handleQuickAdjust" />
+        <inventory-table 
+          :items="filteredStockList" 
+          @adjust="openAdjustmentModal" 
+          @quick-adjust="handleQuickAdjust"
+          @view-history="handleViewHistory"
+        />
 
-        <inventory-movement-history class="mt-8" :historyLogs="historyList" />
+        <inventory-movement-history id="history-section" class="mt-8" :historyLogs="historyList" />
       </div>
     </div>
 
@@ -29,13 +40,25 @@
 const isAdjustmentModalOpen = ref(false)
 const selectedItem = ref<any>(null)
 
+// Filtering state
+const searchQuery = ref('')
+const selectedCategory = ref('All')
+const selectedStatus = ref('Any')
+
 const openAdjustmentModal = (item?: any) => {
-  selectedItem.value = item || stockList.value[0]
+  selectedItem.value = item || filteredStockList.value[0]
   isAdjustmentModalOpen.value = true
 }
 
 const handleQuickAdjust = (item: any, change: number) => {
   item.current = Math.max(0, item.current + change)
+}
+
+const handleViewHistory = (item: any) => {
+  const el = document.getElementById('history-section')
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 
 const saveAdjustment = (payload: any) => {
@@ -123,6 +146,23 @@ const stockList = ref([
     image: '/img/product-07.png'
   }
 ])
+
+const filteredStockList = computed(() => {
+  return stockList.value.filter(item => {
+    const query = searchQuery.value.toLowerCase()
+    const matchesSearch = item.name.toLowerCase().includes(query) || 
+                         item.sku.toLowerCase().includes(query)
+    
+    const matchesCategory = selectedCategory.value === 'All' || item.category === selectedCategory.value
+    
+    let matchesStatus = true
+    if (selectedStatus.value === 'Out of Stock') matchesStatus = item.current === 0
+    else if (selectedStatus.value === 'Low Stock') matchesStatus = item.current > 0 && item.current <= item.threshold
+    else if (selectedStatus.value === 'In Stock') matchesStatus = item.current > item.threshold
+
+    return matchesSearch && matchesCategory && matchesStatus
+  })
+})
 
 const lowStockCount = computed(() => stockList.value.filter(s => s.current > 0 && s.current <= s.threshold).length)
 const outOfStockCount = computed(() => stockList.value.filter(s => s.current === 0).length)

@@ -7,39 +7,44 @@
           All</VButton>
       </div>
       <div class="overflow-x-auto flex-1 h-full">
-        <table class="w-full text-start text-sm">
-          <thead class="text-[10px] font-black text-gray-600 tracking-widest">
-            <tr class="border-b border-white/5">
-              <th class="px-6 py-4 text-start">Order #</th>
-              <th class="px-6 py-4 text-start">Customer</th>
-              <th class="px-6 py-4 text-start">Items</th>
-              <th class="px-6 py-4 text-center">Total</th>
-              <th class="px-6 py-4 text-center">Status</th>
-              <th class="px-6 py-4 text-end">Time</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-white/[0.03]">
-            <tr v-for="order in orders" :key="order.id" class="group hover:bg-white/[0.02] transition-colors">
-              <td class="px-6 py-4 font-bold text-gray-500">{{ order.id }}</td>
-              <td class="px-6 py-4 font-bold">{{ order.customer }}</td>
-              <td class="px-6 py-4 text-gray-500">{{ order.items }}</td>
-              <td class="px-6 py-4 text-center font-bold">{{ order.total }}</td>
-              <td class="px-6 py-4 text-center">
-                <span
-                  :class="[getStatusClass(order.status), 'text-[9px] font-black px-2.5 py-1 rounded-full whitespace-nowrap']">
-                  {{ order.status }}
-                </span>
-              </td>
-              <td class="px-6 py-4 text-end text-xs text-gray-600">{{ order.time }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <VTable :headers="headers" :items="orders">
+        <template #cell(id)="{ item }">
+          <span class="font-bold text-gray-500">{{ item.id }}</span>
+        </template>
+        <template #cell(customer)="{ item }">
+          <span class="font-bold">{{ item.customer }}</span>
+        </template>
+        <template #cell(items)="{ item }">
+          <span class="text-gray-500">{{ item.items }}</span>
+        </template>
+        <template #cell(total)="{ item }">
+          <span class="font-bold">{{ item.total }}</span>
+        </template>
+        <template #cell(status)="{ item }">
+          <span
+            :class="[getStatusClass(item.status), 'text-[9px] font-black px-2.5 py-1 rounded-full whitespace-nowrap']">
+            {{ item.status }}
+          </span>
+        </template>
+        <template #cell(time)="{ item }">
+          <span class="text-xs text-gray-600">{{ item.time }}</span>
+        </template>
+      </VTable>
       </div>
     </section>
   </div>
 </template>
 
 <script lang="ts" setup>
+const headers = [
+  { label: 'Order #', key: 'id', align: 'start' },
+  { label: 'Customer', key: 'customer', align: 'start' },
+  { label: 'Items', key: 'items', align: 'start' },
+  { label: 'Total', key: 'total', align: 'center' },
+  { label: 'Status', key: 'status', align: 'center' },
+  { label: 'Time', key: 'time', align: 'end' }
+]
+
 const orders = [
   { id: '#SO-9821', customer: 'Marcus Holloway', items: '03', total: '$420.00', status: 'NEW', time: '2m ago' },
   { id: '#SO-9819', customer: 'Sarah Jenkins', items: '01', total: '$89.00', status: 'CONFIRMED', time: '14m ago' },
