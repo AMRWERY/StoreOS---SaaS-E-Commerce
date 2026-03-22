@@ -26,7 +26,7 @@ const props = defineProps({
   variant: { type: String, default: "primary" },
   size: { type: String, default: "md" },
   disabled: { type: Boolean, default: false },
-  className: { type: String, default: "" },
+  className: { type: [String, Array, Object], default: "" },
 });
 
 const buttonClass = computed(() => {
