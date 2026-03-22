@@ -39,4 +39,8 @@ const finish = () => {
 const skip = () => {
   window.alert("Skipped onboarding.");
 };
+
+useHead({
+  titleTemplate: () => 'Add First Product',
+});
 </script>

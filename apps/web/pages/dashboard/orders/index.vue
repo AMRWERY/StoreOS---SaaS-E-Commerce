@@ -133,4 +133,8 @@ const toggleSelectAll = () => {
 definePageMeta({
   layout: 'dashboard'
 });
+
+useHead({
+  titleTemplate: () => 'Orders',
+});
 </script>

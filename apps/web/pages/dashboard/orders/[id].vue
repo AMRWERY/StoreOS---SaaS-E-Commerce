@@ -21,19 +21,24 @@
       </div>
 
       <div class="flex items-center gap-3">
-        <VButton variant="secondary" className="px-5 py-2.5 rounded-xl text-xs font-bold border-white/5 bg-white/5 hover:bg-white/10 transition-all">
+        <VButton variant="secondary"
+          className="px-5 py-2.5 rounded-xl text-xs font-bold border-white/5 bg-white/5 hover:bg-white/10 transition-all">
           Confirm
         </VButton>
-        <VButton className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition-all shadow-lg shadow-indigo-600/20">
+        <VButton
+          className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition-all shadow-lg shadow-indigo-600/20">
           Ship items
         </VButton>
-        <VButton variant="none" className="p-2.5 bg-white/5 border border-white/5 rounded-xl text-gray-400 hover:text-white transition-colors">
+        <VButton variant="none"
+          className="p-2.5 bg-white/5 border border-white/5 rounded-xl text-gray-400 hover:text-white transition-colors">
           <icon name="ph:printer-bold" />
         </VButton>
-        <VButton variant="none" className="px-5 py-2.5 text-red-500/70 hover:text-red-500 text-xs font-bold transition-colors">
+        <VButton variant="none"
+          className="px-5 py-2.5 text-red-500/70 hover:text-red-500 text-xs font-bold transition-colors">
           Cancel
         </VButton>
-        <VButton variant="none" className="p-2.5 bg-white/5 border border-white/5 rounded-xl text-gray-400 hover:text-white transition-colors">
+        <VButton variant="none"
+          className="p-2.5 bg-white/5 border border-white/5 rounded-xl text-gray-400 hover:text-white transition-colors">
           <icon name="ph:dots-three-bold" />
         </VButton>
       </div>
@@ -60,8 +65,8 @@
 
           <h4 class="text-[10px] font-black tracking-widest"
             :class="step.status === 'upcoming' ? 'text-gray-700' : 'text-white'">{{ step.name }}</h4>
-          <p class="text-[9px] font-bold mt-1"
-            :class="step.status === 'active' ? 'text-indigo-400' : 'text-gray-600'">{{ step.date }}</p>
+          <p class="text-[9px] font-bold mt-1" :class="step.status === 'active' ? 'text-indigo-400' : 'text-gray-600'">
+            {{ step.date }}</p>
         </div>
       </div>
     </section>
@@ -144,9 +149,9 @@
                 <textarea placeholder="Add internal note for this order..."
                   class="w-full bg-black border border-white/10 rounded-2xl p-5 text-sm h-32 focus:outline-none focus:border-indigo-500/50 transition-colors placeholder:text-gray-800 resize-none"></textarea>
                 <VButton variant="none"
-                className="absolute bottom-4 end-4 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-[10px] font-black tracking-widest transition-colors">
-                Add Note
-              </VButton>
+                  className="absolute bottom-4 end-4 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-[10px] font-black tracking-widest transition-colors">
+                  Add Note
+                </VButton>
               </div>
 
               <div class="space-y-6 pt-4">
@@ -226,11 +231,13 @@
                     class="flex-1 bg-black border border-white/10 rounded-lg px-3 py-2 text-[10px] font-bold text-gray-400">
                     FX-89323-2394
                   </div>
-                  <VButton variant="none" className="bg-white/5 p-2 rounded-lg text-gray-500 hover:text-white transition-colors">
+                  <VButton variant="none"
+                    className="bg-white/5 p-2 rounded-lg text-gray-500 hover:text-white transition-colors">
                     <icon name="ph:copy-bold" />
                   </VButton>
                 </div>
-                <VButton variant="none" className="text-[10px] font-bold text-indigo-400 mt-4 hover:underline block text-start">
+                <VButton variant="none"
+                  className="text-[10px] font-bold text-indigo-400 mt-4 hover:underline block text-start">
                   Track Package
                 </VButton>
               </div>
@@ -251,8 +258,7 @@
                 <p class="text-[9px] text-gray-600 font-bold mt-0.5">ch_3Nle...8Zkz</p>
               </div>
             </div>
-            <span
-              class="text-[8px] font-black text-emerald-500 px-1.5 py-0.5 bg-emerald-500/10 rounded">Paid</span>
+            <span class="text-[8px] font-black text-emerald-500 px-1.5 py-0.5 bg-emerald-500/10 rounded">Paid</span>
           </div>
         </div>
       </aside>
@@ -282,6 +288,10 @@ const orderLogs = [
 
 definePageMeta({
   layout: 'dashboard'
+});
+
+useHead({
+  titleTemplate: () => 'Order ' + orderId,
 });
 </script>
 

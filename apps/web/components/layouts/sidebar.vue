@@ -25,7 +25,7 @@
 
     <nav class="flex-1 space-y-2 overflow-y-auto hide-scrollbar">
       <VButton v-for="item in navItems" :key="item.name" :to="item.to" variant="none"
-        className="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm group"
+        className="w-full flex items-center justify-start gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm group"
         :class="item.active ? 'bg-indigo-500/10 text-indigo-500 shadow-sm' : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'">
         <icon :name="item.icon" class="text-lg" />
         <span class="truncate">{{ item.name }}</span>

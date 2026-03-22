@@ -96,8 +96,10 @@
 
               <VButton type="submit"
                 variant="none"
-                className="w-full bg-orange-600 hover:bg-orange-500 text-white py-4 rounded-xl font-bold text-sm transition-all transform active:scale-[0.98] shadow-lg shadow-orange-600/20">
-                Create Store & Start Free Trial
+                :disabled="isLoading"
+                className="w-full flex items-center justify-center bg-orange-600 hover:bg-orange-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-sm transition-all transform active:scale-[0.98] shadow-lg shadow-orange-600/20">
+                <VLoadingSpinner v-if="isLoading" size="sm" color="white" />
+                <span v-else>Create Store &amp; Start Free Trial</span>
               </VButton>
             </VFormWrapper>
 
@@ -121,7 +123,20 @@ const email = ref('')
 const password = ref('')
 const agree = ref(false)
 
-const handleSubmit = () => {
-  navigateTo('/onboarding/add-first-product')
-}
+const isLoading = ref(false);
+
+const handleSubmit = async () => {
+  isLoading.value = true;
+  try {
+    // TODO: replace with real register call
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    await navigateTo('/onboarding/add-first-product');
+  } finally {
+    isLoading.value = false;
+  }
+};
+
+useHead({
+  titleTemplate: () => 'Register',
+});
 </script>

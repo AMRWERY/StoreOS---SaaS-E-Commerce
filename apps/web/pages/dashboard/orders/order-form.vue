@@ -8,4 +8,8 @@
 definePageMeta({
   layout: 'dashboard'
 });
+
+useHead({
+  titleTemplate: () => 'Order Form',
+});
 </script>
