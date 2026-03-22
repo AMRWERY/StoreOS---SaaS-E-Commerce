@@ -3,7 +3,7 @@
     <div class="fixed inset-0 z-50 overflow-hidden" @click.self="$emit('close')">
       <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"></div>
       <aside
-        class="absolute end-0 top-0 h-full w-full max-w-[480px] bg-[#080809] border-l border-white/5 shadow-2xl flex flex-col transform transition-transform duration-300">
+        class="absolute end-0 top-0 h-full w-full max-w-[480px] bg-[#080809] border-s border-white/5 shadow-2xl flex flex-col transform transition-transform duration-300">
         <div class="p-8 flex-1 overflow-y-auto hide-scrollbar">
           <!-- Detail Header -->
           <div class="flex justify-between items-center mb-10">
@@ -13,8 +13,7 @@
                 :class="[getOrderStatusClass(order.orderStatus), 'text-[9px] font-black px-2.5 py-1 rounded tracking-widest']">{{
                   order.orderStatus }}</span>
             </div>
-            <VButton @click="$emit('close')"
-              variant="none"
+            <VButton @click="$emit('close')" variant="none"
               className="w-10 h-10 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded-xl text-gray-400 hover:text-white transition-colors">
               <icon name="ph:x-bold" />
             </VButton>
@@ -48,7 +47,8 @@
           <div>
             <div class="flex justify-between items-center mb-6">
               <h3 class="text-[10px] font-black text-gray-600 tracking-[0.2em]">Items ({{ order.itemsCount }})</h3>
-              <VButton variant="none" className="text-[10px] font-bold text-indigo-400 hover:underline" @click="navigateTo(`/dashboard/orders/order-form?id=${order.id}`)">Edit</VButton>
+              <VButton variant="none" className="text-[10px] font-bold text-indigo-400 hover:underline"
+                @click="navigateTo(`/dashboard/orders/order-form?id=${order.id}`)">Edit</VButton>
             </div>
             <div class="space-y-4">
               <div v-for="i in 2" :key="i" class="flex items-center gap-4">

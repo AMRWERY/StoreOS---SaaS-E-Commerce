@@ -23,7 +23,7 @@
       <div v-for="order in orders" :key="order.id" @click="$emit('select-order', order)"
         class="grid grid-cols-12 items-center px-6 py-5 bg-[#0c0c0e] border rounded-2xl transition-all cursor-pointer group"
         :class="[
-          order.orderStatus === 'NEW' ? 'border-indigo-500/30 ring-1 ring-orange-500/10 border-l-[3px] border-l-orange-500 shadow-[0_0_15px_-5px_rgba(249,115,22,0.1)]' : 'border-white/5 hover:border-white/10',
+          order.orderStatus === 'NEW' ? 'border-indigo-500/30 ring-1 ring-orange-500/10 border-s-[3px] border-s-orange-500 shadow-[0_0_15px_-5px_rgba(249,115,22,0.1)]' : 'border-white/5 hover:border-white/10',
           order.active ? 'bg-white/[0.02]' : ''
         ]">
         <div class="col-span-3 flex items-center gap-4">

@@ -2,7 +2,7 @@
   <div>
     <div
       class="fixed bottom-8 start-1/2 -translate-x-1/2 flex items-center px-2 py-2 bg-[#121214] border border-white/10 rounded-2xl shadow-2xl shadow-black z-50">
-      <div class="flex items-center gap-4 border-r border-white/5 px-4 me-4">
+      <div class="flex items-center gap-4 border-e border-white/5 px-4 me-4">
         <div class="w-7 h-7 bg-indigo-500 rounded-lg flex items-center justify-center text-xs font-black text-white">
           {{ selectedCount }}
         </div>

@@ -5,5 +5,11 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  layout: 'dashboard'
+});
 
+useHead({
+  titleTemplate: () => 'Products',
+});
 </script>

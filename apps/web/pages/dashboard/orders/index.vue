@@ -11,8 +11,16 @@
           <orders-filter-bar v-model:activeTab="activeTab" :tabs="tabs" />
 
           <!-- Orders Table -->
-          <orders-table :orders="orders" :selected-ids="selectedOrders" :is-all-selected="isAllSelected"
+          <orders-table :orders="paginatedOrders" :selected-ids="selectedOrders" :is-all-selected="isAllSelected"
             @select-order="selectedOrder = $event" @toggle-selection="toggleSelection" @select-all="toggleSelectAll" />
+
+          <!-- Pagination -->
+          <VPagination
+            :total="orders.length"
+            :per-page="perPage"
+            :current-page="currentPage"
+            @update:current-page="currentPage = $event"
+          />
         </div>
 
         <!-- Right Panel: Order Details Inspector -->
@@ -50,6 +58,10 @@
 const activeTab = ref('New')
 const selectedOrders = ref<number[]>([])
 const selectedOrder = ref<any>(null)
+
+// Pagination
+const currentPage = ref(1)
+const perPage = 2
 
 const tabs = [
   { name: 'All', count: null },
@@ -103,6 +115,11 @@ const orders = ref([
     active: false
   }
 ])
+
+const paginatedOrders = computed(() => {
+  const start = (currentPage.value - 1) * perPage
+  return orders.value.slice(start, start + perPage)
+})
 
 const copyLink = () => {
   // Mock copy to clipboard
