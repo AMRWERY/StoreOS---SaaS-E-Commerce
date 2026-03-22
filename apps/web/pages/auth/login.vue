@@ -17,7 +17,7 @@
         </div>
 
         <!-- Form -->
-        <VFormWrapper class="space-y-5">
+        <VFormWrapper class="space-y-5" @submit="handleSubmit">
           <VInput 
             type="email" 
             :label="t('auth.email')" 
@@ -40,11 +40,14 @@
             </template>
           </VInput>
 
-          <VButton to="/dashboard"
+          <VButton
+            type="submit"
             variant="none"
-            className="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10"
+            :disabled="isLoading"
+            className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10"
           >
-            {{ t("auth.signIn") }}
+            <VLoadingSpinner v-if="isLoading" size="sm" />
+            <span v-else>{{ t("auth.signIn") }}</span>
           </VButton>
         </VFormWrapper>
 
@@ -106,4 +109,16 @@ const { t } = useI18n();
 
 const email = ref("");
 const password = ref("");
+const isLoading = ref(false);
+
+const handleSubmit = async () => {
+  isLoading.value = true;
+  try {
+    // TODO: replace with real auth call
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    await navigateTo('/dashboard');
+  } finally {
+    isLoading.value = false;
+  }
+};
 </script>
