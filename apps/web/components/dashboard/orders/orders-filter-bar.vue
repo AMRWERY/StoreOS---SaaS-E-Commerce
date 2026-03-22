@@ -5,8 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-
 const props = defineProps<{
   activeTab: string;
   tabs: Array<{ name: string; count: number | null }>;

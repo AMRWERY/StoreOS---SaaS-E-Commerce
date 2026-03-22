@@ -4,8 +4,7 @@
       <div>
         <div class="flex items-center gap-3">
           <h1 class="text-3xl font-bold tracking-tight">Products</h1>
-          <span
-            class="bg-white/5 px-2 py-0.5 rounded text-[10px] font-black text-gray-500 tracking-widest mt-1">
+          <span class="bg-white/5 px-2 py-0.5 rounded text-[10px] font-black text-gray-500 tracking-widest mt-1">
             {{ total }} Total
           </span>
         </div>
@@ -17,6 +16,11 @@
         Add Product
       </VButton>
     </header>
+
+    <!-- Search Bar Row -->
+    <div class="flex items-center gap-4 mb-8">
+      <VSearchInput wrapperClass="flex-1" placeholder="Search product names, SKUs, or tags..." />
+    </div>
   </div>
 </template>
 

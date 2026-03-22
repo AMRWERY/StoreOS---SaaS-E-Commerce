@@ -1,27 +1,15 @@
 <template>
   <div>
     <div class="min-h-screen text-[#e1e1e1] -mt-5">
-      <!-- Top Action Bar (Sticky) -->
-      <header class="bg-[#050505]/80 backdrop-blur-md border-b border-white/5 px-8 flex items-center justify-between">
-        <div class="flex items-center gap-8">
-          <h1 class="text-sm font-black tracking-widest text-gray-500">Product Editor</h1>
-          <nav class="flex gap-6">
-            <button v-for="t in ['Drafts', 'Published', 'Archived']" :key="t"
-              class="text-[10px] font-black tracking-widest transition-colors"
-              :class="t === 'Drafts' ? 'text-indigo-400' : 'text-gray-600 hover:text-gray-400'">
-              {{ t }}
-            </button>
-          </nav>
+      <div class="flex items-center gap-6">
+        <VBackButton to="/dashboard/products" label="Products" />
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">{{ isEdit ? 'Edit Product' : 'Create New Product' }}</h1>
+          <p class="text-xs text-gray-500 mt-1 font-medium">
+            {{ isEdit ? "Modify existing Product details and status." : "Fill in the details to create a new manual Product." }}
+          </p>
         </div>
-        <div class="flex items-center gap-3">
-          <VButton variant="none"
-            className="px-4 py-2 text-xs font-bold text-gray-500 hover:text-white transition-colors">Discard</VButton>
-          <VButton variant="none"
-            className="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-lg text-xs font-bold shadow-lg shadow-indigo-600/20 transition-all">
-            Save Changes
-          </VButton>
-        </div>
-      </header>
+      </div>
 
       <div class="max-w-[1400px] mx-auto p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 -mt-5">
         <!-- Left Column: Main Editor -->
@@ -232,6 +220,9 @@
 </template>
 
 <script lang="ts" setup>
+const route = useRoute()
+const isEdit = computed(() => !!route.query.id)
+
 const showCategoryModal = ref(false)
 const newCategoryName = ref('')
 const categories = ref(['Hardware Components', 'Accessories'])
@@ -261,10 +252,6 @@ const product = ref({
   hasVariants: true
 })
 
-const variants = ref([
-  { name: 'Obsidian / Standard', price: 249.00, stock: 82, sku: 'KNT-MOD-V1', active: true },
-  { name: 'Titanium / Pro', price: 319.00, stock: 42, sku: 'KNT-MOD-V2', active: true },
-])
 
 // --- Logic ---
 const margin = computed(() => {

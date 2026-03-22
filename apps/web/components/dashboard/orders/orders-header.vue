@@ -24,12 +24,8 @@
 
     <!-- Search & Filters -->
     <div class="flex flex-wrap gap-4 mb-8">
-      <div class="flex-1 min-w-[300px] relative group">
-        <icon name="ph:magnifying-glass"
-          class="absolute start-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-500 transition-colors" />
-        <input type="text" placeholder="Search orders, customers, SKUs..."
-          class="w-full bg-[#0c0c0e] border border-white/5 rounded-2xl ps-11 pe-4 py-3.5 text-sm focus:outline-none focus:border-indigo-500/50 transition-all placeholder:text-gray-600" />
-      </div>
+      <VSearchInput wrapperClass="flex-1 min-w-[300px]" placeholder="Search orders, customers, SKUs..." />
+
       <div class="flex items-center gap-3">
         <div class="flex items-center gap-3">
           <!-- Status Dropdown -->
