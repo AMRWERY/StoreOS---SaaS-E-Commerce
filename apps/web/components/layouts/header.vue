@@ -27,7 +27,7 @@
         </VButton>
 
         <!-- Avatar -->
-        <img src="/img/fake-user.jpg" class="w-10 h-10 rounded-full border border-white/10 shrink-0" alt="fake-user" />
+        <img src="/img/fake-user.png" class="w-10 h-10 rounded-full border border-white/10 shrink-0" alt="fake-user" />
 
         <!-- Mobile Menu Toggle -->
         <VButton @click="$emit('toggle-sidebar')" variant="none"

@@ -10,7 +10,9 @@
     "resolveJsonModule": true,
     "paths": {
       "@storeos/ui": ["./layers/ui/index.ts"],
-      "@storeos/core": ["./layers/core/index.ts"]
+      "@storeos/ui/*": ["./layers/ui/*"],
+      "@storeos/core": ["./layers/core/index.ts"],
+      "@storeos/core/*": ["./layers/core/*"]
     }
   }
 }

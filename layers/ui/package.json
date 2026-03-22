@@ -3,6 +3,15 @@
   "type": "module",
   "private": true,
   "main": "./nuxt.config.ts",
+  "exports": {
+    ".": "./nuxt.config.ts",
+    "./*": "./*"
+  },
+  "typesVersions": {
+    "*": {
+      "*": ["./*"]
+    }
+  },
   "scripts": {
     "lint": "echo \"No lint configured\"",
     "clean": "rm -rf .nuxt"
