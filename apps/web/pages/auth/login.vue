@@ -44,7 +44,7 @@
             type="submit"
             variant="none"
             :disabled="isLoading"
-            className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10"
+            className="w-full flex items-center justify-center bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10"
           >
             <VLoadingSpinner v-if="isLoading" size="sm" />
             <span v-else>{{ t("auth.signIn") }}</span>
@@ -121,4 +121,8 @@ const handleSubmit = async () => {
     isLoading.value = false;
   }
 };
+
+useHead({
+  titleTemplate: () => 'Login',
+});
 </script>

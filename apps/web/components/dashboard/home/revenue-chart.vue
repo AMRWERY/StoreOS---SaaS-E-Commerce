@@ -12,7 +12,7 @@
         <div class="flex items-end justify-between h-40 gap-2 mb-6 px-1">
           <div v-for="(h, i) in [40, 60, 45, 80, 55, 75, 50]" :key="i"
             class="flex-1 rounded-t-lg transition-all duration-500 cursor-pointer"
-            :class="i === 3 ? 'bg-indigo-500 shadow-lg shadow-indigo-500/20' : 'bg-white/5 hover:bg-white/10'"
+            :class="[3, 5, 1].includes(i) ? 'bg-indigo-500 shadow-lg shadow-indigo-500/20' : 'bg-white/5 hover:bg-white/10'"
             :style="{ height: h + '%' }"></div>
         </div>
         <div class="flex justify-between text-[10px] font-bold text-gray-700 px-1">

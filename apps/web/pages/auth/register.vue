@@ -97,7 +97,7 @@
               <VButton type="submit"
                 variant="none"
                 :disabled="isLoading"
-                className="w-full bg-orange-600 hover:bg-orange-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-sm transition-all transform active:scale-[0.98] shadow-lg shadow-orange-600/20">
+                className="w-full flex items-center justify-center bg-orange-600 hover:bg-orange-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-sm transition-all transform active:scale-[0.98] shadow-lg shadow-orange-600/20">
                 <VLoadingSpinner v-if="isLoading" size="sm" color="white" />
                 <span v-else>Create Store &amp; Start Free Trial</span>
               </VButton>
@@ -135,4 +135,8 @@ const handleSubmit = async () => {
     isLoading.value = false;
   }
 };
+
+useHead({
+  titleTemplate: () => 'Register',
+});
 </script>

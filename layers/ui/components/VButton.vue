@@ -33,7 +33,7 @@ const buttonClass = computed(() => {
   const isNone = props.variant === "none";
 
   const base = isNone
-    ? (props.to ? "flex items-center justify-center" : "")
+    ? ""
     : "flex items-center justify-center gap-2 rounded-xl font-bold text-sm transition-all duration-200";
 
   const padding = isNone || props.size === "none"
