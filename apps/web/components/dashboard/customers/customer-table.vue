@@ -48,17 +48,18 @@
         </template>
 
         <!-- Actions -->
-        <template #cell(actions)>
+        <template #cell(actions)="{ item }">
           <div class="flex justify-end gap-3 text-gray-600">
-            <button class="hover:text-white transition-colors">
+            <VButton variant="none" className="hover:text-white transition-colors"
+              :to="`/dashboard/customers/${item.id}`">
               <icon name="ph:eye-bold" />
-            </button>
-            <button class="hover:text-white transition-colors">
+            </VButton>
+            <VButton variant="none" className="hover:text-white transition-colors">
               <icon name="ph:shopping-cart-bold" />
-            </button>
-            <button class="hover:text-white transition-colors">
+            </VButton>
+            <VButton variant="none" className="hover:text-white transition-colors">
               <icon name="ph:dots-three-vertical-bold" />
-            </button>
+            </VButton>
           </div>
         </template>
       </VTable>

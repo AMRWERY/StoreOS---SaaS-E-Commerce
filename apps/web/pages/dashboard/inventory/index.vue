@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] font-sans flex flex-col overflow-hidden pb-10 -mt-10">
+    <div class="min-h-screen text-[#e1e1e1] flex flex-col overflow-hidden pb-10 -mt-10">
       <div class="flex-1 overflow-y-auto space-y-8 p-6 lg:p-8">
         <inventory-header 
           :totalProducts="1240" 

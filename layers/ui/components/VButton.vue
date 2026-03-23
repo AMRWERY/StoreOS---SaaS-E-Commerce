@@ -1,18 +1,18 @@
 <template>
   <nuxt-link-locale v-if="to" :to="to" :class="buttonClass" :disabled="disabled" v-bind="$attrs">
-    <icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" />
+    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" />
     <slot>
       <span v-if="label">{{ label }}</span>
     </slot>
-    <icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" />
+    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" />
   </nuxt-link-locale>
   
   <button v-else :type="type" :class="buttonClass" :disabled="disabled" v-bind="$attrs">
-    <icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" />
+    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" />
     <slot>
       <span v-if="label">{{ label }}</span>
     </slot>
-    <icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" />
+    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" />
   </button>
 </template>
 
