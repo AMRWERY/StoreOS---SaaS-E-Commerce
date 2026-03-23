@@ -20,7 +20,7 @@
       <!-- Slide-over Drawer -->
       <aside
         class="fixed end-0 top-0 h-full w-full max-w-[480px] bg-[#080809] border-s border-white/5 shadow-2xl flex flex-col z-[101] transition-transform duration-300 ease-in-out"
-        :class="isInternalOpen ? 'translate-x-0' : 'translate-x-full'">
+        :class="isInternalOpen ? 'translate-x-0' : 'ltr:translate-x-full rtl:-translate-x-full'">
         <!-- Header -->
         <div class="p-8 border-b border-white/5 bg-white/[0.01]">
           <div class="flex items-center justify-between mb-2">
@@ -59,7 +59,7 @@
         </div>
 
         <!-- Content -->
-        <div class="flex-1 overflow-y-auto custom-scrollbar bg-black/5">
+        <div class="flex-1 overflow-y-auto hide-scrollbar bg-black/5">
           <div v-if="filteredNotifications.length > 0" class="divide-y divide-white/5">
             <div v-for="n in filteredNotifications" :key="n.id"
               class="p-8 group hover:bg-white/[0.02] transition-colors cursor-pointer relative">
@@ -88,10 +88,10 @@
 
                   <div v-if="n.type === 'orders'" class="mt-4">
                     <button
-                      class="text-[10px] font-black tracking-widest text-indigo-400 hover:text-white flex items-center gap-2 transition-all uppercase">
+                      class="text-[10px] font-black tracking-widest text-indigo-400 hover:text-white flex items-center gap-2 transition-all uppercase group/btn">
                       View Order Details
                       <ClientOnly>
-                        <icon name="ph:caret-right-bold" />
+                        <icon name="ph:caret-right-bold" class="rtl:rotate-180" />
                       </ClientOnly>
                     </button>
                   </div>
@@ -201,23 +201,6 @@ const markAllAsRead = () => {
 </script>
 
 <style scoped>
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
