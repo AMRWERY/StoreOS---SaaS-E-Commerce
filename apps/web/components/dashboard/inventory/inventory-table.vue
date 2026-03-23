@@ -3,13 +3,13 @@
     <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
       <div class="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.01]">
         <h2 class="font-bold flex items-center gap-2">
-          <icon name="ph:squares-four-bold" class="text-indigo-500" /> Inventory List
+          <icon name="ph:squares-four-bold" class="text-indigo-500" />Inventory List
         </h2>
         <div class="flex items-center gap-4">
           <span class="text-[10px] font-bold text-gray-600">Showing {{ items.length }} items</span>
         </div>
       </div>
-      <VTable :headers="headers" :items="items">
+      <VTable :headers="headers" :items="paginatedItems">
         <!-- Product Details -->
         <template #cell(name)="{ item }">
           <div class="flex items-center gap-4">
@@ -110,6 +110,8 @@
           </div>
         </template>
       </VTable>
+      <VPagination :total="items.length" :per-page="perPage" :current-page="currentPage"
+        @update:current-page="$emit('update:currentPage', $event)" />
     </section>
   </div>
 </template>
@@ -126,11 +128,20 @@ const headers = [
   { label: 'Actions', key: 'actions', align: 'end' }
 ]
 
-defineProps<{
+const props = defineProps<{
   items: any[]
+  currentPage: number
 }>()
 
-const emit = defineEmits(['adjust', 'quick-adjust', 'view-history'])
+const emit = defineEmits(['adjust', 'quick-adjust', 'view-history', 'update:currentPage'])
+
+const perPage = 4
+
+const paginatedItems = computed(() => {
+  const start = (props.currentPage - 1) * perPage
+  const end = start + perPage
+  return props.items.slice(start, end)
+})
 
 const editingId = ref<number | null>(null)
 const editValue = ref<number>(0)

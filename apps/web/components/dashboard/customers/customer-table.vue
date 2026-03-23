@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
-      <VTable :headers="headers" :items="customers">
+      <VTable :headers="headers" :items="paginatedCustomers">
         <!-- Customer Info -->
         <template #cell(customer)="{ item }">
           <div class="flex items-center gap-4">
@@ -63,12 +63,8 @@
         </template>
       </VTable>
 
-      <!-- Table Footer / Pagination -->
-      <div class="p-6 border-t border-white/5 flex items-center justify-between">
-        <p class="text-[11px] text-gray-600 font-bold">Showing 1-10 of 1,240 customers</p>
-        <VPagination :total="1240" :perPage="10" :currentPage="currentPage"
-          @update:currentPage="$emit('update:currentPage', $event)" />
-      </div>
+      <VPagination :total="customers.length" :per-page="perPage" :current-page="currentPage"
+        @update:current-page="$emit('update:currentPage', $event)" />
     </section>
   </div>
 </template>
@@ -76,12 +72,20 @@
 <script lang="ts" setup>
 import type { TableHeader } from '@storeos/ui/types/v-table'
 
-defineProps<{
+const props = defineProps<{
   customers: any[]
   currentPage: number
 }>()
 
 defineEmits(['update:currentPage'])
+
+const perPage = 3
+
+const paginatedCustomers = computed(() => {
+  const start = (props.currentPage - 1) * perPage
+  const end = start + perPage
+  return props.customers.slice(start, end)
+})
 
 const headers: TableHeader[] = [
   { label: 'Customer', key: 'customer' },

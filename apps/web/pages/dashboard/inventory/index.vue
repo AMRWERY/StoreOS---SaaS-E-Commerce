@@ -22,6 +22,7 @@
 
         <inventory-table 
           :items="filteredStockList" 
+          v-model:currentPage="currentPage"
           @adjust="openAdjustmentModal" 
           @quick-adjust="handleQuickAdjust"
           @view-history="handleViewHistory"
@@ -39,6 +40,7 @@
 <script lang="ts" setup>
 const isAdjustmentModalOpen = ref(false)
 const selectedItem = ref<any>(null)
+const currentPage = ref(1)
 
 // Filtering state
 const searchQuery = ref('')

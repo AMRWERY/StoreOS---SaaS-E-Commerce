@@ -87,9 +87,9 @@ const customers = ref<Customer[]>([
 ])
 
 const stats = [
-  { label: 'AVG LTV', value: '$1,240.80', trend: '+12.4% from last quarter', icon: 'ph:chart-line-up-bold', trendColor: 'text-emerald-500' },
-  { label: 'CHURN RISK', value: '4.2%', trend: '-0.8% decrease in retention', icon: 'ph:warning-bold', trendColor: 'text-orange-500', iconColor: 'text-orange-500' },
-  { label: 'ACTIVE NOW', value: '84', sub: 'Browsing storefront right now', icon: 'fluent-emoji-flat:sparkles', iconColor: 'text-orange-400' }
+  { label: 'AVG LTV', value: '$1,240.80', trend: '+12.4% from last quarter', iconName: 'ph:chart-line-up-bold', trendColor: 'text-emerald-500' },
+  { label: 'CHURN RISK', value: '4.2%', trend: '-0.8% decrease in retention', iconName: 'ph:warning-bold', trendColor: 'text-orange-500', iconColor: 'text-orange-500' },
+  { label: 'ACTIVE NOW', value: '84', sub: 'Browsing storefront right now', iconName: 'fluent-emoji-flat:sparkles', iconColor: 'text-orange-400' }
 ]
 
 definePageMeta({
