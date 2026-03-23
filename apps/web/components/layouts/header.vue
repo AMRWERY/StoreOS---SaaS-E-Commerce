@@ -52,6 +52,7 @@
     </header>
 
     <!-- Side Over Components -->
+    <VOverlay :show="showOverlay" />
   </div>
 </template>
 
@@ -66,8 +67,20 @@ const { greeting, emoji } = useGreeting();
 const isEnglish = computed(() => locale.value === "en");
 const localeLabel = computed(() => (isEnglish.value ? "ع" : "EN"));
 
-const switchLocale = () => {
+const showOverlay = ref(false);
+
+const switchLocale = async () => {
   const target = isEnglish.value ? "ar" : "en";
-  router.push(switchLocalePath(target));
+  showOverlay.value = true;
+
+  // Wait for overlay animation (increased to 2.5s per user request)
+  await new Promise((resolve) => setTimeout(resolve, 2500));
+
+  await router.push(switchLocalePath(target));
+
+  // Hide overlay after navigation
+  setTimeout(() => {
+    showOverlay.value = false;
+  }, 200);
 };
 </script>

@@ -40,6 +40,7 @@
         </div>
       </div>
     </nav>
+    <VOverlay :show="showOverlay" />
   </div>
 </template>
 
@@ -50,8 +51,20 @@ const switchLocalePath = useSwitchLocalePath();
 const isEnglish = computed(() => locale.value === "en");
 const localeLabel = computed(() => isEnglish.value ? "ع" : "EN");
 
-const switchLocale = () => {
+const showOverlay = ref(false);
+
+const switchLocale = async () => {
   const newLocale = isEnglish.value ? "ar" : "en";
-  navigateTo(switchLocalePath(newLocale));
+  showOverlay.value = true;
+
+  // Wait for the overlay to fade in (increased to 2.5s per user request)
+  await new Promise((resolve) => setTimeout(resolve, 2500));
+
+  await navigateTo(switchLocalePath(newLocale));
+
+  // Small delay after navigation/locale change
+  setTimeout(() => {
+    showOverlay.value = false;
+  }, 200);
 };
 </script>
