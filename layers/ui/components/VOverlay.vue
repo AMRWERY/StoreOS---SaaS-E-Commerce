@@ -2,7 +2,7 @@
     <div>
         <Teleport to="body">
             <Transition name="overlay-fade">
-                <div v-if="show"
+                <div v-if="show" dir="ltr"
                     class="fixed inset-0 z-[100] flex items-center justify-center bg-[#050505] backdrop-blur-xl">
                     <div class="flex flex-col items-center gap-6 animate-pulse-slow">
                         <!-- Logo -->
@@ -57,7 +57,6 @@ defineProps<{
 }
 
 @keyframes pulse-slow {
-
     0%,
     100% {
         opacity: 1;

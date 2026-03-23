@@ -77,7 +77,7 @@
                 <div v-for="order in orders" :key="order.id"
                   class="grid grid-cols-4 items-center p-4 rounded-2xl hover:bg-white/[0.02] transition-all border border-transparent hover:border-white/5 cursor-pointer group/row">
                   <span
-                    class="text-xs font-bold font-mono text-gray-400 group-hover/row:text-indigo-400 transition-colors">{{
+                    class="text-xs font-bold text-gray-400 group-hover/row:text-indigo-400 transition-colors">{{
                       order.id }}</span>
                   <div class="flex justify-center">
                     <span :class="[order.color, 'text-[9px] font-black px-3 py-1 rounded-md tracking-widest']">
@@ -268,7 +268,7 @@
           <Icon name="ph:command-bold" class="text-sm" />
           <span>Commands</span>
           <span
-            class="ms-2 px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-[8px] text-gray-400 font-mono">⌘K</span>
+            class="ms-2 px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-[8px] text-gray-400">⌘K</span>
         </div>
         <div class="flex items-center gap-2">
           <div class="group relative">

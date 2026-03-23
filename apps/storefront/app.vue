@@ -8,6 +8,16 @@
 </template>
 
 <script lang="ts" setup>
+const { locale } = useI18n()
+
+const RTL_LOCALES = ['ar', 'he', 'fa', 'ur']
+
+useHead(computed(() => ({
+  htmlAttrs: {
+    dir: RTL_LOCALES.includes(locale.value) ? 'rtl' : 'ltr',
+    lang: locale.value,
+  },
+})))
 </script>
 
 <style>

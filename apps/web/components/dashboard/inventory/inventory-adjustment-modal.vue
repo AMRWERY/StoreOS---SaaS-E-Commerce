@@ -32,7 +32,7 @@
             <div class="min-w-0 flex-1">
               <p class="text-[10px] text-gray-400 mb-0.5">Selected Item</p>
               <h3 class="font-bold text-base text-white truncate">{{ selectedItem.name }}</h3>
-              <p class="text-[10px] font-mono text-gray-500 mt-1">Current: {{ selectedItem.current }} units</p>
+              <p class="text-[10px] text-gray-500 mt-1">Current: {{ selectedItem.current }} units</p>
             </div>
           </div>
 

@@ -15,13 +15,20 @@
             </div><span class="text-[8px] font-black text-gray-700 uppercase">More</span>
           </div>
         </div>
-        <div class="space-y-1">
-          <div v-for="day in 7" :key="day" class="flex gap-1">
-            <div v-for="hour in 24" :key="hour" class="flex-1 aspect-square rounded-[1px]"
-              :class="Math.random() > 0.7 ? 'bg-indigo-500' : Math.random() > 0.4 ? 'bg-indigo-500/20' : 'bg-white/[0.02]'">
+        <ClientOnly>
+          <div class="space-y-1">
+            <div v-for="(row, day) in heatmap" :key="day" class="flex gap-1">
+              <div v-for="(cls, hour) in row" :key="hour" class="flex-1 aspect-square rounded-[1px]" :class="cls" />
             </div>
           </div>
-        </div>
+          <template #fallback>
+            <div class="space-y-1">
+              <div v-for="day in 7" :key="day" class="flex gap-1">
+                <div v-for="hour in 24" :key="hour" class="flex-1 aspect-square rounded-[1px] bg-white/[0.02]" />
+              </div>
+            </div>
+          </template>
+        </ClientOnly>
       </div>
 
       <!-- Insight Box -->
@@ -41,5 +48,10 @@
 </template>
 
 <script lang="ts" setup>
-
+const heatmap = Array.from({ length: 7 }, () =>
+  Array.from({ length: 24 }, () => {
+    const r = Math.random()
+    return r > 0.7 ? 'bg-indigo-500' : r > 0.4 ? 'bg-indigo-500/20' : 'bg-white/[0.02]'
+  }),
+)
 </script>
