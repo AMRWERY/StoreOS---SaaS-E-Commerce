@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="bg-[#0c0c0e] border border-white/5 rounded-3xl p-8 group hover:border-white/10 transition-all">
+  <div class="h-full">
+    <div class="h-full bg-[#0c0c0e] border border-white/5 rounded-3xl p-8 group hover:border-white/10 transition-all">
       <div class="flex justify-between items-start mb-8">
         <h3 class="text-[10px] font-black text-gray-600 uppercase tracking-widest">{{ label }}</h3>
         <Icon :name="iconName" :class="[iconColor || 'text-indigo-400', 'text-xl']" />

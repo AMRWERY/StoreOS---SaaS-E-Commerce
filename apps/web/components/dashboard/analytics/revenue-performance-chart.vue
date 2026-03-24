@@ -19,7 +19,7 @@
       </div>
       <!-- SVG Chart Area -->
       <div class="h-64 w-full relative">
-        <svg class="w-full h-full overflow-visible" preserveAspectRatio="none">
+        <svg class="w-full h-full" preserveAspectRatio="none">
           <!-- Revenue Line -->
           <path d="M0 220 Q 150 200, 300 140 T 600 160 T 900 100 T 1200 40" fill="none" stroke="#6366f1"
             stroke-width="3" stroke-linecap="round" />

@@ -9,6 +9,7 @@
           <span class="text-[10px] font-bold text-gray-600">Showing {{ items.length }} items</span>
         </div>
       </div>
+      
       <VTable :headers="headers" :items="paginatedItems">
         <!-- Product Details -->
         <template #cell(name)="{ item }">
