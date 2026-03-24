@@ -24,12 +24,38 @@
     </div>
 
     <nav class="flex-1 space-y-2 overflow-y-auto hide-scrollbar">
-      <VButton v-for="item in navItems" :key="item.name" :to="item.to" variant="none"
-        className="w-full flex items-center justify-start gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm group"
-        :class="item.active ? 'bg-indigo-500/10 text-indigo-500 shadow-sm' : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'">
-        <icon :name="item.icon" class="text-lg" />
-        <span class="truncate">{{ item.name }}</span>
-      </VButton>
+      <div v-for="item in navItems" :key="item.name">
+        <!-- Main Nav Item -->
+        <VButton v-if="!item.children" :to="item.to" variant="none"
+          className="w-full flex items-center justify-start gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm group"
+          :class="item.active ? 'bg-indigo-500/10 text-indigo-500 shadow-sm' : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'">
+          <icon :name="item.icon" class="text-lg" />
+          <span class="truncate">{{ item.name }}</span>
+        </VButton>
+
+        <!-- Nav Item with Children -->
+        <div v-else class="space-y-1">
+          <button @click="toggleExpand(item.name)"
+            class="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm group"
+            :class="item.active ? 'bg-indigo-500/10 text-indigo-500 shadow-sm' : (expandedItems.includes(item.name) ? 'text-indigo-400' : 'text-gray-500 hover:text-gray-300 hover:bg-white/5')">
+            <div class="flex items-center gap-3">
+              <icon :name="item.icon" class="text-lg" />
+              <span class="truncate">{{ item.name }}</span>
+            </div>
+            <icon name="ph:caret-down-bold" class="text-[10px] transition-transform duration-300"
+              :class="expandedItems.includes(item.name) ? 'rotate-180' : ''" />
+          </button>
+
+          <!-- Sub Nav Items -->
+          <div v-if="expandedItems.includes(item.name)" class="ms-10 space-y-1 border-s border-white/5 ps-2">
+            <nuxt-link-locale v-for="subItem in item.children" :key="subItem.name" :to="subItem.to"
+              class="block py-2 px-3 text-xs rounded-lg transition-all"
+              :class="route.path.includes(subItem.to) ? 'text-indigo-400 bg-indigo-500/5 font-bold' : 'text-gray-600 hover:text-gray-400 hover:bg-white/[0.02]'">
+              {{ subItem.name }}
+            </nuxt-link-locale>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="mt-auto pt-6 space-y-2 border-t border-white/5">
@@ -61,6 +87,16 @@ defineEmits(['close']);
 
 const route = useRoute();
 
+const expandedItems = ref<string[]>(['Settings']);
+
+const toggleExpand = (name: string) => {
+  if (expandedItems.value.includes(name)) {
+    expandedItems.value = expandedItems.value.filter(i => i !== name);
+  } else {
+    expandedItems.value.push(name);
+  }
+}
+
 const navItems = computed(() => [
   { name: 'Dashboard', icon: 'ph:grid-four-fill', active: route.path.endsWith('/dashboard'), to: '/dashboard' },
   { name: 'Orders', icon: 'ph:shopping-cart-fill', active: route.path.includes('/dashboard/orders'), to: '/dashboard/orders' },
@@ -69,7 +105,19 @@ const navItems = computed(() => [
   { name: 'Customers', icon: 'ph:users-fill', active: route.path.includes('/dashboard/customers'), to: '/dashboard/customers' },
   { name: 'Analytics', icon: 'ph:chart-bar-fill', active: route.path.includes('/dashboard/analytics'), to: '/dashboard/analytics' },
   { name: 'Coupons', icon: 'ph:ticket-fill', active: route.path.includes('/dashboard/coupons'), to: '/dashboard/coupons' },
-  { name: 'Settings', icon: 'ph:gear-six-fill', active: route.path.includes('/dashboard/settings'), to: '/dashboard/settings' },
+  {
+    name: 'Settings',
+    icon: 'ph:gear-six-fill',
+    active: route.path.includes('/dashboard/settings'),
+    children: [
+      { name: 'Store Information', to: '/dashboard/settings/store-info' },
+      { name: 'Staff & Permissions', to: '/dashboard/settings/staff-and-permissions' },
+      { name: 'Payment Gateways', to: '/dashboard/settings/payment-gateways' },
+      { name: 'Shipping & Logistics', to: '/dashboard/settings/shipping-logistics' },
+      { name: 'Notification Center', to: '/dashboard/settings/notification-center' },
+      { name: 'Billing & Plan', to: '/dashboard/settings/billing-and-plan' }
+    ]
+  },
 ])
 </script>
 
