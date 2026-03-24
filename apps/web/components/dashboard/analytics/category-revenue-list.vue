@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { CategoryRevenue } from '../../../types/analytics';
+import type { CategoryRevenue } from '@/types/analytics';
 
 defineProps<{
   categories: CategoryRevenue[]

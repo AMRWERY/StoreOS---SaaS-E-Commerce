@@ -3,6 +3,7 @@
     "title": "Welcome back to StoreOS",
     "subtitle": "Enter your credentials to access your dashboard",
     "email": "Email",
+    "emailPlaceholder": "Enter your email address",
     "password": "Password",
     "forgotPassword": "Forgot password?",
     "signIn": "Sign In",

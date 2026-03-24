@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { KPI } from '../../../types/analytics';
+import type { KPI } from '@/types/analytics';
 
 defineProps<{
   kpis: KPI[]

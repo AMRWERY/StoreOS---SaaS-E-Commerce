@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Customer } from '../../../types/customers'
+import type { Customer } from '@/types/customers'
 
 const activeFilter = ref('All')
 const filters = ['All', 'Active', 'New', 'VIP']

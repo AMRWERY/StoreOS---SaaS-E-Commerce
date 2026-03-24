@@ -11,10 +11,10 @@ export default {
     "./app.vue",
     "./error.vue",
     // Shared layer files
-    "../../layers/ui/components/**/*.{js,vue,ts}",
-    "../../layers/core/composables/**/*.{js,ts}",
-    "../../layers/core/utils/**/*.{js,ts}",
-    "../../layers/core/types/**/*.ts",
+    "@/layers/ui/components/**/*.{js,vue,ts}",
+    "@/layers/core/composables/**/*.{js,ts}",
+    "@/layers/core/utils/**/*.{js,ts}",
+    "@/layers/core/types/**/*.ts",
   ],
   theme: {
     extend: {

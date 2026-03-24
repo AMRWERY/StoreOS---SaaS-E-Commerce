@@ -123,6 +123,7 @@ const email = ref('')
 const password = ref('')
 const agree = ref(false)
 
+const localePath = useLocalePath();
 const isLoading = ref(false);
 
 const handleSubmit = async () => {
@@ -130,7 +131,7 @@ const handleSubmit = async () => {
   try {
     // TODO: replace with real register call
     await new Promise(resolve => setTimeout(resolve, 2500));
-    await navigateTo('/onboarding/add-first-product');
+    await navigateTo(localePath('/onboarding/add-first-product'));
   } finally {
     isLoading.value = false;
   }

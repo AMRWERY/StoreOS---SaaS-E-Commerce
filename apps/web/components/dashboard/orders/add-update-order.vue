@@ -211,6 +211,7 @@
 </template>
 
 <script lang="ts" setup>
+const localePath = useLocalePath()
 const route = useRoute()
 const isEdit = computed(() => !!route.query.id)
 
@@ -253,7 +254,7 @@ const form = reactive({
 const saveOrder = () => {
   console.log('Saving order...', form)
   setTimeout(() => {
-    navigateTo('/dashboard/orders')
+    navigateTo(localePath('/dashboard/orders'))
   }, 1000);
 }
 </script>

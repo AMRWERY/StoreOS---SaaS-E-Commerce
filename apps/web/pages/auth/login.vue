@@ -106,6 +106,7 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+const localePath = useLocalePath();
 
 const email = ref("");
 const password = ref("");
@@ -116,7 +117,7 @@ const handleSubmit = async () => {
   try {
     // TODO: replace with real auth call
     await new Promise(resolve => setTimeout(resolve, 2500));
-    await navigateTo('/dashboard');
+    await navigateTo(localePath('/dashboard'));
   } finally {
     isLoading.value = false;
   }

@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { StatusItem } from '../../../types/analytics';
+import type { StatusItem } from '@/types/analytics';
 
 defineProps<{
   statusBreakdown: StatusItem[]

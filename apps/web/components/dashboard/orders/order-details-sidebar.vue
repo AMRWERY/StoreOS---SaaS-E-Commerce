@@ -48,7 +48,7 @@
             <div class="flex justify-between items-center mb-6">
               <h3 class="text-[10px] font-black text-gray-600 tracking-[0.2em]">Items ({{ order.itemsCount }})</h3>
               <VButton variant="none" className="text-[10px] font-bold text-indigo-400 hover:underline"
-                @click="navigateTo(`/dashboard/orders/order-form?id=${order.id}`)">Edit</VButton>
+                @click="navigateTo({ path: localePath('/dashboard/orders/order-form'), query: { id: order.id } })">Edit</VButton>
             </div>
             <div class="space-y-4">
               <div v-for="i in 2" :key="i" class="flex items-center gap-4">
@@ -102,6 +102,8 @@
 </template>
 
 <script lang="ts" setup>
+const localePath = useLocalePath();
+
 defineProps<{
   order: any;
 }>();

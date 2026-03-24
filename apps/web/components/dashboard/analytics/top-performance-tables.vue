@@ -66,7 +66,7 @@
 
 <script lang="ts" setup>
 import type { TableHeader } from '@storeos/ui/types/v-table'
-import type { Product, Customer } from '../../../types/analytics'
+import type { Product, Customer } from '@/types/analytics'
 
 defineProps<{
   products: Product[]
