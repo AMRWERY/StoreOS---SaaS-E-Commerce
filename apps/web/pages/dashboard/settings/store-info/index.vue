@@ -1,10 +1,14 @@
 <template>
   <div>
     <div class="min-h-screen text-[#e1e1e1] pb-32 selection:bg-indigo-500/30">
-      <!-- 1. Top Header -->
+      <VBreadcrumb :items="[
+        { label: 'System', to: '/dashboard/settings' },
+        { label: 'Configuration' },
+        { label: 'Store Information', active: true }
+      ]" class="max-w-6xl mx-auto mb-4" />
       <header class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
         <div>
-          <h1 class="text-3xl font-bold tracking-tight">Settings / Store Information</h1>
+          <h1 class="text-3xl font-bold tracking-tight">Store Information</h1>
           <p class="text-sm text-gray-500 mt-2">Manage your brand identity, contact details, and localization settings.</p>
         </div>
         <div class="flex items-center gap-3">
@@ -19,20 +23,15 @@
       </header>
 
       <div class="max-w-6xl mx-auto space-y-24">
-        <!-- 2. Brand Profile Section -->
         <store-brand-profile v-model="storeData" />
 
-        <!-- 3. Network & Access -->
         <store-network-access v-model="storeData" />
 
-        <!-- 4. Contact Details -->
         <store-contact-details v-model="storeData" />
 
-        <!-- 5. Localization -->
         <store-localization v-model="storeData" />
       </div>
 
-        <!-- 6. Floating Action Bar -->
         <store-floating-action-bar />
     </div>
   </div>

@@ -28,7 +28,7 @@
           <!-- Password Toggle -->
           <VButton v-if="isPassword" @click="showPassword = !showPassword" type="button" variant="none"
             className="absolute end-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors">
-            <Icon :name="showPassword ? 'lucide:eye-off' : 'lucide:eye'" class="w-[18px] h-[18px]" />
+            <icon :name="showPassword ? 'lucide:eye-off' : 'lucide:eye'" class="w-[18px] h-[18px]" />
           </VButton>
         </div>
       </template>

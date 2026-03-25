@@ -35,10 +35,10 @@
             <div class="bg-black p-1 rounded-xl flex border border-white/10">
               <button @click="modelValue.unitSystem = 'Metric'"
                 :class="modelValue.unitSystem === 'Metric' ? 'bg-white/5 text-white' : 'text-gray-600'"
-                class="flex-1 py-2 text-[10px] font-black uppercase tracking-widest rounded-lg transition-all">Metric</button>
+                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all">Metric</button>
               <button @click="modelValue.unitSystem = 'Imperial'"
                 :class="modelValue.unitSystem === 'Imperial' ? 'bg-white/5 text-white' : 'text-gray-600'"
-                class="flex-1 py-2 text-[10px] font-black uppercase tracking-widest rounded-lg transition-all">Imperial</button>
+                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all">Imperial</button>
             </div>
           </div>
           <div class="space-y-2">

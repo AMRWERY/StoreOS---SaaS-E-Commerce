@@ -1,6 +1,12 @@
 <template>
   <div>
     <div class="min-h-screen text-[#e1e1e1] pb-24">
+      <VBreadcrumb :items="[
+        { label: 'Dashboard', to: '/dashboard' },
+        { label: 'Audience' },
+        { label: 'Customers', to: '/dashboard/customers' },
+        { label: customer.name, active: true }
+      ]" class="mb-8" />
       <!-- Top Header: Identity & Actions -->
       <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div class="flex items-center gap-6">
@@ -180,13 +186,13 @@
 
             <div v-else class="space-y-6">
               <div>
-                <p class="text-[9px] font-black text-gray-700 mb-2 tracking-widest uppercase">Primary Phone</p>
+                <p class="text-[9px] font-black text-gray-700 mb-2 tracking-widest">Primary Phone</p>
                 <input v-model="editedContact.phone"
                   class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-xs font-bold focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 outline-none transition-all"
                   placeholder="+20 000 000 0000" />
               </div>
               <div>
-                <p class="text-[9px] font-black text-gray-700 mb-2 tracking-widest uppercase">Primary Email</p>
+                <p class="text-[9px] font-black text-gray-700 mb-2 tracking-widest">Primary Email</p>
                 <input v-model="editedContact.email"
                   class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-xs font-bold focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 outline-none transition-all"
                   placeholder="name@company.com" />
@@ -265,7 +271,7 @@
         class="fixed bottom-8 start-1/2 -translate-x-1/2 bg-[#1a1a1e]/80 backdrop-blur-xl border border-white/10 px-6 py-2 rounded-2xl flex items-center gap-6 shadow-2xl z-50">
         <div
           class="flex items-center gap-2 text-[10px] font-bold text-gray-500 tracking-widest border-e border-white/10 pe-6">
-          <Icon name="ph:command-bold" class="text-sm" />
+          <icon name="ph:command-bold" class="text-sm" />
           <span>Commands</span>
           <span
             class="ms-2 px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-[8px] text-gray-400">⌘K</span>
@@ -277,7 +283,7 @@
               <Icon name="ph:envelope-bold" class="text-xl" />
             </VButton>
             <span
-              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[8px] font-black text-gray-400 rounded border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none uppercase tracking-widest">Email
+              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[8px] font-black text-gray-400 rounded border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none tracking-widest">Email
               [E]</span>
           </div>
 
@@ -286,7 +292,7 @@
               <Icon name="ph:chat-circle-dots-bold" class="text-xl" />
             </VButton>
             <span
-              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[8px] font-black text-gray-400 rounded border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none uppercase tracking-widest">Chat
+              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[8px] font-black text-gray-400 rounded border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none tracking-widest">Chat
               [C]</span>
           </div>
 
@@ -296,7 +302,7 @@
               <Icon name="ph:phone-bold" class="text-xl" />
             </VButton>
             <span
-              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[8px] font-black text-gray-400 rounded border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none uppercase tracking-widest">Call
+              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[8px] font-black text-gray-400 rounded border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none tracking-widest">Call
               [P]</span>
           </div>
         </div>

@@ -10,7 +10,7 @@
         <div class="grid md:grid-cols-3 gap-6">
           <div v-for="p in problems" :key="p.title"
             class="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition group">
-            <Icon :name="p.icon" class="w-8 h-8 text-indigo-500 mb-6 group-hover:scale-110 transition-transform" />
+            <icon :name="p.icon" class="w-8 h-8 text-indigo-500 mb-6 group-hover:scale-110 transition-transform" />
             <h3 class="text-xl font-bold mb-3">{{ p.title }}</h3>
             <p class="text-gray-400 leading-relaxed text-sm">{{ p.desc }}</p>
           </div>

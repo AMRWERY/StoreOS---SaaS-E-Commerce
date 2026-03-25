@@ -2,11 +2,10 @@
   <div>
     <div class="space-y-2.5">
       <label v-if="label" class="text-[11px] font-bold text-gray-400 tracking-wider">{{ label }}</label>
-      
       <!-- Upload Dropzone (Default State) -->
       <div v-if="!selectedFile" @click="triggerFileSelect" :class="wrapperClass">
         <div v-if="icon" :class="iconWrapperClass">
-          <Icon :name="icon" :class="iconClass" />
+          <icon :name="icon" :class="iconClass" />
         </div>
 
         <slot>
@@ -26,10 +25,10 @@
           <img :src="previewUrl" class="w-full h-full object-cover" />
           <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
              <VButton @click="triggerFileSelect" variant="none" className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
-               <Icon name="ph:pencil-simple-bold" class="text-white w-5 h-5" />
+               <icon name="ph:pencil-simple-bold" class="text-white w-5 h-5" />
              </VButton>
              <VButton @click="removeFile" variant="none" className="p-2 bg-red-500/20 rounded-lg hover:bg-red-500/40 transition-colors">
-               <Icon name="ph:trash-bold" class="text-red-500 w-5 h-5" />
+               <icon name="ph:trash-bold" class="text-red-500 w-5 h-5" />
              </VButton>
           </div>
         </div>
@@ -37,14 +36,14 @@
         <!-- Non-Image File Details -->
         <div v-else class="p-6 flex items-center gap-4">
           <div class="w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center shrink-0">
-            <Icon name="ph:file-bold" class="text-indigo-500 text-2xl" />
+            <icon name="ph:file-bold" class="text-indigo-500 text-2xl" />
           </div>
           <div class="flex-1 min-w-0">
             <p class="text-sm font-bold truncate">{{ selectedFile.name }}</p>
             <p class="text-[11px] text-gray-500">{{ formatFileSize(selectedFile.size) }}</p>
           </div>
           <VButton @click="removeFile" variant="none" className="p-2 hover:bg-white/5 rounded-lg transition-colors">
-            <Icon name="ph:x-bold" class="text-gray-500 w-4 h-4" />
+            <icon name="ph:x-bold" class="text-gray-500 w-4 h-4" />
           </VButton>
         </div>
       </div>

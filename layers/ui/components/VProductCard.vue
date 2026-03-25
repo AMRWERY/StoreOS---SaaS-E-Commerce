@@ -25,8 +25,8 @@
       <p class="text-xl font-bold mb-4 tracking-tight">${{ product.price }}</p>
 
       <div class="flex items-center justify-between mt-auto">
-        <span class="text-[9px] font-black text-gray-600 tracking-[0.2em] uppercase">{{ product.category }}</span>
-        <div :class="[stockBadge, 'text-[10px] font-bold px-2.5 py-1 rounded-md border uppercase tracking-wider']">
+        <span class="text-[9px] font-black text-gray-600 tracking-[0.2em]">{{ product.category }}</span>
+        <div :class="[stockBadge, 'text-[10px] font-bold px-2.5 py-1 rounded-md border tracking-wider']">
           {{ stockLabel }}
         </div>
       </div>

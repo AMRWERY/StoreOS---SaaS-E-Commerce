@@ -32,7 +32,7 @@
           <td :colspan="headers.length" class="px-6 py-12 text-center">
             <div class="flex flex-col items-center gap-2 text-gray-600">
               <icon name="ph:folder-open-bold" class="text-3xl opacity-20" />
-              <p class="text-xs font-bold tracking-widest uppercase">No data found</p>
+              <p class="text-xs font-bold tracking-widest">No data found</p>
             </div>
           </td>
         </tr>

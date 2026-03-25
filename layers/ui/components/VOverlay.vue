@@ -13,7 +13,7 @@
                             </div>
                             <div class="text-start">
                                 <h1 class="font-bold text-3xl leading-none text-white tracking-tight">StoreOS</h1>
-                                <p class="text-[11px] text-indigo-400 tracking-[0.3em] font-black mt-2 uppercase">Global
+                                <p class="text-[11px] text-indigo-400 tracking-[0.3em] font-black mt-2">Global
                                     Merchant</p>
                             </div>
                         </div>

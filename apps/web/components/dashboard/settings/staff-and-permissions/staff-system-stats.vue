@@ -2,10 +2,10 @@
   <div>
     <footer class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto pt-12 border-t border-white/5">
       <div v-for="stat in systemStats" :key="stat.label">
-        <h5 class="text-[9px] font-bold text-gray-700 uppercase tracking-widest mb-2">{{ stat.label }}</h5>
+        <h5 class="text-[9px] font-bold text-gray-700 tracking-widest mb-2">{{ stat.label }}</h5>
         <div class="flex items-baseline gap-2">
           <span class="text-xl font-bold">{{ stat.value }}</span>
-          <span :class="[stat.color, 'text-[10px] font-black uppercase tracking-tight']">{{ stat.status }}</span>
+          <span :class="[stat.color, 'text-[10px] font-black tracking-tight']">{{ stat.status }}</span>
         </div>
       </div>
     </footer>

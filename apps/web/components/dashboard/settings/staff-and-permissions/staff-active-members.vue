@@ -4,7 +4,7 @@
       <div class="p-6 flex justify-between items-center border-b border-white/5">
         <h2 class="font-bold text-sm tracking-wide">Active Team Members</h2>
         <span
-          class="bg-white/5 text-[10px] font-black px-2.5 py-1 rounded-full text-gray-500 uppercase tracking-widest">Total:
+          class="bg-white/5 text-[10px] font-black px-2.5 py-1 rounded-full text-gray-500 tracking-widest">Total:
           {{ members.length.toString().padStart(2, '0') }}</span>
       </div>
 
@@ -15,7 +15,7 @@
               class="w-10 h-10 rounded-xl border border-white/10 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
             <div>
               <h4 class="text-sm font-bold">{{ item.name }}</h4>
-              <p class="text-[9px] text-gray-700 font-bold uppercase mt-1">{{ item.joined }}</p>
+              <p class="text-[9px] text-gray-700 font-bold mt-1">{{ item.joined }}</p>
             </div>
           </div>
         </template>
@@ -24,7 +24,7 @@
         </template>
         <template #cell(role)="{ item }">
           <span
-            :class="[getRoleClass(item.role), 'text-[9px] font-black px-2.5 py-1 rounded border uppercase tracking-widest']">
+            :class="[getRoleClass(item.role), 'text-[9px] font-black px-2.5 py-1 rounded border tracking-widest']">
             {{ item.role }}
           </span>
         </template>

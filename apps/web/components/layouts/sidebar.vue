@@ -146,6 +146,14 @@ const route = useRoute();
 
 const expandedItems = ref<string[]>([]);
 
+onMounted(() => {
+  navItems.value.forEach((item) => {
+    if (item.active && item.children && !expandedItems.value.includes(item.name)) {
+      expandedItems.value.push(item.name)
+    }
+  })
+});
+
 const toggleExpand = (name: string) => {
   if (expandedItems.value.includes(name)) {
     expandedItems.value = expandedItems.value.filter((i) => i !== name);

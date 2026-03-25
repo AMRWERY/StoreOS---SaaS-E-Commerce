@@ -1,5 +1,11 @@
 <template>
-  <header class="flex items-center justify-between">
+  <div>
+    <VBreadcrumb :items="[
+      { label: 'Dashboard', to: '/dashboard' },
+      { label: 'Marketing' },
+      { label: 'Coupons', active: true }
+    ]" />
+    <header class="flex items-center justify-between">
     <div class="flex items-center gap-3">
       <h1 class="text-3xl font-bold tracking-tight">Coupons</h1>
       <span class="bg-white/5 px-2 py-0.5 rounded text-[10px] font-black text-gray-600 tracking-widest mt-1">
@@ -16,6 +22,7 @@
       </VButton>
     </div>
   </header>
+  </div>
 </template>
 
 <script lang="ts" setup>

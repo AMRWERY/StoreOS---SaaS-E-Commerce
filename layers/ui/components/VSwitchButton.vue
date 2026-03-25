@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex items-center gap-3 group cursor-pointer" @click="$emit('update:modelValue', !modelValue)">
-      <span v-if="label" class="text-[10px] font-bold text-gray-600 uppercase tracking-widest select-none">{{ label
+      <span v-if="label" class="text-[10px] font-bold text-gray-600 tracking-widest select-none">{{ label
         }}</span>
       <button type="button" class="w-10 h-5 rounded-full p-1 transition-colors relative outline-none shrink-0"
         :class="modelValue ? 'bg-indigo-600' : 'bg-white/10'">

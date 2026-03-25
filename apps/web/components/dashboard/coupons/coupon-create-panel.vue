@@ -16,7 +16,7 @@
         <div class="p-8 border-b border-white/5 flex justify-between items-center bg-[#0e0e11]">
           <div>
             <h2 class="text-xl font-bold text-white tracking-tight">Create New Coupon</h2>
-            <p class="text-[10px] text-gray-600 font-bold uppercase tracking-widest mt-1">
+            <p class="text-[10px] text-gray-600 font-bold tracking-widest mt-1">
               Configure your discount campaign settings
             </p>
           </div>
@@ -28,12 +28,12 @@
         <div class="flex-1 p-8 overflow-y-auto hide-scrollbar space-y-10">
           <!-- Coupon Code Input -->
           <div class="space-y-3">
-            <label class="text-[10px] font-black text-gray-600 uppercase tracking-widest">Coupon Code</label>
+            <label class="text-[10px] font-black text-gray-600 tracking-widest">Coupon Code</label>
             <div class="relative group">
               <VInput
                 v-model="form.code"
                 placeholder="e.g. SUMMER24"
-                inputClass="bg-black border border-white/10 rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-indigo-500/50 outline-none transition uppercase pe-14"
+                inputClass="bg-black border border-white/10 rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-indigo-500/50 outline-none transition pe-14"
               />
               <button
                 @click="generateCode"
@@ -47,7 +47,7 @@
 
           <!-- Discount Type Segmented Control -->
           <div class="space-y-3">
-            <label class="text-[10px] font-black text-gray-600 uppercase tracking-widest">Discount Type</label>
+            <label class="text-[10px] font-black text-gray-600 tracking-widest">Discount Type</label>
             <div class="bg-black p-1.5 rounded-2xl flex border border-white/5">
               <button
                 v-for="type in discountTypes"
@@ -85,7 +85,7 @@
             <VDatePicker v-model="form.startDate" label="Starts">
               <template #trigger="{ selectedDate }">
                 <div class="space-y-2">
-                  <label class="text-[10px] font-black text-gray-600 uppercase tracking-widest">Starts</label>
+                  <label class="text-[10px] font-black text-gray-600 tracking-widest">Starts</label>
                   <div class="relative group cursor-pointer">
                     <icon name="ph:calendar-blank-bold" class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-indigo-400" />
                     <input
@@ -102,7 +102,7 @@
             <VDatePicker v-model="form.expiryDate" label="Expires">
               <template #trigger="{ selectedDate }">
                 <div class="space-y-2">
-                  <label class="text-[10px] font-black text-gray-600 uppercase tracking-widest">Expires</label>
+                  <label class="text-[10px] font-black text-gray-600 tracking-widest">Expires</label>
                   <div class="relative group cursor-pointer">
                     <icon name="ph:calendar-x-bold" class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-orange-400" />
                     <input

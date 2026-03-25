@@ -2,13 +2,13 @@
   <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden mt-10">
     <VTable :headers="headers" :items="coupons">
       <template #cell(code)="{ item }">
-        <span class="text-sm font-bold tracking-widest text-indigo-400 group-hover:text-indigo-300 transition-colors uppercase">
+        <span class="text-sm font-bold tracking-widest text-indigo-400 group-hover:text-indigo-300 transition-colors">
           #{{ item.code }}
         </span>
       </template>
 
       <template #cell(type)="{ item }">
-        <span class="text-[9px] font-black px-2 py-1 rounded bg-white/5 text-gray-500 border border-white/5 uppercase tracking-widest">
+        <span class="text-[9px] font-black px-2 py-1 rounded bg-white/5 text-gray-500 border border-white/5 tracking-widest">
           {{ item.type }}
         </span>
       </template>
@@ -18,7 +18,7 @@
       </template>
 
       <template #cell(minOrder)="{ item }">
-        <span class="text-xs text-gray-600 font-bold uppercase">{{ item.minOrder }}</span>
+        <span class="text-xs text-gray-600 font-bold">{{ item.minOrder }}</span>
       </template>
 
       <template #cell(usage)="{ item }">

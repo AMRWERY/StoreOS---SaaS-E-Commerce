@@ -8,11 +8,11 @@
             <h3 class="font-bold text-lg mb-1">Sales Velocity Heatmap</h3>
             <p class="text-xs text-gray-600 font-medium">Density of orders by day and hour</p>
           </div>
-          <div class="flex items-center gap-3"><span class="text-[8px] font-black text-gray-700 uppercase">Less</span>
+          <div class="flex items-center gap-3"><span class="text-[8px] font-black text-gray-700">Less</span>
             <div class="flex gap-1">
               <div v-for="op in [5, 20, 60, 100]" :key="op" class="w-4 h-2 bg-indigo-500 rounded-sm"
                 :style="{ opacity: op + '%' }"></div>
-            </div><span class="text-[8px] font-black text-gray-700 uppercase">More</span>
+            </div><span class="text-[8px] font-black text-gray-700">More</span>
           </div>
         </div>
         <ClientOnly>
@@ -35,7 +35,7 @@
       <div
         class="lg:col-span-4 bg-indigo-500/5 border border-indigo-500/10 rounded-3xl p-8 flex flex-col justify-center items-center text-center">
         <div class="w-12 h-12 rounded-xl bg-indigo-600/20 flex items-center justify-center mb-6">
-          <Icon name="ph:lightbulb-bold" class="text-indigo-400 text-2xl" />
+          <icon name="ph:lightbulb-bold" class="text-indigo-400 text-2xl" />
         </div>
         <h4 class="text-sm font-bold text-white mb-2">Peak Operational Window</h4>
         <p class="text-xs text-gray-500 leading-relaxed max-w-[240px]">

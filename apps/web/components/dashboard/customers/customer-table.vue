@@ -41,7 +41,7 @@
         <template #cell(tags)="{ item }">
           <div class="flex flex-wrap gap-1.5">
             <span v-for="tag in item.tags" :key="tag.text"
-              :class="[tag.color, 'text-[8px] font-black px-2 py-0.5 rounded tracking-widest uppercase']">
+              :class="[tag.color, 'text-[8px] font-black px-2 py-0.5 rounded tracking-widest']">
               {{ tag.text }}
             </span>
           </div>

@@ -4,7 +4,7 @@
     <h3 class="font-bold text-lg mb-10">Revenue by Category</h3>
     <div class="space-y-8">
       <div v-for="cat in categories" :key="cat.name" class="space-y-2">
-        <div class="flex justify-between text-[10px] font-black uppercase tracking-widest">
+        <div class="flex justify-between text-[10px] font-black tracking-widest">
           <span class="text-gray-500">{{ cat.name }}</span>
           <span class="text-white">{{ cat.amount }}</span>
         </div>

@@ -38,7 +38,7 @@
 
           <!-- Adjustment Type -->
           <div class="space-y-3">
-            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Adjustment Type</label>
+            <label class="text-[10px] font-bold text-gray-400 tracking-widest">Adjustment Type</label>
             <div class="grid grid-cols-3 gap-2">
               <button @click="adjType = 'Add'"
                 :class="adjType === 'Add' ? 'bg-[#31323a] text-white border-white/10' : 'bg-transparent border-white/10 text-gray-400 hover:bg-white/5'"
@@ -60,14 +60,14 @@
 
           <!-- Quantity -->
           <div class="space-y-3">
-            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Quantity</label>
+            <label class="text-[10px] font-bold text-gray-400 tracking-widest">Quantity</label>
             <input type="number" v-model="adjQty" placeholder="0"
               class="w-full bg-[#121214] border border-white/5 rounded-xl px-4 py-4 text-base font-medium text-white focus:outline-none focus:border-indigo-500/50 transition-colors placeholder:text-gray-600" />
           </div>
 
           <!-- Reason -->
           <div class="space-y-3">
-            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Reason For Change</label>
+            <label class="text-[10px] font-bold text-gray-400 tracking-widest">Reason For Change</label>
             <div class="relative">
               <select v-model="adjReason"
                 class="w-full bg-[#121214] border border-white/5 rounded-xl px-4 py-4 text-sm text-gray-300 font-medium appearance-none focus:outline-none focus:border-indigo-500/50 transition-colors cursor-pointer">
@@ -85,7 +85,7 @@
 
           <!-- Notes -->
           <div class="space-y-3">
-            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Notes (Optional)</label>
+            <label class="text-[10px] font-bold text-gray-400 tracking-widest">Notes (Optional)</label>
             <textarea v-model="adjNotes" placeholder="Add any extra details..."
               class="w-full bg-[#121214] border border-white/5 rounded-xl px-4 py-4 text-sm h-28 focus:border-indigo-500/50 outline-none resize-none placeholder:text-gray-600 transition-colors font-medium"></textarea>
           </div>

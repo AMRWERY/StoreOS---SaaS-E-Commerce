@@ -1,13 +1,17 @@
 <template>
   <div>
     <div class="min-h-screen text-[#e1e1e1] -mt-4">
+      <VBreadcrumb :items="[
+        { label: 'Dashboard', to: '/dashboard' },
+        { label: 'Sales' },
+        { label: 'Orders', to: '/dashboard/orders' },
+        { label: orderId, active: true }
+      ]" class="mb-4" />
       <!-- Top Breadcrumb & Actions -->
       <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div>
           <div class="flex items-center gap-2 mb-3">
             <VBackButton to="/dashboard/orders" label="Orders" />
-            <span class="text-[10px] font-black text-gray-800 tracking-widest">/</span>
-            <span class="text-[10px] font-black text-indigo-400 tracking-widest">{{ orderId }}</span>
           </div>
           <div class="flex items-center gap-4">
             <h1 class="text-3xl font-bold tracking-tight">{{ orderId }}</h1>
@@ -265,7 +269,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 // Order Metadata
 const orderId = "ORD-0889"
 const createdAt = "Oct 24, 2023, 10:45 AM"

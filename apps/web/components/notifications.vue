@@ -22,12 +22,12 @@
           <!-- Header -->
           <div class="p-8 border-b border-white/5 bg-white/[0.01]">
             <div class="flex items-center justify-between mb-2">
-              <h3 class="text-[10px] font-black text-gray-600 tracking-[0.2em] uppercase">
+              <h3 class="text-[10px] font-black text-gray-600 tracking-[0.2em]">
                 Notifications Center
               </h3>
               <div class="flex items-center gap-4">
                 <button @click="markAllAsRead"
-                  class="text-[9px] font-black tracking-widest text-indigo-400 hover:text-white transition-colors uppercase">
+                  class="text-[9px] font-black tracking-widest text-indigo-400 hover:text-white transition-colors">
                   Mark Read
                 </button>
                 <button @click="isInternalOpen = false" class="text-gray-500 hover:text-white transition-colors">
@@ -47,7 +47,7 @@
           <!-- Tabs -->
           <div class="flex border-b border-white/5 bg-black/20">
             <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="[
-              'flex-1 py-4 text-[10px] font-black tracking-[0.15em] uppercase transition-all relative',
+              'flex-1 py-4 text-[10px] font-black tracking-[0.15em] transition-all relative',
               activeTab === tab.id ? 'text-white' : 'text-gray-600 hover:text-gray-400'
             ]">
               {{ tab.label }}
@@ -77,7 +77,7 @@
                   <!-- Details -->
                   <div class="min-w-0 flex-1">
                     <div class="flex items-center justify-between gap-2 mb-1.5">
-                      <p class="text-[9px] font-black tracking-widest text-gray-600 uppercase">{{ n.category }}</p>
+                      <p class="text-[9px] font-black tracking-widest text-gray-600">{{ n.category }}</p>
                       <span class="text-[9px] font-bold text-gray-700 tracking-tighter">{{ n.time }}</span>
                     </div>
                     <h4 class="text-sm font-bold text-white group-hover:text-indigo-400 transition-colors">{{ n.title }}
@@ -86,7 +86,7 @@
 
                     <div v-if="n.type === 'orders'" class="mt-4">
                       <button
-                        class="text-[10px] font-black tracking-widest text-indigo-400 hover:text-white flex items-center gap-2 transition-all uppercase group/btn">
+                        class="text-[10px] font-black tracking-widest text-indigo-400 hover:text-white flex items-center gap-2 transition-all group/btn">
                         View Order Details
                         <ClientOnly>
                           <icon name="ph:caret-right-bold" class="rtl:rotate-180" />
@@ -115,7 +115,7 @@
           <!-- Footer -->
           <div class="p-8 border-t border-white/5 bg-[#0c0c0e]">
             <button
-              class="w-full py-4 rounded-2xl font-black text-[10px] tracking-widest uppercase bg-white/5 hover:bg-white/10 text-white transition-all border border-white/5 hover:border-white/10">
+              class="w-full py-4 rounded-2xl font-black text-[10px] tracking-widest bg-white/5 hover:bg-white/10 text-white transition-all border border-white/5 hover:border-white/10">
               View All Activity Log
             </button>
           </div>

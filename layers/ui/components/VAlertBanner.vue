@@ -5,13 +5,13 @@
       variants[variant]?.wrapper
     ]">
       <div class="flex items-center gap-3">
-        <Icon v-if="icon" :name="icon" :class="['text-xl shrink-0', variants[variant]?.icon]" />
+        <icon v-if="icon" :name="icon" :class="['text-xl shrink-0', variants[variant]?.icon]" />
         <div class="text-sm font-medium">
           <slot />
         </div>
       </div>
       <button v-if="dismissible" @click="close"
-        class="text-[10px] font-black tracking-widest text-gray-500 hover:text-white transition-colors uppercase shrink-0 ms-4">
+        class="text-[10px] font-black tracking-widest text-gray-500 hover:text-white transition-colors shrink-0 ms-4">
         Dismiss
       </button>
     </div>

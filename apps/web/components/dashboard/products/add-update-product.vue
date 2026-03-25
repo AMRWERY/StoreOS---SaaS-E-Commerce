@@ -1,6 +1,12 @@
 <template>
   <div>
     <div class="min-h-screen text-[#e1e1e1] -mt-5">
+      <VBreadcrumb :items="[
+        { label: 'Dashboard', to: '/dashboard' },
+        { label: 'Catalog' },
+        { label: 'Products', to: '/dashboard/products' },
+        { label: isEdit ? 'Edit Product' : 'Create Product', active: true }
+      ]" class="mb-6" />
       <div class="flex items-center gap-6">
         <VBackButton to="/dashboard/products" label="Products" />
         <div>

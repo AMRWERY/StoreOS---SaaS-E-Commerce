@@ -5,7 +5,7 @@
       <div class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden">
         <div class="p-6 border-b border-white/5 flex justify-between items-center">
           <h3 class="font-bold">Top Products</h3>
-          <button class="text-[10px] font-black text-indigo-500 uppercase tracking-widest hover:underline">View
+          <button class="text-[10px] font-black text-indigo-500 tracking-widest hover:underline">View
             All</button>
         </div>
         <div class="relative overflow-x-auto">
@@ -18,7 +18,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-bold">{{ item.name }}</p>
-                  <p class="text-[9px] text-gray-700 font-bold uppercase tracking-tight">{{ item.category }}</p>
+                  <p class="text-[9px] text-gray-700 font-bold tracking-tight">{{ item.category }}</p>
                 </div>
               </div>
             </template>
@@ -36,7 +36,7 @@
       <div class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden">
         <div class="p-6 border-b border-white/5 flex justify-between items-center">
           <h3 class="font-bold">Top Customers</h3>
-          <button class="text-[10px] font-black text-indigo-500 uppercase tracking-widest hover:underline">View
+          <button class="text-[10px] font-black text-indigo-500 tracking-widest hover:underline">View
             All</button>
         </div>
         <div class="relative overflow-x-auto">
@@ -47,7 +47,7 @@
                   class="w-10 h-10 rounded-xl border border-white/5" />
                 <div>
                   <p class="text-sm font-bold">{{ item.name }}</p>
-                  <p class="text-[9px] text-gray-700 font-bold uppercase tracking-tight">{{ item.type }}</p>
+                  <p class="text-[9px] text-gray-700 font-bold tracking-tight">{{ item.type }}</p>
                 </div>
               </div>
             </template>

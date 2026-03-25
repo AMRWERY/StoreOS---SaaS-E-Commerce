@@ -8,7 +8,7 @@
             <icon name="ph:calendar-blank-bold" class="text-xl text-indigo-400" />
           </div>
           <div class="flex-1 min-w-0">
-            <p class="text-[10px] font-black text-gray-600 uppercase tracking-widest mb-1">{{ label || 'Select Date' }}</p>
+            <p class="text-[10px] font-black text-gray-600 tracking-widest mb-1">{{ label || 'Select Date' }}</p>
             <h4 class="text-base font-bold text-white tracking-tight">{{ formattedDate || 'No date selected' }}</h4>
           </div>
           <icon :name="isOpen ? 'ph:caret-up-bold' : 'ph:caret-down-bold'" class="text-gray-700 group-hover:text-white transition-colors" />
@@ -34,11 +34,11 @@
           
           <!-- Month/Year Toggle -->
           <div class="flex items-center gap-1">
-            <button @click="toggleView('month')" class="text-xs font-bold text-white tracking-tight uppercase px-2 py-1 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1 group/header">
+            <button @click="toggleView('month')" class="text-xs font-bold text-white tracking-tight px-2 py-1 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1 group/header">
               {{ currentMonthName }}
               <icon name="ph:caret-down-bold" class="text-[10px] text-gray-600 group-hover/header:text-indigo-400 transition-colors" :class="{ 'rotate-180': view === 'month' }" />
             </button>
-            <button @click="toggleView('year')" class="text-xs font-bold text-white tracking-tight uppercase px-2 py-1 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1 group/header">
+            <button @click="toggleView('year')" class="text-xs font-bold text-white tracking-tight px-2 py-1 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1 group/header">
               {{ view === 'year' ? yearRangeTitle : currentYear }}
               <icon name="ph:caret-down-bold" class="text-[10px] text-gray-600 group-hover/header:text-indigo-400 transition-colors" :class="{ 'rotate-180': view === 'year' }" />
             </button>
@@ -55,7 +55,7 @@
             <div v-if="view === 'day'" class="space-y-4">
               <!-- Weekdays -->
               <div class="grid grid-cols-7">
-                <div v-for="day in ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']" :key="day" class="text-center text-[9px] font-black text-gray-700 uppercase">
+                <div v-for="day in ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']" :key="day" class="text-center text-[9px] font-black text-gray-700">
                   {{ day }}
                 </div>
               </div>
@@ -88,7 +88,7 @@
                 v-for="(name, index) in monthNames"
                 :key="name"
                 @click="selectMonth(index)"
-                class="flex items-center justify-center rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all"
+                class="flex items-center justify-center rounded-xl text-[10px] font-bold tracking-widest transition-all"
                 :class="viewDate.getMonth() === index ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20' : 'text-gray-500 hover:bg-white/5 hover:text-white'"
               >
                 {{ name }}
@@ -114,10 +114,10 @@
 
         <!-- Footer Actions -->
         <div class="mt-6 pt-5 border-t border-white/5 flex justify-end gap-2">
-          <button @click="isOpen = false" class="px-4 py-2 text-[10px] font-black text-gray-600 hover:text-white uppercase tracking-widest transition-colors">
+          <button @click="isOpen = false" class="px-4 py-2 text-[10px] font-black text-gray-600 hover:text-white tracking-widest transition-colors">
             Cancel
           </button>
-          <button @click="setToday" class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-[10px] font-black text-white hover:bg-white/10 uppercase tracking-widest transition-all">
+          <button @click="setToday" class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-[10px] font-black text-white hover:bg-white/10 tracking-widest transition-all">
             Today
           </button>
         </div>

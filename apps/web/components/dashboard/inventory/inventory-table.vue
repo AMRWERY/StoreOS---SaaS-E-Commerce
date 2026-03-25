@@ -27,7 +27,7 @@
 
         <!-- Category -->
         <template #cell(category)="{ item }">
-          <span class="text-[10px] font-black text-gray-500 uppercase tracking-wider bg-white/5 px-2 py-1 rounded">
+          <span class="text-[10px] font-black text-gray-500 tracking-wider bg-white/5 px-2 py-1 rounded">
             {{ item.category }}
           </span>
         </template>

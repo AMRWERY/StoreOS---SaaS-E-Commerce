@@ -13,7 +13,7 @@
             <input :value="modelValue.systemUrl" readonly type="text"
               class="flex-1 bg-[#161618] border border-white/5 rounded-l-lg px-4 py-3 text-sm text-gray-500 outline-none" />
             <button
-              class="bg-white/5 hover:bg-white/10 border-y border-e border-white/10 px-5 py-3 rounded-r-lg text-[10px] font-black uppercase tracking-widest flex items-center gap-2 transition-colors">
+              class="bg-white/5 hover:bg-white/10 border-y border-e border-white/10 px-5 py-3 rounded-r-lg text-[10px] font-black tracking-widest flex items-center gap-2 transition-colors">
               <icon name="ph:copy-bold" /> Copy
             </button>
           </div>

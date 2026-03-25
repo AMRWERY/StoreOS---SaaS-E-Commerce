@@ -9,7 +9,7 @@
         </svg>
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-3xl font-bold">1,240</span>
-          <span class="text-[9px] font-black text-gray-700 uppercase tracking-[0.2em] mt-1">Total</span>
+          <span class="text-[9px] font-black text-gray-700 tracking-[0.2em] mt-1">Total</span>
         </div>
       </div>
       <div class="space-y-5 flex-1 w-full">
@@ -20,7 +20,7 @@
             <span class="text-[11px] font-bold text-gray-400 group-hover:text-white transition-colors">{{ s.name
               }}</span>
           </div>
-          <span class="text-[10px] font-black text-gray-600 uppercase">{{ s.count }}</span>
+          <span class="text-[10px] font-black text-gray-600">{{ s.count }}</span>
         </div>
       </div>
     </div>

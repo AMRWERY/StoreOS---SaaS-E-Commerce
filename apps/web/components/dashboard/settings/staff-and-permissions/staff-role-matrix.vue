@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="max-w-7xl mx-auto space-y-8">
-      <h2 class="text-center text-[10px] font-black text-gray-600 uppercase tracking-[0.4em] mb-12">Role Permissions
+      <h2 class="text-center text-[10px] font-black text-gray-600 tracking-[0.4em] mb-12">Role Permissions
         Matrix</h2>
 
       <VAccordion :items="matrixSections" v-model="expandedSection">
@@ -29,7 +29,7 @@
           <div class="bg-black/40 border border-white/5 rounded-xl p-3 flex items-center gap-4 max-w-md">
             <icon name="ph:magnifying-glass-bold" class="text-gray-600" />
             <input type="text" placeholder="Quick search staff..." class="bg-transparent outline-none text-xs flex-1" />
-            <div class="flex items-center gap-3 text-[9px] font-black text-gray-700 uppercase">
+            <div class="flex items-center gap-3 text-[9px] font-black text-gray-700">
               <span class="flex items-center gap-1">
                 <icon name="ph:file-text-bold" />
                 Report
@@ -47,7 +47,7 @@
               class="bg-black/20 border border-white/5 rounded-2xl p-6 group/col">
               <div class="flex items-center justify-between mb-6">
                 <h4
-                  class="text-[10px] font-black text-gray-600 uppercase tracking-widest group-hover/col:text-indigo-400 transition-colors">
+                  class="text-[10px] font-black text-gray-600 tracking-widest group-hover/col:text-indigo-400 transition-colors">
                   {{ col }}</h4>
                 <div class="w-1.5 h-1.5 rounded-full bg-white/10" :class="col === 'OWNER' ? 'bg-indigo-500' : ''">
                 </div>

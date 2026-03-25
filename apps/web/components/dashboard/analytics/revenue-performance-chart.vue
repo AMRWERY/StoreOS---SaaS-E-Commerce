@@ -9,11 +9,11 @@
         <div class="flex items-center gap-6">
           <div class="flex items-center gap-2">
             <div class="w-2.5 h-2.5 bg-indigo-500 rounded-full"></div>
-            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Revenue ($)</span>
+            <span class="text-[10px] font-black text-gray-500 tracking-widest">Revenue ($)</span>
           </div>
           <div class="flex items-center gap-2">
             <div class="w-2.5 h-2.5 border border-orange-500 border-dashed bg-orange-500/10 rounded-full"></div>
-            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Orders</span>
+            <span class="text-[10px] font-black text-gray-500 tracking-widest">Orders</span>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
             stroke-width="2" stroke-dasharray="4 4" opacity="0.6" />
         </svg>
         <div
-          class="flex justify-between mt-8 text-[10px] font-black text-gray-800 uppercase tracking-widest border-t border-white/5 pt-4">
+          class="flex justify-between mt-8 text-[10px] font-black text-gray-800 tracking-widest border-t border-white/5 pt-4">
           <span>Oct 17</span><span>Oct 18</span><span>Oct 19</span><span>Oct 20</span><span>Oct 21</span><span>Oct
             22</span><span>Oct 23</span>
         </div>
