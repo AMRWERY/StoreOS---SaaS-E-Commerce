@@ -3,7 +3,7 @@
     <div class="flex justify-between items-start mb-10">
       <div class="flex items-center gap-4">
         <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/5">
-          <icon name="ph:stripe-logo-duotone" class="text-gray-400 text-2xl" />
+          <Icon name="ph:stripe-logo-duotone" class="text-gray-400 text-2xl" />
         </div>
         <div>
           <h3 class="text-base font-bold">Stripe</h3>
@@ -17,7 +17,7 @@
     <div class="mt-auto">
       <VButton variant="none"
         className="w-full bg-[#818cf8] hover:bg-[#6366f1] text-white py-4 rounded-2xl font-black text-[11px] tracking-widest flex items-center justify-center gap-3 transition-all active:scale-[0.98]">
-        <icon name="ph:link-bold" class="text-base" />
+        <Icon name="ph:link-bold" class="text-base" />
         Connect Stripe Account
       </VButton>
       <p class="text-center text-[8px] font-bold text-gray-700 tracking-[0.2em] mt-4">

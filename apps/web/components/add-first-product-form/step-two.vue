@@ -52,7 +52,7 @@
                 <option>United Kingdom</option>
                 <option>Canada</option>
               </select>
-              <icon name="ph:caret-down-bold"
+              <Icon name="ph:caret-down-bold"
                 class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
             </div>
           </div>
@@ -65,7 +65,7 @@
                 <option>EUR (€)</option>
                 <option>GBP (£)</option>
               </select>
-              <icon name="ph:caret-down-bold"
+              <Icon name="ph:caret-down-bold"
                 class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
             </div>
           </div>
@@ -78,7 +78,7 @@
 
     <!-- Help Footer -->
     <div class="mt-8 flex items-center gap-2 text-xs text-gray-600">
-      <icon name="ph:question-fill" class="text-sm" />
+      <Icon name="ph:question-fill" class="text-sm" />
       <span>Need help with your setup?</span>
       <a href="#" class="text-indigo-400 font-bold hover:underline">Contact support</a>
     </div>

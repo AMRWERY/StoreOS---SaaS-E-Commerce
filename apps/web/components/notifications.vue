@@ -3,7 +3,7 @@
     <!-- Trigger Button -->
     <VButton @click="isInternalOpen = true" variant="none"
       :className="['relative text-gray-500 hover:text-white p-2 transition-colors', isInternalOpen ? 'text-white' : '']">
-      <icon name="ph:bell-simple-bold" class="text-xl" />
+      <Icon name="ph:bell-simple-bold" class="text-xl" />
       <span v-if="unreadCount > 0"
         class="absolute top-2 end-2 w-2 h-2 bg-red-500 rounded-full border-2 border-[#050505] animate-ping"></span>
     </VButton>
@@ -32,7 +32,7 @@
                 </button>
                 <button @click="isInternalOpen = false" class="text-gray-500 hover:text-white transition-colors">
                   <ClientOnly>
-                    <icon name="ph:x-bold" class="text-lg" />
+                    <Icon name="ph:x-bold" class="text-lg" />
                   </ClientOnly>
                 </button>
               </div>
@@ -40,7 +40,7 @@
             <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
               Updates <span
                 class="bg-indigo-500/10 text-indigo-500 text-[10px] px-2 py-0.5 rounded-full border border-indigo-500/20">{{
-                unreadCount }} New</span>
+                  unreadCount }} New</span>
             </h2>
           </div>
 
@@ -52,7 +52,8 @@
             ]">
               {{ tab.label }}
               <div v-if="activeTab === tab.id"
-                class="absolute bottom-0 start-0 end-0 h-0.5 bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+                class="absolute bottom-0 start-0 end-0 h-0.5 bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]">
+              </div>
             </button>
           </div>
 
@@ -67,7 +68,7 @@
                     <div
                       :class="['w-14 h-14 rounded-2xl flex items-center justify-center border border-white/5 shadow-inner', n.bgColor]">
                       <ClientOnly>
-                        <icon :name="n.icon" :class="['text-2xl', n.iconColor]" />
+                        <Icon :name="n.icon" :class="['text-2xl', n.iconColor]" />
                       </ClientOnly>
                     </div>
                     <span v-if="!n.read"
@@ -89,7 +90,7 @@
                         class="text-[10px] font-black tracking-widest text-indigo-400 hover:text-white flex items-center gap-2 transition-all group/btn">
                         View Order Details
                         <ClientOnly>
-                          <icon name="ph:caret-right-bold" class="rtl:rotate-180" />
+                          <Icon name="ph:caret-right-bold" class="rtl:rotate-180" />
                         </ClientOnly>
                       </button>
                     </div>
@@ -103,11 +104,12 @@
               <div
                 class="w-24 h-24 rounded-[2rem] bg-white/5 flex items-center justify-center mb-8 border border-white/5">
                 <ClientOnly>
-                  <icon name="ph:bell-slash-bold" class="text-4xl text-gray-700" />
+                  <Icon name="ph:bell-slash-bold" class="text-4xl text-gray-700" />
                 </ClientOnly>
               </div>
               <h4 class="text-xl font-bold text-gray-400 tracking-tight">Everything is quiet</h4>
-              <p class="text-sm text-gray-600 mt-3 max-w-[260px] leading-relaxed">Notifications about your store activity
+              <p class="text-sm text-gray-600 mt-3 max-w-[260px] leading-relaxed">Notifications about your store
+                activity
                 and security will appear here.</p>
             </div>
           </div>

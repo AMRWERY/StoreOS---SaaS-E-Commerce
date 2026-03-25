@@ -35,7 +35,7 @@
       <div
         class="lg:col-span-4 bg-indigo-500/5 border border-indigo-500/10 rounded-3xl p-8 flex flex-col justify-center items-center text-center">
         <div class="w-12 h-12 rounded-xl bg-indigo-600/20 flex items-center justify-center mb-6">
-          <icon name="ph:lightbulb-bold" class="text-indigo-400 text-2xl" />
+          <Icon name="ph:lightbulb-bold" class="text-indigo-400 text-2xl" />
         </div>
         <h4 class="text-sm font-bold text-white mb-2">Peak Operational Window</h4>
         <p class="text-xs text-gray-500 leading-relaxed max-w-[240px]">

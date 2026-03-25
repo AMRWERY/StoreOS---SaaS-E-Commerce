@@ -2,31 +2,22 @@
   <div>
     <div class="min-h-screen text-[#e1e1e1] flex flex-col overflow-hidden pb-10 -mt-10">
       <div class="flex-1 overflow-y-auto space-y-8 p-6 lg:p-8">
-        <inventory-header 
-          :totalProducts="1240" 
-          v-model:search="searchQuery"
-          v-model:category="selectedCategory"
-          v-model:status="selectedStatus"
-          @adjust="openAdjustmentModal()" 
-        />
+        <inventory-header :totalProducts="1240" v-model:search="searchQuery" v-model:category="selectedCategory"
+          v-model:status="selectedStatus" @adjust="openAdjustmentModal()" />
 
         <!-- Alert Banner -->
         <VAlertBanner v-if="lowStockCount > 0" variant="warning" icon="ph:warning-bold">
-          <p class="text-sm font-medium"><span class="font-bold">⚠ {{ lowStockCount }} products are low on stock</span> — Review now
-            <icon name="ph:arrow-right-bold" class="inline ms-1" />
+          <p class="text-sm font-medium"><span class="font-bold">⚠ {{ lowStockCount }} products are low on stock</span>
+            — Review now
+            <Icon name="ph:arrow-right-bold" class="inline ms-1" />
           </p>
         </VAlertBanner>
 
         <!-- Componented Layout -->
         <inventory-summary-cards :outOfStockCount="outOfStockCount" :lowStockCount="lowStockCount" />
 
-        <inventory-table 
-          :items="filteredStockList" 
-          v-model:currentPage="currentPage"
-          @adjust="openAdjustmentModal" 
-          @quick-adjust="handleQuickAdjust"
-          @view-history="handleViewHistory"
-        />
+        <inventory-table :items="filteredStockList" v-model:currentPage="currentPage" @adjust="openAdjustmentModal"
+          @quick-adjust="handleQuickAdjust" @view-history="handleViewHistory" />
 
         <inventory-movement-history id="history-section" class="mt-8" :historyLogs="historyList" />
       </div>
@@ -152,11 +143,11 @@ const stockList = ref([
 const filteredStockList = computed(() => {
   return stockList.value.filter(item => {
     const query = searchQuery.value.toLowerCase()
-    const matchesSearch = item.name.toLowerCase().includes(query) || 
-                         item.sku.toLowerCase().includes(query)
-    
+    const matchesSearch = item.name.toLowerCase().includes(query) ||
+      item.sku.toLowerCase().includes(query)
+
     const matchesCategory = selectedCategory.value === 'All' || item.category === selectedCategory.value
-    
+
     let matchesStatus = true
     if (selectedStatus.value === 'Out of Stock') matchesStatus = item.current === 0
     else if (selectedStatus.value === 'Low Stock') matchesStatus = item.current > 0 && item.current <= item.threshold

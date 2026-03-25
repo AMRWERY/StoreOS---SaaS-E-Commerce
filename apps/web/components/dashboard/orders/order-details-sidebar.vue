@@ -15,7 +15,7 @@
             </div>
             <VButton @click="$emit('close')" variant="none"
               className="w-10 h-10 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded-xl text-gray-400 hover:text-white transition-colors">
-              <icon name="ph:x-bold" />
+              <Icon name="ph:x-bold" />
             </VButton>
           </div>
 
@@ -35,7 +35,7 @@
             <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5">
               <div class="flex justify-between items-start mb-2">
                 <span class="text-[10px] font-black text-gray-500">Shipping</span>
-                <icon name="ph:map-pin-bold" class="text-gray-600" />
+                <Icon name="ph:map-pin-bold" class="text-gray-600" />
               </div>
               <p class="text-xs text-gray-400 leading-relaxed font-medium">
                 88 Market St, Suite 200<br />San Francisco, CA 94103
@@ -48,7 +48,8 @@
             <div class="flex justify-between items-center mb-6">
               <h3 class="text-[10px] font-black text-gray-600 tracking-[0.2em]">Items ({{ order.itemsCount }})</h3>
               <VButton variant="none" className="text-[10px] font-bold text-indigo-400 hover:underline"
-                @click="navigateTo({ path: localePath('/dashboard/orders/order-form'), query: { id: order.id } })">Edit</VButton>
+                @click="navigateTo({ path: localePath('/dashboard/orders/order-form'), query: { id: order.id } })">Edit
+              </VButton>
             </div>
             <div class="space-y-4">
               <div v-for="i in 2" :key="i" class="flex items-center gap-4">
@@ -93,7 +94,7 @@
           </VButton>
           <VButton variant="none"
             className="w-12 h-12 bg-white/5 hover:bg-white/10 border border-white/5 rounded-xl flex items-center justify-center transition-colors">
-            <icon name="ph:printer-bold" class="text-lg text-gray-400" />
+            <Icon name="ph:printer-bold" class="text-lg text-gray-400" />
           </VButton>
         </div>
       </aside>

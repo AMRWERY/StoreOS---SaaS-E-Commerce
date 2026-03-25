@@ -15,12 +15,8 @@
             @select-order="selectedOrder = $event" @toggle-selection="toggleSelection" @select-all="toggleSelectAll" />
 
           <!-- Pagination -->
-          <VPagination
-            :total="orders.length"
-            :per-page="perPage"
-            :current-page="currentPage"
-            @update:current-page="currentPage = $event"
-          />
+          <VPagination :total="orders.length" :per-page="perPage" :current-page="currentPage"
+            @update:current-page="currentPage = $event" />
         </div>
 
         <!-- Right Panel: Order Details Inspector -->
@@ -30,7 +26,7 @@
       <!-- Empty State -->
       <div v-else class="flex-1 flex flex-col items-center justify-center p-12 text-center">
         <div class="w-64 h-64 bg-white/5 rounded-full flex items-center justify-center mb-8 relative">
-          <icon name="ph:shopping-cart-light" class="text-8xl text-gray-700" />
+          <Icon name="ph:shopping-cart-light" class="text-8xl text-gray-700" />
           <div class="absolute -top-2 -end-2 w-16 h-16 bg-indigo-500/20 rounded-full blur-xl"></div>
         </div>
         <h2 class="text-xl font-bold text-white mb-2">No orders yet</h2>

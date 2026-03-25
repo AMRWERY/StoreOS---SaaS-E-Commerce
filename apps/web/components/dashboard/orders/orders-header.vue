@@ -16,12 +16,12 @@
       <div class="flex items-center gap-3">
         <VButton variant="none"
           className="flex items-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-xs font-bold transition-colors border border-white/5">
-          <icon name="ph:export-bold" />
+          <Icon name="ph:export-bold" />
           Export
         </VButton>
         <VButton to="/dashboard/orders/order-form"
           className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-bold transition-all shadow-lg shadow-indigo-600/20">
-          <icon name="ph:plus-bold" />
+          <Icon name="ph:plus-bold" />
           New Manual Order
         </VButton>
       </div>
@@ -39,7 +39,7 @@
               <VButton variant="none"
                 className="bg-[#0c0c0e] border border-white/5 rounded-2xl px-5 py-3.5 text-xs font-bold text-gray-400 flex items-center gap-3 hover:text-white hover:border-white/10 transition-all">
                 Status: {{ selectedStatus }}
-                <icon name="ph:caret-down-bold" class="text-gray-600 transition-transform"
+                <Icon name="ph:caret-down-bold" class="text-gray-600 transition-transform"
                   :class="{ 'rotate-180': open }" />
               </VButton>
             </template>
@@ -60,7 +60,7 @@
               <VButton variant="none"
                 className="bg-[#0c0c0e] border border-white/5 rounded-2xl px-5 py-3.5 text-xs font-bold text-gray-400 flex items-center gap-3 hover:text-white hover:border-white/10 transition-all">
                 Payment: {{ selectedPayment }}
-                <icon name="ph:caret-down-bold" class="text-gray-600 transition-transform"
+                <Icon name="ph:caret-down-bold" class="text-gray-600 transition-transform"
                   :class="{ 'rotate-180': open }" />
               </VButton>
             </template>
@@ -78,9 +78,9 @@
             <template #trigger="{ open }">
               <VButton variant="none"
                 className="bg-[#0c0c0e] border border-white/5 rounded-2xl px-5 py-3.5 text-xs font-bold text-gray-400 flex items-center gap-3 hover:text-white hover:border-white/10 transition-all">
-                <icon name="ph:calendar-bold" class="text-gray-500" />
+                <Icon name="ph:calendar-bold" class="text-gray-500" />
                 {{ selectedDate }}
-                <icon name="ph:caret-down-bold" class="text-gray-600 transition-transform"
+                <Icon name="ph:caret-down-bold" class="text-gray-600 transition-transform"
                   :class="{ 'rotate-180': open }" />
               </VButton>
             </template>

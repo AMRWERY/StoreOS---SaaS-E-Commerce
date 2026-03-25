@@ -5,6 +5,7 @@
       { label: 'Reports' },
       { label: 'Analytics', active: true }
     ]" />
+    
     <header class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
       <h1 class="text-3xl font-bold tracking-tight">Analytics</h1>
       <div class="flex flex-wrap items-center gap-4">

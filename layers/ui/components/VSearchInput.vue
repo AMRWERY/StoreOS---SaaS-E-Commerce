@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="relative group" :class="wrapperClass">
-      <icon name="ph:magnifying-glass"
+      <Icon name="ph:magnifying-glass"
         class="absolute start-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-500 transition-colors" />
       <input type="text" :placeholder="placeholder" :value="modelValue"
         @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"

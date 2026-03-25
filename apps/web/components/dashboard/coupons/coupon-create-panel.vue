@@ -21,7 +21,7 @@
             </p>
           </div>
           <VButton @click="$emit('close')" variant="none" className="text-gray-600 hover:text-white transition-colors">
-            <icon name="ph:x-bold" class="text-xl" />
+            <Icon name="ph:x-bold" class="text-xl" />
           </VButton>
         </div>
 
@@ -30,17 +30,12 @@
           <div class="space-y-3">
             <label class="text-[10px] font-black text-gray-600 tracking-widest">Coupon Code</label>
             <div class="relative group">
-              <VInput
-                v-model="form.code"
-                placeholder="e.g. SUMMER24"
-                inputClass="bg-black border border-white/10 rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-indigo-500/50 outline-none transition pe-14"
-              />
-              <button
-                @click="generateCode"
+              <VInput v-model="form.code" placeholder="e.g. SUMMER24"
+                inputClass="bg-black border border-white/10 rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-indigo-500/50 outline-none transition pe-14" />
+              <button @click="generateCode"
                 class="absolute end-4 top-1/2 -translate-y-1/2 text-gray-600 hover:text-indigo-400 transition-colors"
-                type="button"
-              >
-                <icon name="ph:arrows-clockwise-bold" class="text-xl" />
+                type="button">
+                <Icon name="ph:arrows-clockwise-bold" class="text-xl" />
               </button>
             </div>
           </div>
@@ -49,25 +44,17 @@
           <div class="space-y-3">
             <label class="text-[10px] font-black text-gray-600 tracking-widest">Discount Type</label>
             <div class="bg-black p-1.5 rounded-2xl flex border border-white/5">
-              <button
-                v-for="type in discountTypes"
-                :key="type.value"
-                @click="form.discountType = type.value"
+              <button v-for="type in discountTypes" :key="type.value" @click="form.discountType = type.value"
                 class="flex-1 py-3.5 text-xs font-bold tracking-tight rounded-xl transition-all duration-300"
-                :class="form.discountType === type.value ? 'bg-[#1f2024] text-indigo-400 shadow-xl border border-white/5' : 'text-gray-500 hover:text-gray-400'"
-              >
+                :class="form.discountType === type.value ? 'bg-[#1f2024] text-indigo-400 shadow-xl border border-white/5' : 'text-gray-500 hover:text-gray-400'">
                 {{ type.label }}
               </button>
             </div>
           </div>
 
           <!-- Value Input -->
-          <VInput
-            v-model="form.value"
-            :label="form.discountType === 'percentage' ? 'Percentage (%)' : 'Fixed Amount'"
-            placeholder="0.00"
-            :type="form.discountType === 'percentage' ? 'text' : 'number'"
-          >
+          <VInput v-model="form.value" :label="form.discountType === 'percentage' ? 'Percentage (%)' : 'Fixed Amount'"
+            placeholder="0.00" :type="form.discountType === 'percentage' ? 'text' : 'number'">
             <template #prefix v-if="form.discountType === 'percentage'">
               <span class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-700 font-bold">%</span>
             </template>
@@ -87,12 +74,10 @@
                 <div class="space-y-2">
                   <label class="text-[10px] font-black text-gray-600 tracking-widest">Starts</label>
                   <div class="relative group cursor-pointer">
-                    <icon name="ph:calendar-blank-bold" class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-indigo-400" />
-                    <input
-                      readonly
-                      :value="selectedDate || 'Immediate Activation'"
-                      class="w-full bg-[#121214] border border-white/5 rounded-2xl ps-14 pe-5 py-4 text-sm font-bold text-white outline-none group-hover:border-white/10 transition-colors"
-                    />
+                    <Icon name="ph:calendar-blank-bold"
+                      class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-indigo-400" />
+                    <input readonly :value="selectedDate || 'Immediate Activation'"
+                      class="w-full bg-[#121214] border border-white/5 rounded-2xl ps-14 pe-5 py-4 text-sm font-bold text-white outline-none group-hover:border-white/10 transition-colors" />
                   </div>
                 </div>
               </template>
@@ -104,12 +89,10 @@
                 <div class="space-y-2">
                   <label class="text-[10px] font-black text-gray-600 tracking-widest">Expires</label>
                   <div class="relative group cursor-pointer">
-                    <icon name="ph:calendar-x-bold" class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-orange-400" />
-                    <input
-                      readonly
-                      :value="selectedDate || 'Dec 31, 2024'"
-                      class="w-full bg-[#121214] border border-white/5 rounded-2xl ps-14 pe-5 py-4 text-sm font-bold text-white outline-none group-hover:border-white/10 transition-colors"
-                    />
+                    <Icon name="ph:calendar-x-bold"
+                      class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-orange-400" />
+                    <input readonly :value="selectedDate || 'Dec 31, 2024'"
+                      class="w-full bg-[#121214] border border-white/5 rounded-2xl ps-14 pe-5 py-4 text-sm font-bold text-white outline-none group-hover:border-white/10 transition-colors" />
                   </div>
                 </div>
               </template>
@@ -121,10 +104,8 @@
         <div class="p-8 border-t border-white/5 bg-[#080809] flex flex-col gap-4">
           <VButton
             className="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-indigo-600/30 active:scale-[0.98]"
-            variant="none"
-            @click="$emit('create')"
-          >
-            <icon name="ph:check-circle-bold" class="text-lg" />
+            variant="none" @click="$emit('create')">
+            <Icon name="ph:check-circle-bold" class="text-lg" />
             Create Coupon
           </VButton>
         </div>

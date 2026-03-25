@@ -17,7 +17,7 @@
       </div>
       <VButton to="/dashboard/products/product-form"
         className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-bold transition-all shadow-lg shadow-indigo-600/20">
-        <icon name="ph:plus-bold" />
+        <Icon name="ph:plus-bold" />
         Add Product
       </VButton>
     </header>

@@ -4,7 +4,7 @@
       Hello StoreOS!
       (Storefront Project)
     </p>
-    <icon name="material-symbols:360" class="w-24 h-24" />
+    <Icon name="material-symbols:360" class="w-24 h-24" />
   </div>
 </template>
 

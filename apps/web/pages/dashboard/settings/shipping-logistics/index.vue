@@ -1,16 +1,23 @@
 <template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] pb-32">
-      <VBreadcrumb :items="[
-        { label: 'System', to: '/dashboard/settings' },
-        { label: 'Configuration' },
-        { label: 'Shipping Logistics', active: true }
-      ]" class="mb-8" />
-      <header class="flex items-center justify-between mb-16">
-        <div>
-          <h1 class="text-3xl font-bold tracking-tight">Shipping Logistics</h1>
+    <div class="min-h-screen text-[#e1e1e1] selection:bg-indigo-500/30 overflow-x-hidden">
+      <shipping-header />
+
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <aside class="lg:col-span-4 space-y-6">
+          <shipping-default-carrier />
+
+          <shipping-quick-metrics />
+        </aside>
+
+        <div class="lg:col-span-8 space-y-8">
+          <shipping-configured-zones />
+
+          <shipping-alert-section />
         </div>
-      </header>
+      </div>
+
+      <shipping-floating-bar />
     </div>
   </div>
 </template>

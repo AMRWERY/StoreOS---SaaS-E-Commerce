@@ -3,13 +3,13 @@
     <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
       <div class="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.01]">
         <h2 class="font-bold flex items-center gap-2">
-          <icon name="ph:squares-four-bold" class="text-indigo-500" />Inventory List
+          <Icon name="ph:squares-four-bold" class="text-indigo-500" />Inventory List
         </h2>
         <div class="flex items-center gap-4">
           <span class="text-[10px] font-bold text-gray-600">Showing {{ items.length }} items</span>
         </div>
       </div>
-      
+
       <VTable :headers="headers" :items="paginatedItems">
         <!-- Product Details -->
         <template #cell(name)="{ item }">
@@ -51,20 +51,15 @@
         <template #cell(threshold)="{ item }">
           <div class="flex items-center gap-2 group/edit cursor-pointer w-fit" @click.stop="startEditThreshold(item)">
             <template v-if="editingId === item.id">
-              <input 
-                type="number" 
-                v-model="editValue" 
-                @blur="saveThreshold(item)" 
-                @keyup.enter="saveThreshold(item)"
+              <input type="number" v-model="editValue" @blur="saveThreshold(item)" @keyup.enter="saveThreshold(item)"
                 @keyup.esc="editingId = null"
                 class="w-16 bg-black border border-indigo-500/50 rounded px-2 py-1 text-xs font-bold focus:outline-none"
-                ref="thresholdInput"
-                autofocus
-              />
+                ref="thresholdInput" autofocus />
             </template>
             <template v-else>
-              <span class="text-sm font-bold text-gray-400 group-hover/edit:text-white transition-colors">{{ item.threshold }}</span>
-              <icon name="ph:pencil-simple-bold"
+              <span class="text-sm font-bold text-gray-400 group-hover/edit:text-white transition-colors">{{
+                item.threshold }}</span>
+              <Icon name="ph:pencil-simple-bold"
                 class="text-gray-600 opacity-0 group-hover/edit:opacity-100 transition-all group-hover/edit:text-indigo-400" />
             </template>
           </div>
@@ -77,15 +72,17 @@
 
         <!-- Quick Adjust -->
         <template #cell(quickAdjust)="{ item }">
-          <div class="inline-flex items-center bg-black border border-white/10 rounded-lg overflow-hidden transition-colors" @click.stop>
+          <div
+            class="inline-flex items-center bg-black border border-white/10 rounded-lg overflow-hidden transition-colors"
+            @click.stop>
             <button class="px-2.5 py-1.5 hover:bg-white/10 hover:text-white text-gray-500 transition-colors"
               @click="$emit('quick-adjust', item, -1)">
-              <icon name="ph:minus-bold" class="text-[10px]" />
+              <Icon name="ph:minus-bold" class="text-[10px]" />
             </button>
             <span class="text-xs font-bold px-2 min-w-[32px] text-center">{{ item.current }}</span>
             <button class="px-2.5 py-1.5 hover:bg-white/10 hover:text-white text-gray-500 transition-colors"
               @click="$emit('quick-adjust', item, 1)">
-              <icon name="ph:plus-bold" class="text-[10px]" />
+              <Icon name="ph:plus-bold" class="text-[10px]" />
             </button>
           </div>
         </template>
@@ -93,20 +90,19 @@
         <!-- Actions -->
         <template #cell(actions)="{ item }">
           <div class="flex items-center justify-end gap-1 text-gray-500" @click.stop>
-            <button
-              @click="$emit('view-history', item)"
+            <button @click="$emit('view-history', item)"
               class="hover:text-white hover:bg-white/10 p-2 rounded-lg transition-colors border border-transparent hover:border-white/10"
               title="View History">
-              <icon name="ph:clock-counter-clockwise-bold" class="w-4 h-4" />
+              <Icon name="ph:clock-counter-clockwise-bold" class="w-4 h-4" />
             </button>
             <button @click="$emit('adjust', item)"
               class="hover:text-indigo-400 hover:bg-indigo-500/10 p-2 rounded-lg transition-colors border border-transparent hover:border-indigo-500/20"
               title="Adjust Stock">
-              <icon name="ph:sliders-horizontal-bold" class="w-4 h-4" />
+              <Icon name="ph:sliders-horizontal-bold" class="w-4 h-4" />
             </button>
             <button
               class="hover:text-white hover:bg-white/10 p-2 rounded-lg transition-colors border border-transparent hover:border-white/10">
-              <icon name="ph:dots-three-bold" class="w-5 h-5" />
+              <Icon name="ph:dots-three-bold" class="w-5 h-5" />
             </button>
           </div>
         </template>

@@ -11,7 +11,7 @@
         <p class="text-sm text-gray-500 mt-2">Manage your team's access levels and operational privileges.</p>
       </div>
       <VButton className="px-6 py-2.5 text-xs font-bold">
-        <icon name="ph:user-plus-bold" class="w-4 h-4" />
+        <Icon name="ph:user-plus-bold" class="w-4 h-4" />
         Invite Staff
       </VButton>
     </header>

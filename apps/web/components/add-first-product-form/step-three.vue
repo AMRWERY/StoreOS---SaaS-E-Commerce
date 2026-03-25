@@ -25,7 +25,7 @@
                 :class="codEnabled ? 'bg-[#0f0f15] border-indigo-500/50' : 'bg-[#0c0c0e] border-white/5 opacity-60'"
                 @click="codEnabled = !codEnabled">
                 <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center shrink-0">
-                  <icon name="ph:bank-duotone" class="text-indigo-500 text-2xl" />
+                  <Icon name="ph:bank-duotone" class="text-indigo-500 text-2xl" />
                 </div>
                 <div class="flex-1">
                   <h3 class="font-bold text-sm">Cash on Delivery</h3>
@@ -42,7 +42,7 @@
               <!-- Stripe -->
               <div class="p-5 rounded-2xl bg-[#0c0c0e] border border-white/5 flex items-center gap-4">
                 <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
-                  <icon name="ph:credit-card-duotone" class="text-gray-400 text-2xl" />
+                  <Icon name="ph:credit-card-duotone" class="text-gray-400 text-2xl" />
                 </div>
                 <div class="flex-1">
                   <h3 class="font-bold text-sm">Stripe</h3>
@@ -57,7 +57,7 @@
               <!-- Paymob -->
               <div class="p-5 rounded-2xl bg-[#0c0c0e] border border-white/5 flex items-center gap-4">
                 <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
-                  <icon name="ph:wallet-duotone" class="text-gray-400 text-2xl" />
+                  <Icon name="ph:wallet-duotone" class="text-gray-400 text-2xl" />
                 </div>
                 <div class="flex-1">
                   <h3 class="font-bold text-sm">Paymob</h3>
@@ -73,7 +73,7 @@
               <div class="p-6 rounded-2xl bg-[#0c0c0e] border border-white/5 space-y-6">
                 <div class="flex items-center gap-4">
                   <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0">
-                    <icon name="ph:device-mobile-camera-duotone" class="text-red-500 text-2xl" />
+                    <Icon name="ph:device-mobile-camera-duotone" class="text-red-500 text-2xl" />
                   </div>
                   <div class="flex-1">
                     <div class="flex items-center gap-2">
@@ -101,7 +101,7 @@
             <div class="flex items-center justify-between">
               <VButton variant="ghost" className="group border-none !px-0 !py-0 hover:!bg-transparent"
                 @click="$emit('prev')">
-                <icon name="ph:arrow-start-bold" class="group-hover:-translate-x-1 transition-transform w-4 h-4" />
+                <Icon name="ph:arrow-start-bold" class="group-hover:-translate-x-1 transition-transform w-4 h-4" />
                 Back
               </VButton>
               <VButton className="!px-8" label="Continue to Shipping" @click="handleContinue" />

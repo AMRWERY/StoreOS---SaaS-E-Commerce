@@ -5,7 +5,7 @@
         <div class="flex items-center gap-8">
           <nuxt-link-locale to="/" class="flex items-center gap-3">
             <div class="w-9 h-9 bg-indigo-600 rounded-lg flex items-center justify-center text-white shrink-0">
-              <icon name="ph:storefront-bold" class="text-xl" />
+              <Icon name="ph:storefront-bold" class="text-xl" />
             </div>
             <div>
               <h1 class="font-bold text-lg leading-none text-white">StoreOS</h1>
@@ -26,7 +26,7 @@
           <VButton type="button" :aria-label="`Switch to ${locale === 'en' ? 'Arabic' : 'English'}`"
             @click="switchLocale" variant="none"
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
-            <icon name="lucide:globe" class="w-4 h-4 shrink-0" />
+            <Icon name="lucide:globe" class="w-4 h-4 shrink-0" />
             <span class="text-xs font-semibold">{{ localeLabel }}</span>
           </VButton>
 

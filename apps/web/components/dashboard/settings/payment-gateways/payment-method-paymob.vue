@@ -6,7 +6,7 @@
           <div class="flex items-center gap-4 mb-6">
             <div
               class="w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center border border-orange-500/10">
-              <icon name="ph:bank-duotone" class="text-orange-400 text-2xl" />
+              <Icon name="ph:bank-duotone" class="text-orange-400 text-2xl" />
             </div>
             <div>
               <h3 class="text-base font-bold">Paymob</h3>

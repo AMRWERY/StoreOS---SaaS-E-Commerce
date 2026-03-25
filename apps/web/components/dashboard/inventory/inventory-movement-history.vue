@@ -3,7 +3,7 @@
     <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
       <div class="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.01]">
         <h2 class="font-bold flex items-center gap-2">
-          <icon name="ph:clock-counter-clockwise-bold" class="text-indigo-500" /> Movement History
+          <Icon name="ph:clock-counter-clockwise-bold" class="text-indigo-500" /> Movement History
         </h2>
         <button
           class="text-[10px] font-black tracking-widest text-indigo-400 hover:text-indigo-300 hover:underline transition-colors mt-0.5 ms-2">

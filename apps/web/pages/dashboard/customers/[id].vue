@@ -6,7 +6,8 @@
         { label: 'Audience' },
         { label: 'Customers', to: '/dashboard/customers' },
         { label: customer.name, active: true }
-      ]" class="mb-8" />
+      ]" />
+
       <!-- Top Header: Identity & Actions -->
       <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div class="flex items-center gap-6">
@@ -19,16 +20,16 @@
             <h1 class="text-3xl font-bold tracking-tight">{{ customer.name }}</h1>
             <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-2">
               <div class="flex items-center gap-2 text-xs text-gray-500 font-medium">
-                <icon name="ph:phone-fill" class="text-indigo-500" />
+                <Icon name="ph:phone-fill" class="text-indigo-500" />
                 {{ customer.phone }}
               </div>
               <div class="flex items-center gap-2 text-xs text-gray-500 font-medium">
-                <icon name="ph:envelope-fill" class="text-indigo-500" />
+                <Icon name="ph:envelope-fill" class="text-indigo-500" />
                 {{ customer.email }}
               </div>
             </div>
             <p class="text-[10px] font-black text-gray-700 tracking-[0.2em] mt-3">Member Since {{ customer.memberSince
-              }}</p>
+            }}</p>
           </div>
         </div>
 
@@ -82,9 +83,8 @@
               <div class="space-y-4">
                 <div v-for="order in orders" :key="order.id"
                   class="grid grid-cols-4 items-center p-4 rounded-2xl hover:bg-white/[0.02] transition-all border border-transparent hover:border-white/5 cursor-pointer group/row">
-                  <span
-                    class="text-xs font-bold text-gray-400 group-hover/row:text-indigo-400 transition-colors">{{
-                      order.id }}</span>
+                  <span class="text-xs font-bold text-gray-400 group-hover/row:text-indigo-400 transition-colors">{{
+                    order.id }}</span>
                   <div class="flex justify-center">
                     <span :class="[order.color, 'text-[9px] font-black px-3 py-1 rounded-md tracking-widest']">
                       {{ order.status }}
@@ -101,7 +101,7 @@
               <button
                 class="w-full mt-12 py-4 text-[10px] font-black tracking-[0.2em] text-gray-500 hover:text-white transition-all flex items-center justify-center gap-2 group">
                 View all 42 orders
-                <icon name="ph:arrow-right-bold" class="group-hover:translate-x-1 transition-transform" />
+                <Icon name="ph:arrow-right-bold" class="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
@@ -131,7 +131,7 @@
                       <span class="text-[10px] font-black text-gray-600 tracking-widest">{{ note.author }} • {{
                         note.date }}</span>
                       <button class="text-gray-700 hover:text-red-500 transition-colors">
-                        <icon name="ph:trash-bold" />
+                        <Icon name="ph:trash-bold" />
                       </button>
                     </div>
                     <p class="text-sm text-gray-400 leading-relaxed">{{ note.text }}</p>
@@ -145,14 +145,14 @@
               <div v-for="activity in activities" :key="activity.id"
                 class="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/[0.01] transition-colors border border-transparent hover:border-white/5">
                 <div :class="[activity.bg, 'w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-lg']">
-                  <icon :name="activity.icon" :class="activity.color" />
+                  <Icon :name="activity.icon" :class="activity.color" />
                 </div>
                 <div>
                   <p class="text-sm font-medium">
                     <span class="text-white">{{ activity.user }}</span>
                     <span class="text-gray-500"> {{ activity.action }} </span>
                     <span v-if="activity.target" class="text-indigo-400 font-bold capitalize">{{ activity.target
-                      }}</span>
+                    }}</span>
                   </p>
                   <p class="text-[10px] text-gray-600 mt-1 font-black tracking-widest">{{ activity.date }}</p>
                 </div>
@@ -210,13 +210,13 @@
               <h3 class="text-[10px] font-black text-gray-600 tracking-widest">Shipping Destinations</h3>
               <button
                 class="text-white bg-white/10 rounded-md p-1 hover:bg-white/20 transition-all border border-white/5">
-                <icon name="ph:plus-bold" />
+                <Icon name="ph:plus-bold" />
               </button>
             </div>
             <div class="space-y-4">
               <div v-for="address in addresses" :key="address.label"
                 class="flex items-start gap-4 p-4 bg-black/40 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all group/addr cursor-pointer">
-                <icon :name="address.icon"
+                <Icon :name="address.icon"
                   class="text-indigo-400 mt-1 group-hover/addr:scale-110 transition-transform" />
                 <div>
                   <h4 class="text-xs font-bold">{{ address.label }}</h4>
@@ -231,7 +231,7 @@
             <div class="flex justify-between items-center mb-8">
               <h3 class="text-[10px] font-black text-gray-600 tracking-widest">Customer Tags</h3>
               <button class="text-gray-600 hover:text-indigo-400 transition-colors">
-                <icon name="ph:gear-six-bold" />
+                <Icon name="ph:gear-six-bold" />
               </button>
             </div>
             <div class="flex flex-wrap gap-2">
@@ -246,7 +246,7 @@
           <section class="bg-[#0c0c0e] border border-indigo-500/20 rounded-3xl p-8 group overflow-hidden relative">
             <div class="flex items-center gap-5">
               <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
-                <icon name="ph:shield-check-fill" class="text-emerald-500 text-2xl" />
+                <Icon name="ph:shield-check-fill" class="text-emerald-500 text-2xl" />
               </div>
               <div>
                 <h3 class="text-[10px] font-black text-gray-500 tracking-widest mb-1">Risk Analysis</h3>
@@ -271,10 +271,9 @@
         class="fixed bottom-8 start-1/2 -translate-x-1/2 bg-[#1a1a1e]/80 backdrop-blur-xl border border-white/10 px-6 py-2 rounded-2xl flex items-center gap-6 shadow-2xl z-50">
         <div
           class="flex items-center gap-2 text-[10px] font-bold text-gray-500 tracking-widest border-e border-white/10 pe-6">
-          <icon name="ph:command-bold" class="text-sm" />
+          <Icon name="ph:command-bold" class="text-sm" />
           <span>Commands</span>
-          <span
-            class="ms-2 px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-[8px] text-gray-400">⌘K</span>
+          <span class="ms-2 px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-[8px] text-gray-400">⌘K</span>
         </div>
         <div class="flex items-center gap-2">
           <div class="group relative">

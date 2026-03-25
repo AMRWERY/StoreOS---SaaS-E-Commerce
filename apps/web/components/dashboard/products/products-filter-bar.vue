@@ -9,7 +9,7 @@
             <VButton variant="none"
               :className="`flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/5 rounded-xl text-xs font-bold transition-all ${open ? 'text-white border-white/20' : 'text-gray-400 hover:text-white'}`">
               Category: <span class="text-white">{{ selectedCategory }}</span>
-              <icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
+              <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
             </VButton>
           </template>
 
@@ -30,7 +30,7 @@
               :className="`flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/5 rounded-xl text-xs font-bold transition-all ${open ? 'text-white border-white/20' : 'text-gray-400 hover:text-white'}`">
               Status: <span :class="selectedStatus.colorClass">{{ selectedStatus.label }}</span>
               <div v-if="selectedStatus.dotClass" :class="`w-1.5 h-1.5 rounded-full ${selectedStatus.dotClass}`"></div>
-              <icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
+              <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
             </VButton>
           </template>
 
@@ -51,7 +51,7 @@
             <VButton variant="none"
               :className="`flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/5 rounded-xl text-xs font-bold transition-all ${open ? 'text-white border-white/20' : 'text-gray-400 hover:text-white'}`">
               Stock: <span class="text-white">{{ selectedStock }}</span>
-              <icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
+              <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
             </VButton>
           </template>
 
@@ -70,11 +70,11 @@
       <div class="flex items-center bg-black/40 p-1 rounded-xl border border-white/5">
         <VButton variant="none" @click="$emit('update:viewMode', 'grid')"
           :className="`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-indigo-500/20 text-indigo-400' : 'text-gray-600'}`">
-          <icon name="ph:grid-four-fill" />
+          <Icon name="ph:grid-four-fill" />
         </VButton>
         <VButton variant="none" @click="$emit('update:viewMode', 'list')"
           :className="`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-indigo-500/20 text-indigo-400' : 'text-gray-600'}`">
-          <icon name="ph:list-bold" />
+          <Icon name="ph:list-bold" />
         </VButton>
       </div>
     </div>

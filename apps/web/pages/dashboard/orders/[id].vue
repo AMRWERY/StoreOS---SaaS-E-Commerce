@@ -36,7 +36,7 @@
           </VButton>
           <VButton variant="none"
             className="p-2.5 bg-white/5 border border-white/5 rounded-xl text-gray-400 hover:text-white transition-colors">
-            <icon name="ph:printer-bold" />
+            <Icon name="ph:printer-bold" />
           </VButton>
           <VButton variant="none"
             className="px-5 py-2.5 text-red-500/70 hover:text-red-500 text-xs font-bold transition-colors">
@@ -44,7 +44,7 @@
           </VButton>
           <VButton variant="none"
             className="p-2.5 bg-white/5 border border-white/5 rounded-xl text-gray-400 hover:text-white transition-colors">
-            <icon name="ph:dots-three-bold" />
+            <Icon name="ph:dots-three-bold" />
           </VButton>
         </div>
       </header>
@@ -63,9 +63,9 @@
                 step.status === 'active' ? 'bg-indigo-500/20 text-indigo-400 ring-2 ring-indigo-500/30' :
                   'bg-white/5 text-gray-700'
             ]">
-              <icon v-if="step.status === 'completed'" name="ph:check-bold" />
-              <icon v-else-if="step.status === 'active'" name="ph:circle-dashed-bold" class="animate-spin-slow" />
-              <icon v-else name="ph:circle-bold" />
+              <Icon v-if="step.status === 'completed'" name="ph:check-bold" />
+              <Icon v-else-if="step.status === 'active'" name="ph:circle-dashed-bold" class="animate-spin-slow" />
+              <Icon v-else name="ph:circle-bold" />
             </div>
 
             <h4 class="text-[10px] font-black tracking-widest"
@@ -86,7 +86,7 @@
             <div class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden">
               <div class="p-6 border-b border-white/5 flex justify-between items-center">
                 <h3 class="text-xs font-black tracking-[0.15em] flex items-center gap-2">
-                  <icon name="ph:package-bold" class="text-indigo-500" />
+                  <Icon name="ph:package-bold" class="text-indigo-500" />
                   Order Items
                 </h3>
                 <span class="text-[10px] font-bold text-gray-600">1 Item</span>
@@ -143,7 +143,7 @@
             <!-- Order Notes/Logs Card -->
             <div class="bg-[#0c0c0e] border border-white/5 rounded-3xl p-8">
               <h3 class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-8">
-                <icon name="ph:notebook-bold" class="text-indigo-500" />
+                <Icon name="ph:notebook-bold" class="text-indigo-500" />
                 Order Notes
               </h3>
               <div class="space-y-6">
@@ -184,7 +184,7 @@
               <h3 class="text-[10px] font-black text-gray-600 tracking-widest">Customer</h3>
               <VButton variant="none" className="text-[10px] font-bold text-indigo-400 hover:underline">
                 Profile
-                <icon name="ph:arrow-square-out-bold" class="inline ms-1" />
+                <Icon name="ph:arrow-square-out-bold" class="inline ms-1" />
               </VButton>
             </div>
             <div class="flex items-center gap-4 mb-8">
@@ -212,7 +212,7 @@
             <h3 class="text-[10px] font-black text-gray-600 tracking-widest mb-8">Shipping & Logistics</h3>
             <div class="space-y-8">
               <div class="flex gap-4">
-                <icon name="ph:map-pin-bold" class="text-indigo-500 mt-1 shrink-0" />
+                <Icon name="ph:map-pin-bold" class="text-indigo-500 mt-1 shrink-0" />
                 <div>
                   <h4 class="text-[10px] font-black text-gray-400 tracking-widest mb-2">Delivery Address</h4>
                   <p class="text-xs text-gray-500 leading-relaxed font-medium">
@@ -223,7 +223,7 @@
                 </div>
               </div>
               <div class="flex gap-4">
-                <icon name="ph:truck-bold" class="text-indigo-500 mt-1 shrink-0" />
+                <Icon name="ph:truck-bold" class="text-indigo-500 mt-1 shrink-0" />
                 <div>
                   <h4 class="text-[10px] font-black text-gray-400 tracking-widest mb-2">Carrier & Tracking</h4>
                   <p class="text-xs text-white font-bold mb-3">FedEx - <span class="text-gray-500 font-medium">Standard
@@ -235,7 +235,7 @@
                     </div>
                     <VButton variant="none"
                       className="bg-white/5 p-2 rounded-lg text-gray-500 hover:text-white transition-colors">
-                      <icon name="ph:copy-bold" />
+                      <Icon name="ph:copy-bold" />
                     </VButton>
                   </div>
                   <VButton variant="none"
@@ -253,7 +253,7 @@
             <div class="bg-white/[0.02] border border-white/5 p-4 rounded-2xl flex items-center justify-between">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 bg-indigo-600/10 rounded-lg flex items-center justify-center">
-                  <icon name="ph:stripe-logo-bold" class="text-indigo-400 text-lg" />
+                  <Icon name="ph:stripe-logo-bold" class="text-indigo-400 text-lg" />
                 </div>
                 <div>
                   <h4 class="text-xs font-bold">Stripe Checkout</h4>

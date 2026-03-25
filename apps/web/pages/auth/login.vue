@@ -1,11 +1,7 @@
 <template>
   <div>
-    <div
-      class="flex flex-col items-center justify-center p-16 text-white selection:bg-indigo-500/30 mt-12"
-    >
-      <div
-        class="w-full max-w-[440px] rounded-2xl p-8 md:p-10 shadow-2xl border bg-[#0c0c0e] border-white/5"
-      >
+    <div class="flex flex-col items-center justify-center p-16 text-white selection:bg-indigo-500/30 mt-12">
+      <div class="w-full max-w-[440px] rounded-2xl p-8 md:p-10 shadow-2xl border bg-[#0c0c0e] border-white/5">
         <!-- Header -->
         <div class="flex flex-col items-center text-center mb-10">
           <div class="flex items-center gap-2 font-bold text-2xl mb-4">
@@ -18,34 +14,18 @@
 
         <!-- Form -->
         <VFormWrapper class="space-y-5" @submit="handleSubmit">
-          <VInput 
-            type="email" 
-            :label="t('auth.email')" 
-            :placeholder="t('auth.emailPlaceholder')" 
-            v-model="email" 
-          />
+          <VInput type="email" :label="t('auth.email')" :placeholder="t('auth.emailPlaceholder')" v-model="email" />
 
-          <VInput 
-            type="password" 
-            :label="t('auth.password')" 
-            v-model="password"
-          >
+          <VInput type="password" :label="t('auth.password')" v-model="password">
             <template #label-right>
-              <nuxt-link-locale
-                to=""
-                class="text-xs text-indigo-400 hover:underline"
-              >
+              <nuxt-link-locale to="" class="text-xs text-indigo-400 hover:underline">
                 {{ t("auth.forgotPassword") }}
               </nuxt-link-locale>
             </template>
           </VInput>
 
-          <VButton
-            type="submit"
-            variant="none"
-            :disabled="isLoading"
-            className="w-full flex items-center justify-center bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10"
-          >
+          <VButton type="submit" variant="none" :disabled="isLoading"
+            className="w-full flex items-center justify-center bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10">
             <VLoadingSpinner v-if="isLoading" size="sm" />
             <span v-else>{{ t("auth.signIn") }}</span>
           </VButton>
@@ -56,9 +36,7 @@
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-white/5"></div>
           </div>
-          <div
-            class="relative flex justify-center text-[10px] tracking-widest font-bold"
-          >
+          <div class="relative flex justify-center text-[10px] tracking-widest font-bold">
             <span class="px-4 text-gray-600 bg-[#0c0c0e]">
               {{ t("auth.orContinueWith") }}
             </span>
@@ -66,31 +44,23 @@
         </div>
 
         <!-- Social -->
-        <VButton
-          variant="none"
-          className="w-full py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-3 transition border bg-transparent hover:bg-white/5 border-white/10 text-white"
-        >
-          <icon name="devicon:google" class="w-4 h-4" />
+        <VButton variant="none"
+          className="w-full py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-3 transition border bg-transparent hover:bg-white/5 border-white/10 text-white">
+          <Icon name="devicon:google" class="w-4 h-4" />
           {{ t("auth.signInWithGoogle") }}
         </VButton>
 
         <!-- Register CTA -->
         <div class="mt-8 text-center">
           <p class="text-sm text-gray-500 mb-1">{{ t("auth.noAccount") }}</p>
-          <div
-            class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1"
-          >
-            <nuxt-link-locale
-              to="/auth/register"
-              class="text-orange-500 font-bold hover:text-orange-400 hover:underline transition"
-            >
+          <div class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1">
+            <nuxt-link-locale to="/auth/register"
+              class="text-orange-500 font-bold hover:text-orange-400 hover:underline transition">
               {{ t("auth.registerNow") }}
             </nuxt-link-locale>
             <span class="text-gray-600">{{ t("auth.or") }}</span>
-            <nuxt-link-locale
-              to="/auth/register"
-              class="text-indigo-400 font-medium hover:text-indigo-300 hover:underline transition"
-            >
+            <nuxt-link-locale to="/auth/register"
+              class="text-indigo-400 font-medium hover:text-indigo-300 hover:underline transition">
               {{ t("auth.startFreeTrial") }}
             </nuxt-link-locale>
           </div>

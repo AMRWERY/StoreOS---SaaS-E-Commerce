@@ -5,7 +5,7 @@
       variants[variant]?.wrapper
     ]">
       <div class="flex items-center gap-3">
-        <icon v-if="icon" :name="icon" :class="['text-xl shrink-0', variants[variant]?.icon]" />
+        <Icon v-if="icon" :name="icon" :class="['text-xl shrink-0', variants[variant]?.icon]" />
         <div class="text-sm font-medium">
           <slot />
         </div>

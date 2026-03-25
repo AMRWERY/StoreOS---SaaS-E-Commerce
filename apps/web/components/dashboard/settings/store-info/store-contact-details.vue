@@ -23,7 +23,7 @@
                 <option>Japan</option>
                 <option>USA</option>
               </select>
-              <icon name="ph:caret-down-bold" class="absolute end-3 top-1/2 -translate-y-1/2 text-gray-600" />
+              <Icon name="ph:caret-down-bold" class="absolute end-3 top-1/2 -translate-y-1/2 text-gray-600" />
             </div>
           </div>
         </div>

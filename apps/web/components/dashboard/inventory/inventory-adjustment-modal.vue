@@ -18,7 +18,7 @@
         <div class="px-8 py-6 flex items-center justify-between border-b border-white/5">
           <h2 class="text-xl font-bold text-white tracking-tight">Stock Adjustment</h2>
           <button @click="$emit('update:modelValue', false)" class="text-gray-400 hover:text-white transition-colors">
-            <icon name="ph:x-bold" class="text-xl" />
+            <Icon name="ph:x-bold" class="text-xl" />
           </button>
         </div>
 
@@ -78,7 +78,7 @@
                 <option>Damage</option>
                 <option>Correction</option>
               </select>
-              <icon name="ph:caret-down-bold"
+              <Icon name="ph:caret-down-bold"
                 class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
             </div>
           </div>

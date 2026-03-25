@@ -15,7 +15,7 @@
               </h3>
               <button @click="close"
                 class="text-gray-500 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/5">
-                <icon name="ph:x-bold" class="w-4 h-4" />
+                <Icon name="ph:x-bold" class="w-4 h-4" />
               </button>
             </div>
 

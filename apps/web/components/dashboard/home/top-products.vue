@@ -3,7 +3,7 @@
     <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl p-6 text-start h-full">
       <div class="flex justify-between items-center mb-8">
         <h3 class="font-bold">Top Products</h3>
-        <icon name="ph:dots-three-outline-fill"
+        <Icon name="ph:dots-three-outline-fill"
           class="text-gray-600 cursor-pointer hover:text-white transition-colors" />
       </div>
       <div class="space-y-6">

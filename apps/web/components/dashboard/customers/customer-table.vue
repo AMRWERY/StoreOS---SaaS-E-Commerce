@@ -52,13 +52,13 @@
           <div class="flex justify-end gap-3 text-gray-600">
             <VButton variant="none" className="hover:text-white transition-colors"
               :to="`/dashboard/customers/${item.id}`">
-              <icon name="ph:eye-bold" />
+              <Icon name="ph:eye-bold" />
             </VButton>
             <VButton variant="none" className="hover:text-white transition-colors">
-              <icon name="ph:shopping-cart-bold" />
+              <Icon name="ph:shopping-cart-bold" />
             </VButton>
             <VButton variant="none" className="hover:text-white transition-colors">
-              <icon name="ph:dots-three-vertical-bold" />
+              <Icon name="ph:dots-three-vertical-bold" />
             </VButton>
           </div>
         </template>

@@ -3,8 +3,7 @@
     <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden shadow-2xl max-w-7xl mx-auto">
       <div class="p-6 flex justify-between items-center border-b border-white/5">
         <h2 class="font-bold text-sm tracking-wide">Active Team Members</h2>
-        <span
-          class="bg-white/5 text-[10px] font-black px-2.5 py-1 rounded-full text-gray-500 tracking-widest">Total:
+        <span class="bg-white/5 text-[10px] font-black px-2.5 py-1 rounded-full text-gray-500 tracking-widest">Total:
           {{ members.length.toString().padStart(2, '0') }}</span>
       </div>
 
@@ -23,8 +22,7 @@
           <span class="text-xs text-gray-400 font-medium">{{ item.email }}</span>
         </template>
         <template #cell(role)="{ item }">
-          <span
-            :class="[getRoleClass(item.role), 'text-[9px] font-black px-2.5 py-1 rounded border tracking-widest']">
+          <span :class="[getRoleClass(item.role), 'text-[9px] font-black px-2.5 py-1 rounded border tracking-widest']">
             {{ item.role }}
           </span>
         </template>
@@ -33,7 +31,7 @@
         </template>
         <template #cell(actions)>
           <button class="text-gray-700 hover:text-white transition-colors">
-            <icon name="ph:dots-three-bold" />
+            <Icon name="ph:dots-three-bold" />
           </button>
         </template>
       </VTable>

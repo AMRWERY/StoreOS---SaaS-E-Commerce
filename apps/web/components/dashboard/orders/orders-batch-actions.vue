@@ -11,20 +11,20 @@
       <div class="flex items-center gap-1">
         <VButton variant="none"
           className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:text-white transition-colors">
-          <icon name="ph:check-circle-bold" class="text-indigo-400 text-sm" /> Confirm Selected
+          <Icon name="ph:check-circle-bold" class="text-indigo-400 text-sm" /> Confirm Selected
         </VButton>
         <VButton variant="none"
           className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:text-white transition-colors">
-          <icon name="ph:printer-bold" class="text-sm" /> Print Labels
+          <Icon name="ph:printer-bold" class="text-sm" /> Print Labels
         </VButton>
         <VButton variant="none"
           className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:text-white transition-colors">
-          <icon name="ph:export-bold" class="text-sm" /> Export
+          <Icon name="ph:export-bold" class="text-sm" /> Export
         </VButton>
         <div class="w-px h-6 bg-white/5 mx-2"></div>
         <VButton variant="none"
           className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-red-500/80 hover:text-red-500 transition-colors">
-          <icon name="ph:x-circle-bold" class="text-sm" /> Cancel Selected
+          <Icon name="ph:x-circle-bold" class="text-sm" /> Cancel Selected
         </VButton>
       </div>
     </div>

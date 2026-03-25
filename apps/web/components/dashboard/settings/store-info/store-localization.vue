@@ -15,7 +15,7 @@
                 class="w-full bg-[#161618] border border-white/5 rounded-lg px-5 py-3.5 text-sm outline-none appearance-none hover:border-white/10 focus:border-orange-500/50 transition-all">
                 <option>JPY (¥) - Japanese Yen</option>
               </select>
-              <icon name="ph:caret-up-down-bold" class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-600" />
+              <Icon name="ph:caret-up-down-bold" class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-600" />
             </div>
           </div>
           <div class="space-y-2">
@@ -25,7 +25,7 @@
                 class="w-full bg-[#161618] border border-white/5 rounded-lg px-5 py-3.5 text-sm outline-none appearance-none hover:border-white/10 focus:border-orange-500/50 transition-all">
                 <option>(GMT+09:00) Tokyo</option>
               </select>
-              <icon name="ph:caret-up-down-bold" class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-600" />
+              <Icon name="ph:caret-up-down-bold" class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-600" />
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
                 class="w-full bg-[#161618] border border-white/5 rounded-lg px-5 py-3.5 text-sm outline-none appearance-none hover:border-white/10 focus:border-orange-500/50 transition-all">
                 <option>English (International)</option>
               </select>
-              <icon name="ph:caret-up-down-bold" class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-600" />
+              <Icon name="ph:caret-up-down-bold" class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-600" />
             </div>
           </div>
         </div>

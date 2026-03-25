@@ -5,7 +5,8 @@
         { label: 'System', to: '/dashboard/settings' },
         { label: 'Configuration' },
         { label: 'Billing and Plan', active: true }
-      ]" class="mb-8" />
+      ]" />
+
       <header class="flex items-center justify-between mb-16">
         <div>
           <h1 class="text-3xl font-bold tracking-tight">Billing and Plan</h1>

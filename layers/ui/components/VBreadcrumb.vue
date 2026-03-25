@@ -12,7 +12,7 @@
           {{ item.label }}
         </component>
 
-        <icon v-if="Number(index) < items.length - 1" name="ph:caret-right-bold" class="text-[11px] rtl:rotate-180" />
+        <Icon v-if="Number(index) < items.length - 1" name="ph:caret-right-bold" class="text-[11px] rtl:rotate-180" />
       </template>
       <slot />
     </nav>
@@ -20,11 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-export interface BreadcrumbItem {
-  label: string;
-  to?: string;
-  active?: boolean;
-}
+import type { BreadcrumbItem } from "@/types/v-breadcrumb";
 
 withDefaults(
   defineProps<{

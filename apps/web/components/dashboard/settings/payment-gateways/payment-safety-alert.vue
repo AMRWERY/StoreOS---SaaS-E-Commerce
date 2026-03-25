@@ -4,7 +4,7 @@
       class="bg-orange-950/20 border border-orange-500/10 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-start gap-5 max-w-2xl">
         <div class="mt-1">
-          <icon name="ph:warning-octagon-bold" class="text-orange-500 text-2xl" />
+          <Icon name="ph:warning-octagon-bold" class="text-orange-500 text-2xl" />
         </div>
         <div>
           <h4 class="text-sm font-bold text-orange-200">Transaction Safety Lock</h4>

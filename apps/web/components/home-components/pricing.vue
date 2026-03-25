@@ -22,7 +22,7 @@
 
             <ul class="space-y-4 mb-10 flex-1">
               <li v-for="feat in tier.features" :key="feat" class="flex items-center gap-3 text-sm text-gray-300">
-                <icon name="lucide:check" class="w-4 h-4 text-indigo-500 shrink-0" />
+                <Icon name="lucide:check" class="w-4 h-4 text-indigo-500 shrink-0" />
                 {{ feat }}
               </li>
             </ul>

@@ -7,7 +7,7 @@
         <div @click="$emit('select-all')"
           class="w-4 h-4 border rounded cursor-pointer transition-all flex items-center justify-center"
           :class="isAllSelected ? 'bg-indigo-600 border-indigo-600' : 'border-white/10 bg-white/5'">
-          <icon v-if="isAllSelected" name="ph:check-bold" class="text-[10px] text-white" />
+          <Icon v-if="isAllSelected" name="ph:check-bold" class="text-[10px] text-white" />
         </div>
         Order & Customer
       </div>
@@ -30,7 +30,7 @@
           <div @click.stop="$emit('toggle-selection', order.id)"
             class="w-4 h-4 border rounded transition-all flex items-center justify-center shrink-0"
             :class="selectedIds.includes(order.id) ? 'bg-indigo-600 border-indigo-600' : 'border-white/20 bg-white/5 group-hover:border-white/40'">
-            <icon v-if="selectedIds.includes(order.id)" name="ph:check-bold" class="text-[10px] text-white" />
+            <Icon v-if="selectedIds.includes(order.id)" name="ph:check-bold" class="text-[10px] text-white" />
           </div>
           <VButton variant="none" :to="`/dashboard/orders/${order.id}`" @click.stop
             className="flex flex-col text-xs font-bold text-gray-500 hover:text-indigo-400 transition-colors w-12 shrink-0">
@@ -82,14 +82,14 @@
           <VButton variant="none"
             className="p-2 text-gray-500 hover:text-indigo-400 transition-colors hidden group-hover:block"
             @click.stop="">
-            <icon name="ph:check-circle-bold" class="text-lg" />
+            <Icon name="ph:check-circle-bold" class="text-lg" />
           </VButton>
           <VButton variant="none"
             className="p-2 text-gray-500 hover:text-red-400 transition-colors hidden group-hover:block" @click.stop="">
-            <icon name="ph:x-circle-bold" class="text-lg" />
+            <Icon name="ph:x-circle-bold" class="text-lg" />
           </VButton>
           <VButton variant="none" className="p-2 text-gray-500 hover:text-white transition-colors" @click.stop="">
-            <icon name="ph:dots-three-bold" class="text-lg" />
+            <Icon name="ph:dots-three-bold" class="text-lg" />
           </VButton>
         </div>
       </div>

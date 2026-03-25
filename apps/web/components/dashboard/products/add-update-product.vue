@@ -6,7 +6,8 @@
         { label: 'Catalog' },
         { label: 'Products', to: '/dashboard/products' },
         { label: isEdit ? 'Edit Product' : 'Create Product', active: true }
-      ]" class="mb-6" />
+      ]" />
+
       <div class="flex items-center gap-6">
         <VBackButton to="/dashboard/products" label="Products" />
         <div>
@@ -45,7 +46,7 @@
                       class="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm appearance-none focus:outline-none focus:border-indigo-500/50 outline-none transition-colors">
                       <option v-for="cat in categories" :key="cat" :value="cat">{{ cat }}</option>
                     </select>
-                    <icon name="ph:caret-down-bold"
+                    <Icon name="ph:caret-down-bold"
                       class="absolute end-5 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none" />
                   </div>
                 </div>
@@ -67,7 +68,7 @@
               <VFileUpload class="aspect-square [&>div]:h-full [&>div>div:first-child]:h-full"
                 wrapperClass="h-full w-full bg-black border-2 border-dashed border-white/5 rounded-2xl flex flex-col items-center justify-center group cursor-pointer hover:bg-white/[0.02] transition-all"
                 icon="" title="" subtitle="">
-                <icon name="ph:upload-simple-bold" class="text-2xl text-gray-700 group-hover:text-indigo-500 mb-2" />
+                <Icon name="ph:upload-simple-bold" class="text-2xl text-gray-700 group-hover:text-indigo-500 mb-2" />
                 <p class="text-[10px] font-bold text-gray-600">Drag & drop asset</p>
               </VFileUpload>
               <div
@@ -184,7 +185,7 @@
                   <span v-for="tag in product.tags" :key="tag"
                     class="bg-indigo-500/10 text-indigo-400 text-[9px] font-black px-2 py-1 rounded flex items-center gap-1.5">
                     {{ tag }}
-                    <icon name="ph:x-bold" class="cursor-pointer hover:text-white" />
+                    <Icon name="ph:x-bold" class="cursor-pointer hover:text-white" />
                   </span>
                   <input type="text" placeholder="+ Add"
                     class="bg-transparent text-[9px] font-bold outline-none w-12" />

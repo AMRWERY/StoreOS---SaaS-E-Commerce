@@ -7,7 +7,7 @@
           <div class="flex items-center gap-4">
             <div
               class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/10">
-              <icon name="ph:money-duotone" class="text-indigo-400 text-2xl" />
+              <Icon name="ph:money-duotone" class="text-indigo-400 text-2xl" />
             </div>
             <div>
               <h3 class="text-base font-bold">Cash on Delivery</h3>

@@ -7,7 +7,7 @@
       <VAccordion :items="matrixSections" v-model="expandedSection">
         <template #header="{ item }">
           <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center shrink-0">
-            <icon :name="item.icon" class="text-gray-500 group-hover:text-indigo-400 transition-colors" />
+            <Icon :name="item.icon" class="text-gray-500 group-hover:text-indigo-400 transition-colors" />
           </div>
           <div class="flex-1 text-start">
             <h3 class="text-sm font-bold">{{ item.id }}</h3>
@@ -27,15 +27,15 @@
         <template #content="{ item }">
           <!-- Contextual Search -->
           <div class="bg-black/40 border border-white/5 rounded-xl p-3 flex items-center gap-4 max-w-md">
-            <icon name="ph:magnifying-glass-bold" class="text-gray-600" />
+            <Icon name="ph:magnifying-glass-bold" class="text-gray-600" />
             <input type="text" placeholder="Quick search staff..." class="bg-transparent outline-none text-xs flex-1" />
             <div class="flex items-center gap-3 text-[9px] font-black text-gray-700">
               <span class="flex items-center gap-1">
-                <icon name="ph:file-text-bold" />
+                <Icon name="ph:file-text-bold" />
                 Report
               </span>
               <span class="flex items-center gap-1">
-                <icon name="ph:clock-counter-clockwise-bold" />
+                <Icon name="ph:clock-counter-clockwise-bold" />
                 Logs
               </span>
             </div>

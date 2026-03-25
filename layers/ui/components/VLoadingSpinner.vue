@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex items-center justify-center">
-      <icon name="svg-spinners:270-ring" :class="[sizeClass, colorClass, 'shrink-0']" />
+      <Icon name="svg-spinners:270-ring" :class="[sizeClass, colorClass, 'shrink-0']" />
     </div>
   </div>
 </template>

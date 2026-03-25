@@ -5,7 +5,7 @@
       <!-- Upload Dropzone (Default State) -->
       <div v-if="!selectedFile" @click="triggerFileSelect" :class="wrapperClass">
         <div v-if="icon" :class="iconWrapperClass">
-          <icon :name="icon" :class="iconClass" />
+          <Icon :name="icon" :class="iconClass" />
         </div>
 
         <slot>
@@ -23,40 +23,37 @@
         <!-- Image Preview -->
         <div v-if="isImage" class="aspect-video w-full relative">
           <img :src="previewUrl" class="w-full h-full object-cover" />
-          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-             <VButton @click="triggerFileSelect" variant="none" className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
-               <icon name="ph:pencil-simple-bold" class="text-white w-5 h-5" />
-             </VButton>
-             <VButton @click="removeFile" variant="none" className="p-2 bg-red-500/20 rounded-lg hover:bg-red-500/40 transition-colors">
-               <icon name="ph:trash-bold" class="text-red-500 w-5 h-5" />
-             </VButton>
+          <div
+            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+            <VButton @click="triggerFileSelect" variant="none"
+              className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
+              <Icon name="ph:pencil-simple-bold" class="text-white w-5 h-5" />
+            </VButton>
+            <VButton @click="removeFile" variant="none"
+              className="p-2 bg-red-500/20 rounded-lg hover:bg-red-500/40 transition-colors">
+              <Icon name="ph:trash-bold" class="text-red-500 w-5 h-5" />
+            </VButton>
           </div>
         </div>
 
         <!-- Non-Image File Details -->
         <div v-else class="p-6 flex items-center gap-4">
           <div class="w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center shrink-0">
-            <icon name="ph:file-bold" class="text-indigo-500 text-2xl" />
+            <Icon name="ph:file-bold" class="text-indigo-500 text-2xl" />
           </div>
           <div class="flex-1 min-w-0">
             <p class="text-sm font-bold truncate">{{ selectedFile.name }}</p>
             <p class="text-[11px] text-gray-500">{{ formatFileSize(selectedFile.size) }}</p>
           </div>
           <VButton @click="removeFile" variant="none" className="p-2 hover:bg-white/5 rounded-lg transition-colors">
-            <icon name="ph:x-bold" class="text-gray-500 w-4 h-4" />
+            <Icon name="ph:x-bold" class="text-gray-500 w-4 h-4" />
           </VButton>
         </div>
       </div>
 
       <!-- Hidden File Input -->
-      <input 
-        ref="fileInput" 
-        type="file" 
-        class="hidden" 
-        :accept="accept" 
-        :multiple="multiple"
-        @change="handleFileChange" 
-      />
+      <input ref="fileInput" type="file" class="hidden" :accept="accept" :multiple="multiple"
+        @change="handleFileChange" />
     </div>
   </div>
 </template>
@@ -93,7 +90,7 @@ const handleFileChange = (event: Event) => {
     const file = target.files[0];
     selectedFile.value = file;
     emit('change', file);
-    
+
     if (file.type.startsWith('image/')) {
       if (previewUrl.value) URL.revokeObjectURL(previewUrl.value);
       previewUrl.value = URL.createObjectURL(file);

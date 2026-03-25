@@ -15,7 +15,7 @@
           <div
             class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/40">
             <!-- Iconify Bold Check Icon -->
-            <icon name="ph:check-bold" class="text-white w-6 h-6" />
+            <Icon name="ph:check-bold" class="text-white w-6 h-6" />
           </div>
         </div>
 
@@ -36,7 +36,7 @@
             <VButton @click="copyToClipboard" variant="none"
               className="bg-white/5 hover:bg-white/10 border border-white/10 p-4 rounded-xl transition-colors group">
               <!-- Iconify Copy Icon -->
-              <icon name="ph:copy-simple" class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+              <Icon name="ph:copy-simple" class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
             </VButton>
           </div>
         </div>
@@ -46,7 +46,7 @@
           className="w-full max-w-md mx-auto bg-indigo-600 hover:bg-indigo-500 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-indigo-600/20 active:scale-[0.98]">
           Go to Dashboard
           <!-- Iconify Arrow Icon -->
-          <icon name="ph:arrow-end-bold" class="w-4 h-4" />
+          <Icon name="ph:arrow-end-bold" class="w-4 h-4" />
         </VButton>
       </div>
 
@@ -58,7 +58,7 @@
           <div
             class="w-10 h-10 rounded-lg bg-indigo-600/10 flex items-center justify-center mb-6 group-hover:bg-indigo-600/20 transition-colors">
             <!-- Dynamic Iconify Component -->
-            <icon :name="action.icon" class="w-5 h-5 text-indigo-500" />
+            <Icon :name="action.icon" class="w-5 h-5 text-indigo-500" />
           </div>
           <h3 class="font-bold text-sm mb-2">{{ action.title }}</h3>
           <p class="text-xs text-gray-500 leading-relaxed">{{ action.desc }}</p>
@@ -72,7 +72,7 @@
           class="text-indigo-400 text-xs font-bold flex items-center justify-center gap-1.5 hover:underline">
           Visit our Help Center
           <!-- Iconify External Link Icon -->
-          <icon name="ph:arrow-square-out" class="w-3.5 h-3.5" />
+          <Icon name="ph:arrow-square-out" class="w-3.5 h-3.5" />
         </nuxt-link-locale>
       </div>
     </div>

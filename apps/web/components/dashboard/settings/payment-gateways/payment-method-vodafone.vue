@@ -3,7 +3,7 @@
     <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl p-8 flex flex-col lg:flex-row items-center gap-12">
       <div class="flex items-center gap-6 lg:w-1/3 shrink-0">
         <div class="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center border border-red-500/10">
-          <icon name="ph:broadcast-bold" class="text-red-500 text-2xl" />
+          <Icon name="ph:broadcast-bold" class="text-red-500 text-2xl" />
         </div>
         <div>
           <h3 class="text-base font-bold">Vodafone Cash</h3>

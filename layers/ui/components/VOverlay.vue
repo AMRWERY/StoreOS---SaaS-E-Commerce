@@ -9,7 +9,7 @@
                         <div class="flex items-center gap-4">
                             <div
                                 class="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-2xl shadow-indigo-500/20">
-                                <icon name="ph:storefront-bold" class="text-4xl" />
+                                <Icon name="ph:storefront-bold" class="text-4xl" />
                             </div>
                             <div class="text-start">
                                 <h1 class="font-bold text-3xl leading-none text-white tracking-tight">StoreOS</h1>
@@ -57,6 +57,7 @@ defineProps<{
 }
 
 @keyframes pulse-slow {
+
     0%,
     100% {
         opacity: 1;

@@ -2,7 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@storeos/ui": ["../../layers/ui/index"],
+      "@storeos/ui/*": ["../../layers/ui/*"],
+      "@storeos/core": ["../../layers/core/index"],
+      "@storeos/core/*": ["../../layers/core/*"]
     }
   },
   "include": [".nuxt/nuxt.d.ts", "./**/*.ts", "./**/*.vue"]

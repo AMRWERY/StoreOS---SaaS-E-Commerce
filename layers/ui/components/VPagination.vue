@@ -12,7 +12,7 @@
         <!-- Prev -->
         <VButton variant="none" :disabled="currentPage === 1" @click="changePage(currentPage - 1)"
           className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:text-white hover:bg-white/5 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
-          <icon name="ph:caret-left-bold" class="text-sm" />
+          <Icon name="ph:caret-left-bold" class="text-sm" />
         </VButton>
 
         <!-- Page numbers -->
@@ -34,7 +34,7 @@
         <!-- Next -->
         <VButton variant="none" :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)"
           className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:text-white hover:bg-white/5 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
-          <icon name="ph:caret-right-bold" class="text-sm" />
+          <Icon name="ph:caret-right-bold" class="text-sm" />
         </VButton>
       </div>
     </div>
