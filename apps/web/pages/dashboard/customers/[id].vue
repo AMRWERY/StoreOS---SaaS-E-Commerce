@@ -1,12 +1,7 @@
 <template>
   <div>
     <div class="min-h-screen text-[#e1e1e1] pb-24">
-      <VBreadcrumb :items="[
-        { label: 'Dashboard', to: '/dashboard' },
-        { label: 'Audience' },
-        { label: 'Customers', to: '/dashboard/customers' },
-        { label: customer.name, active: true }
-      ]" />
+      <VBreadcrumb class="mb-6" :overrides="{ [String($route.params.id)]: customer.name }" />
 
       <!-- Top Header: Identity & Actions -->
       <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">

@@ -1,11 +1,7 @@
 <template>
   <div>
     <div class="min-h-screen text-[#e1e1e1] pb-32">
-      <VBreadcrumb :items="[
-        { label: 'System', to: '/dashboard/settings' },
-        { label: 'Configuration' },
-        { label: 'Billing and Plan', active: true }
-      ]" />
+      <VBreadcrumb />
 
       <header class="flex items-center justify-between mb-16">
         <div>

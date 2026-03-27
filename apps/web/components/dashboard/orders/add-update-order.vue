@@ -1,12 +1,7 @@
 <template>
   <div>
     <div class="min-h-screen bg-[#050505] text-[#e1e1e1] -mt-4 pb-20">
-      <VBreadcrumb :items="[
-        { label: 'Dashboard', to: '/dashboard' },
-        { label: 'Sales' },
-        { label: 'Orders', to: '/dashboard/orders' },
-        { label: isEdit ? 'Edit Order' : 'Create Order', active: true }
-      ]" />
+      <VBreadcrumb class="mb-6" :overrides="{ 'add-update-order': isEdit ? 'Edit Order' : 'Create Order' }" />
 
       <!-- Header -->
       <header class="flex items-center justify-between mb-10">

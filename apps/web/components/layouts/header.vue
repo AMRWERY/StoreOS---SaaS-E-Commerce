@@ -6,9 +6,39 @@
           <h2 class="text-xl md:text-2xl font-bold flex items-center gap-2">
             {{ greeting }}, Amr {{ emoji }}
           </h2>
-          <p class="text-[10px] font-black text-gray-600 tracking-widest mt-1">
-            March 21, 2026
-          </p>
+          <div class="flex items-center gap-2 text-xs font-black text-gray-600 tracking-widest mt-1">
+            <span>{{ currentDate }}</span>
+            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+            
+            <ClientOnly>
+              <div class="flex items-center font-bold text-gray-500 overflow-hidden relative">
+                <div class="relative w-4 h-4 inline-flex justify-center">
+                  <Transition name="time-slide">
+                    <span :key="timeParts.hour" class="absolute">{{ timeParts.hour }}</span>
+                  </Transition>
+                </div>
+                <span class="mx-0.5">:</span>
+                <div class="relative w-4 h-4 inline-flex justify-center">
+                  <Transition name="time-slide">
+                    <span :key="timeParts.minute" class="absolute">{{ timeParts.minute }}</span>
+                  </Transition>
+                </div>
+                <span class="mx-0.5">:</span>
+                <div class="relative w-4 h-4 inline-flex justify-center">
+                  <Transition name="time-slide">
+                    <span :key="timeParts.second" class="absolute">{{ timeParts.second }}</span>
+                  </Transition>
+                </div>
+                <span class="w-1"></span>
+                <div class="relative w-5 h-4 inline-flex justify-center">
+                  <Transition name="time-slide">
+                    <span :key="timeParts.ampm" class="absolute tracking-tight">{{ timeParts.ampm }}</span>
+                  </Transition>
+                </div>
+              </div>
+            </ClientOnly>
+            
+          </div>
         </div>
       </div>
 
@@ -49,7 +79,7 @@ defineEmits(["toggle-sidebar"]);
 const { locale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 const router = useRouter();
-const { greeting, emoji } = useGreeting();
+const { greeting, emoji, currentDate, timeParts } = useGreeting();
 
 const isEnglish = computed(() => locale.value === "en");
 const localeLabel = computed(() => (isEnglish.value ? "ع" : "EN"));
@@ -71,3 +101,18 @@ const switchLocale = async () => {
   }, 200);
 };
 </script>
+
+<style scoped>
+.time-slide-enter-active,
+.time-slide-leave-active {
+  transition: all 0.3s ease;
+}
+.time-slide-enter-from {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.time-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+</style>

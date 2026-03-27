@@ -1,10 +1,7 @@
 <template>
   <div>
-    <VBreadcrumb :items="[
-      { label: 'Dashboard', to: '/dashboard' },
-      { label: 'Marketing' },
-      { label: 'Coupons', active: true }
-    ]" />
+    <VBreadcrumb />
+    
     <header class="flex items-center justify-between">
       <div class="flex items-center gap-3">
         <h1 class="text-3xl font-bold tracking-tight">Coupons</h1>

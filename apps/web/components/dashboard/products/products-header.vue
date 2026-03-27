@@ -1,10 +1,7 @@
 <template>
   <div>
-    <VBreadcrumb :items="[
-      { label: 'Dashboard', to: '/dashboard' },
-      { label: 'Catalog' },
-      { label: 'Products', active: true }
-    ]" />
+    <VBreadcrumb />
+
     <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
       <div>
         <div class="flex items-center gap-3">

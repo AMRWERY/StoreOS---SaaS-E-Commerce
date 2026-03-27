@@ -1,10 +1,7 @@
 <template>
   <div>
-    <VBreadcrumb :items="[
-      { label: 'Dashboard', to: '/dashboard' },
-      { label: 'Catalog' },
-      { label: 'Inventory', active: true }
-    ]" />
+    <VBreadcrumb />
+
     <div class="space-y-6">
       <!-- Top Row -->
       <header class="flex items-center justify-between">

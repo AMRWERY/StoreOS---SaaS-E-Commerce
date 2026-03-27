@@ -1,11 +1,8 @@
 <template>
   <div>
     <div class="min-h-screen text-[#e1e1e1] pb-32 selection:bg-indigo-500/30">
-      <VBreadcrumb :items="[
-        { label: 'System', to: '/dashboard/settings' },
-        { label: 'Configuration' },
-        { label: 'Store Information', active: true }
-      ]" class="max-w-6xl mx-auto mb-4" />
+      <VBreadcrumb class="max-w-6xl mx-auto mb-4" />
+      
       <header class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
         <div>
           <h1 class="text-3xl font-bold tracking-tight">Store Information</h1>

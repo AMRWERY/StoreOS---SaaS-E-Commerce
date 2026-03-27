@@ -1,7 +1,8 @@
 export function useGreeting() {
-  const getGreeting = () => {
-    const hour = new Date().getHours();
+  const now = useNow();
 
+  const greetingData = computed(() => {
+    const hour = now.value.getHours();
     let greeting = "";
     let emoji = "";
 
@@ -20,12 +21,28 @@ export function useGreeting() {
     }
 
     return { greeting, emoji };
-  };
+  });
 
-  const { greeting, emoji } = getGreeting();
+  const currentDate = computed(() => {
+    return new Intl.DateTimeFormat('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    }).format(now.value);
+  });
+
+  const currentTime = useDateFormat(now, 'hh:mm:ss A');
+  const timeParts = computed(() => {
+    const [time, ampm] = currentTime.value.split(' ');
+    const [hour, minute, second] = time.split(':');
+    return { hour, minute, second, ampm };
+  });
 
   return {
-    greeting,
-    emoji,
+    greeting: computed(() => greetingData.value.greeting),
+    emoji: computed(() => greetingData.value.emoji),
+    currentDate,
+    currentTime,
+    timeParts,
   };
 }

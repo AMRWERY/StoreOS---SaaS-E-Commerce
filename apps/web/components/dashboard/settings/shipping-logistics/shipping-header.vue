@@ -1,10 +1,6 @@
 <template>
   <div>
-    <VBreadcrumb :items="[
-      { label: 'System', to: '/dashboard/settings' },
-      { label: 'Configuration' },
-      { label: 'Shipping Logistics', active: true }
-    ]" />
+    <VBreadcrumb />
 
     <header class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start justify-between gap-6 mb-12">
       <div>

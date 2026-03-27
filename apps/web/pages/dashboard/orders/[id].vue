@@ -1,18 +1,15 @@
 <template>
   <div>
     <div class="min-h-screen text-[#e1e1e1] -mt-4">
-      <VBreadcrumb :items="[
-        { label: 'Dashboard', to: '/dashboard' },
-        { label: 'Sales' },
-        { label: 'Orders', to: '/dashboard/orders' },
-        { label: orderId, active: true }
-      ]" class="mb-4" />
+      <div class="flex items-center gap-2 mb-3">
+        <VBackButton to="/dashboard/orders" label="Orders" />
+      </div>
+
+      <VBreadcrumb class="mb-4" :overrides="{ [String($route.params.id)]: orderId }" />
+
       <!-- Top Breadcrumb & Actions -->
       <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div>
-          <div class="flex items-center gap-2 mb-3">
-            <VBackButton to="/dashboard/orders" label="Orders" />
-          </div>
           <div class="flex items-center gap-4">
             <h1 class="text-3xl font-bold tracking-tight">{{ orderId }}</h1>
             <div class="flex gap-2">
@@ -270,9 +267,9 @@
 </template>
 
 <script lang="ts" setup>
-// Order Metadata
-const orderId = "ORD-0889"
-const createdAt = "Oct 24, 2023, 10:45 AM"
+const route = useRoute()
+const orderId = computed(() => `ORD-${route.params.id}`)
+const createdAt = "March 15, 2026, 10:45 AM"
 
 const itemHeaders = [
   { label: 'Product', key: 'product', align: 'start' },
@@ -314,7 +311,7 @@ definePageMeta({
 });
 
 useHead({
-  titleTemplate: () => 'Order ' + orderId,
+  titleTemplate: () => 'Order ' + orderId.value,
 });
 </script>
 
