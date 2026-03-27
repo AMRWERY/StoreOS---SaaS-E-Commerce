@@ -23,7 +23,7 @@
       <div class="p-4">
         <VTable :headers="headers" :items="invoices">
           <template #cell(id)="{ item }">
-            <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-indigo-400 transition-colors">
+            <span class="text-xs font-bold text-gray-500 group-hover:text-indigo-400 transition-colors">
               {{ item.id }}
             </span>
           </template>

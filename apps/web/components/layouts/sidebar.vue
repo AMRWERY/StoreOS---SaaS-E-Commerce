@@ -79,8 +79,11 @@
         className="text-[10px] font-black text-indigo-400 tracking-widest px-4 hover:underline block text-start">
         Upgrade
       </VButton>
-      <VButton variant="none"
-        className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-white transition-colors group">
+      <VButton variant="none" to="/dashboard/user-profile"
+        className="w-full flex items-center gap-3 px-4 py-3 transition-all group rounded-xl" :class="route.path.includes('/dashboard/user-profile')
+          ? 'bg-indigo-500/10 text-indigo-500 shadow-sm'
+          : 'text-gray-500 hover:text-white'
+          ">
         <Icon name="ph:user-circle" class="text-xl" />
         <span class="text-sm truncate">User Profile</span>
       </VButton>

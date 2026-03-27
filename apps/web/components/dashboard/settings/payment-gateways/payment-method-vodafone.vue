@@ -13,7 +13,7 @@
       <div class="flex-1 w-full flex flex-col md:flex-row items-end gap-4">
         <div class="flex-1 w-full">
           <VInput label="Collection_Wallet_Number" modelValue="10 1234 5678" readonly
-            inputClass="bg-black ps-16 font-mono text-white text-sm">
+            inputClass="bg-black ps-16 text-white text-sm">
             <template #prefix>
               <span
                 class="absolute start-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold border-e border-white/10 pe-3 text-sm flex items-center">+20</span>

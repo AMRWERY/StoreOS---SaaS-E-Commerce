@@ -30,7 +30,7 @@
             ]" v-model="settings.payment">
             <div class="pt-4 border-t border-white/5 flex justify-between items-center">
               <span class="text-xs text-gray-600 font-medium italic">Webhook Dispatch</span>
-              <span class="text-[9px] font-mono text-gray-700">POST /v2/hooks</span>
+              <span class="text-[9px] text-gray-700">POST /v2/hooks</span>
             </div>
           </notification-config-card>
 
