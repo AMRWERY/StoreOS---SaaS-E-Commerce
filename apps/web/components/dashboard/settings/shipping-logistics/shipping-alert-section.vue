@@ -8,7 +8,7 @@
           complete checkout.
         </p>
         <button
-          class="mt-2 text-[10px] font-black uppercase tracking-widest text-red-400 border-b border-red-400/30 pb-0.5 hover:text-red-200 hover:border-red-200 transition-all">
+          class="mt-2 text-[10px] font-black tracking-widest text-red-400 border-b border-red-400/30 pb-0.5 hover:text-red-200 hover:border-red-200 transition-all">
           Fix Mapping Now
         </button>
       </div>

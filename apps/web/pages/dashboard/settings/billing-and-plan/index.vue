@@ -1,13 +1,29 @@
 <template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] pb-32">
+    <div class="min-h-screen text-[#e1e1e1] pb-12">
       <VBreadcrumb />
 
-      <header class="flex items-center justify-between mb-16">
-        <div>
-          <h1 class="text-3xl font-bold tracking-tight">Billing and Plan</h1>
+      <BillingHeader />
+
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+        <!-- Left Column -->
+        <div class="lg:col-span-8 space-y-8">
+          <billing-active-plan />
+
+          <billing-feature-access />
         </div>
-      </header>
+
+        <!-- Right Column -->
+        <aside class="lg:col-span-4 space-y-8">
+          <billing-payment-method />
+
+          <billing-realtime-usage />
+        </aside>
+
+        <!-- Full-width Billing History -->
+        <billing-history class="lg:col-span-12" />
+      </div>
     </div>
   </div>
 </template>
@@ -15,9 +31,9 @@
 <script lang="ts" setup>
 definePageMeta({
   layout: 'dashboard'
-});
+})
 
 useHead({
   titleTemplate: () => 'Settings - Billing and Plan',
-});
+})
 </script>

@@ -20,7 +20,7 @@
           <div class="p-8 border-b border-white/5 bg-white/[0.01] sticky top-0 z-10">
             <div class="flex items-center justify-between">
               <div>
-                <p class="text-[10px] font-black text-gray-600 tracking-[0.2em] uppercase mb-1">
+                <p class="text-[10px] font-black text-gray-600 tracking-[0.2em] mb-1">
                   Delivery Stats
                 </p>
                 <h2 class="text-xl font-bold text-white tracking-tight">Node Overview</h2>
@@ -38,12 +38,12 @@
           <div class="flex-1 p-8 space-y-8">
             <!-- Delivery Performance -->
             <section>
-              <h4 class="text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-6">
+              <h4 class="text-[10px] font-black text-gray-600 tracking-[0.2em] mb-6">
                 Delivery Performance
               </h4>
               <div class="space-y-6">
                 <div v-for="metric in metrics" :key="metric.label" class="space-y-3">
-                  <div class="flex justify-between text-[10px] font-bold uppercase">
+                  <div class="flex justify-between text-[10px] font-bold">
                     <span class="text-gray-500">{{ metric.label }}</span>
                     <span :class="metric.valueClass">{{ metric.value }}</span>
                   </div>
@@ -60,7 +60,7 @@
 
             <!-- Active Sinks -->
             <section>
-              <h4 class="text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-6">
+              <h4 class="text-[10px] font-black text-gray-600 tracking-[0.2em] mb-6">
                 Active Sinks
               </h4>
               <div class="space-y-5">
@@ -85,7 +85,7 @@
               <div class="absolute bottom-5 start-5">
                 <div class="flex items-center gap-2">
                   <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span class="text-[10px] font-black text-indigo-400 uppercase tracking-widest">
+                  <span class="text-[10px] font-black text-indigo-400 tracking-widest">
                     Node_Status: Optimal
                   </span>
                 </div>

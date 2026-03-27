@@ -17,7 +17,7 @@
         </div>
         <div>
           <h3 class="text-base font-bold">{{ title }}</h3>
-          <p class="text-[9px] font-black text-gray-600 uppercase tracking-widest mt-1">{{ subtitle }}</p>
+          <p class="text-[9px] font-black text-gray-600 tracking-widest mt-1">{{ subtitle }}</p>
         </div>
       </div>
 

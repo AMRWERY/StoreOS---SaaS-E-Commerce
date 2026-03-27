@@ -21,7 +21,7 @@
         <template #cell(regions)="{ item }">
           <div class="flex items-center gap-1.5 flex-wrap">
             <span v-for="region in item.regions" :key="region"
-              class="bg-white/5 text-[9px] font-black text-gray-500 px-2 py-0.5 rounded uppercase tracking-tighter">
+              class="bg-white/5 text-[9px] font-black text-gray-500 px-2 py-0.5 rounded tracking-tighter">
               {{ region }}
             </span>
             <span v-if="item.extraCount" class="text-[9px] font-bold text-gray-700">+{{ item.extraCount }}</span>
@@ -48,7 +48,7 @@
 
       <div class="p-6 border-t border-white/5 text-center">
         <button
-          class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-600 hover:text-indigo-400 transition-colors flex items-center justify-center gap-2 mx-auto">
+          class="text-[10px] font-black tracking-[0.2em] text-gray-600 hover:text-indigo-400 transition-colors flex items-center justify-center gap-2 mx-auto">
           <Icon name="ph:caret-up-down-bold" />
           View all 14 zones
         </button>

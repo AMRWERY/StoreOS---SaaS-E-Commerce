@@ -3,7 +3,7 @@
     <section class="bg-[#0c0c0e] border border-white/5 rounded-2xl p-6">
       <div class="flex items-center gap-3 mb-6">
         <Icon name="ph:chart-bar-bold" class="text-indigo-400 text-lg" />
-        <h3 class="text-xs font-black uppercase tracking-widest text-gray-400">Quick Metrics</h3>
+        <h3 class="text-xs font-black tracking-widest text-gray-400">Quick Metrics</h3>
       </div>
       <div class="space-y-2">
         <div v-for="m in metrics" :key="m.label"
