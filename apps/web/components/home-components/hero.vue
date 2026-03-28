@@ -106,7 +106,7 @@
       <!-- Video Player -->
       <div class="relative group rounded-xl overflow-hidden bg-bg-base border border-border-subtle shadow-2xl">
         <video ref="videoRef" class="w-full aspect-video object-cover" controls preload="metadata"
-          poster="/storeos-demo-poster.jpg">
+          poster="/storeos-demo-poster.png">
           <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
         </video>
       </div>
