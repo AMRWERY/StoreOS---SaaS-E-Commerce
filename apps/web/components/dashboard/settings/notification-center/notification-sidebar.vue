@@ -78,7 +78,7 @@
             <!-- Node Status -->
             <section class="rounded-2xl overflow-hidden relative group border border-border-subtle">
               <img
-                src="/img/product-01.png"
+                src="/img/product-01.avif"
                 class="w-full h-40 object-cover grayscale opacity-40 group-hover:opacity-60 transition-opacity"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />

@@ -49,7 +49,7 @@
         <div class="col-span-2 flex flex-col items-center">
           <div class="flex -space-s-2 mb-1">
             <div class="w-6 h-6 bg-bg-elevated border border-black rounded-md overflow-hidden relative">
-              <img :src="`/img/product-0${(order.id % 3) + 1}.png`" class="w-full h-full object-cover" />
+              <img :src="`/img/product-0${(order.id % 3) + 1}.avif`" class="w-full h-full object-cover" />
             </div>
             <div v-if="order.itemsCount > 1"
               class="w-6 h-6 bg-bg-elevated border border-black rounded-md flex items-center justify-center text-[8px] font-bold text-tx-secondary">

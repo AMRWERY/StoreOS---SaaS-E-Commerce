@@ -92,7 +92,7 @@ const stockList = ref([
     incoming: 24,
     threshold: 10,
     lastUpdated: '2h ago',
-    image: '/img/product-02.png'
+    image: '/img/product-02.avif'
   },
   {
     id: 2,
@@ -103,7 +103,7 @@ const stockList = ref([
     incoming: 0,
     threshold: 15,
     lastUpdated: '5h ago',
-    image: '/img/product-03.png'
+    image: '/img/product-03.avif'
   },
   {
     id: 3,
@@ -114,7 +114,7 @@ const stockList = ref([
     incoming: 12,
     threshold: 20,
     lastUpdated: '1d ago',
-    image: '/img/product-04.png'
+    image: '/img/product-04.avif'
   },
   {
     id: 4,
@@ -125,7 +125,7 @@ const stockList = ref([
     incoming: 0,
     threshold: 5,
     lastUpdated: '3h ago',
-    image: '/img/product-05.png'
+    image: '/img/product-05.avif'
   },
   {
     id: 5,
@@ -136,7 +136,7 @@ const stockList = ref([
     incoming: 0,
     threshold: 5,
     lastUpdated: '2d ago',
-    image: '/img/product-07.png'
+    image: '/img/product-07.avif'
   }
 ])
 

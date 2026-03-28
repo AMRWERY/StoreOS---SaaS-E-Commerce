@@ -56,7 +56,7 @@
         <notifications />
 
         <!-- Avatar -->
-        <img src="/img/fake-user.png" class="w-10 h-10 rounded-full border border-border-default shrink-0" alt="fake-user" />
+        <img src="/img/fake-user.avif" class="w-10 h-10 rounded-full border border-border-default shrink-0" alt="fake-user" />
 
         <!-- Mobile Menu Toggle -->
         <VButton @click="$emit('toggle-sidebar')" variant="none"

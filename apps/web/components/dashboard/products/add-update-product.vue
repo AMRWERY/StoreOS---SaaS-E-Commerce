@@ -68,12 +68,12 @@
               </VFileUpload>
               <div
                 class="aspect-square bg-bg-elevated rounded-2xl overflow-hidden border border-border-subtle relative group cursor-pointer">
-                <img src="/img/product-01.png"
+                <img src="/img/product-01.avif"
                   class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all opacity-60" />
               </div>
               <div
                 class="aspect-square bg-bg-elevated rounded-2xl overflow-hidden border border-border-subtle relative group cursor-pointer">
-                <img src="/img/product-02.png"
+                <img src="/img/product-02.avif"
                   class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all opacity-60" />
                 <div
                   class="absolute top-2 end-2 w-5 h-5 bg-bg-overlay rounded-md flex items-center justify-center text-[10px]">

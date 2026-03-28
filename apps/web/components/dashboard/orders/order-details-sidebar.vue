@@ -54,7 +54,7 @@
             <div class="space-y-4">
               <div v-for="i in 2" :key="i" class="flex items-center gap-4">
                 <div class="w-12 h-12 bg-bg-elevated border border-border-subtle rounded-xl overflow-hidden shrink-0">
-                  <img :src="`/img/product-0${(i % 3) + 1}.png`"
+                  <img :src="`/img/product-0${(i % 3) + 1}.avif`"
                     class="w-full h-full object-cover grayscale opacity-80" />
                 </div>
                 <div class="flex-1 min-w-0">
