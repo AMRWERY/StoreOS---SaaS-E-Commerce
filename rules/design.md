@@ -1,4 +1,5 @@
 # StoreOS — Design System
+
 > This file is the single source of truth for all design decisions.
 > Every Stitch prompt references this file. Do not deviate from these specs.
 
@@ -8,10 +9,10 @@
 
 StoreOS has **two distinct apps** sharing the same brand:
 
-| App | Audience | Aesthetic |
-|-----|----------|-----------|
+| App                    | Audience             | Aesthetic                                                |
+| ---------------------- | -------------------- | -------------------------------------------------------- |
 | **Merchant Dashboard** | Store owners & staff | Dark, dense, data-rich — Bloomberg Terminal meets Linear |
-| **Storefront** | Customers / shoppers | Light, clean, spacious — modern e-commerce, Shopify-like |
+| **Storefront**         | Customers / shoppers | Light, clean, spacious — modern e-commerce, Shopify-like |
 
 The design must feel **operational and professional** for merchants,
 and **trustworthy and inviting** for customers.
@@ -107,7 +108,7 @@ MONOSPACE FONT:  IBM Plex Mono
   — Import: https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600
 
 RULE: Any number shown in a UI must use IBM Plex Mono.
-      This includes: EGP 450, #ORD-089, 24 units, 92%, 03/14/2025
+      This includes: EGP 450, #ORD-089, 24 units, 92%, 03/14/2026
 ```
 
 ### Type Scale

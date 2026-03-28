@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1>Products</h1>
+    <div class="space-y-0">
+      <div class="py-8 px-12 md:px-24 max-w-7xl mx-auto">
+        <h1>Products</h1>
+      </div>
+    </div>
   </div>
 </template>
 

@@ -30,17 +30,17 @@ const problems = [
   {
     title: 'Taking orders on WhatsApp',
     desc: 'Losing track of screenshots, manual follow-ups, and chaotic group chats that lead to missed sales.',
-    icon: 'lucide:message-square'
+    icon: 'ph:chat-centered-dots-bold'
   },
   {
     title: 'Managing Inventory on Excel',
     desc: 'Overselling products because stock levels aren\'t synced. Manual updates that are never actually up to date.',
-    icon: 'lucide:file-spreadsheet'
+    icon: 'ph:file-xls-bold'
   },
   {
     title: 'No idea of profitability',
     desc: 'Revenue is coming in, but you don\'t know your net margin after shipping, fees, and returns.',
-    icon: 'lucide:bar-chart-3'
+    icon: 'ph:chart-bar-bold'
   }
 ]
 </script>

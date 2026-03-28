@@ -29,8 +29,8 @@
           </div>
           <div class="flex items-center gap-2 pt-2">
             <Icon name="ph:info-bold" class="text-accent text-sm" />
-            <p class="text-[10px] text-tx-secondary">DNS settings are required after connecting. <a href="#"
-                class="text-brand hover:underline">Read Guide</a></p>
+            <p class="text-[10px] text-tx-secondary">DNS settings are required after connecting. <nuxt-link-locale to=""
+                class="text-brand hover:underline">Read Guide</nuxt-link-locale></p>
           </div>
         </div>
       </div>

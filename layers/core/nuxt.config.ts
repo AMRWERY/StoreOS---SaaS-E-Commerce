@@ -16,9 +16,10 @@ export default defineNuxtConfig({
   i18n: {
     strategy: "prefix",
     defaultLocale: "en",
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://storeos.app",
     locales: [
-      { code: "en", name: "English", file: "en.json" },
-      { code: "ar", name: "العربية", file: "ar.json", dir: "rtl" },
+      { code: "en", name: "English", file: "en.json", iso: "en-US", language: "en-US" },
+      { code: "ar", name: "العربية", file: "ar.json", dir: "rtl", iso: "ar-SA", language: "ar-SA" },
     ],
     lazy: true,
     langDir: "./locales/",

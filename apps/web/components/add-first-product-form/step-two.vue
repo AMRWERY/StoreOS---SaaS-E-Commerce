@@ -80,7 +80,7 @@
     <div class="mt-8 flex items-center gap-2 text-xs text-tx-muted">
       <Icon name="ph:question-fill" class="text-sm" />
       <span>Need help with your setup?</span>
-      <a href="#" class="text-brand font-bold hover:underline">Contact support</a>
+      <nuxt-link-locale to="" class="text-brand font-bold hover:underline">Contact support</nuxt-link-locale>
     </div>
 
   </div>

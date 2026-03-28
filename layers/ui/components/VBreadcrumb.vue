@@ -3,14 +3,14 @@
     <nav class="flex items-center gap-2 text-[11px] font-black text-tx-muted tracking-[0.3em] mb-4"
       aria-label="Breadcrumb">
       <template v-for="(item, index) in computedItems" :key="`${item.label}-${index}`">
-        <NuxtLinkLocale v-if="item.to" :to="item.to" :class="[
+        <nuxt-link-locale v-if="item.to" :to="item.to" :class="[
           'whitespace-nowrap',
           item.active
             ? 'text-brand'
             : 'text-tx-muted hover:text-tx-secondary',
         ]">
           {{ item.label }}
-        </NuxtLinkLocale>
+        </nuxt-link-locale>
         <span v-else :class="[
           'whitespace-nowrap',
           item.active

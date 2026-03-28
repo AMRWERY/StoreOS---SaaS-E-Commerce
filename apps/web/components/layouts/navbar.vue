@@ -8,7 +8,7 @@
               <Icon name="ph:storefront-bold" class="text-xl" />
             </div>
             <div>
-              <h1 class="font-bold text-lg leading-none text-tx-primary">StoreOS</h1>
+              <h1 class="font-bold text-lg leading-none text-tx-primary">Store<span class="text-brand">OS</span></h1>
               <p class="text-[9px] text-tx-secondary tracking-[0.2em] font-semibold mt-1">Global Merchant</p>
             </div>
           </nuxt-link-locale>
@@ -40,6 +40,7 @@
         </div>
       </div>
     </nav>
+    
     <VOverlay :show="showOverlay" />
   </div>
 </template>

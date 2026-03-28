@@ -23,8 +23,9 @@
                 {{ customer.email }}
               </div>
             </div>
-            <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mt-3">Member Since {{ customer.memberSince
-            }}</p>
+            <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mt-3">Member Since {{
+              customer.memberSince
+              }}</p>
           </div>
         </div>
 
@@ -68,7 +69,8 @@
           <div class="px-4 py-3.5 flex-1">
             <!-- Orders Tab -->
             <div v-if="activeTab === 'Orders'">
-              <div class="grid grid-cols-4 text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-6 px-4">
+              <div
+                class="grid grid-cols-4 text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-6 px-4">
                 <span>Order #</span>
                 <span class="text-center">Status</span>
                 <span class="text-center">Date</span>
@@ -78,8 +80,9 @@
               <div class="space-y-3">
                 <div v-for="order in orders" :key="order.id"
                   class="grid grid-cols-4 items-center p-4 rounded-xl hover:bg-bg-elevated transition-all border border-transparent hover:border-border-subtle cursor-pointer group/row">
-                  <span class="text-xs font-bold font-mono text-tx-secondary group-hover/row:text-brand transition-colors">{{
-                    order.id }}</span>
+                  <span
+                    class="text-xs font-bold font-mono text-tx-secondary group-hover/row:text-brand transition-colors">{{
+                      order.id }}</span>
                   <div class="flex justify-center">
                     <span :class="[order.color, 'text-[9px] font-black px-3 py-1 rounded-md tracking-widest']">
                       {{ order.status }}
@@ -117,14 +120,14 @@
               <div class="space-y-6">
                 <div v-for="note in notes" :key="note.id"
                   class="relative ps-8 border-s border-border-subtle last:border-s-transparent">
-                  <div
-                    class="absolute -start-1 top-0 w-2 h-2 rounded-full bg-brand shadow-lg shadow-indigo-500/50">
+                  <div class="absolute -start-1 top-0 w-2 h-2 rounded-full bg-brand shadow-lg shadow-indigo-500/50">
                   </div>
                   <div
                     class="bg-bg-elevated border border-border-subtle rounded-2xl p-6 hover:border-border-default transition-colors">
                     <div class="flex items-center justify-between mb-3">
-                      <span class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">{{ note.author }} • {{
-                        note.date }}</span>
+                      <span class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">{{ note.author }}
+                        • {{
+                          note.date }}</span>
                       <button class="text-tx-muted hover:text-danger transition-colors">
                         <Icon name="ph:trash-bold" />
                       </button>
@@ -149,7 +152,8 @@
                     <span v-if="activity.target" class="text-brand font-bold capitalize">{{ activity.target
                     }}</span>
                   </p>
-                  <p class="text-[10px] text-tx-muted mt-1 font-semibold uppercase tracking-[0.6px]">{{ activity.date }}</p>
+                  <p class="text-[10px] text-tx-muted mt-1 font-semibold uppercase tracking-[0.6px]">{{ activity.date }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -211,8 +215,7 @@
             <div class="space-y-3">
               <div v-for="address in addresses" :key="address.label"
                 class="flex items-start gap-4 p-4 bg-bg-overlay rounded-xl border border-border-subtle hover:border-brand/30 transition-all group/addr cursor-pointer">
-                <Icon :name="address.icon"
-                  class="text-brand mt-1 group-hover/addr:scale-110 transition-transform" />
+                <Icon :name="address.icon" class="text-brand mt-1 group-hover/addr:scale-110 transition-transform" />
                 <div>
                   <h4 class="text-xs font-bold">{{ address.label }}</h4>
                   <p class="text-[10px] text-tx-secondary mt-1 leading-relaxed">{{ address.value }}</p>
@@ -244,7 +247,8 @@
                 <Icon name="ph:shield-check-fill" class="text-success text-2xl" />
               </div>
               <div>
-                <h3 class="text-[10px] font-semibold text-tx-secondary uppercase tracking-[0.6px] mb-1">Risk Analysis</h3>
+                <h3 class="text-[10px] font-semibold text-tx-secondary uppercase tracking-[0.6px] mb-1">Risk Analysis
+                </h3>
                 <div class="flex items-center gap-2">
                   <div class="w-2 h-2 rounded-full bg-success animate-pulse"></div>
                   <span class="text-[10px] font-black text-success tracking-widest">Low_Risk_Score:
@@ -268,7 +272,8 @@
           class="flex items-center gap-2 text-[10px] font-bold text-tx-secondary tracking-widest border-e border-border-default pe-6">
           <Icon name="ph:command-bold" class="text-sm" />
           <span>Commands</span>
-          <span class="ms-2 px-1.5 py-0.5 bg-bg-elevated border border-border-default rounded text-[8px] text-tx-secondary">⌘K</span>
+          <span
+            class="ms-2 px-1.5 py-0.5 bg-bg-elevated border border-border-default rounded text-[8px] text-tx-secondary">⌘K</span>
         </div>
         <div class="flex items-center gap-2">
           <div class="group relative">
@@ -353,10 +358,10 @@ const addresses = [
 ]
 
 const orders = [
-  { id: '#ORD-9921', status: 'DELIVERED', date: 'Feb 24, 2024', total: '1,240.00', color: 'text-emerald-500 bg-emerald-500/10' },
-  { id: '#ORD-9844', status: 'IN TRANSIT', date: 'Feb 18, 2024', total: '450.50', color: 'text-blue-400 bg-blue-400/10' },
-  { id: '#ORD-9710', status: 'DELIVERED', date: 'Feb 02, 2024', total: '2,100.00', color: 'text-emerald-500 bg-emerald-500/10' },
-  { id: '#ORD-9655', status: 'CANCELLED', date: 'Jan 28, 2024', total: '0.00', color: 'text-red-500 bg-red-500/10' },
+  { id: '#ORD-9921', status: 'DELIVERED', date: 'Feb 24, 2026', total: '1,240.00', color: 'text-emerald-500 bg-emerald-500/10' },
+  { id: '#ORD-9844', status: 'IN TRANSIT', date: 'Feb 18, 2026', total: '450.50', color: 'text-blue-400 bg-blue-400/10' },
+  { id: '#ORD-9710', status: 'DELIVERED', date: 'Feb 02, 2026', total: '2,100.00', color: 'text-emerald-500 bg-emerald-500/10' },
+  { id: '#ORD-9655', status: 'CANCELLED', date: 'Jan 28, 2026', total: '0.00', color: 'text-red-500 bg-red-500/10' },
 ]
 
 const notes = ref([
@@ -374,7 +379,7 @@ const stats = [
   { label: 'Total Orders', value: '42', prefix: '' },
   { label: 'Total Spent', value: '14,208.5', prefix: 'EGP' },
   { label: 'Avg Order Value', value: '338.29', prefix: 'EGP' },
-  { label: 'Last Order', value: 'Feb 24, 2024', prefix: '' },
+  { label: 'Last Order', value: 'Feb 24, 2026', prefix: '' },
 ]
 
 definePageMeta({

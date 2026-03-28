@@ -17,7 +17,7 @@
       </div>
       <div class="flex-1">
         <h1 class="font-bold text-lg leading-none text-tx-primary text-start">
-          StoreOS
+          Store<span class="text-brand">OS</span>
         </h1>
         <p class="text-[9px] text-tx-muted tracking-[0.6px] font-semibold mt-1 text-start">
           Global Merchant

@@ -3,7 +3,8 @@
     <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl max-w-7xl mx-auto">
       <div class="px-4 py-3.5 flex justify-between items-center border-b border-border-subtle">
         <h2 class="font-bold text-sm tracking-wide">Active Team Members</h2>
-        <span class="bg-bg-elevated text-[10px] font-black px-2.5 py-1 rounded-full text-tx-secondary tracking-widest">Total:
+        <span
+          class="bg-bg-elevated text-[10px] font-black px-2.5 py-1 rounded-full text-tx-secondary tracking-widest">Total:
           {{ members.length.toString().padStart(2, '0') }}</span>
       </div>
 
@@ -54,23 +55,23 @@ const members = [
     joined: 'JOINED 12 MAR 2023',
     email: 'm.thorne@storeos.com',
     role: 'OWNER',
-    active: '2024-05-31 12:33',
+    active: '2026-05-31 12:33',
     avatar: 'https://i.pravatar.cc/100?u=marcus'
   },
   {
     name: 'Elena Rodriguez',
-    joined: 'JOINED 04 JAN 2024',
+    joined: 'JOINED 04 JAN 2026',
     email: 'e.rodriguez@storeos.com',
     role: 'MANAGER',
-    active: '2024-05-28 09:15',
+    active: '2026-05-28 09:15',
     avatar: 'https://i.pravatar.cc/100?u=elena'
   },
   {
     name: 'Sarah Jenkins',
-    joined: 'JOINED 18 FEB 2024',
+    joined: 'JOINED 18 FEB 2026',
     email: 's.jenkins@storeos.com',
     role: 'STAFF',
-    active: '2024-05-23 18:45',
+    active: '2026-05-23 18:45',
     avatar: 'https://i.pravatar.cc/100?u=sarah'
   }
 ]

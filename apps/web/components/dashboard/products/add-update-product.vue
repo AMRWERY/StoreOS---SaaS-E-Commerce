@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div>
     <div class="min-h-screen text-tx-primary -mt-5">
       <VBreadcrumb class="mb-6" :overrides="{ 'add-update-product': isEdit ? 'Edit Product' : 'Create Product' }" />
@@ -113,8 +113,7 @@
             <div class="flex items-center justify-between p-5 bg-bg-elevated border border-border-subtle rounded-2xl">
               <div class="flex items-center gap-4">
                 <span class="text-xs text-tx-secondary font-medium">Projected Margin:</span>
-                <span
-                  class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success">Margin
+                <span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success">Margin
                   : {{ margin }}%</span>
               </div>
               <div class="text-end">
@@ -190,7 +189,7 @@
               <div class="space-y-3">
                 <label class="text-[9px] font-bold text-tx-muted">Collections</label>
                 <div class="space-y-3">
-                  <label v-for="c in ['Winter Collection 2024', 'Tools Essentials', 'Staff Picks']" :key="c"
+                  <label v-for="c in ['Winter Collection 2026', 'Tools Essentials', 'Staff Picks']" :key="c"
                     class="flex items-center justify-between group cursor-pointer">
                     <span class="text-xs font-medium text-tx-secondary group-hover:text-tx-primary">{{ c }}</span>
                     <input type="checkbox" :checked="c.includes('Winter')"

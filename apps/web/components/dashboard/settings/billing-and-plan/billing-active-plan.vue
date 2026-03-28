@@ -14,7 +14,7 @@
             </div>
             <div>
               <p class="text-[9px] font-black text-tx-muted tracking-widest mb-1">Next Renewal</p>
-              <p class="text-sm font-bold">Oct 24, 2024</p>
+              <p class="text-sm font-bold">Oct 24, 2026</p>
             </div>
           </div>
         </div>

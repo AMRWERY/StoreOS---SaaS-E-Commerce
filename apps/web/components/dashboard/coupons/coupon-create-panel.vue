@@ -20,7 +20,8 @@
               Configure your discount campaign settings
             </p>
           </div>
-          <VButton @click="$emit('close')" variant="none" className="text-tx-muted hover:text-tx-primary transition-colors">
+          <VButton @click="$emit('close')" variant="none"
+            className="text-tx-muted hover:text-tx-primary transition-colors">
             <Icon name="ph:x-bold" class="text-xl" />
           </VButton>
         </div>
@@ -91,7 +92,7 @@
                   <div class="relative group cursor-pointer">
                     <Icon name="ph:calendar-x-bold"
                       class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-accent" />
-                    <input readonly :value="selectedDate || 'Dec 31, 2024'"
+                    <input readonly :value="selectedDate || 'Dec 31, 2026'"
                       class="w-full bg-bg-primary border border-border-subtle rounded-2xl ps-14 pe-5 py-4 text-sm font-bold text-tx-primary outline-none group-hover:border-border-default transition-colors" />
                   </div>
                 </div>

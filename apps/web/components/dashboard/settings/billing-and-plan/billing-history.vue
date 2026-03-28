@@ -65,8 +65,8 @@ const headers: TableHeader[] = [
 ]
 
 const invoices = [
-  { id: 'INV-2024-009', date: 'Sep 24, 2024', amount: '$261.50', status: 'PAID' },
-  { id: 'INV-2024-008', date: 'Aug 24, 2024', amount: '$249.00', status: 'PAID' },
-  { id: 'INV-2024-007', date: 'Jul 24, 2024', amount: '$249.00', status: 'PAID' },
+  { id: 'INV-2026-009', date: 'Sep 24, 2026', amount: '$261.50', status: 'PAID' },
+  { id: 'INV-2026-008', date: 'Aug 24, 2026', amount: '$249.00', status: 'PAID' },
+  { id: 'INV-2026-007', date: 'Jul 24, 2026', amount: '$249.00', status: 'PAID' },
 ]
 </script>
