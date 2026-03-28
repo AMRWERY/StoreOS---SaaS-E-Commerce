@@ -18,7 +18,7 @@
         :class="[
           align === 'end' ? 'end-0' : 'start-0',
           widthClass,
-          'absolute top-full mt-2 bg-[#0c0c0e] border border-white/10 rounded-2xl shadow-2xl p-2 z-[60] backdrop-blur-xl shrink-0'
+          'absolute top-full mt-2 bg-bg-primary border border-border-default rounded-xl shadow-2xl p-2 z-[60] backdrop-blur-xl shrink-0'
         ]">
         <slot :close="close" />
       </div>
@@ -54,7 +54,6 @@ const close = () => {
 
 const widthClass = computed(() => props.width)
 
-// Expose methods to be used by parent if needed
 defineExpose({
   open: () => (isOpen.value = true),
   close

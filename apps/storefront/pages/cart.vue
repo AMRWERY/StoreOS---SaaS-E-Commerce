@@ -5,4 +5,8 @@
 </template>
 
 <script lang="ts" setup>
+useSeoMeta({
+  title: 'Your Cart',
+  robots: 'noindex, nofollow',
+})
 </script>

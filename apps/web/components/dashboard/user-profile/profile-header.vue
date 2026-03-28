@@ -1,8 +1,8 @@
-<template>
-  <header class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+﻿<template>
+  <header class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
     <div>
-      <h1 class="text-3xl font-bold tracking-tight text-white">My Profile</h1>
-      <p class="text-[10px] font-black text-gray-700 tracking-[0.2em] mt-2">
+      <h1 class="text-3xl font-bold tracking-tight text-tx-primary">My Profile</h1>
+      <p class="text-[10px] font-black text-tx-muted tracking-[0.2em] mt-2">
         MARCUS THORNE • STORE ID: 8823-001-ALPHA
       </p>
     </div>

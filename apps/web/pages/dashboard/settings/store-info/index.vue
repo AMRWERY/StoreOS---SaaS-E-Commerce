@@ -3,13 +3,13 @@
     <div class="min-h-screen text-[#e1e1e1] pb-32 selection:bg-indigo-500/30">
       <VBreadcrumb class="max-w-6xl mx-auto mb-4" />
       
-      <header class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
+      <header class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
         <div>
           <h1 class="text-3xl font-bold tracking-tight">Store Information</h1>
-          <p class="text-sm text-gray-500 mt-2">Manage your brand identity, contact details, and localization settings.</p>
+          <p class="text-sm text-tx-secondary mt-2">Manage your brand identity, contact details, and localization settings.</p>
         </div>
         <div class="flex items-center gap-3">
-          <VButton variant="ghost" size="none" className="px-6 py-2.5 text-xs font-bold text-gray-400 hover:text-white transition-colors">
+          <VButton variant="ghost" size="none" className="px-6 py-2.5 text-xs font-bold text-tx-secondary hover:text-tx-primary transition-colors">
             Discard
           </VButton>
 

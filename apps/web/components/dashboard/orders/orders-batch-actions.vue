@@ -1,29 +1,29 @@
-<template>
+﻿<template>
   <div>
     <div
-      class="fixed bottom-8 start-1/2 -translate-x-1/2 flex items-center px-2 py-2 bg-[#121214] border border-white/10 rounded-2xl shadow-2xl shadow-black z-50">
-      <div class="flex items-center gap-4 border-e border-white/5 px-4 me-4">
-        <div class="w-7 h-7 bg-indigo-500 rounded-lg flex items-center justify-center text-xs font-black text-white">
+      class="fixed bottom-8 start-1/2 -translate-x-1/2 flex items-center px-2 py-2 bg-bg-primary border border-border-default rounded-2xl shadow-2xl shadow-black z-50">
+      <div class="flex items-center gap-4 border-e border-border-subtle px-4 me-4">
+        <div class="w-7 h-7 bg-brand rounded-lg flex items-center justify-center text-xs font-black text-tx-primary">
           {{ selectedCount }}
         </div>
-        <span class="text-xs font-bold text-gray-400 tracking-widest">selected</span>
+        <span class="text-xs font-bold text-tx-secondary tracking-widest">selected</span>
       </div>
       <div class="flex items-center gap-1">
         <VButton variant="none"
-          className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:text-white transition-colors">
-          <Icon name="ph:check-circle-bold" class="text-indigo-400 text-sm" /> Confirm Selected
+          className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-tx-secondary hover:text-tx-primary transition-colors">
+          <Icon name="ph:check-circle-bold" class="text-brand text-sm" /> Confirm Selected
         </VButton>
         <VButton variant="none"
-          className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:text-white transition-colors">
+          className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-tx-secondary hover:text-tx-primary transition-colors">
           <Icon name="ph:printer-bold" class="text-sm" /> Print Labels
         </VButton>
         <VButton variant="none"
-          className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:text-white transition-colors">
+          className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-tx-secondary hover:text-tx-primary transition-colors">
           <Icon name="ph:export-bold" class="text-sm" /> Export
         </VButton>
-        <div class="w-px h-6 bg-white/5 mx-2"></div>
+        <div class="w-px h-6 bg-bg-elevated mx-2"></div>
         <VButton variant="none"
-          className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-red-500/80 hover:text-red-500 transition-colors">
+          className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-danger/80 hover:text-danger transition-colors">
           <Icon name="ph:x-circle-bold" class="text-sm" /> Cancel Selected
         </VButton>
       </div>

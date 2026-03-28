@@ -1,19 +1,19 @@
 <template>
   <div>
-    <section class="lg:col-span-12 bg-[#0c0c0e] border border-white/5 rounded-[2.5rem] overflow-hidden">
+    <section class="lg:col-span-12 bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden">
       <!-- Section header -->
-      <div class="p-8 flex justify-between items-center border-b border-white/5">
+      <div class="px-4 py-3.5 flex justify-between items-center border-b border-border-subtle">
         <div>
           <h3 class="font-bold text-lg">Billing History</h3>
-          <p class="text-xs text-gray-600 font-medium mt-1">Download and manage your historical invoices.</p>
+          <p class="text-xs text-tx-muted font-medium mt-1">Download and manage your historical invoices.</p>
         </div>
         <div class="flex gap-3">
           <button
-            class="p-2.5 bg-white/5 border border-white/5 rounded-xl text-gray-500 hover:text-white transition-colors">
+            class="p-2.5 bg-bg-elevated border border-border-subtle rounded-xl text-tx-secondary hover:text-tx-primary transition-colors">
             <Icon name="ph:sliders-horizontal-bold" />
           </button>
           <button
-            class="p-2.5 bg-white/5 border border-white/5 rounded-xl text-gray-500 hover:text-white transition-colors">
+            class="p-2.5 bg-bg-elevated border border-border-subtle rounded-xl text-tx-secondary hover:text-tx-primary transition-colors">
             <Icon name="ph:export-bold" />
           </button>
         </div>
@@ -23,30 +23,29 @@
       <div class="p-4">
         <VTable :headers="headers" :items="invoices">
           <template #cell(id)="{ item }">
-            <span class="text-xs font-bold text-gray-500 group-hover:text-indigo-400 transition-colors">
+            <span class="font-mono text-xs font-bold text-tx-secondary group-hover:text-brand transition-colors">
               {{ item.id }}
             </span>
           </template>
           <template #cell(date)="{ item }">
-            <span class="text-sm font-medium text-gray-400">{{ item.date }}</span>
+            <span class="font-mono text-sm font-medium text-tx-secondary">{{ item.date }}</span>
           </template>
           <template #cell(amount)="{ item }">
-            <span class="text-sm font-bold text-white">{{ item.amount }}</span>
+            <span class="font-mono text-sm font-bold text-tx-primary">{{ item.amount }}</span>
           </template>
           <template #cell(status)="{ item }">
-            <span
-              class="bg-emerald-500/10 text-emerald-500 text-[9px] font-black px-2.5 py-1 rounded tracking-widest border border-emerald-500/10">
+            <span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success">
               {{ item.status }}
             </span>
           </template>
           <template #cell(action)="{ }">
-            <button class="text-gray-700 hover:text-indigo-400 transition-colors">
+            <button class="text-tx-muted hover:text-brand transition-colors">
               <Icon name="ph:download-simple-bold" class="text-lg" />
             </button>
           </template>
         </VTable>
         <button
-          class="w-full py-6 text-[10px] font-black tracking-widest text-gray-700 hover:text-white transition-colors">
+          class="w-full py-6 text-[10px] font-black tracking-widest text-tx-muted hover:text-tx-primary transition-colors">
           View All Invoices
         </button>
       </div>

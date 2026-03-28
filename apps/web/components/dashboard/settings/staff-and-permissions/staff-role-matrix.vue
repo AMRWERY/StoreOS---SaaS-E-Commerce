@@ -1,24 +1,24 @@
-<template>
+﻿<template>
   <div>
     <section class="max-w-7xl mx-auto space-y-8">
-      <h2 class="text-center text-[10px] font-black text-gray-600 tracking-[0.4em] mb-12">Role Permissions
+      <h2 class="text-center text-[10px] font-black text-tx-muted tracking-[0.4em] mb-6">Role Permissions
         Matrix</h2>
 
       <VAccordion :items="matrixSections" v-model="expandedSection">
         <template #header="{ item }">
-          <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center shrink-0">
-            <Icon :name="item.icon" class="text-gray-500 group-hover:text-indigo-400 transition-colors" />
+          <div class="w-10 h-10 bg-bg-elevated rounded-xl flex items-center justify-center shrink-0">
+            <Icon :name="item.icon" class="text-tx-secondary group-hover:text-brand transition-colors" />
           </div>
           <div class="flex-1 text-start">
             <h3 class="text-sm font-bold">{{ item.id }}</h3>
-            <p class="text-xs text-gray-500 mt-1 font-medium">{{ item.desc }}</p>
+            <p class="text-xs text-tx-secondary mt-1 font-medium">{{ item.desc }}</p>
           </div>
         </template>
 
         <template #header-suffix>
           <div class="flex -space-s-2">
             <div v-for="i in 3" :key="i"
-              class="w-7 h-7 rounded-full border-2 border-[#0c0c0e] bg-indigo-500/20 text-[8px] flex items-center justify-center font-bold">
+              class="w-7 h-7 rounded-full border-2 border-[#0c0c0e] bg-brand/20 text-[8px] flex items-center justify-center font-bold">
               {{ ['O', 'M', 'S'][i - 1] }}
             </div>
           </div>
@@ -26,10 +26,10 @@
 
         <template #content="{ item }">
           <!-- Contextual Search -->
-          <div class="bg-black/40 border border-white/5 rounded-xl p-3 flex items-center gap-4 max-w-md">
-            <Icon name="ph:magnifying-glass-bold" class="text-gray-600" />
+          <div class="bg-bg-overlay border border-border-subtle rounded-xl p-3 flex items-center gap-4 max-w-md">
+            <Icon name="ph:magnifying-glass-bold" class="text-tx-muted" />
             <input type="text" placeholder="Quick search staff..." class="bg-transparent outline-none text-xs flex-1" />
-            <div class="flex items-center gap-3 text-[9px] font-black text-gray-700">
+            <div class="flex items-center gap-3 text-[9px] font-black text-tx-muted">
               <span class="flex items-center gap-1">
                 <Icon name="ph:file-text-bold" />
                 Report
@@ -44,22 +44,22 @@
           <!-- Permission Columns -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div v-for="col in ['OWNER', 'MANAGER', 'STAFF']" :key="col"
-              class="bg-black/20 border border-white/5 rounded-2xl p-6 group/col">
+              class="bg-bg-overlay border border-border-subtle rounded-2xl p-6 group/col">
               <div class="flex items-center justify-between mb-6">
                 <h4
-                  class="text-[10px] font-black text-gray-600 tracking-widest group-hover/col:text-indigo-400 transition-colors">
+                  class="text-[10px] font-black text-tx-muted tracking-widest group-hover/col:text-brand transition-colors">
                   {{ col }}</h4>
-                <div class="w-1.5 h-1.5 rounded-full bg-white/10" :class="col === 'OWNER' ? 'bg-indigo-500' : ''">
+                <div class="w-1.5 h-1.5 rounded-full bg-bg-elevated" :class="col === 'OWNER' ? 'bg-brand' : ''">
                 </div>
               </div>
 
-              <div v-if="col === 'STAFF'" class="text-[10px] text-gray-700 italic">No access granted to this module.
+              <div v-if="col === 'STAFF'" class="text-[10px] text-tx-muted italic">No access granted to this module.
               </div>
               <ul v-else class="space-y-4">
                 <li
                   v-for="perm in (col === 'OWNER' ? ['Full System Access', 'API Key Management', 'Delete Logs'] : ['View Logs Only', 'API Access'])"
-                  :key="perm" class="flex items-center gap-3 text-xs text-gray-500">
-                  <div class="w-1 h-1 rounded-full bg-indigo-500/40"></div>
+                  :key="perm" class="flex items-center gap-3 text-xs text-tx-secondary">
+                  <div class="w-1 h-1 rounded-full bg-brand/40"></div>
                   {{ perm }}
                 </li>
               </ul>

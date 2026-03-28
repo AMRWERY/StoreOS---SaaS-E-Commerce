@@ -8,7 +8,7 @@
 
       <revenue-performance-chart />
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
         <category-revenue-list :categories="categories" class="lg:col-span-7" />
         <order-status-chart :status-breakdown="statusBreakdown" class="lg:col-span-5" />
       </div>

@@ -5,4 +5,8 @@
 </template>
 
 <script lang="ts" setup>
+useSeoMeta({
+  title: 'Checkout',
+  robots: 'noindex, nofollow',
+})
 </script>

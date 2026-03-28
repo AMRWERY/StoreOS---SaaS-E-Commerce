@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="mb-8">
     <VTabs :tabs="formattedTabs" :modelValue="activeTab" @update:modelValue="$emit('update:activeTab', $event)" />
   </div>
@@ -16,7 +16,7 @@ const formattedTabs = computed(() => {
   return props.tabs.map(tab => ({
     name: tab.name,
     count: tab.count !== null ? tab.count : undefined,
-    badgeClass: tab.name === 'New' ? 'bg-orange-600 text-white' : undefined
+    badgeClass: tab.name === 'New' ? 'bg-orange-600 text-tx-primary' : undefined
   }))
 })
 </script>

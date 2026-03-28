@@ -1,30 +1,30 @@
 <template>
   <!-- Mobile Sidebar Backdrop -->
   <Transition name="fade">
-    <div v-if="isOpen" @click="$emit('close')" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"></div>
+    <div v-if="isOpen" @click="$emit('close')" class="fixed inset-0 bg-bg-overlay backdrop-blur-sm z-40 lg:hidden"></div>
   </Transition>
 
   <!-- Sidebar -->
   <aside
-    class="fixed lg:sticky top-0 start-0 w-64 h-screen bg-[#0c0c0e] border-e border-white/5 flex flex-col p-6 shrink-0 z-50 transition-all duration-300"
+    class="fixed lg:sticky top-0 start-0 w-[220px] h-screen bg-bg-primary border-e border-border-subtle flex flex-col p-6 shrink-0 z-50 transition-all duration-300"
     :class="isOpen
       ? 'translate-x-0'
       : 'ltr:-translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0'
       ">
     <div class="flex items-center gap-2 mb-10">
-      <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
+      <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center text-white">
         <Icon name="ph:storefront-bold" class="text-xl" />
       </div>
       <div class="flex-1">
-        <h1 class="font-bold text-lg leading-none text-white text-start">
+        <h1 class="font-bold text-lg leading-none text-tx-primary text-start">
           StoreOS
         </h1>
-        <p class="text-[9px] text-gray-500 tracking-[0.2em] font-black mt-1 text-start">
+        <p class="text-[9px] text-tx-muted tracking-[0.6px] font-semibold mt-1 text-start">
           Global Merchant
         </p>
       </div>
       <!-- Mobile Close Button -->
-      <VButton @click="$emit('close')" variant="none" className="lg:hidden text-gray-500 hover:text-white p-1">
+      <VButton @click="$emit('close')" variant="none" className="lg:hidden text-tx-secondary hover:text-tx-primary p-1">
         <Icon name="ph:x-bold" class="text-xl" />
       </VButton>
     </div>
@@ -33,10 +33,10 @@
       <div v-for="item in navItems" :key="item.name">
         <!-- Main Nav Item -->
         <VButton v-if="!item.children" :to="item.to" variant="none"
-          className="w-full flex items-center justify-start gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm group"
+          className="w-full flex items-center justify-start gap-2 px-3 py-1.5 rounded-md transition-all font-medium text-[12px] group"
           :class="item.active
-            ? 'bg-indigo-500/10 text-indigo-500 shadow-sm'
-            : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'
+            ? 'bg-brand-dim text-brand'
+            : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
             ">
           <Icon :name="item.icon" class="text-lg" />
           <span class="truncate">{{ item.name }}</span>
@@ -45,14 +45,14 @@
         <!-- Nav Item with Children -->
         <div v-else class="space-y-1">
           <button @click="toggleExpand(item.name)"
-            class="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm group"
+            class="w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-md transition-all font-medium text-[12px] group"
             :class="item.active
-              ? 'bg-indigo-500/10 text-indigo-500 shadow-sm'
+              ? 'bg-brand-dim text-brand'
               : expandedItems.includes(item.name)
-                ? 'text-indigo-400'
-                : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'
+                ? 'text-brand'
+                : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
               ">
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2">
               <Icon :name="item.icon" class="text-lg" />
               <span class="truncate">{{ item.name }}</span>
             </div>
@@ -61,11 +61,11 @@
           </button>
 
           <!-- Sub Nav Items -->
-          <div v-if="expandedItems.includes(item.name)" class="ms-10 space-y-1 border-s border-white/5 ps-2">
+          <div v-if="expandedItems.includes(item.name)" class="ms-10 space-y-1 border-s border-border-subtle ps-2">
             <nuxt-link-locale v-for="subItem in item.children" :key="subItem.name" :to="subItem.to"
-              class="block py-2 px-3 text-xs rounded-lg transition-all" :class="route.path.includes(subItem.to)
-                ? 'text-indigo-400 bg-indigo-500/5 font-bold'
-                : 'text-gray-600 hover:text-gray-400 hover:bg-white/[0.02]'
+              class="block py-2 px-3 text-xs rounded-md transition-all" :class="route.path.includes(subItem.to)
+                ? 'text-brand bg-brand-dim font-semibold'
+                : 'text-tx-muted hover:text-tx-secondary hover:bg-bg-elevated'
                 ">
               {{ subItem.name }}
             </nuxt-link-locale>
@@ -74,24 +74,24 @@
       </div>
     </nav>
 
-    <div class="mt-auto pt-6 space-y-2 border-t border-white/5">
+    <div class="mt-auto pt-6 space-y-2 border-t border-border-subtle">
       <VButton variant="none"
-        className="text-[10px] font-black text-indigo-400 tracking-widest px-4 hover:underline block text-start">
+        className="text-[10px] font-semibold text-brand tracking-[0.6px] px-3 hover:underline block text-start">
         Upgrade
       </VButton>
       <VButton variant="none" to="/dashboard/user-profile"
-        className="w-full flex items-center gap-3 px-4 py-3 transition-all group rounded-xl" :class="route.path.includes('/dashboard/user-profile')
-          ? 'bg-indigo-500/10 text-indigo-500 shadow-sm'
-          : 'text-gray-500 hover:text-white'
+        className="w-full flex items-center gap-2 px-3 py-1.5 transition-all group rounded-md text-[12px] font-medium" :class="route.path.includes('/dashboard/user-profile')
+          ? 'bg-brand-dim text-brand'
+          : 'text-tx-secondary hover:text-tx-primary'
           ">
         <Icon name="ph:user-circle" class="text-xl" />
-        <span class="text-sm truncate">User Profile</span>
+        <span class="truncate">User Profile</span>
       </VButton>
       <!-- Logout Button -->
       <VButton to="/auth/login" variant="none"
-        className="w-full flex items-center gap-3 px-4 py-3 text-red-500/60 hover:text-red-500 transition-colors group">
+        className="w-full flex items-center gap-2 px-3 py-1.5 text-[12px] font-medium text-red-500/60 hover:text-red-500 transition-colors group">
         <Icon name="ph:sign-out-bold" class="text-xl" />
-        <span class="text-sm truncate font-bold">Logout</span>
+        <span class="truncate font-bold">Logout</span>
       </VButton>
     </div>
   </aside>

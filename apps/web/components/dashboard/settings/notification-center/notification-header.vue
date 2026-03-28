@@ -1,22 +1,22 @@
-<template>
+﻿<template>
   <div>
     <header class="flex items-center justify-between mb-16">
       <div>
         <h1 class="text-3xl font-bold tracking-tight">Notification Center</h1>
-        <p class="text-sm text-gray-500 mt-2 max-w-xl leading-relaxed">
+        <p class="text-sm text-tx-secondary mt-2 max-w-xl leading-relaxed">
           Choose how you want to be alerted for different store events. All alerts are
           delivered instantly via the Kinetic backbone.
         </p>
         <div class="flex items-center gap-4 max-w-md mt-3">
-        <Icon name="ph:info-bold" class="text-gray-600 shrink-0 text-xl" />
-        <p class="text-xs text-gray-600 leading-relaxed font-medium">
+        <Icon name="ph:info-bold" class="text-tx-muted shrink-0 text-xl" />
+        <p class="text-xs text-tx-muted leading-relaxed font-medium">
           Changes sync across all authorized StoreOS instances.
         </p>
       </div>
       </div>
       <div class="flex items-center gap-3">
         <VButton variant="ghost" @click="$emit('open-stats')"
-          className="px-3.5 py-3.5 text-gray-400 hover:text-white">
+          className="px-3.5 py-3.5 text-tx-secondary hover:text-tx-primary">
           <template #default>
             <Icon name="ph:bell-simple-bold" class="text-xl" />
           </template>

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <VBreadcrumb />
     
@@ -9,7 +9,7 @@
         <VTabs :tabs="['Today', 'Yesterday', 'Last 7 days', 'Last 30 days', 'Custom']" :model-value="activeTimeframe"
           @update:model-value="$emit('update:activeTimeframe', $event)" class="border-none" />
 
-        <div class="flex items-center gap-4 border-s border-white/10 ps-4">
+        <div class="flex items-center gap-4 border-s border-border-default ps-4">
           <VSwitchButton label="Compare" :model-value="compareEnabled"
             @update:model-value="$emit('update:compareEnabled', $event)" />
          
@@ -18,7 +18,7 @@
               @click="$emit('export')" />
           
               <VButton label="Create New" icon="ph:plus-bold" size="sm"
-              class="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition-all shadow-lg shadow-indigo-600/20" />
+              class="flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-hover text-tx-primary rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20" />
           </div>
         </div>
       </div>

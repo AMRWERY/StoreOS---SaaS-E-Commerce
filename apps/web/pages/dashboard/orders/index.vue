@@ -24,19 +24,19 @@
       </div>
 
       <!-- Empty State -->
-      <div v-else class="flex-1 flex flex-col items-center justify-center p-12 text-center">
-        <div class="w-64 h-64 bg-white/5 rounded-full flex items-center justify-center mb-8 relative">
-          <Icon name="ph:shopping-cart-light" class="text-8xl text-gray-700" />
-          <div class="absolute -top-2 -end-2 w-16 h-16 bg-indigo-500/20 rounded-full blur-xl"></div>
+      <div v-else class="flex-1 flex flex-col items-center justify-center px-4 py-3.5 text-center">
+        <div class="w-64 h-64 bg-bg-elevated rounded-full flex items-center justify-center mb-6 relative">
+          <Icon name="ph:shopping-cart-light" class="text-8xl text-tx-muted" />
+          <div class="absolute -top-2 -end-2 w-16 h-16 bg-brand-dim rounded-full blur-xl"></div>
         </div>
-        <h2 class="text-xl font-bold text-white mb-2">No orders yet</h2>
-        <p class="text-gray-500 max-w-sm mb-8">
+        <h2 class="text-xl font-bold text-tx-primary mb-2">No orders yet</h2>
+        <p class="text-tx-secondary max-w-sm mb-6">
           Share your store link with your customers to start getting orders and growing your business.
         </p>
-        <div class="flex items-center gap-3 bg-[#0c0c0e] border border-white/5 p-2 pe-2 ps-4 rounded-2xl">
-          <span class="text-xs text-gray-500">storeos.io/my-awesome-shop</span>
+        <div class="flex items-center gap-3 bg-bg-primary border border-border-subtle p-2 pe-2 ps-4 rounded-2xl">
+          <span class="text-xs text-tx-secondary">storeos.io/my-awesome-shop</span>
           <VButton @click="copyLink"
-            className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all">
+            className="bg-brand hover:bg-brand-hover text-white px-4 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all">
             Copy Link
           </VButton>
         </div>

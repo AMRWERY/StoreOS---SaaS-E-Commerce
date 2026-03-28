@@ -1,0 +1,105 @@
+---
+description: StoreOS SEO rules — enforces useSeoMeta, robots, OG tags, and structured data on every page.
+globs: apps/**/*.vue
+alwaysApply: false
+---
+
+# StoreOS SEO Rules
+
+Full spec in `/seo.md`. Apply these rules to every page file.
+
+---
+
+## Every page MUST call `useSeoMeta()`
+
+```ts
+// ✅ Public storefront page
+useSeoMeta({
+  title: 'Page Title',                          // shown in <title> tag
+  description: 'Description 120–155 chars.',    // meta description
+  ogTitle: 'Page Title | StoreOS Store',
+  ogDescription: 'Same as description.',
+  ogType: 'website',
+  ogImage: '/og-default.jpg',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Page Title | StoreOS Store',
+  twitterDescription: 'Same as description.',
+  twitterImage: '/og-default.jpg',
+})
+
+// ✅ Protected / private page (dashboard, checkout, cart, orders)
+useSeoMeta({
+  title: 'Orders',
+  robots: 'noindex, nofollow',
+})
+```
+
+---
+
+## Robots rules
+
+| Route pattern | `robots` value |
+|---------------|----------------|
+| `/dashboard/*` | `noindex, nofollow` |
+| `/onboarding/*` | `noindex, nofollow` |
+| `/auth/*` | `noindex, nofollow` |
+| `/cart`, `/checkout` | `noindex, nofollow` |
+| `/orders/:id` | `noindex, nofollow` |
+| Storefront home, products list, product detail | `index, follow` |
+
+---
+
+## Product pages — use `og:type = "product"` + JSON-LD
+
+```ts
+// Dynamic product page
+useSeoMeta({
+  title: () => product.value.name,
+  description: () => `${product.value.description} Price: $${product.value.price}.`,
+  ogTitle: () => product.value.name,
+  ogType: 'product',
+  ogImage: () => product.value.image,
+  twitterCard: 'summary_large_image',
+})
+
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: computed(() => JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: product.value.name,
+      offers: { '@type': 'Offer', price: product.value.price, priceCurrency: 'USD' },
+    })),
+  }],
+})
+```
+
+---
+
+## hreflang — always present in `app.vue`
+
+`useLocaleHead({ addSeoAttributes: true })` is already called in both `app.vue` files.
+Do NOT add manual `<link rel="alternate">` tags — they are auto-generated.
+
+---
+
+## Title pattern
+
+```
+Storefront:  '{Page Title} | StoreOS Store'   ← set by titleTemplate in nuxt.config
+Dashboard:   '{Page Title} — StoreOS'         ← set by titleTemplate in nuxt.config
+
+Just pass the page title: useSeoMeta({ title: 'Orders' })
+The suffix is appended automatically.
+```
+
+---
+
+## Checklist before shipping any page
+
+- [ ] `useSeoMeta({ title, description })` present
+- [ ] `robots` set correctly (index or noindex)
+- [ ] OG tags present on all public pages
+- [ ] Product pages have JSON-LD structured data
+- [ ] No hardcoded `<title>` or `<meta>` in template — use composables only

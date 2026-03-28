@@ -5,9 +5,9 @@
       <template v-if="type === 'checkbox'">
         <label class="flex items-center gap-3 cursor-pointer group">
           <input type="checkbox" :checked="!!modelValue" @change="onInput"
-            class="w-4 h-4 rounded border-white/10 bg-black text-orange-500 focus:ring-orange-500 focus:ring-offset-0 transition-all cursor-pointer" />
+            class="w-4 h-4 rounded border-border-default bg-bg-elevated text-orange-500 focus:ring-orange-500 focus:ring-offset-0 transition-all cursor-pointer" />
           <span v-if="label || $slots.default"
-            class="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+            class="text-xs text-tx-secondary group-hover:text-tx-primary transition-colors">
             <slot>{{ label }}</slot>
           </span>
         </label>
@@ -16,7 +16,7 @@
       <!-- Standard Input Types -->
       <template v-else>
         <div v-if="label" class="flex justify-between items-center">
-          <label class="text-[10px] font-bold text-gray-500 tracking-wider">{{ label }}</label>
+          <label class="text-[10px] font-bold text-tx-secondary tracking-wider">{{ label }}</label>
           <slot name="label-right"></slot>
         </div>
 
@@ -27,7 +27,7 @@
 
           <!-- Password Toggle -->
           <VButton v-if="isPassword" @click="showPassword = !showPassword" type="button" variant="none"
-            className="absolute end-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors">
+            className="absolute end-3 top-1/2 -translate-y-1/2 text-tx-secondary hover:text-tx-primary transition-colors">
             <Icon :name="showPassword ? 'lucide:eye-off' : 'lucide:eye'" class="w-[18px] h-[18px]" />
           </VButton>
         </div>
@@ -59,18 +59,16 @@ const onInput = (e: Event) => {
   emit("update:modelValue", value);
 };
 
-// Compute dynamic classes for text-based inputs
 const inputClasses = computed(() => {
   return [
-    "w-full bg-[#161618] border border-white/5 rounded-lg px-4 py-3 text-sm outline-none transition-all duration-200",
+    "w-full bg-bg-elevated border border-border-subtle rounded-md px-3 py-2 text-[12px] text-tx-primary placeholder:text-tx-muted outline-none transition-all duration-200",
     props.error
       ? "border-red-500/50 focus:border-red-500"
-      : "focus:border-orange-500/50 hover:border-white/10",
+      : "focus:border-brand focus:ring-2 focus:ring-brand-dim hover:border-border-default",
     props.inputClass,
   ];
 });
 
-// For passwords, we might want a toggle (optional feature to add later or now)
 const isPassword = computed(() => props.type === "password");
 const showPassword = ref(false);
 const currentType = computed(() => {

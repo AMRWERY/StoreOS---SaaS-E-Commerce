@@ -56,7 +56,7 @@ const customers = ref<Customer[]>([
     lastActive: '5 hours ago',
     initials: 'SM',
     avatarBg: 'bg-indigo-500/20 text-indigo-400',
-    tags: [{ text: 'REGULAR', color: 'bg-gray-500/10 text-gray-400' }]
+    tags: [{ text: 'REGULAR', color: 'bg-gray-500/10 text-tx-secondary' }]
   },
   {
     id: 3,
@@ -68,7 +68,7 @@ const customers = ref<Customer[]>([
     totalSpent: '32,110.00',
     lastActive: 'Just now',
     initials: 'JH',
-    avatarBg: 'bg-gray-500/20 text-gray-400',
+    avatarBg: 'bg-gray-500/20 text-tx-secondary',
     tags: [{ text: 'WHOLESALE', color: 'bg-indigo-500/20 text-indigo-400' }, { text: 'HIGH VALUE', color: 'bg-red-500/10 text-red-400' }]
   },
   {
@@ -82,7 +82,7 @@ const customers = ref<Customer[]>([
     lastActive: '1 month ago',
     initials: 'EK',
     avatarBg: 'bg-orange-800/20 text-orange-300',
-    tags: [{ text: 'NEW', color: 'bg-gray-500/10 text-gray-400' }]
+    tags: [{ text: 'NEW', color: 'bg-gray-500/10 text-tx-secondary' }]
   }
 ])
 

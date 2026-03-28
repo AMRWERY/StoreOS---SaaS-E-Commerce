@@ -1,21 +1,21 @@
 <template>
   <div>
-    <nav class="flex items-center gap-2 text-[11px] font-black text-gray-600 tracking-[0.3em] mb-4"
+    <nav class="flex items-center gap-2 text-[11px] font-black text-tx-muted tracking-[0.3em] mb-4"
       aria-label="Breadcrumb">
       <template v-for="(item, index) in computedItems" :key="`${item.label}-${index}`">
         <NuxtLinkLocale v-if="item.to" :to="item.to" :class="[
           'whitespace-nowrap',
           item.active
-            ? 'text-indigo-400'
-            : 'text-gray-600 hover:text-gray-300',
+            ? 'text-brand'
+            : 'text-tx-muted hover:text-tx-secondary',
         ]">
           {{ item.label }}
         </NuxtLinkLocale>
         <span v-else :class="[
           'whitespace-nowrap',
           item.active
-            ? 'text-indigo-400'
-            : 'text-gray-600 hover:text-gray-300',
+            ? 'text-brand'
+            : 'text-tx-muted hover:text-tx-secondary',
         ]">
           {{ item.label }}
         </span>
@@ -69,7 +69,6 @@ const computedItems = computed(() => {
     const toPath = '/' + parts.slice(0, index + 1).join('/');
     const fullCheckPath = prefix + toPath;
 
-    // Check if any registered route's path starts with this segment (avoids Vue Router warn)
     const allRoutes = router.getRoutes();
     const isRoutable = allRoutes.some(r =>
       r.path === fullCheckPath || r.path === toPath

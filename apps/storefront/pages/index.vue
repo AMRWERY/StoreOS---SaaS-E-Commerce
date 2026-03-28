@@ -9,4 +9,13 @@
 </template>
 
 <script lang="ts" setup>
+useSeoMeta({
+  title: 'Home',
+  description: 'Shop the latest collection. Free shipping on orders over $50. Discover new arrivals, top-rated products, and exclusive deals every week.',
+  ogTitle: 'Home | StoreOS Store',
+  ogDescription: 'Shop the latest collection. Free shipping on orders over $50. Discover new arrivals every week.',
+  ogType: 'website',
+  twitterTitle: 'Home | StoreOS Store',
+  twitterDescription: 'Shop the latest collection. Free shipping on orders over $50.',
+})
 </script>

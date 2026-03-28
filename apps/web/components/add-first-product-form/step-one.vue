@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="flex items-center justify-center p-6 text-white">
+    <div class="flex items-center justify-center p-6 text-tx-primary">
       <!-- Main Card -->
-      <div class="w-full max-w-2xl bg-[#0c0c0e] border border-white/5 rounded-3xl p-10 md:p-12 shadow-2xl">
+      <div class="w-full max-w-2xl bg-bg-primary border border-border-subtle rounded-2xl p-5 shadow-2xl">
         <!-- Progress Bar -->
         <div class="mb-8">
           <VProgressBar :progress="progress" :height="8" color="blue" trackVariant="slate" :showHeader="true"
@@ -13,7 +13,7 @@
         <!-- Header -->
         <div class="mb-6">
           <h1 class="text-3xl font-bold mb-3">Add your first product</h1>
-          <p class="text-gray-500 text-sm leading-relaxed">
+          <p class="text-tx-secondary text-sm leading-relaxed">
             Start building your inventory by adding your first item. You can
             always edit this later.
           </p>
@@ -23,19 +23,19 @@
         <VFormWrapper @submit.prevent>
           <!-- Product Name -->
           <VInput v-model="productName" label="Product name" placeholder="e.g. Minimalist Wireless Headphones"
-            inputClass="bg-black border-white/10 rounded-xl px-5 py-4 focus:border-indigo-500/50 transition-colors placeholder:text-gray-700" />
+            inputClass="bg-bg-elevated border-border-default rounded-md px-3 py-2 focus:border-brand transition-colors placeholder:text-tx-muted" />
 
           <!-- Price & Stock Row -->
           <div class="grid grid-cols-2 gap-4">
             <VInput v-model="price" label="Price" placeholder="0.00"
-              inputClass="bg-black border-white/10 rounded-xl ps-9 pe-5 py-4 focus:border-indigo-500/50 transition-colors placeholder:text-gray-700">
+              inputClass="bg-bg-elevated border-border-default rounded-md ps-9 pe-3 py-2 focus:border-brand transition-colors placeholder:text-tx-muted">
               <template #prefix>
-                <span class="absolute start-5 top-1/2 -translate-y-1/2 text-gray-600 text-sm">$</span>
+                <span class="absolute start-3 top-1/2 -translate-y-1/2 text-tx-muted text-sm">$</span>
               </template>
             </VInput>
 
             <VInput v-model="stock" type="number" label="Stock quantity" placeholder="0"
-              inputClass="bg-black border-white/10 rounded-xl px-5 py-4 focus:border-indigo-500/50 transition-colors placeholder:text-gray-700" />
+              inputClass="bg-bg-elevated border-border-default rounded-md px-3 py-2 focus:border-brand transition-colors placeholder:text-tx-muted" />
           </div>
 
           <!-- Photo Upload Area -->

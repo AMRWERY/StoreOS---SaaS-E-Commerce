@@ -1,17 +1,17 @@
 <template>
-  <div class="sticky top-0 z-40 bg-[#050505]/60 backdrop-blur-md border-b border-white/[0.03]">
+  <div class="sticky top-0 z-40 bg-bg-base/60 backdrop-blur-md border-b border-border-subtle">
     <header class="flex justify-between items-center py-4 px-6 md:px-8 lg:px-10 gap-4">
       <div class="flex items-center gap-4">
         <div>
           <h2 class="text-xl md:text-2xl font-bold flex items-center gap-2">
             {{ greeting }}, Amr {{ emoji }}
           </h2>
-          <div class="flex items-center gap-2 text-xs font-black text-gray-600 tracking-widest mt-1">
-            <span>{{ currentDate }}</span>
-            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <div class="flex items-center gap-2 text-xs font-semibold text-tx-muted tracking-[0.6px] mt-1">
+            <span class="font-mono">{{ currentDate }}</span>
+            <span class="w-1 h-1 rounded-full bg-tx-muted"></span>
             
             <ClientOnly>
-              <div class="flex items-center font-bold text-gray-500 overflow-hidden relative">
+              <div class="flex items-center font-mono text-tx-secondary overflow-hidden relative">
                 <div class="relative w-4 h-4 inline-flex justify-center">
                   <Transition name="time-slide">
                     <span :key="timeParts.hour" class="absolute">{{ timeParts.hour }}</span>
@@ -45,7 +45,7 @@
       <div class="flex items-center gap-3 md:gap-4 shrink-0">
         <!-- Locale Switcher -->
         <button @click="switchLocale"
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-colors text-gray-400 hover:text-white text-xs font-bold">
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg-elevated hover:bg-bg-elevated border border-border-subtle transition-colors text-tx-secondary hover:text-tx-primary text-xs font-bold">
           <ClientOnly>
             <Icon name="ph:globe-bold" class="text-base shrink-0" />
           </ClientOnly>
@@ -56,11 +56,11 @@
         <notifications />
 
         <!-- Avatar -->
-        <img src="/img/fake-user.png" class="w-10 h-10 rounded-full border border-white/10 shrink-0" alt="fake-user" />
+        <img src="/img/fake-user.png" class="w-10 h-10 rounded-full border border-border-default shrink-0" alt="fake-user" />
 
         <!-- Mobile Menu Toggle -->
         <VButton @click="$emit('toggle-sidebar')" variant="none"
-          className="lg:hidden p-2 bg-[#0c0c0e] border border-white/5 rounded-xl text-gray-400 hover:text-white transition-colors">
+          className="lg:hidden p-2 bg-bg-primary border border-border-subtle rounded-md text-tx-secondary hover:text-tx-primary transition-colors">
           <ClientOnly>
             <Icon name="ph:list-bold" class="text-xl" />
           </ClientOnly>

@@ -4,17 +4,17 @@
       <Transition name="modal">
         <div v-if="modelValue" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
           @click.self="close">
-          <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" @click="close"></div>
+          <div class="absolute inset-0 bg-bg-overlay backdrop-blur-sm transition-opacity" @click="close"></div>
           <div
-            class="relative bg-[#0c0c0e] border border-white/5 shadow-2xl rounded-3xl w-full flex flex-col overflow-hidden transition-all transform z-10"
+            class="relative bg-bg-primary border border-border-subtle shadow-2xl rounded-xl w-full flex flex-col overflow-hidden transition-all transform z-10"
             :class="maxWidthClass">
             <!-- Header -->
-            <div class="flex items-center justify-between px-6 py-5 border-b border-white/5">
-              <h3 class="text-xs font-black tracking-widest text-gray-300">
+            <div class="flex items-center justify-between px-6 py-5 border-b border-border-subtle">
+              <h3 class="text-xs font-black tracking-widest text-tx-primary">
                 <slot name="title">{{ title }}</slot>
               </h3>
               <button @click="close"
-                class="text-gray-500 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/5">
+                class="text-tx-secondary hover:text-tx-primary transition-colors p-1.5 rounded-lg hover:bg-bg-elevated">
                 <Icon name="ph:x-bold" class="w-4 h-4" />
               </button>
             </div>
@@ -26,7 +26,7 @@
 
             <!-- Footer -->
             <div v-if="$slots.footer"
-              class="px-6 py-5 border-t border-white/5 bg-black/20 flex items-center justify-end gap-3">
+              class="px-6 py-5 border-t border-border-subtle bg-bg-overlay flex items-center justify-end gap-3">
               <slot name="footer"></slot>
             </div>
           </div>

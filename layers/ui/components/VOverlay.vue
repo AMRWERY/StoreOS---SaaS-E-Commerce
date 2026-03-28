@@ -3,28 +3,28 @@
         <Teleport to="body">
             <Transition name="overlay-fade">
                 <div v-if="show" dir="ltr"
-                    class="fixed inset-0 z-[100] flex items-center justify-center bg-[#050505] backdrop-blur-xl">
+                    class="fixed inset-0 z-[100] flex items-center justify-center bg-bg-base backdrop-blur-xl">
                     <div class="flex flex-col items-center gap-6 animate-pulse-slow">
                         <!-- Logo -->
                         <div class="flex items-center gap-4">
                             <div
-                                class="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-2xl shadow-indigo-500/20">
+                                class="w-16 h-16 bg-brand rounded-xl flex items-center justify-center text-white shadow-2xl shadow-brand/20">
                                 <Icon name="ph:storefront-bold" class="text-4xl" />
                             </div>
                             <div class="text-start">
-                                <h1 class="font-bold text-3xl leading-none text-white tracking-tight">StoreOS</h1>
-                                <p class="text-[11px] text-indigo-400 tracking-[0.3em] font-black mt-2">Global
+                                <h1 class="font-bold text-3xl leading-none text-tx-primary tracking-tight">StoreOS</h1>
+                                <p class="text-[11px] text-brand tracking-[0.3em] font-black mt-2">Global
                                     Merchant</p>
                             </div>
                         </div>
 
-                        <!-- Loading indicator (optional but premium) -->
+                        <!-- Loading indicator -->
                         <div class="flex gap-1.5">
-                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500/40 animate-bounce"
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand/40 animate-bounce"
                                 style="animation-delay: 0s"></div>
-                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500/40 animate-bounce"
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand/40 animate-bounce"
                                 style="animation-delay: 0.1s"></div>
-                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500/40 animate-bounce"
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand/40 animate-bounce"
                                 style="animation-delay: 0.2s"></div>
                         </div>
                     </div>

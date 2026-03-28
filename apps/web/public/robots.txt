@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /en/
+Allow: /ar/
+Disallow: /en/dashboard/
+Disallow: /ar/dashboard/
+Disallow: /en/onboarding/
+Disallow: /ar/onboarding/
+
+Sitemap: https://yourdomain.com/sitemap.xml

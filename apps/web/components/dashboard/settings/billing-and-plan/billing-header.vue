@@ -1,9 +1,9 @@
-<template>
+﻿<template>
   <div>
-    <header class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+    <header class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
       <div>
-        <h1 class="text-4xl font-bold tracking-tight text-white mt-2">Billing & Plan</h1>
-        <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+        <h1 class="text-4xl font-bold tracking-tight text-tx-primary mt-2">Billing & Plan</h1>
+        <p class="text-sm text-tx-secondary mt-2 leading-relaxed">
           Manage your enterprise subscription, view usage, and download invoices.
         </p>
       </div>

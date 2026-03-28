@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="space-y-2.5">
-      <label v-if="label" class="text-[11px] font-bold text-gray-400 tracking-wider">{{ label }}</label>
+      <label v-if="label" class="text-[11px] font-bold text-tx-secondary tracking-wider">{{ label }}</label>
       <!-- Upload Dropzone (Default State) -->
       <div v-if="!selectedFile" @click="triggerFileSelect" :class="wrapperClass">
         <div v-if="icon" :class="iconWrapperClass">
@@ -12,25 +12,25 @@
           <p v-if="title" class="text-sm font-bold mb-1">
             {{ title }}
           </p>
-          <p v-if="subtitle" class="text-[11px] text-gray-600" :class="subtitleClass">
+          <p v-if="subtitle" class="text-[11px] text-tx-muted" :class="subtitleClass">
             {{ subtitle }}
           </p>
         </slot>
       </div>
 
       <!-- File Preview / Selected State -->
-      <div v-else class="relative border border-white/10 rounded-2xl bg-black/40 overflow-hidden group">
+      <div v-else class="relative border border-border-default rounded-xl bg-bg-overlay overflow-hidden group">
         <!-- Image Preview -->
         <div v-if="isImage" class="aspect-video w-full relative">
           <img :src="previewUrl" class="w-full h-full object-cover" />
           <div
-            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+            class="absolute inset-0 bg-bg-overlay opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
             <VButton @click="triggerFileSelect" variant="none"
-              className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
-              <Icon name="ph:pencil-simple-bold" class="text-white w-5 h-5" />
+              className="p-2 bg-bg-elevated rounded-md hover:bg-bg-elevated transition-colors">
+              <Icon name="ph:pencil-simple-bold" class="text-tx-primary w-5 h-5" />
             </VButton>
             <VButton @click="removeFile" variant="none"
-              className="p-2 bg-red-500/20 rounded-lg hover:bg-red-500/40 transition-colors">
+              className="p-2 bg-red-500/20 rounded-md hover:bg-red-500/40 transition-colors">
               <Icon name="ph:trash-bold" class="text-red-500 w-5 h-5" />
             </VButton>
           </div>
@@ -38,15 +38,15 @@
 
         <!-- Non-Image File Details -->
         <div v-else class="p-6 flex items-center gap-4">
-          <div class="w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center shrink-0">
-            <Icon name="ph:file-bold" class="text-indigo-500 text-2xl" />
+          <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+            <Icon name="ph:file-bold" class="text-brand text-2xl" />
           </div>
           <div class="flex-1 min-w-0">
             <p class="text-sm font-bold truncate">{{ selectedFile.name }}</p>
-            <p class="text-[11px] text-gray-500">{{ formatFileSize(selectedFile.size) }}</p>
+            <p class="text-[11px] text-tx-secondary">{{ formatFileSize(selectedFile.size) }}</p>
           </div>
-          <VButton @click="removeFile" variant="none" className="p-2 hover:bg-white/5 rounded-lg transition-colors">
-            <Icon name="ph:x-bold" class="text-gray-500 w-4 h-4" />
+          <VButton @click="removeFile" variant="none" className="p-2 hover:bg-bg-elevated rounded-md transition-colors">
+            <Icon name="ph:x-bold" class="text-tx-secondary w-4 h-4" />
           </VButton>
         </div>
       </div>
@@ -65,9 +65,9 @@ const props = withDefaults(defineProps<VFileUploadProps>(), {
   icon: 'ic:twotone-cloud-upload',
   title: 'Click to upload or drag and drop',
   subtitle: 'PNG, JPG or WebP (max. 5MB)',
-  wrapperClass: 'relative border-2 border-dashed border-white/5 rounded-2xl p-10 flex flex-col items-center justify-center hover:bg-white/[0.02] hover:border-white/10 transition-all cursor-pointer group',
-  iconWrapperClass: 'w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform',
-  iconClass: 'text-indigo-500 text-2xl',
+  wrapperClass: 'relative border-2 border-dashed border-border-subtle rounded-xl p-5 flex flex-col items-center justify-center hover:bg-bg-elevated hover:border-border-default transition-all cursor-pointer group',
+  iconWrapperClass: 'w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform',
+  iconClass: 'text-brand text-2xl',
 });
 
 const emit = defineEmits(['click', 'change']);

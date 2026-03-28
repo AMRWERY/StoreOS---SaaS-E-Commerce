@@ -1,33 +1,33 @@
 <template>
   <div class="h-full">
-    <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden flex flex-col h-full">
-      <div class="p-6 flex justify-between items-center border-b border-white/5">
+    <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden flex flex-col h-full">
+      <div class="p-6 flex justify-between items-center border-b border-border-subtle">
         <h3 class="font-bold text-lg">Recent Orders</h3>
-        <VButton variant="none" className="text-[10px] font-black text-indigo-500 tracking-widest hover:underline">View
+        <VButton variant="none" className="text-[10px] font-black text-brand tracking-widest hover:underline">View
           All</VButton>
       </div>
       <div class="overflow-x-auto flex-1 h-full">
       <VTable :headers="headers" :items="orders">
         <template #cell(id)="{ item }">
-          <span class="font-bold text-gray-500">{{ item.id }}</span>
+          <span class="font-mono font-bold text-tx-secondary">{{ item.id }}</span>
         </template>
         <template #cell(customer)="{ item }">
           <span class="font-bold">{{ item.customer }}</span>
         </template>
         <template #cell(items)="{ item }">
-          <span class="text-gray-500">{{ item.items }}</span>
+          <span class="text-tx-secondary">{{ item.items }}</span>
         </template>
         <template #cell(total)="{ item }">
-          <span class="font-bold">{{ item.total }}</span>
+          <span class="font-mono font-bold">{{ item.total }}</span>
         </template>
         <template #cell(status)="{ item }">
           <span
-            :class="[getStatusClass(item.status), 'text-[9px] font-black px-2.5 py-1 rounded-full whitespace-nowrap']">
+            :class="[getStatusClass(item.status), 'rounded-full px-2 py-0.5 text-[10px] font-semibold whitespace-nowrap']">
             {{ item.status }}
           </span>
         </template>
         <template #cell(time)="{ item }">
-          <span class="text-xs text-gray-600">{{ item.time }}</span>
+          <span class="text-xs text-tx-muted">{{ item.time }}</span>
         </template>
       </VTable>
       </div>
@@ -58,13 +58,13 @@ const orders = [
 
 const getStatusClass = (status: string) => {
   switch (status) {
-    case 'NEW': return 'bg-orange-500/10 text-orange-500'
-    case 'CONFIRMED': return 'bg-indigo-500/10 text-indigo-500'
-    case 'PROCESSING': return 'bg-yellow-500/10 text-yellow-500'
-    case 'SHIPPED': return 'bg-blue-500/10 text-blue-500'
-    case 'DELIVERED': return 'bg-emerald-500/10 text-emerald-500'
-    case 'CANCELLED': return 'bg-red-500/10 text-red-500'
-    default: return 'bg-gray-500/10 text-gray-500'
+    case 'NEW': return 'bg-accent-dim text-accent'
+    case 'CONFIRMED': return 'bg-info-dim text-info'
+    case 'PROCESSING': return 'bg-status-yellow-dim text-status-yellow'
+    case 'SHIPPED': return 'bg-status-purple-dim text-status-purple'
+    case 'DELIVERED': return 'bg-success-dim text-success'
+    case 'CANCELLED': return 'bg-danger-dim text-danger'
+    default: return 'bg-bg-elevated text-tx-secondary'
   }
 }
 </script>

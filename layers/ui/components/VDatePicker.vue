@@ -4,17 +4,17 @@
     <div @click="toggle" class="cursor-pointer">
       <slot name="trigger" :selectedDate="formattedDate" :isOpen="isOpen">
         <div
-          class="bg-[#121214] border border-white/5 rounded-2xl p-6 flex items-center gap-5 hover:border-white/10 transition-colors group">
+          class="bg-bg-primary border border-border-subtle rounded-xl px-4 py-3.5 flex items-center gap-5 hover:border-border-default transition-colors group">
           <div
-            class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-500/10">
-            <Icon name="ph:calendar-blank-bold" class="text-xl text-indigo-400" />
+            class="w-12 h-12 rounded-xl bg-brand-dim flex items-center justify-center shrink-0 border border-brand/10">
+            <Icon name="ph:calendar-blank-bold" class="text-xl text-brand" />
           </div>
           <div class="flex-1 min-w-0">
-            <p class="text-[10px] font-black text-gray-600 tracking-widest mb-1">{{ label || 'Select Date' }}</p>
-            <h4 class="text-base font-bold text-white tracking-tight">{{ formattedDate || 'No date selected' }}</h4>
+            <p class="text-[10px] font-black text-tx-muted tracking-widest mb-1">{{ label || 'Select Date' }}</p>
+            <h4 class="text-base font-bold text-tx-primary tracking-tight">{{ formattedDate || 'No date selected' }}</h4>
           </div>
           <Icon :name="isOpen ? 'ph:caret-up-bold' : 'ph:caret-down-bold'"
-            class="text-gray-700 group-hover:text-white transition-colors" />
+            class="text-tx-muted group-hover:text-tx-primary transition-colors" />
         </div>
       </slot>
     </div>
@@ -25,34 +25,34 @@
       leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0 scale-100"
       leave-to-class="opacity-0 translate-y-2 scale-95">
       <div v-if="isOpen"
-        class="absolute z-[60] mt-3 w-full bg-[#16171a] border border-white/10 rounded-2xl shadow-2xl p-5 overflow-hidden ring-1 ring-black">
+        class="absolute z-[60] mt-3 w-full bg-bg-primary border border-border-default rounded-xl shadow-2xl p-5 overflow-hidden ring-1 ring-black">
         <!-- Header -->
         <div class="flex items-center justify-between mb-6">
           <button @click="handlePrev"
-            class="p-2 hover:bg-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
+            class="p-2 hover:bg-bg-elevated rounded-md text-tx-secondary hover:text-tx-primary transition-colors">
             <Icon name="ph:caret-left-bold" />
           </button>
 
           <!-- Month/Year Toggle -->
           <div class="flex items-center gap-1">
             <button @click="toggleView('month')"
-              class="text-xs font-bold text-white tracking-tight px-2 py-1 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1 group/header">
+              class="text-xs font-bold text-tx-primary tracking-tight px-2 py-1 rounded-md hover:bg-bg-elevated transition-colors flex items-center gap-1 group/header">
               {{ currentMonthName }}
               <Icon name="ph:caret-down-bold"
-                class="text-[10px] text-gray-600 group-hover/header:text-indigo-400 transition-colors"
+                class="text-[10px] text-tx-muted group-hover/header:text-brand transition-colors"
                 :class="{ 'rotate-180': view === 'month' }" />
             </button>
             <button @click="toggleView('year')"
-              class="text-xs font-bold text-white tracking-tight px-2 py-1 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1 group/header">
+              class="text-xs font-bold text-tx-primary tracking-tight px-2 py-1 rounded-md hover:bg-bg-elevated transition-colors flex items-center gap-1 group/header">
               {{ view === 'year' ? yearRangeTitle : currentYear }}
               <Icon name="ph:caret-down-bold"
-                class="text-[10px] text-gray-600 group-hover/header:text-indigo-400 transition-colors"
+                class="text-[10px] text-tx-muted group-hover/header:text-brand transition-colors"
                 :class="{ 'rotate-180': view === 'year' }" />
             </button>
           </div>
 
           <button @click="handleNext"
-            class="p-2 hover:bg-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
+            class="p-2 hover:bg-bg-elevated rounded-md text-tx-secondary hover:text-tx-primary transition-colors">
             <Icon name="ph:caret-right-bold" />
           </button>
         </div>
@@ -64,7 +64,7 @@
               <!-- Weekdays -->
               <div class="grid grid-cols-7">
                 <div v-for="day in ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']" :key="day"
-                  class="text-center text-[9px] font-black text-gray-700">
+                  class="text-center text-[9px] font-black text-tx-muted">
                   {{ day }}
                 </div>
               </div>
@@ -75,12 +75,12 @@
                   @click="selectDate(date)" :disabled="!isCurrentMonth"
                   class="h-10 w-10 flex items-center justify-center rounded-xl text-xs font-bold transition-all relative group"
                   :class="[
-                    !isCurrentMonth ? 'text-gray-800 pointer-events-none' : 'text-gray-400 hover:bg-white/5 hover:text-white',
-                    isSelected ? 'bg-indigo-600 !text-white shadow-lg shadow-indigo-600/30 border border-indigo-500/50' : '',
-                    isToday && !isSelected ? 'text-indigo-400 ring-1 ring-indigo-500/20' : ''
+                    !isCurrentMonth ? 'text-tx-muted/30 pointer-events-none' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary',
+                    isSelected ? 'bg-brand !text-white shadow-lg shadow-brand/30 border border-brand/50' : '',
+                    isToday && !isSelected ? 'text-brand ring-1 ring-brand/20' : ''
                   ]">
                   {{ date.getDate() }}
-                  <div v-if="isToday && !isSelected" class="absolute bottom-1.5 w-1 h-1 rounded-full bg-indigo-500/50">
+                  <div v-if="isToday && !isSelected" class="absolute bottom-1.5 w-1 h-1 rounded-full bg-brand/50">
                   </div>
                 </button>
               </div>
@@ -92,7 +92,7 @@
             <div v-if="view === 'month'" class="absolute inset-0 grid grid-cols-3 gap-2 py-2">
               <button v-for="(name, index) in monthNames" :key="name" @click="selectMonth(index)"
                 class="flex items-center justify-center rounded-xl text-[10px] font-bold tracking-widest transition-all"
-                :class="viewDate.getMonth() === index ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20' : 'text-gray-500 hover:bg-white/5 hover:text-white'">
+                :class="viewDate.getMonth() === index ? 'bg-brand text-white shadow-lg shadow-brand/20' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'">
                 {{ name }}
               </button>
             </div>
@@ -103,7 +103,7 @@
             <div v-if="view === 'year'" class="absolute inset-0 grid grid-cols-3 gap-2 py-2">
               <button v-for="year in yearRange" :key="year" @click="selectYear(year)"
                 class="flex items-center justify-center rounded-xl text-xs font-bold transition-all"
-                :class="viewDate.getFullYear() === year ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20' : 'text-gray-500 hover:bg-white/5 hover:text-white'">
+                :class="viewDate.getFullYear() === year ? 'bg-brand text-white shadow-lg shadow-brand/20' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'">
                 {{ year }}
               </button>
             </div>
@@ -111,13 +111,13 @@
         </div>
 
         <!-- Footer Actions -->
-        <div class="mt-6 pt-5 border-t border-white/5 flex justify-end gap-2">
+        <div class="mt-6 pt-5 border-t border-border-subtle flex justify-end gap-2">
           <button @click="isOpen = false"
-            class="px-4 py-2 text-[10px] font-black text-gray-600 hover:text-white tracking-widest transition-colors">
+            class="px-4 py-2 text-[10px] font-black text-tx-muted hover:text-tx-primary tracking-widest transition-colors">
             Cancel
           </button>
           <button @click="setToday"
-            class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-[10px] font-black text-white hover:bg-white/10 tracking-widest transition-all">
+            class="px-4 py-2 bg-bg-elevated border border-border-default rounded-md text-[10px] font-black text-tx-primary hover:bg-bg-elevated tracking-widest transition-all">
             Today
           </button>
         </div>

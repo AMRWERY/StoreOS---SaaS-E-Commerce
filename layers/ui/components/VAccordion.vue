@@ -3,27 +3,27 @@
     <div v-for="item in items" :key="String(item[itemKey || 'id'])" class="group">
       <!-- Accordion Header -->
       <button @click="toggle(item[itemKey || 'id'])"
-        class="w-full bg-[#0c0c0e] border border-white/5 rounded-2xl p-6 flex items-center gap-6 transition-all hover:border-white/10 text-start"
-        :class="[expandedItem === item[itemKey || 'id'] ? 'rounded-b-none border-b-indigo-500/30' : '', headerClass]">
+        class="w-full bg-bg-primary border border-border-subtle rounded-xl px-4 py-3.5 flex items-center gap-6 transition-all hover:border-border-default text-start"
+        :class="[expandedItem === item[itemKey || 'id'] ? 'rounded-b-none border-b-brand/30' : '', headerClass]">
 
         <slot name="header" :item="item" :isExpanded="expandedItem === item[itemKey || 'id']">
           <div class="flex-1">
             <h3 class="text-sm font-bold">{{ item.title || item.name || item.id }}</h3>
-            <p v-if="item.description || item.desc" class="text-xs text-gray-500 mt-1 font-medium">{{ item.description
+            <p v-if="item.description || item.desc" class="text-xs text-tx-secondary mt-1 font-medium">{{ item.description
               || item.desc }}</p>
           </div>
         </slot>
 
         <div class="flex items-center gap-4 ms-auto shrink-0">
           <slot name="header-suffix" :item="item" :isExpanded="expandedItem === item[itemKey || 'id']"></slot>
-          <Icon name="ph:caret-down-bold" class="text-gray-700 transition-transform duration-300 shrink-0"
-            :class="expandedItem === item[itemKey || 'id'] ? 'rotate-180 text-indigo-500' : ''" />
+          <Icon name="ph:caret-down-bold" class="text-tx-muted transition-transform duration-300 shrink-0"
+            :class="expandedItem === item[itemKey || 'id'] ? 'rotate-180 text-brand' : ''" />
         </div>
       </button>
 
       <!-- Accordion Content -->
       <div v-if="expandedItem === item[itemKey || 'id']"
-        class="bg-[#0c0c0e] border-x border-b border-white/5 rounded-b-2xl p-8 space-y-8 animate-in slide-in-from-top-2 duration-300"
+        class="bg-bg-primary border-x border-b border-border-subtle rounded-b-xl p-5 space-y-8 animate-in slide-in-from-top-2 duration-300"
         :class="contentClass">
         <slot name="content" :item="item"></slot>
       </div>

@@ -1,25 +1,25 @@
-<template>
+﻿<template>
   <div>
     <section class="text-start">
       <div class="flex items-center gap-4 mb-6">
         <h3 class="font-bold text-sm tracking-wide">Low Stock Alerts</h3>
         <span
-          class="bg-white/5 border border-white/5 text-[10px] font-black px-2 py-0.5 rounded text-gray-500 tracking-widest">9
+          class="bg-bg-elevated border border-border-subtle text-[10px] font-black px-2 py-0.5 rounded text-tx-secondary tracking-widest">9
           Items Total</span>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <div v-for="item in lowStock" :key="item.name"
-          class="bg-[#0c0c0e] border border-white/5 rounded-2xl p-3 pe-6 flex items-center gap-4 group hover:border-white/10 transition-all">
+          class="bg-bg-primary border border-border-subtle rounded-2xl p-3 pe-6 flex items-center gap-4 group hover:border-border-default transition-all">
           <img :src="item.img"
-            class="w-14 h-14 rounded-xl object-cover border border-white/5 grayscale group-hover:grayscale-0 transition-all" />
+            class="w-14 h-14 rounded-xl object-cover border border-border-subtle grayscale group-hover:grayscale-0 transition-all" />
           <div class="flex-1 min-w-0">
             <h4 class="text-xs font-bold truncate">{{ item.name }}</h4>
             <div class="flex items-center gap-3 mt-1.5">
               <span
-                class="bg-red-500/10 text-red-500 text-[9px] font-black px-2 py-0.5 rounded whitespace-nowrap">{{
+                class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-danger-dim text-danger whitespace-nowrap">{{
                   item.left }} LEFT</span>
               <VButton variant="none"
-                className="text-[10px] font-bold text-indigo-400 hover:text-indigo-300 transition-colors tracking-widest whitespace-nowrap">Restock</VButton>
+                className="text-[10px] font-bold text-brand hover:text-brand transition-colors tracking-widest whitespace-nowrap">Restock</VButton>
             </div>
           </div>
         </div>

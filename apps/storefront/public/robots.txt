@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /en/cart
+Disallow: /ar/cart
+Disallow: /en/checkout
+Disallow: /ar/checkout
+Disallow: /en/orders/
+Disallow: /ar/orders/
+
+Sitemap: https://store.yourdomain.com/sitemap.xml

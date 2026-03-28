@@ -1,9 +1,9 @@
 <template>
   <div>
-    <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden shadow-2xl max-w-7xl mx-auto">
-      <div class="p-6 flex justify-between items-center border-b border-white/5">
+    <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl max-w-7xl mx-auto">
+      <div class="px-4 py-3.5 flex justify-between items-center border-b border-border-subtle">
         <h2 class="font-bold text-sm tracking-wide">Active Team Members</h2>
-        <span class="bg-white/5 text-[10px] font-black px-2.5 py-1 rounded-full text-gray-500 tracking-widest">Total:
+        <span class="bg-bg-elevated text-[10px] font-black px-2.5 py-1 rounded-full text-tx-secondary tracking-widest">Total:
           {{ members.length.toString().padStart(2, '0') }}</span>
       </div>
 
@@ -11,26 +11,26 @@
         <template #cell(avatar_name)="{ item }">
           <div class="flex items-center gap-4">
             <img :src="item.avatar"
-              class="w-10 h-10 rounded-xl border border-white/10 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+              class="w-10 h-10 rounded-xl border border-border-default grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
             <div>
               <h4 class="text-sm font-bold">{{ item.name }}</h4>
-              <p class="text-[9px] text-gray-700 font-bold mt-1">{{ item.joined }}</p>
+              <p class="text-[9px] text-tx-muted font-bold mt-1">{{ item.joined }}</p>
             </div>
           </div>
         </template>
         <template #cell(email)="{ item }">
-          <span class="text-xs text-gray-400 font-medium">{{ item.email }}</span>
+          <span class="text-xs text-tx-secondary font-medium">{{ item.email }}</span>
         </template>
         <template #cell(role)="{ item }">
-          <span :class="[getRoleClass(item.role), 'text-[9px] font-black px-2.5 py-1 rounded border tracking-widest']">
+          <span :class="[getRoleClass(item.role), 'rounded-full px-2 py-0.5 text-[10px] font-semibold']">
             {{ item.role }}
           </span>
         </template>
         <template #cell(active)="{ item }">
-          <span class="text-xs text-gray-600">{{ item.active }}</span>
+          <span class="text-xs text-tx-muted">{{ item.active }}</span>
         </template>
         <template #cell(actions)>
-          <button class="text-gray-700 hover:text-white transition-colors">
+          <button class="text-tx-muted hover:text-tx-primary transition-colors">
             <Icon name="ph:dots-three-bold" />
           </button>
         </template>
@@ -77,9 +77,9 @@ const members = [
 
 const getRoleClass = (role: string) => {
   switch (role) {
-    case 'OWNER': return 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20'
-    case 'MANAGER': return 'bg-orange-500/10 text-orange-400 border-orange-500/20'
-    default: return 'bg-white/5 text-gray-500 border-white/5'
+    case 'OWNER': return 'bg-brand-dim text-brand'
+    case 'MANAGER': return 'bg-accent-dim text-accent'
+    default: return 'bg-bg-elevated text-tx-secondary'
   }
 }
 </script>

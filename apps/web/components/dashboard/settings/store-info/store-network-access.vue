@@ -1,19 +1,19 @@
-<template>
+﻿<template>
   <div>
-    <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-white/5 pt-16">
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-border-subtle pt-16">
       <div class="lg:col-span-4">
         <h3 class="font-bold text-lg mb-2">Network & Access</h3>
-        <p class="text-xs text-gray-500 leading-relaxed">Control how users reach your storefront and manage custom
+        <p class="text-xs text-tx-secondary leading-relaxed">Control how users reach your storefront and manage custom
           domains.</p>
       </div>
       <div class="lg:col-span-8 space-y-8">
         <div class="space-y-2">
-          <label class="text-[10px] font-bold text-gray-500 tracking-wider">System URL</label>
+          <label class="text-[10px] font-bold text-tx-secondary tracking-wider">System URL</label>
           <div class="flex items-center">
             <input :value="modelValue.systemUrl" readonly type="text"
-              class="flex-1 bg-[#161618] border border-white/5 rounded-l-lg px-4 py-3 text-sm text-gray-500 outline-none" />
+              class="flex-1 bg-bg-primary border border-border-subtle rounded-l-lg px-4 py-3 text-sm text-tx-secondary outline-none" />
             <button
-              class="bg-white/5 hover:bg-white/10 border-y border-e border-white/10 px-5 py-3 rounded-r-lg text-[10px] font-black tracking-widest flex items-center gap-2 transition-colors">
+              class="bg-bg-elevated hover:bg-bg-elevated border-y border-e border-border-default px-5 py-3 rounded-r-lg text-[10px] font-black tracking-widest flex items-center gap-2 transition-colors">
               <Icon name="ph:copy-bold" /> Copy
             </button>
           </div>
@@ -28,9 +28,9 @@
             </VButton>
           </div>
           <div class="flex items-center gap-2 pt-2">
-            <Icon name="ph:info-bold" class="text-orange-500 text-sm" />
-            <p class="text-[10px] text-gray-500">DNS settings are required after connecting. <a href="#"
-                class="text-indigo-400 hover:underline">Read Guide</a></p>
+            <Icon name="ph:info-bold" class="text-accent text-sm" />
+            <p class="text-[10px] text-tx-secondary">DNS settings are required after connecting. <a href="#"
+                class="text-brand hover:underline">Read Guide</a></p>
           </div>
         </div>
       </div>

@@ -4,14 +4,14 @@
     <stats-grid />
 
     <!-- Main Section: Recent Orders & Charts Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 mb-6">
       <!-- Recent Orders Table -->
       <div class="lg:col-span-8 h-full">
         <recent-orders />
       </div>
 
       <!-- Revenue & Top Products column -->
-      <div class="lg:col-span-4 flex flex-col gap-8 h-full">
+      <div class="lg:col-span-4 flex flex-col gap-3 h-full">
         <revenue-chart class="flex-1" />
 
         <top-products class="flex-1" />
@@ -24,9 +24,8 @@
 </template>
 
 <script lang="ts" setup>
-definePageMeta({
-  layout: 'dashboard'
-});
+definePageMeta({ layout: 'dashboard' })
+useSeoMeta({ title: 'Dashboard', robots: 'noindex, nofollow' })
 </script>
 
 <style scoped>

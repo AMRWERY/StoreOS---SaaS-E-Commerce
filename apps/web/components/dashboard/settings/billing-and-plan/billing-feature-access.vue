@@ -1,12 +1,12 @@
-<template>
+﻿<template>
   <div>
-    <section class="bg-[#0c0c0e] border border-white/5 rounded-[2.5rem] overflow-hidden">
-      <div class="p-8 bg-white/[0.01] border-b border-white/5">
+    <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden">
+      <div class="px-4 py-3.5 bg-bg-elevated border-b border-border-subtle">
         <h3 class="font-bold text-lg">Feature Access</h3>
       </div>
-      <div class="p-8">
+      <div class="px-4 py-3.5">
         <!-- Column headers -->
-        <div class="grid grid-cols-3 text-[10px] font-black text-gray-600 tracking-widest mb-6 px-4">
+        <div class="grid grid-cols-3 text-[10px] font-black text-tx-muted tracking-widest mb-6 px-4">
           <span>Capability</span>
           <span class="text-center">Current (Pro)</span>
           <span class="text-end">Enterprise</span>
@@ -14,15 +14,15 @@
         <!-- Rows -->
         <div class="space-y-1">
           <div v-for="f in features" :key="f.capability"
-            class="grid grid-cols-3 items-center p-4 rounded-xl hover:bg-white/[0.02] transition-colors border border-transparent hover:border-white/5">
+            class="grid grid-cols-3 items-center p-4 rounded-xl hover:bg-bg-elevated transition-colors border border-transparent hover:border-border-subtle">
             <span class="text-sm font-bold">{{ f.capability }}</span>
             <div class="flex justify-center">
-              <span v-if="f.available" class="text-xs font-medium text-gray-400">{{ f.current }}</span>
-              <Icon v-else name="ph:x-bold" class="text-red-500/50" />
+              <span v-if="f.available" class="text-xs font-medium text-tx-secondary">{{ f.current }}</span>
+              <Icon v-else name="ph:x-bold" class="text-danger/50" />
             </div>
             <div class="flex justify-end items-center gap-2">
-              <span class="text-xs font-bold text-indigo-400">{{ f.enterprise }}</span>
-              <Icon name="ph:check-circle-fill" class="text-indigo-500 text-xs" />
+              <span class="text-xs font-bold text-brand">{{ f.enterprise }}</span>
+              <Icon name="ph:check-circle-fill" class="text-brand text-xs" />
             </div>
           </div>
         </div>

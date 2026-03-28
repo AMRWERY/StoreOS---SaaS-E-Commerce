@@ -34,19 +34,19 @@ const buttonClass = computed(() => {
 
   const base = isNone
     ? ""
-    : "flex items-center justify-center gap-2 rounded-xl font-bold text-sm transition-all duration-200";
+    : "flex items-center justify-center gap-2 rounded-md font-bold text-sm transition-all duration-200";
 
   const padding = isNone || props.size === "none"
     ? ""
-    : "py-4 px-4";
+    : "py-2 px-4";
 
   let common = "";
   if (!isNone) {
     common = props.variant === "secondary"
-      ? "bg-transparent hover:bg-white/5 text-gray-400 border border-white/10"
+      ? "bg-bg-elevated border border-border-default text-tx-secondary hover:text-tx-primary"
       : props.variant === "ghost"
-        ? "bg-transparent text-gray-500 hover:text-white"
-        : "bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/20";
+        ? "bg-transparent text-tx-secondary hover:text-tx-primary"
+        : "bg-brand hover:bg-brand-hover text-white shadow-lg shadow-brand/20";
   }
 
   const opacity = props.disabled

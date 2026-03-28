@@ -1,14 +1,14 @@
-<template>
+﻿<template>
   <div>
     <div
-      class="bg-[#0c0c0e] border border-white/5 rounded-2xl p-3 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+      class="bg-bg-primary border border-border-subtle rounded-2xl p-3 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
       <!-- Dropdowns -->
       <div class="flex flex-wrap items-center gap-3">
         <VDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
             <VButton variant="none"
-              :className="`flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/5 rounded-xl text-xs font-bold transition-all ${open ? 'text-white border-white/20' : 'text-gray-400 hover:text-white'}`">
-              Category: <span class="text-white">{{ selectedCategory }}</span>
+              :className="`flex items-center gap-2 px-4 py-2 bg-bg-overlay border border-border-subtle rounded-xl text-xs font-bold transition-all ${open ? 'text-tx-primary border-border-default' : 'text-tx-secondary hover:text-tx-primary'}`">
+              Category: <span class="text-tx-primary">{{ selectedCategory }}</span>
               <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
             </VButton>
           </template>
@@ -16,7 +16,7 @@
           <template #default="{ close }">
             <div class="flex flex-col gap-1">
               <button v-for="cat in categories" :key="cat" @click="selectCategory(cat, close)"
-                :class="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all ${selectedCategory === cat ? 'bg-indigo-500/20 text-indigo-400' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`">
+                :class="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all ${selectedCategory === cat ? 'bg-brand/20 text-brand' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'}`">
                 {{ cat }}
               </button>
             </div>
@@ -27,7 +27,7 @@
         <VDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
             <VButton variant="none"
-              :className="`flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/5 rounded-xl text-xs font-bold transition-all ${open ? 'text-white border-white/20' : 'text-gray-400 hover:text-white'}`">
+              :className="`flex items-center gap-2 px-4 py-2 bg-bg-overlay border border-border-subtle rounded-xl text-xs font-bold transition-all ${open ? 'text-tx-primary border-border-default' : 'text-tx-secondary hover:text-tx-primary'}`">
               Status: <span :class="selectedStatus.colorClass">{{ selectedStatus.label }}</span>
               <div v-if="selectedStatus.dotClass" :class="`w-1.5 h-1.5 rounded-full ${selectedStatus.dotClass}`"></div>
               <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
@@ -37,7 +37,7 @@
           <template #default="{ close }">
             <div class="flex flex-col gap-1">
               <button v-for="status in statuses" :key="status.label" @click="selectStatus(status, close)"
-                :class="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${selectedStatus.label === status.label ? 'bg-indigo-500/20 text-indigo-400' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`">
+                :class="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${selectedStatus.label === status.label ? 'bg-brand/20 text-brand' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'}`">
                 <span>{{ status.label }}</span>
                 <div v-if="status.dotClass" :class="`w-1.5 h-1.5 rounded-full ${status.dotClass} ms-auto`"></div>
               </button>
@@ -49,8 +49,8 @@
         <VDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
             <VButton variant="none"
-              :className="`flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/5 rounded-xl text-xs font-bold transition-all ${open ? 'text-white border-white/20' : 'text-gray-400 hover:text-white'}`">
-              Stock: <span class="text-white">{{ selectedStock }}</span>
+              :className="`flex items-center gap-2 px-4 py-2 bg-bg-overlay border border-border-subtle rounded-xl text-xs font-bold transition-all ${open ? 'text-tx-primary border-border-default' : 'text-tx-secondary hover:text-tx-primary'}`">
+              Stock: <span class="text-tx-primary">{{ selectedStock }}</span>
               <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
             </VButton>
           </template>
@@ -58,7 +58,7 @@
           <template #default="{ close }">
             <div class="flex flex-col gap-1">
               <button v-for="stock in stockOptions" :key="stock" @click="selectStock(stock, close)"
-                :class="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all ${selectedStock === stock ? 'bg-indigo-500/20 text-indigo-400' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`">
+                :class="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all ${selectedStock === stock ? 'bg-brand/20 text-brand' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'}`">
                 {{ stock }}
               </button>
             </div>
@@ -67,13 +67,13 @@
       </div>
 
       <!-- View Mode Toggle -->
-      <div class="flex items-center bg-black/40 p-1 rounded-xl border border-white/5">
+      <div class="flex items-center bg-bg-overlay p-1 rounded-xl border border-border-subtle">
         <VButton variant="none" @click="$emit('update:viewMode', 'grid')"
-          :className="`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-indigo-500/20 text-indigo-400' : 'text-gray-600'}`">
+          :className="`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-brand/20 text-brand' : 'text-tx-muted'}`">
           <Icon name="ph:grid-four-fill" />
         </VButton>
         <VButton variant="none" @click="$emit('update:viewMode', 'list')"
-          :className="`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-indigo-500/20 text-indigo-400' : 'text-gray-600'}`">
+          :className="`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-brand/20 text-brand' : 'text-tx-muted'}`">
           <Icon name="ph:list-bold" />
         </VButton>
       </div>
@@ -103,10 +103,10 @@ const selectCategory = (category: string, close: () => void) => {
 }
 
 const statuses = [
-  { label: 'All', colorClass: 'text-white', dotClass: '' },
-  { label: 'Active', colorClass: 'text-emerald-500', dotClass: 'bg-emerald-500' },
-  { label: 'Draft', colorClass: 'text-gray-400', dotClass: 'bg-gray-400' },
-  { label: 'Archived', colorClass: 'text-amber-500', dotClass: 'bg-amber-500' }
+  { label: 'All', colorClass: 'text-tx-primary', dotClass: '' },
+  { label: 'Active', colorClass: 'text-success', dotClass: 'bg-success' },
+  { label: 'Draft', colorClass: 'text-tx-secondary', dotClass: 'bg-tx-secondary' },
+  { label: 'Archived', colorClass: 'text-accent', dotClass: 'bg-amber-500' }
 ]
 
 const selectedStatus = ref(statuses[1]) // Default to Active as in previous hardcoded mode

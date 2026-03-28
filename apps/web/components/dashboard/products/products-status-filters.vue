@@ -1,5 +1,5 @@
-<template>
-  <div class="mb-10">
+﻿<template>
+  <div class="mb-6">
     <VTabs :tabs="filters" :modelValue="activeFilter" @update:modelValue="$emit('update:activeFilter', $event)" />
   </div>
 </template>

@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <section class="bg-[#0c0c0e] border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
+    <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl">
       <VTable :headers="headers" :items="paginatedCustomers">
         <!-- Customer Info -->
         <template #cell(customer)="{ item }">
@@ -10,21 +10,21 @@
               {{ item.initials }}
             </div>
             <div class="min-w-0 text-start">
-              <h4 class="text-sm font-bold group-hover:text-white transition-colors">{{ item.name }}</h4>
-              <p class="text-[10px] text-gray-500 font-bold mt-0.5 tracking-tight">{{ item.phone }}</p>
-              <p class="text-[9px] text-gray-700 font-medium truncate">{{ item.email }}</p>
+              <h4 class="text-sm font-bold group-hover:text-tx-primary transition-colors">{{ item.name }}</h4>
+              <p class="text-[10px] text-tx-secondary font-bold mt-0.5 tracking-tight">{{ item.phone }}</p>
+              <p class="text-[9px] text-tx-muted font-medium truncate">{{ item.email }}</p>
             </div>
           </div>
         </template>
 
         <!-- Location -->
         <template #cell(location)="{ item }">
-          <p class="text-xs text-gray-400 font-medium leading-relaxed">{{ item.location }}</p>
+          <p class="text-xs text-tx-secondary font-medium leading-relaxed">{{ item.location }}</p>
         </template>
 
         <!-- Orders -->
         <template #cell(orders)="{ item }">
-          <span class="text-sm font-bold text-gray-400">{{ item.orders }}</span>
+          <span class="text-sm font-bold text-tx-secondary">{{ item.orders }}</span>
         </template>
 
         <!-- Total Spent -->
@@ -34,7 +34,7 @@
 
         <!-- Last Active -->
         <template #cell(lastActive)="{ item }">
-          <p class="text-[11px] text-gray-500 font-medium">{{ item.lastActive }}</p>
+          <p class="text-[11px] text-tx-secondary font-medium">{{ item.lastActive }}</p>
         </template>
 
         <!-- Tags -->
@@ -49,15 +49,15 @@
 
         <!-- Actions -->
         <template #cell(actions)="{ item }">
-          <div class="flex justify-end gap-3 text-gray-600">
-            <VButton variant="none" className="hover:text-white transition-colors"
+          <div class="flex justify-end gap-3 text-tx-muted">
+            <VButton variant="none" className="hover:text-tx-primary transition-colors"
               :to="`/dashboard/customers/${item.id}`">
               <Icon name="ph:eye-bold" />
             </VButton>
-            <VButton variant="none" className="hover:text-white transition-colors">
+            <VButton variant="none" className="hover:text-tx-primary transition-colors">
               <Icon name="ph:shopping-cart-bold" />
             </VButton>
-            <VButton variant="none" className="hover:text-white transition-colors">
+            <VButton variant="none" className="hover:text-tx-primary transition-colors">
               <Icon name="ph:dots-three-vertical-bold" />
             </VButton>
           </div>

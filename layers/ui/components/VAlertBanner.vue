@@ -11,7 +11,7 @@
         </div>
       </div>
       <button v-if="dismissible" @click="close"
-        class="text-[10px] font-black tracking-widest text-gray-500 hover:text-white transition-colors shrink-0 ms-4">
+        class="text-[10px] font-black tracking-widest text-tx-secondary hover:text-tx-primary transition-colors shrink-0 ms-4">
         Dismiss
       </button>
     </div>
@@ -56,8 +56,8 @@ const variants: Record<string, any> = {
     icon: 'text-emerald-500',
   },
   info: {
-    wrapper: 'bg-indigo-500/10 border border-indigo-500/20 text-[#e1e1e1]',
-    icon: 'text-indigo-400',
+    wrapper: 'bg-brand-dim border border-brand/20 text-[#e1e1e1]',
+    icon: 'text-brand',
   }
 }
 </script>

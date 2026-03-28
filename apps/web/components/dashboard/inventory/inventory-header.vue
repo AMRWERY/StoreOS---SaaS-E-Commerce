@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <VBreadcrumb />
 
@@ -7,7 +7,7 @@
       <header class="flex items-center justify-between">
         <div class="flex items-center gap-3">
           <h1 class="text-3xl font-bold tracking-tight">Inventory</h1>
-          <span class="bg-white/5 px-2 py-0.5 rounded text-[10px] font-black text-gray-500 tracking-widest mt-1">
+          <span class="bg-bg-elevated px-2 py-0.5 rounded text-[10px] font-black text-tx-secondary tracking-widest mt-1">
             {{ totalProducts }} Total
           </span>
         </div>
@@ -17,7 +17,7 @@
             Import CSV
           </VButton>
           <VButton @click="$emit('adjust')"
-            className="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/20">
+            className="bg-brand hover:bg-brand-hover text-tx-primary px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-brand/20">
             <Icon name="ph:plus-bold" />
             Adjust Stock
           </VButton>
@@ -31,9 +31,9 @@
 
         <VDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
-            <button :class="open ? 'bg-white/5 border-white/20' : 'bg-[#0c0c0e] border-white/5 hover:bg-white/5'"
-              class="flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-gray-400 transition-colors">
-              Category: <span class="text-white ms-1">{{ category }}</span>
+            <button :class="open ? 'bg-bg-elevated border-border-default' : 'bg-bg-primary border-border-subtle hover:bg-bg-elevated'"
+              class="flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-tx-secondary transition-colors">
+              Category: <span class="text-tx-primary ms-1">{{ category }}</span>
               <Icon name="ph:caret-down-bold" class="transition-transform duration-200"
                 :class="open ? 'rotate-180' : ''" />
             </button>
@@ -42,8 +42,8 @@
             <div class="flex flex-col gap-1 p-1">
               <button v-for="cat in ['All', 'ELECTRONICS', 'PERIPHERALS', 'DISPLAYS', 'FURNITURE']" :key="cat"
                 @click="$emit('update:category', cat); close()"
-                class="text-start px-3 py-2 rounded-xl text-xs font-bold hover:bg-white/5 transition-colors"
-                :class="category === cat ? 'text-indigo-400 bg-indigo-500/5' : 'text-gray-400'">
+                class="text-start px-3 py-2 rounded-xl text-xs font-bold hover:bg-bg-elevated transition-colors"
+                :class="category === cat ? 'text-brand bg-brand/5' : 'text-tx-secondary'">
                 {{ cat }}
               </button>
             </div>
@@ -52,9 +52,9 @@
 
         <VDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
-            <button :class="open ? 'bg-white/5 border-white/20' : 'bg-[#0c0c0e] border-white/5 hover:bg-white/5'"
-              class="flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-gray-400 transition-colors">
-              Stock Status: <span class="text-white ms-1">{{ status }}</span>
+            <button :class="open ? 'bg-bg-elevated border-border-default' : 'bg-bg-primary border-border-subtle hover:bg-bg-elevated'"
+              class="flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-tx-secondary transition-colors">
+              Stock Status: <span class="text-tx-primary ms-1">{{ status }}</span>
               <Icon name="ph:caret-down-bold" class="transition-transform duration-200"
                 :class="open ? 'rotate-180' : ''" />
             </button>
@@ -63,8 +63,8 @@
             <div class="flex flex-col gap-1 p-1">
               <button v-for="st in ['Any', 'In Stock', 'Low Stock', 'Out of Stock']" :key="st"
                 @click="$emit('update:status', st); close()"
-                class="text-start px-3 py-2 rounded-xl text-xs font-bold hover:bg-white/5 transition-colors"
-                :class="status === st ? 'text-indigo-400 bg-indigo-500/5' : 'text-gray-400'">
+                class="text-start px-3 py-2 rounded-xl text-xs font-bold hover:bg-bg-elevated transition-colors"
+                :class="status === st ? 'text-brand bg-brand/5' : 'text-tx-secondary'">
                 {{ st }}
               </button>
             </div>
@@ -72,7 +72,7 @@
         </VDropdownMenu>
 
         <button @click="clearFilters"
-          class="text-[10px] font-black tracking-widest text-indigo-400 hover:text-indigo-300 hover:underline transition-colors ms-2 shrink-0">
+          class="text-[10px] font-black tracking-widest text-brand hover:text-brand hover:underline transition-colors ms-2 shrink-0">
           Clear filters
         </button>
       </div>

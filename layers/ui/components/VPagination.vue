@@ -2,30 +2,30 @@
   <div>
     <div v-if="totalPages > 1" class="flex items-center justify-between px-2 py-4 my-6">
       <!-- Left: info -->
-      <p class="text-xs text-gray-500">
-        Showing <span class="text-gray-300 font-semibold">{{ from }}–{{ to }}</span> of
-        <span class="text-gray-300 font-semibold">{{ total }}</span> results
+      <p class="text-xs text-tx-secondary">
+        Showing <span class="text-tx-primary font-semibold">{{ from }}–{{ to }}</span> of
+        <span class="text-tx-primary font-semibold">{{ total }}</span> results
       </p>
 
       <!-- Right: controls -->
       <div class="flex items-center gap-1">
         <!-- Prev -->
         <VButton variant="none" :disabled="currentPage === 1" @click="changePage(currentPage - 1)"
-          className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:text-white hover:bg-white/5 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+          className="w-8 h-8 flex items-center justify-center rounded-md text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated transition-all disabled:opacity-30 disabled:cursor-not-allowed">
           <Icon name="ph:caret-left-bold" class="text-sm" />
         </VButton>
 
         <!-- Page numbers -->
         <template v-for="page in visiblePages" :key="page">
           <span v-if="page === '...'"
-            class="w-8 h-8 flex items-center justify-center text-gray-600 text-xs select-none">
+            class="w-8 h-8 flex items-center justify-center text-tx-muted text-xs select-none">
             ···
           </span>
           <VButton v-else variant="none" @click="changePage(page)" :className="[
-            'w-8 h-8 flex items-center justify-center rounded-lg text-xs font-semibold transition-all',
+            'w-8 h-8 flex items-center justify-center rounded-md text-xs font-semibold transition-all',
             page === currentPage
-              ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20'
-              : 'text-gray-500 hover:text-white hover:bg-white/5'
+              ? 'bg-brand text-white shadow-lg shadow-brand/20'
+              : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
           ].join(' ')">
             {{ page }}
           </VButton>
@@ -33,7 +33,7 @@
 
         <!-- Next -->
         <VButton variant="none" :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)"
-          className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:text-white hover:bg-white/5 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+          className="w-8 h-8 flex items-center justify-center rounded-md text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated transition-all disabled:opacity-30 disabled:cursor-not-allowed">
           <Icon name="ph:caret-right-bold" class="text-sm" />
         </VButton>
       </div>

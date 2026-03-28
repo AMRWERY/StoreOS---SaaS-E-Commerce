@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <VBreadcrumb />
     
@@ -6,7 +6,7 @@
       <div class="flex items-center gap-3">
         <h1 class="text-3xl font-bold tracking-tight">Customers</h1>
         <span
-          class="bg-white/5 px-2 py-0.5 rounded text-[10px] font-black text-gray-600 tracking-widest mt-1">{{
+          class="bg-bg-elevated px-2 py-0.5 rounded text-[10px] font-black text-tx-muted tracking-widest mt-1">{{
             totalCustomers }}
           total</span>
       </div>

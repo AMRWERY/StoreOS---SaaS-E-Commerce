@@ -5,17 +5,17 @@
 
       <BillingHeader />
 
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-3">
 
         <!-- Left Column -->
-        <div class="lg:col-span-8 space-y-8">
+        <div class="lg:col-span-8 space-y-6">
           <billing-active-plan />
 
           <billing-feature-access />
         </div>
 
         <!-- Right Column -->
-        <aside class="lg:col-span-4 space-y-8">
+        <aside class="lg:col-span-4 space-y-6">
           <billing-payment-method />
 
           <billing-realtime-usage />

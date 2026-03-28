@@ -1,44 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Merchant Dashboard — Backgrounds */
+  --bg-base:      #08080E;
+  --bg-primary:   #0D0D18;
+  --bg-elevated:  #141422;
+  --bg-overlay:   #1A1A2E;
+
+  /* Borders */
+  --border-subtle:  #1C1C30;
+  --border-default: #262640;
+
+  /* Text */
+  --text-primary:   #F0F0FF;
+  --text-secondary: #8888AA;
+  --text-muted:     #50506A;
+
+  /* Brand */
+  --brand:       #6366F1;
+  --brand-hover: #818CF8;
+  --brand-dim:   rgba(99,102,241,0.12);
+
+  /* Accent — orange */
+  --orange:      #F97316;
+  --orange-hover:#FB923C;
+  --orange-dim:  rgba(249,115,22,0.12);
+
+  /* Status */
+  --success:     #10B981;
+  --success-dim: rgba(16,185,129,0.12);
+  --warning:     #F59E0B;
+  --warning-dim: rgba(245,158,11,0.12);
+  --danger:      #EF4444;
+  --danger-dim:  rgba(239,68,68,0.12);
+  --info:        #3B82F6;
+  --info-dim:    rgba(59,130,246,0.12);
+  --purple:      #A78BFA;
+  --purple-dim:  rgba(167,139,250,0.12);
+  --yellow:      #EAB308;
+  --yellow-dim:  rgba(234,179,8,0.12);
+}
 
 .hide-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .select-scrollbar {
-    -webkit-appearance: none;
-    /* Chrome, Safari, Edge */
-    -moz-appearance: none;
-    /* Firefox */
-    appearance: none;
-    /* Standard */
-    background-image: none !important;
-    /* Hide background arrow */
+  -webkit-appearance: none;
+  /* Chrome, Safari, Edge */
+  -moz-appearance: none;
+  /* Firefox */
+  appearance: none;
+  /* Standard */
+  background-image: none !important;
+  /* Hide background arrow */
 }
 
 /* For IE/Edge old versions */
 .select-scrollbar::-ms-expand {
-    display: none;
+  display: none;
 }
 
 /* Chrome, Safari, Edge, Opera - Remove arrows from number input */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 /* Firefox - Remove arrows from number input */
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 /* Optional: remove default styling for select on mobile */
 select {
-    background-image: none;
+  background-image: none;
 }

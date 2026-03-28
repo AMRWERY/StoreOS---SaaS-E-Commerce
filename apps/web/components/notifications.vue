@@ -2,92 +2,92 @@
   <div>
     <!-- Trigger Button -->
     <VButton @click="isInternalOpen = true" variant="none"
-      :className="['relative text-gray-500 hover:text-white p-2 transition-colors', isInternalOpen ? 'text-white' : '']">
+      :className="['relative text-tx-secondary hover:text-tx-primary p-2 transition-colors', isInternalOpen ? 'text-tx-primary' : '']">
       <Icon name="ph:bell-simple-bold" class="text-xl" />
       <span v-if="unreadCount > 0"
-        class="absolute top-2 end-2 w-2 h-2 bg-red-500 rounded-full border-2 border-[#050505] animate-ping"></span>
+        class="absolute top-2 end-2 w-2 h-2 bg-red-500 rounded-full border-2 border-bg-base animate-ping"></span>
     </VButton>
 
     <Teleport to="body">
       <!-- Backdrop -->
       <Transition name="fade">
-        <div v-if="isInternalOpen" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
+        <div v-if="isInternalOpen" class="fixed inset-0 bg-bg-overlay backdrop-blur-sm z-[100]"
           @click="isInternalOpen = false"></div>
       </Transition>
 
       <!-- Slide-over Drawer -->
       <Transition name="slide">
         <aside v-if="isInternalOpen"
-          class="fixed end-0 top-0 h-full w-full max-w-[480px] bg-[#080809] border-s border-white/5 shadow-2xl flex flex-col z-[101]">
+          class="fixed end-0 top-0 h-full w-full max-w-[480px] bg-bg-primary border-s border-border-subtle shadow-2xl flex flex-col z-[101]">
           <!-- Header -->
-          <div class="p-8 border-b border-white/5 bg-white/[0.01]">
+          <div class="px-4 py-3.5 border-b border-border-subtle bg-bg-elevated">
             <div class="flex items-center justify-between mb-2">
-              <h3 class="text-[10px] font-black text-gray-600 tracking-[0.2em]">
+              <h3 class="text-[10px] font-black text-tx-muted tracking-[0.2em]">
                 Notifications Center
               </h3>
               <div class="flex items-center gap-4">
                 <button @click="markAllAsRead"
-                  class="text-[9px] font-black tracking-widest text-indigo-400 hover:text-white transition-colors">
+                  class="text-[9px] font-black tracking-widest text-brand hover:text-tx-primary transition-colors">
                   Mark Read
                 </button>
-                <button @click="isInternalOpen = false" class="text-gray-500 hover:text-white transition-colors">
+                <button @click="isInternalOpen = false" class="text-tx-secondary hover:text-tx-primary transition-colors">
                   <ClientOnly>
                     <Icon name="ph:x-bold" class="text-lg" />
                   </ClientOnly>
                 </button>
               </div>
             </div>
-            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
+            <h2 class="text-2xl font-bold text-tx-primary tracking-tight flex items-center gap-3">
               Updates <span
-                class="bg-indigo-500/10 text-indigo-500 text-[10px] px-2 py-0.5 rounded-full border border-indigo-500/20">{{
+                class="bg-brand-dim text-brand text-[10px] px-2 py-0.5 rounded-full border border-brand/20">{{
                   unreadCount }} New</span>
             </h2>
           </div>
 
           <!-- Tabs -->
-          <div class="flex border-b border-white/5 bg-black/20">
+          <div class="flex border-b border-border-subtle bg-bg-overlay">
             <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="[
               'flex-1 py-4 text-[10px] font-black tracking-[0.15em] transition-all relative',
-              activeTab === tab.id ? 'text-white' : 'text-gray-600 hover:text-gray-400'
+              activeTab === tab.id ? 'text-tx-primary' : 'text-tx-muted hover:text-tx-secondary'
             ]">
               {{ tab.label }}
               <div v-if="activeTab === tab.id"
-                class="absolute bottom-0 start-0 end-0 h-0.5 bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]">
+                class="absolute bottom-0 start-0 end-0 h-0.5 bg-brand shadow-[0_0_10px_rgba(99,102,241,0.5)]">
               </div>
             </button>
           </div>
 
           <!-- Content -->
           <div class="flex-1 overflow-y-auto hide-scrollbar bg-black/5">
-            <div v-if="filteredNotifications.length > 0" class="divide-y divide-white/5">
+            <div v-if="filteredNotifications.length > 0" class="divide-y divide-border-subtle">
               <div v-for="n in filteredNotifications" :key="n.id"
-                class="p-8 group hover:bg-white/[0.02] transition-colors cursor-pointer relative">
+                class="px-4 py-3.5 group hover:bg-bg-elevated transition-colors cursor-pointer relative">
                 <div class="flex gap-5">
                   <!-- Icon -->
                   <div class="relative shrink-0">
                     <div
-                      :class="['w-14 h-14 rounded-2xl flex items-center justify-center border border-white/5 shadow-inner', n.bgColor]">
+                      :class="['w-14 h-14 rounded-2xl flex items-center justify-center border border-border-subtle shadow-inner', n.bgColor]">
                       <ClientOnly>
                         <Icon :name="n.icon" :class="['text-2xl', n.iconColor]" />
                       </ClientOnly>
                     </div>
                     <span v-if="!n.read"
-                      class="absolute -top-1 -end-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#080809] animate-ping"></span>
+                      class="absolute -top-1 -end-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-bg-primary animate-ping"></span>
                   </div>
 
                   <!-- Details -->
                   <div class="min-w-0 flex-1">
                     <div class="flex items-center justify-between gap-2 mb-1.5">
-                      <p class="text-[9px] font-black tracking-widest text-gray-600">{{ n.category }}</p>
-                      <span class="text-[9px] font-bold text-gray-700 tracking-tighter">{{ n.time }}</span>
+                      <p class="text-[9px] font-black tracking-widest text-tx-muted">{{ n.category }}</p>
+                      <span class="text-[9px] font-bold text-tx-muted tracking-tighter">{{ n.time }}</span>
                     </div>
-                    <h4 class="text-sm font-bold text-white group-hover:text-indigo-400 transition-colors">{{ n.title }}
+                    <h4 class="text-sm font-bold text-tx-primary group-hover:text-brand transition-colors">{{ n.title }}
                     </h4>
-                    <p class="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed font-medium">{{ n.message }}</p>
+                    <p class="text-xs text-tx-secondary mt-2 line-clamp-2 leading-relaxed font-medium">{{ n.message }}</p>
 
                     <div v-if="n.type === 'orders'" class="mt-4">
                       <button
-                        class="text-[10px] font-black tracking-widest text-indigo-400 hover:text-white flex items-center gap-2 transition-all group/btn">
+                        class="text-[10px] font-black tracking-widest text-brand hover:text-tx-primary flex items-center gap-2 transition-all group/btn">
                         View Order Details
                         <ClientOnly>
                           <Icon name="ph:caret-right-bold" class="rtl:rotate-180" />
@@ -100,24 +100,24 @@
             </div>
 
             <!-- Empty State -->
-            <div v-else class="h-full flex flex-col items-center justify-center text-center p-12">
+            <div v-else class="h-full flex flex-col items-center justify-center text-center p-5">
               <div
-                class="w-24 h-24 rounded-[2rem] bg-white/5 flex items-center justify-center mb-8 border border-white/5">
+                class="w-24 h-24 rounded-2xl bg-bg-elevated flex items-center justify-center mb-8 border border-border-subtle">
                 <ClientOnly>
-                  <Icon name="ph:bell-slash-bold" class="text-4xl text-gray-700" />
+                  <Icon name="ph:bell-slash-bold" class="text-4xl text-tx-muted" />
                 </ClientOnly>
               </div>
-              <h4 class="text-xl font-bold text-gray-400 tracking-tight">Everything is quiet</h4>
-              <p class="text-sm text-gray-600 mt-3 max-w-[260px] leading-relaxed">Notifications about your store
+              <h4 class="text-xl font-bold text-tx-secondary tracking-tight">Everything is quiet</h4>
+              <p class="text-sm text-tx-muted mt-3 max-w-[260px] leading-relaxed">Notifications about your store
                 activity
                 and security will appear here.</p>
             </div>
           </div>
 
           <!-- Footer -->
-          <div class="p-8 border-t border-white/5 bg-[#0c0c0e]">
+          <div class="px-4 py-3.5 border-t border-border-subtle bg-bg-primary">
             <button
-              class="w-full py-4 rounded-2xl font-black text-[10px] tracking-widest bg-white/5 hover:bg-white/10 text-white transition-all border border-white/5 hover:border-white/10">
+              class="w-full py-4 rounded-xl font-black text-[10px] tracking-widest bg-bg-elevated hover:bg-bg-elevated text-tx-primary transition-all border border-border-subtle hover:border-border-default">
               View All Activity Log
             </button>
           </div>
@@ -158,8 +158,8 @@ const notifications = ref([
     message: 'A successful login was detected from a new device in London, UK.',
     time: '45m ago',
     icon: 'ph:shield-check-bold',
-    iconColor: 'text-indigo-400',
-    bgColor: 'bg-indigo-500/10',
+    iconColor: 'text-brand',
+    bgColor: 'bg-brand-dim',
     read: false,
     type: 'security'
   },
@@ -170,8 +170,8 @@ const notifications = ref([
     message: 'Payment for order #ORD-0887 was successfully processed.',
     time: '2h ago',
     icon: 'ph:check-circle-bold',
-    iconColor: 'text-indigo-400',
-    bgColor: 'bg-indigo-500/10',
+    iconColor: 'text-brand',
+    bgColor: 'bg-brand-dim',
     read: true,
     type: 'orders'
   },

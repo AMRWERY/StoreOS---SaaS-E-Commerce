@@ -1,17 +1,17 @@
 <template>
-  <section class="lg:col-span-8 bg-[#0c0c0e] border border-white/5 rounded-3xl p-8 flex flex-col md:flex-row gap-10">
+  <section class="lg:col-span-8 bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 flex flex-col md:flex-row gap-10">
     <!-- Avatar Side -->
     <div class="flex flex-col items-center gap-4 shrink-0">
       <div
-        class="w-32 h-32 bg-[#1a1a1e] border border-white/10 rounded-2xl flex items-center justify-center text-3xl font-black text-gray-500 shadow-inner">
+        class="w-32 h-32 bg-bg-overlay border border-border-default rounded-2xl flex items-center justify-center text-3xl font-black text-tx-secondary shadow-inner">
         MT
       </div>
       <VButton variant="secondary"
-        className="w-full py-2 bg-white/5 hover:bg-white/10 border border-white/5 rounded-lg text-[10px] font-black tracking-widest transition-colors">
+        className="w-full py-2 bg-bg-elevated hover:bg-bg-elevated border border-border-subtle rounded-lg text-[10px] font-black tracking-widest transition-colors">
         Update Avatar
       </VButton>
       <button
-        class="text-[10px] font-bold text-red-500/60 hover:text-red-500 transition-colors tracking-widest">
+        class="text-[10px] font-bold text-danger/60 hover:text-danger transition-colors tracking-widest">
         Remove
       </button>
     </div>
@@ -19,21 +19,21 @@
     <!-- Form Side -->
     <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
       <VInput v-model="profile.name" label="Full Name"
-        inputClass="bg-black border-white/10 rounded-xl px-5 py-3.5 focus:border-indigo-500/50" />
+        inputClass="bg-black border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
       <VInput v-model="profile.email" label="Email Address" type="email"
-        inputClass="bg-black border-white/10 rounded-xl px-5 py-3.5 focus:border-indigo-500/50" />
+        inputClass="bg-black border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
       <VInput v-model="profile.phone" label="Phone Number"
-        inputClass="bg-black border-white/10 rounded-xl px-5 py-3.5 focus:border-indigo-500/50" />
+        inputClass="bg-black border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
       <div class="space-y-2">
-        <label class="text-[10px] font-bold text-gray-500 tracking-wider">Job Title</label>
+        <label class="text-[10px] font-bold text-tx-secondary tracking-wider">Job Title</label>
         <div class="relative">
           <select v-model="profile.jobTitle"
-            class="w-full bg-black border border-white/10 rounded-xl px-5 py-3.5 text-sm appearance-none outline-none focus:border-indigo-500/50">
+            class="w-full bg-black border border-border-default rounded-xl px-5 py-3.5 text-sm appearance-none outline-none focus:border-brand">
             <option>Owner</option>
             <option>Manager</option>
           </select>
           <Icon name="ph:caret-down-bold"
-            class="absolute end-4 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none" />
+            class="absolute end-4 top-1/2 -translate-y-1/2 text-tx-muted pointer-events-none" />
         </div>
       </div>
     </div>

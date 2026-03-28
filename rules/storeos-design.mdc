@@ -1,0 +1,161 @@
+---
+description: StoreOS design system — enforces colors, typography, spacing, radius, and component patterns for all Merchant Dashboard and Storefront files.
+globs: apps/**/*.vue,layers/**/*.vue
+alwaysApply: false
+---
+
+# StoreOS Design System
+
+Full spec lives in `/design.md`. Below are the hard rules to follow on every component.
+
+---
+
+## Colors — Merchant Dashboard
+
+Always use CSS variables or the Tailwind token aliases:
+
+| Role | Value | Tailwind class |
+|------|-------|----------------|
+| Page background | `#08080E` | `bg-bg-base` |
+| Cards / sidebar | `#0D0D18` | `bg-bg-primary` |
+| Inputs / hover | `#141422` | `bg-bg-elevated` |
+| Modals / dropdowns | `#1A1A2E` | `bg-bg-overlay` |
+| Subtle border | `#1C1C30` | `border-border-subtle` |
+| Visible border | `#262640` | `border-border-default` |
+| Primary text | `#F0F0FF` | `text-tx-primary` |
+| Secondary text | `#8888AA` | `text-tx-secondary` |
+| Muted text | `#50506A` | `text-tx-muted` |
+| Brand | `#6366F1` | `text-brand` / `bg-brand` |
+| Orange (new orders) | `#F97316` | `bg-accent` |
+
+**Never use** `bg-[#050505]`, `bg-[#0c0c0e]`, `bg-[#080809]`, `border-white/5`, `border-white/10`, `text-gray-500`, `text-gray-600`, `text-gray-700` in merchant screens.
+
+---
+
+## Typography
+
+```html
+<!-- ✅ Body / UI text -->
+<p class="font-sans text-tx-secondary">Label</p>
+
+<!-- ✅ ALL numbers, prices, order IDs, dates, stock counts -->
+<span class="font-mono text-tx-primary">$450.00</span>
+<span class="font-mono">#ORD-0889</span>
+<span class="font-mono">42 units</span>
+
+<!-- ❌ Never use Inter, Roboto, system-ui as primary fonts -->
+```
+
+**Rule: Any number rendered in the UI must have `font-mono`.**
+
+---
+
+## Border Radius — Merchant (tight & professional)
+
+| Use | Class | px |
+|-----|-------|----|
+| Badges, tags | `rounded-xs` | 4px |
+| Buttons, inputs | `rounded-md` | 8px |
+| Nav items, rows | `rounded-md` | 8px |
+| Modals, dropdowns | `rounded-lg` | 10px |
+| Cards | `rounded-xl` | 12px |
+| Large panels | `rounded-2xl` | 14px |
+
+**Never use** `rounded-3xl`, `rounded-[2rem]`, `rounded-[2.5rem]`, `rounded-[3rem]` in merchant screens.
+
+---
+
+## Spacing — Merchant (dense)
+
+```
+Card padding:    px-4 py-3.5  (16px / 14px)
+Card gap:        gap-3        (12px)
+Section gap:     gap-5        (20px)
+Content padding: p-5          (20px all sides)
+Sidebar width:   w-[220px]
+Topbar height:   h-[52px]
+```
+
+**Never use** `p-8`, `p-10`, `p-12`, `p-16` on cards or content containers.
+
+---
+
+## Status Badges
+
+Always pill-shaped (`rounded-full`), 9–10px font, `font-semibold`, `px-2 py-0.5`:
+
+```html
+<!-- Order status examples -->
+<span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-accent-dim text-accent">NEW</span>
+<span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-info-dim text-info">CONFIRMED</span>
+<span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-status-yellow-dim text-status-yellow">PROCESSING</span>
+<span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-status-purple-dim text-status-purple">SHIPPED</span>
+<span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success">DELIVERED</span>
+<span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-danger-dim text-danger">CANCELLED</span>
+```
+
+---
+
+## Cards
+
+```html
+<!-- ✅ Correct merchant card -->
+<div class="bg-bg-primary border border-border-subtle rounded-xl overflow-hidden">
+  <!-- header -->
+  <div class="px-4 py-3 border-b border-border-subtle">
+    <h3 class="text-[12px] font-semibold text-tx-primary">Title</h3>
+  </div>
+  <!-- body row -->
+  <div class="px-4 py-2.5 border-b border-border-subtle hover:bg-bg-elevated transition-colors">
+    ...
+  </div>
+</div>
+
+<!-- ✅ Stat card -->
+<div class="bg-bg-primary border border-border-subtle rounded-xl px-4 py-3.5">
+  <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">Revenue</p>
+  <p class="font-mono text-[22px] font-semibold text-tx-primary tracking-tight mt-1">$4,200</p>
+</div>
+```
+
+---
+
+## Inputs
+
+```html
+<input class="bg-bg-elevated border border-border-subtle rounded-md px-3 py-2 text-[12px] font-sans text-tx-primary placeholder:text-tx-muted focus:border-brand focus:ring-2 focus:ring-brand-dim outline-none transition-all" />
+```
+
+---
+
+## Navigation (Sidebar)
+
+```html
+<!-- Active nav item -->
+<a class="flex items-center gap-2 px-3 py-1.5 rounded-md text-[12px] font-medium text-brand bg-brand-dim">
+  <icon class="w-[15px] h-[15px]" />
+  Dashboard
+</a>
+<!-- Default nav item -->
+<a class="flex items-center gap-2 px-3 py-1.5 rounded-md text-[12px] font-medium text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated transition-colors">
+```
+
+---
+
+## Animations
+
+- Page load: `fadeUp` 0.3s, stagger 0.05s per element
+- Hover: `transition-colors` / `transition-all` duration `150ms`
+- Pulse: only on "new order" indicator dot
+- **No animation longer than 0.3s**
+
+---
+
+## Storefront (Light App)
+
+- Background: `bg-white` / `#F8F8FC` subtle
+- Border: `border-[#E4E4EF]`
+- Text primary: `#0F0F1A` | secondary: `#5A5A78`
+- Brand: `#6366F1` on light bg
+- Radii: softer — up to `rounded-[20px]`, pill buttons `rounded-full`
+- Font: same IBM Plex Sans + Mono stack
