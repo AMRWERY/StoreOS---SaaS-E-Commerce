@@ -23,7 +23,7 @@
                 {{ customer.email }}
               </div>
             </div>
-            <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mt-3">Member Since {{
+            <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mt-3">Member Since {{
               customer.memberSince
               }}</p>
           </div>
@@ -43,7 +43,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 mb-6">
         <div v-for="stat in stats" :key="stat.label"
           class="bg-bg-primary border border-border-subtle rounded-xl px-4 py-3.5 group hover:border-border-default transition-all">
-          <h3 class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-3">{{ stat.label }}</h3>
+          <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-3">{{ stat.label }}</h3>
           <div class="flex items-baseline gap-2">
             <span v-if="stat.prefix" class="text-xl font-bold text-tx-secondary">{{ stat.prefix }}</span>
             <p class="font-mono text-[22px] font-semibold tracking-tight">{{ stat.value }}</p>
@@ -70,7 +70,7 @@
             <!-- Orders Tab -->
             <div v-if="activeTab === 'Orders'">
               <div
-                class="grid grid-cols-4 text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-6 px-4">
+                class="grid grid-cols-4 text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-6 px-4">
                 <span>Order #</span>
                 <span class="text-center">Status</span>
                 <span class="text-center">Date</span>
@@ -90,7 +90,7 @@
                   </div>
                   <span class="text-xs font-medium text-tx-secondary text-center">{{ order.date }}</span>
                   <div class="text-end">
-                    <p class="text-[9px] font-semibold text-tx-muted uppercase tracking-[0.6px]">EGP</p>
+                    <p class="text-[9px] font-semibold text-tx-muted tracking-[0.6px]">$</p>
                     <p class="text-sm font-bold font-mono">{{ order.total }}</p>
                   </div>
                 </div>
@@ -125,7 +125,7 @@
                   <div
                     class="bg-bg-elevated border border-border-subtle rounded-2xl p-6 hover:border-border-default transition-colors">
                     <div class="flex items-center justify-between mb-3">
-                      <span class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">{{ note.author }}
+                      <span class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">{{ note.author }}
                         • {{
                           note.date }}</span>
                       <button class="text-tx-muted hover:text-danger transition-colors">
@@ -152,7 +152,7 @@
                     <span v-if="activity.target" class="text-brand font-bold capitalize">{{ activity.target
                     }}</span>
                   </p>
-                  <p class="text-[10px] text-tx-muted mt-1 font-semibold uppercase tracking-[0.6px]">{{ activity.date }}
+                  <p class="text-[10px] text-tx-muted mt-1 font-semibold tracking-[0.6px]">{{ activity.date }}
                   </p>
                 </div>
               </div>
@@ -165,7 +165,7 @@
           <!-- Contact Metadata -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-xl shadow-black/20">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">Contact Metadata</h3>
+              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">Contact Metadata</h3>
               <button v-if="!isEditingContact" @click="startEditContact"
                 class="text-tx-muted hover:text-brand transition-colors">
                 <Icon name="ph:pencil-simple-line-bold" />
@@ -174,24 +174,24 @@
 
             <div v-if="!isEditingContact" class="space-y-6">
               <div class="group/field">
-                <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-2">Primary Phone</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Primary Phone</p>
                 <p class="text-xs font-bold text-tx-secondary">{{ customer.phone }}</p>
               </div>
               <div class="group/field">
-                <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-2">Primary Email</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Primary Email</p>
                 <p class="text-xs font-bold text-tx-secondary">{{ customer.email }}</p>
               </div>
             </div>
 
             <div v-else class="space-y-6">
               <div>
-                <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-2">Primary Phone</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Primary Phone</p>
                 <input v-model="editedContact.phone"
                   class="w-full bg-bg-overlay border border-border-default rounded-xl px-4 py-3 text-xs font-bold focus:border-brand/50 focus:ring-1 focus:ring-brand/20 outline-none transition-all"
                   placeholder="+20 000 000 0000" />
               </div>
               <div>
-                <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-2">Primary Email</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Primary Email</p>
                 <input v-model="editedContact.email"
                   class="w-full bg-bg-overlay border border-border-default rounded-xl px-4 py-3 text-xs font-bold focus:border-brand/50 focus:ring-1 focus:ring-brand/20 outline-none transition-all"
                   placeholder="name@company.com" />
@@ -206,7 +206,7 @@
           <!-- Shipping Destinations -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 overflow-hidden">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">Shipping Destinations</h3>
+              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">Shipping Destinations</h3>
               <button
                 class="text-tx-primary bg-bg-elevated rounded-md p-1 hover:bg-bg-elevated transition-all border border-border-subtle">
                 <Icon name="ph:plus-bold" />
@@ -227,7 +227,7 @@
           <!-- Customer Tags -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">Customer Tags</h3>
+              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">Customer Tags</h3>
               <button class="text-tx-muted hover:text-brand transition-colors">
                 <Icon name="ph:gear-six-bold" />
               </button>
@@ -247,7 +247,7 @@
                 <Icon name="ph:shield-check-fill" class="text-success text-2xl" />
               </div>
               <div>
-                <h3 class="text-[10px] font-semibold text-tx-secondary uppercase tracking-[0.6px] mb-1">Risk Analysis
+                <h3 class="text-[10px] font-semibold text-tx-secondary tracking-[0.6px] mb-1">Risk Analysis
                 </h3>
                 <div class="flex items-center gap-2">
                   <div class="w-2 h-2 rounded-full bg-success animate-pulse"></div>
@@ -377,8 +377,8 @@ const activities = [
 
 const stats = [
   { label: 'Total Orders', value: '42', prefix: '' },
-  { label: 'Total Spent', value: '14,208.5', prefix: 'EGP' },
-  { label: 'Avg Order Value', value: '338.29', prefix: 'EGP' },
+  { label: 'Total Spent', value: '14,208.5', prefix: '$' },
+  { label: 'Avg Order Value', value: '338.29', prefix: '$' },
   { label: 'Last Order', value: 'Feb 24, 2026', prefix: '' },
 ]
 

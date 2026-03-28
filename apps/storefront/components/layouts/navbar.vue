@@ -16,12 +16,15 @@
           <div class="hidden md:flex items-center gap-10 h-full">
             <nuxt-link-locale v-for="link in navLinks" :key="link.path" :to="link.path" v-slot="{ isActive }">
               <div class="relative h-full flex items-center group cursor-pointer">
-                <span :class="[isActive ? 'text-brand' : 'text-tx-secondary group-hover:text-brand']"
+                <span 
+                  :class="[
+                    (isActive || isPathActive(link.path)) ? 'text-brand' : 'text-tx-secondary group-hover:text-brand'
+                  ]"
                   class="text-sm font-bold transition-all tracking-tight">
                   {{ link.label }}
                 </span>
                 <!-- Start-Aligned Pill Indicator -->
-                <div v-if="isActive"
+                <div v-if="isActive || isPathActive(link.path)"
                   class="absolute -bottom-[3px] start-0 w-8 h-1 bg-brand rounded-full shadow-[0_0_12px_rgba(var(--brand-rgb),0.4)]">
                 </div>
               </div>
@@ -61,10 +64,17 @@
 <script lang="ts" setup>
 const { isAuthenticated, logout } = useAuth();
 const { locale } = useI18n();
+const localePath = useLocalePath();
 const switchLocalePath = useSwitchLocalePath();
+const route = useRoute();
 
 const isEnglish = computed(() => locale.value === "en");
 const localeLabel = computed(() => (isEnglish.value ? "ع" : "EN"));
+
+const isPathActive = (path: string) => {
+  const target = localePath(path);
+  return route.path === target || route.path.startsWith(target + '/');
+};
 
 const showOverlay = ref(false);
 
@@ -80,7 +90,7 @@ const switchLocale = async () => {
 };
 
 const navLinks = [
-  { label: 'Shop All', path: '/products' },
+  { label: 'Shop All', path: '/shop-all' },
   { label: 'New Arrivals', path: '/new-arrivals' },
   { label: 'Collections', path: '/collections' },
   { label: 'Editorial', path: '/editorial' },

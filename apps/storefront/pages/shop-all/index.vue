@@ -79,14 +79,14 @@ const colors = [
 ];
 
 const products = [
-  { id: 1, name: 'AeroSprint Pro Trainer', cat: 'FOOTWEAR', price: 2499, oldPrice: 3200, tag: 'NEW', tagColor: 'bg-[#6366F1]', img: '/img/product-09.avif' },
-  { id: 2, name: 'Sonic-X Studio Headphones', cat: 'AUDIO', price: 4850, tag: 'SALE', tagColor: 'bg-[#F97316]', img: '/img/product-010.avif' },
-  { id: 3, name: 'Core Chronograph Silver', cat: 'ACCESSORIES', price: 1200, img: '/img/product-011.avif' },
-  { id: 4, name: 'Titanium Aviator Shade', cat: 'EYEWEAR', price: 3400, img: '/img/product-012.avif' },
-  { id: 5, name: 'Retro-M Digital Compact', cat: 'PHOTOGRAPHY', price: 9800, img: '/img/product-013.avif' },
-  { id: 6, name: 'Volt Matrix Runner', cat: 'FOOTWEAR', price: 2150, img: '/img/product-014.avif' },
-  { id: 7, name: 'Hydra-Rich Night Serum', cat: 'BEAUTY', price: 950, tag: 'NEW', tagColor: 'bg-[#6366F1]', img: '/img/product-015.avif' },
-  { id: 8, name: 'Insta-Flex Classic Camera', cat: 'PHOTOGRAPHY', price: 1890, img: '/img/product-016.avif' },
+  { id: 1, slug: 'aerosprint-pro-trainer', name: 'AeroSprint Pro Trainer', cat: 'FOOTWEAR', price: 2499, oldPrice: 3200, tag: 'NEW', tagColor: 'bg-[#6366F1]', img: '/img/product-09.avif' },
+  { id: 2, slug: 'sonic-x-studio-headphones', name: 'Sonic-X Studio Headphones', cat: 'AUDIO', price: 4850, tag: 'SALE', tagColor: 'bg-[#F97316]', img: '/img/product-010.avif' },
+  { id: 3, slug: 'core-chronograph-silver', name: 'Core Chronograph Silver', cat: 'ACCESSORIES', price: 1200, img: '/img/product-011.avif' },
+  { id: 4, slug: 'titanium-aviator-shade', name: 'Titanium Aviator Shade', cat: 'EYEWEAR', price: 3400, img: '/img/product-012.avif' },
+  { id: 5, slug: 'retro-m-digital-compact', name: 'Retro-M Digital Compact', cat: 'PHOTOGRAPHY', price: 9800, img: '/img/product-013.avif' },
+  { id: 6, slug: 'volt-matrix-runner', name: 'Volt Matrix Runner', cat: 'FOOTWEAR', price: 2150, img: '/img/product-014.avif' },
+  { id: 7, slug: 'hydra-rich-night-serum', name: 'Hydra-Rich Night Serum', cat: 'BEAUTY', price: 950, tag: 'NEW', tagColor: 'bg-[#6366F1]', img: '/img/product-015.avif' },
+  { id: 8, slug: 'insta-flex-classic-camera', name: 'Insta-Flex Classic Camera', cat: 'PHOTOGRAPHY', price: 1890, img: '/img/product-016.avif' },
 ];
 
 useSeoMeta({

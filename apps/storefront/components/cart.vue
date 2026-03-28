@@ -25,7 +25,7 @@
           <div class="px-6 py-6 border-b border-border-subtle bg-bg-primary">
             <div class="flex items-center justify-between">
               <div>
-                <h3 class="text-[10px] font-black text-tx-muted tracking-[0.2em] mb-1 uppercase">
+                <h3 class="text-[10px] font-black text-tx-muted tracking-[0.2em] mb-1">
                   Your Selection
                 </h3>
                 <h2 class="text-2xl font-bold text-tx-primary tracking-tight">Shopping Bag</h2>
@@ -63,7 +63,7 @@
 
                   <div class="flex items-center justify-between mt-4">
                     <!-- Price -->
-                    <span class="text-sm font-bold text-tx-primary font-mono">EGP {{ item.price.toLocaleString()
+                    <span class="text-sm font-bold text-tx-primary font-mono">${{ item.price.toLocaleString()
                       }}</span>
 
                     <!-- Quantity Stepper -->
@@ -106,16 +106,16 @@
             <div class="space-y-3 mb-6">
               <div class="flex justify-between text-xs text-tx-muted">
                 <span>Subtotal</span>
-                <span class="font-mono">EGP {{ subtotal.toLocaleString() }}</span>
+                <span class="font-mono">${{ subtotal.toLocaleString() }}</span>
               </div>
               <div class="flex justify-between text-xs text-tx-muted">
                 <span>Shipping</span>
-                <span class="text-emerald-500 font-bold uppercase tracking-widest text-[9px]">Calculated at
+                <span class="text-emerald-500 font-bold tracking-widest text-[9px]">Calculated at
                   checkout</span>
               </div>
               <div class="pt-3 border-t border-border-subtle/50 flex justify-between items-end">
                 <span class="text-sm font-bold text-tx-primary">Total Amount</span>
-                <span class="text-xl font-black text-brand font-mono">EGP {{ subtotal.toLocaleString() }}</span>
+                <span class="text-xl font-black text-brand font-mono">${{ subtotal.toLocaleString() }}</span>
               </div>
             </div>
 

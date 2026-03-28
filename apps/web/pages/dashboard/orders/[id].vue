@@ -65,7 +65,7 @@
               <Icon v-else name="ph:circle-bold" />
             </div>
 
-            <h4 class="text-[10px] font-semibold uppercase tracking-[0.6px]"
+            <h4 class="text-[10px] font-semibold tracking-[0.6px]"
               :class="step.status === 'upcoming' ? 'text-tx-muted' : 'text-tx-primary'">{{ step.name }}</h4>
             <p class="text-[9px] font-bold mt-1"
               :class="step.status === 'active' ? 'text-brand' : 'text-tx-muted'">
@@ -86,7 +86,7 @@
                   <Icon name="ph:package-bold" class="text-brand" />
                   Order Items
                 </h3>
-                <span class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">1 Item</span>
+                <span class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">1 Item</span>
               </div>
 
               <div class="px-4 py-3.5">
@@ -178,7 +178,7 @@
           <!-- Customer Panel -->
           <div class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">Customer</h3>
+              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">Customer</h3>
               <VButton variant="none" className="text-[10px] font-bold text-brand hover:underline">
                 Profile
                 <Icon name="ph:arrow-square-out-bold" class="inline ms-1" />
@@ -194,11 +194,11 @@
             </div>
             <div class="grid grid-cols-2 gap-3">
               <div class="bg-bg-elevated border border-border-subtle p-4 rounded-xl">
-                <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-2">Orders</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Orders</p>
                 <p class="font-mono text-[22px] font-semibold">12</p>
               </div>
               <div class="bg-bg-elevated border border-border-subtle p-4 rounded-xl">
-                <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-2">LTV</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">LTV</p>
                 <p class="font-mono text-[22px] font-semibold">$4,200</p>
               </div>
             </div>
@@ -206,12 +206,12 @@
 
           <!-- Shipping & Logistics Panel -->
           <div class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
-            <h3 class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-6">Shipping & Logistics</h3>
+            <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-6">Shipping & Logistics</h3>
             <div class="space-y-6">
               <div class="flex gap-4">
                 <Icon name="ph:map-pin-bold" class="text-brand mt-1 shrink-0" />
                 <div>
-                  <h4 class="text-[10px] font-semibold text-tx-secondary uppercase tracking-[0.6px] mb-2">Delivery Address</h4>
+                  <h4 class="text-[10px] font-semibold text-tx-secondary tracking-[0.6px] mb-2">Delivery Address</h4>
                   <p class="text-xs text-tx-secondary leading-relaxed font-medium">
                     88 Market St, Suite 200<br />
                     San Francisco, CA 94103<br />
@@ -222,7 +222,7 @@
               <div class="flex gap-4">
                 <Icon name="ph:truck-bold" class="text-brand mt-1 shrink-0" />
                 <div>
-                  <h4 class="text-[10px] font-semibold text-tx-secondary uppercase tracking-[0.6px] mb-2">Carrier & Tracking</h4>
+                  <h4 class="text-[10px] font-semibold text-tx-secondary tracking-[0.6px] mb-2">Carrier & Tracking</h4>
                   <p class="text-xs text-tx-primary font-bold mb-3">FedEx - <span class="text-tx-secondary font-medium">Standard
                       Worldwide</span></p>
                   <div class="flex items-center gap-2">
@@ -246,7 +246,7 @@
 
           <!-- Payment Method Panel -->
           <div class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
-            <h3 class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-6">Payment Method</h3>
+            <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-6">Payment Method</h3>
             <div class="bg-bg-elevated border border-border-subtle p-4 rounded-xl flex items-center justify-between">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 bg-brand-dim rounded-lg flex items-center justify-center">

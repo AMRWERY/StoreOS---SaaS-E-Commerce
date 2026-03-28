@@ -19,7 +19,8 @@
         </div>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-        <div v-for="product in products" :key="product.id" class="group flex flex-col h-full">
+        <nuxt-link-locale v-for="product in products" :key="product.id" :to="`/shop-all/${product.slug}`"
+          class="group flex flex-col h-full cursor-pointer">
           <div
             class="relative overflow-hidden rounded-[20px] bg-bg-primary border border-border-subtle shadow-sm transition-all duration-700 hover:shadow-2xl hover:shadow-brand/5">
             <img :src="product.image"
@@ -30,10 +31,10 @@
             <p class="text-[9px] font-black text-tx-muted tracking-[0.25em]">{{ product.category }}</p>
             <h3 class="text-[16px] font-bold text-tx-secondary group-hover:text-brand transition-colors tracking-tight">
               {{ product.name }}</h3>
-            <p class="mt-auto font-mono text-tx-primary font-black text-[18px] tracking-tighter pt-2">EGP {{
+            <p class="mt-auto font-mono text-tx-primary font-black text-[18px] tracking-tighter pt-2">${{
               product.price.toLocaleString() }}</p>
           </div>
-        </div>
+        </nuxt-link-locale>
       </div>
     </section>
   </div>

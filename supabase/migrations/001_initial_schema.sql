@@ -7,8 +7,8 @@ CREATE TABLE stores (
   slug            TEXT UNIQUE NOT NULL,  -- storeos.com/stores/my-store
   logo_url        TEXT,
   description     TEXT,
-  currency        TEXT DEFAULT 'EGP',
-  country         TEXT DEFAULT 'EG',
+  currency        TEXT DEFAULT '$',
+  country         TEXT DEFAULT 'US',
   phone           TEXT,
   email           TEXT,
   address         TEXT,

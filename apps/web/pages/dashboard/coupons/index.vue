@@ -25,13 +25,13 @@ const isPanelOpen = ref(false);
 const stats = [
   { label: 'ACTIVE COUPONS', value: '1,284', trend: '+12%', up: true },
   { label: 'TOTAL REDEMPTIONS', value: '42,901', trend: null, up: false },
-  { label: 'REVENUE GENERATED', value: 'EGP 840k', trend: null, up: false },
+  { label: 'REVENUE GENERATED', value: '$ 840k', trend: null, up: false },
 ];
 
 const coupons = [
-  { code: 'SUMMER24', type: 'PERCENTAGE', value: '15%', minOrder: 'EGP 500', usage: 45, color: 'bg-indigo-500' },
-  { code: 'WELCOME50', type: 'FIXED', value: 'EGP 50', minOrder: '-', usage: 72, color: 'bg-orange-500' },
-  { code: 'OLD_COOB', type: 'PERCENTAGE', value: '10%', minOrder: 'EGP 300', usage: 12, color: 'bg-indigo-500' },
+  { code: 'SUMMER24', type: 'PERCENTAGE', value: '15%', minOrder: '$ 500', usage: 45, color: 'bg-indigo-500' },
+  { code: 'WELCOME50', type: 'FIXED', value: '$ 50', minOrder: '-', usage: 72, color: 'bg-orange-500' },
+  { code: 'OLD_COOB', type: 'PERCENTAGE', value: '10%', minOrder: '$ 300', usage: 12, color: 'bg-indigo-500' },
 ];
 
 definePageMeta({

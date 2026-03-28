@@ -1,5 +1,5 @@
 <template>
-  <div class="group cursor-pointer h-full transition-all">
+  <NuxtLink :to="`/shop-all/${product.slug}`" class="group cursor-pointer h-full transition-all block">
     <div
       class="h-full flex rounded-[12px] bg-[#0D0D18] border border-[#1C1C30] p-3 shadow-xl transition-all group-hover:border-[#6366F1]/40 overflow-hidden"
       :class="viewMode === 'list' ? 'flex-row items-center gap-8 px-6' : 'flex-col'">
@@ -15,14 +15,14 @@
         
         <!-- Badge -->
         <div v-if="product.tag" :class="[product.tagColor]"
-          class="absolute top-4 start-4 px-3 py-0.5 rounded-full text-[9px] font-black text-white tracking-widest uppercase shadow-lg z-10">
+          class="absolute top-4 start-4 px-3 py-0.5 rounded-full text-[9px] font-black text-white tracking-widest shadow-lg z-10">
           {{ product.tag }}
         </div>
       </div>
 
       <!-- Information -->
       <div class="flex-1 flex flex-col" :class="viewMode === 'grid' ? 'px-1' : 'space-y-2'">
-        <p class="text-[10px] font-black text-[#50506A] tracking-[0.15em] uppercase">{{ product.cat }}</p>
+        <p class="text-[10px] font-black text-[#50506A] tracking-[0.15em]">{{ product.cat }}</p>
         
         <h3 :class="[
           viewMode === 'list' ? 'text-[18px]' : 'text-[15px]',
@@ -33,7 +33,7 @@
 
         <div class="mt-auto flex items-baseline gap-3 pt-3">
           <p :class="[viewMode === 'list' ? 'text-[20px]' : 'text-[16px]', 'font-mono text-[#F0F0FF] font-bold']">
-            <span class="text-[11px] text-[#50506A] me-1">EGP</span>
+            <span class="text-[11px] text-[#50506A] me-1">$</span>
             {{ product.price.toLocaleString() }}
           </p>
           <p v-if="product.oldPrice" class="font-mono text-[#50506A] line-through" 
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script lang="ts" setup>

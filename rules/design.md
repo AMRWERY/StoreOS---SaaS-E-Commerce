@@ -108,7 +108,7 @@ MONOSPACE FONT:  IBM Plex Mono
   — Import: https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600
 
 RULE: Any number shown in a UI must use IBM Plex Mono.
-      This includes: EGP 450, #ORD-089, 24 units, 92%, 03/14/2026
+      This includes: $ 450, #ORD-089, 24 units, 92%, 03/14/2026
 ```
 
 ### Type Scale
@@ -292,7 +292,7 @@ Card Body row:
 
 Stat Card:
   padding: 14px 16px
-  label:   10px/600/--text-muted/uppercase/tracking 0.6px
+  label:   10px/600/--text-muted/tracking 0.6px
   value:   22px/600/IBM Plex Mono/letter-spacing -0.5px
   icon:    28x28px / border-radius 7px / colored bg
 ```

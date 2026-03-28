@@ -72,7 +72,7 @@
               <!-- Industry Dropdown & Tags -->
               <div class="space-y-4">
                 <div class="space-y-2">
-                  <label class="text-[10px] font-semibold text-tx-secondary uppercase tracking-[0.6px]">Industry</label>
+                  <label class="text-[10px] font-semibold text-tx-secondary tracking-[0.6px]">Industry</label>
                   <div class="relative cursor-pointer group">
                     <div
                       class="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-3 text-sm text-tx-secondary flex justify-between items-center group-hover:border-border-default transition">

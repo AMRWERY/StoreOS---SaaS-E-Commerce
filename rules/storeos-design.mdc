@@ -113,7 +113,7 @@ Always pill-shaped (`rounded-full`), 9–10px font, `font-semibold`, `px-2 py-0.
 
 <!-- ✅ Stat card -->
 <div class="bg-bg-primary border border-border-subtle rounded-xl px-4 py-3.5">
-  <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px]">Revenue</p>
+  <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">Revenue</p>
   <p class="font-mono text-[22px] font-semibold text-tx-primary tracking-tight mt-1">$4,200</p>
 </div>
 ```

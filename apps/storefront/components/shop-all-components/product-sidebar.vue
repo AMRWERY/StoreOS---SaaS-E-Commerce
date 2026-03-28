@@ -35,11 +35,11 @@
       </div>
       <div class="grid grid-cols-2 gap-3">
         <div class="bg-[#0D0D18] border border-[#1C1C30] rounded-[8px] p-2 px-3">
-          <p class="text-[8px] font-black text-[#50506A] mb-1">Min (EGP)</p>
+          <p class="text-[8px] font-black text-[#50506A] mb-1">Min ($)</p>
           <p class="font-mono text-[12px] font-semibold text-[#8888AA]">{{ modelValue.priceMin }}</p>
         </div>
         <div class="bg-[#0D0D18] border border-[#1C1C30] rounded-[8px] p-2 px-3">
-          <p class="text-[8px] font-black text-[#50506A] mb-1">Max (EGP)</p>
+          <p class="text-[8px] font-black text-[#50506A] mb-1">Max ($)</p>
           <p class="font-mono text-[12px] font-semibold text-[#F0F0FF]">{{ modelValue.priceMax }}+</p>
         </div>
       </div>

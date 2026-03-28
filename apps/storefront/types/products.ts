@@ -1,5 +1,6 @@
 export interface Product {
   id: number;
+  slug: string;
   name: string;
   category: string;
   price: number;
@@ -18,6 +19,7 @@ export interface FilterState {
 
 export interface StorefrontProduct {
   id: number;
+  slug: string;
   name: string;
   cat: string;
   price: number;

@@ -24,7 +24,7 @@
           <Icon name="solar:alt-arrow-down-linear" class="w-4 h-4 text-[#50506A]" />
         </div>
         <!-- Mock Dropdown -->
-        <div class="absolute top-full right-0 mt-2 w-48 bg-[#0D0D18] border border-[#1C1C30] rounded-xl shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-50 p-2">
+        <div class="absolute top-full end-0 mt-2 w-48 bg-[#0D0D18] border border-[#1C1C30] rounded-xl shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-50 p-2">
           <div v-for="opt in sortOptions" :key="opt" @click="$emit('update:selectedSort', opt)"
             class="px-3 py-2 text-[12px] font-medium text-[#8888AA] hover:text-[#F0F0FF] hover:bg-[#1C1C30] rounded-lg cursor-pointer transition-all">
             {{ opt }}

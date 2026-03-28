@@ -24,7 +24,7 @@
         </div>
 
         <!-- Trust Badges -->
-        <div class="flex flex-wrap justify-center gap-8 text-xs font-bold text-tx-muted tracking-widest uppercase">
+        <div class="flex flex-wrap justify-center gap-8 text-xs font-bold text-tx-muted tracking-widest">
           <span>500+ STORES ALREADY RUNNING ON STOREOS</span>
           <div class="flex gap-6">
             <span>Fashion</span> <span>Food</span> <span>Tech</span> <span>Beauty</span>
@@ -78,7 +78,7 @@
                 <!-- 3. Right Panel (Inventory Alert) -->
                 <div class="flex-1 bg-bg-primary border border-accent/10 rounded-2xl p-6 flex flex-col items-center">
                   <!-- Text label in orange -->
-                  <span class="text-[9px] font-black text-accent/60 tracking-[0.25em] text-center mt-2 uppercase">
+                  <span class="text-[9px] font-black text-accent/60 tracking-[0.25em] text-center mt-2">
                     Inventory Alert
                   </span>
 
@@ -136,7 +136,7 @@
 
         <!-- Feature Highlights -->
         <div class="space-y-2">
-          <p class="text-[10px] font-semibold text-tx-muted uppercase tracking-[0.6px] mb-3">What you'll see</p>
+          <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-3">What you'll see</p>
           <div v-for="feature in demoFeatures" :key="feature.label"
             class="flex items-start gap-3 p-3 rounded-lg bg-bg-elevated border border-border-subtle">
             <div class="w-6 h-6 rounded-md flex items-center justify-center shrink-0 mt-0.5" :class="feature.bg">
