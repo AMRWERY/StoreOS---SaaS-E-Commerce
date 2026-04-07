@@ -119,7 +119,7 @@
               </div>
             </div>
 
-            <VButton variant="none"
+            <VButton variant="none" @click="isInternalOpen = false; navigateTo(localePath('/checkout'))"
               className="w-full bg-brand hover:bg-brand-hover text-white py-4 rounded-xl font-black tracking-widest text-[11px] shadow-lg shadow-brand/20 flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
               PROCEED TO SECURE CHECKOUT
               <Icon name="ph:arrow-right-bold" />
@@ -177,6 +177,8 @@ const updateQuantity = (id: number, delta: number) => {
 const removeItem = (id: number) => {
   cartItems.value = cartItems.value.filter(i => i.id !== id)
 }
+
+const localePath = useLocalePath()
 </script>
 
 <style scoped>

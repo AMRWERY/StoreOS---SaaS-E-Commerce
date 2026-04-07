@@ -226,7 +226,7 @@ useSeoMeta({
   description: () => `${product.value.description} Price: $${product.value.price}. Fast shipping.`,
   ogTitle: () => `${product.value.name} | StoreOS Store`,
   ogDescription: () => product.value.description,
-  ogType: 'product',
+  ogType: 'website',
   ogImage: () => product.value.image,
   twitterCard: 'summary_large_image',
   twitterTitle: () => product.value.name,

@@ -46,7 +46,7 @@
           <Icon v-if="isAuthenticated" name="ph:user-bold" @click="logout"
             class="w-[18px] h-[18px] cursor-pointer hover:text-tx-primary transition-colors hover:text-brand" />
 
-          <cart />
+          <shopping-bag />
 
           <nuxt-link-locale v-if="!isAuthenticated" to="/auth/login"
             class="text-sm font-medium text-tx-secondary hover:text-tx-primary transition">
