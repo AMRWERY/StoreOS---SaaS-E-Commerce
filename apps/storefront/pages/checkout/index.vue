@@ -42,7 +42,7 @@
       </div>
 
       <!-- Footer -->
-      <footer class="mt-16 pt-8 border-t border-[#1C1C30] flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-black uppercase tracking-[0.3em] text-[#262640]">
+      <footer class="mt-16 pt-8 border-t border-[#1C1C30] flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-black tracking-[0.3em] text-[#262640]">
         <p>Node: Operational.</p>
         <div class="flex gap-8">
           <nuxt-link-locale to="/privacy" class="hover:text-[#6366F1] transition-colors">Privacy</nuxt-link-locale>

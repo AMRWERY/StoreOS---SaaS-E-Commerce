@@ -14,7 +14,7 @@
     <!-- Tracking Card -->
     <div class="w-full max-w-[520px] bg-[#0D0D18] border border-[#1C1C30] rounded-[20px] p-10 shadow-2xl relative overflow-hidden">
 
-      <div class="absolute -top-24 -right-24 w-48 h-48 bg-[#6366F1]/5 rounded-full blur-3xl pointer-events-none" />
+      <div class="absolute -top-24 -end-24 w-48 h-48 bg-[#6366F1]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div class="text-center mb-12">
         <h1 class="text-3xl font-bold tracking-tight mb-3 text-white">Track Your Order</h1>
@@ -27,7 +27,7 @@
 
         <!-- Order Number -->
         <div class="space-y-3">
-          <label class="text-[10px] font-black uppercase tracking-[0.25em] text-[#8888AA]">Order Number</label>
+          <label class="text-[10px] font-black tracking-[0.25em] text-[#8888AA]">Order Number</label>
           <div class="relative group">
             <div class="absolute start-4 top-1/2 -translate-y-1/2 text-[#50506A] group-focus-within:text-[#6366F1] transition-colors pointer-events-none">
               <Icon name="ph:ticket-fill" class="w-4 h-4" />
@@ -43,7 +43,7 @@
 
         <!-- Contact Info -->
         <div class="space-y-3">
-          <label class="text-[10px] font-black uppercase tracking-[0.25em] text-[#8888AA]">Email or Phone Number</label>
+          <label class="text-[10px] font-black tracking-[0.25em] text-[#8888AA]">Email or Phone Number</label>
           <div class="relative group">
             <div class="absolute start-4 top-1/2 -translate-y-1/2 text-[#50506A] group-focus-within:text-[#6366F1] transition-colors pointer-events-none">
               <Icon name="ph:at-fill" class="w-4 h-4" />
@@ -60,7 +60,7 @@
         <VButton
           variant="none"
           type="submit"
-          className="w-full bg-[#6366F1] hover:bg-[#818CF8] text-white py-4 rounded-[12px] font-bold text-[14px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(99,102,241,0.2)] active:scale-[0.98] mt-4"
+          className="w-full bg-[#6366F1] hover:bg-[#818CF8] text-white py-4 rounded-[12px] font-bold text-[14px] tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(99,102,241,0.2)] active:scale-[0.98] mt-4"
         >
           Track Order
           <Icon name="ph:arrow-right-bold" class="w-5 h-5" />
@@ -74,7 +74,7 @@
             <Icon name="ph:chat-dots-fill" class="w-4 h-4 text-[#50506A] group-hover:text-[#6366F1] transition-colors" />
           </div>
           <div>
-            <h4 class="text-[11px] font-bold text-[#8888AA] uppercase tracking-widest">Need help?</h4>
+            <h4 class="text-[11px] font-bold text-[#8888AA] tracking-widest">Need help?</h4>
             <p class="text-[10px] text-[#50506A] mt-0.5">Support is active 24/7</p>
           </div>
         </div>
@@ -83,8 +83,8 @@
             <Icon name="ph:shield-check-fill" class="w-4 h-4 text-[#50506A] group-hover:text-[#10B981] transition-colors" />
           </div>
           <div>
-            <h4 class="text-[11px] font-bold text-[#8888AA] uppercase tracking-widest">Secure Portal</h4>
-            <p class="text-[10px] text-[#50506A] mt-0.5 font-mono uppercase tracking-tighter">End-to-end encrypted</p>
+            <h4 class="text-[11px] font-bold text-[#8888AA] tracking-widest">Secure Portal</h4>
+            <p class="text-[10px] text-[#50506A] mt-0.5 font-mono tracking-tighter">End-to-end encrypted</p>
           </div>
         </div>
       </div>

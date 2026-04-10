@@ -20,7 +20,7 @@
         <div class="h-full bg-[#6366F1] rounded-full animate-drain shadow-[0_0_8px_rgba(99,102,241,0.6)]" />
       </div>
 
-      <p class="text-[10px] font-black uppercase tracking-[0.3em] text-[#50506A]">Redirecting to tracking...</p>
+      <p class="text-[10px] font-black tracking-[0.3em] text-[#50506A]">Redirecting to tracking...</p>
     </div>
   </Teleport>
 </template>

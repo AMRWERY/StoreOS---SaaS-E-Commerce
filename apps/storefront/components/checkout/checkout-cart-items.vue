@@ -2,7 +2,7 @@
   <main class="space-y-6">
     <div class="flex items-baseline justify-between">
       <h1 class="text-4xl font-bold tracking-tight">Shopping Cart</h1>
-      <span class="text-[#50506A] text-[12px] font-semibold uppercase tracking-widest">
+      <span class="text-[#50506A] text-[12px] font-semibold tracking-widest">
         {{ items.length }} Items
       </span>
     </div>
@@ -25,7 +25,7 @@
                 class="text-[14px] font-bold text-white group-hover:text-[#6366F1] transition-colors leading-tight truncate">
                 {{ item.name }}
               </h3>
-              <p class="text-[10px] text-[#50506A] mt-0.5 uppercase font-semibold tracking-tighter truncate">
+              <p class="text-[10px] text-[#50506A] mt-0.5 font-semibold tracking-tighter truncate">
                 {{ item.meta }}
               </p>
             </div>
@@ -51,7 +51,7 @@
             </div>
 
             <VButton variant="none"
-              className="text-[9px] font-black uppercase tracking-widest text-[#50506A] hover:text-[#EF4444] transition-colors flex items-center gap-1"
+              className="text-[9px] font-black tracking-widest text-[#50506A] hover:text-[#EF4444] transition-colors flex items-center gap-1"
               @click="$emit('remove-item', item.id)">
               <Icon name="ph:x" class="w-3 h-3" />
               Remove
@@ -65,7 +65,7 @@
     <div class="flex flex-wrap gap-8 pt-2 opacity-40 hover:opacity-100 transition-opacity">
       <div v-for="trust in trustBadges" :key="trust.text" class="flex items-center gap-2">
         <Icon :name="trust.icon" class="w-4 h-4 text-[#8888AA]" />
-        <span class="text-[9px] font-black uppercase tracking-[0.2em] text-[#8888AA]">{{ trust.text }}</span>
+        <span class="text-[9px] font-black tracking-[0.2em] text-[#8888AA]">{{ trust.text }}</span>
       </div>
     </div>
   </main>

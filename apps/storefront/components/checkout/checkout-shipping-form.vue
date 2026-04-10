@@ -8,7 +8,7 @@
         <h2 class="text-xl font-bold tracking-tight">Contact Information</h2>
       </div>
       <VInput v-model="form.emailOrPhone" label="Email or Phone"
-        labelClass="text-[10px] font-black uppercase tracking-[0.2em] text-[#50506A]"
+        labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
         inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all !placeholder:text-[#262640]" />
     </section>
 
@@ -21,23 +21,23 @@
 
       <div class="grid grid-cols-2 gap-4">
         <VInput v-model="form.firstName" label="First Name"
-          labelClass="text-[10px] font-black uppercase tracking-[0.2em] text-[#50506A]"
+          labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
           inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all" />
         <VInput v-model="form.lastName" label="Last Name"
-          labelClass="text-[10px] font-black uppercase tracking-[0.2em] text-[#50506A]"
+          labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
           inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all" />
       </div>
 
       <VInput v-model="form.address" label="Street Address"
-        labelClass="text-[10px] font-black uppercase tracking-[0.2em] text-[#50506A]"
+        labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
         inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all" />
 
       <div class="grid grid-cols-2 gap-4">
         <VInput v-model="form.city" label="City"
-          labelClass="text-[10px] font-black uppercase tracking-[0.2em] text-[#50506A]"
+          labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
           inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all" />
         <div class="space-y-2">
-          <label class="text-[10px] font-black uppercase tracking-[0.2em] text-[#50506A]">Governorate</label>
+          <label class="text-[10px] font-black tracking-[0.2em] text-[#50506A]">Governorate</label>
           <div class="relative">
             <select v-model="form.governorate"
               class="w-full bg-[#0D0D18] border border-[#1C1C30] rounded-[8px] px-5 py-4 text-[13px] appearance-none outline-none focus:border-[#6366F1] transition-all text-[#F0F0FF]">
@@ -80,7 +80,7 @@
 
     <!-- Continue Button -->
     <VButton variant="none"
-      className="w-full bg-[#6366F1] hover:bg-[#818CF8] text-white py-5 rounded-[12px] font-bold text-[14px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(99,102,241,0.2)] active:scale-[0.99]"
+      className="w-full bg-[#6366F1] hover:bg-[#818CF8] text-white py-5 rounded-[12px] font-bold text-[14px] tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(99,102,241,0.2)] active:scale-[0.99]"
       @click="$emit('continue')">
       Submit Order
       <Icon name="ph:shopping-cart-bold" class="w-5 h-5" />

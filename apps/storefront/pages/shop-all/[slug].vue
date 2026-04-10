@@ -174,17 +174,25 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
-const route = useRoute();
+const route = useRoute()
 
-const product = computed(() => {
-  return {
-    name: 'Essential Timepiece',
-    description: 'A meticulously crafted timepiece designed for the modern professional. Featuring a brushed stainless steel case and genuine leather strap.',
-    price: 3200,
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=100'
-  }
-});
+const slugParam = computed(() => String(route.params.slug ?? ''))
+
+const titleFromSlug = (slug: string) => {
+  if (!slug) return 'Product'
+  return slug
+    .split('-')
+    .filter(Boolean)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ')
+}
+
+const product = computed(() => ({
+  name: titleFromSlug(slugParam.value),
+  description: 'A meticulously crafted timepiece designed for the modern professional. Featuring a brushed stainless steel case and genuine leather strap.',
+  price: 3200,
+  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=100',
+}))
 
 const breadcrumbItems = computed(() => [
   { label: 'Home', to: '/' },
