@@ -1,0 +1,193 @@
+import type { SectionType } from '@/types/sections'
+
+export interface SectionRegistryEntry {
+  type: SectionType
+  name: string
+  category: string
+  description: string
+  popular?: boolean
+  thumbnail: string
+}
+
+export const SECTION_REGISTRY: SectionRegistryEntry[] = [
+  {
+    type: 'hero_banner',
+    name: 'Hero Banner',
+    category: 'hero',
+    description: 'Full-width image with headline and CTA',
+    popular: true,
+    thumbnail: '/builder/thumbs/hero_banner.jpg',
+  },
+  {
+    type: 'hero_slideshow',
+    name: 'Hero Slideshow',
+    category: 'hero',
+    description: 'Rotating hero slides with headlines',
+    thumbnail: '/builder/thumbs/hero_slideshow.jpg',
+  },
+  {
+    type: 'hero_split',
+    name: 'Hero Split',
+    category: 'hero',
+    description: 'Image and copy side by side',
+    thumbnail: '/builder/thumbs/hero_split.jpg',
+  },
+  {
+    type: 'hero_video',
+    name: 'Hero Video',
+    category: 'hero',
+    description: 'Video background or featured clip',
+    thumbnail: '/builder/thumbs/hero_video.jpg',
+  },
+  {
+    type: 'products_grid',
+    name: 'Products Grid',
+    category: 'products',
+    description: 'Showcase products in a responsive grid',
+    popular: true,
+    thumbnail: '/builder/thumbs/products_grid.jpg',
+  },
+  {
+    type: 'products_carousel',
+    name: 'Products Carousel',
+    category: 'products',
+    description: 'Horizontal scrolling product strip',
+    thumbnail: '/builder/thumbs/products_carousel.jpg',
+  },
+  {
+    type: 'product_featured',
+    name: 'Featured Product',
+    category: 'products',
+    description: 'Highlight a single product',
+    thumbnail: '/builder/thumbs/product_featured.jpg',
+  },
+  {
+    type: 'categories_grid',
+    name: 'Categories Grid',
+    category: 'products',
+    description: 'Category tiles with imagery',
+    thumbnail: '/builder/thumbs/categories_grid.jpg',
+  },
+  {
+    type: 'rich_text',
+    name: 'Rich Text',
+    category: 'content',
+    description: 'Headline, body, optional CTA',
+    thumbnail: '/builder/thumbs/rich_text.jpg',
+  },
+  {
+    type: 'image_text',
+    name: 'Image + Text',
+    category: 'content',
+    description: 'Split layout with media and copy',
+    thumbnail: '/builder/thumbs/image_text.jpg',
+  },
+  {
+    type: 'image_gallery',
+    name: 'Image Gallery',
+    category: 'content',
+    description: 'Grid or masonry gallery',
+    thumbnail: '/builder/thumbs/image_gallery.jpg',
+  },
+  {
+    type: 'banner_full',
+    name: 'Full Banner',
+    category: 'content',
+    description: 'Promotional full-width banner',
+    thumbnail: '/builder/thumbs/banner_full.jpg',
+  },
+  {
+    type: 'banner_split',
+    name: 'Split Banner',
+    category: 'content',
+    description: 'Two-column promotional banner',
+    thumbnail: '/builder/thumbs/banner_split.jpg',
+  },
+  {
+    type: 'countdown_timer',
+    name: 'Countdown Timer',
+    category: 'utility',
+    description: 'Time-limited offer countdown',
+    thumbnail: '/builder/thumbs/countdown_timer.jpg',
+  },
+  {
+    type: 'testimonials',
+    name: 'Testimonials',
+    category: 'trust',
+    description: 'Customer reviews and ratings',
+    popular: true,
+    thumbnail: '/builder/thumbs/testimonials.jpg',
+  },
+  {
+    type: 'trust_badges',
+    name: 'Trust Badges',
+    category: 'trust',
+    description: 'Shipping, security, returns icons',
+    thumbnail: '/builder/thumbs/trust_badges.jpg',
+  },
+  {
+    type: 'logo_bar',
+    name: 'Logo Bar',
+    category: 'trust',
+    description: 'Press or partner logos',
+    thumbnail: '/builder/thumbs/logo_bar.jpg',
+  },
+  {
+    type: 'faq_accordion',
+    name: 'FAQ',
+    category: 'forms',
+    description: 'Expandable questions and answers',
+    thumbnail: '/builder/thumbs/faq.jpg',
+  },
+  {
+    type: 'newsletter_form',
+    name: 'Newsletter',
+    category: 'forms',
+    description: 'Email capture block',
+    thumbnail: '/builder/thumbs/newsletter_form.jpg',
+  },
+  {
+    type: 'contact_form',
+    name: 'Contact Form',
+    category: 'forms',
+    description: 'Customer message form',
+    thumbnail: '/builder/thumbs/contact_form.jpg',
+  },
+  {
+    type: 'video_embed',
+    name: 'Video Embed',
+    category: 'utility',
+    description: 'Hosted or external video',
+    thumbnail: '/builder/thumbs/video_embed.jpg',
+  },
+  {
+    type: 'spacer',
+    name: 'Spacer',
+    category: 'utility',
+    description: 'Vertical whitespace control',
+    thumbnail: '/builder/thumbs/spacer.jpg',
+  },
+  {
+    type: 'divider',
+    name: 'Divider',
+    category: 'utility',
+    description: 'Horizontal rule / separator',
+    thumbnail: '/builder/thumbs/divider.jpg',
+  },
+  {
+    type: 'custom_html',
+    name: 'Custom HTML',
+    category: 'utility',
+    description: 'Advanced HTML/CSS block',
+    thumbnail: '/builder/thumbs/custom_html.jpg',
+  },
+]
+
+export const SECTION_CATEGORIES = [
+  { key: 'hero', label: 'Hero', icon: 'rectangle-stack' },
+  { key: 'products', label: 'Products', icon: 'cube' },
+  { key: 'content', label: 'Content', icon: 'document-text' },
+  { key: 'trust', label: 'Trust & Social', icon: 'star' },
+  { key: 'forms', label: 'Forms', icon: 'envelope' },
+  { key: 'utility', label: 'Utility', icon: 'wrench' },
+] as const

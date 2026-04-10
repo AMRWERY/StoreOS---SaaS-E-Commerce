@@ -25,11 +25,9 @@ const props = defineProps<{
 
 defineEmits<{ 'fast-deploy': [product: NewArrivalProduct] }>()
 
-const localePath = useLocalePath()
-
 const slug = computed(() => props.product.slug ?? slugify(props.product.name))
 
-const detailPath = computed(() => localePath(`/shop-all/${slug.value}`))
+const detailPath = computed(() => `/shop-all/${slug.value}`)
 
 const vProduct = computed<Product>(() => ({
   id: numericId(props.product.id),

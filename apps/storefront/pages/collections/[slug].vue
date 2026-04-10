@@ -38,7 +38,7 @@
           class="h-full min-h-0"
         >
           <nuxt-link-locale
-            :to="localePath(`/shop-all/${p.slug}`)"
+            :to="`/shop-all/${p.slug}`"
             class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080E]"
           >
             <VProductCard :product="toCardProduct(p)" view-mode="grid" />
@@ -59,7 +59,6 @@ import type { Product } from '../../../../layers/ui/types/v-product-card'
 import { collectionCatalogProducts, collectionMeta, type CollectionCatalogProduct } from '../../data/collections-catalog'
 
 const route = useRoute()
-const localePath = useLocalePath()
 
 const slug = computed(() => String(route.params.slug ?? ''))
 

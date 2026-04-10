@@ -17,9 +17,7 @@ import type { StorefrontCollection } from '../../types/collections'
 
 const props = defineProps<{ collection: StorefrontCollection }>()
 
-const localePath = useLocalePath()
-
-const collectionPath = computed(() => localePath(`/collections/${props.collection.slug}`))
+const collectionPath = computed(() => `/collections/${props.collection.slug}`)
 
 /** Map collection → VProductCard model (price shows item count for this sector). */
 const vProduct = computed<Product>(() => ({

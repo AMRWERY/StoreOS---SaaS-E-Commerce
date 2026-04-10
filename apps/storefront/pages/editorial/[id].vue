@@ -5,7 +5,7 @@
     <div v-if="!article" class="py-20 text-center space-y-6">
       <p class="text-[#8888AA]">This editorial entry was not found.</p>
       <nuxt-link-locale
-        :to="localePath('/editorial')"
+        to="/editorial"
         class="inline-flex text-[#6366F1] font-bold text-sm tracking-widest hover:underline"
       >
         Back to editorial
@@ -30,7 +30,7 @@
           {{ article.title }}
         </h1>
         <div
-          class="flex flex-wrap gap-8 text-[11px] font-bold text-[#50506A] tracking-widest uppercase"
+          class="flex flex-wrap gap-8 text-[11px] font-bold text-[#50506A] tracking-widest"
         >
           <span class="flex items-center gap-2">
             <Icon name="ph:user-circle-fill" class="w-4 h-4 text-[#6366F1]" />
@@ -62,7 +62,7 @@
       </div>
 
       <nuxt-link-locale
-        :to="localePath('/editorial')"
+        to="/editorial"
         class="inline-flex items-center gap-2 text-[11px] font-bold text-[#6366F1] tracking-widest hover:text-[#818CF8] transition-colors"
       >
         <Icon name="ph:arrow-left" class="w-4 h-4" />
@@ -77,7 +77,6 @@ import type { BreadcrumbItem } from '../../../../layers/ui/types/v-breadcrumb'
 import { getEditorialArticleById } from '../../data/editorial-articles'
 
 const route = useRoute()
-const localePath = useLocalePath()
 
 const articleId = computed(() => String(route.params.id ?? ''))
 

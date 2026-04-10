@@ -13,7 +13,7 @@
             </div>
           </nuxt-link-locale>
 
-          <div class="hidden md:flex gap-6 text-sm text-tx-secondary">
+          <div class="hidden md:flex items-center gap-6 text-sm text-tx-secondary">
             <nuxt-link-locale to="" class="hover:text-tx-primary transition">Features</nuxt-link-locale>
             <nuxt-link-locale to="" class="hover:text-tx-primary transition">Pricing</nuxt-link-locale>
             <nuxt-link-locale to="" class="hover:text-tx-primary transition">Integrations</nuxt-link-locale>

@@ -16,15 +16,13 @@
           <div class="hidden md:flex items-center gap-10 h-full">
             <nuxt-link-locale v-for="link in navLinks" :key="link.path" :to="link.path" v-slot="{ isActive }">
               <div class="relative h-full flex items-center group cursor-pointer">
-                <span 
-                  :class="[
-                    (isActive || isPathActive(link.path)) ? 'text-brand' : 'text-tx-secondary group-hover:text-brand'
-                  ]"
-                  class="text-sm font-bold transition-all tracking-tight">
+                <span :class="[
+                  (isActive || isNavLinkActive(link)) ? 'text-brand' : 'text-tx-secondary group-hover:text-brand'
+                ]" class="text-sm font-bold transition-all tracking-tight">
                   {{ link.label }}
                 </span>
                 <!-- Start-Aligned Pill Indicator -->
-                <div v-if="isActive || isPathActive(link.path)"
+                <div v-if="isActive || isNavLinkActive(link)"
                   class="absolute -bottom-[3px] start-0 w-8 h-1 bg-brand rounded-full shadow-[0_0_12px_rgba(var(--brand-rgb),0.4)]">
                 </div>
               </div>
@@ -71,10 +69,16 @@ const route = useRoute();
 const isEnglish = computed(() => locale.value === "en");
 const localeLabel = computed(() => (isEnglish.value ? "ع" : "EN"));
 
-const isPathActive = (path: string) => {
-  const target = localePath(path);
-  return route.path === target || route.path.startsWith(target + '/');
-};
+type StorefrontNavLink = { label: string; path: string; match?: 'exact' }
+
+function isNavLinkActive(link: StorefrontNavLink) {
+  const target = localePath(link.path)
+  const path = route.path
+  if (link.match === 'exact') {
+    return path === target || path === `${target}/`
+  }
+  return path === target || path.startsWith(`${target}/`)
+}
 
 const showOverlay = ref(false);
 
@@ -89,10 +93,11 @@ const switchLocale = async () => {
   }, 200);
 };
 
-const navLinks = [
+const navLinks: StorefrontNavLink[] = [
   { label: 'Shop All', path: '/shop-all' },
   { label: 'New Arrivals', path: '/new-arrivals' },
   { label: 'Collections', path: '/collections' },
   { label: 'Editorial', path: '/editorial' },
-];
+  { label: 'Store Builder', path: '/dashboard/builder/home', match: 'exact' },
+]
 </script>

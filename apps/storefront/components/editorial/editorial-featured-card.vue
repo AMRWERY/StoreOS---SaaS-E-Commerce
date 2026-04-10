@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link-locale :to="localePath(`/editorial/${article.id}`)"
+  <nuxt-link-locale :to="`/editorial/${article.id}`"
     class="block group relative bg-[#0D0D18] border border-[#1C1C30] rounded-[24px] overflow-hidden transition-all hover:border-[#6366F1]/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080E]">
     <div class="grid grid-cols-1 lg:grid-cols-12">
       <div
@@ -57,6 +57,4 @@
 import type { EditorialArticle } from '@/types/editorial'
 
 defineProps<{ article: EditorialArticle }>()
-
-const localePath = useLocalePath()
 </script>

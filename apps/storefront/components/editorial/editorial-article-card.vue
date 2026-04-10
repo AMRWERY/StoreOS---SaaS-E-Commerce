@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link-locale :to="localePath(`/editorial/${article.id}`)"
+  <nuxt-link-locale :to="`/editorial/${article.id}`"
     class="group flex flex-col bg-[#0D0D18] border border-[#1C1C30] rounded-[20px] overflow-hidden transition-all hover:border-[#262640] hover:-translate-y-1 h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080E]">
     <div class="relative aspect-[16/10] overflow-hidden bg-black">
       <img :src="article.image"
@@ -48,6 +48,4 @@
 import type { EditorialArticle } from '@/types/editorial'
 
 defineProps<{ article: EditorialArticle }>()
-
-const localePath = useLocalePath()
 </script>
