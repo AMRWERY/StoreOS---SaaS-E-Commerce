@@ -1,113 +1,131 @@
 <template>
-  <Transition name="fade">
-    <div
-      v-if="isOpen"
-      class="fixed inset-0 bg-bg-overlay backdrop-blur-sm z-40 lg:hidden"
-      @click="$emit('close')"
-    />
+  <Transition name="sb-fade">
+    <div v-if="isOpen" class="fixed inset-0 z-40 bg-bg-overlay backdrop-blur-sm lg:hidden" aria-hidden="true"
+      @click="$emit('close')" />
   </Transition>
 
   <aside
-    class="fixed lg:sticky top-0 start-0 w-[220px] h-screen bg-bg-primary border-e border-border-subtle flex flex-col p-6 shrink-0 z-50 transition-all duration-300"
-    :class="isOpen
-      ? 'translate-x-0'
-      : 'ltr:-translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0'"
-  >
-    <div class="flex items-center gap-2 mb-8">
-      <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center text-white">
-        <Icon name="ph:paint-brush-fill" class="text-xl" />
+    class="flex min-h-0 w-[220px] shrink-0 flex-col border-e border-border-subtle bg-bg-primary transition-all duration-300 lg:z-40"
+    :class="[
+      'fixed inset-y-0 start-0 z-50 h-screen max-h-[100dvh] lg:relative lg:h-full lg:max-h-none',
+      isOpen
+        ? 'translate-x-0'
+        : 'ltr:-translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0',
+    ]">
+    <div class="flex items-center gap-1 border-b border-border-subtle bg-bg-base p-1">
+      <div class="flex min-w-0 flex-1 gap-0.5">
+        <component :is="UiButton" v-for="tab in panelTabs" :key="tab.id" variant="none" type="button"
+          :class-name="sidebarTabClass(tab.id)" @click="activeTab = tab.id">
+          <Icon :name="tab.icon" class="text-[15px]" />
+          <span class="hidden min-[360px]:inline">{{ tab.label }}</span>
+        </component>
       </div>
-      <div class="flex-1 min-w-0">
-        <p class="font-bold text-sm leading-none text-tx-primary text-start truncate">
-          Store Builder
-        </p>
-        <p class="text-[9px] text-tx-muted tracking-[0.6px] font-semibold mt-1 text-start">
-          Storefront
-        </p>
-      </div>
-      <VButton
-        variant="none"
-        className="lg:hidden text-tx-secondary hover:text-tx-primary p-1 shrink-0"
-        @click="$emit('close')"
-      >
+      <component :is="UiButton" variant="none" type="button"
+        class-name="shrink-0 p-1.5 text-tx-secondary hover:text-tx-primary lg:hidden" title="Close menu"
+        @click="$emit('close')">
         <Icon name="ph:x-bold" class="text-xl" />
-      </VButton>
+      </component>
     </div>
 
-    <nav class="flex-1 space-y-1 overflow-y-auto hide-scrollbar">
-      <nuxt-link-locale
-        to="/"
-        class="flex items-center gap-2 px-3 py-2 rounded-md text-[12px] font-medium text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated transition-all"
-        @click="$emit('close')"
-      >
-        <Icon name="ph:arrow-left-bold" class="text-lg shrink-0" />
-        <span class="truncate">Back to storefront</span>
-      </nuxt-link-locale>
+    <div class="border-b border-border-subtle bg-bg-base/30 p-4">
+      <div class="group relative">
+        <select
+          class="w-full appearance-none rounded-md border border-border-subtle bg-bg-elevated px-3 py-2 text-[11px] font-bold text-tx-primary transition-colors focus:border-brand focus:outline-none">
+          <option v-for="opt in pageOptions" :key="opt">{{ opt }}</option>
+        </select>
+        <Icon name="ph:caret-down-bold"
+          class="pointer-events-none absolute end-2 top-1/2 size-4 -translate-y-1/2 text-tx-muted" />
+      </div>
+    </div>
 
-      <p class="text-[10px] font-bold text-tx-muted tracking-widest uppercase px-3 pt-6 pb-2">
-        Dashboard
-      </p>
-      <nuxt-link-locale
-        to="/dashboard"
-        class="block px-3 py-2 rounded-md text-[12px] font-medium transition-all"
-        :class="isDashboardRoot
-          ? 'bg-brand-dim text-brand'
-          : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'"
-        @click="$emit('close')"
-      >
-        Overview
-      </nuxt-link-locale>
+    <div class="min-h-0 flex-1 space-y-4 overflow-y-auto p-3">
+      <div>
+        <p class="mb-3 px-2 text-[9px] font-black uppercase tracking-[0.2em] text-tx-muted">
+          Active Sections
+        </p>
+        <div class="space-y-1">
+          <component :is="UiButton" v-for="section in sections" :key="section.id" variant="none" type="button"
+            :class-name="sectionRowClass(section)">
+            <Icon name="ph:dots-six-vertical-bold"
+              class="text-tx-muted opacity-0 transition-opacity group-hover:opacity-100" />
+            <span class="min-w-0 flex-1 truncate text-[12px] font-medium">{{ section.name }}</span>
+            <Icon v-if="section.hidden" name="ph:eye-slash-bold" class="text-tx-muted" />
+            <Icon v-else name="ph:eye-bold" class="text-brand opacity-0 transition-opacity group-hover:opacity-100" />
+          </component>
+        </div>
+      </div>
+    </div>
 
-      <p class="text-[10px] font-bold text-tx-muted tracking-widest uppercase px-3 pt-4 pb-2">
-        Pages
-      </p>
-      <nuxt-link-locale
-        v-for="p in builderPages"
-        :key="p.slug"
-        :to="`/dashboard/builder/${p.slug}`"
-        class="block px-3 py-2 rounded-md text-[12px] font-medium transition-all"
-        :class="isActivePage(p.slug)
-          ? 'bg-brand-dim text-brand'
-          : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'"
-        @click="$emit('close')"
-      >
-        {{ p.title }}
-      </nuxt-link-locale>
-    </nav>
+    <div class="mt-auto border-t border-border-subtle bg-bg-base/30 p-3">
+      <component :is="UiButton" variant="none" type="button"
+        class-name="flex w-full items-center justify-center gap-2 rounded-md border border-dashed border-border-subtle py-3 text-[10px] font-black uppercase tracking-[0.2em] text-tx-secondary transition-all hover:border-brand hover:bg-bg-elevated hover:text-brand">
+        <Icon name="ph:plus-bold" />
+        Add Section
+      </component>
+    </div>
   </aside>
 </template>
 
 <script lang="ts" setup>
-defineProps<{ isOpen: boolean }>()
-defineEmits<{ close: [] }>()
+import type { BuilderSidebarSection } from '@/types/builder'
 
-const route = useRoute()
-const localePath = useLocalePath()
+defineProps<{
+  isOpen: boolean
+}>()
 
-/** Stub list — replace with `useStorePages` / API. */
-const builderPages = [
-  { slug: 'home', title: 'Home' },
+defineEmits<{
+  close: []
+}>()
+
+const UiButton = resolveComponent('VButton')
+
+const panelTabs = [
+  { id: 'Sections', label: 'Sections', icon: 'ph:stack-bold' },
+  { id: 'Theme', label: 'Theme', icon: 'ph:palette-bold' },
+] as const
+
+const pageOptions = ['Home', 'Collection List', 'Product Page'] as const
+
+const activeTab = ref<(typeof panelTabs)[number]['id']>('Sections')
+
+const sections: BuilderSidebarSection[] = [
+  { id: 1, name: 'Header', active: false, hidden: false },
+  { id: 2, name: 'Hero', active: true, hidden: false },
+  { id: 3, name: 'Featured Products', active: false, hidden: true },
+  { id: 4, name: 'Footer', active: false, hidden: false },
 ]
 
-function isActivePage(slug: string) {
-  const current = String(route.params.slug ?? '')
-  return current === slug
+function sidebarTabClass(id: string) {
+  const base
+    = 'group flex flex-1 items-center justify-center gap-2 rounded-md py-2 text-[10px] font-black uppercase tracking-widest transition-all '
+  return (
+    base
+    + (activeTab.value === id
+      ? 'bg-bg-elevated text-tx-primary'
+      : 'text-tx-muted hover:text-tx-secondary')
+  )
 }
 
-const isDashboardRoot = computed(() => {
-  const path = route.path.replace(/\/$/, '')
-  const target = localePath('/dashboard').replace(/\/$/, '')
-  return path === target
-})
+function sectionRowClass(section: BuilderSidebarSection) {
+  const base
+    = 'group flex w-full cursor-pointer items-center gap-3 rounded-md border border-transparent px-2 py-2.5 text-start transition-all justify-start '
+  return (
+    base
+    + (section.active
+      ? 'border-border-subtle bg-bg-elevated text-tx-primary'
+      : 'text-tx-secondary hover:bg-bg-elevated/50')
+  )
+}
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
+.sb-fade-enter-active,
+.sb-fade-leave-active {
   transition: opacity 0.3s ease;
 }
-.fade-enter-from,
-.fade-leave-to {
+
+.sb-fade-enter-from,
+.sb-fade-leave-to {
   opacity: 0;
 }
 </style>

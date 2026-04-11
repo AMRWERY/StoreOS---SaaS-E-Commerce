@@ -1,14 +1,21 @@
 <template>
-  <div class="min-h-screen bg-bg-base text-tx-primary flex overflow-hidden lg:overflow-visible">
-    <builder-sidebar :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
+  <!-- Header spans full width; sidebar + page sit below (classic dashboard shell). -->
+  <div
+    class="flex min-h-screen flex-col overflow-hidden bg-bg-base text-tx-primary lg:h-screen lg:max-h-screen"
+  >
+    <builder-dashboard-header @toggle-sidebar="isSidebarOpen = true" />
 
-    <main class="flex-1 min-h-screen lg:h-screen overflow-y-auto flex flex-col hide-scrollbar">
-      <builder-dashboard-header @toggle-sidebar="isSidebarOpen = true" />
+    <div class="flex min-h-0 flex-1 overflow-hidden lg:overflow-visible">
+      <builder-sidebar :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
 
-      <div class="flex-1 p-6 md:p-8 lg:p-10 pt-2">
-        <slot />
+      <div class="hide-scrollbar flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto">
+        <div
+          class="flex min-h-0 flex-1 flex-col p-6 pt-4 md:px-8 md:pb-8 lg:px-10 lg:pb-10"
+        >
+          <slot />
+        </div>
       </div>
-    </main>
+    </div>
   </div>
 </template>
 

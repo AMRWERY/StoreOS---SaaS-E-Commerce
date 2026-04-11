@@ -33,8 +33,7 @@
                     {{ props.error?.statusCode === 404 ? 'Lost in space' : 'Something went wrong' }}
                 </h1>
                 <p class="text-sm md:text-base text-gray-400 leading-relaxed max-w-md mb-12 font-medium">
-                    {{ props.error?.statusMessage || props.error?.message || "We couldn't find the page you're looking
-                    for.It might have been moved or doesn't exist." }}
+                    {{ props.error?.statusMessage || props.error?.message || "We couldn't find the page you're looking for. It might have been moved or doesn't exist." }}
                 </p>
 
                 <!-- Actions -->

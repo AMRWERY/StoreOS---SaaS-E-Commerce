@@ -56,3 +56,11 @@ export interface StoreTheme {
   show_wishlist: boolean
   show_cart_drawer: boolean
 }
+
+export interface BuilderSidebarSection {
+  id: number
+  name: string
+  active: boolean
+  /** When true, section is hidden on the storefront (eye-slash in list). */
+  hidden: boolean
+}
