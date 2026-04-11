@@ -1,22 +1,10 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-9 gap-10 items-start">
-
     <!-- Left: Form (6/9 cols) -->
-    <checkout-shipping-form
-      v-model="shippingForm"
-      class="md:col-span-6"
-      @continue="$emit('proceed')"
-    />
+    <checkout-shipping-form v-model="shippingForm" class="md:col-span-6" @continue="$emit('proceed')" />
 
-    <checkout-shipping-summary
-      :items="orderItems"
-      :subtotal="subtotal"
-      :shipping="shippingCost"
-      :vat="vat"
-      :total="total"
-      class="md:col-span-3"
-    />
-
+    <checkout-shipping-summary :items="orderItems" :subtotal="subtotal" :shipping="shippingCost" :vat="vat"
+      :total="total" class="md:col-span-3" />
   </div>
 </template>
 
@@ -42,7 +30,7 @@ const orderItems: ShippingSummaryItem[] = [
     meta: 'Size: 42 | Black/Red',
     qty: '01',
     price: '2,400',
-    img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=80',
+    img: '/img/product-03.avif',
   },
   {
     id: 2,
@@ -50,7 +38,7 @@ const orderItems: ShippingSummaryItem[] = [
     meta: 'Carbon Matte',
     qty: '01',
     price: '1,850',
-    img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&q=80',
+    img: '/img/product-04.avif',
   },
 ]
 

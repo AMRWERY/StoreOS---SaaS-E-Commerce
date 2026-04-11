@@ -1,17 +1,16 @@
 <template>
   <div>
     <div class="min-h-screen bg-[#08080E] font-sans text-[#F0F0FF] selection:bg-[#6366F1]/30 p-6 lg:p-12">
-
       <!-- --- BREADCRUMBS --- -->
       <VBreadcrumb :items="breadcrumbItems" class="mb-10" />
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 max-w-7xl mx-auto">
-
         <!-- ==========================================
            LEFT: IMAGE GALLERY
            ========================================== -->
         <div class="lg:col-span-6 space-y-6">
-          <div class="relative w-full lg:max-w-[540px] mx-auto pt-[92%] rounded-[16px] bg-[#0D0D18] border border-[#1C1C30] overflow-hidden group">
+          <div
+            class="relative w-full lg:max-w-[540px] mx-auto pt-[92%] rounded-[16px] bg-[#0D0D18] border border-[#1C1C30] overflow-hidden group">
             <img :src="productImages[activeImage]"
               class="absolute inset-0 w-full h-full object-cover transition-all duration-700 grayscale-[10%] group-hover:grayscale-0 group-hover:scale-105" />
             <span
@@ -22,7 +21,8 @@
             <div v-for="(img, idx) in productImages" :key="idx" @click="activeImage = idx"
               class="flex-1 relative pt-[20%] sm:pt-[15%] lg:pt-[22%] rounded-[12px] bg-[#0D0D18] border cursor-pointer overflow-hidden transition-all duration-300"
               :class="[activeImage === idx ? 'border-[#6366F1] ring-2 ring-[#6366F1]/20' : 'border-[#1C1C30] hover:border-[#262640]']">
-              <img :src="img" class="absolute inset-0 w-full h-full object-cover" :class="{ 'opacity-50': activeImage !== idx }" />
+              <img :src="img" class="absolute inset-0 w-full h-full object-cover"
+                :class="{ 'opacity-50': activeImage !== idx }" />
             </div>
           </div>
         </div>
@@ -55,8 +55,8 @@
           <!-- Color Select -->
           <div class="space-y-4">
             <div class="flex justify-between items-center">
-              <h4 class="text-[11px] font-black tracking-[0.2em] text-[#50506A]">Color: <span
-                  class="text-[#F0F0FF]">{{ selectedColor }}</span></h4>
+              <h4 class="text-[11px] font-black tracking-[0.2em] text-[#50506A]">Color: <span class="text-[#F0F0FF]">{{
+                selectedColor }}</span></h4>
             </div>
             <div class="flex gap-3">
               <div v-for="color in colors" :key="color.name" @click="selectedColor = color.name"
@@ -158,7 +158,8 @@
               <!-- Information -->
               <div class="flex-1 flex flex-col px-1">
                 <p class="text-[10px] font-black text-[#50506A] tracking-[0.2em]">{{ item.cat }}</p>
-                <h3 class="text-[15px] font-medium text-[#8888AA] group-hover:text-[#F0F0FF] transition-colors line-clamp-1">
+                <h3
+                  class="text-[15px] font-medium text-[#8888AA] group-hover:text-[#F0F0FF] transition-colors line-clamp-1">
                   {{ item.name }}
                 </h3>
                 <p class="mt-auto pt-3 font-mono text-[#F0F0FF] font-bold text-[16px]">
@@ -191,7 +192,7 @@ const product = computed(() => ({
   name: titleFromSlug(slugParam.value),
   description: 'A meticulously crafted timepiece designed for the modern professional. Featuring a brushed stainless steel case and genuine leather strap.',
   price: 3200,
-  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=100',
+  image: '/img/product-07.avif',
 }))
 
 const breadcrumbItems = computed(() => [
@@ -219,10 +220,10 @@ const colors = [
 ];
 
 const relatedProducts = [
-  { id: 1, name: 'Nordic Wall Clock', cat: 'MINIMALIST GEAR', price: 1500, img: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=400&q=80' },
-  { id: 2, name: 'Slim Leather Wallet', cat: 'ACCESSORIES', price: 950, img: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80' },
-  { id: 3, name: 'Urban Tech Runners', cat: 'FOOTWEAR', price: 4200, img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80' },
-  { id: 4, name: 'Horizon Chrono', cat: 'LIMITED EDITION', price: 3500, img: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&q=80', tag: 'HOT' }
+  { id: 1, name: 'Nordic Wall Clock', cat: 'MINIMALIST GEAR', price: 1500, img: '/img/product-08.avif' },
+  { id: 2, name: 'Slim Leather Wallet', cat: 'ACCESSORIES', price: 950, img: '/img/product-09.avif' },
+  { id: 3, name: 'Urban Tech Runners', cat: 'FOOTWEAR', price: 4200, img: '/img/product-10.avif' },
+  { id: 4, name: 'Horizon Chrono', cat: 'LIMITED EDITION', price: 3500, img: '/img/product-11.avif', tag: 'HOT' }
 ];
 
 // --- Utilities ---
@@ -241,6 +242,4 @@ useSeoMeta({
   twitterDescription: () => product.value.description,
   twitterImage: () => product.value.image,
 })
-
-
 </script>
