@@ -28,7 +28,7 @@
               <h3
                 class="text-[13px] font-bold text-tx-secondary group-hover:text-tx-primary transition-colors truncate">
                 {{ product.name }}</h3>
-              <div class="mt-2 flex items-baseline gap-2 font-mono font-bold">
+              <div class="mt-2 flex items-baseline gap-2 font-bold">
                 <span class="text-tx-primary text-[16px]">${{ product.price.toLocaleString() }}</span>
                 <span v-if="product.oldPrice" class="text-tx-muted opacity-60 line-through text-[11px]">${{ product.oldPrice.toLocaleString() }}</span>
               </div>

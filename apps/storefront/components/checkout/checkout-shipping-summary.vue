@@ -25,7 +25,7 @@
             <p class="text-[10px] text-[#50506A] mt-1 font-medium tracking-tighter">{{ item.meta }}</p>
             <p class="text-[9px] font-bold text-[#6366F1] mt-1 tracking-widest">Qty: {{ item.qty }}</p>
           </div>
-          <p class="font-mono text-[13px] font-bold text-[#8888AA] shrink-0">EGP {{ item.price }}</p>
+          <p class="text-[13px] font-bold text-[#8888AA] shrink-0">EGP {{ item.price }}</p>
         </div>
       </div>
 
@@ -33,15 +33,15 @@
       <div class="space-y-4 mb-10 text-[13px] font-medium text-[#8888AA]">
         <div class="flex justify-between">
           <span>Subtotal</span>
-          <span class="font-mono text-[#F0F0FF]">EGP {{ subtotal }}</span>
+          <span class="text-[#F0F0FF]">EGP {{ subtotal }}</span>
         </div>
         <div class="flex justify-between items-center">
           <span>Shipping</span>
-          <span class="font-mono text-[#6366F1] font-bold">+ EGP {{ shipping }}</span>
+          <span class="text-[#6366F1] font-bold">+ EGP {{ shipping }}</span>
         </div>
         <div class="flex justify-between">
           <span>VAT (14%)</span>
-          <span class="font-mono">EGP {{ vat }}</span>
+          <span>EGP {{ vat }}</span>
         </div>
       </div>
 
@@ -50,7 +50,7 @@
         <div class="flex items-baseline justify-between">
           <span class="text-[14px] font-bold tracking-widest text-[#F0F0FF]">Total Due</span>
           <div class="text-end">
-            <p class="font-mono text-[32px] font-bold text-[#6366F1] tracking-tighter leading-none">
+            <p class="text-[32px] font-bold text-[#6366F1] tracking-tighter leading-none">
               <span class="text-[14px] me-1 opacity-60">EGP</span>{{ total }}
             </p>
           </div>
@@ -70,14 +70,7 @@
 </template>
 
 <script lang="ts" setup>
-export interface ShippingSummaryItem {
-  id: number
-  name: string
-  meta: string
-  qty: string
-  price: string
-  img: string
-}
+import type { ShippingSummaryItem } from '@/types/checkout'
 
 const props = defineProps<{
   items: ShippingSummaryItem[]

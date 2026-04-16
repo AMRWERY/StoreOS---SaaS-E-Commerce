@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between mb-16">
         <div>
           <h2 class="text-4xl font-bold text-tx-primary tracking-tighter">Best Sellers</h2>
-          <p class="text-[11px] font-mono text-brand tracking-[0.2em] mt-2 font-black">Top Performers / Week
+          <p class="text-[11px] text-brand tracking-[0.2em] mt-2 font-black">Top Performers / Week
             12</p>
         </div>
         <div class="flex gap-4">
@@ -31,7 +31,7 @@
             <p class="text-[9px] font-black text-tx-muted tracking-[0.25em]">{{ product.category }}</p>
             <h3 class="text-[16px] font-bold text-tx-secondary group-hover:text-brand transition-colors tracking-tight">
               {{ product.name }}</h3>
-            <p class="mt-auto font-mono text-tx-primary font-black text-[18px] tracking-tighter pt-2">${{
+            <p class="mt-auto text-tx-primary font-black text-[18px] tracking-tighter pt-2">${{
               product.price.toLocaleString() }}</p>
           </div>
         </nuxt-link-locale>

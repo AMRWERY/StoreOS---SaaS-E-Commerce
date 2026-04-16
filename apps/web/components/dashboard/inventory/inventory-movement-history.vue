@@ -29,7 +29,7 @@
           </span>
         </template>
         <template #cell(newStock)="{ item }">
-          <span class="font-mono text-sm font-bold text-tx-primary">{{ item.newStock }}</span>
+          <span class="text-sm font-bold text-tx-primary">{{ item.newStock }}</span>
         </template>
         <template #cell(reason)="{ item }">
           <span class="text-xs font-medium text-tx-secondary">{{ item.reason }}</span>

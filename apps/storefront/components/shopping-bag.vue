@@ -5,7 +5,7 @@
       class="relative text-tx-secondary hover:text-tx-primary p-2 transition-colors">
       <Icon name="ph:shopping-bag-bold" class="text-xl" />
       <span
-        class="absolute -top-1 -end-1 flex h-4 w-4 items-center justify-center rounded-full bg-brand text-[9px] font-bold text-white font-mono shadow-sm shadow-brand/20">
+        class="absolute -top-1 -end-1 flex h-4 w-4 items-center justify-center rounded-full bg-brand text-[9px] font-bold text-white shadow-sm shadow-brand/20">
         {{ totalItems }}
       </span>
     </button>
@@ -58,12 +58,12 @@
                         <Icon name="ph:trash-bold" class="text-sm" />
                       </button>
                     </div>
-                    <p class="text-[10px] text-tx-muted font-mono tracking-tighter mt-1">{{ item.category }}</p>
+                    <p class="text-[10px] text-tx-muted tracking-tighter mt-1">{{ item.category }}</p>
                   </div>
 
                   <div class="flex items-center justify-between mt-4">
                     <!-- Price -->
-                    <span class="text-sm font-bold text-tx-primary font-mono">${{ item.price.toLocaleString()
+                    <span class="text-sm font-bold text-tx-primary">${{ item.price.toLocaleString()
                       }}</span>
 
                     <!-- Quantity Stepper -->
@@ -106,7 +106,7 @@
             <div class="space-y-3 mb-6">
               <div class="flex justify-between text-xs text-tx-muted">
                 <span>Subtotal</span>
-                <span class="font-mono">${{ subtotal.toLocaleString() }}</span>
+                <span>${{ subtotal.toLocaleString() }}</span>
               </div>
               <div class="flex justify-between text-xs text-tx-muted">
                 <span>Shipping</span>
@@ -115,7 +115,7 @@
               </div>
               <div class="pt-3 border-t border-border-subtle/50 flex justify-between items-end">
                 <span class="text-sm font-bold text-tx-primary">Total Amount</span>
-                <span class="text-xl font-black text-brand font-mono">${{ subtotal.toLocaleString() }}</span>
+                <span class="text-xl font-black text-brand">${{ subtotal.toLocaleString() }}</span>
               </div>
             </div>
 

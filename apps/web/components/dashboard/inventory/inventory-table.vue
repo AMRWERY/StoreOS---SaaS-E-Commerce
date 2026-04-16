@@ -34,11 +34,11 @@
 
         <!-- Current Stock -->
         <template #cell(current)="{ item }">
-          <div v-if="item.current === 0" class="font-mono text-[11px] font-black tracking-widest text-danger">OUT OF STOCK</div>
-          <div v-else-if="item.current <= item.threshold" class="font-mono text-[11px] font-black tracking-widest text-accent">
+          <div v-if="item.current === 0" class="text-[11px] font-black tracking-widest text-danger">OUT OF STOCK</div>
+          <div v-else-if="item.current <= item.threshold" class="text-[11px] font-black tracking-widest text-accent">
             LOW: {{ item.current }}
           </div>
-          <div v-else class="font-mono text-[11px] font-black tracking-widest text-success">{{ item.current }}</div>
+          <div v-else class="text-[11px] font-black tracking-widest text-success">{{ item.current }}</div>
         </template>
 
         <!-- Incoming -->

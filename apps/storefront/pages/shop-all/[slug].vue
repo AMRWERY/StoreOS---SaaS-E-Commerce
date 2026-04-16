@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="min-h-screen bg-[#08080E] font-sans text-[#F0F0FF] selection:bg-[#6366F1]/30 p-6 lg:p-12">
+    <div class="min-h-screen bg-[#08080E] text-[#F0F0FF] selection:bg-[#6366F1]/30 p-6 lg:p-12">
       <!-- --- BREADCRUMBS --- -->
       <VBreadcrumb :items="breadcrumbItems" class="mb-10" />
 
@@ -36,10 +36,10 @@
             <h1 class="mt-2 text-5xl font-bold tracking-tight">Essential Timepiece</h1>
 
             <div class="mt-6 flex items-baseline gap-4">
-              <div class="flex items-baseline gap-2 font-mono">
+              <div class="flex items-baseline gap-2">
                 <span class="text-4xl font-bold text-white tracking-tighter">$3,200</span>
               </div>
-              <span class="font-mono text-[16px] text-[#50506A] line-through">$3,700</span>
+              <span class="text-[16px] text-[#50506A] line-through">$3,700</span>
               <div
                 class="bg-[#10B981]/10 border border-[#10B981]/20 px-2 py-0.5 rounded text-[10px] font-black text-[#10B981] tracking-widest">
                 Save $ 500 [14%]
@@ -72,7 +72,7 @@
             <h4 class="text-[11px] font-black tracking-[0.2em] text-[#50506A]">Size</h4>
             <div class="flex gap-2">
               <button v-for="size in ['38mm', '42mm']" :key="size" @click="selectedSize = size"
-                class="px-6 py-2 rounded-[8px] border text-[12px] font-bold transition-all font-mono"
+                class="px-6 py-2 rounded-[8px] border text-[12px] font-bold transition-all"
                 :class="[selectedSize === size ? 'bg-[#6366F1] border-[#6366F1] text-white' : 'bg-[#0D0D18] border-[#1C1C30] text-[#8888AA] hover:border-[#8888AA]']">
                 {{ size }}
               </button>
@@ -86,7 +86,7 @@
                 class="w-10 h-full flex items-center justify-center text-[#50506A] hover:text-[#F0F0FF] transition-colors">
                 <Icon name="solar:minus-linear" class="w-4 h-4" />
               </button>
-              <span class="w-10 text-center font-mono font-bold">{{ quantity }}</span>
+              <span class="w-10 text-center font-bold">{{ quantity }}</span>
               <button @click="increment"
                 class="w-10 h-full flex items-center justify-center text-[#50506A] hover:text-[#F0F0FF] transition-colors">
                 <Icon name="solar:plus-linear" class="w-4 h-4" />
@@ -162,7 +162,7 @@
                   class="text-[15px] font-medium text-[#8888AA] group-hover:text-[#F0F0FF] transition-colors line-clamp-1">
                   {{ item.name }}
                 </h3>
-                <p class="mt-auto pt-3 font-mono text-[#F0F0FF] font-bold text-[16px]">
+                <p class="mt-auto pt-3 text-[#F0F0FF] font-bold text-[16px]">
                   <span class="text-[11px] text-[#50506A] me-1">$</span>{{ item.price.toLocaleString() }}
                 </p>
               </div>

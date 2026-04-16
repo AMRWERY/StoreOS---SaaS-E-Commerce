@@ -7,11 +7,11 @@
             {{ greeting }}, Amr {{ emoji }}
           </h2>
           <div class="flex items-center gap-2 text-xs font-semibold text-tx-muted tracking-[0.6px] mt-1">
-            <span class="font-mono">{{ currentDate }}</span>
+            <span>{{ currentDate }}</span>
             <span class="w-1 h-1 rounded-full bg-tx-muted"></span>
             
             <ClientOnly>
-              <div class="flex items-center font-mono text-tx-secondary overflow-hidden relative">
+              <div class="flex items-center text-tx-secondary overflow-hidden relative">
                 <div class="relative w-4 h-4 inline-flex justify-center">
                   <Transition name="time-slide">
                     <span :key="timeParts.hour" class="absolute">{{ timeParts.hour }}</span>

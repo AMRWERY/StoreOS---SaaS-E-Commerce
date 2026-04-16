@@ -33,7 +33,7 @@
             <Icon v-if="selectedIds.includes(order.id)" name="ph:check-bold" class="text-[10px] text-tx-primary" />
           </div>
           <VButton variant="none" :to="`/dashboard/orders/${order.id}`" @click.stop
-            className="flex flex-col text-xs font-mono font-bold text-tx-secondary hover:text-brand transition-colors w-12 shrink-0">
+            className="flex flex-col text-xs font-bold text-tx-secondary hover:text-brand transition-colors w-12 shrink-0">
             #SO-{{ order.id }}
           </VButton>
           <div
@@ -60,7 +60,7 @@
         </div>
 
         <div class="col-span-2 text-center flex flex-col items-center gap-1.5">
-          <span class="font-mono text-sm font-bold">${{ order.total }}</span>
+          <span class="text-sm font-bold">${{ order.total }}</span>
           <span
             :class="[getPaymentStatusClass(order.paymentStatus), 'rounded-full px-2 py-0.5 text-[10px] font-semibold flex items-center gap-1']">
             <div class="w-1 h-1 rounded-full bg-current"></div> {{ order.paymentStatus || 'UNPAID' }}

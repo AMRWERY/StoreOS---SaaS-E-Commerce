@@ -14,7 +14,7 @@
           </div>
           <div>
             <h4 class="text-[12px] font-black text-tx-primary tracking-widest">{{ feat.label }}</h4>
-            <p class="text-[11px] text-tx-muted font-mono tracking-tighter mt-1 opacity-80">{{ feat.desc }}
+            <p class="text-[11px] text-tx-muted tracking-tighter mt-1 opacity-80">{{ feat.desc }}
             </p>
           </div>
         </div>

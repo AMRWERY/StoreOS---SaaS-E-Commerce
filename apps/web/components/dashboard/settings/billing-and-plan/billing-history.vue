@@ -23,15 +23,15 @@
       <div class="p-4">
         <VTable :headers="headers" :items="invoices">
           <template #cell(id)="{ item }">
-            <span class="font-mono text-xs font-bold text-tx-secondary group-hover:text-brand transition-colors">
+            <span class="text-xs font-bold text-tx-secondary group-hover:text-brand transition-colors">
               {{ item.id }}
             </span>
           </template>
           <template #cell(date)="{ item }">
-            <span class="font-mono text-sm font-medium text-tx-secondary">{{ item.date }}</span>
+            <span class="text-sm font-medium text-tx-secondary">{{ item.date }}</span>
           </template>
           <template #cell(amount)="{ item }">
-            <span class="font-mono text-sm font-bold text-tx-primary">{{ item.amount }}</span>
+            <span class="text-sm font-bold text-tx-primary">{{ item.amount }}</span>
           </template>
           <template #cell(status)="{ item }">
             <span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success">

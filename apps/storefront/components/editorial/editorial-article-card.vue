@@ -15,7 +15,7 @@
 
     <div class="p-8 flex-1 flex flex-col justify-between space-y-8">
       <div class="space-y-4">
-        <div class="flex items-center justify-between text-[10px] font-mono font-bold text-[#50506A]">
+        <div class="flex items-center justify-between text-[10px] font-bold text-[#50506A]">
           <span>{{ article.date }}</span>
           <span>ID: {{ article.id }}</span>
         </div>
@@ -30,7 +30,7 @@
           <Icon name="ph:user-circle-fill" class="w-4 h-4 text-[#6366F1] shrink-0" />
           {{ article.author }}
         </div>
-        <div class="flex items-center gap-2 text-[10px] font-mono font-bold text-[#50506A]">
+        <div class="flex items-center gap-2 text-[10px] font-bold text-[#50506A]">
           <Icon name="ph:clock" class="w-3.5 h-3.5 shrink-0" />
           {{ article.readTime }}
         </div>

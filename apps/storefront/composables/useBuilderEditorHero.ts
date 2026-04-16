@@ -1,5 +1,4 @@
 import type { InjectionKey, Reactive } from 'vue'
-import { inject } from 'vue'
 
 export interface BuilderEditorHero {
   headline: string
@@ -12,7 +11,7 @@ export const builderEditorHeroKey: InjectionKey<Reactive<BuilderEditorHero>> = S
 export function useBuilderEditorHero() {
   const hero = inject(builderEditorHeroKey)
   if (!hero) {
-    throw new Error('useBuilderEditorHero must be used within BuilderEditorWorkspace')
+    throw new Error('useBuilderEditorHero must be used within BuilderShell (or a parent that provides hero state)')
   }
   return hero
 }

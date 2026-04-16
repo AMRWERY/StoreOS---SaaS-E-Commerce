@@ -36,7 +36,7 @@
         </div>
         <div>
           <h4 class="text-tx-primary text-[11px] font-black tracking-[0.2em] mb-8">Node Location</h4>
-          <p class="text-[11px] font-mono text-tx-muted leading-relaxed tracking-tighter">
+          <p class="text-[11px] text-tx-muted leading-relaxed tracking-tighter">
             Sector 7 / London Base<br />
             ID: 8829-001-ALPHA<br />
             Status: Operational

@@ -99,7 +99,7 @@
         <!-- Bottom Bar -->
         <div class="pt-8 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-6">
           <p class="text-xs text-tx-muted">
-            © <span class="font-mono">2026</span> STOREOS OPERATING SYSTEM. ALL RIGHTS RESERVED.
+            © <span>2026</span> STOREOS OPERATING SYSTEM. ALL RIGHTS RESERVED.
           </p>
           <div class="flex gap-6 text-tx-muted">
             <nuxt-link-locale to="" class="hover:text-tx-primary transition-colors">Twitter</nuxt-link-locale>

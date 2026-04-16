@@ -22,7 +22,7 @@
           >
             {{ article.category }}
           </span>
-          <span class="font-mono text-[10px] font-bold text-[#50506A] tracking-tighter">
+          <span class="text-[10px] font-bold text-[#50506A] tracking-tighter">
             Ref: {{ article.id }}
           </span>
         </div>
@@ -36,8 +36,8 @@
             <Icon name="ph:user-circle-fill" class="w-4 h-4 text-[#6366F1]" />
             {{ article.author }}
           </span>
-          <span class="font-mono normal-case tracking-tight">{{ article.date }}</span>
-          <span class="flex items-center gap-2 font-mono normal-case tracking-tight">
+          <span class="normal-case tracking-tight">{{ article.date }}</span>
+          <span class="flex items-center gap-2 normal-case tracking-tight">
             <Icon name="ph:clock" class="w-4 h-4" />
             {{ article.readTime }}
           </span>

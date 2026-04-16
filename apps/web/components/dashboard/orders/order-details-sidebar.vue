@@ -8,7 +8,7 @@
           <!-- Detail Header -->
           <div class="flex justify-between items-center mb-6">
             <div class="flex items-center gap-3">
-              <span class="text-sm font-mono font-bold text-brand">#SO-{{ order.id }}</span>
+              <span class="text-sm font-bold text-brand">#SO-{{ order.id }}</span>
               <span
                 :class="[getOrderStatusClass(order.orderStatus), 'rounded-full px-2 py-0.5 text-[10px] font-semibold']">{{
                   order.orderStatus }}</span>
@@ -62,8 +62,8 @@
                   <p class="text-[10px] text-tx-muted font-medium">Size 42 | Color: Crimson</p>
                 </div>
                 <div class="text-end">
-                  <p class="font-mono text-xs font-bold text-tx-primary">$189.00</p>
-                  <p class="font-mono text-[10px] text-tx-muted font-black">×1</p>
+                  <p class="text-xs font-bold text-tx-primary">$189.00</p>
+                  <p class="text-[10px] text-tx-muted font-black">×1</p>
                 </div>
               </div>
             </div>
@@ -73,15 +73,15 @@
           <div class="mt-12 pt-8 border-t border-border-subtle space-y-4">
             <div class="flex justify-between text-xs font-bold text-tx-secondary">
               <span>Subtotal</span>
-              <span class="font-mono">$1,088.00</span>
+              <span>$1,088.00</span>
             </div>
             <div class="flex justify-between text-xs font-bold text-tx-secondary">
               <span>Shipping (Express)</span>
-              <span class="font-mono">$162.00</span>
+              <span>$162.00</span>
             </div>
             <div class="flex justify-between items-end pt-4">
               <span class="text-sm font-black text-tx-primary tracking-widest">Total</span>
-              <span class="font-mono text-xl font-bold text-brand">${{ order.total }}</span>
+              <span class="text-xl font-bold text-brand">${{ order.total }}</span>
             </div>
           </div>
         </div>

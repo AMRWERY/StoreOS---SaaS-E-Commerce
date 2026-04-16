@@ -39,16 +39,12 @@ Always use CSS variables or the Tailwind token aliases:
 <p class="font-sans text-tx-secondary">Label</p>
 
 <!-- ✅ ALL numbers, prices, order IDs, dates, stock counts -->
-<span class="font-mono text-tx-primary">$450.00</span>
-<span class="font-mono">#ORD-0889</span>
-<span class="font-mono">42 units</span>
+<span class="text-tx-primary">$450.00</span>
+<span>#ORD-0889</span>
+<span>42 units</span>
 
 <!-- ❌ Never use Inter, Roboto, system-ui as primary fonts -->
 ```
-
-**Rule: Any number rendered in the UI must have `font-mono`.**
-
----
 
 ## Border Radius — Merchant (tight & professional)
 
@@ -114,7 +110,7 @@ Always pill-shaped (`rounded-full`), 9–10px font, `font-semibold`, `px-2 py-0.
 <!-- ✅ Stat card -->
 <div class="bg-bg-primary border border-border-subtle rounded-xl px-4 py-3.5">
   <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">Revenue</p>
-  <p class="font-mono text-[22px] font-semibold text-tx-primary tracking-tight mt-1">$4,200</p>
+  <p class="text-[22px] font-semibold text-tx-primary tracking-tight mt-1">$4,200</p>
 </div>
 ```
 

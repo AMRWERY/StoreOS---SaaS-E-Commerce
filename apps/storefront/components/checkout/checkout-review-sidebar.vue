@@ -7,21 +7,21 @@
       <div class="space-y-4 border-b border-[#1C1C30] pb-8 mb-8 text-[13px] font-medium text-[#8888AA]">
         <div class="flex justify-between">
           <span>Subtotal</span>
-          <span class="font-mono text-[#F0F0FF]">${{ summary.subtotal }}</span>
+          <span class="text-[#F0F0FF]">${{ summary.subtotal }}</span>
         </div>
         <div class="flex justify-between">
           <span>Shipping</span>
-          <span class="font-mono text-[#F0F0FF]">${{ summary.shipping }}</span>
+          <span class="text-[#F0F0FF]">${{ summary.shipping }}</span>
         </div>
         <div class="flex justify-between">
           <span>Tax</span>
-          <span class="font-mono text-[#F0F0FF]">${{ summary.tax }}</span>
+          <span class="text-[#F0F0FF]">${{ summary.tax }}</span>
         </div>
       </div>
 
       <div class="flex items-baseline justify-between mb-8">
         <span class="text-[13px] font-bold text-[#F0F0FF] tracking-widest">Total</span>
-        <p class="font-mono text-3xl font-bold text-[#6366F1] tracking-tighter leading-none">
+        <p class="text-3xl font-bold text-[#6366F1] tracking-tighter leading-none">
           <span class="text-base opacity-60 me-1">$</span>{{ summary.total }}
         </p>
       </div>
@@ -46,7 +46,7 @@
         <p class="text-white font-bold mb-2">{{ address.name }}</p>
         <p>{{ address.line1 }}</p>
         <p>{{ address.line2 }}</p>
-        <p class="font-mono">{{ address.postcode }}</p>
+        <p>{{ address.postcode }}</p>
       </div>
     </section>
 
@@ -59,10 +59,8 @@
       <p class="text-[12px] text-[#50506A] leading-relaxed font-medium">
         Questions about your order? Our support terminal is active 24/7.
       </p>
-      <VButton
-        variant="none"
-        className="w-full bg-[#141422] hover:bg-[#1A1A2E] text-[#8888AA] hover:text-white border border-[#262640] py-3 rounded-[10px] text-[11px] font-bold tracking-widest transition-all"
-      >
+      <VButton variant="none"
+        className="w-full bg-[#141422] hover:bg-[#1A1A2E] text-[#8888AA] hover:text-white border border-[#262640] py-3 rounded-[10px] text-[11px] font-bold tracking-widest transition-all">
         Open Support Ticket
       </VButton>
     </section>
@@ -70,19 +68,7 @@
 </template>
 
 <script lang="ts" setup>
-export interface OrderSummary {
-  subtotal: string
-  shipping: string
-  tax: string
-  total: string
-}
-
-export interface ShippingAddress {
-  name: string
-  line1: string
-  line2: string
-  postcode: string
-}
+import type { OrderSummary, ShippingAddress } from '@/types/checkout'
 
 withDefaults(defineProps<{
   summary: OrderSummary

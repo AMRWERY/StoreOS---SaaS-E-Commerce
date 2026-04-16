@@ -15,7 +15,7 @@
           <div class="mt-4 flex-1 flex flex-col">
             <h3 class="text-[12px] font-bold text-tx-primary group-hover:text-brand transition-colors">{{ cat.name }}
             </h3>
-            <p class="text-[9px] text-tx-muted font-mono tracking-tight mt-0.5">{{ cat.desc }}</p>
+            <p class="text-[9px] text-tx-muted tracking-tight mt-0.5">{{ cat.desc }}</p>
           </div>
         </div>
       </div>

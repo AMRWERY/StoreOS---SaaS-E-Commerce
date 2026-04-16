@@ -4,7 +4,7 @@
     <!-- (01) Contact Information -->
     <section class="space-y-6">
       <div class="flex items-center gap-3">
-        <span class="font-mono text-[#6366F1] font-bold text-sm">(01)</span>
+        <span class="text-[#6366F1] font-bold text-sm">(01)</span>
         <h2 class="text-xl font-bold tracking-tight">Contact Information</h2>
       </div>
       <VInput v-model="form.emailOrPhone" label="Email or Phone"
@@ -15,7 +15,7 @@
     <!-- (02) Shipping Address -->
     <section class="space-y-8">
       <div class="flex items-center gap-3">
-        <span class="font-mono text-[#6366F1] font-bold text-sm">(02)</span>
+        <span class="text-[#6366F1] font-bold text-sm">(02)</span>
         <h2 class="text-xl font-bold tracking-tight">Shipping Address</h2>
       </div>
 
@@ -53,7 +53,7 @@
     <!-- (03) Shipping Method -->
     <section class="space-y-6">
       <div class="flex items-center gap-3">
-        <span class="font-mono text-[#6366F1] font-bold text-sm">(03)</span>
+        <span class="text-[#6366F1] font-bold text-sm">(03)</span>
         <h2 class="text-xl font-bold tracking-tight">Shipping Method</h2>
       </div>
 
@@ -73,7 +73,7 @@
               <p class="text-[11px] text-[#50506A] font-medium">{{ method.time }}</p>
             </div>
           </div>
-          <p class="font-mono text-sm font-bold text-[#8888AA]">EGP {{ method.price }}</p>
+          <p class="text-sm font-bold text-[#8888AA]">EGP {{ method.price }}</p>
         </div>
       </div>
     </section>

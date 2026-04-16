@@ -9,7 +9,7 @@
           <h1 class="text-5xl lg:text-7xl font-bold tracking-tighter">Journal</h1>
           <p class="text-[14px] text-[#50506A] font-bold tracking-widest flex items-center gap-3">
             Editorial Index <span class="w-12 h-px bg-[#1C1C30]" />
-            <span class="font-mono text-[#6366F1]">Protocol: Insight_v2</span>
+            <span class="text-[#6366F1]">Protocol: Insight_v2</span>
           </p>
         </div>
       </div>

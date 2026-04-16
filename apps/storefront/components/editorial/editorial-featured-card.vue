@@ -17,7 +17,7 @@
               class="bg-[#6366F1]/10 text-[#6366F1] border border-[#6366F1]/20 px-3 py-1 rounded-[6px] text-[10px] font-black tracking-widest">
               {{ article.category }}
             </span>
-            <span class="font-mono text-[10px] font-bold text-[#50506A] tracking-tighter">
+            <span class="text-[10px] font-bold text-[#50506A] tracking-tighter">
               Ref: {{ article.id }}
             </span>
           </div>
@@ -34,11 +34,11 @@
           <div class="flex items-center gap-10 border-t border-[#1C1C30] pt-8 flex-wrap">
             <div>
               <p class="text-[9px] font-black text-[#50506A] tracking-widest mb-1">Log Date</p>
-              <p class="font-mono text-[13px] font-bold text-[#F0F0FF]">{{ article.date }}</p>
+              <p class="text-[13px] font-bold text-[#F0F0FF]">{{ article.date }}</p>
             </div>
             <div>
               <p class="text-[9px] font-black text-[#50506A] tracking-widest mb-1">Time to Sync</p>
-              <p class="font-mono text-[13px] font-bold text-[#F0F0FF]">{{ article.readTime }} MIN</p>
+              <p class="text-[13px] font-bold text-[#F0F0FF]">{{ article.readTime }} MIN</p>
             </div>
           </div>
 

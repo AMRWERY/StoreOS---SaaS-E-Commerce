@@ -46,7 +46,7 @@
           <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-3">{{ stat.label }}</h3>
           <div class="flex items-baseline gap-2">
             <span v-if="stat.prefix" class="text-xl font-bold text-tx-secondary">{{ stat.prefix }}</span>
-            <p class="font-mono text-[22px] font-semibold tracking-tight">{{ stat.value }}</p>
+            <p class="text-[22px] font-semibold tracking-tight">{{ stat.value }}</p>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
                 <div v-for="order in orders" :key="order.id"
                   class="grid grid-cols-4 items-center p-4 rounded-xl hover:bg-bg-elevated transition-all border border-transparent hover:border-border-subtle cursor-pointer group/row">
                   <span
-                    class="text-xs font-bold font-mono text-tx-secondary group-hover/row:text-brand transition-colors">{{
+                    class="text-xs font-bold text-tx-secondary group-hover/row:text-brand transition-colors">{{
                       order.id }}</span>
                   <div class="flex justify-center">
                     <span :class="[order.color, 'text-[9px] font-black px-3 py-1 rounded-md tracking-widest']">
@@ -91,7 +91,7 @@
                   <span class="text-xs font-medium text-tx-secondary text-center">{{ order.date }}</span>
                   <div class="text-end">
                     <p class="text-[9px] font-semibold text-tx-muted tracking-[0.6px]">$</p>
-                    <p class="text-sm font-bold font-mono">{{ order.total }}</p>
+                    <p class="text-sm font-bold">{{ order.total }}</p>
                   </div>
                 </div>
               </div>

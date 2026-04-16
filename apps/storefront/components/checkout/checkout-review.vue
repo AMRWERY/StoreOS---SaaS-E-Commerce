@@ -36,7 +36,7 @@
               v-model="orderNumber"
               type="text"
               placeholder="e.g. SOS-12345-890"
-              class="w-full bg-[#141422] border border-[#262640] rounded-[10px] ps-11 pe-5 py-4 text-[14px] font-mono font-medium focus:border-[#6366F1] focus:ring-4 focus:ring-[#6366F1]/5 outline-none transition-all placeholder:text-[#262640]"
+              class="w-full bg-[#141422] border border-[#262640] rounded-[10px] ps-11 pe-5 py-4 text-[14px] font-medium focus:border-[#6366F1] focus:ring-4 focus:ring-[#6366F1]/5 outline-none transition-all placeholder:text-[#262640]"
             />
           </div>
         </div>
@@ -84,7 +84,7 @@
           </div>
           <div>
             <h4 class="text-[11px] font-bold text-[#8888AA] tracking-widest">Secure Portal</h4>
-            <p class="text-[10px] text-[#50506A] mt-0.5 font-mono tracking-tighter">End-to-end encrypted</p>
+            <p class="text-[10px] text-[#50506A] mt-0.5 tracking-tighter">End-to-end encrypted</p>
           </div>
         </div>
       </div>

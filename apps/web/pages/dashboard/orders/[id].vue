@@ -11,7 +11,7 @@
       <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
         <div>
           <div class="flex items-center gap-4">
-            <h1 class="text-3xl font-bold tracking-tight font-mono">{{ orderId }}</h1>
+            <h1 class="text-3xl font-bold tracking-tight">{{ orderId }}</h1>
             <div class="flex gap-2">
               <span
                 class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-status-yellow-dim text-status-yellow">PROCESSING</span>
@@ -98,18 +98,18 @@
                       <div>
                         <h5 class="text-sm font-bold">{{ item.name }}</h5>
                         <p class="text-[10px] text-tx-muted font-bold mt-1">Size: {{ item.size }} | {{ item.color }}</p>
-                        <p class="text-[9px] text-tx-muted font-medium">SKU: <span class="font-mono">{{ item.sku }}</span></p>
+                        <p class="text-[9px] text-tx-muted font-medium">SKU: <span>{{ item.sku }}</span></p>
                       </div>
                     </div>
                   </template>
                   <template #cell(qty)="{ item }">
-                    <span class="text-sm font-bold font-mono">{{ item.qty }}</span>
+                    <span class="text-sm font-bold">{{ item.qty }}</span>
                   </template>
                   <template #cell(unitPrice)="{ item }">
-                    <span class="text-sm font-bold text-tx-secondary font-mono">${{ item.unitPrice.toFixed(2) }}</span>
+                    <span class="text-sm font-bold text-tx-secondary">${{ item.unitPrice.toFixed(2) }}</span>
                   </template>
                   <template #cell(total)="{ item }">
-                    <span class="text-sm font-bold font-mono">${{ (item.qty * item.unitPrice).toFixed(2) }}</span>
+                    <span class="text-sm font-bold">${{ (item.qty * item.unitPrice).toFixed(2) }}</span>
                   </template>
                 </VTable>
 
@@ -118,19 +118,19 @@
                   <div class="w-full max-w-[240px] space-y-3">
                     <div class="flex justify-between text-xs font-bold text-tx-muted">
                       <span>Subtotal</span>
-                      <span class="font-mono">$189.00</span>
+                      <span>$189.00</span>
                     </div>
                     <div class="flex justify-between text-xs font-bold text-tx-muted">
                       <span>Shipping (Standard)</span>
-                      <span class="font-mono">$10.00</span>
+                      <span>$10.00</span>
                     </div>
                     <div class="flex justify-between text-xs font-bold text-tx-muted">
                       <span>Tax</span>
-                      <span class="font-mono">$0.00</span>
+                      <span>$0.00</span>
                     </div>
                     <div class="flex justify-between items-center pt-4 border-t border-border-subtle">
                       <span class="text-xs font-black tracking-widest">Total</span>
-                      <span class="text-xl font-bold text-brand font-mono">$199.00</span>
+                      <span class="text-xl font-bold text-brand">$199.00</span>
                     </div>
                   </div>
                 </div>
@@ -195,11 +195,11 @@
             <div class="grid grid-cols-2 gap-3">
               <div class="bg-bg-elevated border border-border-subtle p-4 rounded-xl">
                 <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Orders</p>
-                <p class="font-mono text-[22px] font-semibold">12</p>
+                <p class="text-[22px] font-semibold">12</p>
               </div>
               <div class="bg-bg-elevated border border-border-subtle p-4 rounded-xl">
                 <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">LTV</p>
-                <p class="font-mono text-[22px] font-semibold">$4,200</p>
+                <p class="text-[22px] font-semibold">$4,200</p>
               </div>
             </div>
           </div>
@@ -227,7 +227,7 @@
                       Worldwide</span></p>
                   <div class="flex items-center gap-2">
                     <div
-                      class="flex-1 bg-black border border-border-default rounded-lg px-3 py-2 text-[10px] font-bold font-mono text-tx-secondary">
+                      class="flex-1 bg-black border border-border-default rounded-lg px-3 py-2 text-[10px] font-bold text-tx-secondary">
                       FX-89323-2394
                     </div>
                     <VButton variant="none"
@@ -254,7 +254,7 @@
                 </div>
                 <div>
                   <h4 class="text-xs font-bold">Stripe Checkout</h4>
-                  <p class="text-[9px] text-tx-muted font-bold mt-0.5 font-mono">ch_3Nle...8Zkz</p>
+                  <p class="text-[9px] text-tx-muted font-bold mt-0.5">ch_3Nle...8Zkz</p>
                 </div>
               </div>
               <span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success">PAID</span>

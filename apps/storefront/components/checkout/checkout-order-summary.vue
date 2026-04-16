@@ -39,7 +39,7 @@
           <p class="text-[9px] font-black text-[#50506A] tracking-[0.2em]">Estimated Total</p>
           <h3 class="text-[12px] font-black tracking-widest text-[#8888AA]">Total</h3>
         </div>
-        <p class="font-mono text-[32px] font-bold text-white tracking-tighter">
+        <p class="text-[32px] font-bold text-white tracking-tighter">
           <span class="text-[18px] text-[#50506A] me-1">$</span>
           {{ total.toFixed(2) }}
         </p>

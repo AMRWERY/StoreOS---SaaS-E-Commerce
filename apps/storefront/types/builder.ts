@@ -6,6 +6,8 @@ export type PanelMode =
   | 'section-settings'
   | 'page-settings'
   | 'theme-settings'
+  | 'navbar-settings'
+  | 'footer-settings'
   | 'empty'
 
 export interface HistoryEntry {
@@ -63,4 +65,21 @@ export interface BuilderSidebarSection {
   active: boolean
   /** When true, section is hidden on the storefront (eye-slash in list). */
   hidden: boolean
+}
+
+export type SectionTemplateThumb =
+  | 'blank'
+  | 'split'
+  | 'grid'
+  | 'text'
+  | 'metrics'
+  | 'form'
+  | 'logos'
+
+export interface BuilderSectionTemplate {
+  id: string
+  title: string
+  description: string
+  popular?: boolean
+  variant: SectionTemplateThumb
 }

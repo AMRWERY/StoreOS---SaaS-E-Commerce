@@ -118,7 +118,7 @@
               </div>
               <div class="text-end">
                 <span class="text-xs text-tx-secondary font-medium me-2">Profit:</span>
-                <span class="font-mono text-lg font-bold text-tx-primary">${{ profit }}</span>
+                <span class="text-lg font-bold text-tx-primary">${{ profit }}</span>
               </div>
             </div>
           </section>

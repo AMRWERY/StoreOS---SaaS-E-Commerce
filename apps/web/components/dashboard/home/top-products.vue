@@ -15,7 +15,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <h4 class="text-sm font-bold truncate group-hover:text-brand transition-colors">{{ prod }}</h4>
-            <p class="font-mono text-[10px] text-tx-muted font-bold mt-0.5 tracking-tight">{{ (32 - i * 4) }} SOLD TODAY
+            <p class="text-[10px] text-tx-muted font-bold mt-0.5 tracking-tight">{{ (32 - i * 4) }} SOLD TODAY
             </p>
           </div>
           <span class="text-xs font-black text-tx-muted group-hover:text-brand/50 transition-colors">#0{{ i + 1

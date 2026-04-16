@@ -9,7 +9,7 @@
       <div class="overflow-x-auto flex-1 h-full">
       <VTable :headers="headers" :items="orders">
         <template #cell(id)="{ item }">
-          <span class="font-mono font-bold text-tx-secondary">{{ item.id }}</span>
+          <span class="font-bold text-tx-secondary">{{ item.id }}</span>
         </template>
         <template #cell(customer)="{ item }">
           <span class="font-bold">{{ item.customer }}</span>
@@ -18,7 +18,7 @@
           <span class="text-tx-secondary">{{ item.items }}</span>
         </template>
         <template #cell(total)="{ item }">
-          <span class="font-mono font-bold">{{ item.total }}</span>
+          <span class="font-bold">{{ item.total }}</span>
         </template>
         <template #cell(status)="{ item }">
           <span

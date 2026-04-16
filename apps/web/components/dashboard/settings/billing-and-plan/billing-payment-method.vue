@@ -13,7 +13,7 @@
           <Icon name="ph:check-circle-fill" class="text-brand" />
         </div>
         <div class="relative z-10">
-          <p class="font-mono text-sm font-bold tracking-[0.2em] text-tx-secondary">•••• •••• •••• 9012</p>
+          <p class="text-sm font-bold tracking-[0.2em] text-tx-secondary">•••• •••• •••• 9012</p>
           <p class="text-[10px] font-bold text-tx-muted mt-2 tracking-widest">Expires 12/28</p>
         </div>
         <div class="absolute -bottom-10 -end-10 w-24 h-24 bg-brand-dim rounded-full blur-2xl" />

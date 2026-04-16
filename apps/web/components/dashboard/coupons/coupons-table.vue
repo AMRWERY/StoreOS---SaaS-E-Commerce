@@ -2,7 +2,7 @@
   <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden mt-10">
     <VTable :headers="headers" :items="coupons">
       <template #cell(code)="{ item }">
-        <span class="font-mono text-sm font-bold tracking-widest text-brand group-hover:text-brand transition-colors">
+        <span class="text-sm font-bold tracking-widest text-brand group-hover:text-brand transition-colors">
           #{{ item.code }}
         </span>
       </template>
@@ -14,7 +14,7 @@
       </template>
 
       <template #cell(value)="{ item }">
-        <span class="font-mono text-sm font-bold text-tx-secondary">{{ item.value }}</span>
+        <span class="text-sm font-bold text-tx-secondary">{{ item.value }}</span>
       </template>
 
       <template #cell(minOrder)="{ item }">
@@ -26,7 +26,7 @@
           <div class="flex-1 h-1.5 bg-bg-elevated rounded-full overflow-hidden">
             <div class="h-full rounded-full" :class="item.color" :style="{ width: item.usage + '%' }"></div>
           </div>
-          <span class="font-mono text-[10px] font-bold text-tx-muted">{{ item.usage }}%</span>
+          <span class="text-[10px] font-bold text-tx-muted">{{ item.usage }}%</span>
         </div>
       </template>
     </VTable>

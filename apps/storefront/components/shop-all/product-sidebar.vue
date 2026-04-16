@@ -2,7 +2,7 @@
   <aside class="w-full lg:w-[240px] shrink-0 space-y-12">
     <div>
       <h1 class="text-4xl font-bold tracking-tight mb-2">{{ title }}</h1>
-      <p class="font-mono text-[#50506A] text-[12px] font-semibold">/ {{ totalItems }} items</p>
+      <p class="text-[#50506A] text-[12px] font-semibold">/ {{ totalItems }} items</p>
     </div>
 
     <!-- Category -->
@@ -36,11 +36,11 @@
       <div class="grid grid-cols-2 gap-3">
         <div class="bg-[#0D0D18] border border-[#1C1C30] rounded-[8px] p-2 px-3">
           <p class="text-[8px] font-black text-[#50506A] mb-1">Min ($)</p>
-          <p class="font-mono text-[12px] font-semibold text-[#8888AA]">{{ modelValue.priceMin }}</p>
+          <p class="text-[12px] font-semibold text-[#8888AA]">{{ modelValue.priceMin }}</p>
         </div>
         <div class="bg-[#0D0D18] border border-[#1C1C30] rounded-[8px] p-2 px-3">
           <p class="text-[8px] font-black text-[#50506A] mb-1">Max ($)</p>
-          <p class="font-mono text-[12px] font-semibold text-[#F0F0FF]">{{ modelValue.priceMax }}+</p>
+          <p class="text-[12px] font-semibold text-[#F0F0FF]">{{ modelValue.priceMax }}+</p>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@
       <h4 class="text-[11px] font-black tracking-[0.2em] text-[#8888AA]">Sizes</h4>
       <div class="flex flex-wrap gap-2">
         <button v-for="size in sizes" :key="size" @click="modelValue.selectedSize = size"
-          class="w-10 h-8 rounded-[6px] border text-[11px] font-black font-mono transition-all"
+          class="w-10 h-8 rounded-[6px] border text-[11px] font-black transition-all"
           :class="modelValue.selectedSize === size ? 'bg-[#6366F1] border-[#6366F1] text-white' : 'bg-[#0D0D18] border-[#1C1C30] text-[#50506A] hover:border-[#8888AA]'">
           {{ size }}
         </button>
