@@ -14,10 +14,10 @@
           </nuxt-link-locale>
 
           <div class="hidden md:flex items-center gap-6 text-sm text-tx-secondary">
-            <nuxt-link-locale to="" class="hover:text-tx-primary transition">Features</nuxt-link-locale>
-            <nuxt-link-locale to="" class="hover:text-tx-primary transition">Pricing</nuxt-link-locale>
-            <nuxt-link-locale to="" class="hover:text-tx-primary transition">Integrations</nuxt-link-locale>
-            <nuxt-link-locale to="" class="hover:text-tx-primary transition">Demo</nuxt-link-locale>
+            <button @click="scrollTo('features')" class="hover:text-tx-primary transition">Features</button>
+            <button @click="scrollTo('pricing')" class="hover:text-tx-primary transition">Pricing</button>
+            <button @click="scrollTo('integrations')" class="hover:text-tx-primary transition">Integrations</button>
+            <button @click="openDemo" class="hover:text-tx-primary transition">Demo</button>
           </div>
         </div>
 
@@ -46,7 +46,12 @@
 </template>
 
 <script lang="ts" setup>
-const { locale } = useI18n();
+const { openDemo } = useDemoModal()
+const { locale } = useI18n()
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
 const switchLocalePath = useSwitchLocalePath();
 
 const isEnglish = computed(() => locale.value === "en");

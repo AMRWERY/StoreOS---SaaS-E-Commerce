@@ -6,6 +6,8 @@
 
     <features />
 
+    <integrations />
+
     <pricing />
   </div>
 </template>

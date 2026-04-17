@@ -3,19 +3,14 @@
     <Teleport to="body">
       <!-- Backdrop -->
       <Transition name="fade">
-        <div
-          v-if="modelValue"
-          class="fixed inset-0 bg-bg-overlay backdrop-blur-sm z-[100]"
-          @click="$emit('update:modelValue', false)"
-        />
+        <div v-if="modelValue" class="fixed inset-0 bg-bg-overlay backdrop-blur-sm z-[100]"
+          @click="$emit('update:modelValue', false)" />
       </Transition>
 
       <!-- Slide-over Drawer -->
       <Transition name="slide">
-        <aside
-          v-if="modelValue"
-          class="fixed end-0 top-0 h-full w-full max-w-[420px] bg-bg-primary border-s border-border-subtle shadow-2xl flex flex-col z-[101] overflow-y-auto hide-scrollbar"
-        >
+        <aside v-if="modelValue"
+          class="fixed end-0 top-0 h-full w-full max-w-[420px] bg-bg-primary border-s border-border-subtle shadow-2xl flex flex-col z-[101] overflow-y-auto hide-scrollbar">
           <!-- Header -->
           <div class="px-4 py-3.5 border-b border-border-subtle bg-bg-elevated sticky top-0 z-10">
             <div class="flex items-center justify-between">
@@ -25,10 +20,8 @@
                 </p>
                 <h2 class="text-xl font-bold text-tx-primary tracking-tight">Node Overview</h2>
               </div>
-              <button
-                @click="$emit('update:modelValue', false)"
-                class="text-tx-secondary hover:text-tx-primary transition-colors p-2"
-              >
+              <button @click="$emit('update:modelValue', false)"
+                class="text-tx-secondary hover:text-tx-primary transition-colors p-2">
                 <Icon name="ph:x-bold" class="text-lg" />
               </button>
             </div>
@@ -48,11 +41,8 @@
                     <span :class="metric.valueClass">{{ metric.value }}</span>
                   </div>
                   <div class="h-1 w-full bg-bg-elevated rounded-full overflow-hidden">
-                    <div
-                      class="h-full rounded-full"
-                      :class="[metric.barClass, metric.barWidth]"
-                      :style="metric.barStyle"
-                    />
+                    <div class="h-full rounded-full" :class="[metric.barClass, metric.barWidth]"
+                      :style="metric.barStyle" />
                   </div>
                 </div>
               </div>
@@ -64,11 +54,8 @@
                 Active Sinks
               </h4>
               <div class="space-y-5">
-                <div
-                  v-for="sink in sinks"
-                  :key="sink.value"
-                  class="flex items-center gap-4 text-xs font-medium text-tx-secondary"
-                >
+                <div v-for="sink in sinks" :key="sink.value"
+                  class="flex items-center gap-4 text-xs font-medium text-tx-secondary">
                   <Icon :name="sink.icon" :class="['text-lg', sink.iconClass]" />
                   {{ sink.value }}
                 </div>
@@ -77,10 +64,8 @@
 
             <!-- Node Status -->
             <section class="rounded-2xl overflow-hidden relative group border border-border-subtle">
-              <img
-                src="/img/product-01.avif"
-                class="w-full h-40 object-cover grayscale opacity-40 group-hover:opacity-60 transition-opacity"
-              />
+              <img src="/img/product-01.avif"
+                class="w-full h-40 object-cover grayscale opacity-40 group-hover:opacity-60 transition-opacity" />
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
               <div class="absolute bottom-5 start-5">
                 <div class="flex items-center gap-2">
@@ -138,6 +123,7 @@ const sinks = [
 .fade-leave-active {
   transition: opacity 0.3s ease;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
@@ -147,10 +133,12 @@ const sinks = [
 .slide-leave-active {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .slide-enter-from,
 .slide-leave-to {
   transform: translateX(100%);
 }
+
 [dir="rtl"] .slide-enter-from,
 [dir="rtl"] .slide-leave-to {
   transform: translateX(-100%);

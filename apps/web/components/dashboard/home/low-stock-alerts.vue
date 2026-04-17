@@ -19,7 +19,8 @@
                 class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-danger-dim text-danger whitespace-nowrap">{{
                   item.left }} LEFT</span>
               <VButton variant="none"
-                className="text-[10px] font-bold text-brand hover:text-brand transition-colors tracking-widest whitespace-nowrap">Restock</VButton>
+                className="text-[10px] font-bold text-brand hover:text-brand transition-colors tracking-widest whitespace-nowrap">
+                Restock</VButton>
             </div>
           </div>
         </div>
@@ -29,10 +30,5 @@
 </template>
 
 <script lang="ts" setup>
-const lowStock = [
-  { name: 'X-Optics 50mm Lens', left: 4, img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=100&q=80' },
-  { name: 'InstaSnap Mini 11', left: 2, img: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=100&q=80' },
-  { name: 'Aviator Gold Pro', left: 8, img: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=100&q=80' },
-  { name: 'X-Optics 50mm Lens', left: 4, img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=100&q=80' },
-]
+const { lowStockAlerts: lowStock } = storeToRefs(useDashboardStore())
 </script>

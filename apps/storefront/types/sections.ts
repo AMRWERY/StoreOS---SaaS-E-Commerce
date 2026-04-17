@@ -87,3 +87,12 @@ export interface StorePage {
   nav_label?: string | null
   nav_order: number
 }
+
+export interface SectionRegistryEntry {
+  type: SectionType
+  name: string
+  category: string
+  description: string
+  popular?: boolean
+  thumbnail: string
+}

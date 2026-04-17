@@ -118,64 +118,13 @@
 </template>
 
 <script lang="ts" setup>
+import { useStorefrontNotificationsStore } from '@/stores/notifications'
+
 const isInternalOpen = ref(false)
-const activeTab = ref('all')
 
-const tabs = [
-  { id: 'all', label: 'All' },
-  { id: 'orders', label: 'Orders' },
-  { id: 'security', label: 'Security' }
-]
-
-const notifications = ref([
-  {
-    id: 1,
-    category: 'Shopping',
-    title: 'Order has been shipped',
-    message: 'Your order #ORD-0889 has been picked up by the courier and is on its way.',
-    time: '2m ago',
-    icon: 'ph:package-bold',
-    iconColor: 'text-emerald-500',
-    bgColor: 'bg-emerald-50',
-    read: false,
-    type: 'orders'
-  },
-  {
-    id: 2,
-    category: 'Security',
-    title: 'Profile updated',
-    message: 'Your account profile was successfully modified from a new device.',
-    time: '45m ago',
-    icon: 'ph:shield-check-bold',
-    iconColor: 'text-brand',
-    bgColor: 'bg-indigo-50',
-    read: false,
-    type: 'security'
-  },
-  {
-    id: 3,
-    category: 'Shopping',
-    title: 'Payment confirmed',
-    message: 'We have received payment for your latest order. Thank you for shopping!',
-    time: '2h ago',
-    icon: 'ph:check-circle-bold',
-    iconColor: 'text-brand',
-    bgColor: 'bg-indigo-50',
-    read: true,
-    type: 'orders'
-  }
-])
-
-const unreadCount = computed(() => notifications.value.filter(n => !n.read).length)
-
-const filteredNotifications = computed(() => {
-  if (activeTab.value === 'all') return notifications.value
-  return notifications.value.filter(n => n.type === activeTab.value)
-})
-
-const markAllAsRead = () => {
-  notifications.value.forEach(n => n.read = true)
-}
+const notifStore = useStorefrontNotificationsStore()
+const { activeTab, tabs, unreadCount, filteredNotifications } = storeToRefs(notifStore)
+const { markAllAsRead } = notifStore
 </script>
 
 <style scoped>

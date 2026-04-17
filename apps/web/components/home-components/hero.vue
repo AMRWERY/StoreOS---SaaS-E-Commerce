@@ -17,7 +17,7 @@
             Start Free Trial
           </VButton>
 
-          <VButton variant="none" @click="showDemo = true"
+          <VButton variant="none" @click="openDemo"
             className="bg-bg-elevated hover:bg-white/10 border border-border-subtle px-8 py-4 rounded-lg font-bold text-lg transition flex items-center justify-center gap-2">
             Watch Demo
           </VButton>
@@ -95,7 +95,7 @@
     </section>
 
     <!-- Video Demo Dialog -->
-    <VDialog v-model="showDemo" maxWidth="5xl">
+    <VDialog v-model="isDemoOpen" maxWidth="5xl">
       <template #title>
         <div class="flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></span>
@@ -127,7 +127,7 @@
               className="bg-brand hover:bg-brand-hover text-white px-5 py-2 rounded-md text-xs font-bold transition-all shadow-lg shadow-brand/20">
               Start Free Trial
             </VButton>
-            <VButton variant="none" @click="showDemo = false"
+            <VButton variant="none" @click="closeDemo"
               className="bg-bg-elevated hover:bg-bg-overlay border border-border-subtle text-tx-secondary hover:text-tx-primary px-5 py-2 rounded-md text-xs font-bold transition-all">
               Close
             </VButton>
@@ -154,11 +154,10 @@
 </template>
 
 <script lang="ts" setup>
-const showDemo = ref(false)
+const { isDemoOpen, openDemo, closeDemo } = useDemoModal()
 const videoRef = ref<HTMLVideoElement | null>(null)
 
-// Pause and reset video when dialog is closed
-watch(showDemo, (open) => {
+watch(isDemoOpen, (open) => {
   if (!open && videoRef.value) {
     videoRef.value.pause()
     videoRef.value.currentTime = 0

@@ -40,7 +40,7 @@
         <div class="flex gap-8">
           <nuxt-link-locale to="/privacy" class="hover:text-[#6366F1] transition-colors">Privacy</nuxt-link-locale>
           <nuxt-link-locale to="/terms" class="hover:text-[#6366F1] transition-colors">Terms</nuxt-link-locale>
-          <a href="#" class="hover:text-[#6366F1] transition-colors">Security</a>
+          <nuxt-link-locale to="" class="hover:text-[#6366F1] transition-colors">Security</nuxt-link-locale>
         </div>
       </footer>
     </div>
@@ -51,44 +51,16 @@
 </template>
 
 <script lang="ts" setup>
-const steps = ref([
-  { id: 'cart', name: 'Cart', icon: 'ph:shopping-bag-fill', active: true },
-  { id: 'shipping', name: 'Shipping & Payment', icon: 'ph:truck', active: false },
-  { id: 'order-tracking', name: 'Order Tracking', icon: 'ph:map-pin-line', active: false },
-])
+import { useCartStore } from '@/stores/cart'
+import { useCheckoutStore } from '@/stores/checkout'
 
-const activeStep = computed(() => steps.value.find(s => s.active)?.id ?? 'cart')
-const showConfirmation = ref(false)
+const cartStore = useCartStore()
+const { cartItems, subtotal, total } = storeToRefs(cartStore)
+const { updateQuantity: updateQty, removeItem } = cartStore
 
-const cartItems = ref([
-  { id: 1, name: 'Vector Runner Pro', meta: 'Color: Carbon Red / Size: 42', price: 189.00, quantity: 1, image: '/img/product-05.avif' },
-  { id: 2, name: 'Chrono Series X', meta: 'Variant: Midnight Steel', price: 299.00, quantity: 2, image: '/img/product-06.avif' },
-  { id: 3, name: 'Sonic Bloom Headset', meta: 'Color: Obsidian Black', price: 299.00, quantity: 1, image: '/img/product-07.avif' },
-])
-
-const subtotal = computed(() => cartItems.value.reduce((acc, item) => acc + item.price * item.quantity, 0))
-const total = computed(() => subtotal.value)
-
-const setActiveStep = (id: string) => {
-  steps.value = steps.value.map(s => ({ ...s, active: s.id === id }))
-}
-
-const onSubmitOrder = () => {
-  showConfirmation.value = true
-  setTimeout(() => {
-    showConfirmation.value = false
-    setActiveStep('order-tracking')
-  }, 3000)
-}
-
-const updateQty = (id: number, delta: number) => {
-  const item = cartItems.value.find(i => i.id === id)
-  if (item) item.quantity = Math.max(1, item.quantity + delta)
-}
-const removeItem = (id: number) => {
-  cartItems.value = cartItems.value.filter(i => i.id !== id)
-}
-const onProceed = () => setActiveStep('shipping')
+const checkoutStore = useCheckoutStore()
+const { steps, showConfirmation, activeStep } = storeToRefs(checkoutStore)
+const { setActiveStep, onProceed, onSubmitOrder } = checkoutStore
 
 useSeoMeta({
   title: 'Checkout',

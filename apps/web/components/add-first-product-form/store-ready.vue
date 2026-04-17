@@ -12,8 +12,7 @@
         <!-- Success Icon -->
         <div
           class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/20 border border-brand/30 mb-8">
-          <div
-            class="w-10 h-10 rounded-full bg-brand flex items-center justify-center shadow-lg shadow-brand/40">
+          <div class="w-10 h-10 rounded-full bg-brand flex items-center justify-center shadow-lg shadow-brand/40">
             <Icon name="ph:check-bold" class="text-white w-6 h-6" />
           </div>
         </div>
@@ -34,7 +33,8 @@
             </div>
             <VButton @click="copyToClipboard" variant="none"
               className="bg-bg-elevated hover:bg-bg-elevated border border-border-default p-2 rounded-md transition-colors group">
-              <Icon name="ph:copy-simple" class="w-5 h-5 text-tx-secondary group-hover:text-tx-primary transition-colors" />
+              <Icon name="ph:copy-simple"
+                class="w-5 h-5 text-tx-secondary group-hover:text-tx-primary transition-colors" />
             </VButton>
           </div>
         </div>

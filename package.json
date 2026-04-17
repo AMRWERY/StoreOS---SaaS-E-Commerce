@@ -11,6 +11,10 @@
     "clean": "turbo run clean"
   },
   "devDependencies": {
+    "@iconify-json/fluent-emoji-flat": "^1.2.5",
+    "@iconify-json/garden": "^1.2.5",
+    "@iconify-json/logos": "^1.2.11",
+    "@iconify-json/lucide": "^1.2.102",
     "@iconify-json/material-symbols": "^1.2.63",
     "@iconify-json/ph": "^1.2.2",
     "@types/node": "^25.5.0",

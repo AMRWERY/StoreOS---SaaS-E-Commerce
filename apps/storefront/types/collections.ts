@@ -8,3 +8,13 @@ export interface StorefrontCollection {
   count: number
   featured?: boolean
 }
+
+export interface CollectionCatalogProduct {
+  id: number
+  slug: string
+  name: string
+  category: string
+  price: number
+  image: string
+  collectionSlug: string
+}

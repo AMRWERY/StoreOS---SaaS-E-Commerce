@@ -128,77 +128,11 @@
 </template>
 
 <script lang="ts" setup>
+const notificationsStore = useNotificationsStore()
+const { activeTab, tabs, unreadCount, filteredNotifications } = storeToRefs(notificationsStore)
+const { markAllAsRead } = notificationsStore
+
 const isInternalOpen = ref(false)
-
-const activeTab = ref('all')
-
-const tabs = [
-  { id: 'all', label: 'All' },
-  { id: 'orders', label: 'Orders' },
-  { id: 'security', label: 'Security' }
-]
-
-const notifications = ref([
-  {
-    id: 1,
-    category: 'Orders',
-    title: 'New order received',
-    message: '#ORD-0889 from Ethan Laurent for $189.00 is awaiting confirmation.',
-    time: '2m ago',
-    icon: 'ph:shopping-cart-bold',
-    iconColor: 'text-emerald-400',
-    bgColor: 'bg-emerald-500/10',
-    read: false,
-    type: 'orders'
-  },
-  {
-    id: 2,
-    category: 'Security',
-    title: 'New login attempt',
-    message: 'A successful login was detected from a new device in London, UK.',
-    time: '45m ago',
-    icon: 'ph:shield-check-bold',
-    iconColor: 'text-brand',
-    bgColor: 'bg-brand-dim',
-    read: false,
-    type: 'security'
-  },
-  {
-    id: 3,
-    category: 'Orders',
-    title: 'Payment processed',
-    message: 'Payment for order #ORD-0887 was successfully processed.',
-    time: '2h ago',
-    icon: 'ph:check-circle-bold',
-    iconColor: 'text-brand',
-    bgColor: 'bg-brand-dim',
-    read: true,
-    type: 'orders'
-  },
-  {
-    id: 4,
-    category: 'System',
-    title: 'Version Update',
-    message: 'StoreOS has been updated to v4.4.2. Check out the new dashboard features.',
-    time: '5h ago',
-    icon: 'ph:rocket-launch-bold',
-    iconColor: 'text-amber-400',
-    bgColor: 'bg-amber-500/10',
-    read: true,
-    type: 'system'
-  }
-])
-
-const unreadCount = computed(() => notifications.value.filter(n => !n.read).length)
-
-const filteredNotifications = computed(() => {
-  if (activeTab.value === 'all') return notifications.value
-  return notifications.value.filter(n => n.type === activeTab.value)
-})
-
-const markAllAsRead = () => {
-  notifications.value.forEach(n => n.read = true)
-}
 </script>
 
 <style scoped>

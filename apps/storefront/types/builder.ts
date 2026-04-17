@@ -83,3 +83,9 @@ export interface BuilderSectionTemplate {
   popular?: boolean
   variant: SectionTemplateThumb
 }
+
+export interface BuilderEditorHero {
+  headline: string
+  subheadline: string
+  buttonText: string
+}

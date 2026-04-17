@@ -36,19 +36,20 @@
 </template>
 
 <script lang="ts" setup>
-import type { FilterState } from '@/types/products';
+import type { FilterState } from '@/types/products'
+import { useCatalogStore } from '@/stores/catalog'
 
-const viewMode = ref<'grid' | 'list'>('grid');
-const selectedSort = ref('Popularity');
-const currentPage = ref(1);
+const viewMode = ref<'grid' | 'list'>('grid')
+const selectedSort = ref('Popularity')
+const currentPage = ref(1)
 
 const filterState = ref<FilterState>({
   category: 'Electronics',
   priceMin: 0,
   priceMax: 5000,
   selectedSize: 'M',
-  selectedColor: 'Indigo'
-});
+  selectedColor: 'Indigo',
+})
 
 const clearFilters = () => {
   filterState.value = {
@@ -56,38 +57,17 @@ const clearFilters = () => {
     priceMin: 0,
     priceMax: 5000,
     selectedSize: '',
-    selectedColor: ''
-  };
-};
+    selectedColor: '',
+  }
+}
 
 const breadcrumbItems = [
   { label: 'Home', to: '/' },
-  { label: 'All Products', active: true }
-];
+  { label: 'All Products', active: true },
+]
 
-// --- Mock Data ---
-const categories = ['Apparel', 'Electronics', 'Home Decor', 'Beauty', 'Accessories'];
-
-const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
-
-const colors = [
-  { name: 'Indigo', bg: 'bg-[#6366F1]' },
-  { name: 'White', bg: 'bg-[#FFFFFF]' },
-  { name: 'Purple', bg: 'bg-[#A78BFA]' },
-  { name: 'Green', bg: 'bg-[#10B981]' },
-  { name: 'Red', bg: 'bg-[#EF4444]' }
-];
-
-const products = [
-  { id: 1, slug: 'aerosprint-pro-trainer', name: 'AeroSprint Pro Trainer', cat: 'FOOTWEAR', price: 2499, oldPrice: 3200, tag: 'NEW', tagColor: 'bg-[#6366F1]', img: '/img/product-09.avif' },
-  { id: 2, slug: 'sonic-x-studio-headphones', name: 'Sonic-X Studio Headphones', cat: 'AUDIO', price: 4850, tag: 'SALE', tagColor: 'bg-[#F97316]', img: '/img/product-010.avif' },
-  { id: 3, slug: 'core-chronograph-silver', name: 'Core Chronograph Silver', cat: 'ACCESSORIES', price: 1200, img: '/img/product-011.avif' },
-  { id: 4, slug: 'titanium-aviator-shade', name: 'Titanium Aviator Shade', cat: 'EYEWEAR', price: 3400, img: '/img/product-012.avif' },
-  { id: 5, slug: 'retro-m-digital-compact', name: 'Retro-M Digital Compact', cat: 'PHOTOGRAPHY', price: 9800, img: '/img/product-013.avif' },
-  { id: 6, slug: 'volt-matrix-runner', name: 'Volt Matrix Runner', cat: 'FOOTWEAR', price: 2150, img: '/img/product-014.avif' },
-  { id: 7, slug: 'hydra-rich-night-serum', name: 'Hydra-Rich Night Serum', cat: 'BEAUTY', price: 950, tag: 'NEW', tagColor: 'bg-[#6366F1]', img: '/img/product-015.avif' },
-  { id: 8, slug: 'insta-flex-classic-camera', name: 'Insta-Flex Classic Camera', cat: 'PHOTOGRAPHY', price: 1890, img: '/img/product-016.avif' },
-];
+const catalogStore = useCatalogStore()
+const { shopAllProducts: products, shopAllCategories: categories, shopAllColors: colors, shopAllSizes: sizes } = storeToRefs(catalogStore)
 
 useSeoMeta({
   title: 'All Products',

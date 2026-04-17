@@ -17,7 +17,8 @@
         <!-- Header -->
         <div class="px-8 py-6 flex items-center justify-between border-b border-border-subtle">
           <h2 class="text-xl font-bold text-tx-primary tracking-tight">Stock Adjustment</h2>
-          <button @click="$emit('update:modelValue', false)" class="text-tx-secondary hover:text-tx-primary transition-colors">
+          <button @click="$emit('update:modelValue', false)"
+            class="text-tx-secondary hover:text-tx-primary transition-colors">
             <Icon name="ph:x-bold" class="text-xl" />
           </button>
         </div>
@@ -25,7 +26,8 @@
         <!-- Body -->
         <div class="flex-1 overflow-y-auto px-8 py-6 space-y-8">
           <!-- Selected Item Card -->
-          <div v-if="selectedItem" class="bg-bg-primary border border-border-subtle rounded-2xl p-4 flex items-center gap-4">
+          <div v-if="selectedItem"
+            class="bg-bg-primary border border-border-subtle rounded-2xl p-4 flex items-center gap-4">
             <div class="w-16 h-16 rounded-xl bg-white flex items-center justify-center p-2 overflow-hidden shrink-0">
               <img :src="selectedItem.image" class="w-full h-full object-contain" />
             </div>

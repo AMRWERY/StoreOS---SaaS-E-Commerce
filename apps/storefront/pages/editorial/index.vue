@@ -11,30 +11,16 @@
 
 <script lang="ts" setup>
 import type { BreadcrumbItem } from '../../../../layers/ui/types/v-breadcrumb'
-import type { EditorialArticle } from '@/types/editorial'
-import { EDITORIAL_ARTICLES } from '../../data/editorial-articles'
+import { useEditorialStore } from '@/stores/editorial'
 
 const breadcrumbItems: BreadcrumbItem[] = [
   { label: 'Home', to: '/' },
   { label: 'Editorial', active: true },
 ]
 
-const activeFilter = ref('All Protocols')
-const filters = ['All Protocols', 'Design Logic', 'Interviews', 'Operational', 'Behind the Lens']
-
-const articles = ref<EditorialArticle[]>([...EDITORIAL_ARTICLES])
-
-const filteredArticles = computed(() => {
-  if (activeFilter.value === 'All Protocols') return articles.value
-  return articles.value.filter(a => a.category === activeFilter.value)
-})
-
-const featuredArticles = computed(() => filteredArticles.value.filter(a => a.featured))
-const gridArticles = computed(() => filteredArticles.value.filter(a => !a.featured))
-
-const onLoadMore = () => {
-  // pagination / fetch
-}
+const editorialStore = useEditorialStore()
+const { activeFilter, filters, featuredArticles, gridArticles } = storeToRefs(editorialStore)
+const { onLoadMore } = editorialStore
 
 useSeoMeta({
   title: 'Editorial',

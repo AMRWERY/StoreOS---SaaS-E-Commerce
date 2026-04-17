@@ -4,8 +4,7 @@
       <div class="flex flex-col lg:flex-row gap-12">
         <div class="lg:w-1/3">
           <div class="flex items-center gap-4 mb-6">
-            <div
-              class="w-12 h-12 rounded-2xl bg-accent-dim flex items-center justify-center border border-accent/10">
+            <div class="w-12 h-12 rounded-2xl bg-accent-dim flex items-center justify-center border border-accent/10">
               <Icon name="ph:bank-duotone" class="text-accent text-2xl" />
             </div>
             <div>

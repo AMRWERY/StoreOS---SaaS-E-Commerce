@@ -1,13 +1,4 @@
-/** Slugs match `StorefrontCollection.slug` on the collections index page. */
-export interface CollectionCatalogProduct {
-  id: number
-  slug: string
-  name: string
-  category: string
-  price: number
-  image: string
-  collectionSlug: string
-}
+import type { CollectionCatalogProduct } from '@/types/collections'
 
 export const collectionMeta: Record<string, { name: string; description: string }> = {
   'winter-archive-2024': {

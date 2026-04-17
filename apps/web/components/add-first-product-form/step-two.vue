@@ -1,9 +1,7 @@
 <template>
   <div class="min-h-screen bg-bg-base flex flex-col items-center justify-center p-6 text-tx-primary">
-
     <!-- Main Card -->
     <div class="w-full max-w-[560px] bg-bg-primary border border-border-subtle rounded-2xl p-5 shadow-2xl">
-
       <!-- Progress Bar -->
       <div class="mb-10">
         <VProgressBar :progress="progress" :height="8" color="blue" trackVariant="slate" :showHeader="true"
@@ -113,5 +111,3 @@ const handleContinue = () => {
   emit('next')
 }
 </script>
-
-<style scoped></style>

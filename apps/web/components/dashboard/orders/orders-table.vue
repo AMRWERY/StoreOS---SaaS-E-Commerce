@@ -68,8 +68,7 @@
         </div>
 
         <div class="col-span-2 text-center">
-          <span
-            :class="[getOrderStatusClass(order.orderStatus), 'rounded-full px-2 py-0.5 text-[10px] font-semibold']">
+          <span :class="[getOrderStatusClass(order.orderStatus), 'rounded-full px-2 py-0.5 text-[10px] font-semibold']">
             {{ order.orderStatus }}
           </span>
         </div>
@@ -85,10 +84,12 @@
             <Icon name="ph:check-circle-bold" class="text-lg" />
           </VButton>
           <VButton variant="none"
-            className="p-2 text-tx-secondary hover:text-danger transition-colors hidden group-hover:block" @click.stop="">
+            className="p-2 text-tx-secondary hover:text-danger transition-colors hidden group-hover:block"
+            @click.stop="">
             <Icon name="ph:x-circle-bold" class="text-lg" />
           </VButton>
-          <VButton variant="none" className="p-2 text-tx-secondary hover:text-tx-primary transition-colors" @click.stop="">
+          <VButton variant="none" className="p-2 text-tx-secondary hover:text-tx-primary transition-colors"
+            @click.stop="">
             <Icon name="ph:dots-three-bold" class="text-lg" />
           </VButton>
         </div>

@@ -1,13 +1,12 @@
 ﻿<template>
   <div>
     <VBreadcrumb />
-    
+
     <header class="flex flex-col md:flex-row md:items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <h1 class="text-3xl font-bold tracking-tight">Customers</h1>
-        <span
-          class="bg-bg-elevated px-2 py-0.5 rounded text-[10px] font-black text-tx-muted tracking-widest mt-1">{{
-            totalCustomers }}
+        <span class="bg-bg-elevated px-2 py-0.5 rounded text-[10px] font-black text-tx-muted tracking-widest mt-1">{{
+          totalCustomers }}
           total</span>
       </div>
       <div class="flex items-center gap-3">

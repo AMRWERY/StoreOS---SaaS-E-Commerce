@@ -8,7 +8,8 @@
       </template>
 
       <template #cell(type)="{ item }">
-        <span class="text-[9px] font-black px-2 py-1 rounded bg-bg-elevated text-tx-secondary border border-border-subtle tracking-widest">
+        <span
+          class="text-[9px] font-black px-2 py-1 rounded bg-bg-elevated text-tx-secondary border border-border-subtle tracking-widest">
           {{ item.type }}
         </span>
       </template>

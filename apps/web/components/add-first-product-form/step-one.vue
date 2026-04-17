@@ -71,5 +71,3 @@ const handleUpload = () => {
   console.log("Upload clicked");
 };
 </script>
-
-<style scoped></style>

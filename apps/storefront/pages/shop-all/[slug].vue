@@ -175,6 +175,8 @@
 </template>
 
 <script lang="ts" setup>
+import { useCatalogStore } from '@/stores/catalog'
+
 const route = useRoute()
 
 const slugParam = computed(() => String(route.params.slug ?? ''))
@@ -219,12 +221,8 @@ const colors = [
   { name: 'Lavender', hex: 'bg-[#A78BFA]' }
 ];
 
-const relatedProducts = [
-  { id: 1, name: 'Nordic Wall Clock', cat: 'MINIMALIST GEAR', price: 1500, img: '/img/product-08.avif' },
-  { id: 2, name: 'Slim Leather Wallet', cat: 'ACCESSORIES', price: 950, img: '/img/product-09.avif' },
-  { id: 3, name: 'Urban Tech Runners', cat: 'FOOTWEAR', price: 4200, img: '/img/product-10.avif' },
-  { id: 4, name: 'Horizon Chrono', cat: 'LIMITED EDITION', price: 3500, img: '/img/product-11.avif', tag: 'HOT' }
-];
+const catalogStore = useCatalogStore()
+const { relatedProducts } = storeToRefs(catalogStore)
 
 // --- Utilities ---
 const increment = () => quantity.value++;

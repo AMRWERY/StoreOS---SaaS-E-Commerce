@@ -6,7 +6,8 @@
       <div>
         <div class="flex items-center gap-3">
           <h1 class="text-3xl font-bold tracking-tight">Products</h1>
-          <span class="bg-bg-elevated px-2 py-0.5 rounded text-[10px] font-black text-tx-secondary tracking-widest mt-1">
+          <span
+            class="bg-bg-elevated px-2 py-0.5 rounded text-[10px] font-black text-tx-secondary tracking-widest mt-1">
             {{ total }} Total
           </span>
         </div>

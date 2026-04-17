@@ -7,7 +7,8 @@
       <header class="flex items-center justify-between">
         <div class="flex items-center gap-3">
           <h1 class="text-3xl font-bold tracking-tight">Inventory</h1>
-          <span class="bg-bg-elevated px-2 py-0.5 rounded text-[10px] font-black text-tx-secondary tracking-widest mt-1">
+          <span
+            class="bg-bg-elevated px-2 py-0.5 rounded text-[10px] font-black text-tx-secondary tracking-widest mt-1">
             {{ totalProducts }} Total
           </span>
         </div>
@@ -31,7 +32,8 @@
 
         <VDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
-            <button :class="open ? 'bg-bg-elevated border-border-default' : 'bg-bg-primary border-border-subtle hover:bg-bg-elevated'"
+            <button
+              :class="open ? 'bg-bg-elevated border-border-default' : 'bg-bg-primary border-border-subtle hover:bg-bg-elevated'"
               class="flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-tx-secondary transition-colors">
               Category: <span class="text-tx-primary ms-1">{{ category }}</span>
               <Icon name="ph:caret-down-bold" class="transition-transform duration-200"
@@ -52,7 +54,8 @@
 
         <VDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
-            <button :class="open ? 'bg-bg-elevated border-border-default' : 'bg-bg-primary border-border-subtle hover:bg-bg-elevated'"
+            <button
+              :class="open ? 'bg-bg-elevated border-border-default' : 'bg-bg-primary border-border-subtle hover:bg-bg-elevated'"
               class="flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-tx-secondary transition-colors">
               Stock Status: <span class="text-tx-primary ms-1">{{ status }}</span>
               <Icon name="ph:caret-down-bold" class="transition-transform duration-200"

@@ -1,13 +1,4 @@
-import type { SectionType } from '@/types/sections'
-
-export interface SectionRegistryEntry {
-  type: SectionType
-  name: string
-  category: string
-  description: string
-  popular?: boolean
-  thumbnail: string
-}
+import type { SectionRegistryEntry } from '@/types/sections'
 
 export const SECTION_REGISTRY: SectionRegistryEntry[] = [
   {

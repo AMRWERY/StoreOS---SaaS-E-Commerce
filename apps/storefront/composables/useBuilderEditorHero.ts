@@ -1,10 +1,5 @@
 import type { InjectionKey, Reactive } from 'vue'
-
-export interface BuilderEditorHero {
-  headline: string
-  subheadline: string
-  buttonText: string
-}
+import type { BuilderEditorHero } from '@/types/builder'
 
 export const builderEditorHeroKey: InjectionKey<Reactive<BuilderEditorHero>> = Symbol('builderEditorHero')
 

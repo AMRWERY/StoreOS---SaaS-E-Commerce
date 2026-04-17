@@ -132,51 +132,13 @@
 </template>
 
 <script lang="ts" setup>
+import { useCartStore } from '@/stores/cart'
+
 const isInternalOpen = ref(false)
 
-const cartItems = ref([
-  {
-    id: 1,
-    name: 'Linear Wool Overcoat',
-    category: 'Fashion',
-    price: 1250,
-    quantity: 1,
-    image: '/img/product-01.avif'
-  },
-  {
-    id: 2,
-    name: 'Studio Wireless Pro',
-    category: 'Electronics',
-    price: 8200,
-    quantity: 1,
-    image: '/img/product-02.avif'
-  },
-  {
-    id: 3,
-    name: 'Studio Wireless Pro',
-    category: 'Electronics',
-    price: 8200,
-    quantity: 1,
-    image: '/img/product-03.avif'
-  }
-])
-
-const totalItems = computed(() => cartItems.value.reduce((acc, item) => acc + item.quantity, 0))
-const subtotal = computed(() => cartItems.value.reduce((acc, item) => acc + (item.price * item.quantity), 0))
-
-const updateQuantity = (id: number, delta: number) => {
-  const item = cartItems.value.find(i => i.id === id)
-  if (item) {
-    const next = item.quantity + delta
-    if (next > 0) {
-      item.quantity = next
-    }
-  }
-}
-
-const removeItem = (id: number) => {
-  cartItems.value = cartItems.value.filter(i => i.id !== id)
-}
+const cartStore = useCartStore()
+const { cartItems, totalItems, subtotal } = storeToRefs(cartStore)
+const { updateQuantity, removeItem } = cartStore
 
 const localePath = useLocalePath()
 </script>

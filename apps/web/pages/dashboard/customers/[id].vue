@@ -314,73 +314,35 @@
 const activeTab = ref('Orders')
 const tabs = ['Orders', 'Notes', 'Activity']
 const newNote = ref('')
-
 const isEditingContact = ref(false)
 const editedContact = ref({ phone: '', email: '' })
 
+const customersStore = useCustomersStore()
+const {
+  customerDetail: customer,
+  customerDetailAddresses: addresses,
+  customerDetailOrders: orders,
+  customerDetailNotes: notes,
+  customerDetailActivities: activities,
+  customerDetailStats: stats
+} = storeToRefs(customersStore)
+const { addNote, updateContact } = customersStore
+
 const startEditContact = () => {
-  editedContact.value = { ...customer.value }
+  editedContact.value = { phone: customer.value.phone, email: customer.value.email }
   isEditingContact.value = true
 }
 
 const saveContact = () => {
-  customer.value.phone = editedContact.value.phone
-  customer.value.email = editedContact.value.email
+  updateContact(editedContact.value.phone, editedContact.value.email)
   isEditingContact.value = false
 }
 
 const handleAddNote = () => {
   if (!newNote.value.trim()) return
-  notes.value.unshift({
-    id: Date.now(),
-    date: 'Just now',
-    author: 'Current User',
-    text: newNote.value.trim()
-  })
+  addNote(newNote.value.trim())
   newNote.value = ''
 }
-
-// --- Mock Data ---
-const customer = ref({
-  name: 'Alex Rivera',
-  initials: 'AR',
-  phone: '+20 102 345 6789',
-  email: 'alex.rivera@kinetic-ops.io',
-  memberSince: 'Oct 2023',
-  riskScore: '0.04',
-  lastVerified: 'Feb 24, 09:12',
-  tags: ['VIP_TIER_1', 'EARLY_ADOPTER', 'TECH_SECTOR']
-})
-
-const addresses = [
-  { label: 'Main Office', value: '42 Tech Plaza, Smart Village, Giza', icon: 'ph:buildings-bold' },
-  { label: 'Home Address', value: 'Bldg 12, Maadi Degla, Cairo', icon: 'ph:house-bold' }
-]
-
-const orders = [
-  { id: '#ORD-9921', status: 'DELIVERED', date: 'Feb 24, 2026', total: '1,240.00', color: 'text-emerald-500 bg-emerald-500/10' },
-  { id: '#ORD-9844', status: 'IN TRANSIT', date: 'Feb 18, 2026', total: '450.50', color: 'text-blue-400 bg-blue-400/10' },
-  { id: '#ORD-9710', status: 'DELIVERED', date: 'Feb 02, 2026', total: '2,100.00', color: 'text-emerald-500 bg-emerald-500/10' },
-  { id: '#ORD-9655', status: 'CANCELLED', date: 'Jan 28, 2026', total: '0.00', color: 'text-red-500 bg-red-500/10' },
-]
-
-const notes = ref([
-  { id: 1, date: 'Feb 22, 14:30', author: 'Sarah J.', text: 'Customer requested a customized quote for the next bulk order. Needs follow-up by Friday.' },
-  { id: 2, date: 'Jan 15, 10:15', author: 'Mike T.', text: 'High potential for upgrade to Enterprise Tier. Extremely satisfied with current logistics.' }
-])
-
-const activities = [
-  { id: 1, date: 'Feb 24, 09:12', user: 'System', action: 'verified risk status for', target: 'Alex Rivera', icon: 'ph:shield-check-fill', color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
-  { id: 2, date: 'Feb 24, 08:45', user: 'Alex Rivera', action: 'placed new order', target: '#ORD-9921', icon: 'ph:shopping-cart-fill', color: 'text-brand', bg: 'bg-brand-dim' },
-  { id: 3, date: 'Feb 22, 14:32', user: 'Sarah J.', action: 'added a new internal note', target: '', icon: 'ph:note-fill', color: 'text-amber-500', bg: 'bg-amber-500/10' }
-]
-
-const stats = [
-  { label: 'Total Orders', value: '42', prefix: '' },
-  { label: 'Total Spent', value: '14,208.5', prefix: '$' },
-  { label: 'Avg Order Value', value: '338.29', prefix: '$' },
-  { label: 'Last Order', value: 'Feb 24, 2026', prefix: '' },
-]
 
 definePageMeta({
   layout: 'dashboard'

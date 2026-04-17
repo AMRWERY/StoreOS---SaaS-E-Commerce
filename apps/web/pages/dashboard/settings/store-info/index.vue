@@ -13,7 +13,7 @@
             Discard
           </VButton>
 
-          <VButton @click="handleSave" className="px-8 py-3">
+          <VButton @click="saveSettings" className="px-8 py-3">
             Save Changes
           </VButton>
         </div>
@@ -35,28 +35,9 @@
 </template>
 
 <script lang="ts" setup>
-const storeData = ref({
-  name: 'Hyperlink Aesthetics',
-  legalName: '',
-  description: 'Premium curation of archival techwear and kinetic accessories. Shipping worldwide from Tokyo.',
-  systemUrl: 'storeos.app/hyperlink-aesthetics',
-  customDomain: '',
-  supportEmail: 'ops@hyperlink.com',
-  phone: '+81 03-1234-5678',
-  address: 'Shibuya Scramble Square, 1-24-12 Shibuya',
-  city: 'Tokyo',
-  state: 'Shibuya-ku',
-  zip: '150-0002',
-  country: 'Japan',
-  currency: 'JPY (¥) - Japanese Yen',
-  timezone: '(GMT+09:00) Tokyo',
-  unitSystem: 'Metric', // 'Metric' | 'Imperial'
-  language: 'English (International)'
-})
-
-const handleSave = () => {
-  console.log('Saving settings...', storeData.value)
-}
+const storeSettingsStore = useStoreSettingsStore()
+const { storeData } = storeToRefs(storeSettingsStore)
+const { saveSettings } = storeSettingsStore
 
 definePageMeta({
   layout: 'dashboard'

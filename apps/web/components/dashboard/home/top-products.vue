@@ -7,19 +7,19 @@
           class="text-tx-muted cursor-pointer hover:text-tx-primary transition-colors" />
       </div>
       <div class="space-y-6">
-        <div v-for="(prod, i) in products" :key="prod" class="flex items-center gap-4 group cursor-pointer">
+        <div v-for="(prod, i) in topProducts" :key="prod.name" class="flex items-center gap-4 group cursor-pointer">
           <div
             class="w-12 h-12 bg-bg-elevated rounded-xl overflow-hidden shrink-0 border border-border-subtle group-hover:border-border-default transition-colors">
-            <img :src="`https://picsum.photos/100/100?sig=${i + 20}`"
+            <img :src="prod.image"
               class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
           </div>
           <div class="flex-1 min-w-0">
-            <h4 class="text-sm font-bold truncate group-hover:text-brand transition-colors">{{ prod }}</h4>
-            <p class="text-[10px] text-tx-muted font-bold mt-0.5 tracking-tight">{{ (32 - i * 4) }} SOLD TODAY
+            <h4 class="text-sm font-bold truncate group-hover:text-brand transition-colors">{{ prod.name }}</h4>
+            <p class="text-[10px] text-tx-muted font-bold mt-0.5 tracking-tight">{{ prod.soldToday }} SOLD TODAY
             </p>
           </div>
           <span class="text-xs font-black text-tx-muted group-hover:text-brand/50 transition-colors">#0{{ i + 1
-            }}</span>
+          }}</span>
         </div>
       </div>
     </section>
@@ -27,5 +27,5 @@
 </template>
 
 <script lang="ts" setup>
-const products = ['HyperGlide Sneakers', 'Zenith Watch Pro', 'AeroFlow Headphones']
+const { topProducts } = storeToRefs(useDashboardStore())
 </script>
