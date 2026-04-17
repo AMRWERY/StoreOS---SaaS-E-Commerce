@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia'
 import type { StorefrontCollection } from '@/types/collections'
 
 export const useCollectionsStore = defineStore('storefront-collections', () => {

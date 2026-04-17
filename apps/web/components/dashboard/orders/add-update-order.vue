@@ -98,7 +98,8 @@
                     <p class="text-[9px] text-tx-muted font-medium">SKU: {{ item.sku }}</p>
                   </div>
                   <div class="flex items-center gap-3 shrink-0">
-                    <div class="flex items-center gap-1 bg-black border border-border-default rounded-lg overflow-hidden">
+                    <div
+                      class="flex items-center gap-1 bg-black border border-border-default rounded-lg overflow-hidden">
                       <VButton variant="none"
                         className="px-2.5 py-1.5 text-tx-secondary hover:text-tx-primary transition-colors text-xs"
                         @click="item.qty = Math.max(1, item.qty - 1)">
@@ -165,7 +166,8 @@
           </section>
 
           <!-- Summary Statistics -->
-          <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-2xl relative overflow-hidden">
+          <section
+            class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-2xl relative overflow-hidden">
             <div class="absolute -end-8 -top-8 w-24 h-24 bg-brand/5 rounded-full blur-2xl"></div>
             <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-8 px-1 relative z-10">Order Summary</h3>
 
@@ -221,7 +223,7 @@ const form = reactive({
       name: 'Velocity Elite Runner',
       variant: 'Size: 42 | Crimson',
       sku: 'VER-42-CRIM',
-      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=80',
+      image: '/img/product-01.avif',
       price: 189,
       qty: 1
     },
@@ -230,7 +232,7 @@ const form = reactive({
       name: 'Urban Stealth Hoodie',
       variant: 'Size: L | Charcoal',
       sku: 'USH-L-CHA',
-      image: 'https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=100&q=80',
+      image: '/img/product-02.avif',
       price: 95,
       qty: 2
     },
@@ -239,7 +241,7 @@ const form = reactive({
       name: 'Minimal Leather Watch',
       variant: 'Black Dial | Brown Strap',
       sku: 'MLW-BK-BR',
-      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&q=80',
+      image: '/img/product-03.avif',
       price: 340,
       qty: 1
     }

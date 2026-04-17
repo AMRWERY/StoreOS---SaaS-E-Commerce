@@ -56,7 +56,7 @@ const members = [
     email: 'm.thorne@storeos.com',
     role: 'OWNER',
     active: '2026-05-31 12:33',
-    avatar: 'https://i.pravatar.cc/100?u=marcus'
+    avatar: '/img/avatar-01.avif'
   },
   {
     name: 'Elena Rodriguez',
@@ -64,7 +64,7 @@ const members = [
     email: 'e.rodriguez@storeos.com',
     role: 'MANAGER',
     active: '2026-05-28 09:15',
-    avatar: 'https://i.pravatar.cc/100?u=elena'
+    avatar: '/img/avatar-02.avif'
   },
   {
     name: 'Sarah Jenkins',
@@ -72,7 +72,7 @@ const members = [
     email: 's.jenkins@storeos.com',
     role: 'STAFF',
     active: '2026-05-23 18:45',
-    avatar: 'https://i.pravatar.cc/100?u=sarah'
+    avatar: '/img/avatar-03.avif'
   }
 ]
 

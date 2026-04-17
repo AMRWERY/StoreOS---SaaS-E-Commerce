@@ -1,5 +1,3 @@
-import { defineStore } from 'pinia'
-
 export const useCheckoutStore = defineStore('storefront-checkout', () => {
   const steps = ref([
     { id: 'cart', name: 'Cart', icon: 'ph:shopping-bag-fill', active: true },

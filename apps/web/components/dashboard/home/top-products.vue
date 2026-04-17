@@ -9,9 +9,16 @@
       <div class="space-y-6">
         <div v-for="(prod, i) in topProducts" :key="prod.name" class="flex items-center gap-4 group cursor-pointer">
           <div
-            class="w-12 h-12 bg-bg-elevated rounded-xl overflow-hidden shrink-0 border border-border-subtle group-hover:border-border-default transition-colors">
-            <img :src="prod.image"
-              class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+            class="size-12 shrink-0 overflow-hidden rounded-xl border border-border-subtle bg-bg-elevated group-hover:border-border-default transition-colors">
+            <img
+              :src="publicImageUrl(prod.image)"
+              :alt="prod.name"
+              width="48"
+              height="48"
+              loading="lazy"
+              decoding="async"
+              class="size-12 object-cover grayscale opacity-60 transition-all group-hover:grayscale-0 group-hover:opacity-100"
+            />
           </div>
           <div class="flex-1 min-w-0">
             <h4 class="text-sm font-bold truncate group-hover:text-brand transition-colors">{{ prod.name }}</h4>
@@ -28,4 +35,12 @@
 
 <script lang="ts" setup>
 const { topProducts } = storeToRefs(useDashboardStore())
+
+/** Resolve `/img/...` paths against Nuxt `app.baseURL` when the app is not served from `/`. */
+function publicImageUrl(path: string) {
+  const raw = useRuntimeConfig().app.baseURL || '/'
+  const base = raw === '/' ? '' : raw.replace(/\/$/, '')
+  const p = path.startsWith('/') ? path : `/${path}`
+  return base ? `${base}${p}` : p
+}
 </script>

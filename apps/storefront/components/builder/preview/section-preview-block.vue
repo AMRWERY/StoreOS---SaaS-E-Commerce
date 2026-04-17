@@ -28,7 +28,7 @@
     <template v-if="section.type === 'hero_banner'">
       <div
         class="relative flex min-h-[340px] items-center bg-neutral-800 bg-cover bg-center ps-16 pe-8 py-20"
-        style="background-image: linear-gradient(90deg,rgba(15,15,20,.75) 0%,rgba(15,15,20,.35) 45%,transparent 100%),url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1400&q=80')"
+        style="background-image: linear-gradient(90deg,rgba(15,15,20,.75) 0%,rgba(15,15,20,.35) 45%,transparent 100%),url('category-02.avif')"
       >
         <div class="relative z-10 max-w-xl">
           <h2 class="text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
@@ -63,7 +63,7 @@
         </div>
         <div
           class="bg-cover bg-center bg-neutral-700"
-          style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80')"
+          style="background-image:url('/img/category-01.avif')"
         />
       </div>
     </template>
@@ -72,7 +72,7 @@
     <template v-else-if="section.type === 'hero_slideshow'">
       <div
         class="relative flex min-h-[380px] items-center bg-cover bg-center"
-        style="background-image:linear-gradient(90deg,rgba(15,15,20,.75) 0%,rgba(15,15,20,.35) 45%,transparent 100%),url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=1400&q=80')"
+        style="background-image:linear-gradient(90deg,rgba(15,15,20,.75) 0%,rgba(15,15,20,.35) 45%,transparent 100%),url('category-03.avif')"
       >
         <div class="max-w-xl ps-16">
           <h2 class="text-3xl font-bold text-white">
@@ -296,7 +296,7 @@
       <div class="grid min-h-[400px] grid-cols-2">
         <div
           class="bg-cover bg-center bg-neutral-200"
-          style="background-image:url('https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80')"
+          style="background-image:url('/img/product-01.avif')"
         />
         <div class="flex flex-col justify-center px-10 py-12">
           <span class="text-xs font-bold tracking-widest text-neutral-500">Featured</span>
@@ -405,7 +405,7 @@
       <div class="grid min-h-[280px] grid-cols-2">
         <div
           class="bg-cover bg-center bg-neutral-200"
-          style="background-image:url('https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&q=80')"
+          style="background-image:url('/img/category-01.avif')"
         />
         <div class="flex flex-col justify-center px-10 py-12">
           <h2 class="text-2xl font-bold text-neutral-900">

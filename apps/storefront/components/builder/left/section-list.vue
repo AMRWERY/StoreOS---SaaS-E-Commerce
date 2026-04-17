@@ -7,38 +7,26 @@
         Global
       </p>
       <div class="space-y-0.5">
-        <button
-          type="button"
+        <button type="button"
           class="flex w-full items-center gap-3 rounded-md border border-transparent px-2 py-2.5 text-start text-[12px] font-medium transition-all"
           :class="navbarActive
             ? 'border-border-subtle bg-bg-elevated text-brand'
-            : 'text-tx-secondary hover:bg-bg-elevated/50'"
-          @click="selectNavbar"
-        >
-          <Icon
-            name="ph:navigation-arrow-bold"
-            class="text-[13px] transition-colors"
-            :class="navbarActive ? 'text-brand' : 'text-tx-muted'"
-          />
+            : 'text-tx-secondary hover:bg-bg-elevated/50'" @click="selectNavbar">
+          <Icon name="ph:navigation-arrow-bold" class="text-[13px] transition-colors"
+            :class="navbarActive ? 'text-brand' : 'text-tx-muted'" />
           <span class="min-w-0 flex-1 truncate">Navbar</span>
           <span class="shrink-0 rounded-full bg-bg-elevated px-1.5 py-0.5 text-[9px] font-bold text-tx-muted">
             {{ store.navLinks.length }}
           </span>
         </button>
 
-        <button
-          type="button"
+        <button type="button"
           class="flex w-full items-center gap-3 rounded-md border border-transparent px-2 py-2.5 text-start text-[12px] font-medium transition-all"
           :class="footerActive
             ? 'border-border-subtle bg-bg-elevated text-brand'
-            : 'text-tx-secondary hover:bg-bg-elevated/50'"
-          @click="selectFooter"
-        >
-          <Icon
-            name="ph:layout-bold"
-            class="text-[13px] transition-colors"
-            :class="footerActive ? 'text-brand' : 'text-tx-muted'"
-          />
+            : 'text-tx-secondary hover:bg-bg-elevated/50'" @click="selectFooter">
+          <Icon name="ph:layout-bold" class="text-[13px] transition-colors"
+            :class="footerActive ? 'text-brand' : 'text-tx-muted'" />
           <span class="min-w-0 flex-1 truncate">Footer</span>
           <span class="shrink-0 rounded-full bg-bg-elevated px-1.5 py-0.5 text-[9px] font-bold text-tx-muted">
             {{ store.footerColumns.length }}
@@ -55,15 +43,6 @@
       <div class="space-y-0.5">
         <section-list-item v-for="s in ordered" :key="s.id" :section="s" />
       </div>
-
-      <button
-        type="button"
-        class="mt-3 flex w-full items-center gap-2 rounded-md px-2 py-2 text-[11px] font-semibold text-brand transition-colors hover:bg-brand/10"
-        @click="addSectionOpen = true"
-      >
-        <Icon name="ph:plus-circle-bold" class="text-[14px]" />
-        Add section
-      </button>
     </div>
 
     <!-- System page info (checkout / order confirmed) -->
@@ -83,7 +62,6 @@
 
 <script lang="ts" setup>
 const store = useBuilderStore()
-const { addSectionOpen } = useBuilderModals()
 
 const isSystemPage = computed(() =>
   store.currentPage?.type === 'checkout' || store.currentPage?.type === 'order_confirmed',

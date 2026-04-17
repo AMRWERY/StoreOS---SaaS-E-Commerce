@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia'
 import type { EditorialArticle } from '@/types/editorial'
 import { EDITORIAL_ARTICLES } from '@/data/editorial-articles'
 

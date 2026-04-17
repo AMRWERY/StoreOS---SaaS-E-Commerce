@@ -385,6 +385,76 @@ export const useBuilderStore = defineStore('builder', () => {
 
   // ── history ──────────────────────────────────────────────────────
 
+  // ── hydration ────────────────────────────────────────────────────
+
+  /**
+   * Restore full builder state from localStorage (called by the preview page
+   * when it opens in a new tab where the Pinia store is empty).
+   * Returns true if state was found and applied.
+   */
+  function hydrateFromStorage(): boolean {
+    try {
+      const raw = localStorage.getItem('storeos_builder_state')
+      if (!raw) return false
+      const state = JSON.parse(raw) as Record<string, unknown>
+      pages.value = (state.pages as typeof pages.value) ?? []
+      sectionsMap.value = (state.sectionsMap as typeof sectionsMap.value) ?? {}
+      storeName.value = (state.storeName as string) ?? 'LUXE'
+      navbarStyle.value = (state.navbarStyle as typeof navbarStyle.value) ?? 'classic'
+      footerStyle.value = (state.footerStyle as typeof footerStyle.value) ?? 'columns'
+      navLinks.value = (state.navLinks as typeof navLinks.value) ?? []
+      footerTagline.value = (state.footerTagline as string) ?? ''
+      footerCopyright.value = (state.footerCopyright as string) ?? ''
+      footerShowSocial.value = (state.footerShowSocial as boolean) ?? true
+      footerColumns.value = (state.footerColumns as typeof footerColumns.value) ?? []
+      const firstPage = pages.value[0]
+      if (firstPage) {
+        currentPageId.value = firstPage.id
+        sections.value = _clone(sectionsMap.value[firstPage.id] ?? [])
+      }
+      return true
+    } catch {
+      return false
+    }
+  }
+
+  // ── publish ──────────────────────────────────────────────────────
+
+  /**
+   * Flush current working sections, mark all pages as published, persist to
+   * localStorage, and return the storefront preview URL to open in a new tab.
+   */
+  async function publish(): Promise<string> {
+    isSaving.value = true
+    _flush()
+    pages.value.forEach(p => { p.is_published = true })
+    isDirty.value = false
+
+    // Persist the entire builder state to localStorage so a full page reload
+    // (e.g. the new tab) can hydrate from it if needed in the future.
+    try {
+      localStorage.setItem('storeos_builder_state', JSON.stringify({
+        pages: pages.value,
+        sectionsMap: sectionsMap.value,
+        storeName: storeName.value,
+        navbarStyle: navbarStyle.value,
+        footerStyle: footerStyle.value,
+        navLinks: navLinks.value,
+        footerTagline: footerTagline.value,
+        footerCopyright: footerCopyright.value,
+        footerShowSocial: footerShowSocial.value,
+        footerColumns: footerColumns.value,
+      }))
+    } catch (_) { /* storage quota exceeded — fail silently */ }
+
+    // Simulate async save round-trip for UX feedback
+    await new Promise(resolve => setTimeout(resolve, 800))
+    isSaving.value = false
+
+    // Return the dedicated preview page URL
+    return '/dashboard/builder/preview'
+  }
+
   function pushHistory() {
     history.value = history.value.slice(0, historyIndex.value + 1)
     history.value.push(_clone(sections.value))
@@ -454,5 +524,7 @@ export const useBuilderStore = defineStore('builder', () => {
     undo,
     redo,
     reorderSortOrder,
+    publish,
+    hydrateFromStorage,
   }
 })

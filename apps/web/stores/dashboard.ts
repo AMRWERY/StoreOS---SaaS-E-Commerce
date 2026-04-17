@@ -18,16 +18,16 @@ export const useDashboardStore = defineStore('dashboard', () => {
   ])
 
   const topProducts = ref([
-    { name: 'HyperGlide Sneakers', soldToday: 32, image: 'https://picsum.photos/100/100?sig=20' },
-    { name: 'Zenith Watch Pro', soldToday: 28, image: 'https://picsum.photos/100/100?sig=21' },
-    { name: 'AeroFlow Headphones', soldToday: 24, image: 'https://picsum.photos/100/100?sig=22' },
+    { name: 'HyperGlide Sneakers', soldToday: 32, image: '/img/product-01.avif' },
+    { name: 'Zenith Watch Pro', soldToday: 28, image: '/img/product-02.avif' },
+    { name: 'AeroFlow Headphones', soldToday: 24, image: '/img/product-03.avif' },
   ])
 
   const lowStockAlerts = ref([
     { name: 'X-Optics 50mm Lens', left: 4, img: '/img/product-010.avif' },
-    { name: 'InstaSnap Mini 11', left: 2, img: '/img/product-09.avif' },
-    { name: 'Aviator Gold Pro', left: 8, img: '/img/product-01.avif' },
-    { name: 'Carbon Night Edition', left: 3, img: '/img/product-08.avif' },
+    { name: 'InstaSnap Mini 11', left: 2, img: '/img/product-01.avif' },
+    { name: 'Aviator Gold Pro', left: 8, img: '/img/product-02.avif' },
+    { name: 'Carbon Night Edition', left: 3, img: '/img/product-03.avif' },
   ])
 
   return { stats, recentOrders, topProducts, lowStockAlerts }

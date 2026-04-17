@@ -185,7 +185,7 @@
               </VButton>
             </div>
             <div class="flex items-center gap-4 mb-6">
-              <img src="https://i.pravatar.cc/100?u=ethan" class="w-12 h-12 rounded-xl border border-border-default" />
+              <img src="/img/avatar-01.avif" class="w-12 h-12 rounded-xl border border-border-default" />
               <div>
                 <h4 class="font-bold">Ethan Laurent</h4>
                 <p class="text-[10px] text-tx-secondary font-bold mt-1">ethan.l@designstack.io</p>
@@ -287,7 +287,7 @@ const orderItems = [
     sku: 'VER-42-CRIM',
     qty: 1,
     unitPrice: 189.00,
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=80'
+    image: '/img/product-01.avif'
   }
 ]
 

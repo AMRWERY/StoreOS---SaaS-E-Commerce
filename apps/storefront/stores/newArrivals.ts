@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia'
 import type { NewArrivalProduct } from '@/types/new-arrivals'
 
 export const useNewArrivalsStore = defineStore('storefront-new-arrivals', () => {

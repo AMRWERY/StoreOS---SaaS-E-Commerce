@@ -10,7 +10,7 @@
       </div>
     </SettingGroup>
     <SettingImage label="Background image" hint="Replace image"
-      preview-url="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80" />
+      preview-url="/img/category-01.avif" />
   </div>
 </template>
 

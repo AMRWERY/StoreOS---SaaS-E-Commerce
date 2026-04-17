@@ -13,8 +13,7 @@
             <template #cell(product)="{ item }">
               <div class="flex items-center gap-4">
                 <div class="w-10 h-10 bg-bg-elevated rounded-xl overflow-hidden border border-border-subtle">
-                  <img :src="`https://source.unsplash.com/random/100x100?sig=${item.name}`"
-                    class="w-full h-full object-cover grayscale opacity-60" />
+                  <img :src="item.image" class="w-full h-full object-cover grayscale opacity-60" />
                 </div>
                 <div>
                   <p class="text-sm font-bold">{{ item.name }}</p>
@@ -43,7 +42,7 @@
           <VTable :headers="customerHeaders" :items="customers">
             <template #cell(customer)="{ item }">
               <div class="flex items-center gap-4">
-                <img :src="`https://i.pravatar.cc/100?u=${item.name}`"
+                <img :src="item.image"
                   class="w-10 h-10 rounded-xl border border-border-subtle" />
                 <div>
                   <p class="text-sm font-bold">{{ item.name }}</p>
