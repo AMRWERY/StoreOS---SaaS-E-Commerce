@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd ../.. && pnpm turbo build --filter=@storeos/storefront",
+  "buildCommand": "cd ../.. && pnpm turbo build --filter=@storeos/storefront --force",
   "installCommand": "pnpm install --frozen-lockfile",
   "framework": "nuxtjs",
   "outputDirectory": ".output"
