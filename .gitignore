@@ -6,6 +6,16 @@
 .cache
 dist
 
+# Vercel build output (generated locally)
+.vercel/output
+apps/**/.vercel/
+
+# Turborepo local cache
+.turbo/
+
+# Local test scripts
+test-vercel-func*.mjs
+
 # Node dependencies
 node_modules
 
