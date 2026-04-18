@@ -1,12 +1,20 @@
 export default defineNuxtConfig({
   extends: ["@storeos/ui", "@storeos/core"],
   compatibilityDate: "2025-07-15",
+  vite: {
+    build: {
+      sourcemap: false,
+    },
+  },
   components: [
     {
       path: "~/components",
       pathPrefix: false,
     },
   ],
+  icon: {
+    serverBundle: 'remote',
+  },
   app: {
     head: {
       titleTemplate: '%s | StoreOS Store',

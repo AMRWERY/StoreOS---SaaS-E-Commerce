@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd ../.. && pnpm turbo build --filter=@storeos/web",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "framework": "nuxtjs",
+  "outputDirectory": ".output"
+}
