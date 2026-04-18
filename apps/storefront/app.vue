@@ -15,12 +15,12 @@ const RTL_LOCALES = ['ar', 'he', 'fa', 'ur']
 
 useHead(computed(() => ({
   htmlAttrs: {
-    ...i18nHead.value.htmlAttrs,
+    ...(i18nHead.value?.htmlAttrs ?? {}),
     dir: RTL_LOCALES.includes(locale.value) ? 'rtl' : 'ltr',
     lang: locale.value,
   },
-  link: [...(i18nHead.value.link || [])],
-  meta: [...(i18nHead.value.meta || [])],
+  link: [...(i18nHead.value?.link ?? [])],
+  meta: [...(i18nHead.value?.meta ?? [])],
 })))
 </script>
 
