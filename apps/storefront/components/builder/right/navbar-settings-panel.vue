@@ -134,7 +134,7 @@
                   <input
                     type="text"
                     :value="link.href"
-                    class="w-full rounded-md border border-border-subtle bg-bg-base px-2.5 py-1.5 font-mono text-[11px] text-tx-primary outline-none transition-colors focus:border-brand"
+                    class="w-full rounded-md border border-border-subtle bg-bg-base px-2.5 py-1.5 text-[11px] text-tx-primary outline-none transition-colors focus:border-brand"
                     placeholder="/collection"
                     @input="store.updateNavLink(i, 'href', ($event.target as HTMLInputElement).value)"
                   />

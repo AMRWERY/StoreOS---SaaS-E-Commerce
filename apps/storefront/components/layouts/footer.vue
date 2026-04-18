@@ -63,7 +63,7 @@ const footerColumns = [
 const resolveLink = (label: string) => {
   const map: Record<string, string> = {
     'Shop All': '/shop-all',
-    'Catalog Index': '/catalog',
+    'Catalog Index': '/catalog-index',
     'Archive': '/archive',
     'Terms': '/terms',
     'Privacy': '/privacy',

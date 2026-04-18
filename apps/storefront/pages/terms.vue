@@ -21,18 +21,20 @@
             <!-- Meta Info Box -->
             <div class="bg-[#0D0D18] border border-[#1C1C30] rounded-xl p-6 flex flex-col gap-4 min-w-[240px]">
               <div class="flex justify-between items-center">
-                <span class="text-[10px] font-black text-[#50506A] uppercase tracking-widest">Protocol Version</span>
-                <span class="font-mono text-[11px] font-bold text-[#6366F1]">{{ version }}</span>
+                <span class="text-[10px] font-black text-[#50506A] tracking-widest">Protocol Version</span>
+                <span class="text-[11px] font-bold text-[#6366F1]">{{ version }}</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-[10px] font-black text-[#50506A] uppercase tracking-widest">Last Modified</span>
-                <span class="font-mono text-[11px] font-bold text-[#F0F0FF]">{{ lastUpdated }}</span>
+                <span class="text-[10px] font-black text-[#50506A] tracking-widest">Last Modified</span>
+                <span class="text-[11px] font-bold text-[#F0F0FF]">{{ lastUpdated }}</span>
               </div>
-              <button
-                class="mt-2 w-full py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-md text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2">
-                <Icon name="solar:download-bold" class="w-3 h-3" />
-                Download Archive (PDF)
-              </button>
+              <VButton
+                to="/archive/protocol.pdf"
+                label="Download Archive (PDF)"
+                icon="solar:download-bold"
+                variant="secondary"
+                class="!mt-2 !w-full !py-2 !bg-white/5 hover:!bg-white/10 !border-white/10 !text-[10px] !font-black !tracking-widest"
+              />
             </div>
           </div>
         </div>
@@ -43,9 +45,9 @@
         <!-- Sticky Sidebar Navigation -->
         <aside class="lg:col-span-3">
           <div class="sticky top-10 space-y-1">
-            <p class="text-[10px] font-black text-[#50506A] uppercase tracking-[0.3em] mb-6 px-4">Index Sections</p>
+            <p class="text-[10px] font-black text-[#50506A] tracking-[0.3em] mb-6 px-4">Index Sections</p>
             <button v-for="section in sections" :key="section.id" @click="scrollTo(section.id)"
-              class="w-full text-start px-4 py-3 rounded-md text-[12px] font-bold uppercase tracking-widest transition-all border-s-2"
+              class="w-full text-start px-4 py-3 rounded-md text-[12px] font-bold tracking-widest transition-all border-s-2"
               :class="activeSection === section.id
                 ? 'bg-[#141422] border-[#6366F1] text-white shadow-lg shadow-black/40'
                 : 'border-transparent text-[#50506A] hover:text-[#8888AA] hover:bg-white/[0.02]'">
@@ -60,7 +62,7 @@
           <!-- Section: Introduction -->
           <article id="introduction" class="scroll-mt-10 space-y-6">
             <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-              <span class="font-mono text-[#6366F1] text-lg">01.</span> Introduction
+              <span class="text-[#6366F1] text-lg">01.</span> Introduction
             </h2>
             <div class="h-px w-12 bg-[#6366F1]"></div>
             <div class="space-y-4 text-[15px] leading-relaxed text-[#8888AA]">
@@ -76,7 +78,7 @@
           <!-- Section: Use License -->
           <article id="use-license" class="scroll-mt-10 space-y-6">
             <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-              <span class="font-mono text-[#6366F1] text-lg">02.</span> Use License
+              <span class="text-[#6366F1] text-lg">02.</span> Use License
             </h2>
             <div class="h-px w-12 bg-[#6366F1]"></div>
             <div class="space-y-6 text-[15px] leading-relaxed text-[#8888AA]">
@@ -84,16 +86,16 @@
                 StoreOS's website for personal, non-commercial transitory viewing only.</p>
               <ul class="space-y-4 ps-6 border-s border-[#1C1C30]">
                 <li class="flex gap-4">
-                  <span class="font-mono text-[#50506A] text-[12px] mt-1">2.1</span>
+                  <span class="text-[#50506A] text-[12px] mt-1">2.1</span>
                   <span>Modify or copy the proprietary code or assets within the terminal.</span>
                 </li>
                 <li class="flex gap-4">
-                  <span class="font-mono text-[#50506A] text-[12px] mt-1">2.2</span>
+                  <span class="text-[#50506A] text-[12px] mt-1">2.2</span>
                   <span>Use the materials for any commercial purpose, or for any public display (commercial or
                     non-commercial).</span>
                 </li>
                 <li class="flex gap-4">
-                  <span class="font-mono text-[#50506A] text-[12px] mt-1">2.3</span>
+                  <span class="text-[#50506A] text-[12px] mt-1">2.3</span>
                   <span>Attempt to decompile or reverse engineer any software contained in the StoreOS OS layer.</span>
                 </li>
               </ul>
@@ -104,7 +106,7 @@
           <article id="disclaimer" class="scroll-mt-10 space-y-6">
             <div class="bg-orange-500/5 border border-orange-500/20 rounded-2xl p-8 space-y-6">
               <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-                <span class="font-mono text-[#F97316] text-lg">03.</span> Disclaimer
+                <span class="text-[#F97316] text-lg">03.</span> Disclaimer
               </h2>
               <p class="text-[15px] leading-relaxed text-[#8888AA]">
                 The materials on StoreOS's website are provided on an 'as is' basis. StoreOS makes no warranties,
@@ -118,7 +120,7 @@
           <!-- Section: Limitations -->
           <article id="limitations" class="scroll-mt-10 space-y-6">
             <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-              <span class="font-mono text-[#6366F1] text-lg">04.</span> Limitations
+              <span class="text-[#6366F1] text-lg">04.</span> Limitations
             </h2>
             <div class="h-px w-12 bg-[#6366F1]"></div>
             <p class="text-[15px] leading-relaxed text-[#8888AA]">
@@ -132,7 +134,7 @@
           <!-- Section: Governing Law -->
           <article id="governing-law" class="scroll-mt-10 space-y-6">
             <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-              <span class="font-mono text-[#6366F1] text-lg">05.</span> Governing Law
+              <span class="text-[#6366F1] text-lg">05.</span> Governing Law
             </h2>
             <div class="h-px w-12 bg-[#6366F1]"></div>
             <div class="space-y-4 text-[15px] leading-relaxed text-[#8888AA]">
@@ -148,7 +150,7 @@
           <!-- Section: Modifications -->
           <article id="modifications" class="scroll-mt-10 space-y-6">
             <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-              <span class="font-mono text-[#6366F1] text-lg">06.</span> Modifications
+              <span class="text-[#6366F1] text-lg">06.</span> Modifications
             </h2>
             <div class="h-px w-12 bg-[#6366F1]"></div>
             <div class="space-y-4 text-[15px] leading-relaxed text-[#8888AA]">
@@ -162,18 +164,17 @@
           </article>
 
           <!-- Compliance Note -->
-          <section
-            class="bg-[#0D0D18] border border-[#1C1C30] rounded-2xl p-8 flex items-center gap-6 group hover:border-[#6366F1]/30 transition-all">
-            <div class="h-12 w-12 rounded-full bg-[#10B981]/10 flex items-center justify-center shrink-0">
-              <Icon name="solar:shield-check-bold" class="w-6 h-6 text-[#10B981]" />
+          <VAlertBanner
+            variant="success"
+            icon="solar:shield-check-bold"
+            :dismissible="false"
+            class="!bg-[#0D0D18] !border-[#1C1C30]"
+          >
+            <div class="space-y-1">
+              <h4 class="text-[12px] font-black tracking-widest text-[#F0F0FF]">Data Protection Compliance</h4>
+              <p class="text-[13px] text-[#50506A]">This protocol is strictly governed by GDPR and CCPA standards for the 2024 fiscal cycle.</p>
             </div>
-            <div>
-              <h4 class="text-[12px] font-black uppercase tracking-widest text-[#F0F0FF]">Data Protection Compliance
-              </h4>
-              <p class="text-[13px] text-[#50506A] mt-1">This protocol is strictly governed by GDPR and CCPA standards
-                for the 2024 fiscal cycle.</p>
-            </div>
-          </section>
+          </VAlertBanner>
         </div>
       </div>
     </div>

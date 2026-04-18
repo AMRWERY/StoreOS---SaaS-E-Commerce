@@ -11,9 +11,9 @@
           <label class="text-[10px] font-bold text-tx-secondary tracking-wider">System URL</label>
           <div class="flex items-center">
             <input :value="modelValue.systemUrl" readonly type="text"
-              class="flex-1 bg-bg-primary border border-border-subtle rounded-l-lg px-4 py-3 text-sm text-tx-secondary outline-none" />
+              class="flex-1 bg-bg-primary border border-border-subtle rounded-s-lg px-4 py-3 text-sm text-tx-secondary outline-none" />
             <button
-              class="bg-bg-elevated hover:bg-bg-elevated border-y border-e border-border-default px-5 py-3 rounded-r-lg text-[10px] font-black tracking-widest flex items-center gap-2 transition-colors">
+              class="bg-bg-elevated hover:bg-bg-elevated border-y border-e border-border-default px-5 py-3 rounded-e-lg text-[10px] font-black tracking-widest flex items-center gap-2 transition-colors">
               <Icon name="ph:copy-bold" /> Copy
             </button>
           </div>
