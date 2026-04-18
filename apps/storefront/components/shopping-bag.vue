@@ -132,8 +132,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useCartStore } from '@/stores/cart'
-
 const isInternalOpen = ref(false)
 
 const cartStore = useCartStore()

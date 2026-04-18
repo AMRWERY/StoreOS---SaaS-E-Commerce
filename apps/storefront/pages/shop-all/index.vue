@@ -37,7 +37,6 @@
 
 <script lang="ts" setup>
 import type { FilterState } from '@/types/products'
-import { useCatalogStore } from '@/stores/catalog'
 
 const viewMode = ref<'grid' | 'list'>('grid')
 const selectedSort = ref('Popularity')

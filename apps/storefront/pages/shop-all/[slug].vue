@@ -84,23 +84,23 @@
             <div class="h-[52px] bg-[#0D0D18] border border-[#1C1C30] rounded-[10px] flex items-center p-1">
               <button @click="decrement"
                 class="w-10 h-full flex items-center justify-center text-[#50506A] hover:text-[#F0F0FF] transition-colors">
-                <Icon name="solar:minus-linear" class="w-4 h-4" />
+                <Icon name="ph:minus-bold" class="w-4 h-4" />
               </button>
               <span class="w-10 text-center font-bold">{{ quantity }}</span>
               <button @click="increment"
                 class="w-10 h-full flex items-center justify-center text-[#50506A] hover:text-[#F0F0FF] transition-colors">
-                <Icon name="solar:plus-linear" class="w-4 h-4" />
+                <Icon name="ph:plus-bold" class="w-4 h-4" />
               </button>
             </div>
-            <button
-              class="flex-1 bg-[#6366F1] hover:bg-[#818CF8] text-white rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
+            <VButton variant="none"
+              className="flex-1 bg-[#6366F1] hover:bg-[#818CF8] text-white rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
               <Icon name="solar:cart-large-minimalistic-bold" class="w-5 h-5" />
               Add to Cart
-            </button>
-            <button
-              class="flex-1 border border-[#1C1C30] hover:bg-white/5 text-[#F0F0FF] rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all">
+            </VButton>
+            <VButton to="/checkout" variant="none"
+              className="flex-1 flex items-center justify-center border border-[#1C1C30] hover:bg-white/5 text-[#F0F0FF] rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all">
               Buy Now
-            </button>
+            </VButton>
           </div>
 
           <div class="flex items-center gap-2 pt-4">
@@ -108,20 +108,14 @@
             <span class="text-[11px] font-bold text-[#10B981] tracking-widest">In Stock</span>
           </div>
 
-          <!-- Accordion Mockup -->
-          <div class="border-t border-[#1C1C30] pt-6 space-y-6">
-            <div v-for="section in ['Description', 'Specifications', 'Shipping & Returns']" :key="section"
-              class="flex justify-between items-center cursor-pointer group">
-              <h4 class="text-[12px] font-bold tracking-widest group-hover:text-[#6366F1] transition-colors"
-                :class="{ 'text-[#6366F1]': section === 'Description' }">{{ section }}</h4>
-              <Icon :name="section === 'Description' ? 'solar:alt-arrow-up-linear' : 'solar:alt-arrow-down-linear'"
-                class="w-4 h-4 text-[#50506A]" />
-            </div>
-            <p class="text-[13px] text-[#50506A] leading-relaxed">
-              Every curve and edge of the Essential Timepiece is engineered for aesthetic harmony and functional
-              excellence. The sapphire crystal glass provides unmatched scratch resistance.
-            </p>
-          </div>
+          <!-- Accordion -->
+          <VAccordion :items="productSections" class="pt-6 border-t border-[#1C1C30]">
+            <template #content="{ item }">
+              <p class="text-[13px] text-[#8888AA] leading-relaxed">
+                {{ item.content }}
+              </p>
+            </template>
+          </VAccordion>
         </div>
       </div>
 
@@ -141,42 +135,13 @@
           </nuxt-link-locale>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div v-for="item in relatedProducts" :key="item.id" class="group cursor-pointer h-full">
-            <div
-              class="h-full flex flex-col rounded-[12px] bg-[#0D0D18] border border-[#1C1C30] p-3 transition-all group-hover:border-[#6366F1]/40 overflow-hidden">
-              <!-- Image Wrapper -->
-              <div class="relative w-full pt-[100%] rounded-[8px] overflow-hidden bg-black/40 mb-5">
-                <img :src="item.img"
-                  class="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-700 grayscale-[40%] group-hover:grayscale-0 group-hover:scale-105" />
-                <div v-if="item.tag"
-                  class="absolute top-4 start-4 bg-[#F97316] rounded-full px-3 py-0.5 text-[9px] font-black text-white tracking-widest shadow-lg">
-                  {{ item.tag }}
-                </div>
-              </div>
-
-              <!-- Information -->
-              <div class="flex-1 flex flex-col px-1">
-                <p class="text-[10px] font-black text-[#50506A] tracking-[0.2em]">{{ item.cat }}</p>
-                <h3
-                  class="text-[15px] font-medium text-[#8888AA] group-hover:text-[#F0F0FF] transition-colors line-clamp-1">
-                  {{ item.name }}
-                </h3>
-                <p class="mt-auto pt-3 text-[#F0F0FF] font-bold text-[16px]">
-                  <span class="text-[11px] text-[#50506A] me-1">$</span>{{ item.price.toLocaleString() }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <related-products />
       </section>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useCatalogStore } from '@/stores/catalog'
-
 const route = useRoute()
 
 const slugParam = computed(() => String(route.params.slug ?? ''))
@@ -221,8 +186,24 @@ const colors = [
   { name: 'Lavender', hex: 'bg-[#A78BFA]' }
 ];
 
-const catalogStore = useCatalogStore()
-const { relatedProducts } = storeToRefs(catalogStore)
+// --- Data ---
+const productSections = [
+  {
+    id: 'description',
+    title: 'Description',
+    content: 'Every curve and edge of the Essential Timepiece is engineered for aesthetic harmony and functional excellence. The sapphire crystal glass provides unmatched scratch resistance.'
+  },
+  {
+    id: 'specifications',
+    title: 'Specifications',
+    content: 'Brushed stainless steel case, genuine leather strap, sapphire crystal glass, 5ATM water resistance.'
+  },
+  {
+    id: 'shipping',
+    title: 'Shipping & Returns',
+    content: 'Free standard shipping on all orders over $500. Returns accepted within 30 days of purchase.'
+  }
+];
 
 // --- Utilities ---
 const increment = () => quantity.value++;

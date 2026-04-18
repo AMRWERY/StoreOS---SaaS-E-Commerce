@@ -51,9 +51,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useCartStore } from '@/stores/cart'
-import { useCheckoutStore } from '@/stores/checkout'
-
 const cartStore = useCartStore()
 const { cartItems, subtotal, total } = storeToRefs(cartStore)
 const { updateQuantity: updateQty, removeItem } = cartStore

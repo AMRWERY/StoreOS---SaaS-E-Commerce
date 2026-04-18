@@ -23,15 +23,12 @@
             </div>
           </div>
         </div>
-        <div v-for="col in [
-          { title: 'Core Links', links: ['Shop All', 'Catalog Index', 'Archive'] },
-          { title: 'System', links: ['Terms', 'Privacy', 'Compliance'] }
-        ]" :key="col.title">
+        <div v-for="col in footerColumns" :key="col.title">
           <h4 class="text-tx-primary text-[11px] font-black tracking-[0.2em] mb-8">{{ col.title }}</h4>
-          <ul class="space-y-4 text-[12px]">
-            <li v-for="link in col.links" :key="link"
-              class="hover:text-brand cursor-pointer font-medium transition-colors">{{ link
-              }}</li>
+          <ul class="space-y-4 text-[12px] flex flex-col">
+            <nuxt-link-locale v-for="link in col.links" :key="link" :to="resolveLink(link)"
+              class="hover:text-brand cursor-pointer font-medium transition-colors w-fit">{{ link
+              }}</nuxt-link-locale>
           </ul>
         </div>
         <div>
@@ -57,4 +54,21 @@ const socialIcons = [
   { key: 'twitter', icon: 'garden:twitter-fill-12' },
   { key: 'facebook', icon: 'logos:facebook' }
 ];
+
+const footerColumns = [
+  { title: 'Core Links', links: ['Shop All', 'Catalog Index', 'Archive'] },
+  { title: 'System', links: ['Terms', 'Privacy', 'Compliance'] }
+];
+
+const resolveLink = (label: string) => {
+  const map: Record<string, string> = {
+    'Shop All': '/shop-all',
+    'Catalog Index': '/catalog',
+    'Archive': '/archive',
+    'Terms': '/terms',
+    'Privacy': '/privacy',
+    'Compliance': '/compliance'
+  };
+  return map[label] || '/';
+};
 </script>

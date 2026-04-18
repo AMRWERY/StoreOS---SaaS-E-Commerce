@@ -118,8 +118,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useStorefrontNotificationsStore } from '@/stores/notifications'
-
 const isInternalOpen = ref(false)
 
 const notifStore = useStorefrontNotificationsStore()

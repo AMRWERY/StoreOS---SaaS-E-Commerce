@@ -11,7 +11,6 @@
 
 <script lang="ts" setup>
 import type { BreadcrumbItem } from '../../../../layers/ui/types/v-breadcrumb'
-import { useEditorialStore } from '@/stores/editorial'
 
 const breadcrumbItems: BreadcrumbItem[] = [
   { label: 'Home', to: '/' },

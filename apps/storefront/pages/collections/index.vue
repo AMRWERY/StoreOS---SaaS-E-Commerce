@@ -7,7 +7,6 @@
 
 <script lang="ts" setup>
 import type { BreadcrumbItem } from '../../../../layers/ui/types/v-breadcrumb'
-import { useCollectionsStore } from '@/stores/collections'
 
 const breadcrumbItems: BreadcrumbItem[] = [
   { label: 'Home', to: '/' },

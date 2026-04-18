@@ -14,8 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { NewArrivalProduct } from '../../types/new-arrivals'
-import { useNewArrivalsStore } from '@/stores/newArrivals'
+import type { NewArrivalProduct } from '@/types/new-arrivals'
 
 const store = useNewArrivalsStore()
 const { viewMode, selectedFilter, categories, filteredProducts } = storeToRefs(store)

@@ -17,8 +17,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useCatalogStore } from '@/stores/catalog'
-
 const catalogStore = useCatalogStore()
 const { categoryList, newArrivalList, bestSellerList } = storeToRefs(catalogStore)
 
