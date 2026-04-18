@@ -6,6 +6,11 @@ export default defineNuxtConfig({
       sourcemap: false,
     },
   },
+  nitro: {
+    storage: {
+      data: { driver: 'memory' },
+    },
+  },
   components: [
     {
       path: "~/components",
@@ -13,7 +18,7 @@ export default defineNuxtConfig({
     },
   ],
   icon: {
-    serverBundle: 'remote',
+    serverBundle: 'local',
   },
   app: {
     head: {
