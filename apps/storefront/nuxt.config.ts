@@ -5,6 +5,24 @@ export default defineNuxtConfig({
     build: {
       sourcemap: false,
     },
+    plugins: [
+      {
+        name: 'fix-vue-default-import',
+        generateBundle(_opts, bundle) {
+          for (const chunk of Object.values(bundle)) {
+            if (
+              chunk.type === 'chunk' &&
+              typeof chunk.code === 'string' &&
+              chunk.code.includes('Vue__default')
+            ) {
+              chunk.code = chunk.code
+                .replace(/import Vue__default,\s*(\{)/g, 'import $1')
+                .replace(/var vue = Vue__default\b/g, 'var vue = Vue')
+            }
+          }
+        },
+      } as any,
+    ],
   },
   nitro: {
     storage: {
