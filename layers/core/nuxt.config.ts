@@ -22,7 +22,7 @@ export default defineNuxtConfig({
       { code: "ar", name: "العربية", file: "ar.json", dir: "rtl", iso: "ar-SA", language: "ar-SA" },
     ],
     lazy: true,
-    langDir: "./locales/",
+    langDir: "./i18n/locales/",
   },
   router: {
     options: {
