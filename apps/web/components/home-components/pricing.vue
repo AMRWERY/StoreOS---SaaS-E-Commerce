@@ -3,23 +3,22 @@
     <div class="max-w-7xl mx-auto">
       <!-- Header -->
       <div class="text-center mb-16">
-        <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">PRICING</p>
+        <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">{{ $t('home.pricing.sectionLabel') }}</p>
         <h2 class="text-4xl md:text-5xl font-bold mb-5">
-          Simple, transparent pricing.
+          {{ $t('home.pricing.title') }}
         </h2>
-        <p class="text-tx-secondary mb-10">Scale from your first sale to your first million — no surprises.</p>
+        <p class="text-tx-secondary mb-10">{{ $t('home.pricing.subtitle') }}</p>
 
         <!-- Billing Toggle -->
         <div class="inline-flex items-center gap-4 bg-bg-primary border border-border-subtle rounded-2xl p-1.5">
           <button @click="billing = 'monthly'"
             :class="['px-5 py-2 rounded-xl text-xs font-bold transition-all', billing === 'monthly' ? 'bg-bg-elevated text-tx-primary shadow' : 'text-tx-muted hover:text-tx-secondary']">
-            Monthly
+            {{ $t('home.pricing.monthly') }}
           </button>
           <button @click="billing = 'annual'"
             :class="['relative px-5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2', billing === 'annual' ? 'bg-bg-elevated text-tx-primary shadow' : 'text-tx-muted hover:text-tx-secondary']">
-            Annual
-            <span class="bg-success/20 text-success text-[9px] font-black px-1.5 py-0.5 rounded tracking-widest">SAVE
-              20%</span>
+            {{ $t('home.pricing.annual') }}
+            <span class="bg-success/20 text-success text-[9px] font-black px-1.5 py-0.5 rounded tracking-widest">{{ $t('home.pricing.save20') }}</span>
           </button>
         </div>
       </div>
@@ -36,7 +35,7 @@
           <div v-if="tier.popular" class="absolute -top-4 start-1/2 -translate-x-1/2">
             <span
               class="bg-brand text-white text-[9px] font-black tracking-widest px-4 py-1.5 rounded-full shadow-lg shadow-brand/30">
-              MOST POPULAR
+              {{ $t('home.pricing.mostPopular') }}
             </span>
           </div>
 
@@ -53,15 +52,15 @@
           <div class="mb-8">
             <div class="flex items-end gap-1">
               <span class="text-4xl font-bold">
-                {{ tier.free ? 'Free' : `$${billing === 'annual' ? tier.annualPrice : tier.monthlyPrice}` }}
+                {{ tier.free ? $t('home.pricing.free') : `$${billing === 'annual' ? tier.annualPrice : tier.monthlyPrice}` }}
               </span>
-              <span v-if="!tier.free" class="text-tx-muted mb-1.5">/month</span>
+              <span v-if="!tier.free" class="text-tx-muted mb-1.5">{{ $t('home.pricing.perMonth') }}</span>
             </div>
             <p v-if="!tier.free && billing === 'annual'" class="text-xs text-success font-bold mt-1">
-              Billed annually · Save ${{ (tier.monthlyPrice - tier.annualPrice) * 12 }}/year
+              {{ $t('home.pricing.billedAnnually').replace('${amount}', String((tier.monthlyPrice - tier.annualPrice) * 12)) }}
             </p>
-            <p v-else-if="!tier.free" class="text-xs text-tx-muted mt-1">Billed monthly</p>
-            <p v-else class="text-xs text-success font-bold mt-1">Always free, no card needed</p>
+            <p v-else-if="!tier.free" class="text-xs text-tx-muted mt-1">{{ $t('home.pricing.billedMonthly') }}</p>
+            <p v-else class="text-xs text-success font-bold mt-1">{{ $t('home.pricing.alwaysFree') }}</p>
           </div>
 
           <!-- CTA -->
@@ -100,14 +99,14 @@
       <!-- Feature Comparison Table -->
       <div class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden mb-20">
         <div class="p-6 border-b border-border-subtle">
-          <h3 class="font-bold">Full Feature Comparison</h3>
-          <p class="text-xs text-tx-muted mt-1">See exactly what's included in each plan</p>
+          <h3 class="font-bold">{{ $t('home.pricing.fullFeatureComparison') }}</h3>
+          <p class="text-xs text-tx-muted mt-1">{{ $t('home.pricing.seeExactlyIncluded') }}</p>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full">
             <thead>
               <tr class="border-b border-border-subtle">
-                <th class="text-start px-6 py-4 text-xs font-bold text-tx-muted w-1/2">Feature</th>
+                <th class="text-start px-6 py-4 text-xs font-bold text-tx-muted w-1/2">{{ $t('home.pricing.featureColumn') }}</th>
                 <th v-for="tier in tiers" :key="tier.name" class="px-6 py-4 text-center text-xs font-bold"
                   :class="tier.popular ? 'text-brand' : 'text-tx-secondary'">
                   {{ tier.name }}
@@ -133,7 +132,7 @@
       <div class="grid md:grid-cols-2 gap-12 items-start">
         <!-- Trust signals -->
         <div>
-          <h3 class="text-xl font-bold mb-6">Everything you need, nothing you don't.</h3>
+          <h3 class="text-xl font-bold mb-6">{{ $t('home.pricing.everythingYouNeed') }}</h3>
           <div class="space-y-4">
             <div v-for="trust in trustItems" :key="trust.title" class="flex items-start gap-4">
               <div class="w-9 h-9 rounded-xl bg-brand-dim flex items-center justify-center shrink-0">
@@ -149,15 +148,15 @@
 
         <!-- FAQ -->
         <div class="space-y-3">
-          <h3 class="text-xl font-bold mb-6">Common questions.</h3>
-          <div v-for="faq in faqs" :key="faq.q" class="border border-border-subtle rounded-xl overflow-hidden">
-            <button @click="faq.open = !faq.open"
+          <h3 class="text-xl font-bold mb-6">{{ $t('home.pricing.commonQuestions') }}</h3>
+          <div v-for="(faq, idx) in faqs" :key="faq.q" class="border border-border-subtle rounded-xl overflow-hidden">
+            <button @click="faqOpen[idx] = !faqOpen[idx]"
               class="w-full flex items-center justify-between px-5 py-4 text-sm font-bold text-start hover:bg-bg-elevated/30 transition-colors">
               {{ faq.q }}
-              <Icon :name="faq.open ? 'ph:minus-bold' : 'ph:plus-bold'" class="text-tx-muted shrink-0 ms-4" />
+              <Icon :name="faqOpen[idx] ? 'ph:minus-bold' : 'ph:plus-bold'" class="text-tx-muted shrink-0 ms-4" />
             </button>
             <Transition name="faq-slide">
-              <div v-if="faq.open"
+              <div v-if="faqOpen[idx]"
                 class="px-5 pb-4 text-xs text-tx-secondary leading-relaxed border-t border-border-subtle/50 pt-3">
                 {{ faq.a }}
               </div>
@@ -173,7 +172,7 @@
     <template #title>
       <div class="flex items-center gap-2">
         <span class="inline-flex w-2 h-2 rounded-full bg-brand animate-pulse"></span>
-        {{ selectedTier?.free ? 'Create your free account' : 'Start your 14-day free trial' }}
+        {{ selectedTier?.free ? $t('home.pricing.modal.createFreeAccount') : $t('home.pricing.modal.startTrial') }}
       </div>
     </template>
 
@@ -184,7 +183,7 @@
           <Icon :name="selectedTier.icon" :class="['text-xl', selectedTier.iconColor]" />
         </div>
         <div class="flex-1 min-w-0">
-          <p class="font-bold text-sm">{{ selectedTier.name }} Plan</p>
+          <p class="font-bold text-sm">{{ selectedTier.name }} {{ $t('home.pricing.modal.plan') }}</p>
           <p class="text-xs text-tx-muted truncate">{{ selectedTier.tagline }}</p>
         </div>
         <div class="text-end shrink-0">
@@ -193,18 +192,18 @@
             <template v-else>${{ billing === 'annual' ? selectedTier.annualPrice : selectedTier.monthlyPrice }}<span class="text-tx-muted font-normal text-xs">/mo</span></template>
           </p>
           <p class="text-[11px] text-success font-bold">
-            {{ selectedTier.free ? 'Always free' : '14 days free' }}
+            {{ selectedTier.free ? $t('home.pricing.modal.alwaysFree') : $t('home.pricing.modal.14daysFree') }}
           </p>
         </div>
       </div>
 
       <!-- Email input -->
       <div>
-        <label class="text-xs font-bold text-tx-secondary mb-2 block">Work email address</label>
+        <label class="text-xs font-bold text-tx-secondary mb-2 block">{{ $t('home.pricing.modal.workEmail') }}</label>
         <input
           v-model="trialEmail"
           type="email"
-          placeholder="you@yourstore.com"
+          :placeholder="$t('home.pricing.modal.emailPlaceholder')"
           @keydown.enter="startTrial"
           class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm text-tx-primary placeholder:text-tx-muted focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/30 transition-all"
         />
@@ -224,12 +223,12 @@
             : 'bg-brand hover:bg-brand-hover text-white shadow-brand/20'
         }`"
       >
-        {{ selectedTier.free ? 'Create Free Account' : 'Start My Free Trial' }}
+        {{ selectedTier.free ? $t('home.pricing.modal.createFreeAccountBtn') : $t('home.pricing.modal.startMyTrial') }}
         <Icon name="ph:arrow-right-bold" class="text-base" />
       </VButton>
 
       <p class="text-center text-[11px] text-tx-muted">
-        {{ selectedTier.free ? 'No credit card, no time limit · Free forever' : 'No credit card required · Cancel anytime · 14 days free' }}
+        {{ selectedTier.free ? $t('home.pricing.modal.noCardFree') : $t('home.pricing.modal.noCardTrial') }}
       </p>
     </div>
   </VDialog>
@@ -237,6 +236,7 @@
 
 <script lang="ts" setup>
 const router = useRouter()
+const { t } = useI18n()
 const billing = ref<'monthly' | 'annual'>('monthly')
 
 type Tier = {
@@ -269,7 +269,7 @@ const openTrialModal = (tier: Tier) => {
 
 const startTrial = () => {
   if (!trialEmail.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trialEmail.value)) {
-    emailError.value = 'Please enter a valid email address'
+    emailError.value = t('home.pricing.modal.invalidEmail')
     return
   }
   emailError.value = ''
@@ -284,10 +284,10 @@ const startTrial = () => {
   isTrialOpen.value = false
 }
 
-const tiers = [
+const tiers = computed(() => [
   {
-    name: 'Free',
-    tagline: 'For individuals just starting out',
+    name: t('home.pricing.tiers.free.name'),
+    tagline: t('home.pricing.tiers.free.tagline'),
     monthlyPrice: 0,
     annualPrice: 0,
     icon: 'ph:gift-fill',
@@ -296,37 +296,37 @@ const tiers = [
     popular: false,
     free: true,
     trial: true,
-    cta: 'Get Started Free',
+    cta: t('home.pricing.tiers.free.cta'),
     ctaRoute: '/auth/register',
     featureGroups: [
       {
-        label: 'ORDERS & PRODUCTS',
+        label: t('home.pricing.ordersAndProducts'),
         items: [
-          { label: 'Up to 50 orders / month', included: true },
-          { label: 'Up to 50 SKUs', included: true },
-          { label: 'Bulk order actions', included: false },
+          { label: t('home.pricing.features.up50orders'), included: true },
+          { label: t('home.pricing.features.up50skus'), included: true },
+          { label: t('home.pricing.features.bulkOrderActions'), included: false },
         ]
       },
       {
-        label: 'TEAM & ACCESS',
+        label: t('home.pricing.teamAndAccess'),
         items: [
-          { label: '1 team member', included: true },
-          { label: 'Role-based permissions', included: false },
-          { label: 'Staff activity log', included: false },
+          { label: t('home.pricing.features.1member'), included: true },
+          { label: t('home.pricing.features.roleBasedPermissions'), included: false },
+          { label: t('home.pricing.features.staffActivityLog'), included: false },
         ]
       },
       {
-        label: 'ANALYTICS',
+        label: t('home.pricing.analyticsLabel'),
         items: [
-          { label: 'Basic revenue dashboard', included: true },
-          { label: 'Advanced analytics & LTV', included: false },
+          { label: t('home.pricing.features.basicRevenue'), included: true },
+          { label: t('home.pricing.features.advancedAnalytics'), included: false },
         ]
       },
     ]
   },
   {
-    name: 'Starter',
-    tagline: 'Perfect for first-time merchants',
+    name: t('home.pricing.tiers.starter.name'),
+    tagline: t('home.pricing.tiers.starter.tagline'),
     monthlyPrice: 19,
     annualPrice: 15,
     icon: 'ph:rocket-launch-fill',
@@ -335,37 +335,37 @@ const tiers = [
     popular: false,
     free: false,
     trial: true,
-    cta: 'Start Free Trial',
+    cta: t('home.pricing.tiers.starter.cta'),
     ctaRoute: '/auth/register?plan=starter',
     featureGroups: [
       {
-        label: 'ORDERS & PRODUCTS',
+        label: t('home.pricing.ordersAndProducts'),
         items: [
-          { label: 'Up to 1,000 orders / month', included: true },
-          { label: 'Up to 500 SKUs', included: true },
-          { label: 'Bulk order actions', included: false },
+          { label: t('home.pricing.features.up1000orders'), included: true },
+          { label: t('home.pricing.features.up500skus'), included: true },
+          { label: t('home.pricing.features.bulkOrderActions'), included: false },
         ]
       },
       {
-        label: 'TEAM & ACCESS',
+        label: t('home.pricing.teamAndAccess'),
         items: [
-          { label: '3 team members', included: true },
-          { label: 'Role-based permissions', included: false },
-          { label: 'Staff activity log', included: false },
+          { label: t('home.pricing.features.3members'), included: true },
+          { label: t('home.pricing.features.roleBasedPermissions'), included: false },
+          { label: t('home.pricing.features.staffActivityLog'), included: false },
         ]
       },
       {
-        label: 'ANALYTICS',
+        label: t('home.pricing.analyticsLabel'),
         items: [
-          { label: 'Basic revenue dashboard', included: true },
-          { label: 'Advanced analytics & LTV', included: false },
+          { label: t('home.pricing.features.basicRevenue'), included: true },
+          { label: t('home.pricing.features.advancedAnalytics'), included: false },
         ]
       },
     ]
   },
   {
-    name: 'Growth',
-    tagline: 'For scaling brands & teams',
+    name: t('home.pricing.tiers.growth.name'),
+    tagline: t('home.pricing.tiers.growth.tagline'),
     monthlyPrice: 49,
     annualPrice: 39,
     icon: 'ph:chart-line-up-fill',
@@ -374,37 +374,37 @@ const tiers = [
     popular: true,
     free: false,
     trial: true,
-    cta: 'Start Free Trial',
+    cta: t('home.pricing.tiers.growth.cta'),
     ctaRoute: '/auth/register?plan=growth',
     featureGroups: [
       {
-        label: 'ORDERS & PRODUCTS',
+        label: t('home.pricing.ordersAndProducts'),
         items: [
-          { label: 'Unlimited orders', included: true },
-          { label: 'Unlimited SKUs', included: true },
-          { label: 'Bulk order actions', included: true },
+          { label: t('home.pricing.features.unlimitedOrders'), included: true },
+          { label: t('home.pricing.features.unlimitedSKUs'), included: true },
+          { label: t('home.pricing.features.bulkOrderActions'), included: true },
         ]
       },
       {
-        label: 'TEAM & ACCESS',
+        label: t('home.pricing.teamAndAccess'),
         items: [
-          { label: '10 team members', included: true },
-          { label: 'Role-based permissions', included: true },
-          { label: 'Staff activity log', included: true },
+          { label: t('home.pricing.features.10members'), included: true },
+          { label: t('home.pricing.features.roleBasedPermissions'), included: true },
+          { label: t('home.pricing.features.staffActivityLog'), included: true },
         ]
       },
       {
-        label: 'ANALYTICS',
+        label: t('home.pricing.analyticsLabel'),
         items: [
-          { label: 'Advanced analytics & LTV', included: true },
-          { label: 'Multi-warehouse support', included: true },
+          { label: t('home.pricing.features.advancedAnalytics'), included: true },
+          { label: t('home.pricing.features.multiWarehouse'), included: true },
         ]
       },
     ]
   },
   {
-    name: 'Enterprise',
-    tagline: 'For high-volume operations',
+    name: t('home.pricing.tiers.enterprise.name'),
+    tagline: t('home.pricing.tiers.enterprise.tagline'),
     monthlyPrice: 99,
     annualPrice: 79,
     icon: 'ph:buildings-fill',
@@ -413,61 +413,63 @@ const tiers = [
     popular: false,
     free: false,
     trial: false,
-    cta: 'Contact Sales',
+    cta: t('home.pricing.tiers.enterprise.cta'),
     ctaRoute: '/auth/register?plan=enterprise',
     featureGroups: [
       {
-        label: 'ORDERS & PRODUCTS',
+        label: t('home.pricing.ordersAndProducts'),
         items: [
-          { label: 'Unlimited orders', included: true },
-          { label: 'Unlimited SKUs', included: true },
-          { label: 'Priority fulfilment queue', included: true },
+          { label: t('home.pricing.features.unlimitedOrders'), included: true },
+          { label: t('home.pricing.features.unlimitedSKUs'), included: true },
+          { label: t('home.pricing.features.priorityFulfilment'), included: true },
         ]
       },
       {
-        label: 'TEAM & ACCESS',
+        label: t('home.pricing.teamAndAccess'),
         items: [
-          { label: 'Unlimited team members', included: true },
-          { label: 'Custom role builder', included: true },
-          { label: 'Dedicated account manager', included: true },
+          { label: t('home.pricing.features.unlimitedMembers'), included: true },
+          { label: t('home.pricing.features.customRoleBuilder'), included: true },
+          { label: t('home.pricing.features.dedicatedManager'), included: true },
         ]
       },
       {
-        label: 'PLATFORM',
+        label: t('home.pricing.platform'),
         items: [
-          { label: 'Full API access', included: true },
-          { label: 'Custom integrations', included: true },
+          { label: t('home.pricing.features.fullApiAccess'), included: true },
+          { label: t('home.pricing.features.customIntegrations'), included: true },
         ]
       },
     ]
   },
-]
+])
 
-const comparisonRows = [
-  { feature: 'Monthly Orders', values: ['50', '1,000', 'Unlimited', 'Unlimited'] },
-  { feature: 'Products / SKUs', values: ['50', '500', 'Unlimited', 'Unlimited'] },
-  { feature: 'Team Members', values: ['1', '3', '10', 'Unlimited'] },
-  { feature: 'Analytics Dashboard', values: ['Basic', 'Basic', 'Advanced', 'Advanced + API'] },
-  { feature: 'Multi-Warehouse', values: [false, false, true, true] },
-  { feature: 'Customer CRM', values: [false, true, true, true] },
-  { feature: 'Coupon Builder', values: [false, false, true, true] },
-  { feature: 'API Access', values: [false, false, false, true] },
-  { feature: 'Store Builder', values: [false, false, true, true] },
-  { feature: 'Dedicated Support', values: ['Community', 'Email', 'Priority', 'Account Manager'] },
-]
+const comparisonRows = computed(() => [
+  { feature: t('home.pricing.comparison.monthlyOrders'), values: ['50', '1,000', t('common.all'), t('common.all')] },
+  { feature: t('home.pricing.comparison.productsSKUs'), values: ['50', '500', t('common.all'), t('common.all')] },
+  { feature: t('home.pricing.comparison.teamMembers'), values: ['1', '3', '10', t('common.all')] },
+  { feature: t('home.pricing.comparison.analyticsDashboard'), values: ['Basic', 'Basic', 'Advanced', 'Advanced + API'] },
+  { feature: t('home.pricing.comparison.multiWarehouse'), values: [false, false, true, true] },
+  { feature: t('home.pricing.comparison.customerCRM'), values: [false, true, true, true] },
+  { feature: t('home.pricing.comparison.couponBuilder'), values: [false, false, true, true] },
+  { feature: t('home.pricing.comparison.apiAccess'), values: [false, false, false, true] },
+  { feature: t('home.pricing.comparison.storeBuilder'), values: [false, false, true, true] },
+  { feature: t('home.pricing.comparison.dedicatedSupport'), values: ['Community', 'Email', 'Priority', 'Account Manager'] },
+])
 
-const trustItems = [
-  { icon: 'ph:shield-check-fill', title: 'No credit card required', desc: 'Start your 14-day free trial instantly — no payment info needed.' },
-  { icon: 'ph:arrows-counter-clockwise-fill', title: 'Cancel anytime', desc: 'No lock-in contracts. Downgrade or cancel with one click, any time.' },
-  { icon: 'ph:lock-key-fill', title: 'Your data, always yours', desc: 'Full data export in CSV at any time. We never hold your data hostage.' },
-  { icon: 'ph:headset-fill', title: 'Onboarding support included', desc: 'Every plan includes a guided onboarding session with our team.' },
-]
+const trustItems = computed(() => [
+  { icon: 'ph:shield-check-fill', title: t('home.pricing.trust.noCreditCard'), desc: t('home.pricing.trust.noCreditCardDesc') },
+  { icon: 'ph:arrows-counter-clockwise-fill', title: t('home.pricing.trust.cancelAnytime'), desc: t('home.pricing.trust.cancelAnytimeDesc') },
+  { icon: 'ph:lock-key-fill', title: t('home.pricing.trust.yourData'), desc: t('home.pricing.trust.yourDataDesc') },
+  { icon: 'ph:headset-fill', title: t('home.pricing.trust.onboardingSupport'), desc: t('home.pricing.trust.onboardingSupportDesc') },
+])
 
-const faqs = reactive([
-  { q: 'Can I switch plans later?', a: 'Yes. You can upgrade or downgrade your plan at any time from your billing settings. Changes take effect immediately and are prorated.', open: false },
-  { q: 'What happens after my trial ends?', a: 'Your store stays active but you will be prompted to select a plan. You will never lose your data — we give you a 7-day grace period.', open: false },
-  { q: 'Do you support Arabic and RTL?', a: 'Yes. StoreOS supports both English and Arabic with full RTL layout. You can switch languages instantly from any settings page.', open: false },
-  { q: 'Is there a discount for annual billing?', a: 'Yes — switching to annual saves you 20% across all plans. The discount is applied immediately.', open: false },
+const faqOpen = reactive([false, false, false, false])
+
+const faqs = computed(() => [
+  { q: t('home.pricing.faq.switchPlans'), a: t('home.pricing.faq.switchPlansAnswer'), open: false },
+  { q: t('home.pricing.faq.afterTrial'), a: t('home.pricing.faq.afterTrialAnswer'), open: false },
+  { q: t('home.pricing.faq.arabicRTL'), a: t('home.pricing.faq.arabicRTLAnswer'), open: false },
+  { q: t('home.pricing.faq.annualDiscount'), a: t('home.pricing.faq.annualDiscountAnswer'), open: false },
 ])
 </script>
 

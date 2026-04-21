@@ -6,22 +6,22 @@
           <Icon name="ph:stripe-logo-duotone" class="text-tx-secondary text-2xl" />
         </div>
         <div>
-          <h3 class="text-base font-bold">Stripe</h3>
-          <p class="text-xs text-tx-secondary mt-1">Global credit & debit cards</p>
+          <h3 class="text-base font-bold">{{ $t('dashboard.settings.payment.stripe') }}</h3>
+          <p class="text-xs text-tx-secondary mt-1">{{ $t('dashboard.settings.payment.stripeDesc') }}</p>
         </div>
       </div>
       <span
-        class="text-[8px] font-black text-accent/60 border border-accent/20 px-2 py-0.5 rounded tracking-widest">Disconnected</span>
+        class="text-[8px] font-black text-accent/60 border border-accent/20 px-2 py-0.5 rounded tracking-widest">{{ $t('dashboard.settings.payment.disconnected') }}</span>
     </div>
 
     <div class="mt-auto">
       <VButton variant="none"
         className="w-full bg-brand-hover hover:bg-brand text-tx-primary py-4 rounded-2xl font-black text-[11px] tracking-widest flex items-center justify-center gap-3 transition-all active:scale-[0.98]">
         <Icon name="ph:link-bold" class="text-base" />
-        Connect Stripe Account
+        {{ $t('dashboard.settings.payment.connectStripe') }}
       </VButton>
       <p class="text-center text-[8px] font-bold text-tx-muted tracking-[0.2em] mt-4">
-        Redirects to stripe connect auth
+        {{ $t('dashboard.settings.payment.redirectsToStripe') }}
       </p>
     </div>
   </section>

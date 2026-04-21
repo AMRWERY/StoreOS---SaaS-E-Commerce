@@ -1,7 +1,7 @@
 <template>
   <aside class="w-52 shrink-0 space-y-6">
     <div class="mb-10">
-      <h2 class="text-[#6366F1] font-bold text-xl tracking-tight">Checkout</h2>
+      <h2 class="text-[#6366F1] font-bold text-xl tracking-tight">{{ $t('storefront.checkout.checkout') }}</h2>
       <p class="text-[9px] font-black text-[#50506A] tracking-[0.3em] mt-1">Terminal Session 08-X</p>
     </div>
 

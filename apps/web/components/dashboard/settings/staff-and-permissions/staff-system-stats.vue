@@ -13,10 +13,12 @@
 </template>
 
 <script lang="ts" setup>
-const systemStats = [
-  { label: 'GLOBAL AVAILABILITY', value: '99.8%', status: 'STABLE', color: 'text-success' },
-  { label: 'PENDING INVITES', value: '02', status: 'WAITING', color: 'text-accent' },
-  { label: 'LAST AUDIT', value: '14h', status: 'AGO', color: 'text-tx-muted' },
-  { label: 'COMPLIANCE', value: 'SOC2', status: 'READY', color: 'text-brand font-black' }
-];
+const { t } = useI18n()
+
+const systemStats = computed(() => [
+  { label: t('dashboard.settings.staff.globalAvailability'), value: '99.8%', status: t('dashboard.settings.staff.stable'), color: 'text-success' },
+  { label: t('dashboard.settings.staff.pendingInvites'), value: '02', status: t('dashboard.settings.staff.waiting'), color: 'text-accent' },
+  { label: t('dashboard.settings.staff.lastAudit'), value: '14h', status: t('dashboard.settings.staff.ago'), color: 'text-tx-muted' },
+  { label: t('dashboard.settings.staff.compliance'), value: 'SOC2', status: t('dashboard.settings.staff.ready'), color: 'text-brand font-black' }
+]);
 </script>

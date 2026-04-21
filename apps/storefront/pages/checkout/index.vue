@@ -36,11 +36,11 @@
       <!-- Footer -->
       <footer
         class="mt-16 pt-8 border-t border-[#1C1C30] flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-black tracking-[0.3em] text-[#262640]">
-        <p>Node: Operational.</p>
+        <p>{{ $t('storefront.checkout.node') }}</p>
         <div class="flex gap-8">
-          <nuxt-link-locale to="/privacy" class="hover:text-[#6366F1] transition-colors">Privacy</nuxt-link-locale>
-          <nuxt-link-locale to="/terms" class="hover:text-[#6366F1] transition-colors">Terms</nuxt-link-locale>
-          <nuxt-link-locale to="" class="hover:text-[#6366F1] transition-colors">Security</nuxt-link-locale>
+          <nuxt-link-locale to="/privacy" class="hover:text-[#6366F1] transition-colors">{{ $t('storefront.checkout.privacy') }}</nuxt-link-locale>
+          <nuxt-link-locale to="/terms" class="hover:text-[#6366F1] transition-colors">{{ $t('storefront.checkout.terms') }}</nuxt-link-locale>
+          <nuxt-link-locale to="" class="hover:text-[#6366F1] transition-colors">{{ $t('storefront.checkout.security') }}</nuxt-link-locale>
         </div>
       </footer>
     </div>

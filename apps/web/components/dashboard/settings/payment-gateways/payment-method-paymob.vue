@@ -8,13 +8,12 @@
               <Icon name="ph:bank-duotone" class="text-accent text-2xl" />
             </div>
             <div>
-              <h3 class="text-base font-bold">Paymob</h3>
-              <span class="text-[8px] font-black text-tx-muted tracking-widest">Region: MEA</span>
+              <h3 class="text-base font-bold">{{ $t('dashboard.settings.payment.paymob') }}</h3>
+              <span class="text-[8px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.settings.payment.paymobRegion') }}</span>
             </div>
           </div>
           <p class="text-xs text-tx-secondary leading-relaxed font-medium">
-            Local payment orchestrator supporting cards, wallets, and
-            installments across the MENA region.
+            {{ $t('dashboard.settings.payment.paymobDesc') }}
           </p>
         </div>
 

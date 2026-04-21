@@ -2,10 +2,10 @@
   <div>
     <section class="text-start">
       <div class="flex items-center gap-4 mb-6">
-        <h3 class="font-bold text-sm tracking-wide">Low Stock Alerts</h3>
+        <h3 class="font-bold text-sm tracking-wide">{{ $t('dashboard.home.lowStockAlerts') }}</h3>
         <span
           class="bg-bg-elevated border border-border-subtle text-[10px] font-black px-2 py-0.5 rounded text-tx-secondary tracking-widest">9
-          Items Total</span>
+          {{ $t('dashboard.home.itemsTotal') }}</span>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <div v-for="item in lowStock" :key="item.name"
@@ -17,10 +17,10 @@
             <div class="flex items-center gap-3 mt-1.5">
               <span
                 class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-danger-dim text-danger whitespace-nowrap">{{
-                  item.left }} LEFT</span>
+                  item.left }} {{ $t('dashboard.home.left') }}</span>
               <VButton variant="none"
                 className="text-[10px] font-bold text-brand hover:text-brand transition-colors tracking-widest whitespace-nowrap">
-                Restock</VButton>
+                {{ $t('dashboard.home.restock') }}</VButton>
             </div>
           </div>
         </div>

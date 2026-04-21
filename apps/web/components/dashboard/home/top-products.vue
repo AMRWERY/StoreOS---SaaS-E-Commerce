@@ -2,7 +2,7 @@
   <div class="h-full">
     <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 text-start h-full">
       <div class="flex justify-between items-center mb-8">
-        <h3 class="font-bold">Top Products</h3>
+        <h3 class="font-bold">{{ $t('dashboard.home.topProducts') }}</h3>
         <Icon name="ph:dots-three-outline-fill"
           class="text-tx-muted cursor-pointer hover:text-tx-primary transition-colors" />
       </div>
@@ -22,7 +22,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <h4 class="text-sm font-bold truncate group-hover:text-brand transition-colors">{{ prod.name }}</h4>
-            <p class="text-[10px] text-tx-muted font-bold mt-0.5 tracking-tight">{{ prod.soldToday }} SOLD TODAY
+            <p class="text-[10px] text-tx-muted font-bold mt-0.5 tracking-tight">{{ prod.soldToday }} {{ $t('dashboard.home.soldToday') }}
             </p>
           </div>
           <span class="text-xs font-black text-tx-muted group-hover:text-brand/50 transition-colors">#0{{ i + 1

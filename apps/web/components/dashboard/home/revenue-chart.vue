@@ -3,7 +3,7 @@
     <div class="h-full">
       <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 text-start h-full">
         <div class="flex justify-between items-center mb-6">
-          <h3 class="font-bold">Revenue This Week</h3>
+          <h3 class="font-bold">{{ $t('dashboard.home.revenueThisWeek') }}</h3>
           <div class="flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
             <span class="text-[10px] font-bold text-tx-secondary tracking-tighter">OCT 17 - OCT 23</span>

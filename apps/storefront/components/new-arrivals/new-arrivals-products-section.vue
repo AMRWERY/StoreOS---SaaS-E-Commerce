@@ -12,7 +12,7 @@
       <VButton variant="none" type="button"
         className="bg-[#141422] border border-[#262640] hover:border-[#6366F1]/50 text-[#F0F0FF] px-12 py-4 rounded-[12px] font-bold text-[12px] tracking-[0.3em] transition-all shadow-xl active:scale-95"
         @click="$emit('load-more')">
-        Load Sequential Batch
+        {{ $t('storefront.newArrivals.loadMore') }}
       </VButton>
       <div class="flex items-center gap-2">
         <span class="w-1 h-1 rounded-full bg-[#262640]" />

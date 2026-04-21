@@ -77,7 +77,7 @@
     <div class="mt-auto pt-6 space-y-2 border-t border-border-subtle">
       <VButton variant="none"
         className="text-[10px] font-semibold text-brand tracking-[0.6px] px-3 hover:underline block text-start">
-        Upgrade
+        {{ $t('nav.upgrade') }}
       </VButton>
       <VButton variant="none" to="/dashboard/user-profile"
         className="w-full flex items-center gap-2 px-3 py-1.5 transition-all group rounded-md text-[12px] font-medium" :class="route.path.includes('/dashboard/user-profile')
@@ -85,13 +85,13 @@
           : 'text-tx-secondary hover:text-tx-primary'
           ">
         <Icon name="ph:user-circle" class="text-xl" />
-        <span class="truncate">User Profile</span>
+        <span class="truncate">{{ $t('nav.userProfile') }}</span>
       </VButton>
       <!-- Logout Button -->
       <VButton to="/auth/login" variant="none"
         className="w-full flex items-center gap-2 px-3 py-1.5 text-[12px] font-medium text-red-500/60 hover:text-red-500 transition-colors group">
         <Icon name="ph:sign-out-bold" class="text-xl" />
-        <span class="truncate font-bold">Logout</span>
+        <span class="truncate font-bold">{{ $t('nav.logout') }}</span>
       </VButton>
     </div>
   </aside>
@@ -124,69 +124,62 @@ const toggleExpand = (name: string) => {
   }
 };
 
+const { t } = useI18n()
+
 const navItems = computed(() => [
   {
-    name: "Dashboard",
+    name: t('nav.dashboard'),
     icon: "ph:grid-four-fill",
     active: route.path.endsWith("/dashboard"),
     to: "/dashboard",
   },
   {
-    name: "Orders",
+    name: t('nav.orders'),
     icon: "ph:shopping-cart-fill",
     active: route.path.includes("/dashboard/orders"),
     to: "/dashboard/orders",
   },
   {
-    name: "Products",
+    name: t('nav.products'),
     icon: "ph:package-fill",
     active: route.path.includes("/dashboard/products"),
     to: "/dashboard/products",
   },
   {
-    name: "Inventory",
+    name: t('nav.inventory'),
     icon: "ph:stack-fill",
     active: route.path.includes("/dashboard/inventory"),
     to: "/dashboard/inventory",
   },
   {
-    name: "Customers",
+    name: t('nav.customers'),
     icon: "ph:users-fill",
     active: route.path.includes("/dashboard/customers"),
     to: "/dashboard/customers",
   },
   {
-    name: "Analytics",
+    name: t('nav.analytics'),
     icon: "ph:chart-bar-fill",
     active: route.path.includes("/dashboard/analytics"),
     to: "/dashboard/analytics",
   },
   {
-    name: "Coupons",
+    name: t('nav.coupons'),
     icon: "ph:ticket-fill",
     active: route.path.includes("/dashboard/coupons"),
     to: "/dashboard/coupons",
   },
   {
-    name: "Settings",
+    name: t('nav.settings'),
     icon: "ph:gear-six-fill",
     active: route.path.includes("/dashboard/settings"),
     children: [
-      { name: "Store Information", to: "/dashboard/settings/store-info" },
-      {
-        name: "Staff & Permissions",
-        to: "/dashboard/settings/staff-and-permissions",
-      },
-      { name: "Payment Gateways", to: "/dashboard/settings/payment-gateways" },
-      {
-        name: "Shipping & Logistics",
-        to: "/dashboard/settings/shipping-logistics",
-      },
-      {
-        name: "Notification Center",
-        to: "/dashboard/settings/notification-center",
-      },
-      { name: "Billing & Plan", to: "/dashboard/settings/billing-and-plan" },
+      { name: t('nav.storeInformation'), to: "/dashboard/settings/store-info" },
+      { name: t('nav.staffAndPermissions'), to: "/dashboard/settings/staff-and-permissions" },
+      { name: t('nav.paymentGateways'), to: "/dashboard/settings/payment-gateways" },
+      { name: t('nav.shippingLogistics'), to: "/dashboard/settings/shipping-logistics" },
+      { name: t('nav.notificationCenter'), to: "/dashboard/settings/notification-center" },
+      { name: t('nav.billingAndPlan'), to: "/dashboard/settings/billing-and-plan" },
     ],
   },
 ]);

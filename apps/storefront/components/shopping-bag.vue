@@ -26,9 +26,9 @@
             <div class="flex items-center justify-between">
               <div>
                 <h3 class="text-[10px] font-black text-tx-muted tracking-[0.2em] mb-1">
-                  Your Selection
+                  {{ $t('storefront.bag.yourSelection') }}
                 </h3>
-                <h2 class="text-2xl font-bold text-tx-primary tracking-tight">Shopping Bag</h2>
+                <h2 class="text-2xl font-bold text-tx-primary tracking-tight">{{ $t('storefront.bag.shoppingBag') }}</h2>
               </div>
               <button @click="isInternalOpen = false" class="text-tx-muted hover:text-tx-primary transition-colors p-2">
                 <Icon name="ph:x-bold" class="text-xl" />
@@ -91,12 +91,11 @@
                 class="w-20 h-20 rounded-full bg-bg-elevated flex items-center justify-center mb-6 border border-border-subtle">
                 <Icon name="ph:shopping-bag-open-bold" class="text-3xl text-tx-muted opacity-40" />
               </div>
-              <h4 class="text-xl font-bold text-tx-secondary tracking-tight">Your bag is empty</h4>
-              <p class="text-sm text-tx-muted mt-2 max-w-[240px] leading-relaxed">Discover our latest arrivals and find
-                something special for your collection.</p>
+              <h4 class="text-xl font-bold text-tx-secondary tracking-tight">{{ $t('storefront.bag.emptyTitle') }}</h4>
+              <p class="text-sm text-tx-muted mt-2 max-w-[240px] leading-relaxed">{{ $t('storefront.bag.emptyDesc') }}</p>
               <VButton @click="isInternalOpen = false" variant="primary"
                 className="mt-8 px-8 py-3 rounded-xl font-black">
-                Start Shopping
+                {{ $t('storefront.bag.startShopping') }}
               </VButton>
             </div>
           </div>
@@ -105,23 +104,22 @@
           <div v-if="cartItems.length > 0" class="p-6 border-t border-border-subtle bg-bg-base">
             <div class="space-y-3 mb-6">
               <div class="flex justify-between text-xs text-tx-muted">
-                <span>Subtotal</span>
+                <span>{{ $t('storefront.bag.subtotal') }}</span>
                 <span>${{ subtotal.toLocaleString() }}</span>
               </div>
               <div class="flex justify-between text-xs text-tx-muted">
-                <span>Shipping</span>
-                <span class="text-emerald-500 font-bold tracking-widest text-[9px]">Calculated at
-                  checkout</span>
+                <span>{{ $t('storefront.bag.shipping') }}</span>
+                <span class="text-emerald-500 font-bold tracking-widest text-[9px]">{{ $t('storefront.bag.calculatedAtCheckout') }}</span>
               </div>
               <div class="pt-3 border-t border-border-subtle/50 flex justify-between items-end">
-                <span class="text-sm font-bold text-tx-primary">Total Amount</span>
+                <span class="text-sm font-bold text-tx-primary">{{ $t('storefront.bag.totalAmount') }}</span>
                 <span class="text-xl font-black text-brand">${{ subtotal.toLocaleString() }}</span>
               </div>
             </div>
 
             <VButton variant="none" @click="isInternalOpen = false; navigateTo(localePath('/checkout'))"
               className="w-full bg-brand hover:bg-brand-hover text-white py-4 rounded-xl font-black tracking-widest text-[11px] shadow-lg shadow-brand/20 flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
-              PROCEED TO SECURE CHECKOUT
+              {{ $t('storefront.bag.proceedToCheckout') }}
               <Icon name="ph:arrow-right-bold" />
             </VButton>
           </div>

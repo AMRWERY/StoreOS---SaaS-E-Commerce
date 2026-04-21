@@ -4,8 +4,8 @@
       <!-- Section header -->
       <div class="px-4 py-3.5 flex justify-between items-center border-b border-border-subtle">
         <div>
-          <h3 class="font-bold text-lg">Billing History</h3>
-          <p class="text-xs text-tx-muted font-medium mt-1">Download and manage your historical invoices.</p>
+          <h3 class="font-bold text-lg">{{ $t('dashboard.settings.billing.billingHistory') }}</h3>
+          <p class="text-xs text-tx-muted font-medium mt-1">{{ $t('dashboard.settings.billing.billingHistoryDesc') }}</p>
         </div>
         <div class="flex gap-3">
           <button
@@ -46,7 +46,7 @@
         </VTable>
         <button
           class="w-full py-6 text-[10px] font-black tracking-widest text-tx-muted hover:text-tx-primary transition-colors">
-          View All Invoices
+          {{ $t('dashboard.settings.billing.viewAllInvoices') }}
         </button>
       </div>
     </section>
@@ -56,13 +56,15 @@
 <script lang="ts" setup>
 import type { TableHeader } from '@storeos/ui/types/v-table'
 
-const headers: TableHeader[] = [
-  { label: 'Invoice ID', key: 'id' },
-  { label: 'Date', key: 'date' },
-  { label: 'Amount', key: 'amount' },
-  { label: 'Status', key: 'status', align: 'center' },
-  { label: 'Action', key: 'action', align: 'end' },
-]
+const { t } = useI18n()
+
+const headers = computed<TableHeader[]>(() => [
+  { label: t('dashboard.settings.billing.invoiceId'), key: 'id' },
+  { label: t('dashboard.orders.date'), key: 'date' },
+  { label: t('dashboard.settings.billing.amount'), key: 'amount' },
+  { label: t('common.status'), key: 'status', align: 'center' },
+  { label: t('common.actions'), key: 'action', align: 'end' },
+])
 
 const invoices = [
   { id: 'INV-2026-009', date: 'Sep 24, 2026', amount: '$261.50', status: 'PAID' },

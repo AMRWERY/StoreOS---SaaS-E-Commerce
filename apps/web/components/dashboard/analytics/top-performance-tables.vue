@@ -4,9 +4,8 @@
       <!-- Top Products -->
       <div class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden">
         <div class="p-6 border-b border-border-subtle flex justify-between items-center">
-          <h3 class="font-bold">Top Products</h3>
-          <button class="text-[10px] font-black text-brand tracking-widest hover:underline">View
-            All</button>
+          <h3 class="font-bold">{{ $t('dashboard.home.topProducts') }}</h3>
+          <button class="text-[10px] font-black text-brand tracking-widest hover:underline">{{ $t('common.viewAll') }}</button>
         </div>
         <div class="relative overflow-x-auto">
           <VTable :headers="productHeaders" :items="products">
@@ -34,9 +33,8 @@
       <!-- Top Customers -->
       <div class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden">
         <div class="p-6 border-b border-border-subtle flex justify-between items-center">
-          <h3 class="font-bold">Top Customers</h3>
-          <button class="text-[10px] font-black text-brand tracking-widest hover:underline">View
-            All</button>
+          <h3 class="font-bold">{{ $t('dashboard.customers.topCustomers') }}</h3>
+          <button class="text-[10px] font-black text-brand tracking-widest hover:underline">{{ $t('common.viewAll') }}</button>
         </div>
         <div class="relative overflow-x-auto">
           <VTable :headers="customerHeaders" :items="customers">
@@ -72,15 +70,17 @@ defineProps<{
   customers: Customer[]
 }>()
 
-const productHeaders: TableHeader[] = [
-  { label: 'Product', key: 'product' },
-  { label: 'Sales', key: 'sales' },
-  { label: 'Revenue', key: 'revenue', align: 'end' }
-]
+const { t } = useI18n()
 
-const customerHeaders: TableHeader[] = [
-  { label: 'Customer', key: 'customer' },
-  { label: 'Orders', key: 'orders', align: 'center' },
-  { label: 'Total Spent', key: 'spent', align: 'end' }
-]
+const productHeaders = computed<TableHeader[]>(() => [
+  { label: t('dashboard.analytics.product'), key: 'product' },
+  { label: t('dashboard.analytics.sales'), key: 'sales' },
+  { label: t('dashboard.analytics.revenue'), key: 'revenue', align: 'end' }
+])
+
+const customerHeaders = computed<TableHeader[]>(() => [
+  { label: t('dashboard.customers.customer'), key: 'customer' },
+  { label: t('dashboard.orders.orderCount'), key: 'orders', align: 'center' },
+  { label: t('dashboard.analytics.totalSpent'), key: 'spent', align: 'end' }
+])
 </script>

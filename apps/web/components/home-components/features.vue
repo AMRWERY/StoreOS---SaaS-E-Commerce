@@ -4,13 +4,13 @@
 
       <!-- Section Header -->
       <div class="mb-20 max-w-2xl">
-        <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">PLATFORM FEATURES</p>
+        <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">{{ $t('home.features.sectionLabel') }}</p>
         <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-          Built for operations,<br />
-          <span class="text-tx-secondary">not just storefronts.</span>
+          {{ $t('home.features.title') }}<br />
+          <span class="text-tx-secondary">{{ $t('home.features.titleSecondary') }}</span>
         </h2>
         <p class="text-tx-secondary leading-relaxed">
-          Every tool a modern merchant needs — wired together, always in sync, and built to scale from day one to your first million.
+          {{ $t('home.features.subtitle') }}
         </p>
       </div>
 
@@ -92,13 +92,14 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const activeTab = ref('orders')
 
-const features = [
+const features = computed(() => [
   {
     id: 'orders',
-    title: 'Order Management',
-    desc: 'Live order stream, Kanban pipeline, batch fulfilment, and shipping label generation.',
+    title: t('home.features.orders.title'),
+    desc: t('home.features.orders.desc'),
     icon: 'ph:shopping-cart-fill',
     bg: 'bg-brand-dim',
     color: 'text-brand',
@@ -106,8 +107,8 @@ const features = [
   },
   {
     id: 'inventory',
-    title: 'Inventory Control',
-    desc: 'Real-time stock levels, low-stock alerts, bulk import, and multi-warehouse support.',
+    title: t('home.features.inventory.title'),
+    desc: t('home.features.inventory.desc'),
     icon: 'ph:stack-fill',
     bg: 'bg-warning-dim',
     color: 'text-warning',
@@ -115,8 +116,8 @@ const features = [
   },
   {
     id: 'analytics',
-    title: 'Revenue Analytics',
-    desc: 'Drill-down revenue charts, LTV tracking, cohort analysis, and exportable reports.',
+    title: t('home.features.analytics.title'),
+    desc: t('home.features.analytics.desc'),
     icon: 'ph:chart-line-up-fill',
     bg: 'bg-success-dim',
     color: 'text-success',
@@ -124,8 +125,8 @@ const features = [
   },
   {
     id: 'customers',
-    title: 'Customer CRM',
-    desc: 'Unified customer profiles with order history, notes, risk scoring, and activity log.',
+    title: t('home.features.customers.title'),
+    desc: t('home.features.customers.desc'),
     icon: 'ph:users-three-fill',
     bg: 'bg-info-dim',
     color: 'text-info',
@@ -133,23 +134,23 @@ const features = [
   },
   {
     id: 'settings',
-    title: 'Store Settings',
-    desc: 'Payments, shipping zones, staff permissions, and notification automation — all in one.',
+    title: t('home.features.settings.title'),
+    desc: t('home.features.settings.desc'),
     icon: 'ph:gear-six-fill',
     bg: 'bg-bg-elevated',
     color: 'text-tx-secondary',
     glowColor: 'bg-white',
   },
-]
+])
 
-const activeFeature = computed(() => features.find(f => f.id === activeTab.value))
+const activeFeature = computed(() => features.value.find(f => f.id === activeTab.value))
 
-const platformStats = [
-  { value: '500+', label: 'STORES LIVE' },
-  { value: '2.4M+', label: 'ORDERS PROCESSED' },
-  { value: '99.9%', label: 'UPTIME SLA' },
-  { value: '<80ms', label: 'API RESPONSE' },
-]
+const platformStats = computed(() => [
+  { value: '500+', label: t('home.features.statsLive') },
+  { value: '2.4M+', label: t('home.features.statsOrders') },
+  { value: '99.9%', label: t('home.features.statsUptime') },
+  { value: '<80ms', label: t('home.features.statsResponse') },
+])
 
 // --- Preview Components ---
 const OrdersPreview = defineComponent({

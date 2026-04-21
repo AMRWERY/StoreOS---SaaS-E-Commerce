@@ -4,13 +4,13 @@
 
       <!-- Header -->
       <div class="text-center mb-20">
-        <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">INTEGRATIONS</p>
+        <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">{{ $t('home.integrations.sectionLabel') }}</p>
         <h2 class="text-4xl md:text-5xl font-bold mb-6">
-          Connects with everything<br />
-          <span class="text-tx-secondary">you already use.</span>
+          {{ $t('home.integrations.title') }}<br />
+          <span class="text-tx-secondary">{{ $t('home.integrations.titleSecondary') }}</span>
         </h2>
         <p class="text-tx-secondary max-w-xl mx-auto leading-relaxed">
-          Plug in your preferred payment gateways, shipping carriers, and marketing tools in minutes — no engineering required.
+          {{ $t('home.integrations.subtitle') }}
         </p>
       </div>
 
@@ -50,7 +50,7 @@
               <span
                 v-if="item.soon"
                 class="absolute top-2 end-2 text-[8px] font-black text-tx-muted bg-bg-elevated border border-border-subtle rounded px-1.5 py-0.5 tracking-widest"
-              >SOON</span>
+              >{{ $t('home.integrations.soon') }}</span>
             </div>
           </div>
         </div>
@@ -59,25 +59,25 @@
       <!-- CTA Strip -->
       <div class="mt-20 bg-bg-primary border border-border-subtle rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <h3 class="text-lg font-bold mb-1">Don't see your tool?</h3>
-          <p class="text-sm text-tx-secondary">We're adding new integrations every month. Request yours and we'll prioritize it.</p>
+          <h3 class="text-lg font-bold mb-1">{{ $t('home.integrations.dontSeeYourTool') }}</h3>
+          <p class="text-sm text-tx-secondary">{{ $t('home.integrations.weAreAdding') }}</p>
         </div>
         <div class="flex items-center gap-3 shrink-0">
           <VButton variant="none" to="/auth/register"
             className="bg-brand hover:bg-brand-hover text-white px-6 py-3 rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20">
-            Request Integration
+            {{ $t('home.integrations.requestIntegration') }}
           </VButton>
           <VButton variant="none"
             className="px-6 py-3 bg-bg-elevated hover:bg-white/10 border border-border-subtle rounded-xl text-xs font-bold text-tx-secondary hover:text-tx-primary transition-all">
-            View Roadmap
+            {{ $t('home.integrations.viewRoadmap') }}
           </VButton>
         </div>
       </div>
 
       <!-- Go Live Steps -->
       <div class="mt-24 text-center">
-        <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">GET STARTED</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-16">Go live in under 10 minutes</h2>
+        <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">{{ $t('home.integrations.getStarted') }}</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-16">{{ $t('home.integrations.goLive') }}</h2>
         <div class="grid md:grid-cols-3 gap-8 relative">
           <div class="hidden md:block absolute top-10 start-1/6 end-1/6 h-px bg-border-subtle -z-10"></div>
           <div v-for="step in steps" :key="step.id" class="flex flex-col items-center group">
@@ -95,9 +95,11 @@
 </template>
 
 <script lang="ts" setup>
-const categories = [
+const { t } = useI18n()
+
+const categories = computed(() => [
   {
-    label: 'PAYMENTS',
+    label: t('home.integrations.payments'),
     icon: 'ph:credit-card-fill',
     iconBg: 'bg-brand-dim',
     iconColor: 'text-brand',
@@ -111,7 +113,7 @@ const categories = [
     ]
   },
   {
-    label: 'SHIPPING & LOGISTICS',
+    label: t('home.integrations.shippingLogistics'),
     icon: 'ph:truck-fill',
     iconBg: 'bg-warning-dim',
     iconColor: 'text-warning',
@@ -125,7 +127,7 @@ const categories = [
     ]
   },
   {
-    label: 'COMMUNICATION',
+    label: t('home.integrations.communication'),
     icon: 'ph:chat-circle-dots-fill',
     iconBg: 'bg-success-dim',
     iconColor: 'text-success',
@@ -137,7 +139,7 @@ const categories = [
     ]
   },
   {
-    label: 'MARKETING & ANALYTICS',
+    label: t('home.integrations.marketingAnalytics'),
     icon: 'ph:chart-bar-fill',
     iconBg: 'bg-info-dim',
     iconColor: 'text-info',
@@ -148,11 +150,11 @@ const categories = [
       { name: 'Klaviyo', sub: 'Email Marketing', icon: 'ph:paper-plane-right-fill', bg: 'bg-success-dim', color: 'text-success', soon: true },
     ]
   },
-]
+])
 
-const steps = [
-  { id: '01', title: 'Set up your workspace', desc: 'Connect your domain, configure your taxes, and choose your preferred local shipping partners in minutes.' },
-  { id: '02', title: 'Add your products', desc: 'Upload via CSV, sync from Instagram, or connect your existing catalogue with one-click import.' },
-  { id: '03', title: 'Manage & Grow', desc: 'Automate your order workflows and use real-time data to restock what actually sells.' },
-]
+const steps = computed(() => [
+  { id: '01', title: t('home.integrations.step1Title'), desc: t('home.integrations.step1Desc') },
+  { id: '02', title: t('home.integrations.step2Title'), desc: t('home.integrations.step2Desc') },
+  { id: '03', title: t('home.integrations.step3Title'), desc: t('home.integrations.step3Desc') },
+])
 </script>

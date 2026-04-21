@@ -16,9 +16,9 @@
             <div class="flex items-center justify-between">
               <div>
                 <p class="text-[10px] font-black text-tx-muted tracking-[0.2em] mb-1">
-                  Delivery Stats
+                  {{ $t('dashboard.settings.notifications.deliveryStats') }}
                 </p>
-                <h2 class="text-xl font-bold text-tx-primary tracking-tight">Node Overview</h2>
+                <h2 class="text-xl font-bold text-tx-primary tracking-tight">{{ $t('dashboard.settings.notifications.nodeOverview') }}</h2>
               </div>
               <button @click="$emit('update:modelValue', false)"
                 class="text-tx-secondary hover:text-tx-primary transition-colors p-2">
@@ -32,7 +32,7 @@
             <!-- Delivery Performance -->
             <section>
               <h4 class="text-[10px] font-black text-tx-muted tracking-[0.2em] mb-6">
-                Delivery Performance
+                {{ $t('dashboard.settings.notifications.deliveryPerformance') }}
               </h4>
               <div class="space-y-6">
                 <div v-for="metric in metrics" :key="metric.label" class="space-y-3">

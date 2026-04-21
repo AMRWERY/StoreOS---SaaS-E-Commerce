@@ -1,16 +1,16 @@
 ﻿<template>
   <div>
     <div class="min-h-screen bg-bg-base text-[#e1e1e1] -mt-4 pb-20">
-      <VBreadcrumb class="mb-6" :overrides="{ 'add-update-order': isEdit ? 'Edit Order' : 'Create Order' }" />
+      <VBreadcrumb class="mb-6" :overrides="{ 'add-update-order': isEdit ? $t('dashboard.orders.editOrder') : $t('dashboard.orders.createOrder') }" />
 
       <!-- Header -->
       <header class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-6">
-          <VBackButton to="/dashboard/orders" label="Orders" />
+          <VBackButton to="/dashboard/orders" :label="$t('dashboard.orders.title')" />
           <div>
-            <h1 class="text-3xl font-bold tracking-tight">{{ isEdit ? 'Edit Order' : 'Create New Order' }}</h1>
+            <h1 class="text-3xl font-bold tracking-tight">{{ isEdit ? $t('dashboard.orders.editOrder') : $t('dashboard.orders.createNewOrder') }}</h1>
             <p class="text-xs text-tx-secondary mt-1 font-medium">
-              {{ isEdit ? 'Modify existing order details and status.' : 'Fill in the details to create a new manual order.' }}
+              {{ isEdit ? $t('dashboard.orders.editOrderSubtitle') : $t('dashboard.orders.createOrderSubtitle') }}
             </p>
           </div>
         </div>
@@ -18,11 +18,11 @@
         <div class="flex items-center gap-3">
           <VButton variant="none" to="/dashboard/orders"
             className="px-5 py-2.5 bg-bg-elevated hover:bg-bg-elevated border border-border-subtle rounded-xl text-xs font-bold transition-all text-tx-secondary hover:text-tx-primary">
-            Discard
+            {{ $t('common.discard') }}
           </VButton>
           <VButton @click="saveOrder"
             className="px-8 py-2.5 bg-brand hover:bg-brand-hover text-tx-primary rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20">
-            {{ isEdit ? 'Save Changes' : 'Create Order' }}
+            {{ isEdit ? $t('common.saveChanges') : $t('dashboard.orders.createOrder') }}
           </VButton>
         </div>
       </header>
@@ -34,16 +34,16 @@
           <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
             <h3 class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-8">
               <Icon name="ph:user-bold" class="text-brand" />
-              Customer Information
+              {{ $t('dashboard.orders.customerInfo') }}
             </h3>
 
             <div class="grid grid-cols-2 gap-6">
               <div class="relative">
                 <Icon name="ph:magnifying-glass-bold"
                   class="absolute start-4 top-[38px] text-tx-muted z-10 pointer-events-none" />
-                <VInput label="Search Customer" placeholder="Start typing name or email..." inputClass="!ps-10" />
+                <VInput :label="$t('dashboard.orders.searchCustomer')" :placeholder="$t('dashboard.orders.searchCustomerPlaceholder')" inputClass="!ps-10" />
               </div>
-              <VInput label="Contact Email" type="email" v-model="form.email" placeholder="customer@example.com" />
+              <VInput :label="$t('dashboard.orders.contactEmail')" type="email" v-model="form.email" placeholder="customer@example.com" />
             </div>
 
             <div
@@ -54,8 +54,8 @@
                   <Icon name="ph:plus-bold" />
                 </div>
                 <div>
-                  <h4 class="text-sm font-bold">New Customer</h4>
-                  <p class="text-[10px] text-tx-muted font-medium mt-0.5">Create a new customer profile for this order.
+                  <h4 class="text-sm font-bold">{{ $t('dashboard.orders.newCustomer') }}</h4>
+                  <p class="text-[10px] text-tx-muted font-medium mt-0.5">{{ $t('dashboard.orders.newCustomerDesc') }}
                   </p>
                 </div>
               </div>
@@ -68,11 +68,11 @@
             <div class="p-6 border-b border-border-subtle flex justify-between items-center bg-bg-elevated">
               <h3 class="text-xs font-black tracking-[0.15em] flex items-center gap-2">
                 <Icon name="ph:package-bold" class="text-brand" />
-                Products selection
+                {{ $t('dashboard.orders.productSelection') }}
               </h3>
               <VButton variant="none"
                 className="text-[10px] font-black text-brand tracking-widest flex items-center gap-1.5 hover:text-tx-primary transition-colors">
-                <Icon name="ph:plus-circle-bold" class="text-sm" /> Add Product
+                <Icon name="ph:plus-circle-bold" class="text-sm" /> {{ $t('dashboard.products.addProduct') }}
               </VButton>
             </div>
 
@@ -82,9 +82,8 @@
                   class="w-16 h-16 bg-bg-elevated rounded-2xl flex items-center justify-center text-tx-muted mb-4 border border-border-subtle">
                   <Icon name="ph:shopping-cart-bold" class="text-2xl" />
                 </div>
-                <h4 class="text-sm font-bold text-tx-secondary">No products added yet</h4>
-                <p class="text-[10px] text-tx-muted mt-1 max-w-[200px]">Search and add products from your inventory to
-                  this order.</p>
+                <h4 class="text-sm font-bold text-tx-secondary">{{ $t('dashboard.orders.noProductsYet') }}</h4>
+                <p class="text-[10px] text-tx-muted mt-1 max-w-[200px]">{{ $t('dashboard.orders.noProductsDesc') }}</p>
               </div>
 
               <div v-else class="space-y-3">
@@ -129,9 +128,9 @@
           <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
             <h3 class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-8">
               <Icon name="ph:notebook-bold" class="text-brand" />
-              Order Notes
+              {{ $t('dashboard.orders.orderNotes') }}
             </h3>
-            <textarea v-model="form.notes" placeholder="Internal notes (not visible to customer)..."
+            <textarea v-model="form.notes" :placeholder="$t('dashboard.orders.orderNotesPlaceholder')"
               class="w-full bg-black border border-border-default rounded-2xl p-5 text-sm h-32 focus:outline-none focus:border-brand transition-colors placeholder:text-tx-muted resize-none"></textarea>
           </section>
         </div>
@@ -140,10 +139,10 @@
         <aside class="space-y-8">
           <!-- Status & Tags -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-2xl">
-            <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-6 px-1">Order Status</h3>
+            <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-6 px-1">{{ $t('dashboard.orders.orderStatus') }}</h3>
             <div class="space-y-6">
               <div class="space-y-2">
-                <label class="text-[9px] font-bold text-tx-muted tracking-widest ps-1">Payment Status</label>
+                <label class="text-[9px] font-bold text-tx-muted tracking-widest ps-1">{{ $t('dashboard.orders.paymentStatus') }}</label>
                 <select v-model="form.paymentStatus"
                   class="w-full bg-black border border-border-default rounded-xl py-2.5 px-4 text-xs font-bold focus:outline-none focus:border-brand transition-all select-scrollbar cursor-pointer appearance-none">
                   <option value="PAID">Paid</option>
@@ -152,7 +151,7 @@
                 </select>
               </div>
               <div class="space-y-2">
-                <label class="text-[9px] font-bold text-tx-muted tracking-widest ps-1">Fulfillment Status</label>
+                <label class="text-[9px] font-bold text-tx-muted tracking-widest ps-1">{{ $t('dashboard.orders.fulfillmentStatus') }}</label>
                 <select v-model="form.status"
                   class="w-full bg-black border border-border-default rounded-xl py-2.5 px-4 text-xs font-bold focus:outline-none focus:border-brand transition-all select-scrollbar cursor-pointer appearance-none">
                   <option value="NEW">New</option>
@@ -169,23 +168,23 @@
           <section
             class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-2xl relative overflow-hidden">
             <div class="absolute -end-8 -top-8 w-24 h-24 bg-brand/5 rounded-full blur-2xl"></div>
-            <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-8 px-1 relative z-10">Order Summary</h3>
+            <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-8 px-1 relative z-10">{{ $t('dashboard.orders.orderSummary') }}</h3>
 
             <div class="space-y-4 relative z-10 px-1">
               <div class="flex justify-between text-xs font-bold text-tx-muted">
-                <span>Subtotal</span>
+                <span>{{ $t('dashboard.orders.subtotal') }}</span>
                 <span class="text-tx-primary">$0.00</span>
               </div>
               <div class="flex justify-between text-xs font-bold text-tx-muted">
-                <span>Shipping</span>
+                <span>{{ $t('dashboard.orders.shipping') }}</span>
                 <span class="text-tx-primary">$0.00</span>
               </div>
               <div class="flex justify-between text-xs font-bold text-tx-muted">
-                <span>Discount</span>
+                <span>{{ $t('dashboard.orders.discount') }}</span>
                 <span class="text-danger">-$0.00</span>
               </div>
               <div class="flex justify-between items-center pt-4 border-t border-border-subtle">
-                <span class="text-sm font-black text-tx-primary tracking-widest">Total</span>
+                <span class="text-sm font-black text-tx-primary tracking-widest">{{ $t('dashboard.orders.total') }}</span>
                 <span class="text-2xl font-bold text-brand">$0.00</span>
               </div>
             </div>
@@ -193,9 +192,9 @@
 
           <!-- Tags Panel -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-2xl">
-            <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-6 px-1">Tags & Category</h3>
+            <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-6 px-1">{{ $t('dashboard.orders.tagsAndCategory') }}</h3>
             <div class="space-y-4">
-              <VInput placeholder="Add tag (press Enter)" />
+              <VInput :placeholder="$t('dashboard.orders.addTagPlaceholder')" />
               <div class="flex flex-wrap gap-2 pt-2">
                 <span v-for="tag in ['Manual', 'B2B', 'Urgent']" :key="tag"
                   class="bg-bg-elevated text-tx-secondary text-[9px] font-black px-2.5 py-1 rounded tracking-wider border border-border-subtle hover:text-tx-primary hover:border-border-default transition-all cursor-default">

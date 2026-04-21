@@ -1,12 +1,12 @@
 <template>
   <div class="min-h-screen bg-[#08080E] text-[#F0F0FF] selection:bg-[#6366F1]/30 p-6 lg:p-10">
     <div v-if="!meta" class="max-w-[1400px] mx-auto py-20 text-center space-y-6">
-      <p class="text-[#8888AA]">This collection was not found.</p>
+      <p class="text-[#8888AA]">{{ $t('storefront.collections.notFound') }}</p>
       <nuxt-link-locale
         to="/collections"
         class="inline-flex text-[#6366F1] font-bold text-sm tracking-widest hover:underline"
       >
-        Back to collections
+        {{ $t('storefront.collections.backToCollections') }}
       </nuxt-link-locale>
     </div>
 
@@ -15,7 +15,7 @@
 
       <header class="space-y-3 border-b border-[#1C1C30] pb-10">
         <p class="text-[10px] font-black tracking-[0.3em] text-[#50506A]">
-          Filtered catalog
+          {{ $t('storefront.collections.filteredCatalog') }}
         </p>
         <h1 class="text-4xl lg:text-5xl font-bold tracking-tight">
           {{ meta.name }}
@@ -24,7 +24,7 @@
           {{ meta.description }}
         </p>
         <p class="text-[11px] font-bold text-[#6366F1] tracking-widest">
-          {{ filteredProducts.length }} products in this collection
+          {{ $t('storefront.collections.productsInCollection', { count: filteredProducts.length }) }}
         </p>
       </header>
 
@@ -47,7 +47,7 @@
       </div>
 
       <p v-else class="text-center text-[#50506A] py-16 text-sm">
-        No products in this collection yet.
+        {{ $t('storefront.collections.noProducts') }}
       </p>
     </div>
   </div>
@@ -68,10 +68,12 @@ const filteredProducts = computed(() =>
   collectionCatalogProducts.filter(p => p.collectionSlug === slug.value),
 )
 
+const { t } = useI18n()
+
 const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
-  { label: 'Home', to: '/' },
-  { label: 'Collections', to: '/collections' },
-  { label: meta.value?.name ?? 'Collection', active: true },
+  { label: t('common.home'), to: '/' },
+  { label: t('storefront.collections.title'), to: '/collections' },
+  { label: meta.value?.name ?? t('storefront.collections.collection'), active: true },
 ])
 
 function toCardProduct(p: CollectionCatalogProduct): Product {

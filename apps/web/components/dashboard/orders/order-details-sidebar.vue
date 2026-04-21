@@ -21,7 +21,7 @@
 
           <!-- Customer Info -->
           <div class="mb-6">
-            <h3 class="text-[10px] font-black text-tx-muted tracking-[0.2em] mb-6">Customer Information</h3>
+            <h3 class="text-[10px] font-black text-tx-muted tracking-[0.2em] mb-6">{{ $t('dashboard.orders.customerInfo') }}</h3>
             <div class="flex items-center gap-4 mb-6">
               <div
                 :class="[order.avatarBg, 'w-12 h-12 rounded-xl flex items-center justify-center text-sm font-black border border-border-subtle']">
@@ -34,7 +34,7 @@
             </div>
             <div class="bg-bg-elevated border border-border-subtle rounded-2xl p-5">
               <div class="flex justify-between items-start mb-2">
-                <span class="text-[10px] font-black text-tx-secondary">Shipping</span>
+                <span class="text-[10px] font-black text-tx-secondary">{{ $t('dashboard.orders.shipping') }}</span>
                 <Icon name="ph:map-pin-bold" class="text-tx-muted" />
               </div>
               <p class="text-xs text-tx-secondary leading-relaxed font-medium">
@@ -46,9 +46,9 @@
           <!-- Items -->
           <div>
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-black text-tx-muted tracking-[0.2em]">Items ({{ order.itemsCount }})</h3>
+              <h3 class="text-[10px] font-black text-tx-muted tracking-[0.2em]">{{ $t('dashboard.orders.items') }} ({{ order.itemsCount }})</h3>
               <VButton variant="none" className="text-[10px] font-bold text-brand hover:underline"
-                @click="navigateTo({ path: localePath('/dashboard/orders/order-form'), query: { id: order.id } })">Edit
+                @click="navigateTo({ path: localePath('/dashboard/orders/order-form'), query: { id: order.id } })">{{ $t('dashboard.orders.edit') }}
               </VButton>
             </div>
             <div class="space-y-4">
@@ -72,15 +72,15 @@
           <!-- Price Summary -->
           <div class="mt-12 pt-8 border-t border-border-subtle space-y-4">
             <div class="flex justify-between text-xs font-bold text-tx-secondary">
-              <span>Subtotal</span>
+              <span>{{ $t('dashboard.orders.subtotal') }}</span>
               <span>$1,088.00</span>
             </div>
             <div class="flex justify-between text-xs font-bold text-tx-secondary">
-              <span>Shipping (Express)</span>
+              <span>{{ $t('dashboard.orders.shippingExpress') }}</span>
               <span>$162.00</span>
             </div>
             <div class="flex justify-between items-end pt-4">
-              <span class="text-sm font-black text-tx-primary tracking-widest">Total</span>
+              <span class="text-sm font-black text-tx-primary tracking-widest">{{ $t('dashboard.orders.total') }}</span>
               <span class="text-xl font-bold text-brand">${{ order.total }}</span>
             </div>
           </div>
@@ -90,7 +90,7 @@
         <div class="p-6 border-t border-border-subtle bg-bg-primary flex gap-3">
           <VButton
             className="flex-1 bg-brand hover:bg-brand-hover text-tx-primary py-3.5 rounded-xl text-xs font-black tracking-widest transition-all shadow-lg shadow-brand/10">
-            Confirm Order
+            {{ $t('dashboard.orders.confirmOrder') }}
           </VButton>
           <VButton variant="none"
             className="w-12 h-12 bg-bg-elevated hover:bg-bg-elevated border border-border-subtle rounded-xl flex items-center justify-center transition-colors">

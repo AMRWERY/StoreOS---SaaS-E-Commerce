@@ -8,24 +8,24 @@
       </div>
       <VButton variant="secondary"
         className="w-full py-2 bg-bg-elevated hover:bg-bg-elevated border border-border-subtle rounded-lg text-[10px] font-black tracking-widest transition-colors">
-        Update Avatar
+        {{ $t('dashboard.profile.updateAvatar') }}
       </VButton>
       <button
         class="text-[10px] font-bold text-danger/60 hover:text-danger transition-colors tracking-widest">
-        Remove
+        {{ $t('common.remove') }}
       </button>
     </div>
 
     <!-- Form Side -->
     <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <VInput v-model="profile.name" label="Full Name"
+      <VInput v-model="profile.name" :label="$t('dashboard.profile.fullName')"
         inputClass="bg-black border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
-      <VInput v-model="profile.email" label="Email Address" type="email"
+      <VInput v-model="profile.email" :label="$t('dashboard.profile.emailAddress')" type="email"
         inputClass="bg-black border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
-      <VInput v-model="profile.phone" label="Phone Number"
+      <VInput v-model="profile.phone" :label="$t('dashboard.profile.phoneNumber')"
         inputClass="bg-black border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
       <div class="space-y-2">
-        <label class="text-[10px] font-bold text-tx-secondary tracking-wider">Job Title</label>
+        <label class="text-[10px] font-bold text-tx-secondary tracking-wider">{{ $t('dashboard.profile.jobTitle') }}</label>
         <div class="relative">
           <select v-model="profile.jobTitle"
             class="w-full bg-black border border-border-default rounded-xl px-5 py-3.5 text-sm appearance-none outline-none focus:border-brand">

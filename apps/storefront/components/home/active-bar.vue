@@ -6,7 +6,7 @@
         <div class="flex gap-20 items-center justify-center animate-scroll">
           <span v-for="i in 6" :key="i"
             class="text-[10px] font-black text-white tracking-[0.4em] opacity-90 drop-shadow-sm">
-            Global Distribution Active • Limited Production Batch • Encrypted Payments • Secure Ops • Kinetic Core v4.4
+            {{ $t('storefront.home.activeBar') }}
           </span>
         </div>
       </div>

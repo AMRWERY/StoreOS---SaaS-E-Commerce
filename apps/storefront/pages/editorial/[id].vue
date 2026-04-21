@@ -3,12 +3,12 @@
     class="min-h-screen bg-[#08080E] text-[#F0F0FF] selection:bg-[#6366F1]/30 py-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
   >
     <div v-if="!article" class="py-20 text-center space-y-6">
-      <p class="text-[#8888AA]">This editorial entry was not found.</p>
+      <p class="text-[#8888AA]">{{ $t('storefront.editorial.notFound') }}</p>
       <nuxt-link-locale
         to="/editorial"
         class="inline-flex text-[#6366F1] font-bold text-sm tracking-widest hover:underline"
       >
-        Back to editorial
+        {{ $t('storefront.editorial.backToEditorial') }}
       </nuxt-link-locale>
     </div>
 
@@ -57,7 +57,7 @@
           {{ article.excerpt }}
         </p>
         <p class="text-[15px] text-[#50506A] leading-relaxed">
-          Full article body will load here when the CMS or API is connected.
+          {{ $t('storefront.editorial.fullArticle') }}
         </p>
       </div>
 
@@ -66,7 +66,7 @@
         class="inline-flex items-center gap-2 text-[11px] font-bold text-[#6366F1] tracking-widest hover:text-[#818CF8] transition-colors"
       >
         <Icon name="ph:arrow-left" class="w-4 h-4" />
-        All entries
+        {{ $t('storefront.editorial.allEntries') }}
       </nuxt-link-locale>
     </article>
   </div>
@@ -82,10 +82,12 @@ const articleId = computed(() => String(route.params.id ?? ''))
 
 const article = computed(() => getEditorialArticleById(articleId.value))
 
+const { t } = useI18n()
+
 const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
-  { label: 'Home', to: '/' },
-  { label: 'Editorial', to: '/editorial' },
-  { label: article.value?.title ?? 'Entry', active: true },
+  { label: t('common.home'), to: '/' },
+  { label: t('storefront.nav.editorial'), to: '/editorial' },
+  { label: article.value?.title ?? t('storefront.editorial.entry'), active: true },
 ])
 
 const seoTitle = computed(() =>

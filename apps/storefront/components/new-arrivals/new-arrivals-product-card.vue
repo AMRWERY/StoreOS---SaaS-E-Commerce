@@ -9,7 +9,7 @@
       className="absolute bottom-3 end-3 z-10 opacity-0 pointer-events-none group-hover/card:opacity-100 group-hover/card:pointer-events-auto bg-white text-black py-2 px-3 rounded-[8px] font-bold text-[10px] tracking-widest shadow-xl hover:bg-[#F0F0FF] active:scale-95 flex items-center gap-2 transition-opacity duration-200"
       @click.stop.prevent="$emit('fast-deploy', product)">
       <Icon name="ph:shopping-cart-simple-fill" class="w-4 h-4" />
-      <span class="hidden sm:inline">Deploy</span>
+      <span class="hidden sm:inline">{{ $t('storefront.newArrivals.deploy') }}</span>
     </VButton>
   </div>
 </template>

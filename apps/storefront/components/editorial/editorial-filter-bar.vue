@@ -7,7 +7,7 @@
 
       <div
         class="hidden lg:flex items-center gap-3 text-[10px] font-black text-[#262640] tracking-[0.2em] shrink-0">
-        <span>Sorted By: Release_Date</span>
+        <span>{{ $t('storefront.editorial.sortedBy') }}</span>
         <Icon name="ph:arrows-down-up" class="w-4 h-4" />
       </div>
     </div>

@@ -29,15 +29,15 @@
           <Icon name="ph:shopping-cart-light" class="text-8xl text-tx-muted" />
           <div class="absolute -top-2 -end-2 w-16 h-16 bg-brand-dim rounded-full blur-xl"></div>
         </div>
-        <h2 class="text-xl font-bold text-tx-primary mb-2">No orders yet</h2>
+        <h2 class="text-xl font-bold text-tx-primary mb-2">{{ $t('dashboard.orders.noOrdersYet') }}</h2>
         <p class="text-tx-secondary max-w-sm mb-6">
-          Share your store link with your customers to start getting orders and growing your business.
+          {{ $t('dashboard.orders.noOrdersDesc') }}
         </p>
         <div class="flex items-center gap-3 bg-bg-primary border border-border-subtle p-2 pe-2 ps-4 rounded-2xl">
           <span class="text-xs text-tx-secondary">storeos.io/my-awesome-shop</span>
           <VButton @click="copyLink"
             className="bg-brand hover:bg-brand-hover text-white px-4 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all">
-            Copy Link
+            {{ $t('dashboard.orders.copyLink') }}
           </VButton>
         </div>
       </div>

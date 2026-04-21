@@ -2,7 +2,7 @@
   <div>
     <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl">
       <div class="px-4 py-3.5 flex justify-between items-center bg-bg-elevated border-b border-border-subtle">
-        <h2 class="font-bold text-lg">Configured Zones</h2>
+        <h2 class="font-bold text-lg">{{ $t('dashboard.settings.shipping.configuredZones') }}</h2>
         <div class="flex items-center gap-4 text-tx-secondary">
           <button class="hover:text-tx-primary transition-colors">
             <Icon name="ph:sliders-horizontal-bold" />
@@ -50,7 +50,7 @@
         <button
           class="text-[10px] font-black tracking-[0.2em] text-tx-muted hover:text-brand transition-colors flex items-center justify-center gap-2 mx-auto">
           <Icon name="ph:caret-up-down-bold" />
-          View all 14 zones
+          {{ $t('dashboard.settings.shipping.viewAllZones') }}
         </button>
       </div>
     </section>
@@ -61,12 +61,14 @@
 import type { TableHeader } from '@storeos/ui/types/v-table'
 import type { ShippingZone } from '@/types/shipping-logistics'
 
-const headers: TableHeader[] = [
-  { label: 'ZONE NAME', key: 'name' },
-  { label: 'REGIONS', key: 'regions' },
-  { label: 'FLAT PRICE', key: 'flatPrice', align: 'end' },
-  { label: 'FREE ABOVE', key: 'freeAbove', align: 'end' }
-]
+const { t } = useI18n()
+
+const headers = computed<TableHeader[]>(() => [
+  { label: t('dashboard.settings.shipping.zoneName'), key: 'name' },
+  { label: t('dashboard.settings.shipping.regions'), key: 'regions' },
+  { label: t('dashboard.settings.shipping.flatPrice'), key: 'flatPrice', align: 'end' },
+  { label: t('dashboard.settings.shipping.freeAbove'), key: 'freeAbove', align: 'end' }
+])
 
 const zones = ref<ShippingZone[]>([
   {

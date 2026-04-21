@@ -7,7 +7,7 @@
           <span class="bg-bg-elevated text-[9px] font-bold px-1.5 py-0.5 rounded text-tx-secondary">⌘</span>
           <span class="bg-bg-elevated text-[9px] font-bold px-1.5 py-0.5 rounded text-tx-secondary">P</span>
         </div>
-        <span class="text-[11px] font-bold text-tx-secondary ms-2">Quick Navigation</span>
+        <span class="text-[11px] font-bold text-tx-secondary ms-2">{{ $t('dashboard.settings.notifications.quickNavigation') }}</span>
       </div>
       <Icon name="ph:lightning-fill" class="text-brand text-lg" />
     </div>

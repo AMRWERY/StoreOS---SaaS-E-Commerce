@@ -14,9 +14,9 @@
           </nuxt-link-locale>
 
           <div class="hidden md:flex items-center gap-6 text-sm text-tx-secondary">
-            <button @click="scrollTo('features')" class="hover:text-tx-primary transition">Features</button>
-            <button @click="scrollTo('integrations')" class="hover:text-tx-primary transition">Integrations</button>
-            <button @click="scrollTo('pricing')" class="hover:text-tx-primary transition">Pricing</button>
+            <button @click="scrollTo('features')" class="hover:text-tx-primary transition">{{ $t('nav.features') }}</button>
+            <button @click="scrollTo('integrations')" class="hover:text-tx-primary transition">{{ $t('nav.integrations') }}</button>
+            <button @click="scrollTo('pricing')" class="hover:text-tx-primary transition">{{ $t('nav.pricing') }}</button>
           </div>
         </div>
 
@@ -31,7 +31,7 @@
 
           <nuxt-link-locale to="/auth/login"
             class="text-sm font-medium text-tx-secondary hover:text-tx-primary transition">
-            Sign In
+            {{ $t('nav.signIn') }}
           </nuxt-link-locale>
         </div>
       </div>

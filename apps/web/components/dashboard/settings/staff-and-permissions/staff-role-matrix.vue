@@ -1,8 +1,7 @@
 ﻿<template>
   <div>
     <section class="max-w-7xl mx-auto space-y-8">
-      <h2 class="text-center text-[10px] font-black text-tx-muted tracking-[0.4em] mb-6">Role Permissions
-        Matrix</h2>
+      <h2 class="text-center text-[10px] font-black text-tx-muted tracking-[0.4em] mb-6">{{ $t('dashboard.settings.staff.rolePermissionsMatrix') }}</h2>
 
       <VAccordion :items="matrixSections" v-model="expandedSection">
         <template #header="{ item }">

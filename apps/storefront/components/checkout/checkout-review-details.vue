@@ -4,7 +4,7 @@
     <section class="bg-[#0D0D18] border border-[#1C1C30] rounded-[16px] p-8">
       <div class="flex flex-col sm:flex-row justify-between gap-6 mb-12">
         <div>
-          <p class="text-[10px] font-black tracking-[0.2em] text-[#50506A] mb-3">Order Identification</p>
+          <p class="text-[10px] font-black tracking-[0.2em] text-[#50506A] mb-3">{{ $t('storefront.checkout.orderIdentification') }}</p>
           <div class="flex items-center gap-3">
             <h2 class="text-2xl font-bold tracking-tighter">{{ orderId }}</h2>
             <button title="Copy order ID" class="text-[#50506A] hover:text-[#6366F1] transition-colors"
@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="sm:text-end">
-          <p class="text-[10px] font-black tracking-[0.2em] text-[#50506A] mb-3">Estimated Delivery</p>
+          <p class="text-[10px] font-black tracking-[0.2em] text-[#50506A] mb-3">{{ $t('storefront.checkout.estimatedDelivery') }}</p>
           <p class="text-lg font-bold text-[#F0F0FF]">{{ estimatedDelivery }}</p>
         </div>
       </div>
@@ -43,9 +43,9 @@
     <!-- Shipment Details -->
     <section class="bg-[#0D0D18] border border-[#1C1C30] rounded-[16px] p-8">
       <div class="flex items-center justify-between mb-8">
-        <h3 class="text-base font-bold tracking-tight">Shipment Details</h3>
+        <h3 class="text-base font-bold tracking-tight">{{ $t('storefront.checkout.shipmentDetails') }}</h3>
         <span class="text-[11px] font-bold text-[#50506A] tracking-widest">
-          {{ items.length }} Items
+          {{ items.length }} {{ $t('storefront.shop.items') }}
         </span>
       </div>
 
@@ -65,7 +65,7 @@
             <p class="text-sm font-bold text-[#F0F0FF] tracking-tighter">
               <span class="text-[11px] text-[#50506A] me-1">$</span>{{ item.price }}
             </p>
-            <p class="text-[10px] font-black text-[#50506A] mt-1">Qty: {{ item.qty }}</p>
+            <p class="text-[10px] font-black text-[#50506A] mt-1">{{ $t('storefront.checkout.qty') }}: {{ item.qty }}</p>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
     <div class="flex flex-col sm:flex-row items-center justify-end gap-5 pt-2">
       <nuxt-link-locale to="/shop-all"
         class="text-[11px] font-bold text-[#8888AA] hover:text-[#F0F0FF] transition-colors tracking-[0.2em] flex items-center gap-2 group">
-        Continue Shopping
+        {{ $t('storefront.checkout.continueShopping') }}
         <Icon name="ph:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </nuxt-link-locale>
     </div>

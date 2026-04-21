@@ -3,11 +3,11 @@
     <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl">
       <div class="p-6 border-b border-border-subtle flex justify-between items-center bg-bg-elevated">
         <h2 class="font-bold flex items-center gap-2">
-          <Icon name="ph:clock-counter-clockwise-bold" class="text-brand" /> Movement History
+          <Icon name="ph:clock-counter-clockwise-bold" class="text-brand" /> {{ $t('dashboard.inventory.movementHistory') }}
         </h2>
         <button
           class="text-[10px] font-black tracking-widest text-brand hover:text-brand hover:underline transition-colors mt-0.5 ms-2">
-          View Full Log
+          {{ $t('dashboard.inventory.viewFullLog') }}
         </button>
       </div>
       <VTable :headers="headers" :items="historyLogs">
@@ -43,15 +43,17 @@
 </template>
 
 <script lang="ts" setup>
-const headers = [
-  { label: 'Date & Time', key: 'date', align: 'start' },
-  { label: 'Product', key: 'product', align: 'start' },
-  { label: 'Type', key: 'type', align: 'start' },
-  { label: 'Qty Change', key: 'change', align: 'end' },
-  { label: 'New Stock', key: 'newStock', align: 'end' },
-  { label: 'Reason', key: 'reason', align: 'start' },
-  { label: 'Staff', key: 'staff', align: 'end' }
-]
+const { t } = useI18n()
+
+const headers = computed(() => [
+  { label: t('dashboard.inventory.dateTime'), key: 'date', align: 'start' },
+  { label: t('dashboard.inventory.product'), key: 'product', align: 'start' },
+  { label: t('dashboard.inventory.type'), key: 'type', align: 'start' },
+  { label: t('dashboard.inventory.qtyChange'), key: 'change', align: 'end' },
+  { label: t('dashboard.inventory.newStock'), key: 'newStock', align: 'end' },
+  { label: t('dashboard.inventory.reason'), key: 'reason', align: 'start' },
+  { label: t('dashboard.inventory.staff'), key: 'staff', align: 'end' }
+])
 
 defineProps<{
   historyLogs: any[]

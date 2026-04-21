@@ -4,12 +4,12 @@
       <div class="max-w-7xl mx-auto px-12 md:px-24">
         <div class="flex items-end justify-between mb-12">
           <div>
-            <h2 class="text-3xl font-bold text-tx-primary tracking-tight">New Arrivals</h2>
+            <h2 class="text-3xl font-bold text-tx-primary tracking-tight">{{ $t('storefront.home.newArrivals') }}</h2>
             <div class="h-1 w-12 bg-brand mt-3 rounded-full"></div>
           </div>
           <nuxt-link-locale to="/shop-all"
             class="text-[11px] font-bold text-brand hover:text-brand-hover transition-colors tracking-widest flex items-center gap-2 group">
-            View All
+            {{ $t('common.viewAll') }}
             <Icon name="ph:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </nuxt-link-locale>
         </div>
@@ -35,7 +35,7 @@
               <div class="mt-auto pt-4">
                 <VButton variant="none"
                   className="w-full bg-bg-elevated hover:bg-white border border-border-subtle hover:border-brand/40 text-[10px] font-black tracking-widest py-3 transition-all rounded-xl">
-                  Quick Add
+                  {{ $t('storefront.home.quickAdd') }}
                 </VButton>
               </div>
             </div>

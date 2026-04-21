@@ -5,18 +5,18 @@
         :class="viewMode === 'grid' ? 'bg-[#1C1C30] text-[#6366F1] shadow-lg shadow-[#6366F1]/10' : 'text-[#50506A]'"
         class="p-2 px-4 rounded-[6px] transition-all flex items-center gap-2">
         <Icon name="solar:widget-2-bold" class="w-4 h-4" />
-        <span class="text-[11px] font-bold tracking-widest">Grid</span>
+        <span class="text-[11px] font-bold tracking-widest">{{ $t('storefront.shop.grid') }}</span>
       </button>
       <button @click="$emit('update:viewMode', 'list')"
         :class="viewMode === 'list' ? 'bg-[#1C1C30] text-[#6366F1] shadow-lg shadow-[#6366F1]/10' : 'text-[#50506A]'"
         class="p-2 px-4 rounded-[6px] transition-all flex items-center gap-2">
         <Icon name="solar:list-bold" class="w-4 h-4" />
-        <span class="text-[11px] font-bold tracking-widest">List</span>
+        <span class="text-[11px] font-bold tracking-widest">{{ $t('storefront.shop.list') }}</span>
       </button>
     </div>
 
     <div class="flex items-center gap-4">
-      <span class="text-[10px] font-black text-[#50506A] tracking-widest">Sort By</span>
+      <span class="text-[10px] font-black text-[#50506A] tracking-widest">{{ $t('storefront.shop.sortBy') }}</span>
       <div class="relative group">
         <div
           class="bg-black/20 border border-[#1C1C30] rounded-[8px] p-2 px-4 text-[12px] font-semibold flex items-center gap-6 cursor-pointer hover:border-[#6366F1]/40 transition-all">
@@ -41,7 +41,13 @@ const props = defineProps<{
   selectedSort: string;
 }>();
 
-const sortOptions = ['Popularity', 'Newest', 'Price: Low to High', 'Price: High to Low'];
+const { t } = useI18n()
+const sortOptions = computed(() => [
+  t('storefront.shop.popularity'),
+  t('storefront.shop.newest'),
+  t('storefront.shop.priceLowHigh'),
+  t('storefront.shop.priceHighLow'),
+])
 
 defineEmits(['update:viewMode', 'update:selectedSort']);
 </script>

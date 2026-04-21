@@ -2,21 +2,21 @@
   <div>
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-border-subtle pt-16">
       <div class="lg:col-span-4">
-        <h3 class="font-bold text-lg mb-2">Contact Details</h3>
-        <p class="text-xs text-tx-secondary leading-relaxed">Business address and customer support contact information.</p>
+        <h3 class="font-bold text-lg mb-2">{{ $t('dashboard.settings.storeInfo.contactDetails') }}</h3>
+        <p class="text-xs text-tx-secondary leading-relaxed">{{ $t('dashboard.settings.storeInfo.contactDetailsDesc') }}</p>
       </div>
       <div class="lg:col-span-8 space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <VInput v-model="modelValue.supportEmail" type="email" label="Support Email" placeholder="Contact email" />
-          <VInput v-model="modelValue.phone" label="Phone" placeholder="Business phone" />
+          <VInput v-model="modelValue.supportEmail" type="email" :label="$t('dashboard.settings.storeInfo.supportEmail')" :placeholder="$t('dashboard.settings.storeInfo.supportEmailPlaceholder')" />
+          <VInput v-model="modelValue.phone" :label="$t('dashboard.settings.storeInfo.phone')" :placeholder="$t('dashboard.settings.storeInfo.phonePlaceholder')" />
         </div>
-        <VInput v-model="modelValue.address" label="Physical Address" placeholder="Store address" />
+        <VInput v-model="modelValue.address" :label="$t('dashboard.settings.storeInfo.physicalAddress')" :placeholder="$t('dashboard.settings.storeInfo.physicalAddressPlaceholder')" />
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <VInput v-model="modelValue.city" label="City" placeholder="City" />
-          <VInput v-model="modelValue.state" label="State" placeholder="State" />
-          <VInput v-model="modelValue.zip" label="Zip Code" placeholder="Zip" />
+          <VInput v-model="modelValue.city" :label="$t('dashboard.settings.storeInfo.city')" :placeholder="$t('dashboard.settings.storeInfo.cityPlaceholder')" />
+          <VInput v-model="modelValue.state" :label="$t('dashboard.settings.storeInfo.state')" :placeholder="$t('dashboard.settings.storeInfo.statePlaceholder')" />
+          <VInput v-model="modelValue.zip" :label="$t('dashboard.settings.storeInfo.zipCode')" :placeholder="$t('dashboard.settings.storeInfo.zipPlaceholder')" />
           <div class="space-y-2">
-            <label class="text-[10px] font-bold text-tx-secondary tracking-wider">Country</label>
+            <label class="text-[10px] font-bold text-tx-secondary tracking-wider">{{ $t('dashboard.settings.storeInfo.country') }}</label>
             <div class="relative">
               <select v-model="modelValue.country"
                 class="w-full bg-bg-primary border border-border-subtle rounded-lg px-4 py-2.5 text-xs outline-none appearance-none hover:border-border-default focus:border-orange-500/50 transition-all">

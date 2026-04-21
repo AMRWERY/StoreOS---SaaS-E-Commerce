@@ -41,11 +41,13 @@ defineProps<{
   coupons: Coupon[];
 }>();
 
-const headers = [
-  { key: 'code', label: 'Code' },
-  { key: 'type', label: 'Type', align: 'center' },
-  { key: 'value', label: 'Value', align: 'center' },
-  { key: 'minOrder', label: 'Min Order', align: 'center' },
-  { key: 'usage', label: 'Usage' },
-];
+const { t } = useI18n()
+
+const headers = computed(() => [
+  { key: 'code', label: t('dashboard.coupons.code') },
+  { key: 'type', label: t('dashboard.coupons.type'), align: 'center' },
+  { key: 'value', label: t('dashboard.coupons.value'), align: 'center' },
+  { key: 'minOrder', label: t('dashboard.coupons.minOrder'), align: 'center' },
+  { key: 'usage', label: t('dashboard.coupons.usage') },
+]);
 </script>

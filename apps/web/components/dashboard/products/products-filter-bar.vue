@@ -8,7 +8,7 @@
           <template #trigger="{ open }">
             <VButton variant="none"
               :className="`flex items-center gap-2 px-4 py-2 bg-bg-overlay border border-border-subtle rounded-xl text-xs font-bold transition-all ${open ? 'text-tx-primary border-border-default' : 'text-tx-secondary hover:text-tx-primary'}`">
-              Category: <span class="text-tx-primary">{{ selectedCategory }}</span>
+              {{ $t('dashboard.products.category') }}: <span class="text-tx-primary">{{ selectedCategory }}</span>
               <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
             </VButton>
           </template>
@@ -28,7 +28,7 @@
           <template #trigger="{ open }">
             <VButton variant="none"
               :className="`flex items-center gap-2 px-4 py-2 bg-bg-overlay border border-border-subtle rounded-xl text-xs font-bold transition-all ${open ? 'text-tx-primary border-border-default' : 'text-tx-secondary hover:text-tx-primary'}`">
-              Status: <span :class="selectedStatus.colorClass">{{ selectedStatus.label }}</span>
+              {{ $t('dashboard.products.status') }}: <span :class="selectedStatus.colorClass">{{ selectedStatus.label }}</span>
               <div v-if="selectedStatus.dotClass" :class="`w-1.5 h-1.5 rounded-full ${selectedStatus.dotClass}`"></div>
               <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
             </VButton>
@@ -50,7 +50,7 @@
           <template #trigger="{ open }">
             <VButton variant="none"
               :className="`flex items-center gap-2 px-4 py-2 bg-bg-overlay border border-border-subtle rounded-xl text-xs font-bold transition-all ${open ? 'text-tx-primary border-border-default' : 'text-tx-secondary hover:text-tx-primary'}`">
-              Stock: <span class="text-tx-primary">{{ selectedStock }}</span>
+              {{ $t('dashboard.products.stock') }}: <span class="text-tx-primary">{{ selectedStock }}</span>
               <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
             </VButton>
           </template>

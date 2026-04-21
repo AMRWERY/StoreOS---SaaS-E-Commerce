@@ -19,12 +19,12 @@
             </div>
 
             <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              500+ store owners trust StoreOS
+              {{ $t('auth.register.trustTitle') }}
             </h2>
 
             <div class="space-y-6">
               <div
-                v-for="text in ['Automated Inventory Management', 'Real-time Analytics Dashboard', 'Integrated Multi-channel Selling']"
+                v-for="text in [$t('auth.register.feature1'), $t('auth.register.feature2'), $t('auth.register.feature3')]"
                 :key="text" class="flex items-center gap-4 text-indigo-200/80">
                 <Icon name="lucide:check-circle-2" class="text-orange-500 shrink-0 w-[22px] h-[22px]" />
                 <span class="font-medium">{{ text }}</span>
@@ -41,8 +41,8 @@
               </div>
               <div class="flex-1">
                 <div class="flex justify-between items-center mb-1">
-                  <p class="text-[10px] font-bold tracking-wider">New Order Received!</p>
-                  <span class="text-[10px] text-tx-secondary">Just now</span>
+                  <p class="text-[10px] font-bold tracking-wider">{{ $t('auth.register.newOrderReceived') }}</p>
+                  <span class="text-[10px] text-tx-secondary">{{ $t('auth.register.justNow') }}</span>
                 </div>
                 <p class="text-xs text-gray-300">Order #4429 by Sarah J. ($124.50)</p>
                 <div class="mt-2 h-1 w-full bg-bg-elevated rounded-full overflow-hidden">
@@ -56,27 +56,27 @@
         <!-- Right Column (Form) -->
         <div class="md:w-7/12 px-4 py-3.5 md:px-6 md:py-5 bg-bg-primary">
           <div class="max-w-md mx-auto">
-            <h1 class="text-3xl font-bold mb-2">Create your store</h1>
-            <p class="text-tx-secondary mb-6 text-sm">Start your 14-day free trial today. No credit card required.</p>
+            <h1 class="text-3xl font-bold mb-2">{{ $t('auth.register.title') }}</h1>
+            <p class="text-tx-secondary mb-6 text-sm">{{ $t('auth.register.subtitle') }}</p>
 
             <VFormWrapper @submit="handleSubmit">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <VInput label="Store Name" placeholder="e.g. My Awesome Shop" v-model="storeName" />
-                <VInput label="Full Name" placeholder="John Doe" v-model="fullName" />
+                <VInput :label="$t('auth.register.storeName')" :placeholder="$t('auth.register.storeNamePlaceholder')" v-model="storeName" />
+                <VInput :label="$t('auth.register.fullName')" :placeholder="$t('auth.register.fullNamePlaceholder')" v-model="fullName" />
               </div>
 
-              <VInput type="email" label="Email Address" placeholder="john@example.com" v-model="email" />
+              <VInput type="email" :label="$t('auth.register.emailAddress')" :placeholder="$t('auth.register.emailPlaceholder')" v-model="email" />
 
-              <VInput type="password" label="Password" placeholder="••••••••" v-model="password" />
+              <VInput type="password" :label="$t('auth.register.password')" :placeholder="$t('auth.register.passwordPlaceholder')" v-model="password" />
 
               <!-- Industry Dropdown & Tags -->
               <div class="space-y-4">
                 <div class="space-y-2">
-                  <label class="text-[10px] font-semibold text-tx-secondary tracking-[0.6px]">Industry</label>
+                  <label class="text-[10px] font-semibold text-tx-secondary tracking-[0.6px]">{{ $t('auth.register.industry') }}</label>
                   <div class="relative cursor-pointer group">
                     <div
                       class="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-3 text-sm text-tx-secondary flex justify-between items-center group-hover:border-border-default transition">
-                      Select Industry
+                      {{ $t('auth.register.selectIndustry') }}
                       <Icon name="lucide:chevron-down" class="w-4 h-4 shrink-0" />
                     </div>
                   </div>
@@ -90,20 +90,19 @@
               </div>
 
               <VInput type="checkbox" v-model="agree">
-                I agree to the <span class="text-orange-500 hover:underline">Terms
-                  of Service</span> and <span class="text-orange-500 hover:underline">Privacy Policy</span>
+                {{ $t('auth.register.agreeTerms') }} <span class="text-orange-500 hover:underline">{{ $t('auth.register.termsOfService') }}</span> {{ $t('auth.register.and') }} <span class="text-orange-500 hover:underline">{{ $t('auth.register.privacyPolicy') }}</span>
               </VInput>
 
               <VButton type="submit" variant="none" :disabled="isLoading"
                 className="w-full flex items-center justify-center bg-orange-600 hover:bg-orange-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-sm transition-all transform active:scale-[0.98] shadow-lg shadow-orange-600/20">
                 <VLoadingSpinner v-if="isLoading" size="sm" color="white" />
-                <span v-else>Create Store &amp; Start Free Trial</span>
+                <span v-else>{{ $t('auth.register.createStore') }}</span>
               </VButton>
             </VFormWrapper>
 
             <p class="text-center mt-8 text-sm text-tx-secondary">
-              Already have an account? <nuxt-link-locale to="/auth/login"
-                class="text-orange-500 font-bold hover:underline">Sign In</nuxt-link-locale>
+              {{ $t('auth.register.alreadyHaveAccount') }} <nuxt-link-locale to="/auth/login"
+                class="text-orange-500 font-bold hover:underline">{{ $t('auth.register.signIn') }}</nuxt-link-locale>
             </p>
           </div>
         </div>

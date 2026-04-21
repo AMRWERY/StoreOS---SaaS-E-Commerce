@@ -3,31 +3,30 @@
     <section class="pt-32 pb-20 px-6 text-center">
       <div class="max-w-4xl mx-auto">
         <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-          Your entire store. <br />
-          <span class="text-brand">One operating system.</span>
+          {{ $t('home.hero.title') }} <br />
+          <span class="text-brand">{{ $t('home.hero.titleBrand') }}</span>
         </h1>
         <p class="text-tx-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Replace messy WhatsApp threads and fragile Excel sheets with an operational powerhouse designed for
-          high-growth commerce.
+          {{ $t('home.hero.subtitle') }}
         </p>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
           <VButton variant="none" @click="scrollToPricing"
             className="bg-brand hover:bg-brand-hover px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-brand/20 transition">
-            Start Free Trial
+            {{ $t('home.hero.startFreeTrial') }}
           </VButton>
 
           <VButton variant="none" @click="openDemo"
             className="bg-bg-elevated hover:bg-white/10 border border-border-subtle px-8 py-4 rounded-lg font-bold text-lg transition flex items-center justify-center gap-2">
-            Watch Demo
+            {{ $t('home.hero.watchDemo') }}
           </VButton>
         </div>
 
         <!-- Trust Badges -->
         <div class="flex flex-wrap justify-center gap-8 text-xs font-bold text-tx-muted tracking-widest">
-          <span>500+ STORES ALREADY RUNNING ON STOREOS</span>
+          <span>{{ $t('home.hero.storesRunning') }}</span>
           <div class="flex gap-6">
-            <span>Fashion</span> <span>Food</span> <span>Tech</span> <span>Beauty</span>
+            <span>{{ $t('home.hero.fashion') }}</span> <span>{{ $t('home.hero.food') }}</span> <span>{{ $t('home.hero.tech') }}</span> <span>{{ $t('home.hero.beauty') }}</span>
           </div>
         </div>
 
@@ -79,7 +78,7 @@
                 <div class="flex-1 bg-bg-primary border border-accent/10 rounded-2xl p-6 flex flex-col items-center">
                   <!-- Text label in orange -->
                   <span class="text-[9px] font-black text-accent/60 tracking-[0.25em] text-center mt-2">
-                    Inventory Alert
+                    {{ $t('home.hero.inventoryAlert') }}
                   </span>
 
                   <!-- Bottom Status Bar in orange -->
@@ -99,7 +98,7 @@
       <template #title>
         <div class="flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></span>
-          StoreOS — Platform Overview
+          {{ $t('home.hero.demo.title') }}
         </div>
       </template>
 
@@ -112,31 +111,29 @@
       </div>
 
       <!-- Description -->
-      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="md:col-span-2 space-y-3">
           <h2 class="text-base font-bold text-tx-primary">
-            The operating system for high-growth commerce
+            {{ $t('home.hero.demo.title') }}
           </h2>
           <p class="text-[13px] text-tx-secondary leading-relaxed">
-            StoreOS replaces fragmented WhatsApp threads, broken Excel sheets, and siloed tools with a
-            single unified command center. Watch how leading brands process thousands of orders, sync
-            inventory in real time, and make data-driven decisions — all from one screen.
+            {{ $t('home.hero.demo.description') }}
           </p>
           <div class="flex gap-3 pt-2">
             <VButton variant="none" to="/auth/register"
               className="bg-brand hover:bg-brand-hover text-white px-5 py-2 rounded-md text-xs font-bold transition-all shadow-lg shadow-brand/20">
-              Start Free Trial
+              {{ $t('home.hero.demo.startFreeTrial') }}
             </VButton>
             <VButton variant="none" @click="closeDemo"
               className="bg-bg-elevated hover:bg-bg-overlay border border-border-subtle text-tx-secondary hover:text-tx-primary px-5 py-2 rounded-md text-xs font-bold transition-all">
-              Close
+              {{ $t('home.hero.demo.close') }}
             </VButton>
           </div>
         </div>
 
         <!-- Feature Highlights -->
         <div class="space-y-2">
-          <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-3">What you'll see</p>
+          <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-3">{{ $t('home.hero.demo.whatYoullSee') }}</p>
           <div v-for="feature in demoFeatures" :key="feature.label"
             class="flex items-start gap-3 p-3 rounded-lg bg-bg-elevated border border-border-subtle">
             <div class="w-6 h-6 rounded-md flex items-center justify-center shrink-0 mt-0.5" :class="feature.bg">
@@ -155,6 +152,7 @@
 
 <script lang="ts" setup>
 const { isDemoOpen, openDemo, closeDemo } = useDemoModal()
+const { t } = useI18n()
 
 const scrollToPricing = () => {
   document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })
@@ -169,34 +167,34 @@ watch(isDemoOpen, (open) => {
   }
 })
 
-const demoFeatures = [
+const demoFeatures = computed(() => [
   {
     icon: 'ph:shopping-cart-fill',
-    label: 'Order Management',
-    desc: 'Live order stream, statuses & fulfilment',
+    label: t('home.hero.demo.orderManagement'),
+    desc: t('home.hero.demo.orderManagementDesc'),
     bg: 'bg-brand-dim',
     color: 'text-brand',
   },
   {
     icon: 'ph:chart-bar-fill',
-    label: 'Analytics Dashboard',
-    desc: 'Revenue, AOV, and velocity insights',
+    label: t('home.hero.demo.analyticsDashboard'),
+    desc: t('home.hero.demo.analyticsDashboardDesc'),
     bg: 'bg-success-dim',
     color: 'text-success',
   },
   {
     icon: 'ph:stack-fill',
-    label: 'Inventory Sync',
-    desc: 'Real-time stock levels & low-stock alerts',
+    label: t('home.hero.demo.inventorySync'),
+    desc: t('home.hero.demo.inventorySyncDesc'),
     bg: 'bg-warning-dim',
     color: 'text-warning',
   },
   {
     icon: 'ph:gear-six-fill',
-    label: 'Store Settings',
-    desc: 'Payments, shipping, staff & more',
+    label: t('home.hero.demo.storeSettings'),
+    desc: t('home.hero.demo.storeSettingsDesc'),
     bg: 'bg-brand-dim',
     color: 'text-brand',
   },
-]
+])
 </script>

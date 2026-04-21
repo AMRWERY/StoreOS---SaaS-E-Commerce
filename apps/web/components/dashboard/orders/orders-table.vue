@@ -9,13 +9,13 @@
           :class="isAllSelected ? 'bg-brand border-brand' : 'border-border-default bg-bg-elevated'">
           <Icon v-if="isAllSelected" name="ph:check-bold" class="text-[10px] text-tx-primary" />
         </div>
-        Order & Customer
+        {{ $t('dashboard.orders.orderAndCustomer') }}
       </div>
-      <div class="col-span-2 text-center">Items Total</div>
-      <div class="col-span-2 text-center">Payment</div>
-      <div class="col-span-2 text-center">Status</div>
-      <div class="col-span-1 text-center">Date</div>
-      <div class="col-span-2 text-end">Actions</div>
+      <div class="col-span-2 text-center">{{ $t('dashboard.orders.itemsTotal') }}</div>
+      <div class="col-span-2 text-center">{{ $t('dashboard.orders.paymentCol') }}</div>
+      <div class="col-span-2 text-center">{{ $t('dashboard.orders.statusCol') }}</div>
+      <div class="col-span-1 text-center">{{ $t('dashboard.orders.date') }}</div>
+      <div class="col-span-2 text-end">{{ $t('dashboard.orders.actions') }}</div>
     </div>
 
     <!-- Order List Items -->
@@ -56,7 +56,7 @@
               +{{ order.itemsCount - 1 }}
             </div>
           </div>
-          <span class="text-[10px] text-tx-secondary font-black">{{ order.itemsCount }} Items</span>
+          <span class="text-[10px] text-tx-secondary font-black">{{ order.itemsCount }} {{ $t('dashboard.orders.items') }}</span>
         </div>
 
         <div class="col-span-2 text-center flex flex-col items-center gap-1.5">

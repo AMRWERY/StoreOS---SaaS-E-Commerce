@@ -2,8 +2,8 @@
   <div>
     <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
       <div class="flex justify-between items-center mb-8">
-        <h3 class="text-[10px] font-black text-tx-muted tracking-widest">Payment Method</h3>
-        <button class="text-[10px] font-bold text-tx-secondary hover:text-tx-primary transition-colors">Update</button>
+        <h3 class="text-[10px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.settings.billing.paymentMethod') }}</h3>
+        <button class="text-[10px] font-bold text-tx-secondary hover:text-tx-primary transition-colors">{{ $t('common.edit') }}</button>
       </div>
 
       <!-- Card Visual -->

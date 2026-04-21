@@ -33,18 +33,18 @@
         <div class="space-y-6">
           <div class="flex items-center gap-10 border-t border-[#1C1C30] pt-8 flex-wrap">
             <div>
-              <p class="text-[9px] font-black text-[#50506A] tracking-widest mb-1">Log Date</p>
+              <p class="text-[9px] font-black text-[#50506A] tracking-widest mb-1">{{ $t('storefront.editorial.logDate') }}</p>
               <p class="text-[13px] font-bold text-[#F0F0FF]">{{ article.date }}</p>
             </div>
             <div>
-              <p class="text-[9px] font-black text-[#50506A] tracking-widest mb-1">Time to Sync</p>
+              <p class="text-[9px] font-black text-[#50506A] tracking-widest mb-1">{{ $t('storefront.editorial.timeToSync') }}</p>
               <p class="text-[13px] font-bold text-[#F0F0FF]">{{ article.readTime }} MIN</p>
             </div>
           </div>
 
           <span
             class="w-full lg:w-fit inline-flex items-center justify-center gap-3 bg-[#6366F1] group-hover:bg-[#818CF8] text-white px-10 py-4 rounded-[12px] text-[13px] font-bold tracking-[0.2em] transition-all">
-            Open Full Protocol
+            {{ $t('storefront.editorial.openProtocol') }}
             <Icon name="ph:arrow-right" class="w-5 h-5" />
           </span>
         </div>

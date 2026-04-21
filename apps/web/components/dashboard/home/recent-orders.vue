@@ -2,9 +2,8 @@
   <div class="h-full">
     <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden flex flex-col h-full">
       <div class="p-6 flex justify-between items-center border-b border-border-subtle">
-        <h3 class="font-bold text-lg">Recent Orders</h3>
-        <VButton variant="none" className="text-[10px] font-black text-brand tracking-widest hover:underline">View
-          All</VButton>
+        <h3 class="font-bold text-lg">{{ $t('dashboard.home.recentOrders') }}</h3>
+        <VButton variant="none" className="text-[10px] font-black text-brand tracking-widest hover:underline">{{ $t('common.viewAll') }}</VButton>
       </div>
       <div class="overflow-x-auto flex-1 h-full">
         <VTable :headers="headers" :items="orders">
@@ -38,14 +37,16 @@
 <script lang="ts" setup>
 const { recentOrders: orders } = storeToRefs(useDashboardStore())
 
-const headers = [
-  { label: 'Order #', key: 'id', align: 'start' },
-  { label: 'Customer', key: 'customer', align: 'start' },
-  { label: 'Items', key: 'items', align: 'start' },
-  { label: 'Total', key: 'total', align: 'center' },
-  { label: 'Status', key: 'status', align: 'center' },
-  { label: 'Time', key: 'time', align: 'end' }
-]
+const { t } = useI18n()
+
+const headers = computed(() => [
+  { label: t('dashboard.orders.orderNumber'), key: 'id', align: 'start' },
+  { label: t('dashboard.orders.customer'), key: 'customer', align: 'start' },
+  { label: t('dashboard.orders.items'), key: 'items', align: 'start' },
+  { label: t('dashboard.orders.total'), key: 'total', align: 'center' },
+  { label: t('dashboard.orders.status'), key: 'status', align: 'center' },
+  { label: t('dashboard.orders.time'), key: 'time', align: 'end' }
+])
 
 const getStatusClass = (status: string) => {
   switch (status) {

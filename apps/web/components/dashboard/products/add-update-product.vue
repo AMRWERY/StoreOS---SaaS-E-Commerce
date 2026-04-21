@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="min-h-screen text-tx-primary -mt-5">
-      <VBreadcrumb class="mb-6" :overrides="{ 'add-update-product': isEdit ? 'Edit Product' : 'Create Product' }" />
+      <VBreadcrumb class="mb-6" :overrides="{ 'add-update-product': isEdit ? $t('dashboard.products.editProduct') : $t('dashboard.products.createProduct') }" />
 
       <div class="flex items-center gap-6">
-        <VBackButton to="/dashboard/products" label="Products" />
+        <VBackButton to="/dashboard/products" :label="$t('dashboard.products.title')" />
         <div>
-          <h1 class="text-3xl font-bold tracking-tight">{{ isEdit ? 'Edit Product' : 'Create New Product' }}</h1>
+          <h1 class="text-3xl font-bold tracking-tight">{{ isEdit ? $t('dashboard.products.editProduct') : $t('dashboard.products.createNewProduct') }}</h1>
           <p class="text-xs text-tx-secondary mt-1 font-medium">
-            {{ isEdit ? "Modify existing Product details and status." : "Fill in the details to create a new manual Product." }}
+            {{ isEdit ? $t('dashboard.products.editSubtitle') : $t('dashboard.products.createSubtitle') }}
           </p>
         </div>
       </div>
@@ -19,23 +19,23 @@
           <!-- Basic Information -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
             <div class="flex justify-between items-center mb-8">
-              <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">Basic Information</h3>
+              <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">{{ $t('dashboard.products.basicInfo') }}</h3>
               <span class="text-[9px] font-bold text-brand/50">DRAFT-ID: 8823-AQ</span>
             </div>
 
             <div class="space-y-6">
-              <VInput v-model="product.name" label="Product Name" placeholder="e.g. Kinetic Series: Modular Rack v2"
+              <VInput v-model="product.name" :label="$t('dashboard.products.productName')" placeholder="e.g. Kinetic Series: Modular Rack v2"
                 inputClass="!w-full !bg-black !border-border-default !rounded-xl !px-5 !py-4 !text-lg !font-bold focus:!outline-none focus:!border-brand !transition-colors" />
 
               <div class="space-y-2">
-                <label class="text-[10px] font-bold text-tx-muted">Description</label>
-                <textarea v-model="product.description" placeholder="Enter product description..."
+                <label class="text-[10px] font-bold text-tx-muted">{{ $t('dashboard.products.description') }}</label>
+                <textarea v-model="product.description" :placeholder="$t('dashboard.products.descriptionPlaceholder')"
                   class="w-full bg-black border border-border-default rounded-xl px-5 py-4 text-sm min-h-[160px] focus:outline-none focus:border-brand resize-y transition-colors"></textarea>
               </div>
 
               <div class="grid grid-cols-2 gap-6">
                 <div class="space-y-2">
-                  <label class="text-[10px] font-bold text-tx-muted">Category</label>
+                  <label class="text-[10px] font-bold text-tx-muted">{{ $t('dashboard.products.category') }}</label>
                   <div class="relative">
                     <select v-model="product.category"
                       class="w-full bg-black border border-border-default rounded-xl px-5 py-4 text-sm appearance-none focus:outline-none focus:border-brand outline-none transition-colors">
@@ -48,7 +48,7 @@
                 <div class="flex items-end pb-3">
                   <button @click="showCategoryModal = true" type="button"
                     class="text-[10px] font-bold text-brand hover:text-brand transition-colors hover:underline">+
-                    Create new category</button>
+                    {{ $t('dashboard.products.createCategory') }}</button>
                 </div>
               </div>
             </div>
@@ -57,14 +57,14 @@
           <!-- Media Assets -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
             <div class="flex justify-between items-center mb-8">
-              <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">Media Assets</h3>
+              <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">{{ $t('dashboard.products.mediaAssets') }}</h3>
             </div>
             <div class="grid grid-cols-3 gap-4">
               <VFileUpload class="aspect-square [&>div]:h-full [&>div>div:first-child]:h-full"
                 wrapperClass="h-full w-full bg-black border-2 border-dashed border-border-subtle rounded-2xl flex flex-col items-center justify-center group cursor-pointer hover:bg-bg-elevated transition-all"
                 icon="" title="" subtitle="">
                 <Icon name="ph:upload-simple-bold" class="text-2xl text-tx-muted group-hover:text-brand mb-2" />
-                <p class="text-[10px] font-bold text-tx-muted">Drag & drop asset</p>
+                <p class="text-[10px] font-bold text-tx-muted">{{ $t('dashboard.products.dragDrop') }}</p>
               </VFileUpload>
               <div
                 class="aspect-square bg-bg-elevated rounded-2xl overflow-hidden border border-border-subtle relative group cursor-pointer">
@@ -84,9 +84,9 @@
 
           <!-- Financials -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
-            <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary mb-8">Financials</h3>
+            <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary mb-8">{{ $t('dashboard.products.financials') }}</h3>
             <div class="grid grid-cols-3 gap-6 mb-8">
-              <VInput v-model="product.price" type="number" label="Price"
+              <VInput v-model="product.price" type="number" :label="$t('dashboard.products.price')"
                 inputClass="!bg-black !border-border-default !rounded-xl !ps-9 !pe-5 !py-4 !text-sm focus:!border-brand !outline-none">
                 <template #prefix>
                   <span
@@ -94,7 +94,7 @@
                 </template>
               </VInput>
 
-              <VInput v-model="product.comparePrice" type="number" label="Compare At"
+              <VInput v-model="product.comparePrice" type="number" :label="$t('dashboard.products.compareAt')"
                 inputClass="!bg-black !border-border-default !rounded-xl !ps-9 !pe-5 !py-4 !text-sm focus:!border-brand !outline-none">
                 <template #prefix>
                   <span
@@ -102,7 +102,7 @@
                 </template>
               </VInput>
 
-              <VInput v-model="product.cost" type="number" label="Cost per item"
+              <VInput v-model="product.cost" type="number" :label="$t('dashboard.products.costPerItem')"
                 inputClass="!bg-black !border-border-default !rounded-xl !ps-9 !pe-5 !py-4 !text-sm focus:!border-brand !outline-none">
                 <template #prefix>
                   <span
@@ -112,12 +112,12 @@
             </div>
             <div class="flex items-center justify-between p-5 bg-bg-elevated border border-border-subtle rounded-2xl">
               <div class="flex items-center gap-4">
-                <span class="text-xs text-tx-secondary font-medium">Projected Margin:</span>
-                <span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success">Margin
+                <span class="text-xs text-tx-secondary font-medium">{{ $t('dashboard.products.projectedMargin') }}:</span>
+                <span class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success">{{ $t('dashboard.products.margin') }}
                   : {{ margin }}%</span>
               </div>
               <div class="text-end">
-                <span class="text-xs text-tx-secondary font-medium me-2">Profit:</span>
+                <span class="text-xs text-tx-secondary font-medium me-2">{{ $t('dashboard.products.profit') }}:</span>
                 <span class="text-lg font-bold text-tx-primary">${{ profit }}</span>
               </div>
             </div>
@@ -129,7 +129,7 @@
           <!-- Status Card -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-black text-tx-muted tracking-widest">Status</h3>
+              <h3 class="text-[10px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.products.status') }}</h3>
               <div class="flex items-center gap-1.5">
                 <div class="w-1.5 h-1.5 rounded-full"
                   :class="product.status === 'Active' ? 'bg-success' : 'bg-tx-muted'">
@@ -142,19 +142,19 @@
             <div class="bg-black p-1 rounded-xl flex border border-border-subtle mb-6">
               <button @click="toggleStatus('Draft')"
                 class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
-                :class="product.status === 'Draft' ? 'bg-bg-elevated text-tx-primary shadow-sm' : 'text-tx-muted'">Draft</button>
+                :class="product.status === 'Draft' ? 'bg-bg-elevated text-tx-primary shadow-sm' : 'text-tx-muted'">{{ $t('dashboard.products.draft') }}</button>
               <button @click="toggleStatus('Active')"
                 class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
-                :class="product.status === 'Active' ? 'bg-brand text-tx-primary shadow-lg' : 'text-tx-muted'">Active</button>
+                :class="product.status === 'Active' ? 'bg-brand text-tx-primary shadow-lg' : 'text-tx-muted'">{{ $t('dashboard.products.active') }}</button>
             </div>
 
             <div class="space-y-4 pt-4 border-t border-border-subtle">
               <label class="flex items-center justify-between group cursor-pointer">
-                <span class="text-xs font-bold text-tx-secondary group-hover:text-tx-primary">All sales channels</span>
+                <span class="text-xs font-bold text-tx-secondary group-hover:text-tx-primary">{{ $t('dashboard.products.allSalesChannels') }}</span>
                 <input type="checkbox" checked class="accent-brand w-4 h-4 bg-black rounded border-border-default" />
               </label>
               <label class="flex items-center justify-between group cursor-pointer">
-                <span class="text-xs font-bold text-tx-secondary group-hover:text-tx-primary">Shopify/Inventory</span>
+                <span class="text-xs font-bold text-tx-secondary group-hover:text-tx-primary">{{ $t('dashboard.products.shopifyInventory') }}</span>
                 <input type="checkbox" class="accent-brand w-4 h-4 bg-black rounded border-border-default" />
               </label>
             </div>
@@ -162,19 +162,19 @@
             <div class="flex gap-3 mt-8">
               <VButton variant="none"
                 className="flex-1 bg-bg-elevated hover:bg-bg-elevated py-3 rounded-xl text-[10px] font-black tracking-widest transition-colors">
-                Save Draft</VButton>
+                {{ $t('dashboard.products.saveDraft') }}</VButton>
               <VButton variant="none"
                 className="flex-1 bg-brand hover:bg-brand-hover py-3 rounded-xl text-[10px] font-black tracking-widest shadow-lg shadow-brand/20 transition-all">
-                Publish</VButton>
+                {{ $t('dashboard.products.publish') }}</VButton>
             </div>
           </section>
 
           <!-- Organization -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
-            <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-6">Organization</h3>
+            <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-6">{{ $t('dashboard.products.organization') }}</h3>
             <div class="space-y-6">
               <div class="space-y-3">
-                <label class="text-[9px] font-bold text-tx-muted">Tags</label>
+                <label class="text-[9px] font-bold text-tx-muted">{{ $t('dashboard.products.tags') }}</label>
                 <div class="bg-black border border-border-default rounded-xl p-3 flex flex-wrap gap-2">
                   <span v-for="tag in product.tags" :key="tag"
                     class="bg-brand-dim text-brand text-[9px] font-black px-2 py-1 rounded flex items-center gap-1.5">
@@ -187,7 +187,7 @@
               </div>
 
               <div class="space-y-3">
-                <label class="text-[9px] font-bold text-tx-muted">Collections</label>
+                <label class="text-[9px] font-bold text-tx-muted">{{ $t('dashboard.products.collections') }}</label>
                 <div class="space-y-3">
                   <label v-for="c in ['Winter Collection 2026', 'Tools Essentials', 'Staff Picks']" :key="c"
                     class="flex items-center justify-between group cursor-pointer">
@@ -204,16 +204,16 @@
     </div>
 
     <!-- Dilaog -->
-    <VDialog v-model="showCategoryModal" title="Create Category" maxWidth="md">
+    <VDialog v-model="showCategoryModal" :title="$t('dashboard.products.createCategory')" maxWidth="md">
       <div class="space-y-6">
-        <VInput v-model="newCategoryName" label="Category Name" placeholder="e.g. Peripherals"
+        <VInput v-model="newCategoryName" :label="$t('dashboard.products.categoryName')" placeholder="e.g. Peripherals"
           inputClass="!bg-black !border-border-default !rounded-xl !px-5 !py-4 !text-sm focus:!border-brand" />
       </div>
       <template #footer>
         <VButton variant="none"
           className="bg-brand hover:bg-brand-hover text-tx-primary px-5 py-2.5 rounded-lg text-xs font-bold shadow-lg shadow-brand/20 transition-all"
           @click="handleCreateCategory">
-          Create Category
+          {{ $t('dashboard.products.createCategory') }}
         </VButton>
       </template>
     </VDialog>

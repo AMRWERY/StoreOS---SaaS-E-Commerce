@@ -11,8 +11,8 @@
 
       <!-- Text -->
       <div class="text-center space-y-3">
-        <h1 class="text-4xl font-bold tracking-tight text-white">Order Confirmed!</h1>
-        <p class="text-[14px] text-[#8888AA]">Thank you for your purchase. We're processing your order now.</p>
+        <h1 class="text-4xl font-bold tracking-tight text-white">{{ $t('storefront.checkout.orderConfirmed') }}</h1>
+        <p class="text-[14px] text-[#8888AA]">{{ $t('storefront.checkout.orderConfirmedDesc') }}</p>
       </div>
 
       <!-- Progress bar -->
@@ -20,7 +20,7 @@
         <div class="h-full bg-[#6366F1] rounded-full animate-drain shadow-[0_0_8px_rgba(99,102,241,0.6)]" />
       </div>
 
-      <p class="text-[10px] font-black tracking-[0.3em] text-[#50506A]">Redirecting to tracking...</p>
+      <p class="text-[10px] font-black tracking-[0.3em] text-[#50506A]">{{ $t('storefront.checkout.redirectingToTracking') }}</p>
     </div>
   </Teleport>
 </template>

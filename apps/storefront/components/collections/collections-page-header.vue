@@ -6,10 +6,10 @@
 
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
         <div class="space-y-2">
-          <h1 class="text-5xl lg:text-6xl font-bold tracking-tighter">Collections</h1>
+          <h1 class="text-5xl lg:text-6xl font-bold tracking-tighter">{{ $t('storefront.collections.title') }}</h1>
           <p class="text-[15px] text-[#50506A] font-bold tracking-widest flex items-center gap-3">
-            Catalog Directory <span class="w-8 h-px bg-[#1C1C30]" />
-            <span class="text-[#6366F1]">{{ sectorCount }} Active Sectors</span>
+            {{ $t('storefront.collections.catalogDirectory') }} <span class="w-8 h-px bg-[#1C1C30]" />
+            <span class="text-[#6366F1]">{{ sectorCount }} {{ $t('storefront.collections.activeSectors') }}</span>
           </p>
         </div>
 
@@ -17,7 +17,7 @@
           <component :is="VButton" variant="none" type="button"
             className="bg-[#0D0D18] border border-[#1C1C30] px-5 py-3 rounded-[10px] text-[11px] font-bold tracking-widest text-[#8888AA] hover:text-[#F0F0FF] hover:border-[#6366F1] transition-all flex items-center gap-2">
             <Icon name="ph:arrows-down-up" class="w-4 h-4" />
-            Sort: Default
+            {{ $t('storefront.collections.sortDefault') }}
           </component>
         </div>
       </div>

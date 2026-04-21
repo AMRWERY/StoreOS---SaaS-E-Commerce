@@ -36,12 +36,14 @@ const orderItems: ReviewItem[] = [
   },
 ]
 
-const trackerSteps: TrackerStep[] = [
-  { label: 'Confirmed', status: 'completed' },
-  { label: 'Processing', status: 'active' },
-  { label: 'Shipped', status: 'pending' },
-  { label: 'Delivered', status: 'pending' },
-]
+const { t } = useI18n()
+
+const trackerSteps = computed<TrackerStep[]>(() => [
+  { label: t('storefront.checkout.confirmed'), status: 'completed' },
+  { label: t('storefront.checkout.processing'), status: 'active' },
+  { label: t('storefront.checkout.shipped'), status: 'pending' },
+  { label: t('storefront.checkout.delivered'), status: 'pending' },
+])
 
 const summary: OrderSummary = {
   subtotal: '688.00',

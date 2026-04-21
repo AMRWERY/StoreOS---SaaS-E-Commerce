@@ -23,12 +23,12 @@
           <div class="px-6 py-6 border-b border-border-subtle bg-bg-primary">
             <div class="flex items-center justify-between mb-2">
               <h3 class="text-[10px] font-black text-tx-muted tracking-[0.2em]">
-                Notifications Center
-              </h3>
+              {{ $t('storefront.notifications.center') }}
+            </h3>
               <div class="flex items-center gap-4">
                 <button @click="markAllAsRead"
                   class="text-[9px] font-black tracking-widest text-brand hover:text-brand-hover transition-colors">
-                  Mark Read
+                  {{ $t('storefront.notifications.markRead') }}
                 </button>
                 <button @click="isInternalOpen = false" class="text-tx-muted hover:text-tx-primary transition-colors">
                   <Icon name="ph:x-bold" class="text-lg" />
@@ -36,9 +36,9 @@
               </div>
             </div>
             <h2 class="text-2xl font-bold text-tx-primary tracking-tight flex items-center gap-3">
-              Updates <span
+              {{ $t('storefront.notifications.updates') }} <span
                 class="bg-brand-dim text-brand text-[10px] px-2 py-0.5 rounded-full border border-brand/20">{{
-                  unreadCount }} New</span>
+                  unreadCount }} {{ $t('storefront.notifications.new') }}</span>
             </h2>
           </div>
 
@@ -84,7 +84,7 @@
                     <div v-if="n.type === 'orders'" class="mt-3">
                       <button
                         class="text-[10px] font-black tracking-widest text-brand hover:text-brand-hover flex items-center gap-2 transition-all active:translate-x-1">
-                        View Order Details
+                        {{ $t('storefront.notifications.viewOrderDetails') }}
                         <Icon name="ph:caret-right-bold" class="rtl:rotate-180" />
                       </button>
                     </div>
@@ -99,16 +99,15 @@
                 class="w-20 h-20 rounded-2xl bg-bg-elevated flex items-center justify-center mb-6 border border-border-subtle">
                 <Icon name="ph:bell-slash-bold" class="text-3xl text-tx-muted opacity-40" />
               </div>
-              <h4 class="text-xl font-bold text-tx-secondary tracking-tight">Everything is quiet</h4>
-              <p class="text-sm text-tx-muted mt-2 max-w-[260px] leading-relaxed">Notifications about your shopping
-                activity and account security will appear here.</p>
+              <h4 class="text-xl font-bold text-tx-secondary tracking-tight">{{ $t('storefront.notifications.quiet') }}</h4>
+              <p class="text-sm text-tx-muted mt-2 max-w-[260px] leading-relaxed">{{ $t('storefront.notifications.quietDesc') }}</p>
             </div>
           </div>
 
           <!-- Footer -->
           <div class="px-6 py-6 border-t border-border-subtle bg-bg-base">
             <VButton variant="secondary" className="w-full py-4 font-black">
-              View Activity Log
+              {{ $t('storefront.notifications.viewActivityLog') }}
             </VButton>
           </div>
         </aside>

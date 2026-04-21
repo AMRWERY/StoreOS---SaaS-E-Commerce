@@ -4,11 +4,11 @@
 
       <!-- Header -->
       <div class="flex items-center justify-between mb-10">
-        <h2 class="text-xl font-bold">Order Summary</h2>
+        <h2 class="text-xl font-bold">{{ $t('storefront.checkout.orderSummary') }}</h2>
         <div class="flex items-center gap-2 bg-[#6366F1]/10 px-2 py-1 rounded-[6px]">
           <Icon name="ph:shopping-bag-fill" class="w-3 h-3 text-[#6366F1]" />
           <span class="text-[9px] font-black text-[#6366F1] tracking-widest">
-            {{ items.length }} Items
+            {{ items.length }} {{ $t('storefront.shop.items') }}
           </span>
         </div>
       </div>
@@ -23,7 +23,7 @@
           <div class="flex-1 min-w-0">
             <h4 class="text-[13px] font-bold text-white leading-tight truncate">{{ item.name }}</h4>
             <p class="text-[10px] text-[#50506A] mt-1 font-medium tracking-tighter">{{ item.meta }}</p>
-            <p class="text-[9px] font-bold text-[#6366F1] mt-1 tracking-widest">Qty: {{ item.qty }}</p>
+            <p class="text-[9px] font-bold text-[#6366F1] mt-1 tracking-widest">{{ $t('storefront.checkout.qty') }}: {{ item.qty }}</p>
           </div>
           <p class="text-[13px] font-bold text-[#8888AA] shrink-0">EGP {{ item.price }}</p>
         </div>
@@ -32,15 +32,15 @@
       <!-- Price Breakdown -->
       <div class="space-y-4 mb-10 text-[13px] font-medium text-[#8888AA]">
         <div class="flex justify-between">
-          <span>Subtotal</span>
+          <span>{{ $t('storefront.checkout.subtotal') }}</span>
           <span class="text-[#F0F0FF]">EGP {{ subtotal }}</span>
         </div>
         <div class="flex justify-between items-center">
-          <span>Shipping</span>
+          <span>{{ $t('storefront.checkout.shipping') }}</span>
           <span class="text-[#6366F1] font-bold">+ EGP {{ shipping }}</span>
         </div>
         <div class="flex justify-between">
-          <span>VAT (14%)</span>
+          <span>{{ $t('storefront.checkout.vat') }}</span>
           <span>EGP {{ vat }}</span>
         </div>
       </div>
@@ -48,14 +48,14 @@
       <!-- Total Due -->
       <div class="pt-8 border-t border-[#1C1C30] space-y-2">
         <div class="flex items-baseline justify-between">
-          <span class="text-[14px] font-bold tracking-widest text-[#F0F0FF]">Total Due</span>
+          <span class="text-[14px] font-bold tracking-widest text-[#F0F0FF]">{{ $t('storefront.checkout.totalDue') }}</span>
           <div class="text-end">
             <p class="text-[32px] font-bold text-[#6366F1] tracking-tighter leading-none">
               <span class="text-[14px] me-1 opacity-60">EGP</span>{{ total }}
             </p>
           </div>
         </div>
-        <p class="text-end text-[9px] font-black text-[#50506A] tracking-[0.2em]">All Taxes Included</p>
+        <p class="text-end text-[9px] font-black text-[#50506A] tracking-[0.2em]">{{ $t('storefront.checkout.allTaxesIncluded') }}</p>
       </div>
     </div>
 
@@ -63,7 +63,7 @@
     <div class="bg-black/20 border border-[#1C1C30] rounded-[12px] p-4 px-6 flex items-center gap-4">
       <Icon name="ph:shield-check-fill" class="w-5 h-5 text-[#6366F1] shrink-0" />
       <p class="text-[11px] font-bold text-[#50506A] tracking-widest">
-        Secure AES-256 Bit Terminal Encryption Active
+        {{ $t('storefront.checkout.secureEncryption') }}
       </p>
     </div>
   </aside>

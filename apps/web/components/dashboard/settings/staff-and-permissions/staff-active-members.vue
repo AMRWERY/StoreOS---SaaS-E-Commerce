@@ -2,9 +2,9 @@
   <div>
     <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl max-w-7xl mx-auto">
       <div class="px-4 py-3.5 flex justify-between items-center border-b border-border-subtle">
-        <h2 class="font-bold text-sm tracking-wide">Active Team Members</h2>
+        <h2 class="font-bold text-sm tracking-wide">{{ $t('dashboard.settings.staff.activeTeamMembers') }}</h2>
         <span
-          class="bg-bg-elevated text-[10px] font-black px-2.5 py-1 rounded-full text-tx-secondary tracking-widest">Total:
+          class="bg-bg-elevated text-[10px] font-black px-2.5 py-1 rounded-full text-tx-secondary tracking-widest">{{ $t('dashboard.settings.staff.total') }}
           {{ members.length.toString().padStart(2, '0') }}</span>
       </div>
 
@@ -41,13 +41,15 @@
 </template>
 
 <script lang="ts" setup>
-const headers = [
-  { key: 'avatar_name', label: 'Avatar & Name', class: 'px-8 py-6', headerClass: 'px-8 py-5' },
-  { key: 'email', label: 'Email Address', class: 'px-6 py-6', headerClass: 'px-6 py-5' },
-  { key: 'role', label: 'Role', class: 'px-6 py-6', headerClass: 'px-6 py-5' },
-  { key: 'active', label: 'Last Active', class: 'px-6 py-6', headerClass: 'px-6 py-5' },
-  { key: 'actions', label: 'Actions', align: 'end', class: 'px-8 py-6', headerClass: 'px-8 py-5' }
-];
+const { t } = useI18n()
+
+const headers = computed(() => [
+  { key: 'avatar_name', label: t('dashboard.settings.staff.avatarAndName'), class: 'px-8 py-6', headerClass: 'px-8 py-5' },
+  { key: 'email', label: t('dashboard.settings.staff.emailAddress'), class: 'px-6 py-6', headerClass: 'px-6 py-5' },
+  { key: 'role', label: t('dashboard.settings.staff.role'), class: 'px-6 py-6', headerClass: 'px-6 py-5' },
+  { key: 'active', label: t('dashboard.settings.staff.lastActive'), class: 'px-6 py-6', headerClass: 'px-6 py-5' },
+  { key: 'actions', label: t('dashboard.settings.staff.actions'), align: 'end', class: 'px-8 py-6', headerClass: 'px-8 py-5' }
+]);
 
 const members = [
   {

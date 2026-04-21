@@ -11,10 +11,9 @@
             Last Sync: 10.04.2024
           </span>
         </div>
-        <h1 class="text-5xl lg:text-6xl font-bold tracking-tight">New Arrivals</h1>
+        <h1 class="text-5xl lg:text-6xl font-bold tracking-tight">{{ $t('storefront.newArrivals.title') }}</h1>
         <p class="text-[15px] text-[#8888AA] max-w-xl leading-relaxed">
-          The latest synchronization of premium gear and refined essentials.
-          Optimized for performance and aesthetic precision.
+          {{ $t('storefront.newArrivals.subtitle') }}
         </p>
       </div>
 

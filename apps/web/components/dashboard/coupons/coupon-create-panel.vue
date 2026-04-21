@@ -15,9 +15,9 @@
         <!-- Header -->
         <div class="px-4 py-3.5 border-b border-border-subtle flex justify-between items-center bg-bg-base">
           <div>
-            <h2 class="text-xl font-bold text-tx-primary tracking-tight">Create New Coupon</h2>
+            <h2 class="text-xl font-bold text-tx-primary tracking-tight">{{ $t('dashboard.coupons.createNewCoupon') }}</h2>
             <p class="text-[10px] text-tx-muted font-bold tracking-widest mt-1">
-              Configure your discount campaign settings
+              {{ $t('dashboard.coupons.configureSettings') }}
             </p>
           </div>
           <VButton @click="$emit('close')" variant="none"
@@ -29,7 +29,7 @@
         <div class="flex-1 px-4 py-3.5 overflow-y-auto hide-scrollbar space-y-10">
           <!-- Coupon Code Input -->
           <div class="space-y-3">
-            <label class="text-[10px] font-black text-tx-muted tracking-widest">Coupon Code</label>
+            <label class="text-[10px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.coupons.couponCode') }}</label>
             <div class="relative group">
               <VInput v-model="form.code" placeholder="e.g. SUMMER24"
                 inputClass="bg-black border border-border-default rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-brand outline-none transition pe-14" />
@@ -43,7 +43,7 @@
 
           <!-- Discount Type Segmented Control -->
           <div class="space-y-3">
-            <label class="text-[10px] font-black text-tx-muted tracking-widest">Discount Type</label>
+            <label class="text-[10px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.coupons.discountType') }}</label>
             <div class="bg-black p-1.5 rounded-2xl flex border border-border-subtle">
               <button v-for="type in discountTypes" :key="type.value" @click="form.discountType = type.value"
                 class="flex-1 py-3.5 text-xs font-bold tracking-tight rounded-xl transition-all duration-300"
@@ -54,7 +54,7 @@
           </div>
 
           <!-- Value Input -->
-          <VInput v-model="form.value" :label="form.discountType === 'percentage' ? 'Percentage (%)' : 'Fixed Amount'"
+          <VInput v-model="form.value" :label="form.discountType === 'percentage' ? $t('dashboard.coupons.percentage') : $t('dashboard.coupons.fixedAmount')"
             placeholder="0.00" :type="form.discountType === 'percentage' ? 'text' : 'number'">
             <template #prefix v-if="form.discountType === 'percentage'">
               <span class="absolute end-5 top-1/2 -translate-y-1/2 text-tx-muted font-bold">%</span>
@@ -63,8 +63,8 @@
 
           <!-- Min Order & Max Uses -->
           <div class="grid grid-cols-2 gap-6">
-            <VInput v-model="form.minOrder" label="Min Order" placeholder="Opt." />
-            <VInput v-model="form.maxUses" label="Max Redemption Users" placeholder="Unlimited" />
+            <VInput v-model="form.minOrder" :label="$t('dashboard.coupons.minOrder')" :placeholder="$t('dashboard.coupons.optional')" />
+            <VInput v-model="form.maxUses" :label="$t('dashboard.coupons.maxRedemption')" :placeholder="$t('dashboard.coupons.unlimited')" />
           </div>
 
           <!-- Date Selection Design -->
@@ -73,11 +73,11 @@
             <VDatePicker v-model="form.startDate" label="Starts">
               <template #trigger="{ selectedDate }">
                 <div class="space-y-2">
-                  <label class="text-[10px] font-black text-tx-muted tracking-widest">Starts</label>
+                  <label class="text-[10px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.coupons.starts') }}</label>
                   <div class="relative group cursor-pointer">
                     <Icon name="ph:calendar-blank-bold"
                       class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-brand" />
-                    <input readonly :value="selectedDate || 'Immediate Activation'"
+                    <input readonly :value="selectedDate || $t('dashboard.coupons.immediateActivation')"
                       class="w-full bg-bg-primary border border-border-subtle rounded-2xl ps-14 pe-5 py-4 text-sm font-bold text-tx-primary outline-none group-hover:border-border-default transition-colors" />
                   </div>
                 </div>
@@ -88,7 +88,7 @@
             <VDatePicker v-model="form.expiryDate" label="Expires">
               <template #trigger="{ selectedDate }">
                 <div class="space-y-2">
-                  <label class="text-[10px] font-black text-tx-muted tracking-widest">Expires</label>
+                  <label class="text-[10px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.coupons.expires') }}</label>
                   <div class="relative group cursor-pointer">
                     <Icon name="ph:calendar-x-bold"
                       class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-accent" />
@@ -107,7 +107,7 @@
             className="w-full bg-brand hover:bg-brand-hover text-tx-primary py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-indigo-600/30 active:scale-[0.98]"
             variant="none" @click="$emit('create')">
             <Icon name="ph:check-circle-bold" class="text-lg" />
-            Create Coupon
+            {{ $t('dashboard.coupons.createCoupon') }}
           </VButton>
         </div>
       </div>
@@ -132,10 +132,12 @@ const form = ref({
   expiryDate: '',
 });
 
-const discountTypes = [
-  { label: 'Percentage', value: 'percentage' },
-  { label: 'Fixed Amount', value: 'fixed' },
-];
+const { t } = useI18n()
+
+const discountTypes = computed(() => [
+  { label: t('dashboard.coupons.percentage'), value: 'percentage' },
+  { label: t('dashboard.coupons.fixedAmount'), value: 'fixed' },
+]);
 
 const generateCode = () => {
   form.value.code = Math.random().toString(36).substring(2, 8).toUpperCase();

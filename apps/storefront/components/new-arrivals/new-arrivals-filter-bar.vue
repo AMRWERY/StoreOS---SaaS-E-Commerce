@@ -12,11 +12,11 @@
         <component :is="VButton" variant="none" type="button"
           className="flex items-center gap-2 text-[11px] font-bold text-[#50506A] tracking-widest hover:text-[#8888AA]">
           <Icon name="ph:funnel-simple" class="w-4 h-4" />
-          Advanced Filter
+          {{ $t('storefront.shop.advancedFilter') }}
         </component>
         <component :is="VButton" variant="none" type="button"
           className="flex items-center gap-2 text-[11px] font-bold text-[#50506A] tracking-widest hover:text-[#8888AA]">
-          Sort By: <span class="text-[#F0F0FF]">Latest</span>
+          {{ $t('storefront.shop.sortBy') }}: <span class="text-[#F0F0FF]">{{ $t('storefront.shop.latest') }}</span>
           <Icon name="ph:caret-down" class="w-3 h-3" />
         </component>
       </div>

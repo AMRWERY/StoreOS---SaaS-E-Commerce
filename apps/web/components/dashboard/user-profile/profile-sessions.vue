@@ -3,11 +3,10 @@
     <div class="flex justify-between items-center">
       <div class="flex items-center gap-3">
         <Icon name="ph:broadcast-bold" class="text-brand text-lg" />
-        <h3 class="text-sm font-bold">Active Sessions</h3>
+        <h3 class="text-sm font-bold">{{ $t('dashboard.profile.activeSessions') }}</h3>
       </div>
       <button
-        class="text-[9px] font-bold text-accent/80 hover:text-accent transition-colors tracking-widest">Sign
-        out of all other sessions</button>
+        class="text-[9px] font-bold text-accent/80 hover:text-accent transition-colors tracking-widest">{{ $t('dashboard.profile.signOutAllSessions') }}</button>
     </div>
 
     <div class="space-y-3">
@@ -21,7 +20,7 @@
             <div class="flex items-center gap-2">
               <h4 class="text-sm font-bold">{{ session.device }}</h4>
               <span v-if="session.current"
-                class="text-[8px] font-black px-1.5 py-0.5 bg-brand-dim text-brand rounded-md tracking-widest">Current</span>
+                class="text-[8px] font-black px-1.5 py-0.5 bg-brand-dim text-brand rounded-md tracking-widest">{{ $t('dashboard.profile.current') }}</span>
             </div>
             <p class="text-[10px] text-tx-muted mt-1 font-medium">{{ session.meta }}</p>
           </div>

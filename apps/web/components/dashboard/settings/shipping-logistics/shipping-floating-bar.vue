@@ -7,10 +7,10 @@
       </div>
       <div class="flex items-center gap-8">
         <button class="flex items-center gap-2 text-xs font-bold text-tx-secondary hover:text-tx-primary transition-colors">
-          <Icon name="ph:rocket-launch-bold" /> Quick Action
+          <Icon name="ph:rocket-launch-bold" /> {{ $t('dashboard.settings.quickAction') }}
         </button>
         <button class="flex items-center gap-2 text-xs font-bold text-tx-secondary hover:text-tx-primary transition-colors">
-          <Icon name="ph:clock-counter-clockwise-bold" /> Audit Logs
+          <Icon name="ph:clock-counter-clockwise-bold" /> {{ $t('dashboard.settings.shipping.auditLogs') }}
         </button>
       </div>
     </div>

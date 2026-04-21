@@ -10,10 +10,10 @@
               <Icon name="ph:money-duotone" class="text-brand text-2xl" />
             </div>
             <div>
-              <h3 class="text-base font-bold">Cash on Delivery</h3>
+              <h3 class="text-base font-bold">{{ $t('dashboard.settings.payment.cashOnDelivery') }}</h3>
               <div class="flex items-center gap-1.5 mt-1">
                 <div class="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_#10b981]"></div>
-                <span class="text-[9px] font-black text-success tracking-widest">Status: Active</span>
+                <span class="text-[9px] font-black text-success tracking-widest">{{ $t('common.status') }}: {{ $t('common.active') }}</span>
               </div>
             </div>
           </div>
@@ -23,7 +23,7 @@
 
         <div class="bg-bg-overlay border border-border-subtle rounded-xl p-5 mb-6">
           <p class="text-[9px] font-black text-tx-muted tracking-widest mb-2">Settlement_Type</p>
-          <p class="text-sm font-bold text-tx-secondary">Immediate Physical Exchange</p>
+          <p class="text-sm font-bold text-tx-secondary">{{ $t('dashboard.settings.payment.immediateExchange') }}</p>
         </div>
 
         <div class="flex justify-between text-[9px] font-black text-tx-muted tracking-widest">

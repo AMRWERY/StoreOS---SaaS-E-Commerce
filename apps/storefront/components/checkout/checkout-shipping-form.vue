@@ -5,9 +5,9 @@
     <section class="space-y-6">
       <div class="flex items-center gap-3">
         <span class="text-[#6366F1] font-bold text-sm">(01)</span>
-        <h2 class="text-xl font-bold tracking-tight">Contact Information</h2>
+        <h2 class="text-xl font-bold tracking-tight">{{ $t('storefront.checkout.contactInformation') }}</h2>
       </div>
-      <VInput v-model="form.emailOrPhone" label="Email or Phone"
+      <VInput v-model="form.emailOrPhone" :label="$t('storefront.checkout.emailOrPhone')"
         labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
         inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all !placeholder:text-[#262640]" />
     </section>
@@ -16,28 +16,28 @@
     <section class="space-y-8">
       <div class="flex items-center gap-3">
         <span class="text-[#6366F1] font-bold text-sm">(02)</span>
-        <h2 class="text-xl font-bold tracking-tight">Shipping Address</h2>
+        <h2 class="text-xl font-bold tracking-tight">{{ $t('storefront.checkout.shippingAddress') }}</h2>
       </div>
 
       <div class="grid grid-cols-2 gap-4">
-        <VInput v-model="form.firstName" label="First Name"
+        <VInput v-model="form.firstName" :label="$t('storefront.checkout.firstName')"
           labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
           inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all" />
-        <VInput v-model="form.lastName" label="Last Name"
+        <VInput v-model="form.lastName" :label="$t('storefront.checkout.lastName')"
           labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
           inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all" />
       </div>
 
-      <VInput v-model="form.address" label="Street Address"
+      <VInput v-model="form.address" :label="$t('storefront.checkout.streetAddress')"
         labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
         inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all" />
 
       <div class="grid grid-cols-2 gap-4">
-        <VInput v-model="form.city" label="City"
+        <VInput v-model="form.city" :label="$t('storefront.checkout.city')"
           labelClass="text-[10px] font-black tracking-[0.2em] text-[#50506A]"
           inputClass="!w-full !bg-[#0D0D18] !border-[#1C1C30] !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-[#6366F1] !outline-none !transition-all" />
         <div class="space-y-2">
-          <label class="text-[10px] font-black tracking-[0.2em] text-[#50506A]">Governorate</label>
+          <label class="text-[10px] font-black tracking-[0.2em] text-[#50506A]">{{ $t('storefront.checkout.governorate') }}</label>
           <div class="relative">
             <select v-model="form.governorate"
               class="w-full bg-[#0D0D18] border border-[#1C1C30] rounded-[8px] px-5 py-4 text-[13px] appearance-none outline-none focus:border-[#6366F1] transition-all text-[#F0F0FF]">
@@ -54,7 +54,7 @@
     <section class="space-y-6">
       <div class="flex items-center gap-3">
         <span class="text-[#6366F1] font-bold text-sm">(03)</span>
-        <h2 class="text-xl font-bold tracking-tight">Shipping Method</h2>
+        <h2 class="text-xl font-bold tracking-tight">{{ $t('storefront.checkout.shippingMethod') }}</h2>
       </div>
 
       <div class="space-y-3">
@@ -82,7 +82,7 @@
     <VButton variant="none"
       className="w-full bg-[#6366F1] hover:bg-[#818CF8] text-white py-5 rounded-[12px] font-bold text-[14px] tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(99,102,241,0.2)] active:scale-[0.99]"
       @click="$emit('continue')">
-      Submit Order
+      {{ $t('storefront.checkout.submitOrder') }}
       <Icon name="ph:shopping-cart-bold" class="w-5 h-5" />
     </VButton>
   </div>

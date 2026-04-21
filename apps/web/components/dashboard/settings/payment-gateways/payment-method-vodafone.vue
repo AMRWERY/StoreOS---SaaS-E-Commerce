@@ -7,8 +7,8 @@
           <Icon name="ph:broadcast-bold" class="text-danger text-2xl" />
         </div>
         <div>
-          <h3 class="text-base font-bold">Vodafone Cash</h3>
-          <p class="text-xs text-tx-secondary font-medium">Direct mobile wallet transfer</p>
+          <h3 class="text-base font-bold">{{ $t('dashboard.settings.payment.vodafone') }}</h3>
+          <p class="text-xs text-tx-secondary font-medium">{{ $t('dashboard.settings.payment.vodafoneDesc') }}</p>
         </div>
       </div>
       <div class="flex-1 w-full flex flex-col md:flex-row items-end gap-4">
@@ -23,7 +23,7 @@
         </div>
         <VButton variant="secondary"
           className="px-8 py-3 bg-bg-elevated hover:bg-bg-elevated border border-border-default rounded-xl text-[11px] font-black tracking-widest text-tx-secondary transition-colors">
-          Verify
+          {{ $t('dashboard.settings.payment.verify') }}
         </VButton>
       </div>
     </section>

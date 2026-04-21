@@ -55,7 +55,7 @@
           <!-- Color Select -->
           <div class="space-y-4">
             <div class="flex justify-between items-center">
-              <h4 class="text-[11px] font-black tracking-[0.2em] text-[#50506A]">Color: <span class="text-[#F0F0FF]">{{
+              <h4 class="text-[11px] font-black tracking-[0.2em] text-[#50506A]">{{ $t('storefront.product.color') }}: <span class="text-[#F0F0FF]">{{
                 selectedColor }}</span></h4>
             </div>
             <div class="flex gap-3">
@@ -69,7 +69,7 @@
 
           <!-- Size Select -->
           <div class="space-y-4">
-            <h4 class="text-[11px] font-black tracking-[0.2em] text-[#50506A]">Size</h4>
+            <h4 class="text-[11px] font-black tracking-[0.2em] text-[#50506A]">{{ $t('storefront.product.size') }}</h4>
             <div class="flex gap-2">
               <button v-for="size in ['38mm', '42mm']" :key="size" @click="selectedSize = size"
                 class="px-6 py-2 rounded-[8px] border text-[12px] font-bold transition-all"
@@ -95,17 +95,17 @@
             <VButton variant="none"
               className="flex-1 bg-[#6366F1] hover:bg-[#818CF8] text-white rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
               <Icon name="solar:cart-large-minimalistic-bold" class="w-5 h-5" />
-              Add to Cart
+              {{ $t('storefront.product.addToCart') }}
             </VButton>
             <VButton to="/checkout" variant="none"
               className="flex-1 flex items-center justify-center border border-[#1C1C30] hover:bg-white/5 text-[#F0F0FF] rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all">
-              Buy Now
+              {{ $t('storefront.product.buyNow') }}
             </VButton>
           </div>
 
           <div class="flex items-center gap-2 pt-4">
             <div class="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
-            <span class="text-[11px] font-bold text-[#10B981] tracking-widest">In Stock</span>
+            <span class="text-[11px] font-bold text-[#10B981] tracking-widest">{{ $t('storefront.product.inStock') }}</span>
           </div>
 
           <!-- Accordion -->
@@ -125,12 +125,12 @@
       <section class="mt-32 border-t border-[#1C1C30] pt-20">
         <div class="flex items-end justify-between mb-8">
           <div>
-            <h2 class="text-3xl font-bold tracking-tight">Related Products</h2>
-            <p class="text-[13px] text-[#50506A] mt-2">Refined items you might also appreciate.</p>
+            <h2 class="text-3xl font-bold tracking-tight">{{ $t('storefront.product.relatedProducts') }}</h2>
+            <p class="text-[13px] text-[#50506A] mt-2">{{ $t('storefront.product.relatedDesc') }}</p>
           </div>
           <nuxt-link-locale to="/shop-all"
             class="text-[11px] font-bold text-[#6366F1] hover:text-[#818CF8] transition-colors tracking-widest flex items-center gap-2">
-            View All
+            {{ $t('common.viewAll') }}
             <Icon name="solar:arrow-right-linear" class="w-4 h-4" />
           </nuxt-link-locale>
         </div>
@@ -143,6 +143,7 @@
 
 <script lang="ts" setup>
 const route = useRoute()
+const { t } = useI18n()
 
 const slugParam = computed(() => String(route.params.slug ?? ''))
 
@@ -163,8 +164,8 @@ const product = computed(() => ({
 }))
 
 const breadcrumbItems = computed(() => [
-  { label: 'Home', to: '/' },
-  { label: 'Shop All', to: '/shop-all' },
+  { label: t('common.home'), to: '/' },
+  { label: t('storefront.nav.shopAll'), to: '/shop-all' },
   { label: product.value.name, active: true }
 ]);
 
@@ -187,23 +188,23 @@ const colors = [
 ];
 
 // --- Data ---
-const productSections = [
+const productSections = computed(() => [
   {
     id: 'description',
-    title: 'Description',
-    content: 'Every curve and edge of the Essential Timepiece is engineered for aesthetic harmony and functional excellence. The sapphire crystal glass provides unmatched scratch resistance.'
+    title: t('storefront.product.description'),
+    content: t('storefront.product.descriptionContent')
   },
   {
     id: 'specifications',
-    title: 'Specifications',
-    content: 'Brushed stainless steel case, genuine leather strap, sapphire crystal glass, 5ATM water resistance.'
+    title: t('storefront.product.specifications'),
+    content: t('storefront.product.specificationsContent')
   },
   {
     id: 'shipping',
-    title: 'Shipping & Returns',
-    content: 'Free standard shipping on all orders over $500. Returns accepted within 30 days of purchase.'
+    title: t('storefront.product.shippingReturns'),
+    content: t('storefront.product.shippingContent')
   }
-];
+]);
 
 // --- Utilities ---
 const increment = () => quantity.value++;

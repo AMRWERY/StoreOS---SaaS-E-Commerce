@@ -6,25 +6,25 @@
         <div class="w-7 h-7 bg-brand rounded-lg flex items-center justify-center text-xs font-black text-tx-primary">
           {{ selectedCount }}
         </div>
-        <span class="text-xs font-bold text-tx-secondary tracking-widest">selected</span>
+        <span class="text-xs font-bold text-tx-secondary tracking-widest">{{ $t('dashboard.orders.selected') }}</span>
       </div>
       <div class="flex items-center gap-1">
         <VButton variant="none"
           className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-tx-secondary hover:text-tx-primary transition-colors">
-          <Icon name="ph:check-circle-bold" class="text-brand text-sm" /> Confirm Selected
+          <Icon name="ph:check-circle-bold" class="text-brand text-sm" /> {{ $t('dashboard.orders.confirmSelected') }}
         </VButton>
         <VButton variant="none"
           className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-tx-secondary hover:text-tx-primary transition-colors">
-          <Icon name="ph:printer-bold" class="text-sm" /> Print Labels
+          <Icon name="ph:printer-bold" class="text-sm" /> {{ $t('dashboard.orders.printLabels') }}
         </VButton>
         <VButton variant="none"
           className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-tx-secondary hover:text-tx-primary transition-colors">
-          <Icon name="ph:export-bold" class="text-sm" /> Export
+          <Icon name="ph:export-bold" class="text-sm" /> {{ $t('dashboard.orders.export') }}
         </VButton>
         <div class="w-px h-6 bg-bg-elevated mx-2"></div>
         <VButton variant="none"
           className="flex items-center gap-2 px-4 py-3 text-[10px] font-black tracking-widest text-danger/80 hover:text-danger transition-colors">
-          <Icon name="ph:x-circle-bold" class="text-sm" /> Cancel Selected
+          <Icon name="ph:x-circle-bold" class="text-sm" /> {{ $t('dashboard.orders.cancelSelected') }}
         </VButton>
       </div>
     </div>

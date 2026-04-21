@@ -3,10 +3,10 @@
     <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl">
       <div class="px-4 py-3.5 border-b border-border-subtle flex justify-between items-center bg-bg-elevated">
         <h2 class="font-bold flex items-center gap-2">
-          <Icon name="ph:squares-four-bold" class="text-brand" />Inventory List
+          <Icon name="ph:squares-four-bold" class="text-brand" />{{ $t('dashboard.inventory.inventoryList') }}
         </h2>
         <div class="flex items-center gap-4">
-          <span class="text-[10px] font-bold text-tx-muted">Showing {{ items.length }} items</span>
+          <span class="text-[10px] font-bold text-tx-muted">{{ $t('dashboard.inventory.showing', { count: items.length }) }}</span>
         </div>
       </div>
 
@@ -34,9 +34,9 @@
 
         <!-- Current Stock -->
         <template #cell(current)="{ item }">
-          <div v-if="item.current === 0" class="text-[11px] font-black tracking-widest text-danger">OUT OF STOCK</div>
+          <div v-if="item.current === 0" class="text-[11px] font-black tracking-widest text-danger">{{ $t('dashboard.inventory.outOfStock') }}</div>
           <div v-else-if="item.current <= item.threshold" class="text-[11px] font-black tracking-widest text-accent">
-            LOW: {{ item.current }}
+            {{ $t('dashboard.inventory.low') }}: {{ item.current }}
           </div>
           <div v-else class="text-[11px] font-black tracking-widest text-success">{{ item.current }}</div>
         </template>
@@ -114,16 +114,18 @@
 </template>
 
 <script lang="ts" setup>
-const headers = [
-  { label: 'Product Details', key: 'name', align: 'start' },
-  { label: 'Category', key: 'category', align: 'start' },
-  { label: 'Current Stock', key: 'current', align: 'start' },
-  { label: 'Incoming', key: 'incoming', align: 'start' },
-  { label: 'Threshold', key: 'threshold', align: 'start' },
-  { label: 'Last Updated', key: 'lastUpdated', align: 'start' },
-  { label: 'Quick Adjust', key: 'quickAdjust', align: 'center' },
-  { label: 'Actions', key: 'actions', align: 'end' }
-]
+const { t } = useI18n()
+
+const headers = computed(() => [
+  { label: t('dashboard.inventory.productDetails'), key: 'name', align: 'start' },
+  { label: t('dashboard.inventory.category'), key: 'category', align: 'start' },
+  { label: t('dashboard.inventory.currentStock'), key: 'current', align: 'start' },
+  { label: t('dashboard.inventory.incoming'), key: 'incoming', align: 'start' },
+  { label: t('dashboard.inventory.threshold'), key: 'threshold', align: 'start' },
+  { label: t('dashboard.inventory.lastUpdated'), key: 'lastUpdated', align: 'start' },
+  { label: t('dashboard.inventory.quickAdjust'), key: 'quickAdjust', align: 'center' },
+  { label: t('common.actions'), key: 'actions', align: 'end' }
+])
 
 const props = defineProps<{
   items: any[]

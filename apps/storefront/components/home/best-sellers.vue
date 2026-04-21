@@ -3,9 +3,8 @@
     <section class="py-24 px-12 md:px-24 max-w-7xl mx-auto">
       <div class="flex items-center justify-between mb-16">
         <div>
-          <h2 class="text-4xl font-bold text-tx-primary tracking-tighter">Best Sellers</h2>
-          <p class="text-[11px] text-brand tracking-[0.2em] mt-2 font-black">Top Performers / Week
-            12</p>
+          <h2 class="text-4xl font-bold text-tx-primary tracking-tighter">{{ $t('storefront.home.bestSellers') }}</h2>
+          <p class="text-[11px] text-brand tracking-[0.2em] mt-2 font-black">{{ $t('storefront.home.topPerformers') }}</p>
         </div>
         <div class="flex gap-4">
           <button

@@ -48,7 +48,7 @@
 
           <nuxt-link-locale v-if="!isAuthenticated" to="/auth/login"
             class="text-sm font-medium text-tx-secondary hover:text-tx-primary transition">
-            Sign In
+            {{ $t('storefront.nav.signIn') }}
           </nuxt-link-locale>
         </div>
       </div>
@@ -93,11 +93,13 @@ const switchLocale = async () => {
   }, 200);
 };
 
-const navLinks: StorefrontNavLink[] = [
-  { label: 'Shop All', path: '/shop-all' },
-  { label: 'New Arrivals', path: '/new-arrivals' },
-  { label: 'Collections', path: '/collections' },
-  { label: 'Editorial', path: '/editorial' },
-  { label: 'Store Builder', path: '/dashboard/builder/home', match: 'exact' },
-]
+const { t } = useI18n()
+
+const navLinks = computed<StorefrontNavLink[]>(() => [
+  { label: t('storefront.nav.shopAll'), path: '/shop-all' },
+  { label: t('storefront.nav.newArrivals'), path: '/new-arrivals' },
+  { label: t('storefront.nav.collections'), path: '/collections' },
+  { label: t('storefront.nav.editorial'), path: '/editorial' },
+  { label: t('storefront.nav.storeBuilder'), path: '/dashboard/builder/home', match: 'exact' },
+])
 </script>

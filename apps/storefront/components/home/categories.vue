@@ -2,8 +2,8 @@
   <div>
     <section class="py-20 px-12 md:px-24 max-w-7xl mx-auto">
       <div class="mb-12">
-        <span class="text-[10px] font-bold tracking-[0.4em] text-tx-muted">Root Directory</span>
-        <h2 class="mt-1 text-3xl font-bold text-tx-primary tracking-tight">Shop by Category</h2>
+        <span class="text-[10px] font-bold tracking-[0.4em] text-tx-muted">{{ $t('storefront.home.rootDirectory') }}</span>
+        <h2 class="mt-1 text-3xl font-bold text-tx-primary tracking-tight">{{ $t('storefront.home.shopByCategory') }}</h2>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
         <div v-for="cat in categories" :key="cat.name" class="group cursor-pointer flex flex-col items-center text-center">

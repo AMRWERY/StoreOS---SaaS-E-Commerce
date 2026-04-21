@@ -30,7 +30,7 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <VButton variant="primary" label="New Order" icon="ph:shopping-cart-light" iconPosition="left"
+          <VButton variant="primary" :label="$t('dashboard.customers.newOrder')" icon="ph:shopping-cart-light" iconPosition="left"
             to="/dashboard/orders/order-form" />
           <button
             class="p-3.5 bg-bg-elevated border border-border-default rounded-xl text-tx-secondary hover:text-tx-primary transition-colors">
@@ -65,16 +65,16 @@
             </button>
           </div>
 
-          <!-- Tab Content -->
+            <!-- Tab Content -->
           <div class="px-4 py-3.5 flex-1">
             <!-- Orders Tab -->
-            <div v-if="activeTab === 'Orders'">
+            <div v-if="activeTab === tabs[0]">
               <div
                 class="grid grid-cols-4 text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-6 px-4">
-                <span>Order #</span>
-                <span class="text-center">Status</span>
-                <span class="text-center">Date</span>
-                <span class="text-end">Total</span>
+                <span>{{ $t('dashboard.orders.orderNumber') }}</span>
+                <span class="text-center">{{ $t('dashboard.orders.status') }}</span>
+                <span class="text-center">{{ $t('dashboard.orders.date') }}</span>
+                <span class="text-end">{{ $t('dashboard.orders.total') }}</span>
               </div>
 
               <div class="space-y-3">
@@ -98,20 +98,20 @@
 
               <button
                 class="w-full mt-8 py-4 text-[10px] font-black tracking-[0.2em] text-tx-secondary hover:text-tx-primary transition-all flex items-center justify-center gap-2 group">
-                View all 42 orders
+                {{ $t('dashboard.customers.viewAllOrders') }}
                 <Icon name="ph:arrow-right-bold" class="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
             <!-- Notes Tab -->
-            <div v-if="activeTab === 'Notes'" class="space-y-6">
+            <div v-if="activeTab === tabs[1]" class="space-y-6">
               <!-- Add Note -->
               <div class="bg-bg-overlay rounded-2xl p-6 border border-border-subtle">
                 <textarea v-model="newNote"
                   class="w-full bg-transparent border-none focus:ring-0 text-sm placeholder-tx-muted resize-none h-24"
-                  placeholder="Type an internal note about this customer... (visible to staff only)"></textarea>
+                  :placeholder="$t('dashboard.customers.notePlaceholder')"></textarea>
                 <div class="flex justify-end mt-4">
-                  <VButton variant="primary" size="sm" label="Add Note" @click="handleAddNote"
+                  <VButton variant="primary" size="sm" :label="$t('dashboard.customers.addNote')" @click="handleAddNote"
                     :disabled="!newNote.trim()" />
                 </div>
               </div>
@@ -139,7 +139,7 @@
             </div>
 
             <!-- Activity Tab -->
-            <div v-if="activeTab === 'Activity'" class="space-y-4">
+            <div v-if="activeTab === tabs[2]" class="space-y-4">
               <div v-for="activity in activities" :key="activity.id"
                 class="flex items-start gap-4 p-4 rounded-xl hover:bg-bg-elevated transition-colors border border-transparent hover:border-border-subtle">
                 <div :class="[activity.bg, 'w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-lg']">
@@ -165,7 +165,7 @@
           <!-- Contact Metadata -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-xl shadow-black/20">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">Contact Metadata</h3>
+              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">{{ $t('dashboard.customers.contactMetadata') }}</h3>
               <button v-if="!isEditingContact" @click="startEditContact"
                 class="text-tx-muted hover:text-brand transition-colors">
                 <Icon name="ph:pencil-simple-line-bold" />
@@ -174,31 +174,31 @@
 
             <div v-if="!isEditingContact" class="space-y-6">
               <div class="group/field">
-                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Primary Phone</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">{{ $t('dashboard.customers.primaryPhone') }}</p>
                 <p class="text-xs font-bold text-tx-secondary">{{ customer.phone }}</p>
               </div>
               <div class="group/field">
-                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Primary Email</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">{{ $t('dashboard.customers.primaryEmail') }}</p>
                 <p class="text-xs font-bold text-tx-secondary">{{ customer.email }}</p>
               </div>
             </div>
 
             <div v-else class="space-y-6">
               <div>
-                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Primary Phone</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">{{ $t('dashboard.customers.primaryPhone') }}</p>
                 <input v-model="editedContact.phone"
                   class="w-full bg-bg-overlay border border-border-default rounded-xl px-4 py-3 text-xs font-bold focus:border-brand/50 focus:ring-1 focus:ring-brand/20 outline-none transition-all"
                   placeholder="+20 000 000 0000" />
               </div>
               <div>
-                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">Primary Email</p>
+                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">{{ $t('dashboard.customers.primaryEmail') }}</p>
                 <input v-model="editedContact.email"
                   class="w-full bg-bg-overlay border border-border-default rounded-xl px-4 py-3 text-xs font-bold focus:border-brand/50 focus:ring-1 focus:ring-brand/20 outline-none transition-all"
                   placeholder="name@company.com" />
               </div>
               <div class="flex gap-2 pt-2">
-                <VButton variant="primary" size="sm" label="Save" className="flex-1" @click="saveContact" />
-                <VButton variant="secondary" size="sm" label="Cancel" @click="isEditingContact = false" />
+                <VButton variant="primary" size="sm" :label="$t('common.save')" className="flex-1" @click="saveContact" />
+                <VButton variant="secondary" size="sm" :label="$t('common.cancel')" @click="isEditingContact = false" />
               </div>
             </div>
           </section>
@@ -206,7 +206,7 @@
           <!-- Shipping Destinations -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 overflow-hidden">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">Shipping Destinations</h3>
+              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">{{ $t('dashboard.customers.shippingDestinations') }}</h3>
               <button
                 class="text-tx-primary bg-bg-elevated rounded-md p-1 hover:bg-bg-elevated transition-all border border-border-subtle">
                 <Icon name="ph:plus-bold" />
@@ -227,7 +227,7 @@
           <!-- Customer Tags -->
           <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">Customer Tags</h3>
+              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">{{ $t('dashboard.customers.customerTags') }}</h3>
               <button class="text-tx-muted hover:text-brand transition-colors">
                 <Icon name="ph:gear-six-bold" />
               </button>
@@ -247,7 +247,7 @@
                 <Icon name="ph:shield-check-fill" class="text-success text-2xl" />
               </div>
               <div>
-                <h3 class="text-[10px] font-semibold text-tx-secondary tracking-[0.6px] mb-1">Risk Analysis
+                <h3 class="text-[10px] font-semibold text-tx-secondary tracking-[0.6px] mb-1">{{ $t('dashboard.customers.riskAnalysis') }}
                 </h3>
                 <div class="flex items-center gap-2">
                   <div class="w-2 h-2 rounded-full bg-success animate-pulse"></div>
@@ -258,7 +258,7 @@
             </div>
             <div
               class="mt-6 pt-6 border-t border-border-subtle flex justify-between items-center text-[8px] font-bold text-tx-muted tracking-widest">
-              <span>Last Verified by System</span>
+              <span>{{ $t('dashboard.customers.lastVerified') }}</span>
               <span>{{ customer.lastVerified }}</span>
             </div>
           </section>
@@ -271,7 +271,7 @@
         <div
           class="flex items-center gap-2 text-[10px] font-bold text-tx-secondary tracking-widest border-e border-border-default pe-6">
           <Icon name="ph:command-bold" class="text-sm" />
-          <span>Commands</span>
+          <span>{{ $t('dashboard.customers.commands') }}</span>
           <span
             class="ms-2 px-1.5 py-0.5 bg-bg-elevated border border-border-default rounded text-[8px] text-tx-secondary">⌘K</span>
         </div>
@@ -311,8 +311,10 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
+
 const activeTab = ref('Orders')
-const tabs = ['Orders', 'Notes', 'Activity']
+const tabs = computed(() => ['Orders', 'Notes', 'Activity'])
 const newNote = ref('')
 const isEditingContact = ref(false)
 const editedContact = ref({ phone: '', email: '' })

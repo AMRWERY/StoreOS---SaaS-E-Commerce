@@ -3,8 +3,8 @@
     <section class="py-24 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Sound familiar?</h2>
-          <p class="text-gray-400">Traditional retail tools weren't built for the modern velocity of commerce.</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">{{ $t('home.problem.title') }}</h2>
+          <p class="text-gray-400">{{ $t('home.problem.subtitle') }}</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
@@ -17,7 +17,7 @@
         </div>
 
         <div class="mt-16 text-center">
-          <p class="text-orange-500 font-bold text-xs tracking-[0.2em] mb-4">There's a better way</p>
+          <p class="text-orange-500 font-bold text-xs tracking-[0.2em] mb-4">{{ $t('home.problem.betterWay') }}</p>
           <div class="animate-bounce">↓</div>
         </div>
       </div>
@@ -26,21 +26,23 @@
 </template>
 
 <script lang="ts" setup>
-const problems = [
+const { t } = useI18n()
+
+const problems = computed(() => [
   {
-    title: 'Taking orders on WhatsApp',
-    desc: 'Losing track of screenshots, manual follow-ups, and chaotic group chats that lead to missed sales.',
+    title: t('home.problem.whatsapp.title'),
+    desc: t('home.problem.whatsapp.desc'),
     icon: 'ph:chat-centered-dots-bold'
   },
   {
-    title: 'Managing Inventory on Excel',
-    desc: 'Overselling products because stock levels aren\'t synced. Manual updates that are never actually up to date.',
+    title: t('home.problem.excel.title'),
+    desc: t('home.problem.excel.desc'),
     icon: 'ph:file-xls-bold'
   },
   {
-    title: 'No idea of profitability',
-    desc: 'Revenue is coming in, but you don\'t know your net margin after shipping, fees, and returns.',
+    title: t('home.problem.profitability.title'),
+    desc: t('home.problem.profitability.desc'),
     icon: 'ph:chart-bar-bold'
   }
-]
+])
 </script>
