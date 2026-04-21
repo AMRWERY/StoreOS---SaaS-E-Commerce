@@ -17,7 +17,6 @@
             <button @click="scrollTo('features')" class="hover:text-tx-primary transition">Features</button>
             <button @click="scrollTo('integrations')" class="hover:text-tx-primary transition">Integrations</button>
             <button @click="scrollTo('pricing')" class="hover:text-tx-primary transition">Pricing</button>
-            <!-- <button @click="openDemo" class="hover:text-tx-primary transition">Demo</button> -->
           </div>
         </div>
 
@@ -30,28 +29,25 @@
             <span class="text-xs font-semibold">{{ localeLabel }}</span>
           </VButton>
 
-          <nuxt-link-locale to="/auth/login" class="text-sm font-medium text-tx-secondary hover:text-tx-primary transition">
+          <nuxt-link-locale to="/auth/login"
+            class="text-sm font-medium text-tx-secondary hover:text-tx-primary transition">
             Sign In
           </nuxt-link-locale>
-          <!-- <nuxt-link-locale to="/auth/register"
-            class="bg-brand hover:bg-brand-hover text-white px-4 py-2 rounded-md text-sm font-semibold transition">
-            Start Free Trial
-          </nuxt-link-locale> -->
         </div>
       </div>
     </nav>
-    
+
     <VOverlay :show="showOverlay" />
   </div>
 </template>
 
 <script lang="ts" setup>
-const { openDemo } = useDemoModal()
 const { locale } = useI18n()
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
+
 const switchLocalePath = useSwitchLocalePath();
 
 const isEnglish = computed(() => locale.value === "en");

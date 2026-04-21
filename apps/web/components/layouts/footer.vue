@@ -21,16 +21,18 @@
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Features</nuxt-link-locale>
+                <nuxt-link-locale to="" @click="scrollTo('features')"
+                  class="hover:text-tx-primary transition cursor-pointer">Features</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Dashboard</nuxt-link-locale>
+                <nuxt-link-locale to="/auth/login" class="hover:text-tx-primary transition">Dashboard</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Pricing</nuxt-link-locale>
+                <nuxt-link-locale to="" @click="scrollTo('pricing')"
+                  class="hover:text-tx-primary transition cursor-pointer">Pricing</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Roadmap</nuxt-link-locale>
+                <nuxt-link-locale to="/roadmap" class="hover:text-tx-primary transition">Roadmap</nuxt-link-locale>
               </li>
             </ul>
           </div>
@@ -41,16 +43,16 @@
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Payments</nuxt-link-locale>
+                <nuxt-link-locale to="/payments" class="hover:text-tx-primary transition">Payments</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Shipping</nuxt-link-locale>
+                <nuxt-link-locale to="/shipping" class="hover:text-tx-primary transition">Shipping</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Marketing</nuxt-link-locale>
+                <nuxt-link-locale to="/marketing" class="hover:text-tx-primary transition">Marketing</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Messaging</nuxt-link-locale>
+                <nuxt-link-locale to="/messaging" class="hover:text-tx-primary transition">Messaging</nuxt-link-locale>
               </li>
             </ul>
           </div>
@@ -61,16 +63,16 @@
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">About Us</nuxt-link-locale>
+                <nuxt-link-locale to="/about-us" class="hover:text-tx-primary transition">About Us</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Careers</nuxt-link-locale>
+                <nuxt-link-locale to="/careers" class="hover:text-tx-primary transition">Careers</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Blog</nuxt-link-locale>
+                <nuxt-link-locale to="/blogs" class="hover:text-tx-primary transition">Blogs</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Privacy</nuxt-link-locale>
+                <nuxt-link-locale to="/privacy" class="hover:text-tx-primary transition">Privacy</nuxt-link-locale>
               </li>
             </ul>
           </div>
@@ -81,16 +83,16 @@
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Documentation</nuxt-link-locale>
+                <nuxt-link-locale to="/documentation" class="hover:text-tx-primary transition">Documentation</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Help Center</nuxt-link-locale>
+                <nuxt-link-locale to="/help-center" class="hover:text-tx-primary transition">Help Center</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Community</nuxt-link-locale>
+                <nuxt-link-locale to="/community" class="hover:text-tx-primary transition">Community</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">Contact</nuxt-link-locale>
+                <nuxt-link-locale to="/contact" class="hover:text-tx-primary transition">Contact</nuxt-link-locale>
               </li>
             </ul>
           </div>
@@ -112,5 +114,7 @@
 </template>
 
 <script lang="ts" setup>
-
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
