@@ -12,7 +12,7 @@
         </p>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-          <VButton variant="none"
+          <VButton variant="none" @click="scrollToPricing"
             className="bg-brand hover:bg-brand-hover px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-brand/20 transition">
             Start Free Trial
           </VButton>
@@ -155,6 +155,11 @@
 
 <script lang="ts" setup>
 const { isDemoOpen, openDemo, closeDemo } = useDemoModal()
+
+const scrollToPricing = () => {
+  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })
+}
+
 const videoRef = ref<HTMLVideoElement | null>(null)
 
 watch(isDemoOpen, (open) => {
