@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen bg-[#08080E] text-[#F0F0FF] selection:bg-[#6366F1]/30 p-6 lg:p-12">
+    <div class="min-h-screen bg-bg-base text-tx-primary selection:bg-brand/30 p-6 lg:p-12">
       <!-- --- BREADCRUMBS --- -->
       <VBreadcrumb :items="breadcrumbItems" class="mb-10" />
 
@@ -10,7 +10,7 @@
            ========================================== -->
         <div class="lg:col-span-6 space-y-6">
           <div
-            class="relative w-full lg:max-w-[540px] mx-auto pt-[92%] rounded-[16px] bg-[#0D0D18] border border-[#1C1C30] overflow-hidden group">
+            class="relative w-full lg:max-w-[540px] mx-auto pt-[92%] rounded-[16px] bg-bg-primary border border-border-subtle overflow-hidden group">
             <img :src="productImages[activeImage]"
               class="absolute inset-0 w-full h-full object-cover transition-all duration-700 grayscale-[10%] group-hover:grayscale-0 group-hover:scale-105" />
             <span
@@ -19,8 +19,8 @@
 
           <div class="flex gap-4">
             <div v-for="(img, idx) in productImages" :key="idx" @click="activeImage = idx"
-              class="flex-1 relative pt-[20%] sm:pt-[15%] lg:pt-[22%] rounded-[12px] bg-[#0D0D18] border cursor-pointer overflow-hidden transition-all duration-300"
-              :class="[activeImage === idx ? 'border-[#6366F1] ring-2 ring-[#6366F1]/20' : 'border-[#1C1C30] hover:border-[#262640]']">
+              class="flex-1 relative pt-[20%] sm:pt-[15%] lg:pt-[22%] rounded-[12px] bg-bg-primary border cursor-pointer overflow-hidden transition-all duration-300"
+              :class="[activeImage === idx ? 'border-brand ring-2 ring-brand/20' : 'border-border-subtle hover:border-border-default']">
               <img :src="img" class="absolute inset-0 w-full h-full object-cover"
                 :class="{ 'opacity-50': activeImage !== idx }" />
             </div>
@@ -32,14 +32,14 @@
            ========================================== -->
         <div class="lg:col-span-6 space-y-10">
           <div>
-            <span class="text-[11px] font-black tracking-[0.4em] text-[#6366F1]">Premium Accessories</span>
-            <h1 class="mt-2 text-5xl font-bold tracking-tight">Essential Timepiece</h1>
+            <span class="text-[11px] font-black tracking-[0.4em] text-brand">Premium Accessories</span>
+            <h1 class="mt-2 text-tx-mutedxl font-bold tracking-tight">Essential Timepiece</h1>
 
             <div class="mt-6 flex items-baseline gap-4">
               <div class="flex items-baseline gap-2">
                 <span class="text-4xl font-bold text-white tracking-tighter">$3,200</span>
               </div>
-              <span class="text-[16px] text-[#50506A] line-through">$3,700</span>
+              <span class="text-[16px] text-tx-muted line-through">$3,700</span>
               <div
                 class="bg-[#10B981]/10 border border-[#10B981]/20 px-2 py-0.5 rounded text-[10px] font-black text-[#10B981] tracking-widest">
                 Save $ 500 [14%]
@@ -47,7 +47,7 @@
             </div>
           </div>
 
-          <p class="text-[15px] leading-relaxed text-[#8888AA] font-normal">
+          <p class="text-[15px] leading-relaxed text-tx-secondary font-normal">
             A meticulously crafted timepiece designed for the modern professional. Featuring a brushed stainless steel
             case and genuine leather strap.
           </p>
@@ -55,13 +55,13 @@
           <!-- Color Select -->
           <div class="space-y-4">
             <div class="flex justify-between items-center">
-              <h4 class="text-[11px] font-black tracking-[0.2em] text-[#50506A]">{{ $t('storefront.product.color') }}: <span class="text-[#F0F0FF]">{{
+              <h4 class="text-[11px] font-black tracking-[0.2em] text-tx-muted">{{ $t('storefront.product.color') }}: <span class="text-tx-primary">{{
                 selectedColor }}</span></h4>
             </div>
             <div class="flex gap-3">
               <div v-for="color in colors" :key="color.name" @click="selectedColor = color.name"
-                class="w-8 h-8 rounded-full cursor-pointer p-0.5 border-2 transition-all"
-                :class="[selectedColor === color.name ? 'border-[#6366F1]' : 'border-transparent']">
+                class="w-8 h-8 rounded-full cursor-pointer p-0.5 border-border-default transition-all"
+                :class="[selectedColor === color.name ? 'border-brand' : 'border-transparent']">
                 <div :class="[color.hex, 'w-full h-full rounded-full border border-black/20']"></div>
               </div>
             </div>
@@ -69,11 +69,11 @@
 
           <!-- Size Select -->
           <div class="space-y-4">
-            <h4 class="text-[11px] font-black tracking-[0.2em] text-[#50506A]">{{ $t('storefront.product.size') }}</h4>
+            <h4 class="text-[11px] font-black tracking-[0.2em] text-tx-muted">{{ $t('storefront.product.size') }}</h4>
             <div class="flex gap-2">
               <button v-for="size in ['38mm', '42mm']" :key="size" @click="selectedSize = size"
                 class="px-6 py-2 rounded-[8px] border text-[12px] font-bold transition-all"
-                :class="[selectedSize === size ? 'bg-[#6366F1] border-[#6366F1] text-white' : 'bg-[#0D0D18] border-[#1C1C30] text-[#8888AA] hover:border-[#8888AA]']">
+                :class="[selectedSize === size ? 'bg-brand border-brand text-white' : 'bg-bg-primary border-border-subtle text-tx-secondary hover:border-tx-secondary']">
                 {{ size }}
               </button>
             </div>
@@ -81,24 +81,24 @@
 
           <!-- Actions -->
           <div class="flex gap-4 pt-4">
-            <div class="h-[52px] bg-[#0D0D18] border border-[#1C1C30] rounded-[10px] flex items-center p-1">
+            <div class="h-[52px] bg-bg-primary border border-border-subtle rounded-[10px] flex items-center p-1">
               <button @click="decrement"
-                class="w-10 h-full flex items-center justify-center text-[#50506A] hover:text-[#F0F0FF] transition-colors">
+                class="w-10 h-full flex items-center justify-center text-tx-muted hover:text-tx-primary transition-colors">
                 <Icon name="ph:minus-bold" class="w-4 h-4" />
               </button>
               <span class="w-10 text-center font-bold">{{ quantity }}</span>
               <button @click="increment"
-                class="w-10 h-full flex items-center justify-center text-[#50506A] hover:text-[#F0F0FF] transition-colors">
+                class="w-10 h-full flex items-center justify-center text-tx-muted hover:text-tx-primary transition-colors">
                 <Icon name="ph:plus-bold" class="w-4 h-4" />
               </button>
             </div>
             <VButton variant="none"
-              className="flex-1 bg-[#6366F1] hover:bg-[#818CF8] text-white rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
+              className="flex-1 bg-brand hover:bg-brand-hover text-white rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
               <Icon name="solar:cart-large-minimalistic-bold" class="w-5 h-5" />
               {{ $t('storefront.product.addToCart') }}
             </VButton>
             <VButton to="/checkout" variant="none"
-              className="flex-1 flex items-center justify-center border border-[#1C1C30] hover:bg-white/5 text-[#F0F0FF] rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all">
+              className="flex-1 flex items-center justify-center border border-border-subtle hover:bg-white/5 text-tx-primary rounded-[10px] font-bold text-[14px] tracking-[0.2em] transition-all">
               {{ $t('storefront.product.buyNow') }}
             </VButton>
           </div>
@@ -109,9 +109,9 @@
           </div>
 
           <!-- Accordion -->
-          <VAccordion :items="productSections" class="pt-6 border-t border-[#1C1C30]">
+          <VAccordion :items="productSections" class="pt-6 border-t border-border-subtle">
             <template #content="{ item }">
-              <p class="text-[13px] text-[#8888AA] leading-relaxed">
+              <p class="text-[13px] text-tx-secondary leading-relaxed">
                 {{ item.content }}
               </p>
             </template>
@@ -122,14 +122,14 @@
       <!-- ==========================================
          BOTTOM: RELATED PRODUCTS
          ========================================== -->
-      <section class="mt-32 border-t border-[#1C1C30] pt-20">
+      <section class="mt-32 border-t border-border-subtle pt-20">
         <div class="flex items-end justify-between mb-8">
           <div>
-            <h2 class="text-3xl font-bold tracking-tight">{{ $t('storefront.product.relatedProducts') }}</h2>
-            <p class="text-[13px] text-[#50506A] mt-2">{{ $t('storefront.product.relatedDesc') }}</p>
+            <h2 class="text-brandxl font-bold tracking-tight">{{ $t('storefront.product.relatedProducts') }}</h2>
+            <p class="text-[13px] text-tx-muted mt-2">{{ $t('storefront.product.relatedDesc') }}</p>
           </div>
           <nuxt-link-locale to="/shop-all"
-            class="text-[11px] font-bold text-[#6366F1] hover:text-[#818CF8] transition-colors tracking-widest flex items-center gap-2">
+            class="text-[11px] font-bold text-brand hover:text-brand-hover transition-colors tracking-widest flex items-center gap-2">
             {{ $t('common.viewAll') }}
             <Icon name="solar:arrow-right-linear" class="w-4 h-4" />
           </nuxt-link-locale>

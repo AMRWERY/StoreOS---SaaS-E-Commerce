@@ -1,10 +1,10 @@
-<template>
+﻿<template>
   <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
     <!-- Hero Section -->
     <section class="relative pt-32 pb-40 px-6 overflow-hidden border-b border-border-subtle">
       <!-- Premium CSS Background -->
       <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-[#08080C]"></div>
+        <div class="absolute inset-0 bg-bg-base"></div>
         <!-- Animated Waves (Abstract) -->
         <div class="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-brand/10 rounded-full animate-ping opacity-20"></div>
         <div class="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-info/10 rounded-full animate-ping opacity-20" style="animation-delay: 1s"></div>

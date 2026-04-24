@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] pb-20 selection:bg-indigo-500/30 overflow-x-hidden">
+    <div class="min-h-screen text-tx-primary pb-20 selection:bg-indigo-500/30 overflow-x-hidden">
       <!-- 1. Breadcrumbs & Header -->
       <payment-header />
 

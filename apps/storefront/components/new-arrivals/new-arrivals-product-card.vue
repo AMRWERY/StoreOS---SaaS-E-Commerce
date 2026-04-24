@@ -1,7 +1,7 @@
-<template>
+﻿<template>
   <div class="group/card relative h-full min-h-0">
     <nuxt-link-locale :to="detailPath"
-      class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080E]">
+      class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base">
       <VProductCard :product="vProduct" :view-mode="viewMode" />
     </nuxt-link-locale>
 

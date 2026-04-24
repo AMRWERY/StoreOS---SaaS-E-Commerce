@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div
-    class="min-h-screen bg-[#08080E] text-[#F0F0FF] selection:bg-[#6366F1]/30 py-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+    class="min-h-screen bg-bg-base text-tx-primary selection:bg-brand/30 py-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
     <editorial-page-header :breadcrumb-items="breadcrumbItems" />
 
     <editorial-filter-bar v-model:active-filter="activeFilter" :filters="filters" />

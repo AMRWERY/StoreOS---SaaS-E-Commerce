@@ -1,4 +1,4 @@
-﻿<template>
+﻿﻿<template>
   <section class="lg:col-span-8 bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 space-y-8">
     <div class="flex justify-between items-center">
       <div class="flex items-center gap-3">
@@ -11,7 +11,7 @@
 
     <div class="space-y-3">
       <div v-for="session in sessions" :key="session.device"
-        class="bg-black border border-border-subtle p-4 rounded-2xl flex items-center justify-between group hover:border-border-default transition-all">
+        class="bg-bg-primary border border-border-subtle p-4 rounded-2xl flex items-center justify-between group hover:border-border-default transition-all">
         <div class="flex items-center gap-5">
           <div class="w-12 h-12 bg-bg-elevated rounded-xl flex items-center justify-center text-xl text-tx-muted">
             <Icon :name="session.icon" />

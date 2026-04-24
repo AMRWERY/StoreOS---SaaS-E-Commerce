@@ -1,6 +1,6 @@
-<template>
+﻿<template>
     <div>
-        <div class="min-h-screen bg-[#050505] text-[#e1e1e1] flex overflow-hidden lg:overflow-visible">
+        <div class="min-h-screen bg-bg-base text-tx-primary flex overflow-hidden lg:overflow-visible">
             <!-- Sidebar Component -->
             <sidebar :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
 

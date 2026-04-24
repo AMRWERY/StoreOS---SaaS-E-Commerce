@@ -1,12 +1,12 @@
-<template>
+﻿<template>
   <div class="group/card relative h-full min-h-0">
     <nuxt-link-locale :to="collectionPath"
-      class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080E]">
+      class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base">
       <VProductCard :product="vProduct" view-mode="grid" />
     </nuxt-link-locale>
 
     <div v-if="collection.featured" class="absolute top-3 end-3 z-10 pointer-events-none" aria-hidden="true">
-      <Icon name="ph:star-fill" class="w-6 h-6 text-[#6366F1] drop-shadow-lg" />
+      <Icon name="ph:star-fill" class="w-6 h-6 text-brand drop-shadow-lg" />
     </div>
   </div>
 </template>

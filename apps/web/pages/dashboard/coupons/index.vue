@@ -1,5 +1,5 @@
-<template>
-  <div class="min-h-screen text-[#e1e1e1] flex flex-col overflow-hidden pb-10 -mt-10">
+﻿<template>
+  <div class="min-h-screen text-tx-primary flex flex-col overflow-hidden pb-10 -mt-10">
     <!-- MAIN DASHBOARD CONTENT -->
     <div class="flex-1 overflow-y-auto space-y-6 px-4 py-3.5 lg:px-4 lg:py-3.5">
       <div class="max-w-5xl mx-auto space-y-6">

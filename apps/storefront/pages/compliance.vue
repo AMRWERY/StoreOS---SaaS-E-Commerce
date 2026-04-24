@@ -1,18 +1,18 @@
-<template>
-    <div class="text-[#F0F0FF] selection:bg-[#6366F1]/30 pb-32">
+﻿<template>
+    <div class="text-tx-primary selection:bg-brand/30 pb-32">
       <!-- ================= AUDIT HEADER ================== -->
-      <header class="relative pt-12 pb-16 px-6 lg:px-12 border-b border-[#1C1C30]">
+      <header class="relative pt-12 pb-16 px-6 lg:px-12 border-b border-border-subtle">
         <div class="max-w-[1400px] mx-auto">
           <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-10">
             <div class="space-y-6">
               <div class="flex items-center gap-4">
                 <div
-                  class="w-14 h-14 rounded-2xl bg-[#6366F1]/10 border border-[#6366F1]/20 flex items-center justify-center">
-                  <Icon name="solar:lock-bold-duotone" class="w-8 h-8 text-[#6366F1]" />
+                  class="w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center">
+                  <Icon name="solar:lock-bold-duotone" class="w-8 h-8 text-brand" />
                 </div>
                 <h1 class="text-5xl lg:text-6xl font-bold tracking-tighter">Compliance</h1>
               </div>
-              <p class="text-[16px] text-[#8888AA] max-w-xl leading-relaxed">
+              <p class="text-[16px] text-tx-secondary max-w-xl leading-relaxed">
                 StoreOS operates on a zero-trust infrastructure. Every transaction and data node
                 is audited against global security protocols in real-time.
               </p>
@@ -20,14 +20,14 @@
 
             <!-- Live System Status -->
             <div
-              class="bg-[#0D0D18] border border-[#1C1C30] rounded-2xl p-6 min-w-[320px] relative overflow-hidden group">
+              class="bg-bg-primary border border-border-subtle rounded-2xl p-6 min-w-[320px] relative overflow-hidden group">
               <div class="absolute top-0 end-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Icon name="solar:globus-bold" class="w-20 h-20" />
               </div>
 
               <div class="relative z-10 space-y-6">
                 <div class="flex justify-between items-center">
-                  <span class="text-[10px] font-black text-[#50506A] tracking-widest">Global Status</span>
+                  <span class="text-[10px] font-black text-tx-muted tracking-widest">Global Status</span>
                   <div class="flex items-center gap-2">
                     <div class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shadow-[0_0_10px_#10B981]"></div>
                     <span class="text-[10px] font-black text-[#10B981] tracking-widest">Operational</span>
@@ -36,12 +36,12 @@
 
                 <div class="space-y-3">
                   <div class="flex justify-between text-[11px]">
-                    <span class="text-[#50506A]">Audit_ID</span>
-                    <span class="text-[#F0F0FF]">{{ auditID }}</span>
+                    <span class="text-tx-muted">Audit_ID</span>
+                    <span class="text-tx-primary">{{ auditID }}</span>
                   </div>
                   <div class="flex justify-between text-[11px]">
-                    <span class="text-[#50506A]">Last_Sync</span>
-                    <span class="text-[#F0F0FF]">{{ lastAuditDate }}</span>
+                    <span class="text-tx-muted">Last_Sync</span>
+                    <span class="text-tx-primary">{{ lastAuditDate }}</span>
                   </div>
                 </div>
               </div>
@@ -56,18 +56,18 @@
         <!-- Section: Active Certifications -->
         <section class="space-y-12">
           <div class="text-center">
-            <h2 class="text-[11px] font-black text-[#6366F1] tracking-[0.4em]">Trust Framework</h2>
+            <h2 class="text-[11px] font-black text-brand tracking-[0.4em]">Trust Framework</h2>
             <p class="text-2xl font-bold mt-2">Validated Security Standards</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div v-for="cert in certifications" :key="cert.name"
-              class="bg-[#0D0D18] border border-[#1C1C30] p-8 rounded-2xl group hover:border-[#6366F1]/30 transition-all flex flex-col items-center text-center">
+              class="bg-bg-primary border border-border-subtle p-8 rounded-2xl group hover:border-brand/30 transition-all flex flex-col items-center text-center">
               <Icon :name="cert.icon"
                 :class="[cert.color, 'w-10 h-10 mb-6 group-hover:scale-110 transition-transform']" />
               <h3 class="text-[15px] font-bold text-white mb-2">{{ cert.name }}</h3>
               <span
-                class="bg-white/5 border border-white/10 text-[9px] font-black tracking-widest px-3 py-1 rounded-full text-gray-500 group-hover:text-[#6366F1] group-hover:border-[#6366F1]/20 transition-colors">
+                class="bg-white/5 border border-white/10 text-[9px] font-black tracking-widest px-3 py-1 rounded-full text-gray-500 group-hover:text-brand group-hover:border-brand/20 transition-colors">
                 {{ cert.status }}
               </span>
             </div>
@@ -78,7 +78,7 @@
         <section class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div class="lg:col-span-4 min-w-0 space-y-6">
             <h2 class="text-3xl font-bold tracking-tight">Security <br /> Infrastructure</h2>
-            <p class="text-[14px] text-[#8888AA] leading-relaxed">
+            <p class="text-[14px] text-tx-secondary leading-relaxed">
               Our technical stacks are isolated at the hardware level. We maintain absolute separation
               of sensitive merchant data and customer identity archives.
             </p>
@@ -93,9 +93,9 @@
             </div>
           </div>
 
-          <div class="lg:col-span-8 min-w-0 bg-[#0D0D18] border border-[#1C1C30] rounded-3xl overflow-hidden">
-            <div class="p-6 border-b border-[#1C1C30] bg-white/[0.01]">
-              <h3 class="text-[11px] font-black text-[#50506A] tracking-widest">Protocol Sync Matrix</h3>
+          <div class="lg:col-span-8 min-w-0 bg-bg-primary border border-border-subtle rounded-3xl overflow-hidden">
+            <div class="p-6 border-b border-border-subtle bg-white/[0.01]">
+              <h3 class="text-[11px] font-black text-tx-muted tracking-widest">Protocol Sync Matrix</h3>
             </div>
 
             <VTable
@@ -106,11 +106,11 @@
               <template #cell(status)="{ item }">
                 <div class="flex items-center gap-2">
                   <div class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></div>
-                  <span class="text-[11px] font-bold text-[#F0F0FF]">{{ item.status }}</span>
+                  <span class="text-[11px] font-bold text-tx-primary">{{ item.status }}</span>
                 </div>
               </template>
               <template #cell(protocol)="{ item }">
-                <span class="text-[11px] text-[#6366F1] font-bold">{{ item.protocol }}</span>
+                <span class="text-[11px] text-brand font-bold">{{ item.protocol }}</span>
               </template>
             </VTable>
           </div>
@@ -118,10 +118,10 @@
 
         <!-- Section: Data Sovereignty -->
         <section
-          class="bg-gradient-to-r from-[#6366F1]/10 to-transparent border border-[#6366F1]/20 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          class="bg-gradient-to-r from-brand/10 to-transparent border border-brand/20 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-8">
           <div class="space-y-4">
             <h3 class="text-2xl font-bold tracking-tight">Data Sovereignty</h3>
-            <p class="text-[14px] text-[#8888AA] max-w-xl">
+            <p class="text-[14px] text-tx-secondary max-w-xl">
               All infrastructure resides within EEA / Switzerland regions. 
               Zero-knowledge encryption ensures StoreOS personnel never access raw merchant datasets.
             </p>
@@ -131,7 +131,7 @@
             label="View Privacy Protocol"
             icon="solar:arrow-right-linear"
             variant="secondary"
-            class="!bg-[#1C1C30] !border-[#262640] !text-white !px-6 !py-3 !text-[10px] !font-black !tracking-widest"
+            class="!bg-border-subtle !border-border-default !text-white !px-6 !py-3 !text-[10px] !font-black !tracking-widest"
           />
         </section>
       </div>
@@ -146,7 +146,7 @@ const complianceVersion = "v4.0-SECURE";
 
 // --- Data ---
 const tableHeaders = [
-  { label: 'Operational Sector', key: 'sector', class: 'text-[12px] font-bold text-[#F0F0FF]' },
+  { label: 'Operational Sector', key: 'sector', class: 'text-[12px] font-bold text-tx-primary' },
   { label: 'Status', key: 'status' },
   { label: 'Protocol Layer', key: 'protocol' }
 ];

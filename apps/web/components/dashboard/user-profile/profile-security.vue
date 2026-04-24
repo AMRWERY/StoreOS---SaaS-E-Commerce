@@ -1,4 +1,4 @@
-﻿<template>
+﻿﻿<template>
   <section class="lg:col-span-4 bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 space-y-8">
     <div class="flex items-center gap-3">
       <Icon name="ph:shield-check-bold" class="text-brand text-lg" />
@@ -6,9 +6,9 @@
     </div>
     <div class="space-y-5">
       <VInput :label="$t('dashboard.profile.currentPassword')" type="password" modelValue="********"
-        inputClass="bg-black border-border-default rounded-xl px-5 py-3" />
-      <VInput :label="$t('dashboard.profile.newPassword')" type="password" inputClass="bg-black border-border-default rounded-xl px-5 py-3" />
-      <VInput :label="$t('dashboard.profile.confirmNewPassword')" type="password" inputClass="bg-black border-border-default rounded-xl px-5 py-3"
+        inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3" />
+      <VInput :label="$t('dashboard.profile.newPassword')" type="password" inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3" />
+      <VInput :label="$t('dashboard.profile.confirmNewPassword')" type="password" inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3"
         class="pb-6 border-b border-border-subtle" />
 
       <div class="flex items-center justify-between pt-2">

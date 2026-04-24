@@ -65,6 +65,8 @@
     "shippingLogistics": "الشحن واللوجستيات",
     "notificationCenter": "مركز الإشعارات",
     "billingAndPlan": "الفاتورة والخطة",
+    "useLightTheme": "التبديل إلى الوضع الفاتح",
+    "useDarkTheme": "التبديل إلى الوضع الداكن",
     "storefront": {
       "shopAll": "تسوق الكل",
       "newArrivals": "وصل حديثاً",
@@ -720,6 +722,7 @@
       "timezone": "المنطقة الزمنية",
       "interfaceTheme": "سمة الواجهة",
       "darkMode": "الوضع الداكن",
+      "lightMode": "الوضع الفاتح",
       "lockedToBrand": "مقيّد بمعايير العلامة التجارية",
       "activeSessions": "الجلسات النشطة",
       "signOutAllSessions": "تسجيل الخروج من جميع الجلسات الأخرى",

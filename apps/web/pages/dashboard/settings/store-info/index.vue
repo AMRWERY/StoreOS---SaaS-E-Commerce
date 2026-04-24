@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] pb-32 selection:bg-indigo-500/30">
+    <div class="min-h-screen text-tx-primary pb-32 selection:bg-indigo-500/30">
       <VBreadcrumb class="max-w-6xl mx-auto mb-4" />
       
       <header class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">

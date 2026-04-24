@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] pb-24">
+    <div class="min-h-screen text-tx-primary pb-24">
       <VBreadcrumb class="mb-6" :overrides="{ [String($route.params.id)]: customer.name }" />
 
       <!-- Top Header: Identity & Actions -->
@@ -282,7 +282,7 @@
               <Icon name="ph:envelope-bold" class="text-xl" />
             </VButton>
             <span
-              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[8px] font-black text-tx-secondary rounded border border-border-default opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none tracking-widest">Email
+              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-bg-primary text-[8px] font-black text-tx-secondary rounded border border-border-default opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none tracking-widest">Email
               [E]</span>
           </div>
 
@@ -291,7 +291,7 @@
               <Icon name="ph:chat-circle-dots-bold" class="text-xl" />
             </VButton>
             <span
-              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[8px] font-black text-tx-secondary rounded border border-border-default opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none tracking-widest">Chat
+              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-bg-primary text-[8px] font-black text-tx-secondary rounded border border-border-default opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none tracking-widest">Chat
               [C]</span>
           </div>
 
@@ -301,7 +301,7 @@
               <Icon name="ph:phone-bold" class="text-xl" />
             </VButton>
             <span
-              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[8px] font-black text-tx-secondary rounded border border-border-default opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none tracking-widest">Call
+              class="absolute -top-10 start-1/2 -translate-x-1/2 px-2 py-1 bg-bg-primary text-[8px] font-black text-tx-secondary rounded border border-border-default opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none tracking-widest">Call
               [P]</span>
           </div>
         </div>

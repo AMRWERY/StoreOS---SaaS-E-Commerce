@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] -mt-4">
+    <div class="min-h-screen text-tx-primary -mt-4">
       <div class="flex items-center gap-2 mb-3">
         <VBackButton to="/dashboard/orders" label="Orders" />
       </div>
@@ -146,7 +146,7 @@
               <div class="space-y-6">
                 <div class="relative">
                   <textarea placeholder="Add internal note for this order..."
-                    class="w-full bg-black border border-border-default rounded-2xl p-5 text-sm h-32 focus:outline-none focus:border-brand/50 transition-colors placeholder:text-tx-muted resize-none"></textarea>
+                    class="w-full bg-bg-primary border border-border-default rounded-2xl p-5 text-sm h-32 focus:outline-none focus:border-brand/50 transition-colors placeholder:text-tx-muted resize-none"></textarea>
                   <VButton variant="none"
                     className="absolute bottom-4 end-4 bg-bg-elevated hover:bg-bg-elevated px-4 py-2 rounded-lg text-[10px] font-black tracking-widest transition-colors">
                     Add Note
@@ -227,7 +227,7 @@
                       Worldwide</span></p>
                   <div class="flex items-center gap-2">
                     <div
-                      class="flex-1 bg-black border border-border-default rounded-lg px-3 py-2 text-[10px] font-bold text-tx-secondary">
+                      class="flex-1 bg-bg-primary border border-border-default rounded-lg px-3 py-2 text-[10px] font-bold text-tx-secondary">
                       FX-89323-2394
                     </div>
                     <VButton variant="none"

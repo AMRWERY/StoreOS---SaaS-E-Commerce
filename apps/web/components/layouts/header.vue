@@ -42,6 +42,7 @@
       </div>
 
       <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <ThemeToggle />
         <!-- Locale Switcher -->
         <button @click="switchLocale"
           class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg-elevated hover:bg-bg-elevated border border-border-subtle transition-colors text-tx-secondary hover:text-tx-primary text-xs font-bold">

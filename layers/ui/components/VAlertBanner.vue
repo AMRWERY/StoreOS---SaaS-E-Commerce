@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <div v-if="isVisible" :class="[
       'p-4 rounded-xl flex items-center justify-between',
@@ -44,7 +44,7 @@ const close = () => {
 
 const variants: Record<string, any> = {
   warning: {
-    wrapper: 'bg-orange-500/10 border border-orange-500/20 text-[#e1e1e1]',
+    wrapper: 'bg-orange-500/10 border border-orange-500/20 text-tx-primary',
     icon: 'text-orange-500',
   },
   error: {
@@ -52,11 +52,11 @@ const variants: Record<string, any> = {
     icon: 'text-red-500',
   },
   success: {
-    wrapper: 'bg-emerald-500/10 border border-emerald-500/20 text-[#e1e1e1]',
+    wrapper: 'bg-emerald-500/10 border border-emerald-500/20 text-tx-primary',
     icon: 'text-emerald-500',
   },
   info: {
-    wrapper: 'bg-brand-dim border border-brand/20 text-[#e1e1e1]',
+    wrapper: 'bg-brand-dim border border-brand/20 text-tx-primary',
     icon: 'text-brand',
   }
 }

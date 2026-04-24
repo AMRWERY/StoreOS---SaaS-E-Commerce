@@ -1,5 +1,5 @@
-<template>
-  <div class="min-h-screen bg-[#08080E] text-[#F0F0FF] selection:bg-[#6366F1]/30 pb-20">
+﻿<template>
+  <div class="min-h-screen bg-bg-base text-tx-primary selection:bg-brand/30 pb-20">
     <collections-page-header :breadcrumb-items="breadcrumbItems" :sector-count="collections.length" />
     <collections-grid :collections="collections" />
   </div>

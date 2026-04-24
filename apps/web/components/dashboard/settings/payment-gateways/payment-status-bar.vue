@@ -1,8 +1,8 @@
-﻿<template>
+﻿﻿<template>
   <div>
     <Teleport to="body">
       <footer
-        class="fixed bottom-0 start-0 w-screen h-8 bg-black border-t border-border-default px-6 flex items-center justify-between z-40 overflow-hidden lg:start-64 lg:w-[calc(100vw-16rem)]">
+        class="fixed bottom-0 start-0 w-screen h-8 bg-bg-primary border-t border-border-default px-6 flex items-center justify-between z-40 overflow-hidden lg:start-64 lg:w-[calc(100vw-16rem)]">
         <div class="flex items-center gap-6">
           <div class="flex items-center gap-2">
             <div class="w-1.5 h-1.5 rounded-full bg-success"></div>

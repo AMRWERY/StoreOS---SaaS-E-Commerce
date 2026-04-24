@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] selection:bg-indigo-500/30 overflow-x-hidden">
+    <div class="min-h-screen text-tx-primary selection:bg-indigo-500/30 overflow-x-hidden">
       <shipping-header />
 
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-3">

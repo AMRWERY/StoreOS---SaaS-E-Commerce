@@ -23,7 +23,7 @@
                 </span>
                 <!-- Start-Aligned Pill Indicator -->
                 <div v-if="isActive || isNavLinkActive(link)"
-                  class="absolute -bottom-[3px] start-0 w-8 h-1 bg-brand rounded-full shadow-[0_0_12px_rgba(var(--brand-rgb),0.4)]">
+                  class="absolute -bottom-[3px] start-0 w-8 h-1 bg-brand rounded-full shadow-[0_0_12px_rgb(var(--brand-rgb)/0.4)]">
                 </div>
               </div>
             </nuxt-link-locale>
@@ -31,6 +31,7 @@
         </div>
 
         <div class="flex items-center gap-5 text-tx-muted">
+          <ThemeToggle />
           <!-- Locale Switcher -->
           <button @click="switchLocale"
             class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated transition-colors text-xs font-semibold">

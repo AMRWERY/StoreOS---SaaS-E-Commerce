@@ -1,10 +1,10 @@
-<template>
+﻿<template>
   <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
     <!-- Hero Section -->
     <section class="relative pt-32 pb-40 px-6 overflow-hidden border-b border-border-subtle">
       <!-- Premium CSS Background -->
       <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-[#08080C]"></div>
+        <div class="absolute inset-0 bg-bg-base"></div>
         <div class="absolute top-0 start-0 w-[900px] h-[900px] bg-blue-600/10 blur-[130px] rounded-full -ms-96 -mt-96">
         </div>
         <div class="absolute bottom-0 end-0 w-[500px] h-[500px] bg-brand/5 blur-[100px] rounded-full -me-24 -mb-24">

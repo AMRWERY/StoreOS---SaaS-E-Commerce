@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <nuxt-link-locale :to="`/editorial/${article.id}`"
-    class="block group relative bg-[#0D0D18] border border-[#1C1C30] rounded-[24px] overflow-hidden transition-all hover:border-[#6366F1]/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080E]">
+    class="block group relative bg-bg-primary border border-border-subtle rounded-[24px] overflow-hidden transition-all hover:border-brand/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base">
     <div class="grid grid-cols-1 lg:grid-cols-12">
       <div
         class="lg:col-span-7 relative aspect-video lg:aspect-auto min-h-[240px] lg:min-h-[320px] overflow-hidden bg-black">
@@ -14,36 +14,36 @@
         <div class="space-y-6">
           <div class="flex items-center gap-4 flex-wrap">
             <span
-              class="bg-[#6366F1]/10 text-[#6366F1] border border-[#6366F1]/20 px-3 py-1 rounded-[6px] text-[10px] font-black tracking-widest">
+              class="bg-brand/10 text-brand border border-brand/20 px-3 py-1 rounded-[6px] text-[10px] font-black tracking-widest">
               {{ article.category }}
             </span>
-            <span class="text-[10px] font-bold text-[#50506A] tracking-tighter">
+            <span class="text-[10px] font-bold text-tx-muted tracking-tighter">
               Ref: {{ article.id }}
             </span>
           </div>
           <h2
-            class="text-3xl lg:text-4xl font-bold tracking-tight leading-tight group-hover:text-white transition-colors text-[#F0F0FF]">
+            class="text-3xl lg:text-4xl font-bold tracking-tight leading-tight group-hover:text-white transition-colors text-tx-primary">
             {{ article.title }}
           </h2>
-          <p class="text-[16px] text-[#8888AA] leading-relaxed">
+          <p class="text-[16px] text-tx-secondary leading-relaxed">
             {{ article.excerpt }}
           </p>
         </div>
 
         <div class="space-y-6">
-          <div class="flex items-center gap-10 border-t border-[#1C1C30] pt-8 flex-wrap">
+          <div class="flex items-center gap-10 border-t border-border-subtle pt-8 flex-wrap">
             <div>
-              <p class="text-[9px] font-black text-[#50506A] tracking-widest mb-1">{{ $t('storefront.editorial.logDate') }}</p>
-              <p class="text-[13px] font-bold text-[#F0F0FF]">{{ article.date }}</p>
+              <p class="text-[9px] font-black text-tx-muted tracking-widest mb-1">{{ $t('storefront.editorial.logDate') }}</p>
+              <p class="text-[13px] font-bold text-tx-primary">{{ article.date }}</p>
             </div>
             <div>
-              <p class="text-[9px] font-black text-[#50506A] tracking-widest mb-1">{{ $t('storefront.editorial.timeToSync') }}</p>
-              <p class="text-[13px] font-bold text-[#F0F0FF]">{{ article.readTime }} MIN</p>
+              <p class="text-[9px] font-black text-tx-muted tracking-widest mb-1">{{ $t('storefront.editorial.timeToSync') }}</p>
+              <p class="text-[13px] font-bold text-tx-primary">{{ article.readTime }} MIN</p>
             </div>
           </div>
 
           <span
-            class="w-full lg:w-fit inline-flex items-center justify-center gap-3 bg-[#6366F1] group-hover:bg-[#818CF8] text-white px-10 py-4 rounded-[12px] text-[13px] font-bold tracking-[0.2em] transition-all">
+            class="w-full lg:w-fit inline-flex items-center justify-center gap-3 bg-brand group-hover:bg-brand-hover text-white px-10 py-4 rounded-[12px] text-[13px] font-bold tracking-[0.2em] transition-all">
             {{ $t('storefront.editorial.openProtocol') }}
             <Icon name="ph:arrow-right" class="w-5 h-5" />
           </span>

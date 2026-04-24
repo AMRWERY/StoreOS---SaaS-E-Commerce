@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="py-16 px-6 lg:px-12 max-w-[1400px] mx-auto space-y-24">
     <editorial-featured-card v-for="hero in featured" :key="hero.id" :article="hero" />
 
@@ -6,13 +6,13 @@
       <editorial-article-card v-for="article in articles" :key="article.id" :article="article" />
     </section>
 
-    <p v-if="!featured.length && !articles.length" class="text-center text-[#50506A] py-16 text-sm">
+    <p v-if="!featured.length && !articles.length" class="text-center text-tx-muted py-16 text-sm">
       No entries for this filter.
     </p>
 
-    <div class="flex flex-col items-center gap-8 py-10 border-t border-[#1C1C30]">
+    <div class="flex flex-col items-center gap-8 py-10 border-t border-border-subtle">
       <component :is="VButton" variant="none" type="button"
-        className="bg-[#141422] border border-[#262640] hover:border-[#6366F1]/50 text-[#F0F0FF] px-12 py-4 rounded-[12px] font-bold text-[12px] tracking-[0.3em] transition-all active:scale-95"
+        className="bg-bg-elevated border border-border-default hover:border-brand/50 text-tx-primary px-12 py-4 rounded-[12px] font-bold text-[12px] tracking-[0.3em] transition-all active:scale-95"
         @click="$emit('load-more')">
         Decrypt Next Batch
       </component>

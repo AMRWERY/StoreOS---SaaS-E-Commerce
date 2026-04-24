@@ -1,7 +1,7 @@
-<template>
+﻿<template>
     <div>
         <div
-            class="min-h-screen bg-[#050505] text-[#e1e1e1] flex items-center justify-center p-6 relative overflow-hidden flex-col selection:bg-indigo-500/30">
+            class="min-h-screen bg-bg-base text-tx-primary flex items-center justify-center p-6 relative overflow-hidden flex-col selection:bg-indigo-500/30">
             <!-- Grid Background -->
             <div
                 class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay">

@@ -1,5 +1,5 @@
-<template>
-  <div class="min-h-screen text-[#F0F0FF] selection:bg-[#6366F1]/30 p-6 lg:p-10">
+﻿<template>
+  <div class="min-h-screen text-tx-primary selection:bg-brand/30 p-6 lg:p-10">
     <new-arrivals-hero v-model:view-mode="viewMode" />
     
     <new-arrivals-filter-bar v-model:selected-filter="selectedFilter" :categories="categories" />

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="bg-bg-base min-h-screen text-tx-primary">
     <!-- Hero Section -->
     <section class="relative pt-32 pb-24 px-6 overflow-hidden border-b border-border-subtle">
@@ -145,7 +145,7 @@ useSeoMeta({
 
 const tools = [
   { name: 'Meta Ads', icon: 'ph:meta-logo-fill', bg: 'bg-[#0668E1]/10', color: 'text-[#0668E1]' },
-  { name: 'TikTok', icon: 'ph:tiktok-logo-fill', bg: 'bg-black', color: 'text-[#00f2ea]' },
+  { name: 'TikTok', icon: 'ph:tiktok-logo-fill', bg: 'bg-bg-primary', color: 'text-[#00f2ea]' },
   { name: 'GA4', icon: 'ph:google-logo-fill', bg: 'bg-orange-500/10', color: 'text-orange-400' },
   { name: 'Klaviyo', icon: 'ph:paper-plane-right-fill', bg: 'bg-success-dim', color: 'text-success' },
 ]

@@ -1,7 +1,7 @@
-<template>
+﻿<template>
   <nuxt-link-locale :to="`/shop-all/${product.slug}`" class="group cursor-pointer h-full transition-all block">
     <div
-      class="h-full flex rounded-[12px] bg-[#0D0D18] border border-[#1C1C30] p-3 shadow-xl transition-all group-hover:border-[#6366F1]/40 overflow-hidden"
+      class="h-full flex rounded-[12px] bg-bg-primary border border-border-subtle p-3 shadow-xl transition-all group-hover:border-brand/40 overflow-hidden"
       :class="viewMode === 'list' ? 'flex-row items-center gap-8 px-6' : 'flex-col'">
 
       <!-- Image Wrapper -->
@@ -23,21 +23,21 @@
 
       <!-- Information -->
       <div class="flex-1 flex flex-col" :class="viewMode === 'grid' ? 'px-1' : 'space-y-2'">
-        <p class="text-[10px] font-black text-[#50506A] tracking-[0.15em]">{{ product.cat }}</p>
+        <p class="text-[10px] font-black text-tx-muted tracking-[0.15em]">{{ product.cat }}</p>
 
         <h3 :class="[
           viewMode === 'list' ? 'text-[18px]' : 'text-[15px]',
-          'font-medium text-[#8888AA] group-hover:text-[#F0F0FF] transition-colors truncate'
+          'font-medium text-tx-secondary group-hover:text-tx-primary transition-colors truncate'
         ]">
           {{ product.name }}
         </h3>
 
         <div class="mt-auto flex items-baseline gap-3 pt-3">
-          <p :class="[viewMode === 'list' ? 'text-[20px]' : 'text-[16px]', 'text-[#F0F0FF] font-bold']">
-            <span class="text-[11px] text-[#50506A] me-1">$</span>
+          <p :class="[viewMode === 'list' ? 'text-[20px]' : 'text-[16px]', 'text-tx-primary font-bold']">
+            <span class="text-[11px] text-tx-muted me-1">$</span>
             {{ product.price.toLocaleString() }}
           </p>
-          <p v-if="product.oldPrice" class="text-[#50506A] line-through"
+          <p v-if="product.oldPrice" class="text-tx-muted line-through"
             :class="viewMode === 'list' ? 'text-[14px]' : 'text-[12px]'">
             {{ product.oldPrice.toLocaleString() }}
           </p>

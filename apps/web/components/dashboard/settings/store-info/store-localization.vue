@@ -1,4 +1,4 @@
-﻿<template>
+﻿﻿<template>
   <div>
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-border-subtle pt-16">
       <div class="lg:col-span-4">
@@ -31,7 +31,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="space-y-3">
             <label class="text-[10px] font-bold text-tx-secondary tracking-wider">{{ $t('dashboard.settings.storeInfo.unitSystem') }}</label>
-            <div class="bg-black p-1 rounded-xl flex border border-border-default">
+            <div class="bg-bg-primary p-1 rounded-xl flex border border-border-default">
               <button @click="modelValue.unitSystem = 'Metric'"
                 :class="modelValue.unitSystem === 'Metric' ? 'bg-bg-elevated text-tx-primary' : 'text-tx-muted'"
                 class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all">{{ $t('dashboard.settings.storeInfo.metric') }}</button>

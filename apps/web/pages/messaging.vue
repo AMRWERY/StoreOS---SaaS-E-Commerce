@@ -1,10 +1,10 @@
-<template>
+﻿<template>
   <div class="bg-bg-base min-h-screen text-tx-primary">
     <!-- Hero Section -->
     <section class="relative pt-32 pb-24 px-6 overflow-hidden border-b border-border-subtle">
       <!-- Sophisticated CSS Background (Since Image quota exhausted) -->
       <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-[#08080E]"></div>
+        <div class="absolute inset-0 bg-bg-base"></div>
         <!-- Mesh Gradient -->
         <div
           class="absolute top-0 end-0 w-[800px] h-[800px] bg-teal-500/10 blur-[120px] rounded-full -me-96 -mt-96 animate-pulse">

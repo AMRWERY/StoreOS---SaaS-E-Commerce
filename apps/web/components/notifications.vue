@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <!-- Trigger Button -->
     <VButton @click="isInternalOpen = true" variant="none"
@@ -58,7 +58,7 @@
           </div>
 
           <!-- Content -->
-          <div class="flex-1 overflow-y-auto hide-scrollbar bg-black/5">
+          <div class="flex-1 overflow-y-auto hide-scrollbar bg-bg-primary/5">
             <div v-if="filteredNotifications.length > 0" class="divide-y divide-border-subtle">
               <div v-for="n in filteredNotifications" :key="n.id"
                 class="px-4 py-3.5 group hover:bg-bg-elevated transition-colors cursor-pointer relative">

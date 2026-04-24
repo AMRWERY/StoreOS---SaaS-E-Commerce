@@ -1,6 +1,6 @@
-﻿<template>
+﻿﻿<template>
   <div>
-    <div class="min-h-screen bg-bg-base text-[#e1e1e1] -mt-4 pb-20">
+    <div class="min-h-screen bg-bg-base text-tx-primary -mt-4 pb-20">
       <VBreadcrumb class="mb-6" :overrides="{ 'add-update-order': isEdit ? $t('dashboard.orders.editOrder') : $t('dashboard.orders.createOrder') }" />
 
       <!-- Header -->
@@ -98,7 +98,7 @@
                   </div>
                   <div class="flex items-center gap-3 shrink-0">
                     <div
-                      class="flex items-center gap-1 bg-black border border-border-default rounded-lg overflow-hidden">
+                      class="flex items-center gap-1 bg-bg-primary border border-border-default rounded-lg overflow-hidden">
                       <VButton variant="none"
                         className="px-2.5 py-1.5 text-tx-secondary hover:text-tx-primary transition-colors text-xs"
                         @click="item.qty = Math.max(1, item.qty - 1)">
@@ -131,7 +131,7 @@
               {{ $t('dashboard.orders.orderNotes') }}
             </h3>
             <textarea v-model="form.notes" :placeholder="$t('dashboard.orders.orderNotesPlaceholder')"
-              class="w-full bg-black border border-border-default rounded-2xl p-5 text-sm h-32 focus:outline-none focus:border-brand transition-colors placeholder:text-tx-muted resize-none"></textarea>
+              class="w-full bg-bg-primary border border-border-default rounded-2xl p-5 text-sm h-32 focus:outline-none focus:border-brand transition-colors placeholder:text-tx-muted resize-none"></textarea>
           </section>
         </div>
 
@@ -144,7 +144,7 @@
               <div class="space-y-2">
                 <label class="text-[9px] font-bold text-tx-muted tracking-widest ps-1">{{ $t('dashboard.orders.paymentStatus') }}</label>
                 <select v-model="form.paymentStatus"
-                  class="w-full bg-black border border-border-default rounded-xl py-2.5 px-4 text-xs font-bold focus:outline-none focus:border-brand transition-all select-scrollbar cursor-pointer appearance-none">
+                  class="w-full bg-bg-primary border border-border-default rounded-xl py-2.5 px-4 text-xs font-bold focus:outline-none focus:border-brand transition-all select-scrollbar cursor-pointer appearance-none">
                   <option value="PAID">Paid</option>
                   <option value="UNPAID">Unpaid</option>
                   <option value="COD">Cash on Delivery</option>
@@ -153,7 +153,7 @@
               <div class="space-y-2">
                 <label class="text-[9px] font-bold text-tx-muted tracking-widest ps-1">{{ $t('dashboard.orders.fulfillmentStatus') }}</label>
                 <select v-model="form.status"
-                  class="w-full bg-black border border-border-default rounded-xl py-2.5 px-4 text-xs font-bold focus:outline-none focus:border-brand transition-all select-scrollbar cursor-pointer appearance-none">
+                  class="w-full bg-bg-primary border border-border-default rounded-xl py-2.5 px-4 text-xs font-bold focus:outline-none focus:border-brand transition-all select-scrollbar cursor-pointer appearance-none">
                   <option value="NEW">New</option>
                   <option value="CONFIRMED">Confirmed</option>
                   <option value="PROCESSING">Processing</option>

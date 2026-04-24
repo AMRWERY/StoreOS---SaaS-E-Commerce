@@ -125,7 +125,7 @@
 
       <button
         type="button"
-        class="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-brand/40 bg-brand-dim/20 py-3 text-[10px] font-black tracking-wider text-brand transition-colors hover:bg-brand-dim/40"
+        class="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-brand/40 bg-brand/10 py-3 text-[10px] font-black tracking-wider text-brand transition-colors hover:bg-brand/20"
         @click="planGateOpen = true"
       >
         <Icon name="ph:sparkle-bold" />

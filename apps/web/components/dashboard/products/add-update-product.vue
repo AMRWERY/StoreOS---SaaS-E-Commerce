@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <div class="min-h-screen text-tx-primary -mt-5">
       <VBreadcrumb class="mb-6" :overrides="{ 'add-update-product': isEdit ? $t('dashboard.products.editProduct') : $t('dashboard.products.createProduct') }" />
@@ -25,12 +25,12 @@
 
             <div class="space-y-6">
               <VInput v-model="product.name" :label="$t('dashboard.products.productName')" placeholder="e.g. Kinetic Series: Modular Rack v2"
-                inputClass="!w-full !bg-black !border-border-default !rounded-xl !px-5 !py-4 !text-lg !font-bold focus:!outline-none focus:!border-brand !transition-colors" />
+                inputClass="!w-full !bg-bg-primary !border-border-default !rounded-xl !px-5 !py-4 !text-lg !font-bold focus:!outline-none focus:!border-brand !transition-colors" />
 
               <div class="space-y-2">
                 <label class="text-[10px] font-bold text-tx-muted">{{ $t('dashboard.products.description') }}</label>
                 <textarea v-model="product.description" :placeholder="$t('dashboard.products.descriptionPlaceholder')"
-                  class="w-full bg-black border border-border-default rounded-xl px-5 py-4 text-sm min-h-[160px] focus:outline-none focus:border-brand resize-y transition-colors"></textarea>
+                  class="w-full bg-bg-primary border border-border-default rounded-xl px-5 py-4 text-sm min-h-[160px] focus:outline-none focus:border-brand resize-y transition-colors"></textarea>
               </div>
 
               <div class="grid grid-cols-2 gap-6">
@@ -38,7 +38,7 @@
                   <label class="text-[10px] font-bold text-tx-muted">{{ $t('dashboard.products.category') }}</label>
                   <div class="relative">
                     <select v-model="product.category"
-                      class="w-full bg-black border border-border-default rounded-xl px-5 py-4 text-sm appearance-none focus:outline-none focus:border-brand outline-none transition-colors">
+                      class="w-full bg-bg-primary border border-border-default rounded-xl px-5 py-4 text-sm appearance-none focus:outline-none focus:border-brand outline-none transition-colors">
                       <option v-for="cat in categories" :key="cat" :value="cat">{{ cat }}</option>
                     </select>
                     <Icon name="ph:caret-down-bold"
@@ -61,7 +61,7 @@
             </div>
             <div class="grid grid-cols-3 gap-4">
               <VFileUpload class="aspect-square [&>div]:h-full [&>div>div:first-child]:h-full"
-                wrapperClass="h-full w-full bg-black border-2 border-dashed border-border-subtle rounded-2xl flex flex-col items-center justify-center group cursor-pointer hover:bg-bg-elevated transition-all"
+                wrapperClass="h-full w-full bg-bg-primary border-2 border-dashed border-border-subtle rounded-2xl flex flex-col items-center justify-center group cursor-pointer hover:bg-bg-elevated transition-all"
                 icon="" title="" subtitle="">
                 <Icon name="ph:upload-simple-bold" class="text-2xl text-tx-muted group-hover:text-brand mb-2" />
                 <p class="text-[10px] font-bold text-tx-muted">{{ $t('dashboard.products.dragDrop') }}</p>
@@ -87,7 +87,7 @@
             <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary mb-8">{{ $t('dashboard.products.financials') }}</h3>
             <div class="grid grid-cols-3 gap-6 mb-8">
               <VInput v-model="product.price" type="number" :label="$t('dashboard.products.price')"
-                inputClass="!bg-black !border-border-default !rounded-xl !ps-9 !pe-5 !py-4 !text-sm focus:!border-brand !outline-none">
+                inputClass="!bg-bg-primary !border-border-default !rounded-xl !ps-9 !pe-5 !py-4 !text-sm focus:!border-brand !outline-none">
                 <template #prefix>
                   <span
                     class="absolute start-5 top-1/2 -translate-y-1/2 text-tx-muted text-sm z-10 pointer-events-none">$</span>
@@ -95,7 +95,7 @@
               </VInput>
 
               <VInput v-model="product.comparePrice" type="number" :label="$t('dashboard.products.compareAt')"
-                inputClass="!bg-black !border-border-default !rounded-xl !ps-9 !pe-5 !py-4 !text-sm focus:!border-brand !outline-none">
+                inputClass="!bg-bg-primary !border-border-default !rounded-xl !ps-9 !pe-5 !py-4 !text-sm focus:!border-brand !outline-none">
                 <template #prefix>
                   <span
                     class="absolute start-5 top-1/2 -translate-y-1/2 text-tx-muted text-sm z-10 pointer-events-none">$</span>
@@ -103,7 +103,7 @@
               </VInput>
 
               <VInput v-model="product.cost" type="number" :label="$t('dashboard.products.costPerItem')"
-                inputClass="!bg-black !border-border-default !rounded-xl !ps-9 !pe-5 !py-4 !text-sm focus:!border-brand !outline-none">
+                inputClass="!bg-bg-primary !border-border-default !rounded-xl !ps-9 !pe-5 !py-4 !text-sm focus:!border-brand !outline-none">
                 <template #prefix>
                   <span
                     class="absolute start-5 top-1/2 -translate-y-1/2 text-tx-muted text-sm z-10 pointer-events-none">$</span>
@@ -139,7 +139,7 @@
             </div>
 
             <!-- Segmented Control -->
-            <div class="bg-black p-1 rounded-xl flex border border-border-subtle mb-6">
+            <div class="bg-bg-primary p-1 rounded-xl flex border border-border-subtle mb-6">
               <button @click="toggleStatus('Draft')"
                 class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
                 :class="product.status === 'Draft' ? 'bg-bg-elevated text-tx-primary shadow-sm' : 'text-tx-muted'">{{ $t('dashboard.products.draft') }}</button>
@@ -151,11 +151,11 @@
             <div class="space-y-4 pt-4 border-t border-border-subtle">
               <label class="flex items-center justify-between group cursor-pointer">
                 <span class="text-xs font-bold text-tx-secondary group-hover:text-tx-primary">{{ $t('dashboard.products.allSalesChannels') }}</span>
-                <input type="checkbox" checked class="accent-brand w-4 h-4 bg-black rounded border-border-default" />
+                <input type="checkbox" checked class="accent-brand w-4 h-4 bg-bg-primary rounded border-border-default" />
               </label>
               <label class="flex items-center justify-between group cursor-pointer">
                 <span class="text-xs font-bold text-tx-secondary group-hover:text-tx-primary">{{ $t('dashboard.products.shopifyInventory') }}</span>
-                <input type="checkbox" class="accent-brand w-4 h-4 bg-black rounded border-border-default" />
+                <input type="checkbox" class="accent-brand w-4 h-4 bg-bg-primary rounded border-border-default" />
               </label>
             </div>
 
@@ -175,7 +175,7 @@
             <div class="space-y-6">
               <div class="space-y-3">
                 <label class="text-[9px] font-bold text-tx-muted">{{ $t('dashboard.products.tags') }}</label>
-                <div class="bg-black border border-border-default rounded-xl p-3 flex flex-wrap gap-2">
+                <div class="bg-bg-primary border border-border-default rounded-xl p-3 flex flex-wrap gap-2">
                   <span v-for="tag in product.tags" :key="tag"
                     class="bg-brand-dim text-brand text-[9px] font-black px-2 py-1 rounded flex items-center gap-1.5">
                     {{ tag }}
@@ -193,7 +193,7 @@
                     class="flex items-center justify-between group cursor-pointer">
                     <span class="text-xs font-medium text-tx-secondary group-hover:text-tx-primary">{{ c }}</span>
                     <input type="checkbox" :checked="c.includes('Winter')"
-                      class="accent-brand w-3.5 h-3.5 bg-black border-border-default rounded" />
+                      class="accent-brand w-3.5 h-3.5 bg-bg-primary border-border-default rounded" />
                   </label>
                 </div>
               </div>
@@ -207,7 +207,7 @@
     <VDialog v-model="showCategoryModal" :title="$t('dashboard.products.createCategory')" maxWidth="md">
       <div class="space-y-6">
         <VInput v-model="newCategoryName" :label="$t('dashboard.products.categoryName')" placeholder="e.g. Peripherals"
-          inputClass="!bg-black !border-border-default !rounded-xl !px-5 !py-4 !text-sm focus:!border-brand" />
+          inputClass="!bg-bg-primary !border-border-default !rounded-xl !px-5 !py-4 !text-sm focus:!border-brand" />
       </div>
       <template #footer>
         <VButton variant="none"

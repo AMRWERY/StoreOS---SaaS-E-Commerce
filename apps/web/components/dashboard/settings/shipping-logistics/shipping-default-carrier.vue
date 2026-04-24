@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
       <div class="flex items-center gap-3 mb-6">
@@ -11,7 +11,7 @@
           <label class="text-[9px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.settings.shipping.activeGateway') }}</label>
           <div class="relative">
             <select
-              class="w-full bg-black border border-border-default rounded-xl px-4 py-3 text-sm appearance-none focus:border-brand outline-none transition">
+              class="w-full bg-bg-primary border border-border-default rounded-xl px-4 py-3 text-sm appearance-none focus:border-brand outline-none transition">
               <option>FedEx Priority Global</option>
               <option>DHL Express</option>
             </select>

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
       <div class="flex flex-col lg:flex-row gap-12">
@@ -19,11 +19,11 @@
 
         <div class="lg:w-2/3 space-y-6">
           <VInput type="password" label="Api_Key_Production" modelValue="sk_prod_18471289fh128h41h2" readonly
-            inputClass="bg-black tracking-widest" />
+            inputClass="bg-bg-primary tracking-widest" />
 
           <div class="grid grid-cols-2 gap-6">
-            <VInput label="Integration_Id" modelValue="128492" readonly inputClass="bg-black text-tx-secondary" />
-            <VInput label="Iframe_Id" modelValue="849201" readonly inputClass="bg-black text-tx-secondary" />
+            <VInput label="Integration_Id" modelValue="128492" readonly inputClass="bg-bg-primary text-tx-secondary" />
+            <VInput label="Iframe_Id" modelValue="849201" readonly inputClass="bg-bg-primary text-tx-secondary" />
           </div>
         </div>
       </div>

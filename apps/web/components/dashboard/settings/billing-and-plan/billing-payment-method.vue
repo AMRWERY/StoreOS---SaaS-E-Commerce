@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
       <div class="flex justify-between items-center mb-8">
@@ -7,7 +7,7 @@
       </div>
 
       <!-- Card Visual -->
-      <div class="bg-black border border-border-default rounded-2xl p-6 relative group overflow-hidden mb-6">
+      <div class="bg-bg-primary border border-border-default rounded-2xl p-6 relative group overflow-hidden mb-6">
         <div class="flex justify-between items-start mb-6 relative z-10">
           <div class="bg-bg-elevated px-2 py-1 rounded text-[10px] font-black tracking-widest">VISA</div>
           <Icon name="ph:check-circle-fill" class="text-brand" />

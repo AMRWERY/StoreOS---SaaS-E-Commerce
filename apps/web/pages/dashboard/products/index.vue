@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] -mt-5">
+    <div class="min-h-screen text-tx-primary -mt-5">
       <!-- Header -->
       <products-header :total="products.length" />
 

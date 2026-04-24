@@ -1,4 +1,4 @@
-﻿<template>
+﻿﻿<template>
   <div>
     <section class="max-w-7xl mx-auto space-y-8">
       <h2 class="text-center text-[10px] font-black text-tx-muted tracking-[0.4em] mb-6">{{ $t('dashboard.settings.staff.rolePermissionsMatrix') }}</h2>
@@ -17,7 +17,7 @@
         <template #header-suffix>
           <div class="flex -space-s-2">
             <div v-for="i in 3" :key="i"
-              class="w-7 h-7 rounded-full border-2 border-[#0c0c0e] bg-brand/20 text-[8px] flex items-center justify-center font-bold">
+              class="w-7 h-7 rounded-full border-2 border-bg-base bg-brand/20 text-[8px] flex items-center justify-center font-bold">
               {{ ['O', 'M', 'S'][i - 1] }}
             </div>
           </div>

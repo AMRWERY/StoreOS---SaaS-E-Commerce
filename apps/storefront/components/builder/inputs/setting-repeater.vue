@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between gap-2">
       <label class="text-[10px] font-bold tracking-wider text-tx-secondary">{{ label }}</label>
       <button type="button"
-        class="rounded-md border border-dashed border-border-subtle px-2 py-1 text-[10px] font-bold tracking-wider text-brand transition-colors hover:bg-brand-dim/30"
+        class="rounded-md border border-dashed border-border-subtle px-2 py-1 text-[10px] font-bold tracking-wider text-brand transition-colors hover:bg-brand/15"
         @click="add">
         + Add
       </button>

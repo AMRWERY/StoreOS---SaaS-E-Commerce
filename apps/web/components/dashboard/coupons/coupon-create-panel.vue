@@ -1,4 +1,4 @@
-﻿<template>
+﻿﻿<template>
   <div>
     <Transition enter-active-class="transition-opacity duration-300" enter-from-class="opacity-0"
       enter-to-class="opacity-100" leave-active-class="transition-opacity duration-300" leave-from-class="opacity-100"
@@ -32,7 +32,7 @@
             <label class="text-[10px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.coupons.couponCode') }}</label>
             <div class="relative group">
               <VInput v-model="form.code" placeholder="e.g. SUMMER24"
-                inputClass="bg-black border border-border-default rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-brand outline-none transition pe-14" />
+                inputClass="bg-bg-primary border border-border-default rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-brand outline-none transition pe-14" />
               <button @click="generateCode"
                 class="absolute end-4 top-1/2 -translate-y-1/2 text-tx-muted hover:text-brand transition-colors"
                 type="button">
@@ -44,7 +44,7 @@
           <!-- Discount Type Segmented Control -->
           <div class="space-y-3">
             <label class="text-[10px] font-black text-tx-muted tracking-widest">{{ $t('dashboard.coupons.discountType') }}</label>
-            <div class="bg-black p-1.5 rounded-2xl flex border border-border-subtle">
+            <div class="bg-bg-primary p-1.5 rounded-2xl flex border border-border-subtle">
               <button v-for="type in discountTypes" :key="type.value" @click="form.discountType = type.value"
                 class="flex-1 py-3.5 text-xs font-bold tracking-tight rounded-xl transition-all duration-300"
                 :class="form.discountType === type.value ? 'bg-bg-elevated text-brand shadow-xl border border-border-subtle' : 'text-tx-secondary hover:text-tx-secondary'">

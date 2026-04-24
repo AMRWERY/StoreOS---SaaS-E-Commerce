@@ -92,7 +92,7 @@
               <span class="text-xs text-tx-muted">$1,250.00</span>
             </div>
             <div class="space-y-4">
-              <div class="p-4 rounded-xl border border-success bg-success-dim/20 flex items-center justify-between">
+              <div class="p-4 rounded-xl border border-success bg-success/10 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                   <Icon name="ph:credit-card-fill" class="text-success text-xl" />
                   <span class="text-sm font-bold">Credit Card</span>

@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] space-y-12 selection:bg-indigo-500/30">
+    <div class="min-h-screen text-tx-primary space-y-12 selection:bg-indigo-500/30">
       <staff-header />
 
       <staff-active-members />

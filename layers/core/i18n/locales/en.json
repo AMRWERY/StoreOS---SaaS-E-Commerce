@@ -65,6 +65,8 @@
     "shippingLogistics": "Shipping & Logistics",
     "notificationCenter": "Notification Center",
     "billingAndPlan": "Billing & Plan",
+    "useLightTheme": "Switch to light theme",
+    "useDarkTheme": "Switch to dark theme",
     "storefront": {
       "shopAll": "Shop All",
       "newArrivals": "New Arrivals",
@@ -719,7 +721,8 @@
       "language": "Language",
       "timezone": "Timezone",
       "interfaceTheme": "Interface Theme",
-      "darkMode": "Dark Terminal Mode",
+      "darkMode": "Dark mode",
+      "lightMode": "Light mode",
       "lockedToBrand": "Locked to Brand Standard",
       "activeSessions": "Active Sessions",
       "signOutAllSessions": "Sign out of all other sessions",

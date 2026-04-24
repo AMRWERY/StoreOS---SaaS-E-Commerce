@@ -1,5 +1,5 @@
-<template>
-  <section class="sticky top-0 z-40 bg-[#08080E]/90 backdrop-blur-xl border-b border-[#1C1C30] px-6 lg:px-12 py-4">
+﻿<template>
+  <section class="sticky top-0 z-40 bg-bg-base/90 backdrop-blur-xl border-b border-border-subtle px-6 lg:px-12 py-4">
     <div class="max-w-[1400px] mx-auto flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
       <div class="w-full min-w-0">
         <VTabs v-model="activeFilter" :tabs="filters" />

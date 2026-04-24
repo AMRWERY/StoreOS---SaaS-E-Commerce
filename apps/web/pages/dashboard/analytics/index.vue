@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] pb-12 selection:bg-indigo-500/30 overflow-x-hidden space-y-8">
+    <div class="min-h-screen text-tx-primary pb-12 selection:bg-indigo-500/30 overflow-x-hidden space-y-8">
       <analytics-header v-model:active-timeframe="activeTimeframe" v-model:compare-enabled="compareEnabled"
         @export="handleExport" />
 

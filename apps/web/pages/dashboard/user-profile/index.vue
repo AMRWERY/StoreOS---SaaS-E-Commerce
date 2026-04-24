@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] pb-32 selection:bg-indigo-500/30 overflow-x-hidden">
+    <div class="min-h-screen text-tx-primary pb-32 selection:bg-indigo-500/30 overflow-x-hidden">
     <VBreadcrumb class="max-w-6xl mx-auto mb-4" />
     
     <profile-header @save="saveProfile" />

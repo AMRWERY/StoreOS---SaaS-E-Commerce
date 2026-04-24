@@ -21,6 +21,7 @@
         </div>
 
         <div class="flex items-center gap-3">
+          <ThemeToggle />
           <!-- Locale toggle -->
           <VButton type="button" :aria-label="`Switch to ${locale === 'en' ? 'Arabic' : 'English'}`"
             @click="switchLocale" variant="none"

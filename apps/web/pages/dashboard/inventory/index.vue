@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] flex flex-col overflow-hidden pb-10 -mt-10">
+    <div class="min-h-screen text-tx-primary flex flex-col overflow-hidden pb-10 -mt-10">
       <div class="flex-1 overflow-y-auto space-y-6 px-4 py-3.5 lg:px-4 lg:py-3.5">
         <inventory-header :totalProducts="1240" v-model:search="searchQuery" v-model:category="selectedCategory"
           v-model:status="selectedStatus" @adjust="openAdjustmentModal()" />

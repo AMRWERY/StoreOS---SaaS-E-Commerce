@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] pb-12">
+    <div class="min-h-screen text-tx-primary pb-12">
       <VBreadcrumb />
 
       <BillingHeader />

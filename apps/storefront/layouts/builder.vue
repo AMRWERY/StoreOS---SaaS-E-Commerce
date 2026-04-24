@@ -24,19 +24,19 @@ watch(
   () => { isSidebarOpen.value = false },
 )
 
-const cssVars = {
-  '--builder-left-bg': '#0A0A16',
-  '--builder-right-bg': '#0D0D1A',
-  '--builder-topbar-bg': '#0A0A14',
-  '--builder-preview-bg': '#1A1A2A',
-  '--builder-select-color': '#6366F1',
-  '--builder-select-dim': 'rgba(99,102,241,0.08)',
-  '--builder-hover-color': 'rgba(99,102,241,0.4)',
-  '--builder-drag-bg': 'rgba(99,102,241,0.06)',
-  '--builder-handle-color': '#3A3A55',
-  '--builder-section-hover': 'rgba(99,102,241,0.04)',
-  '--section-badge-bg': '#1E1E35',
-  '--plan-gate-bg': 'rgba(249,115,22,0.06)',
-  '--plan-gate-border': 'rgba(249,115,22,0.2)',
-}
+const cssVars = computed(() => ({
+  '--builder-left-bg': 'var(--bg-base)',
+  '--builder-right-bg': 'var(--bg-primary)',
+  '--builder-topbar-bg': 'var(--bg-base)',
+  '--builder-preview-bg': 'var(--bg-overlay)',
+  '--builder-select-color': 'var(--brand)',
+  '--builder-select-dim': 'rgba(var(--brand-rgb)/0.08)',
+  '--builder-hover-color': 'rgba(var(--brand-rgb)/0.4)',
+  '--builder-drag-bg': 'rgba(var(--brand-rgb)/0.06)',
+  '--builder-handle-color': 'var(--border-default)',
+  '--builder-section-hover': 'rgba(var(--brand-rgb)/0.04)',
+  '--section-badge-bg': 'var(--bg-elevated)',
+  '--plan-gate-bg': 'rgba(var(--accent-rgb)/0.06)',
+  '--plan-gate-border': 'rgba(var(--accent-rgb)/0.2)',
+}))
 </script>

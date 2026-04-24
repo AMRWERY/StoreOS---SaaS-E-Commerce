@@ -1,44 +1,136 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
-:root {
-  /* Merchant Dashboard — Backgrounds */
-  --bg-base:      #08080E;
-  --bg-primary:   #0D0D18;
-  --bg-elevated:  #141422;
-  --bg-overlay:   #1A1A2E;
+/* Dark (default) — also when data-theme is missing before hydration */
+html[data-theme="dark"],
+html:not([data-theme]) {
+  --bg-base-rgb: 8 8 14;
+  --bg-primary-rgb: 13 13 24;
+  --bg-elevated-rgb: 20 20 34;
+  --bg-overlay-rgb: 26 26 46;
 
-  /* Borders */
-  --border-subtle:  #1C1C30;
-  --border-default: #262640;
+  --border-subtle-rgb: 28 28 48;
+  --border-default-rgb: 38 38 64;
 
-  /* Text */
-  --text-primary:   #F0F0FF;
-  --text-secondary: #8888AA;
-  --text-muted:     #50506A;
+  --text-primary-rgb: 240 240 255;
+  --text-secondary-rgb: 136 136 170;
+  --text-muted-rgb: 80 80 106;
 
-  /* Brand */
-  --brand:       #6366F1;
-  --brand-hover: #818CF8;
-  --brand-dim:   rgba(99,102,241,0.12);
+  --brand-rgb: 99 102 241;
+  --brand-hover-rgb: 129 140 248;
 
-  /* Accent — orange */
-  --orange:      #F97316;
-  --orange-hover:#FB923C;
-  --orange-dim:  rgba(249,115,22,0.12);
+  --accent-rgb: 249 115 22;
+  --accent-hover-rgb: 251 146 60;
 
-  /* Status */
-  --success:     #10B981;
-  --success-dim: rgba(16,185,129,0.12);
-  --warning:     #F59E0B;
-  --warning-dim: rgba(245,158,11,0.12);
-  --danger:      #EF4444;
-  --danger-dim:  rgba(239,68,68,0.12);
-  --info:        #3B82F6;
-  --info-dim:    rgba(59,130,246,0.12);
-  --purple:      #A78BFA;
-  --purple-dim:  rgba(167,139,250,0.12);
-  --yellow:      #EAB308;
-  --yellow-dim:  rgba(234,179,8,0.12);
+  --success-rgb: 16 185 129;
+  --warning-rgb: 245 158 11;
+  --danger-rgb: 239 68 68;
+  --info-rgb: 59 130 246;
+
+  --status-purple-rgb: 167 139 250;
+  --status-yellow-rgb: 234 179 8;
+
+  --color-brand-dim: rgba(99, 102, 241, 0.12);
+  --color-accent-dim: rgba(249, 115, 22, 0.12);
+  --color-success-dim: rgba(16, 185, 129, 0.12);
+  --color-warning-dim: rgba(245, 158, 11, 0.12);
+  --color-danger-dim: rgba(239, 68, 68, 0.12);
+  --color-info-dim: rgba(59, 130, 246, 0.12);
+  --color-status-purple-dim: rgba(167, 139, 250, 0.12);
+  --color-status-yellow-dim: rgba(234, 179, 8, 0.12);
+
+  /* Legacy / body helpers */
+  --bg-base: rgb(var(--bg-base-rgb) / 1);
+  --bg-primary: rgb(var(--bg-primary-rgb) / 1);
+  --bg-elevated: rgb(var(--bg-elevated-rgb) / 1);
+  --bg-overlay: rgb(var(--bg-overlay-rgb) / 1);
+  --border-subtle: rgb(var(--border-subtle-rgb) / 1);
+  --border-default: rgb(var(--border-default-rgb) / 1);
+  --text-primary: rgb(var(--text-primary-rgb) / 1);
+  --text-secondary: rgb(var(--text-secondary-rgb) / 1);
+  --text-muted: rgb(var(--text-muted-rgb) / 1);
+  --brand: rgb(var(--brand-rgb) / 1);
+  --brand-hover: rgb(var(--brand-hover-rgb) / 1);
+  --orange: rgb(var(--accent-rgb) / 1);
+  --orange-hover: rgb(var(--accent-hover-rgb) / 1);
+  --success: rgb(var(--success-rgb) / 1);
+  --warning: rgb(var(--warning-rgb) / 1);
+  --danger: rgb(var(--danger-rgb) / 1);
+  --info: rgb(var(--info-rgb) / 1);
+  --purple: rgb(var(--status-purple-rgb) / 1);
+  --yellow: rgb(var(--status-yellow-rgb) / 1);
+  --brand-dim: var(--color-brand-dim);
+  --orange-dim: var(--color-accent-dim);
+  --success-dim: var(--color-success-dim);
+  --warning-dim: var(--color-warning-dim);
+  --danger-dim: var(--color-danger-dim);
+  --info-dim: var(--color-info-dim);
+  --purple-dim: var(--color-status-purple-dim);
+  --yellow-dim: var(--color-status-yellow-dim);
+}
+
+html[data-theme="light"] {
+  --bg-base-rgb: 246 246 250;
+  --bg-primary-rgb: 255 255 255;
+  --bg-elevated-rgb: 238 238 245;
+  --bg-overlay-rgb: 228 228 238;
+
+  --border-subtle-rgb: 218 218 232;
+  --border-default-rgb: 198 198 218;
+
+  --text-primary-rgb: 15 15 28;
+  --text-secondary-rgb: 82 82 102;
+  --text-muted-rgb: 128 128 148;
+
+  --brand-rgb: 99 102 241;
+  --brand-hover-rgb: 129 140 248;
+
+  --accent-rgb: 249 115 22;
+  --accent-hover-rgb: 251 146 60;
+
+  --success-rgb: 5 150 105;
+  --warning-rgb: 217 119 6;
+  --danger-rgb: 220 38 38;
+  --info-rgb: 37 99 235;
+
+  --status-purple-rgb: 124 58 237;
+  --status-yellow-rgb: 202 138 4;
+
+  --color-brand-dim: rgba(99, 102, 241, 0.1);
+  --color-accent-dim: rgba(249, 115, 22, 0.1);
+  --color-success-dim: rgba(5, 150, 105, 0.12);
+  --color-warning-dim: rgba(217, 119, 6, 0.12);
+  --color-danger-dim: rgba(220, 38, 38, 0.12);
+  --color-info-dim: rgba(37, 99, 235, 0.12);
+  --color-status-purple-dim: rgba(124, 58, 237, 0.12);
+  --color-status-yellow-dim: rgba(202, 138, 4, 0.12);
+
+  --bg-base: rgb(var(--bg-base-rgb) / 1);
+  --bg-primary: rgb(var(--bg-primary-rgb) / 1);
+  --bg-elevated: rgb(var(--bg-elevated-rgb) / 1);
+  --bg-overlay: rgb(var(--bg-overlay-rgb) / 1);
+  --border-subtle: rgb(var(--border-subtle-rgb) / 1);
+  --border-default: rgb(var(--border-default-rgb) / 1);
+  --text-primary: rgb(var(--text-primary-rgb) / 1);
+  --text-secondary: rgb(var(--text-secondary-rgb) / 1);
+  --text-muted: rgb(var(--text-muted-rgb) / 1);
+  --brand: rgb(var(--brand-rgb) / 1);
+  --brand-hover: rgb(var(--brand-hover-rgb) / 1);
+  --orange: rgb(var(--accent-rgb) / 1);
+  --orange-hover: rgb(var(--accent-hover-rgb) / 1);
+  --success: rgb(var(--success-rgb) / 1);
+  --warning: rgb(var(--warning-rgb) / 1);
+  --danger: rgb(var(--danger-rgb) / 1);
+  --info: rgb(var(--info-rgb) / 1);
+  --purple: rgb(var(--status-purple-rgb) / 1);
+  --yellow: rgb(var(--status-yellow-rgb) / 1);
+  --brand-dim: var(--color-brand-dim);
+  --orange-dim: var(--color-accent-dim);
+  --success-dim: var(--color-success-dim);
+  --warning-dim: var(--color-warning-dim);
+  --danger-dim: var(--color-danger-dim);
+  --info-dim: var(--color-info-dim);
+  --purple-dim: var(--color-status-purple-dim);
+  --yellow-dim: var(--color-status-yellow-dim);
 }
 
 .hide-scrollbar {

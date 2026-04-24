@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <section class="lg:col-span-8 bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 flex flex-col md:flex-row gap-10">
     <!-- Avatar Side -->
     <div class="flex flex-col items-center gap-4 shrink-0">
@@ -19,16 +19,16 @@
     <!-- Form Side -->
     <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
       <VInput v-model="profile.name" :label="$t('dashboard.profile.fullName')"
-        inputClass="bg-black border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
+        inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
       <VInput v-model="profile.email" :label="$t('dashboard.profile.emailAddress')" type="email"
-        inputClass="bg-black border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
+        inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
       <VInput v-model="profile.phone" :label="$t('dashboard.profile.phoneNumber')"
-        inputClass="bg-black border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
+        inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand" />
       <div class="space-y-2">
         <label class="text-[10px] font-bold text-tx-secondary tracking-wider">{{ $t('dashboard.profile.jobTitle') }}</label>
         <div class="relative">
           <select v-model="profile.jobTitle"
-            class="w-full bg-black border border-border-default rounded-xl px-5 py-3.5 text-sm appearance-none outline-none focus:border-brand">
+            class="w-full bg-bg-primary border border-border-default rounded-xl px-5 py-3.5 text-sm appearance-none outline-none focus:border-brand">
             <option>Owner</option>
             <option>Manager</option>
           </select>

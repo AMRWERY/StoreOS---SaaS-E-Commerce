@@ -1,12 +1,12 @@
-<template>
+﻿<template>
   <div
-    class="min-h-screen bg-[#08080E] text-[#F0F0FF] selection:bg-[#6366F1]/30 py-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
+    class="min-h-screen bg-bg-base text-tx-primary selection:bg-brand/30 py-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
   >
     <div v-if="!article" class="py-20 text-center space-y-6">
-      <p class="text-[#8888AA]">{{ $t('storefront.editorial.notFound') }}</p>
+      <p class="text-tx-secondary">{{ $t('storefront.editorial.notFound') }}</p>
       <nuxt-link-locale
         to="/editorial"
-        class="inline-flex text-[#6366F1] font-bold text-sm tracking-widest hover:underline"
+        class="inline-flex text-brand font-bold text-sm tracking-widest hover:underline"
       >
         {{ $t('storefront.editorial.backToEditorial') }}
       </nuxt-link-locale>
@@ -15,25 +15,25 @@
     <article v-else class="space-y-10">
       <VBreadcrumb :items="breadcrumbItems" />
 
-      <header class="space-y-6 border-b border-[#1C1C30] pb-10">
+      <header class="space-y-6 border-b border-border-subtle pb-10">
         <div class="flex flex-wrap items-center gap-4">
           <span
-            class="bg-[#6366F1]/10 text-[#6366F1] border border-[#6366F1]/20 px-3 py-1 rounded-[6px] text-[10px] font-black tracking-widest"
+            class="bg-brand/10 text-brand border border-brand/20 px-3 py-1 rounded-[6px] text-[10px] font-black tracking-widest"
           >
             {{ article.category }}
           </span>
-          <span class="text-[10px] font-bold text-[#50506A] tracking-tighter">
+          <span class="text-[10px] font-bold text-tx-muted tracking-tighter">
             Ref: {{ article.id }}
           </span>
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+        <h1 class="text-brandxl md:text-4xl lg:text-tx-mutedxl font-bold tracking-tight leading-tight">
           {{ article.title }}
         </h1>
         <div
-          class="flex flex-wrap gap-8 text-[11px] font-bold text-[#50506A] tracking-widest"
+          class="flex flex-wrap gap-8 text-[11px] font-bold text-tx-muted tracking-widest"
         >
           <span class="flex items-center gap-2">
-            <Icon name="ph:user-circle-fill" class="w-4 h-4 text-[#6366F1]" />
+            <Icon name="ph:user-circle-fill" class="w-4 h-4 text-brand" />
             {{ article.author }}
           </span>
           <span class="normal-case tracking-tight">{{ article.date }}</span>
@@ -44,7 +44,7 @@
         </div>
       </header>
 
-      <div class="relative aspect-[21/9] max-h-[420px] rounded-[20px] overflow-hidden bg-black border border-[#1C1C30]">
+      <div class="relative aspect-[21/9] max-h-[420px] rounded-[20px] overflow-hidden bg-black border border-border-subtle">
         <img
           :src="article.image"
           class="w-full h-full object-cover"
@@ -53,17 +53,17 @@
       </div>
 
       <div class="max-w-3xl space-y-6">
-        <p class="text-[18px] text-[#8888AA] leading-relaxed">
+        <p class="text-[18px] text-tx-secondary leading-relaxed">
           {{ article.excerpt }}
         </p>
-        <p class="text-[15px] text-[#50506A] leading-relaxed">
+        <p class="text-[15px] text-tx-muted leading-relaxed">
           {{ $t('storefront.editorial.fullArticle') }}
         </p>
       </div>
 
       <nuxt-link-locale
         to="/editorial"
-        class="inline-flex items-center gap-2 text-[11px] font-bold text-[#6366F1] tracking-widest hover:text-[#818CF8] transition-colors"
+        class="inline-flex items-center gap-2 text-[11px] font-bold text-brand tracking-widest hover:text-brand-hover transition-colors"
       >
         <Icon name="ph:arrow-left" class="w-4 h-4" />
         {{ $t('storefront.editorial.allEntries') }}

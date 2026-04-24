@@ -1,7 +1,7 @@
-<template>
+﻿<template>
    <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
       <!-- Hero Section -->
-      <section class="relative pt-32 pb-24 px-6 overflow-hidden border-b border-border-subtle bg-[#0A0A0F]">
+      <section class="relative pt-32 pb-24 px-6 overflow-hidden border-b border-border-subtle bg-bg-base">
          <div class="max-w-7xl mx-auto relative z-10 text-center">
             <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">The StoreOS Journal</p>
             <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8">
@@ -37,7 +37,7 @@
             <div
                class="group relative rounded-[3rem] overflow-hidden border border-border-subtle bg-bg-elevated flex flex-col lg:flex-row items-stretch shadow-2xl transition-all hover:border-brand/30">
                <div
-                  class="lg:w-7/12 aspect-video lg:aspect-auto relative overflow-hidden bg-[#12121A] flex items-center justify-center p-20">
+                  class="lg:w-7/12 aspect-video lg:aspect-auto relative overflow-hidden bg-bg-elevated flex items-center justify-center p-20">
                   <!-- Abstract visual placeholder -->
                   <div class="absolute inset-0 bg-gradient-to-br from-brand/20 to-transparent"></div>
                   <Icon name="ph:chart-bar-fill"

@@ -1,5 +1,5 @@
-<template>
-  <div class="min-h-screen bg-[#08080E] text-[#F0F0FF] selection:bg-[#6366F1]/30">
+﻿<template>
+  <div class="min-h-screen bg-bg-base text-tx-primary selection:bg-brand/30">
     <div class="max-w-[1400px] mx-auto px-4 md:px-10 py-8">
 
       <div class="flex gap-6 items-start">
@@ -35,12 +35,12 @@
 
       <!-- Footer -->
       <footer
-        class="mt-16 pt-8 border-t border-[#1C1C30] flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-black tracking-[0.3em] text-[#262640]">
+        class="mt-16 pt-8 border-t border-border-subtle flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-black tracking-[0.3em] text-[#262640]">
         <p>{{ $t('storefront.checkout.node') }}</p>
         <div class="flex gap-8">
-          <nuxt-link-locale to="/privacy" class="hover:text-[#6366F1] transition-colors">{{ $t('storefront.checkout.privacy') }}</nuxt-link-locale>
-          <nuxt-link-locale to="/terms" class="hover:text-[#6366F1] transition-colors">{{ $t('storefront.checkout.terms') }}</nuxt-link-locale>
-          <nuxt-link-locale to="" class="hover:text-[#6366F1] transition-colors">{{ $t('storefront.checkout.security') }}</nuxt-link-locale>
+          <nuxt-link-locale to="/privacy" class="hover:text-brand transition-colors">{{ $t('storefront.checkout.privacy') }}</nuxt-link-locale>
+          <nuxt-link-locale to="/terms" class="hover:text-brand transition-colors">{{ $t('storefront.checkout.terms') }}</nuxt-link-locale>
+          <nuxt-link-locale to="" class="hover:text-brand transition-colors">{{ $t('storefront.checkout.security') }}</nuxt-link-locale>
         </div>
       </footer>
     </div>

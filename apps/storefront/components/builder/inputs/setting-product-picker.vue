@@ -10,7 +10,7 @@
     <ul class="max-h-36 space-y-1 overflow-y-auto rounded-md border border-border-subtle bg-bg-base p-2">
       <li v-for="p in filtered" :key="p.id"
         class="flex cursor-pointer items-center gap-2 rounded-md px-2 py-2 text-[11px] transition-colors hover:bg-bg-elevated"
-        :class="modelValue === p.id ? 'bg-brand-dim/40 text-brand' : 'text-tx-secondary'"
+        :class="modelValue === p.id ? 'bg-brand/20 text-brand' : 'text-tx-secondary'"
         @click="$emit('update:modelValue', p.id)">
         <span class="size-8 shrink-0 rounded bg-bg-overlay" />
         <span class="min-w-0 flex-1 truncate font-medium">{{ p.title }}</span>

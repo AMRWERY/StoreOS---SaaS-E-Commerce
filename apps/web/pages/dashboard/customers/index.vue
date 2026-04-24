@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div>
-    <div class="min-h-screen text-[#e1e1e1] space-y-8">
+    <div class="min-h-screen text-tx-primary space-y-8">
       <!-- Header Section -->
       <customer-header :totalCustomers="'1,240'" @export="handleExport" @add="handleAdd" />
 

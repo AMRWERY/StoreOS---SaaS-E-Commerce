@@ -1,7 +1,7 @@
-<template>
+﻿<template>
   <div>
     <div class="space-y-0">
-      <div class="min-h-screen text-[#F0F0FF] selection:bg-[#6366F1]/30 p-6 lg:p-10">
+      <div class="min-h-screen text-tx-primary selection:bg-brand/30 p-6 lg:p-10">
         <!-- --- BREADCRUMBS --- -->
         <VBreadcrumb :items="breadcrumbItems" />
 
@@ -25,7 +25,7 @@
             </div>
 
             <!-- Pagination & Load More -->
-            <div class="flex flex-col items-center gap-10 py-12 border-t border-[#1C1C30]">
+            <div class="flex flex-col items-center gap-10 py-12 border-t border-border-subtle">
               <VPagination :total="248" :perPage="24" v-model:currentPage="currentPage" />
             </div>
           </main>

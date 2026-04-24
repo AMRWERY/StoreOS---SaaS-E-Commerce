@@ -1,7 +1,7 @@
-<template>
+﻿<template>
    <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
       <!-- Dev Hero -->
-      <section class="relative pt-32 pb-24 px-6 overflow-hidden border-b border-border-subtle bg-[#08080C]">
+      <section class="relative pt-32 pb-24 px-6 overflow-hidden border-b border-border-subtle bg-bg-base">
          <div class="max-w-7xl mx-auto relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-20">
                <div class="flex-1">
@@ -25,7 +25,7 @@
                <!-- Code Mockup -->
                <div class="flex-1 w-full">
                   <div
-                     class="rounded-2xl border border-border-subtle bg-[#0F111A] p-6 shadow-2xl relative overflow-hidden group">
+                     class="rounded-2xl border border-border-subtle bg-bg-primary p-6 shadow-2xl relative overflow-hidden group">
                      <div class="flex items-center gap-2 mb-6">
                         <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
                         <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20"></div>

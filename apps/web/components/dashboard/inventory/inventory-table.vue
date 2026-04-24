@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <section class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl">
       <div class="px-4 py-3.5 border-b border-border-subtle flex justify-between items-center bg-bg-elevated">
@@ -14,7 +14,7 @@
         <!-- Product Details -->
         <template #cell(name)="{ item }">
           <div class="flex items-center gap-4">
-            <div class="relative w-11 h-11 rounded-lg overflow-hidden border border-border-subtle bg-black">
+            <div class="relative w-11 h-11 rounded-lg overflow-hidden border border-border-subtle bg-bg-primary">
               <img :src="item.image"
                 class="w-full h-full object-cover grayscale opacity-80 group-hover/row:grayscale-0 group-hover/row:opacity-100 transition-all" />
             </div>
@@ -53,7 +53,7 @@
             <template v-if="editingId === item.id">
               <input type="number" v-model="editValue" @blur="saveThreshold(item)" @keyup.enter="saveThreshold(item)"
                 @keyup.esc="editingId = null"
-                class="w-16 bg-black border border-indigo-500/50 rounded px-2 py-1 text-xs font-bold focus:outline-none"
+                class="w-16 bg-bg-primary border border-indigo-500/50 rounded px-2 py-1 text-xs font-bold focus:outline-none"
                 ref="thresholdInput" autofocus />
             </template>
             <template v-else>
@@ -73,7 +73,7 @@
         <!-- Quick Adjust -->
         <template #cell(quickAdjust)="{ item }">
           <div
-            class="inline-flex items-center bg-black border border-border-default rounded-lg overflow-hidden transition-colors"
+            class="inline-flex items-center bg-bg-primary border border-border-default rounded-lg overflow-hidden transition-colors"
             @click.stop>
             <button class="px-2.5 py-1.5 hover:bg-bg-elevated hover:text-tx-primary text-tx-secondary transition-colors"
               @click="$emit('quick-adjust', item, -1)">

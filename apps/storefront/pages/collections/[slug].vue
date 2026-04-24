@@ -1,10 +1,10 @@
-<template>
-  <div class="min-h-screen bg-[#08080E] text-[#F0F0FF] selection:bg-[#6366F1]/30 p-6 lg:p-10">
+﻿<template>
+  <div class="min-h-screen bg-bg-base text-tx-primary selection:bg-brand/30 p-6 lg:p-10">
     <div v-if="!meta" class="max-w-[1400px] mx-auto py-20 text-center space-y-6">
-      <p class="text-[#8888AA]">{{ $t('storefront.collections.notFound') }}</p>
+      <p class="text-tx-secondary">{{ $t('storefront.collections.notFound') }}</p>
       <nuxt-link-locale
         to="/collections"
-        class="inline-flex text-[#6366F1] font-bold text-sm tracking-widest hover:underline"
+        class="inline-flex text-brand font-bold text-sm tracking-widest hover:underline"
       >
         {{ $t('storefront.collections.backToCollections') }}
       </nuxt-link-locale>
@@ -13,17 +13,17 @@
     <div v-else class="max-w-[1400px] mx-auto space-y-10">
       <VBreadcrumb :items="breadcrumbItems" />
 
-      <header class="space-y-3 border-b border-[#1C1C30] pb-10">
-        <p class="text-[10px] font-black tracking-[0.3em] text-[#50506A]">
+      <header class="space-y-3 border-b border-border-subtle pb-10">
+        <p class="text-[10px] font-black tracking-[0.3em] text-tx-muted">
           {{ $t('storefront.collections.filteredCatalog') }}
         </p>
-        <h1 class="text-4xl lg:text-5xl font-bold tracking-tight">
+        <h1 class="text-4xl lg:text-tx-mutedxl font-bold tracking-tight">
           {{ meta.name }}
         </h1>
-        <p class="text-[15px] text-[#8888AA] max-w-2xl leading-relaxed">
+        <p class="text-[15px] text-tx-secondary max-w-2xl leading-relaxed">
           {{ meta.description }}
         </p>
-        <p class="text-[11px] font-bold text-[#6366F1] tracking-widest">
+        <p class="text-[11px] font-bold text-brand tracking-widest">
           {{ $t('storefront.collections.productsInCollection', { count: filteredProducts.length }) }}
         </p>
       </header>
@@ -39,14 +39,14 @@
         >
           <nuxt-link-locale
             :to="`/shop-all/${p.slug}`"
-            class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080E]"
+            class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
           >
             <VProductCard :product="toCardProduct(p)" view-mode="grid" />
           </nuxt-link-locale>
         </div>
       </div>
 
-      <p v-else class="text-center text-[#50506A] py-16 text-sm">
+      <p v-else class="text-center text-tx-muted py-16 text-sm">
         {{ $t('storefront.collections.noProducts') }}
       </p>
     </div>
