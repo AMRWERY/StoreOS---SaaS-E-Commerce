@@ -3,12 +3,12 @@
     class="min-h-screen bg-bg-base text-tx-primary selection:bg-brand/30 py-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
   >
     <div v-if="!article" class="py-20 text-center space-y-6">
-      <p class="text-tx-secondary">{{ $t('storefront.editorial.notFound') }}</p>
+      <p class="text-tx-secondary">{{ t("storefront.editorial.notFound") }}</p>
       <nuxt-link-locale
         to="/editorial"
         class="inline-flex text-brand font-bold text-sm tracking-widest hover:underline"
       >
-        {{ $t('storefront.editorial.backToEditorial') }}
+        {{ t("storefront.editorial.backToEditorial") }}
       </nuxt-link-locale>
     </div>
 
@@ -26,7 +26,9 @@
             Ref: {{ article.id }}
           </span>
         </div>
-        <h1 class="text-brandxl md:text-4xl lg:text-tx-mutedxl font-bold tracking-tight leading-tight">
+        <h1
+          class="text-brandxl md:text-4xl lg:text-tx-mutedxl font-bold tracking-tight leading-tight"
+        >
           {{ article.title }}
         </h1>
         <div
@@ -44,7 +46,9 @@
         </div>
       </header>
 
-      <div class="relative aspect-[21/9] max-h-[420px] rounded-[20px] overflow-hidden bg-black border border-border-subtle">
+      <div
+        class="relative aspect-[21/9] max-h-[420px] rounded-[20px] overflow-hidden bg-black border border-border-subtle"
+      >
         <img
           :src="article.image"
           class="w-full h-full object-cover"
@@ -57,7 +61,7 @@
           {{ article.excerpt }}
         </p>
         <p class="text-[15px] text-tx-muted leading-relaxed">
-          {{ $t('storefront.editorial.fullArticle') }}
+          {{ t("storefront.editorial.fullArticle") }}
         </p>
       </div>
 
@@ -66,42 +70,47 @@
         class="inline-flex items-center gap-2 text-[11px] font-bold text-brand tracking-widest hover:text-brand-hover transition-colors"
       >
         <Icon name="ph:arrow-left" class="w-4 h-4" />
-        {{ $t('storefront.editorial.allEntries') }}
+        {{ t("storefront.editorial.allEntries") }}
       </nuxt-link-locale>
     </article>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { BreadcrumbItem } from '../../../../layers/ui/types/v-breadcrumb'
-import { getEditorialArticleById } from '../../data/editorial-articles'
+import type { BreadcrumbItem } from "../../../../layers/ui/types/v-breadcrumb";
+import { getEditorialArticleById } from "../../data/editorial-articles";
 
-const route = useRoute()
+const route = useRoute();
 
-const articleId = computed(() => String(route.params.id ?? ''))
+const articleId = computed(() => String(route.params.id ?? ""));
 
-const article = computed(() => getEditorialArticleById(articleId.value))
+const article = computed(() => getEditorialArticleById(articleId.value));
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
-  { label: t('common.home'), to: '/' },
-  { label: t('storefront.nav.editorial'), to: '/editorial' },
-  { label: article.value?.title ?? t('storefront.editorial.entry'), active: true },
-])
+  { label: t("common.home"), to: "/" },
+  { label: t("storefront.nav.editorial"), to: "/editorial" },
+  {
+    label: article.value?.title ?? t("storefront.editorial.entry"),
+    active: true,
+  },
+]);
 
 const seoTitle = computed(() =>
-  article.value ? `${article.value.title} | Editorial` : 'Editorial | StoreOS',
-)
-const seoDescription = computed(() => article.value?.excerpt ?? 'Editorial journal.')
+  article.value ? `${article.value.title} | Editorial` : "Editorial | StoreOS"
+);
+const seoDescription = computed(
+  () => article.value?.excerpt ?? "Editorial journal."
+);
 
 useSeoMeta({
   title: seoTitle,
   description: seoDescription,
   ogTitle: seoTitle,
   ogDescription: seoDescription,
-  ogType: 'article',
+  ogType: "article",
   twitterTitle: seoTitle,
   twitterDescription: seoDescription,
-})
+});
 </script>

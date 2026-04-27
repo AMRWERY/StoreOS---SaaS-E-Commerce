@@ -3,13 +3,17 @@
     ref="btnRef"
     type="button"
     variant="none"
-    :aria-label="isDark ? $t('nav.useLightTheme') : $t('nav.useDarkTheme')"
+    :aria-label="isDark ? t('nav.useLightTheme') : t('nav.useDarkTheme')"
     className="flex items-center justify-center p-2 rounded-md text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated border border-border-subtle transition-colors"
     @click="handleToggle"
   >
     <ClientOnly>
       <Transition name="theme-icon" mode="out-in">
-        <Icon :key="isDark ? 'dark' : 'light'" :name="isDark ? 'ph:sun-bold' : 'ph:moon-stars-bold'" class="text-lg shrink-0" />
+        <Icon
+          :key="isDark ? 'dark' : 'light'"
+          :name="isDark ? 'ph:sun-bold' : 'ph:moon-stars-bold'"
+          class="text-lg shrink-0"
+        />
       </Transition>
       <template #fallback>
         <span class="inline-block size-5" aria-hidden="true" />
@@ -19,6 +23,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n();
 const { isDark, toggleTheme } = useAppTheme();
 
 const btnRef = ref<{ $el?: HTMLElement } | null>(null);
@@ -31,7 +36,7 @@ async function handleToggle(event: MouseEvent) {
 
   const maxRadius = Math.hypot(
     Math.max(x, window.innerWidth - x),
-    Math.max(y, window.innerHeight - y),
+    Math.max(y, window.innerHeight - y)
   );
 
   if (!document.startViewTransition) {
@@ -56,7 +61,7 @@ async function handleToggle(event: MouseEvent) {
       duration: 420,
       easing: "ease-in-out",
       pseudoElement: "::view-transition-new(root)",
-    },
+    }
   );
 }
 </script>

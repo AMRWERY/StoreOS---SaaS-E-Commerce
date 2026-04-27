@@ -251,7 +251,14 @@
         "couponBuilder": "منشئ الكوبونات",
         "apiAccess": "الوصول لواجهة البرمجة",
         "storeBuilder": "منشئ المتجر",
-        "dedicatedSupport": "دعم مخصص"
+        "dedicatedSupport": "دعم مخصص",
+        "basic": "أساسي",
+        "advanced": "متقدم",
+        "Advanced + API": "متقدم + API",
+        "Community": "مجتمع",
+        "Email": "البريد الإلكتروني",
+        "Priority": "الأولوية",
+        "AccountManager": "مدير الحساب"
       },
       "trust": {
         "noCreditCard": "لا تحتاج بطاقة ائتمان",
@@ -920,6 +927,34 @@
       "specificationsContent": "هيكل من الفولاذ المقاوم للصدأ، حزام جلد أصلي، زجاج كريستالي ياقوتي، مقاومة للماء 5ATM.",
       "shippingReturns": "الشحن والإرجاع",
       "shippingContent": "شحن قياسي مجاني على جميع الطلبات التي تتجاوز 500 دولار. يُقبل الإرجاع خلال 30 يوماً من الشراء."
+    }
+  },
+  "layout": {
+    "footer": {
+      "description": "الطبقة التشغيلية الحديثة للمتاجر التجارية سريعة النمو.",
+      "product": "المنتج",
+      "features": "الميزات",
+      "dashboard": "لوحة التحكم",
+      "pricing": "الأسعار",
+      "roadmap": "خارطة الطريق",
+      "integrations": "التكاملات",
+      "payments": "المدفوعات",
+      "shipping": "الشحن",
+      "marketing": "التسويق",
+      "messaging": "المراسلة",
+      "company": "الشركة",
+      "aboutUs": "من نحن",
+      "careers": "الوظائف",
+      "blogs": "المدونات",
+      "privacy": "الخصوصية",
+      "support": "الدعم",
+      "documentation": "الوثائق",
+      "helpCenter": "مركز المساعدة",
+      "community": "المجتمع",
+      "contact": "اتصل بنا",
+      "copyright": "© 2026 نظام تشغيل STOREOS. جميع الحقوق محفوظة.",
+      "twitter": "تويتر",
+      "instagram": "إنستغرام"
     }
   },
   "common": {

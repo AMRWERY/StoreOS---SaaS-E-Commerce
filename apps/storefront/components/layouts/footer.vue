@@ -1,75 +1,109 @@
 <template>
   <div>
-    <footer class="bg-bg-base pt-20 pb-8 text-tx-muted border-t border-border-subtle">
-      <div class="max-w-7xl mx-auto px-12 md:px-24 grid grid-cols-1 md:grid-cols-4 gap-16 mb-12">
+    <footer
+      class="bg-bg-base pt-20 pb-8 text-tx-muted border-t border-border-subtle"
+    >
+      <div
+        class="max-w-7xl mx-auto px-12 md:px-24 grid grid-cols-1 md:grid-cols-4 gap-16 mb-12"
+      >
         <div class="space-y-6">
           <nuxt-link-locale to="/" class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-brand rounded-lg flex items-center justify-center text-white shrink-0">
+            <div
+              class="w-9 h-9 bg-brand rounded-lg flex items-center justify-center text-white shrink-0"
+            >
               <Icon name="ph:storefront-bold" class="text-xl" />
             </div>
             <div>
-              <h1 class="font-bold text-lg leading-none text-tx-primary">Store<span class="text-brand">OS</span></h1>
-              <p class="text-[9px] text-tx-secondary tracking-[0.2em] font-semibold mt-1">Global Merchant</p>
+              <h1 class="font-bold text-lg leading-none text-tx-primary">
+                Store<span class="text-brand">OS</span>
+              </h1>
+              <p
+                class="text-[9px] text-tx-secondary tracking-[0.2em] font-semibold mt-1"
+              >
+                Global Merchant
+              </p>
             </div>
           </nuxt-link-locale>
-          <p class="text-[12px] leading-relaxed max-w-xs text-tx-muted opacity-80">
-            {{ $t('storefront.footer.unifiedOS') }}
+          <p
+            class="text-[12px] leading-relaxed max-w-xs text-tx-muted opacity-80"
+          >
+            {{ t("storefront.footer.unifiedOS") }}
           </p>
           <div class="flex gap-4">
-            <div v-for="soc in socialIcons" :key="soc.key"
-              class="h-5 w-5 rounded-full flex items-center justify-center hover:border-brand hover:text-brand cursor-pointer transition-all shadow-sm">
+            <div
+              v-for="soc in socialIcons"
+              :key="soc.key"
+              class="h-5 w-5 rounded-full flex items-center justify-center hover:border-brand hover:text-brand cursor-pointer transition-all shadow-sm"
+            >
               <Icon :name="soc.icon" class="w-5 h-5" />
             </div>
           </div>
         </div>
         <div v-for="col in footerColumns" :key="col.title">
-          <h4 class="text-tx-primary text-[11px] font-black tracking-[0.2em] mb-8">{{ col.title }}</h4>
+          <h4
+            class="text-tx-primary text-[11px] font-black tracking-[0.2em] mb-8"
+          >
+            {{ col.title }}
+          </h4>
           <ul class="space-y-4 text-[12px] flex flex-col">
-            <nuxt-link-locale v-for="link in col.links" :key="link.path" :to="link.path"
-              class="hover:text-brand cursor-pointer font-medium transition-colors w-fit">{{ link.label }}</nuxt-link-locale>
+            <nuxt-link-locale
+              v-for="link in col.links"
+              :key="link.path"
+              :to="link.path"
+              class="hover:text-brand cursor-pointer font-medium transition-colors w-fit"
+              >{{ link.label }}</nuxt-link-locale
+            >
           </ul>
         </div>
         <div>
-          <h4 class="text-tx-primary text-[11px] font-black tracking-[0.2em] mb-8">{{ $t('storefront.footer.nodeLocation') }}</h4>
+          <h4
+            class="text-tx-primary text-[11px] font-black tracking-[0.2em] mb-8"
+          >
+            {{ t("storefront.footer.nodeLocation") }}
+          </h4>
           <p class="text-[11px] text-tx-muted leading-relaxed tracking-tighter">
-            {{ $t('storefront.footer.sectorLondon') }}<br />
+            {{ t("storefront.footer.sectorLondon") }}<br />
             ID: 8829-001-ALPHA<br />
-            {{ $t('storefront.footer.operational') }}
+            {{ t("storefront.footer.operational") }}
           </p>
         </div>
       </div>
       <div class="border-t border-border-subtle pt-8 text-center px-6">
-        <p class="text-[10px] font-bold tracking-[0.3em] text-tx-muted opacity-60">{{ $t('storefront.footer.copyright') }}</p>
+        <p
+          class="text-[10px] font-bold tracking-[0.3em] text-tx-muted opacity-60"
+        >
+          {{ t("storefront.footer.copyright") }}
+        </p>
       </div>
     </footer>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 
 const socialIcons = [
-  { key: 'instagram', icon: 'skill-icons:instagram' },
-  { key: 'twitter', icon: 'garden:twitter-fill-12' },
-  { key: 'facebook', icon: 'logos:facebook' }
+  { key: "instagram", icon: "skill-icons:instagram" },
+  { key: "twitter", icon: "garden:twitter-fill-12" },
+  { key: "facebook", icon: "logos:facebook" },
 ];
 
 const footerColumns = computed(() => [
   {
-    title: t('storefront.footer.coreLinks'),
+    title: t("storefront.footer.coreLinks"),
     links: [
-      { label: t('storefront.footer.shopAll'), path: '/shop-all' },
-      { label: t('storefront.footer.catalogIndex'), path: '/catalog-index' },
-      { label: t('storefront.footer.archive'), path: '/archive' },
-    ]
+      { label: t("storefront.footer.shopAll"), path: "/shop-all" },
+      { label: t("storefront.footer.catalogIndex"), path: "/catalog-index" },
+      { label: t("storefront.footer.archive"), path: "/archive" },
+    ],
   },
   {
-    title: t('storefront.footer.system'),
+    title: t("storefront.footer.system"),
     links: [
-      { label: t('storefront.footer.terms'), path: '/terms' },
-      { label: t('storefront.footer.privacy'), path: '/privacy' },
-      { label: t('storefront.footer.compliance'), path: '/compliance' },
-    ]
-  }
+      { label: t("storefront.footer.terms"), path: "/terms" },
+      { label: t("storefront.footer.privacy"), path: "/privacy" },
+      { label: t("storefront.footer.compliance"), path: "/compliance" },
+    ],
+  },
 ]);
 </script>

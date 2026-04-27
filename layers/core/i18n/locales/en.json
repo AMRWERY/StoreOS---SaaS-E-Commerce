@@ -251,7 +251,14 @@
         "couponBuilder": "Coupon Builder",
         "apiAccess": "API Access",
         "storeBuilder": "Store Builder",
-        "dedicatedSupport": "Dedicated Support"
+        "dedicatedSupport": "Dedicated Support",
+        "basic": "Basic",
+        "advanced": "Advanced",
+        "Advanced + API": "Advanced + API",
+        "Community": "Community",
+        "Email": "Email",
+        "Priority": "Priority",
+        "AccountManager": "Account Manager"
       },
       "trust": {
         "noCreditCard": "No credit card required",
@@ -920,6 +927,34 @@
       "specificationsContent": "Brushed stainless steel case, genuine leather strap, sapphire crystal glass, 5ATM water resistance.",
       "shippingReturns": "Shipping & Returns",
       "shippingContent": "Free standard shipping on all orders over $500. Returns accepted within 30 days of purchase."
+    }
+  },
+  "layout": {
+    "footer": {
+      "description": "The modern operational layer for high-growth commerce stores.",
+      "product": "Product",
+      "features": "Features",
+      "dashboard": "Dashboard",
+      "pricing": "Pricing",
+      "roadmap": "Roadmap",
+      "integrations": "Integrations",
+      "payments": "Payments",
+      "shipping": "Shipping",
+      "marketing": "Marketing",
+      "messaging": "Messaging",
+      "company": "Company",
+      "aboutUs": "About Us",
+      "careers": "Careers",
+      "blogs": "Blogs",
+      "privacy": "Privacy",
+      "support": "Support",
+      "documentation": "Documentation",
+      "helpCenter": "Help Center",
+      "community": "Community",
+      "contact": "Contact",
+      "copyright": "© 2026 STOREOS OPERATING SYSTEM. ALL RIGHTS RESERVED.",
+      "twitter": "Twitter",
+      "instagram": "Instagram"
     }
   },
   "common": {
