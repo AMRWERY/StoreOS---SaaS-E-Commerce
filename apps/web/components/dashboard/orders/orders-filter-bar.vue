@@ -1,6 +1,10 @@
 ﻿<template>
   <div class="mb-8">
-    <VTabs :tabs="formattedTabs" :modelValue="activeTab" @update:modelValue="$emit('update:activeTab', $event)" />
+    <LazyVTabs
+      :tabs="formattedTabs"
+      :modelValue="activeTab"
+      @update:modelValue="$emit('update:activeTab', $event)"
+    />
   </div>
 </template>
 
@@ -10,13 +14,14 @@ const props = defineProps<{
   tabs: Array<{ name: string; count: number | null }>;
 }>();
 
-defineEmits(['update:activeTab']);
+defineEmits(["update:activeTab"]);
 
 const formattedTabs = computed(() => {
-  return props.tabs.map(tab => ({
+  return props.tabs.map((tab) => ({
     name: tab.name,
     count: tab.count !== null ? tab.count : undefined,
-    badgeClass: tab.name === 'New' ? 'bg-orange-600 text-tx-primary' : undefined
-  }))
-})
+    badgeClass:
+      tab.name === "New" ? "bg-orange-600 text-tx-primary" : undefined,
+  }));
+});
 </script>

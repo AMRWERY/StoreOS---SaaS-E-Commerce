@@ -6,7 +6,7 @@
       class="max-w-[1400px] mx-auto flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between"
     >
       <div class="w-full min-w-0">
-        <VTabs v-model="activeFilter" :tabs="filters" />
+        <LazyVTabs v-model="activeFilter" :tabs="filters" />
       </div>
 
       <div
@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 defineProps<{ filters: string[] }>();
 
 const activeFilter = defineModel<string>("activeFilter", { required: true });

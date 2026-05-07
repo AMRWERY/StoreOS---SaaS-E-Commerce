@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <VTable :headers="headers" :items="paginatedItems">
+      <LazyVTable :headers="headers" :items="paginatedItems">
         <!-- Product Details -->
         <template #cell(name)="{ item }">
           <div class="flex items-center gap-4">
@@ -169,8 +169,8 @@
             </button>
           </div>
         </template>
-      </VTable>
-      <VPagination
+      </LazyVTable>
+      <LazyVPagination
         :total="items.length"
         :per-page="perPage"
         :current-page="currentPage"

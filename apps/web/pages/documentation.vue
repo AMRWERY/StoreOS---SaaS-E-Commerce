@@ -15,11 +15,12 @@
                      your existing stack with our powerful GraphQL API and modern SDKs.
                   </p>
                   <div class="flex items-center gap-4">
-                     <VButton variant="none"
+                     <LazyVButton variant="none"
                         className="bg-info text-white py-4 px-10 rounded-xl font-bold text-sm shadow-xl shadow-info/20">
-                        Get API Keys</VButton>
-                     <VButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">API Reference
-                     </VButton>
+                        Get API Keys</LazyVButton>
+                     <LazyVButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">API
+                        Reference
+                     </LazyVButton>
                   </div>
                </div>
                <!-- Code Mockup -->
@@ -108,11 +109,11 @@
                building.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-               <VButton variant="none"
+               <LazyVButton variant="none"
                   className="bg-info text-white py-4 px-10 rounded-xl font-bold text-sm shadow-xl shadow-info/20">Create
-                  Sandbox Account</VButton>
-               <VButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">API Status
-               </VButton>
+                  Sandbox Account</LazyVButton>
+               <LazyVButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">API Status
+               </LazyVButton>
             </div>
          </div>
       </section>

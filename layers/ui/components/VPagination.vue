@@ -10,10 +10,10 @@
       <!-- Right: controls -->
       <div class="flex items-center gap-1">
         <!-- Prev -->
-        <VButton variant="none" :disabled="currentPage === 1" @click="changePage(currentPage - 1)"
+        <LazyVButton variant="none" :disabled="currentPage === 1" @click="changePage(currentPage - 1)"
           className="w-8 h-8 flex items-center justify-center rounded-md text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated transition-all disabled:opacity-30 disabled:cursor-not-allowed">
           <Icon name="ph:caret-left-bold" class="text-sm" />
-        </VButton>
+        </LazyVButton>
 
         <!-- Page numbers -->
         <template v-for="page in visiblePages" :key="page">
@@ -21,21 +21,21 @@
             class="w-8 h-8 flex items-center justify-center text-tx-muted text-xs select-none">
             ···
           </span>
-          <VButton v-else variant="none" @click="changePage(page)" :className="[
+          <LazyVButton v-else variant="none" @click="changePage(page)" :className="[
             'w-8 h-8 flex items-center justify-center rounded-md text-xs font-semibold transition-all',
             page === currentPage
               ? 'bg-brand text-white shadow-lg shadow-brand/20'
               : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
           ].join(' ')">
             {{ page }}
-          </VButton>
+          </LazyVButton>
         </template>
 
         <!-- Next -->
-        <VButton variant="none" :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)"
+        <LazyVButton variant="none" :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)"
           className="w-8 h-8 flex items-center justify-center rounded-md text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated transition-all disabled:opacity-30 disabled:cursor-not-allowed">
           <Icon name="ph:caret-right-bold" class="text-sm" />
-        </VButton>
+        </LazyVButton>
       </div>
     </div>
   </div>

@@ -21,7 +21,7 @@
           />
 
           <!-- Pagination -->
-          <VPagination
+          <LazyVPagination
             :total="orders.length"
             :per-page="perPage"
             :current-page="currentPage"
@@ -62,12 +62,12 @@
           <span class="text-xs text-tx-secondary"
             >storeos.io/my-awesome-shop</span
           >
-          <VButton
+          <LazyVButton
             @click="copyLink"
             className="bg-brand hover:bg-brand-hover text-white px-4 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all"
           >
             {{ t("dashboard.orders.copyLink") }}
-          </VButton>
+          </LazyVButton>
         </div>
       </div>
 
@@ -81,7 +81,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 const ordersStore = useOrdersStore();
 const {
   activeTab,

@@ -56,7 +56,7 @@
         </div>
 
         <div class="flex items-center gap-5 text-tx-muted">
-          <ThemeToggle />
+          <LazyThemeToggle />
           <!-- Locale Switcher -->
           <button
             @click="switchLocale"
@@ -90,7 +90,7 @@
     </nav>
 
     <!-- Switch Locale Overlay -->
-    <VOverlay :show="showOverlay" />
+    <LazyVOverlay :show="showOverlay" />
   </div>
 </template>
 

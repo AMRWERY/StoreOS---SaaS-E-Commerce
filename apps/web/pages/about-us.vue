@@ -101,11 +101,11 @@
           We're always looking for ambitious people to help us build the next generation of commerce infrastructure.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <VButton variant="none"
+          <LazyVButton variant="none"
             className="bg-brand text-white py-4 px-10 rounded-xl font-bold text-sm shadow-xl shadow-brand/20">View Open
-            Positions</VButton>
-          <VButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">Contact Our Team
-          </VButton>
+            Positions</LazyVButton>
+          <LazyVButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">Contact Our Team
+          </LazyVButton>
         </div>
       </div>
     </section>

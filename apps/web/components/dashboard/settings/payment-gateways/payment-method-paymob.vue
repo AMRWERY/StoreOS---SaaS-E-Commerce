@@ -27,7 +27,7 @@
         </div>
 
         <div class="lg:w-2/3 space-y-6">
-          <VInput
+          <LazyVInput
             type="password"
             label="Api_Key_Production"
             modelValue="sk_prod_18471289fh128h41h2"
@@ -36,13 +36,13 @@
           />
 
           <div class="grid grid-cols-2 gap-6">
-            <VInput
+            <LazyVInput
               label="Integration_Id"
               modelValue="128492"
               readonly
               inputClass="bg-bg-primary text-tx-secondary"
             />
-            <VInput
+            <LazyVInput
               label="Iframe_Id"
               modelValue="849201"
               readonly
@@ -56,5 +56,5 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 </script>

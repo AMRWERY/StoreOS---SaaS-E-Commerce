@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="integrations"
-    class="py-32 px-6 border-t border-border-subtle bg-bg-elevated/20"
-  >
+  <section id="integrations" class="py-32 px-6 border-t border-border-subtle bg-bg-elevated/20">
     <div class="max-w-7xl mx-auto">
       <!-- Header -->
       <div class="text-center mb-20">
@@ -24,16 +21,11 @@
       <div class="space-y-12">
         <div v-for="category in categories" :key="category.label">
           <div class="flex items-center gap-4 mb-6">
-            <div
-              :class="[
-                'w-8 h-8 rounded-lg flex items-center justify-center',
-                category.iconBg,
-              ]"
-            >
-              <Icon
-                :name="category.icon"
-                :class="['text-base', category.iconColor]"
-              />
+            <div :class="[
+              'w-8 h-8 rounded-lg flex items-center justify-center',
+              category.iconBg,
+            ]">
+              <Icon :name="category.icon" :class="['text-base', category.iconColor]" />
             </div>
             <h3 class="text-xs font-black tracking-[0.2em] text-tx-muted">
               {{ category.label }}
@@ -41,21 +33,14 @@
             <div class="flex-1 h-px bg-border-subtle"></div>
           </div>
 
-          <div
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3"
-          >
-            <div
-              v-for="item in category.items"
-              :key="item.name"
-              class="group relative bg-bg-primary border border-border-subtle hover:border-brand/30 rounded-2xl p-4 flex flex-col items-center gap-3 transition-all duration-200 cursor-pointer hover:bg-bg-elevated hover:shadow-lg hover:shadow-brand/5 hover:-translate-y-0.5"
-            >
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            <div v-for="item in category.items" :key="item.name"
+              class="group relative bg-bg-primary border border-border-subtle hover:border-brand/30 rounded-2xl p-4 flex flex-col items-center gap-3 transition-all duration-200 cursor-pointer hover:bg-bg-elevated hover:shadow-lg hover:shadow-brand/5 hover:-translate-y-0.5">
               <!-- Logo / Icon -->
-              <div
-                :class="[
-                  'w-10 h-10 rounded-xl flex items-center justify-center shrink-0',
-                  item.bg,
-                ]"
-              >
+              <div :class="[
+                'w-10 h-10 rounded-xl flex items-center justify-center shrink-0',
+                item.bg,
+              ]">
                 <Icon :name="item.icon" :class="['text-xl', item.color]" />
               </div>
               <div class="text-center">
@@ -68,17 +53,12 @@
               </div>
 
               <!-- "Live" badge for active ones -->
-              <span
-                v-if="item.live"
-                class="absolute top-2 end-2 w-1.5 h-1.5 rounded-full bg-success"
-              ></span>
+              <span v-if="item.live" class="absolute top-2 end-2 w-1.5 h-1.5 rounded-full bg-success"></span>
 
               <!-- Coming Soon badge -->
-              <span
-                v-if="item.soon"
-                class="absolute top-2 end-2 text-[8px] font-black text-tx-muted bg-bg-elevated border border-border-subtle rounded px-1.5 py-0.5 tracking-widest"
-                >{{ t("home.integrations.soon") }}</span
-              >
+              <span v-if="item.soon"
+                class="absolute top-2 end-2 text-[8px] font-black text-tx-muted bg-bg-elevated border border-border-subtle rounded px-1.5 py-0.5 tracking-widest">{{
+                  t("home.integrations.soon") }}</span>
             </div>
           </div>
         </div>
@@ -86,8 +66,7 @@
 
       <!-- CTA Strip -->
       <div
-        class="mt-20 bg-bg-primary border border-border-subtle rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6"
-      >
+        class="mt-20 bg-bg-primary border border-border-subtle rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h3 class="text-lg font-bold mb-1">
             {{ t("home.integrations.dontSeeYourTool") }}
@@ -97,19 +76,14 @@
           </p>
         </div>
         <div class="flex items-center gap-3 shrink-0">
-          <VButton
-            variant="none"
-            to="/auth/register"
-            className="bg-brand hover:bg-brand-hover text-white px-6 py-3 rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20"
-          >
+          <LazyVButton variant="none" to="/auth/register"
+            className="bg-brand hover:bg-brand-hover text-white px-6 py-3 rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20">
             {{ t("home.integrations.requestIntegration") }}
-          </VButton>
-          <VButton
-            variant="none"
-            className="px-6 py-3 bg-bg-elevated hover:bg-white/10 border border-border-subtle rounded-xl text-xs font-bold text-tx-secondary hover:text-tx-primary transition-all"
-          >
+          </LazyVButton>
+          <LazyVButton variant="none"
+            className="px-6 py-3 bg-bg-elevated hover:bg-white/10 border border-border-subtle rounded-xl text-xs font-bold text-tx-secondary hover:text-tx-primary transition-all">
             {{ t("home.integrations.viewRoadmap") }}
-          </VButton>
+          </LazyVButton>
         </div>
       </div>
 
@@ -122,17 +96,10 @@
           {{ t("home.integrations.goLive") }}
         </h2>
         <div class="grid md:grid-cols-3 gap-8 relative">
-          <div
-            class="hidden md:block absolute top-10 start-1/6 end-1/6 h-px bg-border-subtle -z-10"
-          ></div>
-          <div
-            v-for="step in steps"
-            :key="step.id"
-            class="flex flex-col items-center group"
-          >
+          <div class="hidden md:block absolute top-10 start-1/6 end-1/6 h-px bg-border-subtle -z-10"></div>
+          <div v-for="step in steps" :key="step.id" class="flex flex-col items-center group">
             <div
-              class="w-20 h-20 rounded-2xl bg-brand-dim border border-brand/20 flex items-center justify-center text-2xl font-black text-brand mb-6 group-hover:scale-105 transition-transform shadow-lg shadow-brand/10"
-            >
+              class="w-20 h-20 rounded-2xl bg-brand-dim border border-brand/20 flex items-center justify-center text-2xl font-black text-brand mb-6 group-hover:scale-105 transition-transform shadow-lg shadow-brand/10">
               {{ step.id }}
             </div>
             <h3 class="text-base font-bold mb-3">{{ step.title }}</h3>

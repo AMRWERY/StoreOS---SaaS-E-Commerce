@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <div class="min-h-screen text-tx-primary -mt-5">
-      <VBreadcrumb
+      <LazyVBreadcrumb
         class="mb-6"
         :overrides="{
           'add-update-product': isEdit
@@ -11,7 +11,7 @@
       />
 
       <div class="flex items-center gap-6">
-        <VBackButton
+        <LazyVBackButton
           to="/dashboard/products"
           :label="t('dashboard.products.title')"
         />
@@ -52,7 +52,7 @@
             </div>
 
             <div class="space-y-6">
-              <VInput
+              <LazyVInput
                 v-model="product.name"
                 :label="t('dashboard.products.productName')"
                 placeholder="e.g. Kinetic Series: Modular Rack v2"
@@ -113,7 +113,7 @@
               </h3>
             </div>
             <div class="grid grid-cols-3 gap-4">
-              <VFileUpload
+              <LazyVDropdownMenu
                 class="aspect-square [&>div]:h-full [&>div>div:first-child]:h-full"
                 wrapperClass="h-full w-full bg-bg-primary border-2 border-dashed border-border-subtle rounded-2xl flex flex-col items-center justify-center group cursor-pointer hover:bg-bg-elevated transition-all"
                 icon=""
@@ -127,7 +127,7 @@
                 <p class="text-[10px] font-bold text-tx-muted">
                   {{ t("dashboard.products.dragDrop") }}
                 </p>
-              </VFileUpload>
+              </LazyVDropdownMenu>
               <div
                 class="aspect-square bg-bg-elevated rounded-2xl overflow-hidden border border-border-subtle relative group cursor-pointer"
               >
@@ -162,7 +162,7 @@
               {{ t("dashboard.products.financials") }}
             </h3>
             <div class="grid grid-cols-3 gap-6 mb-8">
-              <VInput
+              <LazyVInput
                 v-model="product.price"
                 type="number"
                 :label="t('dashboard.products.price')"
@@ -174,9 +174,9 @@
                     >$</span
                   >
                 </template>
-              </VInput>
+              </LazyVInput>
 
-              <VInput
+              <LazyVInput
                 v-model="product.comparePrice"
                 type="number"
                 :label="t('dashboard.products.compareAt')"
@@ -188,9 +188,9 @@
                     >$</span
                   >
                 </template>
-              </VInput>
+              </LazyVInput>
 
-              <VInput
+              <LazyVInput
                 v-model="product.cost"
                 type="number"
                 :label="t('dashboard.products.costPerItem')"
@@ -202,7 +202,7 @@
                     >$</span
                   >
                 </template>
-              </VInput>
+              </LazyVInput>
             </div>
             <div
               class="flex items-center justify-between p-5 bg-bg-elevated border border-border-subtle rounded-2xl"
@@ -308,17 +308,17 @@
             </div>
 
             <div class="flex gap-3 mt-8">
-              <VButton
+              <LazyVButton
                 variant="none"
                 className="flex-1 bg-bg-elevated hover:bg-bg-elevated py-3 rounded-xl text-[10px] font-black tracking-widest transition-colors"
               >
-                {{ t("dashboard.products.saveDraft") }}</VButton
+                {{ t("dashboard.products.saveDraft") }}</LazyVButton
               >
-              <VButton
+              <LazyVButton
                 variant="none"
                 className="flex-1 bg-brand hover:bg-brand-hover py-3 rounded-xl text-[10px] font-black tracking-widest shadow-lg shadow-brand/20 transition-all"
               >
-                {{ t("dashboard.products.publish") }}</VButton
+                {{ t("dashboard.products.publish") }}</LazyVButton
               >
             </div>
           </section>
@@ -392,13 +392,13 @@
     </div>
 
     <!-- Dilaog -->
-    <VDialog
+    <LazyVDialog
       v-model="showCategoryModal"
       :title="t('dashboard.products.createCategory')"
       maxWidth="md"
     >
       <div class="space-y-6">
-        <VInput
+        <LazyVInput
           v-model="newCategoryName"
           :label="t('dashboard.products.categoryName')"
           placeholder="e.g. Peripherals"
@@ -406,20 +406,20 @@
         />
       </div>
       <template #footer>
-        <VButton
+        <LazyVButton
           variant="none"
           className="bg-brand hover:bg-brand-hover text-tx-primary px-5 py-2.5 rounded-lg text-xs font-bold shadow-lg shadow-brand/20 transition-all"
           @click="handleCreateCategory"
         >
           {{ t("dashboard.products.createCategory") }}
-        </VButton>
+        </LazyVButton>
       </template>
-    </VDialog>
+    </LazyVDialog>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 const route = useRoute();
 const isEdit = computed(() => !!route.query.id);
 

@@ -6,12 +6,12 @@
           v-model:status="selectedStatus" @adjust="openAdjustmentModal()" />
 
         <!-- Alert Banner -->
-        <VAlertBanner v-if="lowStockCount > 0" variant="warning" icon="ph:warning-bold">
+        <LazyVAlertBanner v-if="lowStockCount > 0" variant="warning" icon="ph:warning-bold">
           <p class="text-sm font-medium"><span class="font-bold">⚠ {{ lowStockCount }} products are low on stock</span>
             — Review now
             <Icon name="ph:arrow-right-bold" class="inline ms-1" />
           </p>
-        </VAlertBanner>
+        </LazyVAlertBanner>
 
         <!-- Componented Layout -->
         <inventory-summary-cards :outOfStockCount="outOfStockCount" :lowStockCount="lowStockCount" />

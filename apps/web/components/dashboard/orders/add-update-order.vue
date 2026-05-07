@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <div class="min-h-screen bg-bg-base text-tx-primary -mt-4 pb-20">
-      <VBreadcrumb
+      <LazyVBreadcrumb
         class="mb-6"
         :overrides="{
           'add-update-order': isEdit
@@ -13,7 +13,7 @@
       <!-- Header -->
       <header class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-6">
-          <VBackButton
+          <LazyVBackButton
             to="/dashboard/orders"
             :label="t('dashboard.orders.title')"
           />
@@ -36,14 +36,14 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <VButton
+          <LazyVButton
             variant="none"
             to="/dashboard/orders"
             className="px-5 py-2.5 bg-bg-elevated hover:bg-bg-elevated border border-border-subtle rounded-xl text-xs font-bold transition-all text-tx-secondary hover:text-tx-primary"
           >
             {{ t("common.discard") }}
-          </VButton>
-          <VButton
+          </LazyVButton>
+          <LazyVButton
             @click="saveOrder"
             className="px-8 py-2.5 bg-brand hover:bg-brand-hover text-tx-primary rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20"
           >
@@ -52,7 +52,7 @@
                 ? t("common.saveChanges")
                 : t("dashboard.orders.createOrder")
             }}
-          </VButton>
+          </LazyVButton>
         </div>
       </header>
 
@@ -76,13 +76,13 @@
                   name="ph:magnifying-glass-bold"
                   class="absolute start-4 top-[38px] text-tx-muted z-10 pointer-events-none"
                 />
-                <VInput
+                <LazyVInput
                   :label="t('dashboard.orders.searchCustomer')"
                   :placeholder="t('dashboard.orders.searchCustomerPlaceholder')"
                   inputClass="!ps-10"
                 />
               </div>
-              <VInput
+              <LazyVInput
                 :label="t('dashboard.orders.contactEmail')"
                 type="email"
                 v-model="form.email"
@@ -128,13 +128,13 @@
                 <Icon name="ph:package-bold" class="text-brand" />
                 {{ t("dashboard.orders.productSelection") }}
               </h3>
-              <VButton
+              <LazyVButton
                 variant="none"
                 className="text-[10px] font-black text-brand tracking-widest flex items-center gap-1.5 hover:text-tx-primary transition-colors"
               >
                 <Icon name="ph:plus-circle-bold" class="text-sm" />
                 {{ t("dashboard.products.addProduct") }}
-              </VButton>
+              </LazyVButton>
             </div>
 
             <div class="px-4 py-3.5">
@@ -178,30 +178,30 @@
                     <div
                       class="flex items-center gap-1 bg-bg-primary border border-border-default rounded-lg overflow-hidden"
                     >
-                      <VButton
+                      <LazyVButton
                         variant="none"
                         className="px-2.5 py-1.5 text-tx-secondary hover:text-tx-primary transition-colors text-xs"
                         @click="item.qty = Math.max(1, item.qty - 1)"
                       >
                         <Icon name="ph:minus-bold" />
-                      </VButton>
+                      </LazyVButton>
                       <span
                         class="text-xs font-bold px-2 min-w-[24px] text-center"
                         >{{ item.qty }}</span
                       >
-                      <VButton
+                      <LazyVButton
                         variant="none"
                         className="px-2.5 py-1.5 text-tx-secondary hover:text-tx-primary transition-colors text-xs"
                         @click="item.qty++"
                       >
                         <Icon name="ph:plus-bold" />
-                      </VButton>
+                      </LazyVButton>
                     </div>
                     <span
                       class="text-sm font-bold text-brand min-w-[60px] text-end"
                       >${{ (item.price * item.qty).toFixed(2) }}</span
                     >
-                    <VButton
+                    <LazyVButton
                       variant="none"
                       className="p-1.5 text-tx-muted hover:text-danger transition-colors opacity-0 group-hover:opacity-100"
                       @click="
@@ -209,7 +209,7 @@
                       "
                     >
                       <Icon name="ph:x-bold" class="text-xs" />
-                    </VButton>
+                    </LazyVButton>
                   </div>
                 </div>
               </div>
@@ -327,7 +327,9 @@
               {{ t("dashboard.orders.tagsAndCategory") }}
             </h3>
             <div class="space-y-4">
-              <VInput :placeholder="t('dashboard.orders.addTagPlaceholder')" />
+              <LazyVInput
+                :placeholder="t('dashboard.orders.addTagPlaceholder')"
+              />
               <div class="flex flex-wrap gap-2 pt-2">
                 <span
                   v-for="tag in ['Manual', 'B2B', 'Urgent']"
@@ -346,7 +348,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 const localePath = useLocalePath();
 const route = useRoute();
 const isEdit = computed(() => !!route.query.id);

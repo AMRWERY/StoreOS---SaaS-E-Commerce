@@ -1,14 +1,18 @@
 <template>
   <div>
-    <VTabs :tabs="filters" :model-value="activeFilter" @update:model-value="$emit('update:activeFilter', $event)" />
+    <LazyVTabs
+      :tabs="filters"
+      :model-value="activeFilter"
+      @update:model-value="$emit('update:activeFilter', $event)"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
 defineProps<{
-  filters: string[]
-  activeFilter: string
-}>()
+  filters: string[];
+  activeFilter: string;
+}>();
 
-defineEmits(['update:activeFilter'])
+defineEmits(["update:activeFilter"]);
 </script>

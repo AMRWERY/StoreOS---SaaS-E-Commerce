@@ -27,7 +27,7 @@
             </div>
           </div>
           <!-- Toggle -->
-          <VSwitchButton v-model="codActive" />
+          <LazyVSwitchButton v-model="codActive" />
         </div>
 
         <div
@@ -55,6 +55,6 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 const codActive = ref(true);
 </script>

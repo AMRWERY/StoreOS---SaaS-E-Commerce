@@ -4,10 +4,10 @@
       :to="detailPath"
       class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
     >
-      <VProductCard :product="vProduct" :view-mode="viewMode" />
+      <LazyVProductCard :product="vProduct" :view-mode="viewMode" />
     </nuxt-link-locale>
 
-    <VButton
+    <LazyVButton
       variant="none"
       type="button"
       title="Fast deploy to cart"
@@ -18,12 +18,12 @@
       <span class="hidden sm:inline">{{
         t("storefront.newArrivals.deploy")
       }}</span>
-    </VButton>
+    </LazyVButton>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 import type { Product } from "../../../../layers/ui/types/v-product-card";
 import type { NewArrivalProduct } from "@/types/new-arrivals";
 

@@ -31,7 +31,7 @@
 
       <!-- VTable -->
       <div class="p-4">
-        <VTable :headers="headers" :items="invoices">
+        <LazyVTable :headers="headers" :items="invoices">
           <template #cell(id)="{ item }">
             <span
               class="text-xs font-bold text-tx-secondary group-hover:text-brand transition-colors"
@@ -61,7 +61,7 @@
               <Icon name="ph:download-simple-bold" class="text-lg" />
             </button>
           </template>
-        </VTable>
+        </LazyVTable>
         <button
           class="w-full py-6 text-[10px] font-black tracking-widest text-tx-muted hover:text-tx-primary transition-colors"
         >

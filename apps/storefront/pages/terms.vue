@@ -6,8 +6,7 @@
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div class="space-y-4">
               <div class="flex items-center gap-4">
-                <div
-                  class="h-10 w-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center">
+                <div class="h-10 w-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center">
                   <Icon name="solar:document-text-bold-duotone" class="w-6 h-6 text-brand" />
                 </div>
                 <h1 class="text-5xl lg:text-6xl font-bold tracking-tighter">Terms of Service</h1>
@@ -28,13 +27,9 @@
                 <span class="text-[10px] font-black text-tx-muted tracking-widest">Last Modified</span>
                 <span class="text-[11px] font-bold text-tx-primary">{{ lastUpdated }}</span>
               </div>
-              <VButton
-                to="/archive/protocol.pdf"
-                label="Download Archive (PDF)"
-                icon="solar:download-bold"
+              <LazyVButton to="/archive/protocol.pdf" label="Download Archive (PDF)" icon="solar:download-bold"
                 variant="secondary"
-                class="!mt-2 !w-full !py-2 !bg-white/5 hover:!bg-white/10 !border-white/10 !text-[10px] !font-black !tracking-widest"
-              />
+                class="!mt-2 !w-full !py-2 !bg-white/5 hover:!bg-white/10 !border-white/10 !text-[10px] !font-black !tracking-widest" />
             </div>
           </div>
         </div>
@@ -164,17 +159,14 @@
           </article>
 
           <!-- Compliance Note -->
-          <VAlertBanner
-            variant="success"
-            icon="solar:shield-check-bold"
-            :dismissible="false"
-            class="!bg-bg-primary !border-border-subtle"
-          >
+          <LazyVAlertBanner variant="success" icon="solar:shield-check-bold" :dismissible="false"
+            class="!bg-bg-primary !border-border-subtle">
             <div class="space-y-1">
               <h4 class="text-[12px] font-black tracking-widest text-tx-primary">Data Protection Compliance</h4>
-              <p class="text-[13px] text-tx-muted">This protocol is strictly governed by GDPR and CCPA standards for the 2024 fiscal cycle.</p>
+              <p class="text-[13px] text-tx-muted">This protocol is strictly governed by GDPR and CCPA standards for the
+                2024 fiscal cycle.</p>
             </div>
-          </VAlertBanner>
+          </LazyVAlertBanner>
         </div>
       </div>
     </div>

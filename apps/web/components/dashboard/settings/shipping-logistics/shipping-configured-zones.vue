@@ -19,7 +19,11 @@
         </div>
       </div>
 
-      <VTable :headers="headers" :items="zones" tableClass="w-full text-start">
+      <LazyVTable
+        :headers="headers"
+        :items="zones"
+        tableClass="w-full text-start"
+      >
         <template #cell(name)="{ item }">
           <span
             class="text-sm font-bold group-hover:text-tx-primary transition-colors"
@@ -71,7 +75,7 @@
             </span>
           </div>
         </template>
-      </VTable>
+      </LazyVTable>
 
       <div class="p-6 border-t border-border-subtle text-center">
         <button

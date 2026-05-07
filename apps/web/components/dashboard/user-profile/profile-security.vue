@@ -7,18 +7,18 @@
       <h3 class="text-sm font-bold">{{ t("dashboard.profile.security") }}</h3>
     </div>
     <div class="space-y-5">
-      <VInput
+      <LazyVInput
         :label="t('dashboard.profile.currentPassword')"
         type="password"
         modelValue="********"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3"
       />
-      <VInput
+      <LazyVInput
         :label="t('dashboard.profile.newPassword')"
         type="password"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3"
       />
-      <VInput
+      <LazyVInput
         :label="t('dashboard.profile.confirmNewPassword')"
         type="password"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3"
@@ -34,7 +34,7 @@
             {{ t("dashboard.profile.twoFactorDesc") }}
           </p>
         </div>
-        <VSwitchButton v-model="twoFactor" />
+        <LazyVSwitchButton v-model="twoFactor" />
       </div>
 
       <div class="flex justify-between items-center">
@@ -53,6 +53,6 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 const twoFactor = ref(false);
 </script>

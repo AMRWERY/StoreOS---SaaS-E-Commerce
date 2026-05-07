@@ -16,7 +16,7 @@
         >
       </div>
 
-      <VTable :headers="headers" :items="members">
+      <LazyVTable :headers="headers" :items="members">
         <template #cell(avatar_name)="{ item }">
           <div class="flex items-center gap-4">
             <img
@@ -54,7 +54,7 @@
             <Icon name="ph:dots-three-bold" />
           </button>
         </template>
-      </VTable>
+      </LazyVTable>
     </section>
   </div>
 </template>

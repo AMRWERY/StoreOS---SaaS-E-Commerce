@@ -50,9 +50,9 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <ThemeToggle />
+          <LazyThemeToggle />
           <!-- Locale toggle -->
-          <VButton
+          <LazyVButton
             type="button"
             :aria-label="`Switch to ${locale === 'en' ? 'Arabic' : 'English'}`"
             @click="switchLocale"
@@ -61,7 +61,7 @@
           >
             <Icon name="lucide:globe" class="w-4 h-4 shrink-0" />
             <span class="text-xs font-semibold">{{ localeLabel }}</span>
-          </VButton>
+          </LazyVButton>
 
           <nuxt-link-locale
             to="/auth/login"
@@ -73,7 +73,7 @@
       </div>
     </nav>
 
-    <VOverlay :show="showOverlay" />
+    <LazyVOverlay :show="showOverlay" />
   </div>
 </template>
 

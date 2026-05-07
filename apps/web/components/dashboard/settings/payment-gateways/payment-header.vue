@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <header class="max-w-6xl mx-auto mb-6">
-      <VBreadcrumb />
+      <LazyVBreadcrumb />
 
       <h1 class="text-4xl font-bold tracking-tight mb-4">
         {{ t("dashboard.settings.payment.title") }}

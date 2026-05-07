@@ -37,25 +37,25 @@
           <!-- Qty Controls + Remove row -->
           <div class="flex items-center gap-3">
             <div class="bg-black border border-border-subtle rounded-[6px] flex items-center">
-              <VButton variant="none"
+              <LazyVButton variant="none"
                 className="w-7 h-7 flex items-center justify-center text-tx-muted hover:text-white transition-colors"
                 @click="$emit('update-qty', item.id, -1)">
                 <Icon name="ph:minus" class="w-3 h-3" />
-              </VButton>
+              </LazyVButton>
               <span class="w-7 text-center font-bold text-[12px] text-white select-none">{{ item.quantity }}</span>
-              <VButton variant="none"
+              <LazyVButton variant="none"
                 className="w-7 h-7 flex items-center justify-center text-tx-muted hover:text-white transition-colors"
                 @click="$emit('update-qty', item.id, 1)">
                 <Icon name="ph:plus" class="w-3 h-3" />
-              </VButton>
+              </LazyVButton>
             </div>
 
-            <VButton variant="none"
+            <LazyVButton variant="none"
               className="text-[9px] font-black tracking-widest text-tx-muted hover:text-[#EF4444] transition-colors flex items-center gap-1"
               @click="$emit('remove-item', item.id)">
               <Icon name="ph:x" class="w-3 h-3" />
               Remove
-            </VButton>
+            </LazyVButton>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@
     </div>
 
     <div v-else class="max-w-[1400px] mx-auto space-y-10">
-      <VBreadcrumb :items="breadcrumbItems" />
+      <LazyVBreadcrumb :items="breadcrumbItems" />
 
       <header class="space-y-3 border-b border-border-subtle pb-10">
         <p class="text-[10px] font-black tracking-[0.3em] text-tx-muted">
@@ -48,7 +48,7 @@
             :to="`/shop-all/${p.slug}`"
             class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
           >
-            <VProductCard :product="toCardProduct(p)" view-mode="grid" />
+            <LazyVProductCard :product="toCardProduct(p)" view-mode="grid" />
           </nuxt-link-locale>
         </div>
       </div>

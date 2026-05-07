@@ -1,6 +1,6 @@
 ﻿<template>
   <div>
-    <VBreadcrumb />
+    <LazyVBreadcrumb />
 
     <div class="flex items-center justify-between mb-8">
       <div class="flex items-center gap-4">
@@ -12,26 +12,26 @@
         </span>
       </div>
       <div class="flex items-center gap-3">
-        <VButton
+        <LazyVButton
           variant="none"
           className="flex items-center gap-2 px-4 py-2.5 bg-bg-elevated hover:bg-bg-elevated rounded-xl text-xs font-bold transition-colors border border-border-subtle"
         >
           <Icon name="ph:export-bold" />
           {{ t("dashboard.orders.export") }}
-        </VButton>
-        <VButton
+        </LazyVButton>
+        <LazyVButton
           to="/dashboard/orders/order-form"
           className="flex items-center gap-2 px-4 py-2.5 bg-brand hover:bg-brand-hover rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20"
         >
           <Icon name="ph:plus-bold" />
           {{ t("dashboard.orders.newManualOrder") }}
-        </VButton>
+        </LazyVButton>
       </div>
     </div>
 
     <!-- Search & Filters -->
     <div class="flex flex-wrap gap-4 mb-8">
-      <VSearchInput
+      <LazyVSearchInput
         wrapperClass="flex-1 min-w-[300px]"
         :placeholder="t('dashboard.orders.searchPlaceholder')"
       />
@@ -39,9 +39,9 @@
       <div class="flex items-center gap-3">
         <div class="flex items-center gap-3">
           <!-- Status Dropdown -->
-          <VDropdownMenu align="end" width="w-48">
+          <LazyVDropdownMenu align="end" width="w-48">
             <template #trigger="{ open }">
-              <VButton
+              <LazyVButton
                 variant="none"
                 className="bg-bg-primary border border-border-subtle rounded-2xl px-5 py-3.5 text-xs font-bold text-tx-secondary flex items-center gap-3 hover:text-tx-primary hover:border-border-default transition-all"
               >
@@ -51,7 +51,7 @@
                   class="text-tx-muted transition-transform"
                   :class="{ 'rotate-180': open }"
                 />
-              </VButton>
+              </LazyVButton>
             </template>
             <template #default="{ close }">
               <button
@@ -77,12 +77,12 @@
                 {{ s }}
               </button>
             </template>
-          </VDropdownMenu>
+          </LazyVDropdownMenu>
 
           <!-- Payment Dropdown -->
-          <VDropdownMenu align="end" width="w-48">
+          <LazyVDropdownMenu align="end" width="w-48">
             <template #trigger="{ open }">
-              <VButton
+              <LazyVButton
                 variant="none"
                 className="bg-bg-primary border border-border-subtle rounded-2xl px-5 py-3.5 text-xs font-bold text-tx-secondary flex items-center gap-3 hover:text-tx-primary hover:border-border-default transition-all"
               >
@@ -92,7 +92,7 @@
                   class="text-tx-muted transition-transform"
                   :class="{ 'rotate-180': open }"
                 />
-              </VButton>
+              </LazyVButton>
             </template>
             <template #default="{ close }">
               <button
@@ -114,12 +114,12 @@
                 {{ p }}
               </button>
             </template>
-          </VDropdownMenu>
+          </LazyVDropdownMenu>
 
           <!-- Date Range Dropdown -->
-          <VDropdownMenu align="end" width="w-56">
+          <LazyVDropdownMenu align="end" width="w-56">
             <template #trigger="{ open }">
-              <VButton
+              <LazyVButton
                 variant="none"
                 className="bg-bg-primary border border-border-subtle rounded-2xl px-5 py-3.5 text-xs font-bold text-tx-secondary flex items-center gap-3 hover:text-tx-primary hover:border-border-default transition-all"
               >
@@ -130,7 +130,7 @@
                   class="text-tx-muted transition-transform"
                   :class="{ 'rotate-180': open }"
                 />
-              </VButton>
+              </LazyVButton>
             </template>
             <template #default="{ close }">
               <button
@@ -154,7 +154,7 @@
                 {{ d }}
               </button>
             </template>
-          </VDropdownMenu>
+          </LazyVDropdownMenu>
         </div>
       </div>
     </div>

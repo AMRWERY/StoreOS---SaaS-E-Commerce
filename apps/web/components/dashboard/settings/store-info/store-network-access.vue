@@ -34,19 +34,19 @@
 
         <div class="space-y-2">
           <div class="flex items-end gap-3">
-            <VInput
+            <LazyVInput
               v-model="modelValue.customDomain"
               :label="t('dashboard.settings.customDomain')"
               placeholder="e.g. shop.hyperlink.com"
               class="flex-1"
             />
-            <VButton
+            <LazyVButton
               variant="secondary"
               size="none"
               className="px-8 py-3 mb-[2px]"
             >
               {{ t("dashboard.settings.connect") }}
-            </VButton>
+            </LazyVButton>
           </div>
           <div class="flex items-center gap-2 pt-2">
             <Icon name="ph:info-bold" class="text-accent text-sm" />
@@ -64,7 +64,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 defineProps<{
   modelValue: any;
 }>();

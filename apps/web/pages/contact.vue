@@ -103,9 +103,9 @@
                 <textarea rows="5" placeholder="Tell us about your needs..."
                   class="w-full bg-bg-primary border border-border-default rounded-xl px-4 py-3 text-sm focus:border-teal-500 outline-none transition-all resize-none"></textarea>
               </div>
-              <VButton variant="none"
+              <LazyVButton variant="none"
                 className="w-full bg-teal-500 text-white font-bold py-4 rounded-xl shadow-xl shadow-teal-500/20 active:scale-[0.98] transition-all">
-                Send Message</VButton>
+                Send Message</LazyVButton>
               <p class="text-[10px] text-center text-tx-muted">By clicking send, you agree to our <nuxt-link-locale
                   to="/privacy" class="text-teal-400 hover:underline">Privacy Policy</nuxt-link-locale>.</p>
             </form>

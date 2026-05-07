@@ -1,25 +1,18 @@
 <template>
-  <VButton
-    ref="btnRef"
-    type="button"
-    variant="none"
+  <LazyVButton ref="btnRef" type="button" variant="none"
     :aria-label="isDark ? t('nav.useLightTheme') : t('nav.useDarkTheme')"
     className="flex items-center justify-center p-2 rounded-md text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated border border-border-subtle transition-colors"
-    @click="handleToggle"
-  >
+    @click="handleToggle">
     <ClientOnly>
       <Transition name="theme-icon" mode="out-in">
-        <Icon
-          :key="isDark ? 'dark' : 'light'"
-          :name="isDark ? 'ph:sun-bold' : 'ph:moon-stars-bold'"
-          class="text-lg shrink-0"
-        />
+        <Icon :key="isDark ? 'dark' : 'light'" :name="isDark ? 'ph:sun-bold' : 'ph:moon-stars-bold'"
+          class="text-lg shrink-0" />
       </Transition>
       <template #fallback>
         <span class="inline-block size-5" aria-hidden="true" />
       </template>
     </ClientOnly>
-  </VButton>
+  </LazyVButton>
 </template>
 
 <script lang="ts" setup>
@@ -71,10 +64,12 @@ async function handleToggle(event: MouseEvent) {
 .theme-icon-leave-active {
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
+
 .theme-icon-enter-from {
   opacity: 0;
   transform: rotate(-30deg) scale(0.7);
 }
+
 .theme-icon-leave-to {
   opacity: 0;
   transform: rotate(30deg) scale(0.7);

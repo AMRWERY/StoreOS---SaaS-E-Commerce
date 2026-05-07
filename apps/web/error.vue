@@ -33,22 +33,22 @@
                     {{ props.error?.statusCode === 404 ? 'Lost in space' : 'Something went wrong' }}
                 </h1>
                 <p class="text-sm md:text-base text-gray-400 leading-relaxed max-w-md mb-12 font-medium">
-                    {{ props.error?.statusMessage || props.error?.message || "We couldn't find the page you're looking for. It might have been moved or doesn't exist." }}
+                    {{ props.error?.statusMessage || props.error?.message || "We couldn't find the page you're looking for.It might have been moved or doesn't exist." }}
                 </p>
 
                 <!-- Actions -->
                 <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-                    <VButton @click="handleGoBack" variant="none"
+                    <LazyVButton @click="handleGoBack" variant="none"
                         className="w-full sm:w-auto px-8 py-4 bg-white text-black font-black text-[10px] tracking-[0.2em] rounded-2xl hover:bg-gray-200 transition-all active:scale-95 shadow-xl shadow-white/10 flex items-center justify-center gap-3 group">
                         <Icon name="ph:arrow-left-bold"
                             class="text-base group-hover:-translate-x-1 transition-transform" />
                         <span>GO BACK</span>
-                    </VButton>
-                    <VButton @click="handleGoHome" variant="none"
+                    </LazyVButton>
+                    <LazyVButton @click="handleGoHome" variant="none"
                         className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-black text-[10px] tracking-[0.2em] rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all active:scale-95 shadow-xl shadow-black/50 flex items-center justify-center gap-3">
                         <Icon name="ph:house-bold" class="text-base" />
                         <span>DASHBOARD</span>
-                    </VButton>
+                    </LazyVButton>
                 </div>
             </div>
         </div>

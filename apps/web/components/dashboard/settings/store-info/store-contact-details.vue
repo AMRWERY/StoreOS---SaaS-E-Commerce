@@ -13,7 +13,7 @@
       </div>
       <div class="lg:col-span-8 space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <VInput
+          <LazyVInput
             v-model="modelValue.supportEmail"
             type="email"
             :label="t('dashboard.settings.storeInfo.supportEmail')"
@@ -21,13 +21,13 @@
               t('dashboard.settings.storeInfo.supportEmailPlaceholder')
             "
           />
-          <VInput
+          <LazyVInput
             v-model="modelValue.phone"
             :label="t('dashboard.settings.storeInfo.phone')"
             :placeholder="t('dashboard.settings.storeInfo.phonePlaceholder')"
           />
         </div>
-        <VInput
+        <LazyVInput
           v-model="modelValue.address"
           :label="t('dashboard.settings.storeInfo.physicalAddress')"
           :placeholder="
@@ -35,17 +35,17 @@
           "
         />
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <VInput
+          <LazyVInput
             v-model="modelValue.city"
             :label="t('dashboard.settings.storeInfo.city')"
             :placeholder="t('dashboard.settings.storeInfo.cityPlaceholder')"
           />
-          <VInput
+          <LazyVInput
             v-model="modelValue.state"
             :label="t('dashboard.settings.storeInfo.state')"
             :placeholder="t('dashboard.settings.storeInfo.statePlaceholder')"
           />
-          <VInput
+          <LazyVInput
             v-model="modelValue.zip"
             :label="t('dashboard.settings.storeInfo.zipCode')"
             :placeholder="t('dashboard.settings.storeInfo.zipPlaceholder')"
@@ -76,7 +76,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 defineProps<{
   modelValue: any;
 }>();

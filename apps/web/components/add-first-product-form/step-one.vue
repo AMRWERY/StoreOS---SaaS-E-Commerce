@@ -2,12 +2,22 @@
   <div>
     <div class="flex items-center justify-center p-6 text-tx-primary">
       <!-- Main Card -->
-      <div class="w-full max-w-2xl bg-bg-primary border border-border-subtle rounded-2xl p-5 shadow-2xl">
+      <div
+        class="w-full max-w-2xl bg-bg-primary border border-border-subtle rounded-2xl p-5 shadow-2xl"
+      >
         <!-- Progress Bar -->
         <div class="mb-8">
-          <VProgressBar :progress="progress" :height="8" color="blue" trackVariant="slate" :showHeader="true"
-            :headerLeft="`Step ${step} of ${totalSteps}`" :headerRight="`${Math.round(progress)}%`" :showLabel="false"
-            :shadow="false" />
+          <LazyVProgressBar
+            :progress="progress"
+            :height="8"
+            color="blue"
+            trackVariant="slate"
+            :showHeader="true"
+            :headerLeft="`Step ${step} of ${totalSteps}`"
+            :headerRight="`${Math.round(progress)}%`"
+            :showLabel="false"
+            :shadow="false"
+          />
         </div>
 
         <!-- Header -->
@@ -20,35 +30,65 @@
         </div>
 
         <!-- Form -->
-        <VFormWrapper @submit.prevent>
+        <LazyVFormWrapper @submit.prevent>
           <!-- Product Name -->
-          <VInput v-model="productName" label="Product name" placeholder="e.g. Minimalist Wireless Headphones"
-            inputClass="bg-bg-elevated border-border-default rounded-md px-3 py-2 focus:border-brand transition-colors placeholder:text-tx-muted" />
+          <LazyVInput
+            v-model="productName"
+            label="Product name"
+            placeholder="e.g. Minimalist Wireless Headphones"
+            inputClass="bg-bg-elevated border-border-default rounded-md px-3 py-2 focus:border-brand transition-colors placeholder:text-tx-muted"
+          />
 
           <!-- Price & Stock Row -->
           <div class="grid grid-cols-2 gap-4">
-            <VInput v-model="price" label="Price" placeholder="0.00"
-              inputClass="bg-bg-elevated border-border-default rounded-md ps-9 pe-3 py-2 focus:border-brand transition-colors placeholder:text-tx-muted">
+            <LazyVInput
+              v-model="price"
+              label="Price"
+              placeholder="0.00"
+              inputClass="bg-bg-elevated border-border-default rounded-md ps-9 pe-3 py-2 focus:border-brand transition-colors placeholder:text-tx-muted"
+            >
               <template #prefix>
-                <span class="absolute start-3 top-1/2 -translate-y-1/2 text-tx-muted text-sm">$</span>
+                <span
+                  class="absolute start-3 top-1/2 -translate-y-1/2 text-tx-muted text-sm"
+                  >$</span
+                >
               </template>
-            </VInput>
+            </LazyVInput>
 
-            <VInput v-model="stock" type="number" label="Stock quantity" placeholder="0"
-              inputClass="bg-bg-elevated border-border-default rounded-md px-3 py-2 focus:border-brand transition-colors placeholder:text-tx-muted" />
+            <LazyVInput
+              v-model="stock"
+              type="number"
+              label="Stock quantity"
+              placeholder="0"
+              inputClass="bg-bg-elevated border-border-default rounded-md px-3 py-2 focus:border-brand transition-colors placeholder:text-tx-muted"
+            />
           </div>
 
           <!-- Photo Upload Area -->
-          <VFileUpload label="Product photos" accept="image/png, image/jpeg, image/webp" @click="handleUpload" />
+          <LazyVDropdownMenu
+            label="Product photos"
+            accept="image/png, image/jpeg, image/webp"
+            @click="handleUpload"
+          />
 
           <!-- Footer Actions -->
           <div class="flex items-center gap-4 pt-4">
-            <VButton className="flex-1" label="Next" icon="ph:arrow-end-bold" iconPosition="right"
-              @click="emit('next')" />
+            <LazyVButton
+              className="flex-1"
+              label="Next"
+              icon="ph:arrow-end-bold"
+              iconPosition="right"
+              @click="emit('next')"
+            />
 
-            <VButton variant="secondary" className="flex-1" label="Skip for now" @click="emit('skip')" />
+            <LazyVButton
+              variant="secondary"
+              className="flex-1"
+              label="Skip for now"
+              @click="emit('skip')"
+            />
           </div>
-        </VFormWrapper>
+        </LazyVFormWrapper>
       </div>
     </div>
   </div>

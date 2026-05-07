@@ -59,7 +59,7 @@
           <p class="text-[10px] font-black text-tx-secondary tracking-widest">
             {{ m.label }}
           </p>
-          <VProgressBar
+          <LazyVProgressBar
             :progress="m.percent"
             :color="m.color"
             :trackVariant="m.trackVariant"

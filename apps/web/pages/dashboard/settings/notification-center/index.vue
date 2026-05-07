@@ -1,15 +1,14 @@
 ﻿<template>
   <div>
     <div class="min-h-screen text-tx-primary pb-12 selection:bg-indigo-500/30 overflow-x-hidden">
-      <VBreadcrumb />
+      <LazyVBreadcrumb />
 
       <notification-header @save="handleSave" @discard="handleDiscard" @open-stats="showSidebar = true" />
 
       <div class="max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <notification-config-card title="New Order" subtitle="Event_Code: ORD_NEW" icon="ph:shopping-cart-duotone"
-            iconColorClass="text-brand" iconBgClass="bg-brand-dim"
-            iconBorderClass="border border-brand/10" :channels="[
+            iconColorClass="text-brand" iconBgClass="bg-brand-dim" iconBorderClass="border border-brand/10" :channels="[
               { key: 'email', label: 'Email Alert' },
               { key: 'sms', label: 'SMS Message' },
               { key: 'push', label: 'Push Notification' }
@@ -24,7 +23,8 @@
             ]" v-model="settings.lowStock" />
 
           <notification-config-card title="Payment Received" subtitle="Gateway: STRIPE, PAYPAL" icon="ph:bank-duotone"
-            iconColorClass="text-tx-secondary"             iconBgClass="bg-bg-elevated" iconBorderClass="border border-border-subtle" :channels="[
+            iconColorClass="text-tx-secondary" iconBgClass="bg-bg-elevated"
+            iconBorderClass="border border-border-subtle" :channels="[
               { key: 'email', label: 'Email Alert' },
               { key: 'push', label: 'Push Notification' }
             ]" v-model="settings.payment">
@@ -35,7 +35,8 @@
           </notification-config-card>
 
           <notification-config-card title="Order Delivered" subtitle="Carrier: DHL, FEDEX" icon="ph:package-duotone"
-            iconColorClass="text-tx-secondary"             iconBgClass="bg-bg-elevated" iconBorderClass="border border-border-subtle" :channels="[
+            iconColorClass="text-tx-secondary" iconBgClass="bg-bg-elevated"
+            iconBorderClass="border border-border-subtle" :channels="[
               { key: 'email', label: 'Email Alert' },
               { key: 'push', label: 'Push Notification' }
             ]" v-model="settings.delivered">

@@ -1,4 +1,4 @@
-export interface VInputProps {
+export interface LazyVInputProps {
   modelValue?: string | number | boolean;
   type?: string;
   label?: string;

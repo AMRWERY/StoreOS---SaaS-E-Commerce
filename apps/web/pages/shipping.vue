@@ -20,8 +20,9 @@
             so you can focus on selling. Connect with world-class carriers in minutes.
           </p>
           <div class="flex flex-col sm:flex-row items-center gap-4">
-            <VButton size="lg" shadow className="bg-info hover:bg-info/90 text-white">Automate Your Shipping</VButton>
-            <VButton variant="outline" size="lg">View Carrier Rates</VButton>
+            <LazyVButton size="lg" shadow className="bg-info hover:bg-info/90 text-white">Automate Your Shipping
+            </LazyVButton>
+            <LazyVButton variant="outline" size="lg">View Carrier Rates</LazyVButton>
           </div>
         </div>
       </div>
@@ -103,7 +104,7 @@
                   </div>
                   <div class="flex items-center gap-2">
                     <span class="text-[9px] font-black px-2 py-0.5 rounded bg-info-dim text-info">{{ node.carrier
-                      }}</span>
+                    }}</span>
                     <Icon name="ph:dots-three-bold" class="text-tx-muted" />
                   </div>
                 </div>
@@ -134,10 +135,11 @@
           Join the merchants who have reduced their fulfillment costs by 30% using StoreOS.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <VButton variant="none"
+          <LazyVButton variant="none"
             className="bg-white text-teal-600 hover:bg-white/90 flex items-center justify-center gap-2 rounded-xl font-bold text-sm transition-all duration-200 py-4 px-8 shadow-xl">
-            Get Started Now</VButton>
-          <VButton variant="none" size="lg" className="text-white hover:text-white/80">Connect with Logistics</VButton>
+            Get Started Now</LazyVButton>
+          <LazyVButton variant="none" size="lg" className="text-white hover:text-white/80">Connect with Logistics
+          </LazyVButton>
         </div>
       </div>
     </section>

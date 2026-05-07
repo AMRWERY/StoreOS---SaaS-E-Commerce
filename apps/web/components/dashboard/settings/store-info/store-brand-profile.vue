@@ -11,14 +11,14 @@
       </div>
       <div class="lg:col-span-8 space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <VInput
+          <LazyVInput
             v-model="modelValue.name"
             :label="t('dashboard.settings.storeInfo.storeName')"
             :placeholder="
               t('dashboard.settings.storeInfo.storeNamePlaceholder')
             "
           />
-          <VInput
+          <LazyVInput
             v-model="modelValue.legalName"
             :label="t('dashboard.settings.storeInfo.legalName')"
             :placeholder="
@@ -39,7 +39,7 @@
           ></textarea>
         </div>
 
-        <VFileUpload
+        <LazyVDropdownMenu
           :label="t('dashboard.settings.storeInfo.storeLogo')"
           :title="t('dashboard.settings.storeInfo.storeLogo')"
           :subtitle="t('dashboard.settings.storeInfo.storeLogoSubtitle')"
@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 defineProps<{
   modelValue: any;
 }>();

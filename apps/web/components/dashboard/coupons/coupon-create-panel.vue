@@ -40,13 +40,13 @@
               {{ t("dashboard.coupons.configureSettings") }}
             </p>
           </div>
-          <VButton
+          <LazyVButton
             @click="$emit('close')"
             variant="none"
             className="text-tx-muted hover:text-tx-primary transition-colors"
           >
             <Icon name="ph:x-bold" class="text-xl" />
-          </VButton>
+          </LazyVButton>
         </div>
 
         <div
@@ -59,7 +59,7 @@
               >{{ t("dashboard.coupons.couponCode") }}</label
             >
             <div class="relative group">
-              <VInput
+              <LazyVInput
                 v-model="form.code"
                 placeholder="e.g. SUMMER24"
                 inputClass="bg-bg-primary border border-border-default rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-brand outline-none transition pe-14"
@@ -100,7 +100,7 @@
           </div>
 
           <!-- Value Input -->
-          <VInput
+          <LazyVInput
             v-model="form.value"
             :label="
               form.discountType === 'percentage'
@@ -116,16 +116,16 @@
                 >%</span
               >
             </template>
-          </VInput>
+          </LazyVInput>
 
           <!-- Min Order & Max Uses -->
           <div class="grid grid-cols-2 gap-6">
-            <VInput
+            <LazyVInput
               v-model="form.minOrder"
               :label="t('dashboard.coupons.minOrder')"
               :placeholder="t('dashboard.coupons.optional')"
             />
-            <VInput
+            <LazyVInput
               v-model="form.maxUses"
               :label="t('dashboard.coupons.maxRedemption')"
               :placeholder="t('dashboard.coupons.unlimited')"
@@ -135,7 +135,7 @@
           <!-- Date Selection Design -->
           <div class="space-y-4">
             <!-- Starts -->
-            <VDatePicker v-model="form.startDate" label="Starts">
+            <LazyVDatePicker v-model="form.startDate" label="Starts">
               <template #trigger="{ selectedDate }">
                 <div class="space-y-2">
                   <label
@@ -158,10 +158,10 @@
                   </div>
                 </div>
               </template>
-            </VDatePicker>
+            </LazyVDatePicker>
 
             <!-- Expires -->
-            <VDatePicker v-model="form.expiryDate" label="Expires">
+            <LazyVDatePicker v-model="form.expiryDate" label="Expires">
               <template #trigger="{ selectedDate }">
                 <div class="space-y-2">
                   <label
@@ -181,7 +181,7 @@
                   </div>
                 </div>
               </template>
-            </VDatePicker>
+            </LazyVDatePicker>
           </div>
         </div>
 
@@ -189,14 +189,14 @@
         <div
           class="px-4 py-3.5 border-t border-border-subtle bg-bg-primary flex flex-col gap-4"
         >
-          <VButton
+          <LazyVButton
             className="w-full bg-brand hover:bg-brand-hover text-tx-primary py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-indigo-600/30 active:scale-[0.98]"
             variant="none"
             @click="$emit('create')"
           >
             <Icon name="ph:check-circle-bold" class="text-lg" />
             {{ t("dashboard.coupons.createCoupon") }}
-          </VButton>
+          </LazyVButton>
         </div>
       </div>
     </Transition>

@@ -23,9 +23,9 @@
           We're looking for ambitious thinkers to help us solve the most complex
           challenges in data, scale, and operational efficiency.
         </p>
-        <VButton variant="none"
+        <LazyVButton variant="none"
           className="bg-white text-black py-4 px-10 rounded-xl font-bold text-sm shadow-2xl hover:bg-white/90 transition-all">
-          View Openings</VButton>
+          View Openings</LazyVButton>
       </div>
     </section>
 
@@ -90,9 +90,9 @@
           <h3 class="text-xl font-bold mb-4">Don't see your role?</h3>
           <p class="text-tx-secondary mb-8 text-sm">We're always looking for talented people. Send us an open
             application.</p>
-          <VButton variant="none"
+          <LazyVButton variant="none"
             className="bg-bg-primary text-tx-primary border border-border-default py-3 px-8 rounded-xl font-bold text-sm hover:border-tx-primary transition-all">
-            Submit Open Application</VButton>
+            Submit Open Application</LazyVButton>
         </div>
       </div>
     </section>

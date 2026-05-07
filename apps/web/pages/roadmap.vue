@@ -131,9 +131,10 @@
           know.
         </p>
         <div class="flex items-center justify-center gap-4">
-          <VButton size="lg" shadow>Submit Feature Request</VButton>
-          <VButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">Browse Feedback Board
-          </VButton>
+          <LazyVButton size="lg" shadow>Submit Feature Request</LazyVButton>
+          <LazyVButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">Browse Feedback
+            Board
+          </LazyVButton>
         </div>
       </div>
     </section>

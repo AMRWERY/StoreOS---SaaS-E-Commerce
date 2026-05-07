@@ -4,11 +4,7 @@
     <section class="relative pt-32 pb-24 px-6 overflow-hidden border-b border-border-subtle">
       <!-- Background Abstract -->
       <div class="absolute inset-0 z-0">
-        <img 
-          src="/img/payments-hero.png" 
-          alt="Payments Background" 
-          class="w-full h-full object-cover opacity-30"
-        />
+        <img src="/img/payments-hero.png" alt="Payments Background" class="w-full h-full object-cover opacity-30" />
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-base/60 to-bg-base"></div>
       </div>
 
@@ -20,12 +16,14 @@
             <span class="text-tx-secondary text-success/80">loyal customers.</span>
           </h1>
           <p class="text-lg md:text-xl text-tx-secondary leading-relaxed mb-10">
-            Accept payments globally with a single integration. StoreOS provides a conversion-optimized checkout 
+            Accept payments globally with a single integration. StoreOS provides a conversion-optimized checkout
             experience that supports local and international payment methods out of the box.
           </p>
           <div class="flex flex-col sm:flex-row items-center gap-4">
-            <VButton variant="none" className="bg-success hover:bg-success/90 text-black flex items-center justify-center gap-2 rounded-md font-bold text-sm py-4 px-8 shadow-lg shadow-success/20 transition-all active:scale-[0.98]">Start Accepting Payments</VButton>
-            <VButton variant="outline" size="lg">Contact Sales</VButton>
+            <LazyVButton variant="none"
+              className="bg-success hover:bg-success/90 text-black flex items-center justify-center gap-2 rounded-md font-bold text-sm py-4 px-8 shadow-lg shadow-success/20 transition-all active:scale-[0.98]">
+              Start Accepting Payments</LazyVButton>
+            <LazyVButton variant="outline" size="lg">Contact Sales</LazyVButton>
           </div>
         </div>
       </div>
@@ -38,15 +36,19 @@
           <div class="flex-1">
             <h2 class="text-3xl font-bold mb-4">One platform, all your gateways.</h2>
             <p class="text-tx-secondary leading-relaxed">
-              Whether you're selling locally or expanding globally, StoreOS connects you with the most reliable payment providers in the industry.
+              Whether you're selling locally or expanding globally, StoreOS connects you with the most reliable payment
+              providers in the industry.
             </p>
           </div>
           <div class="flex-1 grid grid-cols-3 gap-6">
-            <div v-for="g in gateways" :key="g.name" class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-bg-primary border border-border-subtle hover:border-success/30 transition-all group">
+            <div v-for="g in gateways" :key="g.name"
+              class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-bg-primary border border-border-subtle hover:border-success/30 transition-all group">
               <div :class="['w-12 h-12 rounded-xl flex items-center justify-center text-2xl', g.bg]">
                 <Icon :name="g.icon" :class="g.color" />
               </div>
-              <span class="text-[10px] font-bold text-tx-muted group-hover:text-tx-primary transition-colors tracking-widest uppercase">{{ g.name }}</span>
+              <span
+                class="text-[10px] font-bold text-tx-muted group-hover:text-tx-primary transition-colors tracking-widest uppercase">{{
+                  g.name }}</span>
             </div>
           </div>
         </div>
@@ -57,8 +59,10 @@
     <section class="py-32 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-3 gap-8">
-          <div v-for="f in features" :key="f.title" class="p-8 rounded-3xl bg-bg-elevated border border-border-subtle hover:border-success/20 transition-all group">
-            <div class="w-12 h-12 rounded-xl bg-success-dim flex items-center justify-center text-success mb-6 group-hover:scale-110 transition-transform">
+          <div v-for="f in features" :key="f.title"
+            class="p-8 rounded-3xl bg-bg-elevated border border-border-subtle hover:border-success/20 transition-all group">
+            <div
+              class="w-12 h-12 rounded-xl bg-success-dim flex items-center justify-center text-success mb-6 group-hover:scale-110 transition-transform">
               <Icon :name="f.icon" class="text-2xl" />
             </div>
             <h3 class="text-xl font-bold mb-4">{{ f.title }}</h3>
@@ -74,7 +78,7 @@
         <div class="flex-1">
           <h2 class="text-4xl font-bold mb-6">Designed for conversion.</h2>
           <p class="text-tx-secondary leading-relaxed mb-8">
-            Our checkout experience is engineered for speed and simplicity. 
+            Our checkout experience is engineered for speed and simplicity.
             Reduce cart abandonment with one-click checkout, guest accounts, and localized payment UI.
           </p>
           <ul class="space-y-4">
@@ -86,7 +90,8 @@
         </div>
         <div class="flex-1 relative">
           <!-- Checkout Mockup -->
-          <div class="rounded-3xl border border-border-subtle bg-bg-base p-8 shadow-2xl shadow-black/40 max-w-md mx-auto">
+          <div
+            class="rounded-3xl border border-border-subtle bg-bg-base p-8 shadow-2xl shadow-black/40 max-w-md mx-auto">
             <div class="flex items-center justify-between mb-8">
               <h3 class="font-bold">Checkout</h3>
               <span class="text-xs text-tx-muted">$1,250.00</span>
@@ -99,20 +104,24 @@
                 </div>
                 <Icon name="ph:caret-right-bold" class="text-[10px] text-success" />
               </div>
-              <div class="p-4 rounded-xl border border-border-subtle hover:border-border-default flex items-center justify-between transition-colors">
+              <div
+                class="p-4 rounded-xl border border-border-subtle hover:border-border-default flex items-center justify-between transition-colors">
                 <div class="flex items-center gap-3">
                   <Icon name="ph:device-mobile-fill" class="text-tx-muted text-xl" />
                   <span class="text-sm font-bold">Mobile Wallet</span>
                 </div>
               </div>
-              <div class="p-4 rounded-xl border border-border-subtle hover:border-border-default flex items-center justify-between transition-colors">
+              <div
+                class="p-4 rounded-xl border border-border-subtle hover:border-border-default flex items-center justify-between transition-colors">
                 <div class="flex items-center gap-3">
                   <Icon name="ph:money-fill" class="text-tx-muted text-xl" />
                   <span class="text-sm font-bold">Cash on Delivery</span>
                 </div>
               </div>
             </div>
-            <VButton variant="none" className="w-full mt-8 bg-success text-black font-extrabold py-4 rounded-xl shadow-lg shadow-success/10 transition-all active:scale-[0.98]">Pay Now</VButton>
+            <LazyVButton variant="none"
+              className="w-full mt-8 bg-success text-black font-extrabold py-4 rounded-xl shadow-lg shadow-success/10 transition-all active:scale-[0.98]">
+              Pay Now</LazyVButton>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@
 
       <!-- Right -->
       <div class="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
-        <ThemeToggle />
+        <LazyThemeToggle />
         <device-toggle v-model="store.device" />
 
         <component :is="UiButton" variant="none" type="button"

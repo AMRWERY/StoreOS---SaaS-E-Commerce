@@ -13,9 +13,9 @@
                <Icon name="ph:magnifying-glass-bold" class="ms-4 text-tx-muted" />
                <input type="text" placeholder="Search articles..."
                   class="w-full bg-transparent border-none outline-none text-sm px-4 py-3" />
-               <VButton variant="none"
+               <LazyVButton variant="none"
                   className="bg-brand text-white px-6 py-2.5 rounded-xl font-bold text-xs shadow-lg shadow-brand/20">
-                  Search</VButton>
+                  Search</LazyVButton>
             </div>
          </div>
       </section>
@@ -89,7 +89,7 @@
                   <div class="flex items-center gap-3 mb-4">
                      <span
                         class="text-[8px] font-black text-tx-muted border border-border-subtle px-2 py-0.5 rounded uppercase tracking-widest">{{
-                        post.tag }}</span>
+                           post.tag }}</span>
                      <span class="text-[8px] font-medium text-tx-muted uppercase tracking-widest">{{ post.readTime }}
                         MIN READ</span>
                   </div>

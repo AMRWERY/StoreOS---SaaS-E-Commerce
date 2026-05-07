@@ -9,12 +9,12 @@
       >
         MT
       </div>
-      <VButton
+      <LazyVButton
         variant="secondary"
         className="w-full py-2 bg-bg-elevated hover:bg-bg-elevated border border-border-subtle rounded-lg text-[10px] font-black tracking-widest transition-colors"
       >
         {{ t("dashboard.profile.updateAvatar") }}
-      </VButton>
+      </LazyVButton>
       <button
         class="text-[10px] font-bold text-danger/60 hover:text-danger transition-colors tracking-widest"
       >
@@ -24,18 +24,18 @@
 
     <!-- Form Side -->
     <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <VInput
+      <LazyVInput
         v-model="profile.name"
         :label="t('dashboard.profile.fullName')"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand"
       />
-      <VInput
+      <LazyVInput
         v-model="profile.email"
         :label="t('dashboard.profile.emailAddress')"
         type="email"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand"
       />
-      <VInput
+      <LazyVInput
         v-model="profile.phone"
         :label="t('dashboard.profile.phoneNumber')"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand"
@@ -63,7 +63,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 defineProps<{
   profile: {
     name: string;

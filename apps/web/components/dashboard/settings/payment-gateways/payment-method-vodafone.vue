@@ -20,7 +20,7 @@
       </div>
       <div class="flex-1 w-full flex flex-col md:flex-row items-end gap-4">
         <div class="flex-1 w-full">
-          <VInput
+          <LazyVInput
             label="Collection_Wallet_Number"
             modelValue="10 1234 5678"
             readonly
@@ -32,19 +32,19 @@
                 >+20</span
               >
             </template>
-          </VInput>
+          </LazyVInput>
         </div>
-        <VButton
+        <LazyVButton
           variant="secondary"
           className="px-8 py-3 bg-bg-elevated hover:bg-bg-elevated border border-border-default rounded-xl text-[11px] font-black tracking-widest text-tx-secondary transition-colors"
         >
           {{ t("dashboard.settings.payment.verify") }}
-        </VButton>
+        </LazyVButton>
       </div>
     </section>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 </script>

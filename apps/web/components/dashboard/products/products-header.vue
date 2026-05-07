@@ -1,6 +1,6 @@
 ﻿<template>
   <div>
-    <VBreadcrumb />
+    <LazyVBreadcrumb />
 
     <header
       class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
@@ -20,18 +20,18 @@
           {{ t("dashboard.products.subtitle") }}
         </p>
       </div>
-      <VButton
+      <LazyVButton
         to="/dashboard/products/product-form"
         className="flex items-center gap-2 px-4 py-2.5 bg-brand hover:bg-brand-hover rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20"
       >
         <Icon name="ph:plus-bold" />
         {{ t("dashboard.products.addProduct") }}
-      </VButton>
+      </LazyVButton>
     </header>
 
     <!-- Search Bar Row -->
     <div class="flex items-center gap-4 mb-8">
-      <VSearchInput
+      <LazyVSearchInput
         wrapperClass="flex-1"
         :placeholder="t('dashboard.products.searchPlaceholder')"
       />
@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 defineProps<{
   total: number;
 }>();

@@ -8,7 +8,7 @@
           {{ t("storefront.checkout.contactInformation") }}
         </h2>
       </div>
-      <VInput
+      <LazyVInput
         v-model="form.emailOrPhone"
         :label="t('storefront.checkout.emailOrPhone')"
         labelClass="text-[10px] font-black tracking-[0.2em] text-tx-muted"
@@ -26,13 +26,13 @@
       </div>
 
       <div class="grid grid-cols-2 gap-4">
-        <VInput
+        <LazyVInput
           v-model="form.firstName"
           :label="t('storefront.checkout.firstName')"
           labelClass="text-[10px] font-black tracking-[0.2em] text-tx-muted"
           inputClass="!w-full !bg-bg-primary !border-border-subtle !rounded-[8px] !px-5 !py-4 !text-[13px] focus:!border-brand !outline-none !transition-all"
         />
-        <VInput
+        <LazyVInput
           v-model="form.lastName"
           :label="t('storefront.checkout.lastName')"
           labelClass="text-[10px] font-black tracking-[0.2em] text-tx-muted"
@@ -40,7 +40,7 @@
         />
       </div>
 
-      <VInput
+      <LazyVInput
         v-model="form.address"
         :label="t('storefront.checkout.streetAddress')"
         labelClass="text-[10px] font-black tracking-[0.2em] text-tx-muted"
@@ -48,7 +48,7 @@
       />
 
       <div class="grid grid-cols-2 gap-4">
-        <VInput
+        <LazyVInput
           v-model="form.city"
           :label="t('storefront.checkout.city')"
           labelClass="text-[10px] font-black tracking-[0.2em] text-tx-muted"
@@ -127,19 +127,19 @@
     </section>
 
     <!-- Continue Button -->
-    <VButton
+    <LazyVButton
       variant="none"
       className="w-full bg-brand hover:bg-brand-hover text-white py-5 rounded-[12px] font-bold text-[14px] tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(99,102,241,0.2)] active:scale-[0.99]"
       @click="$emit('continue')"
     >
       {{ t("storefront.checkout.submitOrder") }}
       <Icon name="ph:shopping-cart-bold" class="w-5 h-5" />
-    </VButton>
+    </LazyVButton>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 const form = defineModel<{
   emailOrPhone: string;
   firstName: string;

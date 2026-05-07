@@ -92,28 +92,28 @@
               {{ t("auth.register.subtitle") }}
             </p>
 
-            <VFormWrapper @submit="handleSubmit">
+            <LazyVFormWrapper @submit="handleSubmit">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <VInput
+                <LazyVInput
                   :label="t('auth.register.storeName')"
                   :placeholder="t('auth.register.storeNamePlaceholder')"
                   v-model="storeName"
                 />
-                <VInput
+                <LazyVInput
                   :label="t('auth.register.fullName')"
                   :placeholder="t('auth.register.fullNamePlaceholder')"
                   v-model="fullName"
                 />
               </div>
 
-              <VInput
+              <LazyVInput
                 type="email"
                 :label="t('auth.register.emailAddress')"
                 :placeholder="t('auth.register.emailPlaceholder')"
                 v-model="email"
               />
 
-              <VInput
+              <LazyVInput
                 type="password"
                 :label="t('auth.register.password')"
                 :placeholder="t('auth.register.passwordPlaceholder')"
@@ -140,18 +140,18 @@
                   </div>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                  <VButton
+                  <LazyVButton
                     v-for="tag in industries"
                     :key="tag"
                     variant="none"
                     className="px-3 py-1.5 rounded-full border border-border-subtle text-[10px] font-bold text-tx-secondary hover:border-orange-500/50 hover:text-tx-primary transition"
                   >
                     {{ tag }}
-                  </VButton>
+                  </LazyVButton>
                 </div>
               </div>
 
-              <VInput type="checkbox" v-model="agree">
+              <LazyVInput type="checkbox" v-model="agree">
                 {{ t("auth.register.agreeTerms") }}
                 <span class="text-orange-500 hover:underline">{{
                   t("auth.register.termsOfService")
@@ -160,18 +160,18 @@
                 <span class="text-orange-500 hover:underline">{{
                   t("auth.register.privacyPolicy")
                 }}</span>
-              </VInput>
+              </LazyVInput>
 
-              <VButton
+              <LazyVButton
                 type="submit"
                 variant="none"
                 :disabled="isLoading"
                 className="w-full flex items-center justify-center bg-orange-600 hover:bg-orange-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-sm transition-all transform active:scale-[0.98] shadow-lg shadow-orange-600/20"
               >
-                <VLoadingSpinner v-if="isLoading" size="sm" color="white" />
+                <LazyVLoadingSpinner v-if="isLoading" size="sm" color="white" />
                 <span v-else>{{ t("auth.register.createStore") }}</span>
-              </VButton>
-            </VFormWrapper>
+              </LazyVButton>
+            </LazyVFormWrapper>
 
             <p class="text-center mt-8 text-sm text-tx-secondary">
               {{ t("auth.register.alreadyHaveAccount") }}

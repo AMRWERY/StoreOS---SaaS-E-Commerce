@@ -1,12 +1,12 @@
 ﻿<template>
   <div>
     <!-- Trigger Button -->
-    <VButton @click="isInternalOpen = true" variant="none"
+    <LazyVButton @click="isInternalOpen = true" variant="none"
       :className="['relative text-tx-secondary hover:text-tx-primary p-2 transition-colors', isInternalOpen ? 'text-tx-primary' : '']">
       <Icon name="ph:bell-simple-bold" class="text-xl" />
       <span v-if="unreadCount > 0"
         class="absolute top-2 end-2 w-2 h-2 bg-red-500 rounded-full border-2 border-bg-base animate-ping"></span>
-    </VButton>
+    </LazyVButton>
 
     <Teleport to="body">
       <!-- Backdrop -->
@@ -30,7 +30,8 @@
                   class="text-[9px] font-black tracking-widest text-brand hover:text-tx-primary transition-colors">
                   Mark Read
                 </button>
-                <button @click="isInternalOpen = false" class="text-tx-secondary hover:text-tx-primary transition-colors">
+                <button @click="isInternalOpen = false"
+                  class="text-tx-secondary hover:text-tx-primary transition-colors">
                   <ClientOnly>
                     <Icon name="ph:x-bold" class="text-lg" />
                   </ClientOnly>
@@ -81,9 +82,11 @@
                       <p class="text-[9px] font-black tracking-widest text-tx-muted">{{ n.category }}</p>
                       <span class="text-[9px] font-bold text-tx-muted tracking-tighter">{{ n.time }}</span>
                     </div>
-                    <h4 class="text-sm font-bold text-tx-primary group-hover:text-brand transition-colors">{{ n.title }}
+                    <h4 class="text-sm font-bold text-tx-primary group-hover:text-brand transition-colors">{{ n.title
+                    }}
                     </h4>
-                    <p class="text-xs text-tx-secondary mt-2 line-clamp-2 leading-relaxed font-medium">{{ n.message }}</p>
+                    <p class="text-xs text-tx-secondary mt-2 line-clamp-2 leading-relaxed font-medium">{{ n.message }}
+                    </p>
 
                     <div v-if="n.type === 'orders'" class="mt-4">
                       <button

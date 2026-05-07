@@ -80,11 +80,12 @@
             <h2 class="text-3xl font-bold mb-4">Still need help?</h2>
             <p class="text-tx-secondary mb-10">Our community and support specialists are here to guide you.</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-               <VButton variant="none"
+               <LazyVButton variant="none"
                   className="bg-brand text-white py-4 px-10 rounded-xl font-bold text-sm shadow-xl shadow-brand/20">Talk
-                  to Support</VButton>
-               <VButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">Ask the Community
-               </VButton>
+                  to Support</LazyVButton>
+               <LazyVButton variant="none" className="text-tx-secondary hover:text-tx-primary font-bold">Ask the
+                  Community
+               </LazyVButton>
             </div>
          </div>
       </section>

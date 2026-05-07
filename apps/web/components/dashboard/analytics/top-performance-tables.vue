@@ -16,7 +16,7 @@
           </button>
         </div>
         <div class="relative overflow-x-auto">
-          <VTable :headers="productHeaders" :items="products">
+          <LazyVTable :headers="productHeaders" :items="products">
             <template #cell(product)="{ item }">
               <div class="flex items-center gap-4">
                 <div
@@ -43,7 +43,7 @@
             <template #cell(revenue)="{ item }">
               <span class="font-bold text-sm">{{ item.revenue }}</span>
             </template>
-          </VTable>
+          </LazyVTable>
         </div>
       </div>
 
@@ -62,7 +62,7 @@
           </button>
         </div>
         <div class="relative overflow-x-auto">
-          <VTable :headers="customerHeaders" :items="customers">
+          <LazyVTable :headers="customerHeaders" :items="customers">
             <template #cell(customer)="{ item }">
               <div class="flex items-center gap-4">
                 <img
@@ -85,7 +85,7 @@
             <template #cell(spent)="{ item }">
               <span class="font-bold text-sm">{{ item.spent }}</span>
             </template>
-          </VTable>
+          </LazyVTable>
         </div>
       </div>
     </div>

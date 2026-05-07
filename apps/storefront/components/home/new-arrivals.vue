@@ -39,10 +39,10 @@
                   product.oldPrice.toLocaleString() }}</span>
               </div>
               <div class="mt-auto pt-4">
-                <VButton variant="none"
+                <LazyVButton variant="none"
                   className="w-full bg-bg-elevated hover:bg-white border border-border-subtle hover:border-brand/40 text-[10px] font-black tracking-widest py-3 transition-all rounded-xl">
                   {{ t("storefront.home.buyNow") }}
-                </VButton>
+                </LazyVButton>
               </div>
             </div>
           </nuxt-link-locale>

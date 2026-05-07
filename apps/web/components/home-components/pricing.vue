@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="pricing"
-    class="py-32 px-6 border-t border-border-subtle scroll-mt-24"
-  >
+  <section id="pricing" class="py-32 px-6 border-t border-border-subtle scroll-mt-24">
     <div class="max-w-7xl mx-auto">
       <!-- Header -->
       <div class="text-center mb-16">
@@ -15,70 +12,50 @@
         <p class="text-tx-secondary mb-10">{{ t("home.pricing.subtitle") }}</p>
 
         <!-- Billing Toggle -->
-        <div
-          class="inline-flex items-center gap-4 bg-bg-primary border border-border-subtle rounded-2xl p-1.5"
-        >
-          <button
-            @click="billing = 'monthly'"
-            :class="[
-              'px-5 py-2 rounded-xl text-xs font-bold transition-all',
-              billing === 'monthly'
-                ? 'bg-bg-elevated text-tx-primary shadow'
-                : 'text-tx-muted hover:text-tx-secondary',
-            ]"
-          >
+        <div class="inline-flex items-center gap-4 bg-bg-primary border border-border-subtle rounded-2xl p-1.5">
+          <button @click="billing = 'monthly'" :class="[
+            'px-5 py-2 rounded-xl text-xs font-bold transition-all',
+            billing === 'monthly'
+              ? 'bg-bg-elevated text-tx-primary shadow'
+              : 'text-tx-muted hover:text-tx-secondary',
+          ]">
             {{ t("home.pricing.monthly") }}
           </button>
-          <button
-            @click="billing = 'annual'"
-            :class="[
-              'relative px-5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2',
-              billing === 'annual'
-                ? 'bg-bg-elevated text-tx-primary shadow'
-                : 'text-tx-muted hover:text-tx-secondary',
-            ]"
-          >
+          <button @click="billing = 'annual'" :class="[
+            'relative px-5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2',
+            billing === 'annual'
+              ? 'bg-bg-elevated text-tx-primary shadow'
+              : 'text-tx-muted hover:text-tx-secondary',
+          ]">
             {{ t("home.pricing.annual") }}
-            <span
-              class="bg-success/20 text-success text-[9px] font-black px-1.5 py-0.5 rounded tracking-widest"
-              >{{ t("home.pricing.save20") }}</span
-            >
+            <span class="bg-success/20 text-success text-[9px] font-black px-1.5 py-0.5 rounded tracking-widest">{{
+              t("home.pricing.save20") }}</span>
           </button>
         </div>
       </div>
 
       <!-- Pricing Cards -->
       <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-20">
-        <div
-          v-for="tier in tiers"
-          :key="tier.name"
-          :class="[
-            'relative p-8 rounded-3xl border flex flex-col transition-all duration-300',
-            tier.popular
-              ? 'bg-bg-primary border-brand/40 shadow-2xl shadow-brand/10 scale-[1.02]'
-              : 'bg-bg-elevated/30 border-border-subtle hover:border-border-default',
-          ]"
-        >
+        <div v-for="tier in tiers" :key="tier.name" :class="[
+          'relative p-8 rounded-3xl border flex flex-col transition-all duration-300',
+          tier.popular
+            ? 'bg-bg-primary border-brand/40 shadow-2xl shadow-brand/10 scale-[1.02]'
+            : 'bg-bg-elevated/30 border-border-subtle hover:border-border-default',
+        ]">
           <!-- Popular Badge -->
-          <div
-            v-if="tier.popular"
-            class="absolute -top-4 start-1/2 -translate-x-1/2"
-          >
+          <div v-if="tier.popular" class="absolute -top-4 start-1/2 -translate-x-1/2">
             <span
-              class="bg-brand text-white text-[9px] font-black tracking-widest px-4 py-1.5 rounded-full shadow-lg shadow-brand/30"
-            >
+              class="bg-brand text-white text-[9px] font-black tracking-widest px-4 py-1.5 rounded-full shadow-lg shadow-brand/30">
               {{ t("home.pricing.mostPopular") }}
             </span>
           </div>
 
           <!-- Tier Header -->
           <div class="mb-8">
-            <div
-              :class="[
-                'w-10 h-10 rounded-xl flex items-center justify-center mb-4',
-                tier.iconBg,
-              ]"
-            >
+            <div :class="[
+              'w-10 h-10 rounded-xl flex items-center justify-center mb-4',
+              tier.iconBg,
+            ]">
               <Icon :name="tier.icon" :class="['text-xl', tier.iconColor]" />
             </div>
             <h3 class="text-xl font-bold mb-1">{{ tier.name }}</h3>
@@ -92,21 +69,17 @@
                 {{
                   tier.free
                     ? t("home.pricing.free")
-                    : `$${
-                        billing === "annual"
-                          ? tier.annualPrice
-                          : tier.monthlyPrice
-                      }`
+                    : `$${billing === "annual"
+                      ? tier.annualPrice
+                      : tier.monthlyPrice
+                    }`
                 }}
               </span>
               <span v-if="!tier.free" class="text-tx-muted mb-1.5">{{
                 t("home.pricing.perMonth")
               }}</span>
             </div>
-            <p
-              v-if="!tier.free && billing === 'annual'"
-              class="text-xs text-success font-bold mt-1"
-            >
+            <p v-if="!tier.free && billing === 'annual'" class="text-xs text-success font-bold mt-1">
               {{
                 t("home.pricing.billedAnnually").replace(
                   "${amount}",
@@ -123,57 +96,36 @@
           </div>
 
           <!-- CTA -->
-          <VButton
-            variant="none"
-            :to="tier.trial ? undefined : tier.ctaRoute"
-            @click="tier.trial ? openTrialModal(tier) : undefined"
-            :className="`w-full py-3.5 rounded-xl font-bold text-sm transition-all mb-8 flex items-center justify-center ${
-              tier.popular
-                ? 'bg-brand hover:bg-brand-hover text-white shadow-lg shadow-brand/20'
-                : tier.free
+          <LazyVButton variant="none" :to="tier.trial ? undefined : tier.ctaRoute"
+            @click="tier.trial ? openTrialModal(tier) : undefined" :className="`w-full py-3.5 rounded-xl font-bold text-sm transition-all mb-8 flex items-center justify-center ${tier.popular
+              ? 'bg-brand hover:bg-brand-hover text-white shadow-lg shadow-brand/20'
+              : tier.free
                 ? 'bg-success/15 hover:bg-success/25 border border-success/30 text-success'
                 : 'bg-bg-elevated hover:bg-white/10 border border-border-default text-tx-primary'
-            }`"
-          >
+              }`">
             {{ tier.cta }}
-          </VButton>
+          </LazyVButton>
 
           <!-- Features List -->
           <div class="space-y-1 flex-1">
-            <div
-              v-for="group in tier.featureGroups"
-              :key="group.label"
-              class="mb-5"
-            >
-              <p
-                class="text-[9px] font-black text-tx-muted tracking-[0.2em] mb-3"
-              >
+            <div v-for="group in tier.featureGroups" :key="group.label" class="mb-5">
+              <p class="text-[9px] font-black text-tx-muted tracking-[0.2em] mb-3">
                 {{ group.label }}
               </p>
-              <div
-                v-for="feat in group.items"
-                :key="feat.label"
-                class="flex items-start gap-3 py-1.5"
-              >
-                <Icon
-                  :name="
-                    feat.included
-                      ? 'ph:check-circle-fill'
-                      : 'ph:minus-circle-fill'
-                  "
-                  :class="[
-                    'text-base shrink-0 mt-0.5',
-                    feat.included ? 'text-success' : 'text-tx-muted',
-                  ]"
-                />
-                <span
-                  :class="[
-                    'text-xs leading-relaxed',
-                    feat.included
-                      ? 'text-tx-secondary'
-                      : 'text-tx-muted line-through',
-                  ]"
-                >
+              <div v-for="feat in group.items" :key="feat.label" class="flex items-start gap-3 py-1.5">
+                <Icon :name="feat.included
+                  ? 'ph:check-circle-fill'
+                  : 'ph:minus-circle-fill'
+                  " :class="[
+                      'text-base shrink-0 mt-0.5',
+                      feat.included ? 'text-success' : 'text-tx-muted',
+                    ]" />
+                <span :class="[
+                  'text-xs leading-relaxed',
+                  feat.included
+                    ? 'text-tx-secondary'
+                    : 'text-tx-muted line-through',
+                ]">
                   {{ feat.label }}
                 </span>
               </div>
@@ -183,9 +135,7 @@
       </div>
 
       <!-- Feature Comparison Table -->
-      <div
-        class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden mb-20"
-      >
+      <div class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden mb-20">
         <div class="p-6 border-b border-border-subtle">
           <h3 class="font-bold">
             {{ t("home.pricing.fullFeatureComparison") }}
@@ -198,48 +148,26 @@
           <table class="w-full">
             <thead>
               <tr class="border-b border-border-subtle">
-                <th
-                  class="text-start px-6 py-4 text-xs font-bold text-tx-muted w-1/2"
-                >
+                <th class="text-start px-6 py-4 text-xs font-bold text-tx-muted w-1/2">
                   {{ t("home.pricing.featureColumn") }}
                 </th>
-                <th
-                  v-for="tier in tiers"
-                  :key="tier.name"
-                  class="px-6 py-4 text-center text-xs font-bold"
-                  :class="tier.popular ? 'text-brand' : 'text-tx-secondary'"
-                >
+                <th v-for="tier in tiers" :key="tier.name" class="px-6 py-4 text-center text-xs font-bold"
+                  :class="tier.popular ? 'text-brand' : 'text-tx-secondary'">
                   {{ tier.name }}
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="(row, i) in comparisonRows"
-                :key="row.feature"
-                :class="[
-                  'border-b border-border-subtle/50 hover:bg-bg-elevated/30 transition-colors',
-                  i % 2 === 0 ? '' : 'bg-bg-elevated/10',
-                ]"
-              >
+              <tr v-for="(row, i) in comparisonRows" :key="row.feature" :class="[
+                'border-b border-border-subtle/50 hover:bg-bg-elevated/30 transition-colors',
+                i % 2 === 0 ? '' : 'bg-bg-elevated/10',
+              ]">
                 <td class="px-6 py-3.5 text-xs font-medium text-tx-secondary">
                   {{ row.feature }}
                 </td>
-                <td
-                  v-for="(val, j) in row.values"
-                  :key="j"
-                  class="px-6 py-3.5 text-center"
-                >
-                  <Icon
-                    v-if="val === true"
-                    name="ph:check-bold"
-                    class="text-success mx-auto"
-                  />
-                  <Icon
-                    v-else-if="val === false"
-                    name="ph:minus-bold"
-                    class="text-tx-muted mx-auto"
-                  />
+                <td v-for="(val, j) in row.values" :key="j" class="px-6 py-3.5 text-center">
+                  <Icon v-if="val === true" name="ph:check-bold" class="text-success mx-auto" />
+                  <Icon v-else-if="val === false" name="ph:minus-bold" class="text-tx-muted mx-auto" />
                   <span v-else class="text-xs font-bold text-tx-secondary">{{
                     val
                   }}</span>
@@ -258,14 +186,8 @@
             {{ t("home.pricing.everythingYouNeed") }}
           </h3>
           <div class="space-y-4">
-            <div
-              v-for="trust in trustItems"
-              :key="trust.title"
-              class="flex items-start gap-4"
-            >
-              <div
-                class="w-9 h-9 rounded-xl bg-brand-dim flex items-center justify-center shrink-0"
-              >
+            <div v-for="trust in trustItems" :key="trust.title" class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-xl bg-brand-dim flex items-center justify-center shrink-0">
                 <Icon :name="trust.icon" class="text-brand text-base" />
               </div>
               <div>
@@ -281,26 +203,15 @@
           <h3 class="text-xl font-bold mb-6">
             {{ t("home.pricing.commonQuestions") }}
           </h3>
-          <div
-            v-for="(faq, idx) in faqs"
-            :key="faq.q"
-            class="border border-border-subtle rounded-xl overflow-hidden"
-          >
-            <button
-              @click="faqOpen[idx] = !faqOpen[idx]"
-              class="w-full flex items-center justify-between px-5 py-4 text-sm font-bold text-start hover:bg-bg-elevated/30 transition-colors"
-            >
+          <div v-for="(faq, idx) in faqs" :key="faq.q" class="border border-border-subtle rounded-xl overflow-hidden">
+            <button @click="faqOpen[idx] = !faqOpen[idx]"
+              class="w-full flex items-center justify-between px-5 py-4 text-sm font-bold text-start hover:bg-bg-elevated/30 transition-colors">
               {{ faq.q }}
-              <Icon
-                :name="faqOpen[idx] ? 'ph:minus-bold' : 'ph:plus-bold'"
-                class="text-tx-muted shrink-0 ms-4"
-              />
+              <Icon :name="faqOpen[idx] ? 'ph:minus-bold' : 'ph:plus-bold'" class="text-tx-muted shrink-0 ms-4" />
             </button>
             <Transition name="faq-slide">
-              <div
-                v-if="faqOpen[idx]"
-                class="px-5 pb-4 text-xs text-tx-secondary leading-relaxed border-t border-border-subtle/50 pt-3"
-              >
+              <div v-if="faqOpen[idx]"
+                class="px-5 pb-4 text-xs text-tx-secondary leading-relaxed border-t border-border-subtle/50 pt-3">
                 {{ faq.a }}
               </div>
             </Transition>
@@ -311,12 +222,10 @@
   </section>
 
   <!-- Trial Modal -->
-  <VDialog v-model="isTrialOpen" max-width="440px">
+  <LazyVDialog v-model="isTrialOpen" max-width="440px">
     <template #title>
       <div class="flex items-center gap-2">
-        <span
-          class="inline-flex w-2 h-2 rounded-full bg-brand animate-pulse"
-        ></span>
+        <span class="inline-flex w-2 h-2 rounded-full bg-brand animate-pulse"></span>
         {{
           selectedTier?.free
             ? t("home.pricing.modal.createFreeAccount")
@@ -327,19 +236,12 @@
 
     <div v-if="selectedTier" class="space-y-5">
       <!-- Plan recap -->
-      <div
-        class="flex items-center gap-4 p-4 rounded-2xl bg-bg-elevated border border-border-subtle"
-      >
-        <div
-          :class="[
-            'w-11 h-11 rounded-xl flex items-center justify-center shrink-0',
-            selectedTier.iconBg,
-          ]"
-        >
-          <Icon
-            :name="selectedTier.icon"
-            :class="['text-xl', selectedTier.iconColor]"
-          />
+      <div class="flex items-center gap-4 p-4 rounded-2xl bg-bg-elevated border border-border-subtle">
+        <div :class="[
+          'w-11 h-11 rounded-xl flex items-center justify-center shrink-0',
+          selectedTier.iconBg,
+        ]">
+          <Icon :name="selectedTier.icon" :class="['text-xl', selectedTier.iconColor]" />
         </div>
         <div class="flex-1 min-w-0">
           <p class="font-bold text-sm">
@@ -352,15 +254,11 @@
         <div class="text-end shrink-0">
           <p class="font-bold text-sm">
             <template v-if="selectedTier.free">Free</template>
-            <template v-else
-              >${{
-                billing === "annual"
-                  ? selectedTier.annualPrice
-                  : selectedTier.monthlyPrice
-              }}<span class="text-tx-muted font-normal text-xs"
-                >/mo</span
-              ></template
-            >
+            <template v-else>${{
+              billing === "annual"
+                ? selectedTier.annualPrice
+                : selectedTier.monthlyPrice
+            }}<span class="text-tx-muted font-normal text-xs">/mo</span></template>
           </p>
           <p class="text-[11px] text-success font-bold">
             {{
@@ -377,39 +275,27 @@
         <label class="text-xs font-bold text-tx-secondary mb-2 block">{{
           t("home.pricing.modal.workEmail")
         }}</label>
-        <input
-          v-model="trialEmail"
-          type="email"
-          :placeholder="t('home.pricing.modal.emailPlaceholder')"
+        <input v-model="trialEmail" type="email" :placeholder="t('home.pricing.modal.emailPlaceholder')"
           @keydown.enter="startTrial"
-          class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm text-tx-primary placeholder:text-tx-muted focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/30 transition-all"
-        />
-        <p
-          v-if="emailError"
-          class="text-xs text-error mt-1.5 flex items-center gap-1"
-        >
+          class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm text-tx-primary placeholder:text-tx-muted focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/30 transition-all" />
+        <p v-if="emailError" class="text-xs text-error mt-1.5 flex items-center gap-1">
           <Icon name="ph:warning-fill" class="text-sm shrink-0" />
           {{ emailError }}
         </p>
       </div>
 
       <!-- Submit -->
-      <VButton
-        variant="none"
-        @click="startTrial"
-        :className="`w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg ${
-          selectedTier.free
-            ? 'bg-success/15 hover:bg-success/25 border border-success/30 text-success shadow-success/10'
-            : 'bg-brand hover:bg-brand-hover text-white shadow-brand/20'
-        }`"
-      >
+      <LazyVButton variant="none" @click="startTrial" :className="`w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg ${selectedTier.free
+        ? 'bg-success/15 hover:bg-success/25 border border-success/30 text-success shadow-success/10'
+        : 'bg-brand hover:bg-brand-hover text-white shadow-brand/20'
+        }`">
         {{
           selectedTier.free
             ? t("home.pricing.modal.createFreeAccountBtn")
             : t("home.pricing.modal.startMyTrial")
         }}
         <Icon name="ph:arrow-right-bold" class="text-base rtl:rotate-180" />
-      </VButton>
+      </LazyVButton>
 
       <p class="text-center text-[11px] text-tx-muted">
         {{
@@ -419,7 +305,7 @@
         }}
       </p>
     </div>
-  </VDialog>
+  </LazyVDialog>
 </template>
 
 <script lang="ts" setup>

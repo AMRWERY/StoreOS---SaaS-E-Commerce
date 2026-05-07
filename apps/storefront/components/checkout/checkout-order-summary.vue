@@ -37,18 +37,18 @@
           {{ t("storefront.checkout.discountCode") }}
         </p>
         <div class="flex gap-2">
-          <VInput
+          <LazyVInput
             v-model="discountCode"
             :placeholder="t('storefront.checkout.enterCode')"
             inputClass="!flex-1 !bg-black !border-border-subtle !rounded-[8px] !px-4 !py-2.5 !text-[11px] !font-bold !tracking-widest focus:!border-brand !outline-none !transition-colors !placeholder:text-tx-muted"
           />
-          <VButton
+          <LazyVButton
             variant="none"
             className="bg-border-subtle hover:bg-border-default px-4 rounded-[8px] text-[10px] font-black tracking-widest transition-colors"
             @click="applyDiscount"
           >
             {{ t("storefront.checkout.apply") }}
-          </VButton>
+          </LazyVButton>
         </div>
       </div>
 
@@ -68,13 +68,13 @@
         </p>
       </div>
 
-      <VButton
+      <LazyVButton
         variant="none"
         className="w-full bg-brand hover:bg-brand-hover text-white py-4 rounded-[12px] font-bold text-[14px] tracking-[0.2em] transition-all shadow-[0_0_20px_rgba(99,102,241,0.2)] active:scale-[0.98]"
         @click="$emit('proceed')"
       >
         {{ t("storefront.checkout.proceedToCheckout") }}
-      </VButton>
+      </LazyVButton>
 
       <p
         class="text-center text-[8px] font-black text-tx-muted tracking-[0.2em] mt-6"
@@ -98,7 +98,8 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
+
 defineProps<{
   subtotal: number;
   total: number;

@@ -30,8 +30,9 @@
             order updates to personalized email campaigns, StoreOS keeps the conversation going.
           </p>
           <div class="flex flex-col sm:flex-row items-center gap-4">
-            <VButton size="lg" shadow className="bg-teal-500 hover:bg-teal-600 text-white">Start Engagement</VButton>
-            <VButton variant="outline" size="lg">Watch Demo</VButton>
+            <LazyVButton size="lg" shadow className="bg-teal-500 hover:bg-teal-600 text-white">Start Engagement
+            </LazyVButton>
+            <LazyVButton variant="outline" size="lg">Watch Demo</LazyVButton>
           </div>
         </div>
       </div>
@@ -120,11 +121,11 @@
           Join 500+ merchants who have improved their customer retention by 40% using StoreOS messaging tools.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-          <VButton variant="none"
+          <LazyVButton variant="none"
             className="bg-white text-teal-600 hover:bg-white/90 flex items-center justify-center gap-2 rounded-xl font-bold text-sm transition-all duration-200 py-4 px-8 shadow-xl">
-            Request API Access</VButton>
-          <VButton variant="none" size="lg" className="text-white hover:text-white/80 font-bold">Talk to Support
-          </VButton>
+            Request API Access</LazyVButton>
+          <LazyVButton variant="none" size="lg" className="text-white hover:text-white/80 font-bold">Talk to Support
+          </LazyVButton>
         </div>
       </div>
     </section>

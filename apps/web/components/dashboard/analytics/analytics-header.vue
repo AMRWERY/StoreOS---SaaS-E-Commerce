@@ -1,6 +1,6 @@
 ﻿<template>
   <div>
-    <VBreadcrumb />
+    <LazyVBreadcrumb />
 
     <header
       class="flex flex-col lg:flex-row lg:items-center justify-between gap-6"
@@ -10,7 +10,7 @@
       </h1>
       <div class="flex flex-wrap items-center gap-4">
         <!-- Timeframe Tabs -->
-        <VTabs
+        <LazyVTabs
           :tabs="[
             t('dashboard.analytics.today'),
             t('dashboard.analytics.yesterday'),
@@ -26,14 +26,14 @@
         <div
           class="flex items-center gap-4 border-s border-border-default ps-4"
         >
-          <VSwitchButton
+          <LazyVSwitchButton
             :label="t('dashboard.analytics.compare')"
             :model-value="compareEnabled"
             @update:model-value="$emit('update:compareEnabled', $event)"
           />
 
           <div class="flex items-center gap-3">
-            <VButton
+            <LazyVButton
               variant="secondary"
               :label="t('dashboard.analytics.exportReport')"
               icon="ph:export-bold"
@@ -41,7 +41,7 @@
               @click="$emit('export')"
             />
 
-            <VButton
+            <LazyVButton
               :label="t('common.createNew')"
               icon="ph:plus-bold"
               size="sm"
@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 defineProps<{
   activeTimeframe: string;
   compareEnabled: boolean;

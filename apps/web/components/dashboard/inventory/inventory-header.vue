@@ -1,6 +1,6 @@
 ﻿<template>
   <div>
-    <VBreadcrumb />
+    <LazyVBreadcrumb />
 
     <div class="space-y-6">
       <!-- Top Row -->
@@ -16,33 +16,33 @@
           </span>
         </div>
         <div class="flex items-center gap-4">
-          <VButton
+          <LazyVButton
             variant="secondary"
             className="px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2"
           >
             <Icon name="ph:file-csv-bold" class="text-sm" />
             {{ t("dashboard.inventory.importCsv") }}
-          </VButton>
-          <VButton
+          </LazyVButton>
+          <LazyVButton
             @click="$emit('adjust')"
             className="bg-brand hover:bg-brand-hover text-tx-primary px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-brand/20"
           >
             <Icon name="ph:plus-bold" />
             {{ t("dashboard.inventory.adjustStock") }}
-          </VButton>
+          </LazyVButton>
         </div>
       </header>
 
       <!-- Search & Filters Row -->
       <div class="flex items-center gap-4">
-        <VSearchInput
+        <LazyVSearchInput
           :modelValue="search"
           @update:modelValue="$emit('update:search', $event)"
           wrapperClass="flex-1 min-w-[300px]"
           :placeholder="t('dashboard.inventory.searchPlaceholder')"
         />
 
-        <VDropdownMenu width="w-48" align="start">
+        <LazyVDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
             <button
               :class="
@@ -87,9 +87,9 @@
               </button>
             </div>
           </template>
-        </VDropdownMenu>
+        </LazyVDropdownMenu>
 
-        <VDropdownMenu width="w-48" align="start">
+        <LazyVDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
             <button
               :class="
@@ -126,7 +126,7 @@
               </button>
             </div>
           </template>
-        </VDropdownMenu>
+        </LazyVDropdownMenu>
 
         <button
           @click="clearFilters"
@@ -140,7 +140,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 const props = defineProps({
   totalProducts: { type: Number, required: true },
   search: { type: String, default: "" },

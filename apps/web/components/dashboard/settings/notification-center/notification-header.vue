@@ -16,26 +16,16 @@
         </div>
       </div>
       <div class="flex items-center gap-3">
-        <VButton
-          variant="ghost"
-          @click="$emit('open-stats')"
-          className="px-3.5 py-3.5 text-tx-secondary hover:text-tx-primary"
-        >
+        <LazyVButton variant="ghost" @click="$emit('open-stats')"
+          className="px-3.5 py-3.5 text-tx-secondary hover:text-tx-primary">
           <template #default>
             <Icon name="ph:bell-simple-bold" class="text-xl" />
           </template>
-        </VButton>
-        <VButton
-          variant="ghost"
-          :label="t('dashboard.settings.notifications.discard')"
-          @click="$emit('discard')"
-          className="px-8 py-3.5 text-xs font-bold"
-        />
-        <VButton
-          :label="t('dashboard.settings.notifications.saveChanges')"
-          @click="$emit('save')"
-          className="px-10 py-3.5 text-sm"
-        />
+        </LazyVButton>
+        <LazyVButton variant="ghost" :label="t('dashboard.settings.notifications.discard')" @click="$emit('discard')"
+          className="px-8 py-3.5 text-xs font-bold" />
+        <LazyVButton :label="t('dashboard.settings.notifications.saveChanges')" @click="$emit('save')"
+          className="px-10 py-3.5 text-sm" />
       </div>
     </header>
   </div>

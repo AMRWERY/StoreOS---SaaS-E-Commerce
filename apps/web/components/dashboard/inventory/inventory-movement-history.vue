@@ -16,7 +16,7 @@
           {{ t("dashboard.inventory.viewFullLog") }}
         </button>
       </div>
-      <VTable :headers="headers" :items="historyLogs">
+      <LazyVTable :headers="headers" :items="historyLogs">
         <template #cell(date)="{ item }">
           <span
             class="text-[10px] font-bold text-tx-secondary tracking-widest"
@@ -68,7 +68,7 @@
             item.staff
           }}</span>
         </template>
-      </VTable>
+      </LazyVTable>
     </section>
   </div>
 </template>

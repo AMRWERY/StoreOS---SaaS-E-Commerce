@@ -25,14 +25,14 @@
           <img :src="previewUrl" class="w-full h-full object-cover" />
           <div
             class="absolute inset-0 bg-bg-overlay opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-            <VButton @click="triggerFileSelect" variant="none"
+            <LazyVButton @click="triggerFileSelect" variant="none"
               className="p-2 bg-bg-elevated rounded-md hover:bg-bg-elevated transition-colors">
               <Icon name="ph:pencil-simple-bold" class="text-tx-primary w-5 h-5" />
-            </VButton>
-            <VButton @click="removeFile" variant="none"
+            </LazyVButton>
+            <LazyVButton @click="removeFile" variant="none"
               className="p-2 bg-red-500/20 rounded-md hover:bg-red-500/40 transition-colors">
               <Icon name="ph:trash-bold" class="text-red-500 w-5 h-5" />
-            </VButton>
+            </LazyVButton>
           </div>
         </div>
 
@@ -45,9 +45,10 @@
             <p class="text-sm font-bold truncate">{{ selectedFile.name }}</p>
             <p class="text-[11px] text-tx-secondary">{{ formatFileSize(selectedFile.size) }}</p>
           </div>
-          <VButton @click="removeFile" variant="none" className="p-2 hover:bg-bg-elevated rounded-md transition-colors">
+          <LazyVButton @click="removeFile" variant="none"
+            className="p-2 hover:bg-bg-elevated rounded-md transition-colors">
             <Icon name="ph:x-bold" class="text-tx-secondary w-4 h-4" />
-          </VButton>
+          </LazyVButton>
         </div>
       </div>
 

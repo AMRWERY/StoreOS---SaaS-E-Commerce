@@ -9,14 +9,14 @@
         <h3 class="font-bold text-lg">
           {{ t("dashboard.home.recentOrders") }}
         </h3>
-        <VButton
+        <LazyVButton
           variant="none"
           className="text-[10px] font-black text-brand tracking-widest hover:underline"
-          >{{ t("common.viewAll") }}</VButton
+          >{{ t("common.viewAll") }}</LazyVButton
         >
       </div>
       <div class="overflow-x-auto flex-1 h-full">
-        <VTable :headers="headers" :items="orders">
+        <LazyVTable :headers="headers" :items="orders">
           <template #cell(id)="{ item }">
             <span class="font-bold text-tx-secondary">{{ item.id }}</span>
           </template>
@@ -42,7 +42,7 @@
           <template #cell(time)="{ item }">
             <span class="text-xs text-tx-muted">{{ item.time }}</span>
           </template>
-        </VTable>
+        </LazyVTable>
       </div>
     </section>
   </div>

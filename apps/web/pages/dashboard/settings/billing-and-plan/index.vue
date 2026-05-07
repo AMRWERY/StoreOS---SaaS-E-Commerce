@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <div class="min-h-screen text-tx-primary pb-12">
-      <VBreadcrumb />
+      <LazyVBreadcrumb />
 
       <BillingHeader />
 
