@@ -147,6 +147,7 @@
                 {{ t("storefront.bag.emptyDesc") }}
               </p>
               <VButton
+                to="/shop-all"
                 @click="isInternalOpen = false"
                 variant="primary"
                 className="mt-8 px-8 py-3 rounded-xl font-black"
