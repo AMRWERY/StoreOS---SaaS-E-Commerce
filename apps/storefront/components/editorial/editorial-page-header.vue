@@ -27,6 +27,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { BreadcrumbItem } from "../../../../layers/ui/types/v-breadcrumb";
 
 defineProps<{ breadcrumbItems: BreadcrumbItem[] }>();

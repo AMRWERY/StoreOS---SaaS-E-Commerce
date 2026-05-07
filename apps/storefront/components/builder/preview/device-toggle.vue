@@ -12,6 +12,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { DeviceMode } from '@/types/builder'
 
 defineProps<{

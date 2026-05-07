@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str } = useSectionSettingsForm()
 const headline = str('headline', 'Designed for calm spaces')
 const subheadline = str('subheadline', 'Balanced proportions and natural materials.')

@@ -141,6 +141,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { FilterState } from "@/types/products";
 
 const props = defineProps<{

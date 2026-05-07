@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, bool } = useSectionSettingsForm()
 const videoUrl = str('video_url', '')
 const poster = str('poster_url', '')

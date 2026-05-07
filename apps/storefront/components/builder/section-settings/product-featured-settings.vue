@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, bool } = useSectionSettingsForm()
 const productId = str('product_id', '')
 const badge = str('badge', '')

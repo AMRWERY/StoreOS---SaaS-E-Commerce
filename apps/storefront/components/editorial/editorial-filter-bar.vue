@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 defineProps<{ filters: string[] }>();
 
 const activeFilter = defineModel<string>("activeFilter", { required: true });

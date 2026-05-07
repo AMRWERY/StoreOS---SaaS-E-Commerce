@@ -101,6 +101,8 @@
   </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
+
 // --- State ---
 const searchRegistry = ref('');
 
@@ -155,4 +157,9 @@ const categories = [
     img: '/img/category-06.avif'
   },
 ];
+
+useSeoMeta({
+  title: 'Catalog Index',
+  description: 'System-wide directory of curated assets and category nodes.',
+})
 </script>

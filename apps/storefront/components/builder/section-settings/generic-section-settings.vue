@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str } = useSectionSettingsForm()
 const caption = str('builder_label', '')
 const notes = str('builder_notes', '')

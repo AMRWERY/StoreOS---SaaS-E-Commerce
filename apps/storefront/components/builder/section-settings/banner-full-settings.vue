@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str } = useSectionSettingsForm()
 const title = str('title', 'Free shipping over $50')
 const subtitle = str('subtitle', '')

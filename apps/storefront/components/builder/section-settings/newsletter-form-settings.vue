@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, bool } = useSectionSettingsForm()
 const heading = str('heading', 'Join the list')
 const placeholder = str('placeholder', 'Email address')

@@ -105,6 +105,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 defineProps<{ selected: boolean }>()
 const emit = defineEmits<{ select: [] }>()
 const store = useBuilderStore()

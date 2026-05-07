@@ -181,6 +181,8 @@
   </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
+
 const lastUpdated = "2024.05.20";
 const version = "v4.2.0-LEGAL";
 
@@ -217,4 +219,9 @@ onMounted(() => {
 });
 
 onUnmounted(() => observer?.disconnect());
+
+useSeoMeta({
+  title: 'Terms of Service',
+  description: 'Terms of Service for StoreOS commerce platform.',
+})
 </script>

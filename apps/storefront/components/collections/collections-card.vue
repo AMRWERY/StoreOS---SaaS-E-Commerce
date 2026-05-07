@@ -12,6 +12,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { Product } from '../../../../layers/ui/types/v-product-card'
 import type { StorefrontCollection } from '../../types/collections'
 

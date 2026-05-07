@@ -31,6 +31,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import { builderSectionTemplates } from '@/data/builder-section-templates'
 import type { PageSection, SectionType } from '@/types/sections'
 

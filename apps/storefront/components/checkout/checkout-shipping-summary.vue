@@ -102,6 +102,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { ShippingSummaryItem } from "@/types/checkout";
 
 const props = defineProps<{

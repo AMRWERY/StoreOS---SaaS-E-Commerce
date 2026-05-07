@@ -98,6 +98,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 defineProps<{
   subtotal: number;
   total: number;

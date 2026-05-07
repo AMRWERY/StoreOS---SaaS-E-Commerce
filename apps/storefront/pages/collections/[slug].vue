@@ -69,6 +69,7 @@ import {
   type CollectionCatalogProduct,
 } from "../../data/collections-catalog";
 
+const { t } = useI18n();
 const route = useRoute();
 
 const slug = computed(() => String(route.params.slug ?? ""));
@@ -78,8 +79,6 @@ const meta = computed(() => collectionMeta[slug.value] ?? null);
 const filteredProducts = computed(() =>
   collectionCatalogProducts.filter((p) => p.collectionSlug === slug.value)
 );
-
-const { t } = useI18n();
 
 const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   { label: t("common.home"), to: "/" },

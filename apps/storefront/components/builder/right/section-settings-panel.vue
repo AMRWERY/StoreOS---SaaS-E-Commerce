@@ -36,6 +36,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { Component } from 'vue'
 import type { SectionType } from '@/types/sections'
 import { SECTION_TYPE_LABELS } from '@/types/sections'

@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { ShippingSummaryItem } from './checkout-shipping-summary.vue'
 
 defineEmits<{ proceed: [] }>()

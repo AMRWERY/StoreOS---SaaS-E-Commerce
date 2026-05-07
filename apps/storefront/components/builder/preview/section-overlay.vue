@@ -8,6 +8,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 defineProps<{
   selected?: boolean
   highlighted?: boolean

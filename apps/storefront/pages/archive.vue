@@ -143,6 +143,8 @@
   </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
+
 // --- State ---
 const selectedYear = ref('2023');
 const searchQuery = ref('');
@@ -203,4 +205,9 @@ const archiveItems = [
 ];
 
 const years = ['2026', '2025', '2024', '2023', '2022', '2021'];
+
+useSeoMeta({
+  title: 'Archive Vault',
+  description: 'Historical directory of legacy units and end-of-life production cycles.',
+})
 </script>

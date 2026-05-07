@@ -74,6 +74,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { publishOpen } = useBuilderModals()
 const store = useBuilderStore()
 const localePath = useLocalePath()

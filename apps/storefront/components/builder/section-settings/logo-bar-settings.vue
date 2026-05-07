@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, num, bool } = useSectionSettingsForm()
 const heading = str('heading', 'As featured in')
 const logos = num('logo_count', 6)

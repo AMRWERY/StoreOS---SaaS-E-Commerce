@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, bool, patch, section } = useSectionSettingsForm()
 const heading = str('heading', 'Why shop with us')
 const icons = bool('show_icons', true)

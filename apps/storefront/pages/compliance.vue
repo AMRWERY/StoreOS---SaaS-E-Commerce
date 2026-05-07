@@ -139,6 +139,8 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
+
 // --- Metadata ---
 const auditID = "AUD-2024-X991";
 const lastAuditDate = "2024.03.14 09:12 UTC";
@@ -170,4 +172,9 @@ const securityProtocols = [
   { id: 'SC-103', protocol: 'Identity Access', value: 'Multi-Factor Auth', status: 'ENFORCED' },
   { id: 'SC-104', protocol: 'Data Residency', value: 'Regional Isolated', status: 'COMPLIANT' },
 ];
+
+useSeoMeta({
+  title: 'Compliance',
+  description: 'StoreOS compliance and security certifications.',
+})
 </script>

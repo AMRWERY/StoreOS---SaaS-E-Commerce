@@ -45,6 +45,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 defineProps<{ categories: string[] }>();
 const selectedFilter = defineModel<string>("selectedFilter", {
   required: true,

@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, num, bool } = useSectionSettingsForm()
 const heading = str('eyebrow', 'New collection')
 const interval = num('interval_sec', 5)

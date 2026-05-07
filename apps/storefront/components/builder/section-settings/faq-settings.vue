@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, bool, patch, section } = useSectionSettingsForm()
 const heading = str('heading', 'Common questions')
 const accordion = bool('accordion', true)

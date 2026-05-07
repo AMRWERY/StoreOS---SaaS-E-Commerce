@@ -19,6 +19,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const store = useBuilderStore()
 const route = useRoute()
 

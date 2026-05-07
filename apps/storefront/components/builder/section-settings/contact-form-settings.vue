@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, bool } = useSectionSettingsForm()
 const heading = str('heading', 'We would love to hear from you')
 const submitLabel = str('submit_label', 'Send message')

@@ -15,6 +15,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, bool } = useSectionSettingsForm()
 const embedUrl = str('embed_url', '')
 const ratio = str('ratio', '16:9')

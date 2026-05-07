@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, bool } = useSectionSettingsForm()
 const html = str('html', '')
 const sandbox = bool('sandbox_preview', true)

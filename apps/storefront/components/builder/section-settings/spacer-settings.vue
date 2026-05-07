@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { num, bool } = useSectionSettingsForm()
 const height = num('height', 48)
 const mobileHide = bool('hide_mobile', false)

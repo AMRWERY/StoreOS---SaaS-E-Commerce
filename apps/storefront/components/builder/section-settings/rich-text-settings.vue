@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str } = useSectionSettingsForm()
 const heading = str('heading', '')
 const body = str('body', '')

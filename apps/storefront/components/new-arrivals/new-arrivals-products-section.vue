@@ -36,6 +36,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { NewArrivalProduct } from "@/types/new-arrivals";
 
 defineProps<{

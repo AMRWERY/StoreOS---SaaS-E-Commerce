@@ -19,6 +19,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, num, bool } = useSectionSettingsForm()
 const heading = str('heading', 'You may also like')
 const peek = num('peek_pct', 12)

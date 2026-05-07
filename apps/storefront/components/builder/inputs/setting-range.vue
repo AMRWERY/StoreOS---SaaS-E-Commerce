@@ -11,6 +11,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 withDefaults(
   defineProps<{
     modelValue: number

@@ -66,6 +66,8 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n();
+
 const cartStore = useCartStore();
 const { cartItems, subtotal, total } = storeToRefs(cartStore);
 const { updateQuantity: updateQty, removeItem } = cartStore;

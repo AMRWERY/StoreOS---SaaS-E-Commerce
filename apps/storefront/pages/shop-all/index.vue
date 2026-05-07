@@ -38,6 +38,8 @@
 <script lang="ts" setup>
 import type { FilterState } from '@/types/products'
 
+const { t } = useI18n()
+
 const viewMode = ref<'grid' | 'list'>('grid')
 const selectedSort = ref('Popularity')
 const currentPage = ref(1)

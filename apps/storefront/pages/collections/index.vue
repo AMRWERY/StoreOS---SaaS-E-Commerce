@@ -8,6 +8,8 @@
 <script lang="ts" setup>
 import type { BreadcrumbItem } from '../../../../layers/ui/types/v-breadcrumb'
 
+const { t } = useI18n();
+
 const breadcrumbItems: BreadcrumbItem[] = [
   { label: 'Home', to: '/' },
   { label: 'Collections', active: true },

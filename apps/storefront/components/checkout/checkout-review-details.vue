@@ -139,6 +139,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { ReviewItem, TrackerStep } from "@/types/checkout";
 
 const props = defineProps<{

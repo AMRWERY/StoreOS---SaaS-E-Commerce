@@ -45,6 +45,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 import type { EditorialArticle } from '@/types/editorial'
 
 defineProps<{ article: EditorialArticle }>()

@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, bool } = useSectionSettingsForm()
 const heading = str('heading', 'Sale ends soon')
 const endDate = str('end_at', '')

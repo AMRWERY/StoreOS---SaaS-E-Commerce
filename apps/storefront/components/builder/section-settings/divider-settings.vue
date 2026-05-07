@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { str, num } = useSectionSettingsForm()
 const style = str('style', 'solid')
 const thickness = num('thickness', 1)

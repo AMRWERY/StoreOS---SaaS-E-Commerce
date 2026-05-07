@@ -6,6 +6,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const props = defineProps<{
   url: string
   label: string

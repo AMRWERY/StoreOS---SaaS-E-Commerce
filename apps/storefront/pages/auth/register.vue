@@ -189,6 +189,10 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n();
+const { login } = useAuth();
+const localePath = useLocalePath();
+
 const industries = ["Fashion", "Food", "Electronics", "Beauty"];
 
 const storeName = ref("");
@@ -197,8 +201,6 @@ const email = ref("");
 const password = ref("");
 const agree = ref(false);
 
-const { login } = useAuth();
-const localePath = useLocalePath();
 const isLoading = ref(false);
 
 const handleSubmit = async () => {

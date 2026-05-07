@@ -39,7 +39,7 @@ import { builderSectionTemplates } from '@/data/builder-section-templates'
 import type { BuilderSectionTemplate, SectionType } from '@/types/builder'
 import type { PageSection } from '@/types/sections'
 
-definePageMeta({ layout: 'builder' })
+const { t } = useI18n();
 
 const store = useBuilderStore()
 const localePath = useLocalePath()
@@ -83,4 +83,11 @@ async function onSelect(item: BuilderSectionTemplate) {
   store.appendSection(section)
   await navigateTo(localePath(`/dashboard/builder/${page.slug}`))
 }
+
+definePageMeta({ layout: 'builder' })
+
+useSeoMeta({
+  title: () => `Builder — ${pageSlug.value || "Page"}`,
+  robots: "noindex, nofollow",
+});
 </script>

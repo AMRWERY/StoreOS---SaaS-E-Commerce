@@ -189,6 +189,8 @@
   </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
+
 // --- State ---
 const lastModified = "2024.08.12";
 const protocolID = "PRV-ALPHA-29";
@@ -221,4 +223,9 @@ const scrollTo = (id: string) => {
   const element = document.getElementById(id);
   if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
+
+useSeoMeta({
+  title: 'Privacy Policy',
+  description: 'Privacy Protocol for StoreOS — data collection and protection.',
+})
 </script>

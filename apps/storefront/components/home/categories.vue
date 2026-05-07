@@ -40,6 +40,8 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n();
+
 defineProps<{
   categories: Array<{ name: string; desc: string; image: string }>;
 }>();

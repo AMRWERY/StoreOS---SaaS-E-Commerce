@@ -35,6 +35,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const UiButton = resolveComponent('VButton')
 const store = useBuilderStore()
 
