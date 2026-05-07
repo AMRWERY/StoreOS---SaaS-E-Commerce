@@ -1,4 +1,4 @@
-﻿﻿<template>
+﻿<template>
   <div>
     <section
       class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 flex flex-col lg:flex-row items-center gap-12"
@@ -46,4 +46,5 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 </script>

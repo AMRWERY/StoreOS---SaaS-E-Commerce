@@ -1,4 +1,4 @@
-﻿﻿<template>
+﻿<template>
   <div>
     <div class="min-h-screen bg-bg-base text-tx-primary -mt-4 pb-20">
       <VBreadcrumb
@@ -346,6 +346,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const localePath = useLocalePath();
 const route = useRoute();
 const isEdit = computed(() => !!route.query.id);

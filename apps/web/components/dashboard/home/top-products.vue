@@ -52,6 +52,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n();
 const { topProducts } = storeToRefs(useDashboardStore());
 
 /** Resolve `/img/...` paths against Nuxt `app.baseURL` when the app is not served from `/`. */

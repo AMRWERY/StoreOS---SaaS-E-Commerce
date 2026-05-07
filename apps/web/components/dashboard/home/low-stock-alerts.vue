@@ -44,5 +44,6 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const { lowStockAlerts: lowStock } = storeToRefs(useDashboardStore());
 </script>

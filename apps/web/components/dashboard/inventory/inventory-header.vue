@@ -140,6 +140,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const props = defineProps({
   totalProducts: { type: Number, required: true },
   search: { type: String, default: "" },

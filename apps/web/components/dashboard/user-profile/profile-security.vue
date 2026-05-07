@@ -1,4 +1,4 @@
-﻿﻿<template>
+﻿<template>
   <section
     class="lg:col-span-4 bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 space-y-8"
   >
@@ -53,5 +53,6 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const twoFactor = ref(false);
 </script>

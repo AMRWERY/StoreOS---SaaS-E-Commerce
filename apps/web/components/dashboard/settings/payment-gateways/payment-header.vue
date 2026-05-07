@@ -14,5 +14,6 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const emit = defineEmits(["open-test-modal", "open-stripe-modal"]);
 </script>

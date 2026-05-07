@@ -1,4 +1,4 @@
-﻿﻿<template>
+﻿<template>
   <div>
     <section class="max-w-7xl mx-auto space-y-8">
       <h2
@@ -112,6 +112,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const expandedSection = ref("Security & System Logs");
 
 const matrixSections = [

@@ -192,6 +192,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const props = defineProps<{
   modelValue: boolean;
   selectedItem: any;

@@ -81,6 +81,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const ordersStore = useOrdersStore();
 const {
   activeTab,

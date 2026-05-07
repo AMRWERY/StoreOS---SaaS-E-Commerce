@@ -42,6 +42,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 defineEmits<{
   (e: "save"): void;
   (e: "discard"): void;

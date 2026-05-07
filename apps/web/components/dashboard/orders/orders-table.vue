@@ -170,6 +170,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 defineProps<{
   orders: Array<any>;
   selectedIds: Array<number>;

@@ -1,4 +1,4 @@
-﻿﻿<template>
+﻿<template>
   <div>
     <section
       class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-border-subtle pt-16"
@@ -108,6 +108,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 defineProps<{
   modelValue: any;
 }>();
