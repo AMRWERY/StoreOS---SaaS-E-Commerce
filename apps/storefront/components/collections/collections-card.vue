@@ -18,9 +18,10 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n();
 import type { Product } from "../../../../layers/ui/types/v-product-card";
 import type { StorefrontCollection } from "../../types/collections";
+
+const { t } = useI18n();
 
 const props = defineProps<{ collection: StorefrontCollection }>();
 
@@ -37,8 +38,8 @@ const vProduct = computed<Product>(() => ({
   image: props.collection.image,
 }));
 
-function numericId(id: string): number {
+const numericId = (id: string): number => {
   const n = Number.parseInt(String(id).replace(/\D/g, ""), 10);
   return Number.isFinite(n) ? n : 0;
-}
+};
 </script>

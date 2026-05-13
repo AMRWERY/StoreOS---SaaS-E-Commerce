@@ -10,25 +10,16 @@
             Choose a section template to add to your page.
           </p>
         </div>
-        <nuxt-link-locale
-          :to="`/dashboard/builder/${store.currentPage?.slug ?? 'home'}`"
-          class="flex items-center gap-1.5 rounded-lg border border-border-subtle px-3 py-2 text-[11px] font-bold text-tx-secondary transition-colors hover:bg-bg-elevated hover:text-tx-primary"
-        >
+        <nuxt-link-locale :to="`/dashboard/builder/${store.currentPage?.slug ?? 'home'}`"
+          class="flex items-center gap-1.5 rounded-lg border border-border-subtle px-3 py-2 text-[11px] font-bold text-tx-secondary transition-colors hover:bg-bg-elevated hover:text-tx-primary">
           <Icon name="ph:arrow-left-bold" class="text-[13px]" />
           Back to builder
         </nuxt-link-locale>
       </header>
 
       <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-        <SectionTemplateCard
-          v-for="item in builderSectionTemplates"
-          :key="item.id"
-          :title="item.title"
-          :description="item.description"
-          :popular="item.popular"
-          :variant="item.variant"
-          @select="onSelect(item)"
-        />
+        <SectionTemplateCard v-for="item in builderSectionTemplates" :key="item.id" :title="item.title"
+          :description="item.description" :popular="item.popular" :variant="item.variant" @select="onSelect(item)" />
       </div>
     </div>
   </div>
@@ -38,8 +29,6 @@
 import { builderSectionTemplates } from '@/data/builder-section-templates'
 import type { BuilderSectionTemplate, SectionType } from '@/types/builder'
 import type { PageSection } from '@/types/sections'
-
-const { t } = useI18n();
 
 const store = useBuilderStore()
 const localePath = useLocalePath()
@@ -54,7 +43,7 @@ const templateToType: Record<string, SectionType> = {
   'logo-cloud': 'logo_bar',
 }
 
-function defaultSettings(type: SectionType): Record<string, unknown> {
+const defaultSettings = (type: SectionType): Record<string, unknown> => {
   switch (type) {
     case 'rich_text': return { heading: 'New block', body: 'Start writing…' }
     case 'products_grid': return { heading: 'Products', columns: 3 }
@@ -65,9 +54,9 @@ function defaultSettings(type: SectionType): Record<string, unknown> {
     case 'spacer': return { height: 48 }
     default: return {}
   }
-}
+};
 
-async function onSelect(item: BuilderSectionTemplate) {
+const onSelect = async (item: BuilderSectionTemplate) => {
   const page = store.currentPage
   if (!page) return
   const type = (templateToType[item.id] ?? 'rich_text') as SectionType
@@ -82,7 +71,7 @@ async function onSelect(item: BuilderSectionTemplate) {
   }
   store.appendSection(section)
   await navigateTo(localePath(`/dashboard/builder/${page.slug}`))
-}
+};
 
 definePageMeta({ layout: 'builder' })
 

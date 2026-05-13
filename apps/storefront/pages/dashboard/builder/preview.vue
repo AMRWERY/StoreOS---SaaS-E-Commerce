@@ -332,8 +332,6 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n();
-
 const store = useBuilderStore();
 const localePath = useLocalePath();
 
@@ -353,10 +351,10 @@ const visibleSections = computed(() =>
   store.sections.filter((s) => !s.is_hidden)
 );
 
-function goBackToBuilder() {
+const goBackToBuilder = () => {
   const slug = store.currentPage?.slug ?? "home";
   window.location.href = localePath(`/dashboard/builder/${slug}`);
-}
+};
 
 definePageMeta({ layout: false });
 

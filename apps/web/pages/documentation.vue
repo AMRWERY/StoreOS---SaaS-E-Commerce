@@ -121,13 +121,6 @@
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({
-   title: "Documentation — Build with StoreOS",
-   description: "API references, SDKs, and technical guides for integrating StoreOS. Everything you need to build powerful commerce apps.",
-   ogTitle: "StoreOS Developer Documentation",
-   ogDescription: "The engineering layer for high-growth commerce.",
-})
-
 const sdks = [
    { name: 'JavaScript SDK', icon: 'ph:brand-javascript-fill', desc: 'Node.js and browser-ready core SDK for all StoreOS modules.' },
    { name: 'React Components', icon: 'ph:atom-fill', desc: 'Ready-to-use UI components for building custom storefronts.' },
@@ -155,4 +148,11 @@ const specs = [
       points: ['Serverless functions', 'Metadata custom fields', 'Native app ecosystem']
    },
 ]
+
+useSeoMeta({
+   title: "Documentation — Build with StoreOS",
+   description: "API references, SDKs, and technical guides for integrating StoreOS. Everything you need to build powerful commerce apps.",
+   ogTitle: "StoreOS Developer Documentation",
+   ogDescription: "The engineering layer for high-growth commerce.",
+})
 </script>

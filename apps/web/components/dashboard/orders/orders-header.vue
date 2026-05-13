@@ -163,9 +163,11 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+
 const selectedStatus = ref("All");
 const selectedPayment = ref("All");
 const selectedDate = ref("");
+
 onMounted(() => {
   selectedDate.value = t("dashboard.orders.dateRange");
 });

@@ -80,9 +80,9 @@
 <script lang="ts" setup>
 const { locale, t } = useI18n();
 
-function scrollTo(id: string) {
+const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-}
+};
 
 const switchLocalePath = useSwitchLocalePath();
 

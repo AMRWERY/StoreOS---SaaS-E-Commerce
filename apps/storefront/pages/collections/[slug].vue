@@ -1,18 +1,11 @@
-﻿<template>
-  <div
-    class="min-h-screen bg-bg-base text-tx-primary selection:bg-brand/30 p-6 lg:p-10"
-  >
-    <div
-      v-if="!meta"
-      class="max-w-[1400px] mx-auto py-20 text-center space-y-6"
-    >
+<template>
+  <div class="min-h-screen bg-bg-base text-tx-primary selection:bg-brand/30 p-6 lg:p-10">
+    <div v-if="!meta" class="max-w-[1400px] mx-auto py-20 text-center space-y-6">
       <p class="text-tx-secondary">
         {{ t("storefront.collections.notFound") }}
       </p>
-      <nuxt-link-locale
-        to="/collections"
-        class="inline-flex text-brand font-bold text-sm tracking-widest hover:underline"
-      >
+      <nuxt-link-locale to="/collections"
+        class="inline-flex text-brand font-bold text-sm tracking-widest hover:underline">
         {{ t("storefront.collections.backToCollections") }}
       </nuxt-link-locale>
     </div>
@@ -39,15 +32,10 @@
         </p>
       </header>
 
-      <div
-        v-if="filteredProducts.length"
-        class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6"
-      >
+      <div v-if="filteredProducts.length" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
         <div v-for="p in filteredProducts" :key="p.id" class="h-full min-h-0">
-          <nuxt-link-locale
-            :to="`/shop-all/${p.slug}`"
-            class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
-          >
+          <nuxt-link-locale :to="`/shop-all/${p.slug}`"
+            class="block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base">
             <LazyVProductCard :product="toCardProduct(p)" view-mode="grid" />
           </nuxt-link-locale>
         </div>
@@ -89,17 +77,15 @@ const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   },
 ]);
 
-function toCardProduct(p: CollectionCatalogProduct): Product {
-  return {
-    id: p.id,
-    name: p.name,
-    price: p.price.toLocaleString(),
-    category: p.category,
-    status: "active",
-    stock: 12,
-    image: p.image,
-  };
-}
+const toCardProduct = (p: CollectionCatalogProduct): Product => ({
+  id: p.id,
+  name: p.name,
+  price: p.price.toLocaleString(),
+  category: p.category,
+  status: "active",
+  stock: 12,
+  image: p.image,
+});
 
 useSeoMeta({
   title: () => meta.value?.name ?? "Collection",

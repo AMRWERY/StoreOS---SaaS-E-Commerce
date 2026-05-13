@@ -21,7 +21,7 @@ const { isDark, toggleTheme } = useAppTheme();
 
 const btnRef = ref<{ $el?: HTMLElement } | null>(null);
 
-async function handleToggle(event: MouseEvent) {
+const handleToggle = async (event: MouseEvent) => {
   const target = (event.currentTarget ?? event.target) as HTMLElement;
   const rect = target.getBoundingClientRect();
   const x = rect.left + rect.width / 2;
