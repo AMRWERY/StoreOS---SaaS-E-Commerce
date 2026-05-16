@@ -9,7 +9,7 @@
 | App | Audience | Indexing strategy |
 |-----|----------|-------------------|
 | **Storefront** (`apps/storefront`) | Public shoppers | **Full index** — every page is SEO-critical |
-| **Merchant Dashboard** (`apps/web`) | Auth-protected staff | **Selective index** — only landing + auth pages; all `/dashboard/*` routes must be `noindex` |
+| **Merchant Dashboard** (`apps/merchant`) | Auth-protected staff | **Selective index** — only landing + auth pages; all `/dashboard/*` routes must be `noindex` |
 
 ---
 
@@ -128,7 +128,7 @@ Allow: /
 Sitemap: https://yourdomain.com/sitemap.xml
 ```
 
-### Dashboard (`apps/web/public/robots.txt`)
+### Dashboard (`apps/merchant/public/robots.txt`)
 ```
 User-agent: *
 Allow: /
@@ -291,10 +291,10 @@ These pages must ALWAYS have `robots: 'noindex, nofollow'`:
 
 | App | Route |
 |-----|-------|
-| web | `/dashboard/*` (all dashboard routes) |
-| web | `/onboarding/*` |
-| web | `/auth/login` |
-| web | `/auth/register` |
+| merchant | `/dashboard/*` (all dashboard routes) |
+| merchant | `/onboarding/*` |
+| merchant | `/auth/login` |
+| merchant | `/auth/register` |
 | storefront | `/checkout` |
 | storefront | `/orders/:id` |
 | storefront | `/cart` |

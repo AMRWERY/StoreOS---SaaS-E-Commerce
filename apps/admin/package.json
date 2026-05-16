@@ -1,10 +1,10 @@
 {
-  "name": "@storeos/web",
+  "name": "@storeos/admin",
   "type": "module",
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --port=3000",
+    "dev": "nuxt dev --port=3001",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "nuxt typecheck",
