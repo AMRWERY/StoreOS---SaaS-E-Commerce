@@ -67,7 +67,7 @@
     "billingAndPlan": "الفاتورة والخطة",
     "useLightTheme": "التبديل إلى الوضع الفاتح",
     "useDarkTheme": "التبديل إلى الوضع الداكن",
-    "storefront": {
+    "admin": {
       "shopAll": "تسوق الكل",
       "newArrivals": "وصل حديثاً",
       "collections": "المجموعات",
@@ -739,7 +739,7 @@
       "deleteAccount": "حذف الحساب"
     }
   },
-  "storefront": {
+  "admin": {
     "hero": {
       "systemReady": "النظام جاهز",
       "titleLine1": "ارتقِ بأسلوبك",

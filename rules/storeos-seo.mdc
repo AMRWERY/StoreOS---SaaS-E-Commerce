@@ -13,13 +13,13 @@ Full spec in `/seo.md`. Apply these rules to every page file.
 ## Every page MUST call `useSeoMeta()`
 
 ```ts
-// ✅ Public storefront page
+// ✅ Public admin page
 useSeoMeta({
   title: 'Page Title',                          // shown in <title> tag
   description: 'Description 120–155 chars.',    // meta description
   ogTitle: 'Page Title | StoreOS Store',
   ogDescription: 'Same as description.',
-  ogType: 'website',
+  ogType: 'merchantsite',
   ogImage: '/og-default.jpg',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Page Title | StoreOS Store',
@@ -45,7 +45,7 @@ useSeoMeta({
 | `/auth/*` | `noindex, nofollow` |
 | `/cart`, `/checkout` | `noindex, nofollow` |
 | `/orders/:id` | `noindex, nofollow` |
-| Storefront home, products list, product detail | `index, follow` |
+| admin home, products list, product detail | `index, follow` |
 
 ---
 
@@ -87,7 +87,7 @@ Do NOT add manual `<link rel="alternate">` tags — they are auto-generated.
 ## Title pattern
 
 ```
-Storefront:  '{Page Title} | StoreOS Store'   ← set by titleTemplate in nuxt.config
+admin:  '{Page Title} | StoreOS Store'   ← set by titleTemplate in nuxt.config
 Dashboard:   '{Page Title} — StoreOS'         ← set by titleTemplate in nuxt.config
 
 Just pass the page title: useSeoMeta({ title: 'Orders' })

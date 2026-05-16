@@ -1,11 +1,8 @@
 <template>
   <div>
-    <div
-      class="flex flex-col items-center justify-center p-6 text-white selection:bg-indigo-500/30 mt-12"
-    >
+    <div class="flex flex-col items-center justify-center p-6 text-white selection:bg-indigo-500/30 mt-12">
       <div
-        class="w-full max-w-[440px] rounded-2xl px-4 py-3.5 md:px-6 md:py-5 shadow-2xl border bg-bg-primary border-border-subtle"
-      >
+        class="w-full max-w-[440px] rounded-2xl px-4 py-3.5 md:px-6 md:py-5 shadow-2xl border bg-bg-primary border-border-subtle">
         <!-- Header -->
         <div class="flex flex-col items-center text-center mb-6">
           <div class="flex items-center gap-2 font-bold text-2xl mb-4">
@@ -18,34 +15,18 @@
 
         <!-- Form -->
         <LazyVFormWrapper class="space-y-5" @submit="handleSubmit">
-          <LazyVInput
-            type="email"
-            :label="t('auth.email')"
-            :placeholder="t('auth.emailPlaceholder')"
-            v-model="email"
-          />
+          <LazyVInput type="email" :label="t('auth.email')" :placeholder="t('auth.emailPlaceholder')" v-model="email" />
 
-          <LazyVInput
-            type="password"
-            :label="t('auth.password')"
-            v-model="password"
-          >
+          <LazyVInput type="password" :label="t('auth.password')" v-model="password">
             <template #label-right>
-              <nuxt-link-locale
-                to=""
-                class="text-xs text-brand hover:underline"
-              >
+              <span class="text-xs text-brand hover:underline cursor-pointer">
                 {{ t("auth.forgotPassword") }}
-              </nuxt-link-locale>
+              </span>
             </template>
           </LazyVInput>
 
-          <LazyVButton
-            type="submit"
-            variant="none"
-            :disabled="isLoading"
-            className="w-full flex items-center justify-center bg-brand hover:bg-brand-hover disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10"
-          >
+          <LazyVButton type="submit" variant="none" :disabled="isLoading"
+            className="w-full flex items-center justify-center bg-brand hover:bg-brand-hover disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10">
             <LazyVLoadingSpinner v-if="isLoading" size="sm" />
             <span v-else>{{ t("auth.signIn") }}</span>
           </LazyVButton>
@@ -56,9 +37,7 @@
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-border-subtle"></div>
           </div>
-          <div
-            class="relative flex justify-center text-[10px] tracking-widest font-bold"
-          >
+          <div class="relative flex justify-center text-[10px] tracking-widest font-bold">
             <span class="px-4 text-tx-muted bg-bg-primary">
               {{ t("auth.orContinueWith") }}
             </span>
@@ -66,10 +45,8 @@
         </div>
 
         <!-- Social -->
-        <LazyVButton
-          variant="none"
-          className="w-full py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-3 transition border bg-transparent hover:bg-bg-elevated border-border-default text-tx-primary"
-        >
+        <LazyVButton variant="none"
+          className="w-full py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-3 transition border bg-transparent hover:bg-bg-elevated border-border-default text-tx-primary">
           <Icon name="devicon:google" class="w-4 h-4" />
           {{ t("auth.signInWithGoogle") }}
         </LazyVButton>
@@ -79,20 +56,14 @@
           <p class="text-sm text-tx-secondary mb-1">
             {{ t("auth.noAccount") }}
           </p>
-          <div
-            class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1"
-          >
-            <nuxt-link-locale
-              to="/auth/register"
-              class="text-orange-500 font-bold hover:text-orange-400 hover:underline transition"
-            >
+          <div class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1">
+            <nuxt-link-locale to="/auth/register"
+              class="text-orange-500 font-bold hover:text-orange-400 hover:underline transition">
               {{ t("auth.registerNow") }}
             </nuxt-link-locale>
             <span class="text-tx-muted">{{ t("auth.or") }}</span>
-            <nuxt-link-locale
-              to="/auth/register"
-              class="text-brand font-medium hover:text-brand-hover hover:underline transition"
-            >
+            <nuxt-link-locale to="/auth/register"
+              class="text-brand font-medium hover:text-brand-hover hover:underline transition">
               {{ t("auth.startFreeTrial") }}
             </nuxt-link-locale>
           </div>
@@ -107,6 +78,8 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({ layout: false })
+
 const { t } = useI18n();
 const { login } = useAuth();
 const localePath = useLocalePath();
@@ -121,7 +94,7 @@ const handleSubmit = async () => {
     // TODO: replace with real auth call
     await new Promise((resolve) => setTimeout(resolve, 2500));
     login();
-    await navigateTo(localePath("/"));
+    await navigateTo(localePath("/dashboard"));
   } finally {
     isLoading.value = false;
   }
@@ -129,7 +102,7 @@ const handleSubmit = async () => {
 
 useSeoMeta({
   title: "Sign In",
-  description: "Sign in to your StoreOS storefront",
+  description: "Sign in to your StoreOS admin",
   robots: "noindex, nofollow",
 });
 </script>

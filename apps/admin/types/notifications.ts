@@ -1,4 +1,4 @@
-interface StorefrontNotification {
+export interface Notification {
     id: number
     category: string
     title: string
@@ -8,5 +8,5 @@ interface StorefrontNotification {
     iconColor: string
     bgColor: string
     read: boolean
-    type: 'orders' | 'security' | 'all'
+    type: string
 }

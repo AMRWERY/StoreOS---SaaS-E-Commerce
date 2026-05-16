@@ -17,7 +17,7 @@ export interface FilterState {
   selectedColor: string;
 }
 
-export interface StorefrontProduct {
+export interface adminProduct {
   id: number;
   slug: string;
   name: string;

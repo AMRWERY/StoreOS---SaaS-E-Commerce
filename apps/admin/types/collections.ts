@@ -1,4 +1,4 @@
-export interface StorefrontCollection {
+export interface adminCollection {
   id: string
   /** URL segment for `/collections/[slug]` */
   slug: string

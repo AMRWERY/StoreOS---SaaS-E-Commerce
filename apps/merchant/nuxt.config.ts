@@ -45,7 +45,7 @@ export default defineNuxtConfig({
       meta: [
         { name: 'description', content: 'StoreOS — The all-in-one merchant dashboard. Manage orders, products, customers, and analytics in one place.' },
         { property: 'og:site_name', content: 'StoreOS' },
-        { property: 'og:type', content: 'website' },
+        { property: 'og:type', content: 'merchantsite' },
         { property: 'og:image', content: '/og-dashboard.jpg' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'robots', content: 'noindex, nofollow' },

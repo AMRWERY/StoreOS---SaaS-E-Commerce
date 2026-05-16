@@ -12,7 +12,7 @@ StoreOS has **two distinct apps** sharing the same brand:
 | App                    | Audience             | Aesthetic                                                |
 | ---------------------- | -------------------- | -------------------------------------------------------- |
 | **Merchant Dashboard** | Store owners & staff | Dark, dense, data-rich — Bloomberg Terminal meets Linear |
-| **Storefront**         | Customers / shoppers | Light, clean, spacious — modern e-commerce, Shopify-like |
+| **admin**              | Customers / shoppers | Light, clean, spacious — modern e-commerce, Shopify-like |
 
 The design must feel **operational and professional** for merchants,
 and **trustworthy and inviting** for customers.
@@ -64,7 +64,7 @@ STATUS COLORS:
   --yellow-dim:     rgba(234,179,8,0.12)
 ```
 
-### 2B — Storefront (Light)
+### 2B — admin (Light)
 
 ```
 BACKGROUNDS:
@@ -124,7 +124,7 @@ MERCHANT DASHBOARD:
   2xl:  22px / 600  — stat card values (IBM Plex Mono)
   3xl:  28px / 700  — hero numbers
 
-STOREFRONT:
+admin:
   xs:   11px         — fine print
   sm:   13px         — product meta, reviews
   base: 15px / 400  — body text
@@ -154,7 +154,7 @@ MERCHANT LAYOUT:
   Card gap:         12px
   Section gap:      20px
 
-STOREFRONT LAYOUT:
+admin LAYOUT:
   Max content width: 1280px (centered)
   Page padding:      0 24px (mobile: 0 16px)
   Section gap:       64px
@@ -174,7 +174,7 @@ MERCHANT (tight, professional):
   xl:  12px  ← main cards
   2xl: 14px  ← large cards, panels
 
-STOREFRONT (softer):
+admin (softer):
   sm:  6px
   md:  10px
   lg:  14px
@@ -212,7 +212,7 @@ MERCHANT:
     bg: --danger-dim | text: --danger
     hover: bg slightly lighter
 
-STOREFRONT:
+admin:
   Primary:
     bg: --sf-brand | hover: --sf-brand-hover
     text: #fff | font: 14px/600
@@ -339,7 +339,7 @@ Glow effects (sparingly):
   Orange glow: box-shadow: 0 0 12px rgba(249,115,22,0.3)
   Success glow: box-shadow: 0 0 8px rgba(16,185,129,0.3)
 
-STOREFRONT:
+admin:
   Cards: box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04)
   Hover: box-shadow: 0 4px 16px rgba(0,0,0,0.12)
   Navbar: box-shadow: 0 1px 0 --sf-border
@@ -375,7 +375,7 @@ HOVER STATES:
   Cards:        border-color transition 0.15s
   Buttons:      background transition 0.15s
   Table rows:   background transition 0.1s
-  Product cards (storefront): transform translateY(-2px) + shadow 0.2s
+  Product cards (admin): transform translateY(-2px) + shadow 0.2s
 
 RULE: No animation should exceed 0.3s.
       No more than 1 pulsing element per screen section.
@@ -388,7 +388,7 @@ RULE: No animation should exceed 0.3s.
 ```
 LIBRARY: Heroicons (outline style, 24px viewBox)
 SIZE in merchant: 14-16px (nav), 16-18px (actions), 20px (empty states)
-SIZE in storefront: 18-22px
+SIZE in admin: 18-22px
 
 MERCHANT icon colors:
   Nav default:  --text-secondary (opacity 0.8)
@@ -412,7 +412,7 @@ MERCHANT:
   2-col grid: 1fr 300px — main content + right panel
   3-col grid: repeat(3, 1fr) — product grid
 
-STOREFRONT:
+admin:
   Container:  max-width 1280px, margin auto, padding 0 24px
   Products:   4 columns desktop, 2 tablet, 1 mobile
   Gap:        20px desktop, 14px mobile
@@ -429,7 +429,7 @@ MERCHANT (custom, thin):
   track: transparent
   thumb: --border-default, border-radius 4px
 
-STOREFRONT: browser default (light mode)
+admin: browser default (light mode)
 ```
 
 ---
@@ -460,7 +460,7 @@ MERCHANT DASHBOARD:
   <768px:  Bottom tab bar replaces sidebar (mobile app via Capacitor)
     Tabs: Home | Orders | + (FAB) | Products | More
 
-STOREFRONT:
+admin:
   ≥1024px: Full desktop layout
   768-1023px: 2-col product grid, condensed nav
   <768px: 2-col product grid, hamburger nav, bottom checkout bar
@@ -482,7 +482,7 @@ STITCH GENERATION RULES:
   1. Always use IBM Plex Sans + IBM Plex Mono (preloaded via Google Fonts)
   2. Never use Inter, Roboto, or system-ui as primary fonts
   3. Merchant screens: always dark bg (#08080E base)
-  4. Storefront screens: always light bg (#FFFFFF base)
+  4. admin screens: always light bg (#FFFFFF base)
   5. All prices/numbers: IBM Plex Mono, font-weight 600
   6. Status badges: always pill shape (border-radius 999px)
   7. Cards never have box-shadows in merchant — use border + bg layering

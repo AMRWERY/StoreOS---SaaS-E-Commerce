@@ -1,4 +1,5 @@
 # StoreOS — SEO Strategy
+
 > Single source of truth for all SEO decisions across both apps.
 > Reference this file when adding or editing any page.
 
@@ -6,9 +7,9 @@
 
 ## 1. APP-LEVEL STRATEGY
 
-| App | Audience | Indexing strategy |
-|-----|----------|-------------------|
-| **Storefront** (`apps/storefront`) | Public shoppers | **Full index** — every page is SEO-critical |
+| App                                      | Audience             | Indexing strategy                                                                            |
+| ---------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------- |
+| **admin** (`apps/admin`)                 | Public shoppers      | **Full index** — every page is SEO-critical                                                  |
 | **Merchant Dashboard** (`apps/merchant`) | Auth-protected staff | **Selective index** — only landing + auth pages; all `/dashboard/*` routes must be `noindex` |
 
 ---
@@ -16,7 +17,7 @@
 ## 2. TITLE PATTERN
 
 ```
-Storefront:   {Page Title} | {Store Name}
+admin:   {Page Title} | {Store Name}
               e.g. "Running Shoes — Nike Air Max | My Store"
 
 Dashboard:    {Page Name} — StoreOS
@@ -27,16 +28,19 @@ Auth pages:   Sign In — StoreOS
 ```
 
 ### Nuxt `titleSeparator` convention
+
 Set `titleTemplate` globally to append the brand:
+
 ```ts
 // nuxt.config.ts
 app: {
   head: {
-    titleTemplate: '%s | StoreOS',  // storefront
+    titleTemplate: '%s | StoreOS',  // admin
     titleTemplate: '%s — StoreOS',  // dashboard
   }
 }
 ```
+
 Each page then calls `useSeoMeta({ title: 'Page Name' })`.
 
 ---
@@ -47,52 +51,54 @@ Each page then calls `useSeoMeta({ title: 'Page Name' })`.
 - **Include**: main keyword, value proposition, CTA where natural
 - **No duplication**: every page must have a unique description
 
-| Page | Example description |
-|------|---------------------|
-| Storefront home | "Shop the latest collection at [Store Name]. Free shipping on orders over $50. Discover new arrivals every week." |
-| Product page | "{Product Name} — {short spec}. {price}. {availability}. Ships in 2–3 days." |
-| Products list | "Browse {count}+ products. Filter by category, price, and more. Fast shipping worldwide." |
-| Cart | "Review your cart and checkout securely. Multiple payment options available." |
-| Checkout | No index — exclude from sitemap |
-| Dashboard landing | "StoreOS — The all-in-one merchant dashboard for modern e-commerce. Manage orders, products, and analytics." |
-| Auth (login) | No significant description needed — noindex |
+| Page              | Example description                                                                                               |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| admin home        | "Shop the latest collection at [Store Name]. Free shipping on orders over $50. Discover new arrivals every week." |
+| Product page      | "{Product Name} — {short spec}. {price}. {availability}. Ships in 2–3 days."                                      |
+| Products list     | "Browse {count}+ products. Filter by category, price, and more. Fast shipping worldwide."                         |
+| Cart              | "Review your cart and checkout securely. Multiple payment options available."                                     |
+| Checkout          | No index — exclude from sitemap                                                                                   |
+| Dashboard landing | "StoreOS — The all-in-one merchant dashboard for modern e-commerce. Manage orders, products, and analytics."      |
+| Auth (login)      | No significant description needed — noindex                                                                       |
 
 ---
 
 ## 4. OPEN GRAPH & TWITTER CARDS
 
 Every public page must emit:
+
 ```html
-<meta property="og:type"        content="website" />
-<meta property="og:site_name"   content="[Store Name]" />
-<meta property="og:title"       content="[Same as <title>]" />
+<meta property="og:type" content="merchantsite" />
+<meta property="og:site_name" content="[Store Name]" />
+<meta property="og:title" content="[Same as <title>]" />
 <meta property="og:description" content="[Same as meta description]" />
-<meta property="og:image"       content="[Absolute URL 1200×630 jpg/webp]" />
-<meta property="og:url"         content="[Canonical URL]" />
-<meta name="twitter:card"       content="summary_large_image" />
-<meta name="twitter:title"      content="[Same as og:title]" />
+<meta property="og:image" content="[Absolute URL 1200×630 jpg/merchantp]" />
+<meta property="og:url" content="[Canonical URL]" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="[Same as og:title]" />
 <meta name="twitter:description" content="[Same as og:description]" />
-<meta name="twitter:image"      content="[Same as og:image]" />
+<meta name="twitter:image" content="[Same as og:image]" />
 ```
 
 Product pages additionally emit `og:type = "product"` with price/availability.
 
-Default OG image: `/og-default.jpg` (1200×630) — place in `apps/storefront/public/`.
+Default OG image: `/og-default.jpg` (1200×630) — place in `apps/admin/public/`.
 
 ---
 
 ## 5. CANONICAL URLS
 
 Every page must emit a canonical `<link>` to prevent duplicate content from:
+
 - i18n locale prefixes (e.g. `/en/products` vs `/ar/products`)
 - Query strings (filters, pagination)
 
 ```ts
 // In each page
-const { locale } = useI18n()
-const route = useRoute()
-const canonical = `https://yourdomain.com/${locale.value}${route.path.replace(`/${locale.value}`, '')}`
-useHead({ link: [{ rel: 'canonical', href: canonical }] })
+const { locale } = useI18n();
+const route = useRoute();
+const canonical = `https://yourdomain.com/${locale.value}${route.path.replace(`/${locale.value}`, "")}`;
+useHead({ link: [{ rel: "canonical", href: canonical }] });
 ```
 
 For i18n, always treat the EN version as canonical and emit hreflang alternates.
@@ -106,12 +112,12 @@ Use `@nuxtjs/i18n`'s built-in `useLocaleHead()` composable — it generates all
 
 ```ts
 // app.vue or layouts
-const i18nHead = useLocaleHead({ addSeoAttributes: true })
+const i18nHead = useLocaleHead({ addSeoAttributes: true });
 useHead(() => ({
   htmlAttrs: i18nHead.value.htmlAttrs,
   link: [...(i18nHead.value.link || [])],
   meta: [...(i18nHead.value.meta || [])],
-}))
+}));
 ```
 
 Always include `hreflang="x-default"` pointing to the default locale URL.
@@ -120,7 +126,8 @@ Always include `hreflang="x-default"` pointing to the default locale URL.
 
 ## 7. ROBOTS.TXT
 
-### Storefront (`apps/storefront/public/robots.txt`)
+### admin (`apps/admin/public/robots.txt`)
+
 ```
 User-agent: *
 Allow: /
@@ -129,6 +136,7 @@ Sitemap: https://yourdomain.com/sitemap.xml
 ```
 
 ### Dashboard (`apps/merchant/public/robots.txt`)
+
 ```
 User-agent: *
 Allow: /
@@ -148,13 +156,14 @@ Sitemap: https://dashboard.yourdomain.com/sitemap.xml
 
 ## 8. SITEMAP
 
-Install `@nuxtjs/sitemap` in the storefront:
+Install `@nuxtjs/sitemap` in the admin:
+
 ```bash
-pnpm add @nuxtjs/sitemap --filter @storeos/storefront
+pnpm add @nuxtjs/sitemap --filter @storeos/admin
 ```
 
 ```ts
-// apps/storefront/nuxt.config.ts
+// apps/admin/nuxt.config.ts
 modules: ['@nuxtjs/sitemap'],
 sitemap: {
   hostname: 'https://yourdomain.com',
@@ -170,45 +179,51 @@ Static pages automatically included. Product pages need a data source to generat
 ## 9. STRUCTURED DATA (JSON-LD)
 
 ### Product page
+
 ```ts
 useHead({
-  script: [{
-    type: 'application/ld+json',
-    innerHTML: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Product',
-      name: product.name,
-      description: product.description,
-      image: product.images,
-      sku: product.sku,
-      offers: {
-        '@type': 'Offer',
-        price: product.price,
-        priceCurrency: 'USD',
-        availability: product.inStock
-          ? 'https://schema.org/InStock'
-          : 'https://schema.org/OutOfStock',
-        url: canonicalUrl,
-      },
-    })
-  }]
-})
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: product.name,
+        description: product.description,
+        image: product.images,
+        sku: product.sku,
+        offers: {
+          "@type": "Offer",
+          price: product.price,
+          priceCurrency: "USD",
+          availability: product.inStock
+            ? "https://schema.org/InStock"
+            : "https://schema.org/OutOfStock",
+          url: canonicalUrl,
+        },
+      }),
+    },
+  ],
+});
 ```
 
-### Storefront home — BreadcrumbList + Organization
+### admin home — BreadcrumbList + Organization
+
 ```ts
 useHead({
-  script: [{
-    type: 'application/ld+json',
-    innerHTML: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Store Name',
-      url: 'https://yourdomain.com',
-      logo: 'https://yourdomain.com/logo.avif',
-    })
-  }]
-})
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Store Name",
+        url: "https://yourdomain.com",
+        logo: "https://yourdomain.com/logo.avif",
+      }),
+    },
+  ],
+});
 ```
 
 ---
@@ -233,27 +248,27 @@ Every page must have all of these before launch:
 ### Composable pattern (use in every page)
 
 ```ts
-// Storefront public page
+// admin public page
 useSeoMeta({
-  title: 'Page Title',
-  description: 'Page description 120–155 chars.',
-  ogTitle: 'Page Title',
-  ogDescription: 'Page description.',
-  ogImage: 'https://yourdomain.com/og-default.jpg',
-  ogUrl: 'https://yourdomain.com/en/page-path',
-  ogType: 'website',
-  ogSiteName: 'Store Name',
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Page Title',
-  twitterDescription: 'Page description.',
-  twitterImage: 'https://yourdomain.com/og-default.jpg',
-})
+  title: "Page Title",
+  description: "Page description 120–155 chars.",
+  ogTitle: "Page Title",
+  ogDescription: "Page description.",
+  ogImage: "https://yourdomain.com/og-default.jpg",
+  ogUrl: "https://yourdomain.com/en/page-path",
+  ogType: "merchantsite",
+  ogSiteName: "Store Name",
+  twitterCard: "summary_large_image",
+  twitterTitle: "Page Title",
+  twitterDescription: "Page description.",
+  twitterImage: "https://yourdomain.com/og-default.jpg",
+});
 
 // Dashboard auth page
-useSeoMeta({ title: 'Sign In', robots: 'index, follow' })
+useSeoMeta({ title: "Sign In", robots: "index, follow" });
 
 // Dashboard protected page
-useSeoMeta({ title: 'Orders', robots: 'noindex, nofollow' })
+useSeoMeta({ title: "Orders", robots: "noindex, nofollow" });
 ```
 
 ### Global defaults in `nuxt.config.ts`
@@ -265,7 +280,7 @@ app: {
     meta: [
       { name: 'description', content: 'Default fallback description.' },
       { property: 'og:site_name', content: 'Store Name' },
-      { property: 'og:type', content: 'website' },
+      { property: 'og:type', content: 'merchantsite' },
       { property: 'og:image', content: 'https://yourdomain.com/og-default.jpg' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
@@ -275,9 +290,10 @@ app: {
 
 ---
 
-## 12. PERFORMANCE (CORE WEB VITALS)
+## 12. PERFORMANCE (CORE merchant VITALS)
 
 SEO rankings are tied to CWV. Ensure:
+
 - **LCP** < 2.5s: Use `<NuxtImg>` with `loading="eager"` for hero images
 - **CLS** = 0: Set explicit `width`/`height` on all images
 - **INP** < 200ms: Defer non-critical JS
@@ -289,12 +305,12 @@ SEO rankings are tied to CWV. Ensure:
 
 These pages must ALWAYS have `robots: 'noindex, nofollow'`:
 
-| App | Route |
-|-----|-------|
+| App      | Route                                 |
+| -------- | ------------------------------------- |
 | merchant | `/dashboard/*` (all dashboard routes) |
-| merchant | `/onboarding/*` |
-| merchant | `/auth/login` |
-| merchant | `/auth/register` |
-| storefront | `/checkout` |
-| storefront | `/orders/:id` |
-| storefront | `/cart` |
+| merchant | `/onboarding/*`                       |
+| merchant | `/auth/login`                         |
+| merchant | `/auth/register`                      |
+| admin    | `/checkout`                           |
+| admin    | `/orders/:id`                         |
+| admin    | `/cart`                               |

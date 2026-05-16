@@ -1,74 +1,87 @@
-import type { StorefrontNotification } from '@/types/notifications'
+import type { Notification } from '@/types/notifications'
 
-export const useStorefrontNotificationsStore = defineStore('storefront-notifications', () => {
+export const useNotificationsStore = defineStore('notifications', () => {
+  const isOpen = ref(false)
   const activeTab = ref('all')
 
   const tabs = ref([
     { id: 'all', label: 'All' },
     { id: 'orders', label: 'Orders' },
-    { id: 'security', label: 'Security' },
+    { id: 'security', label: 'Security' }
   ])
 
-  const notifications = ref<StorefrontNotification[]>([
+  const notifications = ref<Notification[]>([
     {
       id: 1,
-      category: 'Shopping',
-      title: 'Order has been shipped',
-      message: 'Your order #ORD-0889 has been picked up by the courier and is on its way.',
+      category: 'Orders',
+      title: 'New order received',
+      message: '#ORD-0889 from Ethan Laurent for $189.00 is awaiting confirmation.',
       time: '2m ago',
-      icon: 'ph:package-bold',
-      iconColor: 'text-emerald-500',
-      bgColor: 'bg-emerald-50',
+      icon: 'ph:shopping-cart-bold',
+      iconColor: 'text-emerald-400',
+      bgColor: 'bg-emerald-500/10',
       read: false,
-      type: 'orders',
+      type: 'orders'
     },
     {
       id: 2,
       category: 'Security',
-      title: 'Profile updated',
-      message: 'Your account profile was successfully modified from a new device.',
+      title: 'New login attempt',
+      message: 'A successful login was detected from a new device in London, UK.',
       time: '45m ago',
       icon: 'ph:shield-check-bold',
       iconColor: 'text-brand',
-      bgColor: 'bg-indigo-50',
+      bgColor: 'bg-brand-dim',
       read: false,
-      type: 'security',
+      type: 'security'
     },
     {
       id: 3,
-      category: 'Shopping',
-      title: 'Payment confirmed',
-      message: 'We have received payment for your latest order. Thank you for shopping!',
+      category: 'Orders',
+      title: 'Payment processed',
+      message: 'Payment for order #ORD-0887 was successfully processed.',
       time: '2h ago',
       icon: 'ph:check-circle-bold',
       iconColor: 'text-brand',
-      bgColor: 'bg-indigo-50',
+      bgColor: 'bg-brand-dim',
       read: true,
-      type: 'orders',
+      type: 'orders'
     },
     {
       id: 4,
-      category: 'Shopping',
-      title: 'New arrival alert',
-      message: 'The Spectra Prime Lens you bookmarked is back in stock. Grab it before it sells out.',
+      category: 'System',
+      title: 'Version Update',
+      message: 'StoreOS has been updated to v4.4.2. Check out the new dashboard features.',
       time: '5h ago',
-      icon: 'ph:bell-bold',
-      iconColor: 'text-amber-500',
-      bgColor: 'bg-amber-50',
+      icon: 'ph:rocket-launch-bold',
+      iconColor: 'text-amber-400',
+      bgColor: 'bg-amber-500/10',
       read: true,
-      type: 'orders',
+      type: 'system'
     },
     {
       id: 5,
-      category: 'Security',
-      title: 'New login detected',
-      message: 'A new sign-in was detected from Cairo, Egypt. If this was not you, please secure your account.',
+      category: 'Orders',
+      title: 'Order shipped',
+      message: 'Order #ORD-9824 for Marcus Kane has been shipped via FedEx.',
       time: '1d ago',
-      icon: 'ph:warning-bold',
-      iconColor: 'text-red-500',
-      bgColor: 'bg-red-50',
+      icon: 'ph:truck-bold',
+      iconColor: 'text-indigo-400',
+      bgColor: 'bg-indigo-500/10',
       read: true,
-      type: 'security',
+      type: 'orders'
+    },
+    {
+      id: 6,
+      category: 'Security',
+      title: 'Password changed',
+      message: 'Your account password was successfully updated.',
+      time: '2d ago',
+      icon: 'ph:lock-key-bold',
+      iconColor: 'text-emerald-400',
+      bgColor: 'bg-emerald-500/10',
+      read: true,
+      type: 'security'
     },
   ])
 
@@ -83,5 +96,14 @@ export const useStorefrontNotificationsStore = defineStore('storefront-notificat
     notifications.value.forEach(n => (n.read = true))
   }
 
-  return { activeTab, tabs, notifications, unreadCount, filteredNotifications, markAllAsRead }
+  function markAsRead(id: number) {
+    const n = notifications.value.find(n => n.id === id)
+    if (n) n.read = true
+  }
+
+  return {
+    isOpen, activeTab, tabs, notifications,
+    unreadCount, filteredNotifications,
+    markAllAsRead, markAsRead
+  }
 })

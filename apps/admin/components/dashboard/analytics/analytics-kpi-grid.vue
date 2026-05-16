@@ -1,0 +1,25 @@
+﻿<template>
+  <div>
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-6">
+      <LazyVStatCard
+        v-for="kpi in kpis"
+        :key="kpi.label"
+        :label="kpi.label"
+        :value="kpi.value"
+        :icon-name="kpi.up ? 'ph:trend-up-bold' : 'ph:trend-down-bold'"
+        :icon-color="kpi.up ? 'text-success' : 'text-danger'"
+        :trend="kpi.trend"
+        :trend-color="kpi.up ? 'text-success' : 'text-danger'"
+        sub="vs. prev."
+      />
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import type { KPI } from "@/types/analytics";
+
+defineProps<{
+  kpis: KPI[];
+}>();
+</script>

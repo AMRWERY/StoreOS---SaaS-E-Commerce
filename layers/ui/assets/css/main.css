@@ -138,12 +138,12 @@ html[data-theme="light"] {
   -ms-overflow-style: none;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
+.hide-scrollbar::-merchantkit-scrollbar {
   display: none;
 }
 
 .select-scrollbar {
-  -webkit-appearance: none;
+  -merchantkit-appearance: none;
   /* Chrome, Safari, Edge */
   -moz-appearance: none;
   /* Firefox */
@@ -159,9 +159,9 @@ html[data-theme="light"] {
 }
 
 /* Chrome, Safari, Edge, Opera - Remove arrows from number input */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+input::-merchantkit-outer-spin-button,
+input::-merchantkit-inner-spin-button {
+  -merchantkit-appearance: none;
   appearance: none;
   margin: 0;
 }

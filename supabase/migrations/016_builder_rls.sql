@@ -19,7 +19,7 @@ CREATE POLICY "System can insert theme"
   ON store_themes FOR INSERT
   WITH CHECK (TRUE);
 
-CREATE POLICY "Public can view theme for storefront"
+CREATE POLICY "Public can view theme for admin"
   ON store_themes FOR SELECT
   USING (TRUE);
 

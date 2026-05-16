@@ -1,26 +1,37 @@
 <template>
-  <div class="max-w-2xl space-y-4">
-    <h1 class="text-2xl font-bold text-tx-primary">Dashboard</h1>
-    <p class="text-sm text-tx-secondary leading-relaxed">
-      This is the storefront dashboard shell. Open the visual editor to customize your shop pages.
-    </p>
-    <nuxt-link-locale
-      to="/dashboard/builder/home"
-      class="inline-flex items-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-    >
-      <Icon name="ph:paint-brush-fill" class="text-lg" />
-      Open Store Builder
-    </nuxt-link-locale>
+  <div>
+    <!-- Stats Overview Grid -->
+    <stats-grid />
+
+    <!-- Main Section: Recent Orders & Charts Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 mb-6">
+      <!-- Recent Orders Table -->
+      <div class="lg:col-span-8 h-full">
+        <recent-orders />
+      </div>
+
+      <!-- Revenue & Top Products column -->
+      <div class="lg:col-span-4 flex flex-col gap-3 h-full">
+        <revenue-chart class="flex-1" />
+
+        <top-products class="flex-1" />
+      </div>
+    </div>
+
+    <!-- Footer Section: Low Stock -->
+    <low-stock-alerts />
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
-
 definePageMeta({ layout: 'dashboard' })
-
-useSeoMeta({
-  title: 'Dashboard',
-  robots: 'noindex, nofollow',
-})
+useSeoMeta({ title: 'Dashboard', robots: 'noindex, nofollow' })
 </script>
+
+<style scoped>
+@media (max-width: 1024px) {
+  main {
+    height: 100vh;
+  }
+}
+</style>

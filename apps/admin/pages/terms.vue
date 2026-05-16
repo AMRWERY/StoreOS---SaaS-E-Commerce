@@ -62,7 +62,7 @@
             <div class="h-px w-12 bg-brand"></div>
             <div class="space-y-4 text-[15px] leading-relaxed text-tx-secondary">
               <p>Welcome to <span class="text-white font-semibold">StoreOS</span>. These terms and conditions outline
-                the rules and regulations for the use of our infrastructure and services. By accessing this storefront,
+                the rules and regulations for the use of our infrastructure and services. By accessing this admin,
                 we assume you accept these terms and conditions in full.</p>
               <p>Do not continue to use StoreOS if you do not accept all of the terms and conditions stated on this
                 page. The terminology applied to these Terms, Privacy Statement, and Disclaimer Notice refers to
@@ -78,7 +78,7 @@
             <div class="h-px w-12 bg-brand"></div>
             <div class="space-y-6 text-[15px] leading-relaxed text-tx-secondary">
               <p>Permission is granted to temporarily download one copy of the materials (information or software) on
-                StoreOS's website for personal, non-commercial transitory viewing only.</p>
+                StoreOS's merchantsite for personal, non-commercial transitory viewing only.</p>
               <ul class="space-y-4 ps-6 border-s border-border-subtle">
                 <li class="flex gap-4">
                   <span class="text-tx-muted text-[12px] mt-1">2.1</span>
@@ -104,7 +104,7 @@
                 <span class="text-[#F97316] text-lg">03.</span> Disclaimer
               </h2>
               <p class="text-[15px] leading-relaxed text-tx-secondary">
-                The materials on StoreOS's website are provided on an 'as is' basis. StoreOS makes no warranties,
+                The materials on StoreOS's merchantsite are provided on an 'as is' basis. StoreOS makes no warranties,
                 expressed or implied, and hereby disclaims and negates all other warranties including, without
                 limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or
                 non-infringement of intellectual property or other violation of rights.
@@ -121,7 +121,8 @@
             <p class="text-[15px] leading-relaxed text-tx-secondary">
               In no event shall StoreOS or its suppliers be liable for any damages (including, without limitation,
               damages for loss of data or profit, or due to business interruption) arising out of the use or inability
-              to use the materials on StoreOS's website, even if StoreOS or a StoreOS authorized representative has been
+              to use the materials on StoreOS's merchantsite, even if StoreOS or a StoreOS authorized representative has
+              been
               notified orally or in writing of the possibility of such damage.
             </p>
           </article>

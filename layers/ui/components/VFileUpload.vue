@@ -65,7 +65,7 @@ import type { VFileUploadProps } from '../types/v-file-upload';
 const props = withDefaults(defineProps<VFileUploadProps>(), {
   icon: 'ic:twotone-cloud-upload',
   title: 'Click to upload or drag and drop',
-  subtitle: 'PNG, JPG or WebP (max. 5MB)',
+  subtitle: 'PNG, JPG or merchantP (max. 5MB)',
   wrapperClass: 'relative border-2 border-dashed border-border-subtle rounded-xl p-5 flex flex-col items-center justify-center hover:bg-bg-elevated hover:border-border-default transition-all cursor-pointer group',
   iconWrapperClass: 'w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform',
   iconClass: 'text-brand text-2xl',

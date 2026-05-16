@@ -107,8 +107,8 @@ const categories = [
    { title: 'Account & Billing', desc: 'Manage your subscription, team roles, and billing preferences.', icon: 'ph:shield-check-fill', articleCount: 8 },
    { title: 'Operational Layer', desc: 'Deep dive into inventory, orders, and workflow automations.', icon: 'ph:gear-six-fill', articleCount: 24 },
    { title: 'Integrations', desc: 'How to connect your favorite tools like Stripe, DHL, and Meta.', icon: 'ph:plugs-fill', articleCount: 45 },
-   { title: 'Developer Tools', desc: 'GraphQL API, Webhooks, and SDK documentation for engineers.', icon: 'ph:code-fill', articleCount: 30 },
-   { title: 'Storefronts', desc: 'Customizing your checkout, building themes, and headless SDKs.', icon: 'ph:storefront-fill', articleCount: 15 },
+   { title: 'Developer Tools', desc: 'GraphQL API, merchanthooks, and SDK documentation for engineers.', icon: 'ph:code-fill', articleCount: 30 },
+   { title: 'admins', desc: 'Customizing your checkout, building themes, and headless SDKs.', icon: 'ph:admin-fill', articleCount: 15 },
 ]
 
 const popularArticles = [

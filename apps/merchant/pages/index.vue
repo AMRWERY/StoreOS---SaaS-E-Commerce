@@ -20,7 +20,7 @@ useSeoMeta({
   ogTitle: "StoreOS — Merchant Dashboard for Modern E-Commerce",
   ogDescription:
     "Manage orders, products, inventory, customers, and analytics from one powerful platform.",
-  ogType: "website",
+  ogType: "merchantsite",
   ogImage: "/og-dashboard.jpg",
   twitterCard: "summary_large_image",
   twitterTitle: "StoreOS — Merchant Dashboard",
@@ -38,7 +38,7 @@ useHead({
         name: "StoreOS",
         applicationCategory: "BusinessApplication",
         description: "All-in-one merchant dashboard for modern e-commerce.",
-        operatingSystem: "Web",
+        operatingSystem: "merchant",
         offers: {
           "@type": "Offer",
           price: "0",

@@ -65,9 +65,10 @@
     "shippingLogistics": "Shipping & Logistics",
     "notificationCenter": "Notification Center",
     "billingAndPlan": "Billing & Plan",
+    "storeBuilder": "Store Builder",
     "useLightTheme": "Switch to light theme",
     "useDarkTheme": "Switch to dark theme",
-    "storefront": {
+    "admin": {
       "shopAll": "Shop All",
       "newArrivals": "New Arrivals",
       "collections": "Collections",
@@ -124,7 +125,7 @@
     "features": {
       "sectionLabel": "PLATFORM FEATURES",
       "title": "Built for operations,",
-      "titleSecondary": "not just storefronts.",
+      "titleSecondary": "not just admins.",
       "subtitle": "Every tool a modern merchant needs — wired together, always in sync, and built to scale from day one to your first million.",
       "orders": {
         "title": "Order Management",
@@ -699,7 +700,7 @@
       "previewStore": "Preview Store",
       "logs": "Logs",
       "networkAccess": "Network & Access",
-      "networkAccessDesc": "Control how users reach your storefront and manage custom domains.",
+      "networkAccessDesc": "Control how users reach your admin and manage custom domains.",
       "systemUrl": "System URL",
       "customDomain": "Custom Domain",
       "connect": "Connect",
@@ -739,7 +740,7 @@
       "deleteAccount": "Delete Account"
     }
   },
-  "storefront": {
+  "admin": {
     "hero": {
       "systemReady": "System Ready",
       "titleLine1": "Elevate Your",

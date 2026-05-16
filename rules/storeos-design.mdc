@@ -1,5 +1,5 @@
 ---
-description: StoreOS design system — enforces colors, typography, spacing, radius, and component patterns for all Merchant Dashboard and Storefront files.
+description: StoreOS design system — enforces colors, typography, spacing, radius, and component patterns for all Merchant Dashboard and admin files.
 globs: apps/**/*.vue,layers/**/*.vue
 alwaysApply: false
 ---
@@ -147,7 +147,7 @@ Always pill-shaped (`rounded-full`), 9–10px font, `font-semibold`, `px-2 py-0.
 
 ---
 
-## Storefront (Light App)
+## admin (Light App)
 
 - Background: `bg-white` / `#F8F8FC` subtle
 - Border: `border-[#E4E4EF]`

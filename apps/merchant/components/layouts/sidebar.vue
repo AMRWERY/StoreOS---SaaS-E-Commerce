@@ -177,6 +177,12 @@ const navItems = computed(() => [
     to: "/dashboard/coupons",
   },
   {
+    name: t("nav.storeBuilder"),
+    icon: "ph:paint-brush-fill",
+    active: route.path.includes("/dashboard/builder"),
+    to: "/dashboard/builder",
+  },
+  {
     name: t("nav.settings"),
     icon: "ph:gear-six-fill",
     active: route.path.includes("/dashboard/settings"),

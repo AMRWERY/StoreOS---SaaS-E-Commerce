@@ -19,20 +19,20 @@
         color-scheme: light;
     }
 
-    ::-webkit-scrollbar {
+    ::-merchantkit-scrollbar {
         width: 4px;
     }
 
-    ::-webkit-scrollbar-track {
+    ::-merchantkit-scrollbar-track {
         background: transparent;
     }
 
-    ::-webkit-scrollbar-thumb {
+    ::-merchantkit-scrollbar-thumb {
         background: var(--border-default);
         border-radius: 4px;
     }
 
-    ::-webkit-scrollbar-thumb:hover {
+    ::-merchantkit-scrollbar-thumb:hover {
         background: var(--text-muted);
     }
 }
