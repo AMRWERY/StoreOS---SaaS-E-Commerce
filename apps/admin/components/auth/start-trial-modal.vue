@@ -221,7 +221,7 @@ const props = defineProps<{ modelValue: boolean }>();
 const emit = defineEmits(["update:modelValue"]);
 
 const { t } = useI18n();
-const { login } = useAuth();
+const { register } = useAuth();
 const localePath = useLocalePath();
 
 const open = computed({
@@ -302,8 +302,8 @@ const handleSubmit = async () => {
     // TODO: replace with real register call
     await new Promise((resolve) => setTimeout(resolve, 2000));
     open.value = false;
-    login();
-    await navigateTo(localePath("/dashboard"));
+    register();
+    await navigateTo(localePath("/onboarding"));
   } finally {
     isLoading.value = false;
   }

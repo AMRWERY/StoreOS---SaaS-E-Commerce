@@ -34,14 +34,18 @@
     <nav class="flex-1 space-y-2 overflow-y-auto hide-scrollbar">
       <div v-for="item in navItems" :key="item.name">
         <!-- Main Nav Item -->
-        <LazyVButton v-if="!item.children" :to="item.to" variant="none"
+        <LazyVButton v-if="!item.children" :to="item.locked ? undefined : item.to" variant="none"
+          @click="item.locked ? handleLockedClick() : undefined"
           className="w-full flex items-center justify-start gap-2 px-3 py-1.5 rounded-md transition-all font-medium text-[12px] group"
           :class="item.active
             ? 'bg-brand-dim text-brand'
-            : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
+            : item.locked
+              ? 'text-tx-muted cursor-pointer hover:bg-bg-elevated'
+              : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
             ">
-          <Icon :name="item.icon" class="text-lg" />
-          <span class="truncate">{{ item.name }}</span>
+          <Icon :name="item.icon" class="text-lg" :class="item.locked ? 'opacity-40' : ''" />
+          <span class="truncate flex-1" :class="item.locked ? 'opacity-50' : ''">{{ item.name }}</span>
+          <Icon v-if="item.locked" name="lucide:lock" class="w-3 h-3 text-tx-muted opacity-60 shrink-0" />
         </LazyVButton>
 
         <!-- Nav Item with Children -->
@@ -77,10 +81,17 @@
     </nav>
 
     <div class="mt-auto pt-6 space-y-2 border-t border-border-subtle">
-      <LazyVButton variant="none"
-        className="text-[10px] font-semibold text-brand tracking-[0.6px] px-3 hover:underline block text-start">
-        {{ t("nav.upgrade") }}
-      </LazyVButton>
+      <nuxt-link-locale
+        v-if="!isPaid"
+        to="/dashboard/settings/billing-and-plan"
+        class="flex items-center gap-2 px-3 py-2 rounded-lg bg-orange-500/10 border border-orange-500/20 hover:bg-orange-500/15 transition-all group"
+      >
+        <Icon name="lucide:arrow-up-circle" class="w-3.5 h-3.5 text-orange-400 shrink-0" />
+        <div class="flex-1 min-w-0">
+          <p class="text-[10px] font-black text-orange-400 tracking-wider">{{ t("nav.upgrade") }}</p>
+          <p v-if="isTrial" class="text-[9px] text-orange-400/60 font-medium">{{ trialDaysLeft }}d left in trial</p>
+        </div>
+      </nuxt-link-locale>
       <LazyVButton variant="none" to="/dashboard/user-profile"
         className="w-full flex items-center gap-2 px-3 py-1.5 transition-all group rounded-md text-[12px] font-medium"
         :class="route.path.includes('/dashboard/user-profile')
@@ -132,6 +143,11 @@ const toggleExpand = (name: string) => {
 };
 
 const { t } = useI18n();
+const { hasFeature, isTrial, isPaid, trialDaysLeft } = useAuth();
+
+const handleLockedClick = () => {
+  navigateTo(useLocalePath()('/dashboard/settings/billing-and-plan'))
+}
 
 const navItems = computed(() => [
   {
@@ -169,12 +185,14 @@ const navItems = computed(() => [
     icon: "ph:chart-bar-fill",
     active: route.path.includes("/dashboard/analytics"),
     to: "/dashboard/analytics",
+    locked: !hasFeature('analytics'),
   },
   {
     name: t("nav.coupons"),
     icon: "ph:ticket-fill",
     active: route.path.includes("/dashboard/coupons"),
     to: "/dashboard/coupons",
+    locked: !hasFeature('coupons'),
   },
   {
     name: t("nav.settings"),

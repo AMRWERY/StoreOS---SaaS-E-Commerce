@@ -1,22 +1,30 @@
 ﻿<template>
   <div>
-    <div class="min-h-screen text-tx-primary pb-12 selection:bg-indigo-500/30 overflow-x-hidden space-y-8">
-      <analytics-header v-model:active-timeframe="activeTimeframe" v-model:compare-enabled="compareEnabled"
-        @export="handleExport" />
+    <LayoutsFeatureGate
+      feature="analytics"
+      title="Advanced Analytics"
+      description="Unlock revenue charts, LTV tracking, order status breakdowns, and top-performer tables. Available on Starter and above."
+      :required-plans="['starter', 'growth', 'enterprise']"
+      :blur-content="true"
+    >
+      <div class="min-h-screen text-tx-primary pb-12 selection:bg-indigo-500/30 overflow-x-hidden space-y-8">
+        <analytics-header v-model:active-timeframe="activeTimeframe" v-model:compare-enabled="compareEnabled"
+          @export="handleExport" />
 
-      <analytics-kpi-grid :kpis="kpis" />
+        <analytics-kpi-grid :kpis="kpis" />
 
-      <revenue-performance-chart />
+        <revenue-performance-chart />
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
-        <category-revenue-list :categories="categories" class="lg:col-span-7" />
-        <order-status-chart :status-breakdown="statusBreakdown" class="lg:col-span-5" />
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+          <category-revenue-list :categories="categories" class="lg:col-span-7" />
+          <order-status-chart :status-breakdown="statusBreakdown" class="lg:col-span-5" />
+        </div>
+
+        <top-performance-tables :products="topProducts" :customers="topCustomers" />
+
+        <sales-velocity-insight />
       </div>
-
-      <top-performance-tables :products="topProducts" :customers="topCustomers" />
-
-      <sales-velocity-insight />
-    </div>
+    </LayoutsFeatureGate>
   </div>
 </template>
 

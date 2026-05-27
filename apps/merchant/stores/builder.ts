@@ -60,7 +60,7 @@ export const useBuilderStore = defineStore('builder', () => {
       title: 'Company',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Contact', href: '/contact' },
+        { label: 'Contact', href: '' },
       ],
     },
   ])

@@ -176,7 +176,7 @@
                 @click="$emit('prev')"
               >
                 <Icon
-                  name="ph:arrow-start-bold"
+                  name="ph:arrow-left-bold"
                   class="group-hover:-translate-x-1 transition-transform w-4 h-4"
                 />
                 Back

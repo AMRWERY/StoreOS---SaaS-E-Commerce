@@ -107,7 +107,7 @@
                   $t('layout.footer.community') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/contact" class="hover:text-tx-primary transition">{{ $t('layout.footer.contact')
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.contact')
                   }}</nuxt-link-locale>
               </li>
             </ul>

@@ -65,14 +65,13 @@
         </div>
 
         <!-- Main CTA -->
-        <LazyVButton
-          variant="none"
+        <nuxt-link-locale
           to="/dashboard"
-          className="w-full max-w-md mx-auto bg-brand hover:bg-brand-hover py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-brand/20 active:scale-[0.98]"
+          class="w-full max-w-md mx-auto bg-brand hover:bg-brand-hover py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-brand/20 active:scale-[0.98] text-white"
         >
           Go to Dashboard
-          <Icon name="ph:arrow-end-bold" class="w-4 h-4" />
-        </LazyVButton>
+          <Icon name="ph:arrow-right-bold" class="w-4 h-4" />
+        </nuxt-link-locale>
       </div>
 
       <!-- Quick Action Grid -->
@@ -122,17 +121,19 @@ const quickActions = [
     title: "Add products",
     desc: "Expand your catalog with more items.",
     icon: "ph:plus-square-duotone",
-    route: "/onboarding/add-first-product",
+    route: "/dashboard/products",
   },
   {
     title: "Share store",
     desc: "Tell the world about your new shop.",
     icon: "ph:share-network-duotone",
+    route: "/dashboard",
   },
   {
     title: "View store",
     desc: "See how customers view your page.",
     icon: "ph:eye-duotone",
+    route: "/dashboard",
   },
 ];
 </script>

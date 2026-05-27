@@ -120,7 +120,7 @@
           type="submit"
           className="w-full mt-4"
           label="Continue"
-          icon="ph:arrow-end-bold"
+          icon="ph:arrow-right-bold"
           iconPosition="right"
         />
       </LazyVFormWrapper>

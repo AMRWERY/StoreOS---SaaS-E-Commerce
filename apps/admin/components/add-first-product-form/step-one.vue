@@ -44,7 +44,7 @@
 
           <!-- Footer Actions -->
           <div class="flex items-center gap-4 pt-4">
-            <LazyVButton className="flex-1" label="Next" icon="ph:arrow-end-bold" iconPosition="right"
+            <LazyVButton className="flex-1" label="Next" icon="ph:arrow-right-bold" iconPosition="right"
               @click="emit('next')" />
 
             <LazyVButton variant="secondary" className="flex-1" label="Skip for now" @click="emit('skip')" />
