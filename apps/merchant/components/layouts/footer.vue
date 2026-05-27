@@ -35,7 +35,7 @@
                   }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/roadmap" class="hover:text-tx-primary transition">{{ $t('layout.footer.roadmap')
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.roadmap')
                   }}</nuxt-link-locale>
               </li>
             </ul>
@@ -47,19 +47,19 @@
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="/payments" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
                   $t('layout.footer.payments') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/shipping" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
                   $t('layout.footer.shipping') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/marketing" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
                   $t('layout.footer.marketing') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/messaging" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
                   $t('layout.footer.messaging') }}</nuxt-link-locale>
               </li>
             </ul>
@@ -71,15 +71,15 @@
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="/about-us" class="hover:text-tx-primary transition">{{ $t('layout.footer.aboutUs')
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.aboutUs')
                   }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/careers" class="hover:text-tx-primary transition">{{ $t('layout.footer.careers')
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.careers')
                   }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/blogs" class="hover:text-tx-primary transition">{{ $t('layout.footer.blogs')
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.blogs')
                   }}</nuxt-link-locale>
               </li>
               <li>
@@ -95,15 +95,15 @@
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="/documentation" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
                   $t('layout.footer.documentation') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/help-center" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
                   $t('layout.footer.helpCenter') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/community" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
                   $t('layout.footer.community') }}</nuxt-link-locale>
               </li>
               <li>

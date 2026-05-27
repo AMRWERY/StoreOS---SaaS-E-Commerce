@@ -312,7 +312,8 @@
 import type { Tier } from "@/types/pricing";
 
 const { t } = useI18n();
-const router = useRouter();
+const { register } = useAuth();
+const localePath = useLocalePath();
 const billing = ref<"monthly" | "annual">("monthly");
 
 const isTrialOpen = ref(false);
@@ -327,7 +328,17 @@ const openTrialModal = (tier: Tier) => {
   isTrialOpen.value = true;
 };
 
-const startTrial = () => {
+const planNameToKey = (name: string): Plan => {
+  const map: Record<string, Plan> = {
+    free: 'free',
+    starter: 'starter',
+    growth: 'growth',
+    enterprise: 'enterprise',
+  }
+  return map[name.toLowerCase()] ?? 'trial'
+}
+
+const startTrial = async () => {
   if (
     !trialEmail.value ||
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trialEmail.value)
@@ -336,15 +347,14 @@ const startTrial = () => {
     return;
   }
   emailError.value = "";
-  router.push({
-    path: "/auth/register",
-    query: {
-      plan: selectedTier.value?.name.toLowerCase(),
-      email: trialEmail.value,
-      trial: "true",
-    },
-  });
   isTrialOpen.value = false;
+
+  const selectedPlan = selectedTier.value?.free
+    ? 'free'
+    : planNameToKey(selectedTier.value?.name ?? 'trial')
+
+  register(selectedPlan as Plan)
+  await navigateTo(localePath('/dashboard'))
 };
 
 const tiers = computed(() => [

@@ -36,7 +36,6 @@
               class="flex items-center gap-1.5 hover:text-tx-primary transition">
               {{ t("nav.storeBuilder") }}
             </nuxt-link-locale>
-            <div class="w-px h-4 bg-border-subtle"></div>
           </div>
         </div>
 

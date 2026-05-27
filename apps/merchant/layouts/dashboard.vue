@@ -6,6 +6,9 @@
 
             <!-- Main Content Area -->
             <main class="flex-1 h-screen overflow-y-auto transition-all duration-300 flex flex-col hide-scrollbar">
+                <!-- Trial / Plan Banner -->
+                <TrialBanner v-if="showBanner" />
+
                 <!-- Dashboard Header -->
                 <Header @toggle-sidebar="isSidebarOpen = true" />
 
@@ -21,9 +24,11 @@
 // Sidebar Toggle State
 const isSidebarOpen = ref(false);
 
-// Auto-close sidebar on route change (optional but recommended)
 const route = useRoute();
 watch(() => route.fullPath, () => {
     isSidebarOpen.value = false;
 });
+
+const { isTrial, isPaid } = useAuth();
+const showBanner = computed(() => isTrial.value || !isPaid.value);
 </script>

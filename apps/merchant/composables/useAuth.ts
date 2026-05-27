@@ -43,13 +43,20 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
   },
 }
 
+const PLAN_TRIAL_DAYS: Partial<Record<Plan, number>> = {
+  trial: 14,
+  starter: 14,
+  growth: 14,
+  enterprise: 14,
+}
+
 export const useAuth = () => {
   const isAuthenticated = useState<boolean>('isAuthenticated', () => false)
   const plan = useState<Plan>('plan', () => 'free')
   const trialDaysLeft = useState<number>('trialDaysLeft', () => 14)
 
   const planConfig = computed(() => PLAN_CONFIGS[plan.value])
-  const isTrial = computed(() => plan.value === 'trial')
+  const isTrial = computed(() => plan.value === 'trial' || (trialDaysLeft.value > 0 && !['free'].includes(plan.value) && !isPaid.value))
   const isPaid = computed(() => ['starter', 'growth', 'enterprise'].includes(plan.value))
 
   const hasFeature = (feature: string): boolean => {
@@ -63,7 +70,7 @@ export const useAuth = () => {
   const register = (selectedPlan: Plan = 'trial') => {
     isAuthenticated.value = true
     plan.value = selectedPlan
-    trialDaysLeft.value = ['starter', 'growth', 'enterprise', 'trial'].includes(selectedPlan) ? 14 : 0
+    trialDaysLeft.value = PLAN_TRIAL_DAYS[selectedPlan] ?? 0
   }
 
   const logout = () => {

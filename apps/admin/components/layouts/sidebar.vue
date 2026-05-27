@@ -102,7 +102,7 @@
         <span class="truncate">{{ t("nav.userProfile") }}</span>
       </LazyVButton>
       <!-- Logout Button -->
-      <LazyVButton to="/auth/login" variant="none"
+      <LazyVButton @click="handleLogout" variant="none"
         className="w-full flex items-center gap-2 px-3 py-1.5 text-[12px] font-medium text-red-500/60 hover:text-red-500 transition-colors group">
         <Icon name="ph:sign-out-bold" class="text-xl" />
         <span class="truncate font-bold">{{ t("nav.logout") }}</span>
@@ -143,11 +143,17 @@ const toggleExpand = (name: string) => {
 };
 
 const { t } = useI18n();
-const { hasFeature, isTrial, isPaid, trialDaysLeft } = useAuth();
+const localePath = useLocalePath();
+const { hasFeature, isTrial, isPaid, trialDaysLeft, logout } = useAuth();
 
 const handleLockedClick = () => {
-  navigateTo(useLocalePath()('/dashboard/settings/billing-and-plan'))
-}
+  navigateTo(localePath('/dashboard/settings/billing-and-plan'));
+};
+
+const handleLogout = () => {
+  logout();
+  navigateTo(localePath('/auth/login'));
+};
 
 const navItems = computed(() => [
   {
