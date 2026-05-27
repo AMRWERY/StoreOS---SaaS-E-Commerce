@@ -471,7 +471,7 @@ definePageMeta({
   layout: "dashboard",
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => "Product Form",
 });
 </script>

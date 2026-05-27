@@ -32,7 +32,7 @@ definePageMeta({
   layout: 'dashboard'
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Customers',
 });
 </script>

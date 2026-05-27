@@ -29,7 +29,7 @@ definePageMeta({
   layout: "dashboard",
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => "Settings - Payment Gateways",
 });
 </script>

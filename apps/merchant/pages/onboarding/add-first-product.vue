@@ -40,7 +40,7 @@ const skip = () => {
   window.alert("Skipped onboarding.");
 };
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Add First Product',
 });
 </script>

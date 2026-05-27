@@ -1,2 +1,2 @@
 // Shared composables across all StoreOS apps
-export {}
+export { useSeoPage } from './useSeoPage'

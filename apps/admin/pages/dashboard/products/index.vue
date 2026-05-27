@@ -59,7 +59,7 @@ definePageMeta({
   layout: "dashboard",
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => "Products",
 });
 </script>

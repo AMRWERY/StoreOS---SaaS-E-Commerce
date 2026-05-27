@@ -27,7 +27,7 @@ const isPublicRoute = computed(() =>
   !route.path.includes('/dashboard') && !route.path.includes('/onboarding')
 )
 
-useHead(computed(() => ({
+useSeoPage(computed(() => ({
   htmlAttrs: {
     ...(i18nHead.value?.htmlAttrs ?? {}),
     dir: RTL_LOCALES.includes(locale.value) ? 'rtl' : 'ltr',

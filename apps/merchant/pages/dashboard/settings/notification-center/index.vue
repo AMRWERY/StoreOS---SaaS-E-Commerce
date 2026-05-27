@@ -75,7 +75,7 @@ definePageMeta({
   layout: 'dashboard'
 })
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Settings - Notification Center',
 })
 </script>

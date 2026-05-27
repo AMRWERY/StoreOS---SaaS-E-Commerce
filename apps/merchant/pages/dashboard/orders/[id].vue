@@ -482,7 +482,7 @@ definePageMeta({
   layout: "dashboard",
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => "Order " + orderId.value,
 });
 </script>

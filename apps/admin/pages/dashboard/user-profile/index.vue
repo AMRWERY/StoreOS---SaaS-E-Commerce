@@ -27,7 +27,7 @@ definePageMeta({
   layout: 'dashboard'
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Profile',
 });
 </script>

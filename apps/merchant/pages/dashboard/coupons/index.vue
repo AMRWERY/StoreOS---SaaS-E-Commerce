@@ -26,7 +26,7 @@ definePageMeta({
   layout: 'dashboard',
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Coupons',
 });
 </script>

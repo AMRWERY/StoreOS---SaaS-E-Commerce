@@ -33,7 +33,7 @@ definePageMeta({
   layout: 'dashboard'
 })
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Settings - Billing and Plan',
 })
 </script>

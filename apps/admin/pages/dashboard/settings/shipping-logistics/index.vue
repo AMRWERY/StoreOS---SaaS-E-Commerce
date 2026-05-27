@@ -27,7 +27,7 @@ definePageMeta({
   layout: 'dashboard'
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Settings - Shipping Logistics',
 });
 </script>

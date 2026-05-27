@@ -17,7 +17,7 @@ definePageMeta({
   layout: 'dashboard'
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Settings - Staff and Permissions',
 });
 </script>

@@ -4,7 +4,7 @@ export default defineNuxtPlugin({
   setup() {
     const colorScheme = useState<"light" | "dark">("app-theme", () => "dark");
 
-    useHead(
+    useSeoPage(
       computed(() => ({
         htmlAttrs: {
           "data-theme": colorScheme.value,

@@ -28,7 +28,7 @@ useSeoMeta({
   robots: "index, follow",
 });
 
-useHead({
+useSeoPage({
   script: [
     {
       type: "application/ld+json",

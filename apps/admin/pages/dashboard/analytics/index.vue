@@ -37,7 +37,7 @@ definePageMeta({
   layout: 'dashboard'
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Analytics',
 });
 </script>

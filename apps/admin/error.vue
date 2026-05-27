@@ -76,7 +76,7 @@ const handleGoHome = () => {
     clearError({ redirect: '/' })
 }
 
-useHead({
+useSeoPage({
     title: `${props.error?.statusCode || 'Error'} - StoreOS`,
 })
 </script>

@@ -45,7 +45,7 @@ definePageMeta({
   layout: 'dashboard'
 });
 
-useHead({
+useSeoPage({
   titleTemplate: () => 'Settings - Store Info',
 });
 </script>
