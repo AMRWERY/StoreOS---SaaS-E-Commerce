@@ -310,6 +310,7 @@
 
 <script lang="ts" setup>
 import type { Tier } from "@/types/pricing";
+import type { Plan } from '@/types/auth';
 
 const { t } = useI18n();
 const { register } = useAuth();

@@ -29,6 +29,8 @@
 </template>
 
 <script lang="ts" setup>
+import type { StockItem } from '@/types/inventory'
+
 const inventoryStore = useInventoryStore()
 const {
   isAdjustmentModalOpen, selectedItem, currentPage,

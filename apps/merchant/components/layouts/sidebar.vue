@@ -148,10 +148,6 @@ const toggleExpand = (name: string) => {
     : [...expandedItems.value, name];
 };
 
-const handleLockedClick = () => {
-  navigateTo(localePath('/dashboard/settings/billing-and-plan'));
-};
-
 const navItems = computed(() => [
   {
     name: t('nav.dashboard'),

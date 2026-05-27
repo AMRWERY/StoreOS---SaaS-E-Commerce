@@ -10,32 +10,53 @@
               StoreOS
             </nuxt-link-locale>
             <p class="text-tx-secondary text-sm leading-relaxed">
-              {{ $t('layout.footer.description') }}
+              {{ t('layout.footer.description') }}
             </p>
           </div>
 
-          <!-- Links -->
           <div>
             <h4 class="font-bold mb-6 text-sm tracking-widest text-tx-secondary">
-              {{ $t('layout.footer.product') }}
+              {{ t('layout.footer.integrations') }}
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="" @click="scrollTo('features')"
-                  class="hover:text-tx-primary transition cursor-pointer">{{ $t('layout.footer.features')
+                <nuxt-link-locale to="/integrations" class="hover:text-tx-primary transition">{{
+                  t('layout.footer.payments') }}</nuxt-link-locale>
+              </li>
+              <li>
+                <nuxt-link-locale to="/integrations" class="hover:text-tx-primary transition">{{
+                  t('layout.footer.shipping') }}</nuxt-link-locale>
+              </li>
+              <li>
+                <nuxt-link-locale to="/integrations" class="hover:text-tx-primary transition">{{
+                  t('layout.footer.marketing') }}</nuxt-link-locale>
+              </li>
+              <li>
+                <nuxt-link-locale to="/integrations" class="hover:text-tx-primary transition">{{
+                  t('layout.footer.messaging') }}</nuxt-link-locale>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold mb-6 text-sm tracking-widest text-tx-secondary">
+              {{ t('layout.footer.company') }}
+            </h4>
+            <ul class="space-y-4 text-tx-secondary text-sm">
+              <li>
+                <nuxt-link-locale to="/about" class="hover:text-tx-primary transition">{{ t('layout.footer.aboutUs')
                   }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/auth/login" class="hover:text-tx-primary transition">{{
-                  $t('layout.footer.dashboard') }}</nuxt-link-locale>
-              </li>
-              <li>
-                <nuxt-link-locale to="" @click="scrollTo('pricing')"
-                  class="hover:text-tx-primary transition cursor-pointer">{{ $t('layout.footer.pricing')
+                <nuxt-link-locale to="/careers" class="hover:text-tx-primary transition">{{ t('layout.footer.careers')
                   }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.roadmap')
+                <nuxt-link-locale to="/blog" class="hover:text-tx-primary transition">{{ t('layout.footer.blogs')
+                  }}</nuxt-link-locale>
+              </li>
+              <li>
+                <nuxt-link-locale to="/privacy" class="hover:text-tx-primary transition">{{ t('layout.footer.privacy')
                   }}</nuxt-link-locale>
               </li>
             </ul>
@@ -43,71 +64,35 @@
 
           <div>
             <h4 class="font-bold mb-6 text-sm tracking-widest text-tx-secondary">
-              {{ $t('layout.footer.integrations') }}
+              {{ t('layout.footer.support') }}
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
-                  $t('layout.footer.payments') }}</nuxt-link-locale>
+                <nuxt-link-locale to="/docs" class="hover:text-tx-primary transition">{{
+                  t('layout.footer.documentation') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
-                  $t('layout.footer.shipping') }}</nuxt-link-locale>
+                <nuxt-link-locale to="/help-center" class="hover:text-tx-primary transition">{{
+                  t('layout.footer.helpCenter') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
-                  $t('layout.footer.marketing') }}</nuxt-link-locale>
+                <nuxt-link-locale to="/community" class="hover:text-tx-primary transition">{{
+                  t('layout.footer.community') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
-                  $t('layout.footer.messaging') }}</nuxt-link-locale>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="font-bold mb-6 text-sm tracking-widest text-tx-secondary">
-              {{ $t('layout.footer.company') }}
-            </h4>
-            <ul class="space-y-4 text-tx-secondary text-sm">
-              <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.aboutUs')
-                  }}</nuxt-link-locale>
-              </li>
-              <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.careers')
-                  }}</nuxt-link-locale>
-              </li>
-              <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.blogs')
-                  }}</nuxt-link-locale>
-              </li>
-              <li>
-                <nuxt-link-locale to="/privacy" class="hover:text-tx-primary transition">{{ $t('layout.footer.privacy')
+                <nuxt-link-locale to="/contact" class="hover:text-tx-primary transition">{{ t('layout.footer.contact')
                   }}</nuxt-link-locale>
               </li>
             </ul>
           </div>
-
+         
           <div>
             <h4 class="font-bold mb-6 text-sm tracking-widest text-tx-secondary">
-              {{ $t('layout.footer.support') }}
+              {{ t('layout.footer.legal') }}
             </h4>
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
-                  $t('layout.footer.documentation') }}</nuxt-link-locale>
-              </li>
-              <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
-                  $t('layout.footer.helpCenter') }}</nuxt-link-locale>
-              </li>
-              <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{
-                  $t('layout.footer.community') }}</nuxt-link-locale>
-              </li>
-              <li>
-                <nuxt-link-locale to="" class="hover:text-tx-primary transition">{{ $t('layout.footer.contact')
+                <nuxt-link-locale to="/roadmap" class="hover:text-tx-primary transition">{{ t('layout.footer.roadmap')
                   }}</nuxt-link-locale>
               </li>
             </ul>
@@ -117,13 +102,13 @@
         <!-- Bottom Bar -->
         <div class="pt-8 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-6">
           <p class="text-xs text-tx-muted">
-            {{ $t('layout.footer.copyright') }}
+            {{ t('layout.footer.copyright') }}
           </p>
           <div class="flex gap-6 text-tx-muted">
-            <nuxt-link-locale to="" class="hover:text-tx-primary transition-colors">{{ $t('layout.footer.twitter')
-              }}</nuxt-link-locale>
-            <nuxt-link-locale to="" class="hover:text-tx-primary transition-colors">{{ $t('layout.footer.instagram')
-              }}</nuxt-link-locale>
+            <a href="https://twitter.com/storeos" target="_blank" rel="noopener noreferrer"
+              class="hover:text-tx-primary transition-colors">{{ t('layout.footer.twitter') }}</a>
+            <a href="https://instagram.com/storeos" target="_blank" rel="noopener noreferrer"
+              class="hover:text-tx-primary transition-colors">{{ t('layout.footer.instagram') }}</a>
           </div>
         </div>
       </div>
