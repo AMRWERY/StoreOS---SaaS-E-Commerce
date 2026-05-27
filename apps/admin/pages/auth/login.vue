@@ -57,18 +57,24 @@
             {{ t("auth.noAccount") }}
           </p>
           <div class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1">
-            <nuxt-link-locale to="/auth/register"
+            <button
+              type="button"
+              @click="showTrialModal = true"
               class="text-orange-500 font-bold hover:text-orange-400 hover:underline transition">
               {{ t("auth.registerNow") }}
-            </nuxt-link-locale>
+            </button>
             <span class="text-tx-muted">{{ t("auth.or") }}</span>
-            <nuxt-link-locale to="/auth/register"
+            <button
+              type="button"
+              @click="showTrialModal = true"
               class="text-brand font-medium hover:text-brand-hover hover:underline transition">
               {{ t("auth.startFreeTrial") }}
-            </nuxt-link-locale>
+            </button>
           </div>
         </div>
       </div>
+
+      <start-trial-modal v-model="showTrialModal" />
 
       <p class="mt-8 text-[10px] tracking-wider text-tx-muted">
         {{ t("auth.copyright") }}
@@ -87,6 +93,7 @@ const localePath = useLocalePath();
 const email = ref("");
 const password = ref("");
 const isLoading = ref(false);
+const showTrialModal = ref(false);
 
 const handleSubmit = async () => {
   isLoading.value = true;
