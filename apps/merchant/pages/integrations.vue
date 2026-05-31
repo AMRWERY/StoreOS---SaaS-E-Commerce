@@ -9,10 +9,8 @@
         <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
           StoreOS integrates with 60+ tools across payments, shipping, marketing, and messaging — so your existing workflows keep working.
         </p>
-        <div class="mt-8 relative max-w-md">
-          <Icon name="ph:magnifying-glass-bold" class="absolute start-4 top-1/2 -translate-y-1/2 text-tx-muted" />
-          <input v-model="search" type="text" placeholder="Search integrations..."
-            class="w-full bg-bg-elevated border border-border-subtle rounded-xl ps-10 pe-4 py-3 text-sm outline-none focus:border-brand/40 transition-colors" />
+        <div class="mt-8 max-w-md">
+          <LazyVSearchInput v-model="search" placeholder="Search integrations..." input-class="py-3 text-sm" />
         </div>
       </div>
     </header>
@@ -20,15 +18,13 @@
     <!-- Categories -->
     <div class="sticky top-0 z-10 bg-bg-base/90 backdrop-blur border-b border-border-subtle px-6 py-4">
       <div class="max-w-5xl mx-auto flex items-center gap-2 overflow-x-auto hide-scrollbar">
-        <button v-for="cat in categories" :key="cat.id"
+        <LazyVButton v-for="cat in categories" :key="cat.id"
           @click="activeCategory = cat.id"
-          class="flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all border"
-          :class="activeCategory === cat.id
-            ? 'bg-brand text-white border-brand'
-            : 'border-border-subtle text-tx-secondary hover:text-tx-primary'">
-          <Icon :name="cat.icon" class="text-sm" />
-          {{ cat.label }}
-        </button>
+          :label="cat.label"
+          :icon="cat.icon"
+          icon-position="left"
+          variant="none"
+          :className="`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all border ${activeCategory === cat.id ? 'bg-brand text-white border-brand' : 'border-border-subtle text-tx-secondary hover:text-tx-primary'}`" />
       </div>
     </div>
 

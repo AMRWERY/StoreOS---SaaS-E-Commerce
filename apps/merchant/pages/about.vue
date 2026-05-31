@@ -28,10 +28,7 @@
           </p>
         </div>
         <div class="grid grid-cols-2 gap-4">
-          <div v-for="stat in stats" :key="stat.label" class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
-            <p class="text-3xl font-black text-tx-primary mb-1">{{ stat.value }}</p>
-            <p class="text-xs text-tx-muted font-medium">{{ stat.label }}</p>
-          </div>
+          <LazyVStatCard v-for="stat in stats" :key="stat.label" :label="stat.label" :value="stat.value" :icon-name="stat.icon" />
         </div>
       </div>
     </section>
@@ -80,10 +77,7 @@
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Ready to upgrade your operations?</h2>
         <p class="text-tx-secondary mb-10">Start your 14-day free trial. No credit card required.</p>
-        <nuxt-link-locale to="/" class="inline-flex items-center gap-2 bg-brand text-white px-8 py-4 rounded-xl font-bold hover:bg-brand/90 transition-all shadow-lg shadow-brand/20">
-          Get started free
-          <Icon name="ph:arrow-right-bold" class="w-4 h-4" />
-        </nuxt-link-locale>
+        <LazyVButton to="/" label="Get started free" icon="ph:arrow-right-bold" className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
       </div>
     </section>
   </div>
@@ -93,10 +87,10 @@
 useSeoMeta({ title: 'About Us — StoreOS', description: 'Learn about the team and mission behind StoreOS.' })
 
 const stats = [
-  { value: '12K+', label: 'Stores powered' },
-  { value: '99.9%', label: 'Uptime SLA' },
-  { value: '42', label: 'Team members' },
-  { value: '2023', label: 'Founded' },
+  { value: '12K+', label: 'Stores powered', icon: 'ph:storefront-bold' },
+  { value: '99.9%', label: 'Uptime SLA', icon: 'ph:activity-bold' },
+  { value: '42', label: 'Team members', icon: 'ph:users-bold' },
+  { value: '2023', label: 'Founded', icon: 'ph:calendar-bold' },
 ]
 
 const values = [

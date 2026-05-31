@@ -57,23 +57,11 @@
 
               <form v-else @submit.prevent="submit" class="space-y-5">
                 <div class="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label class="block text-xs font-bold text-tx-secondary mb-2">First name</label>
-                    <input v-model="form.firstName" required type="text" placeholder="Adam"
-                      class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm outline-none focus:border-brand/40 transition-colors" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-bold text-tx-secondary mb-2">Last name</label>
-                    <input v-model="form.lastName" required type="text" placeholder="Karim"
-                      class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm outline-none focus:border-brand/40 transition-colors" />
-                  </div>
+                  <LazyVInput v-model="form.firstName" label="First name" placeholder="Adam" required />
+                  <LazyVInput v-model="form.lastName" label="Last name" placeholder="Karim" required />
                 </div>
 
-                <div>
-                  <label class="block text-xs font-bold text-tx-secondary mb-2">Email</label>
-                  <input v-model="form.email" required type="email" placeholder="adam@mystore.com"
-                    class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm outline-none focus:border-brand/40 transition-colors" />
-                </div>
+                <LazyVInput v-model="form.email" label="Email" type="email" placeholder="adam@mystore.com" required />
 
                 <div>
                   <label class="block text-xs font-bold text-tx-secondary mb-2">Topic</label>
@@ -94,12 +82,12 @@
                     class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm outline-none focus:border-brand/40 transition-colors resize-none" />
                 </div>
 
-                <button type="submit" :disabled="loading"
-                  class="w-full bg-brand text-white py-3.5 rounded-xl font-bold text-sm hover:bg-brand/90 transition-all disabled:opacity-60 flex items-center justify-center gap-2">
+                <LazyVButton type="submit" :disabled="loading" variant="none"
+                  className="w-full bg-brand text-white py-3.5 rounded-xl font-bold text-sm hover:bg-brand/90 transition-all disabled:opacity-60 flex items-center justify-center gap-2">
                   <Icon v-if="loading" name="ph:circle-notch-bold" class="animate-spin" />
                   {{ loading ? 'Sending...' : 'Send message' }}
                   <Icon v-if="!loading" name="ph:paper-plane-tilt-bold" />
-                </button>
+                </LazyVButton>
               </form>
             </Transition>
           </div>

@@ -1,5 +1,5 @@
 ﻿<template>
-  <h1>SectionCategoriesGrid</h1>
+  <h1>SectionBannerFull</h1>
 </template>
 
 <script lang="ts" setup>

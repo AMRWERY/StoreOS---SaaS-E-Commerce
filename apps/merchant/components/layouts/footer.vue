@@ -117,12 +117,5 @@
 </template>
 
 <script lang="ts" setup>
-const { locale, t } = useI18n();
-
-const scrollTo = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: locale.value === 'ar' ? 'end' : 'start' });
-  }
-};
+const { t } = useI18n();
 </script>

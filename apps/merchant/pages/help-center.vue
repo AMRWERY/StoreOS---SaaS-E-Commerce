@@ -14,16 +14,13 @@
                   <Icon name="ph:magnifying-glass-bold" class="text-tx-muted text-xl" />
                   <input type="text" placeholder="Search for documentation, guides, or help topics..."
                      class="w-full bg-transparent border-none outline-none px-4 py-4 text-sm" />
-                  <button
-                     class="bg-brand text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-xl shadow-brand/20 hover:bg-brand/90 transition-all">Search</button>
+                  <LazyVButton label="Search" className="px-8 py-4 rounded-2xl shadow-xl shadow-brand/20" />
                </div>
             </div>
             <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
                <span class="text-[9px] font-black text-tx-muted uppercase tracking-widest">POPULAR:</span>
-               <button v-for="tag in popularTags" :key="tag"
-                  class="text-[9px] font-bold text-tx-secondary px-3 py-1 bg-bg-elevated rounded-full border border-border-subtle hover:text-brand hover:border-brand/30 transition-all">
-                  {{ tag }}
-               </button>
+               <LazyVButton v-for="tag in popularTags" :key="tag" :label="tag" variant="none"
+                  className="text-[9px] font-bold text-tx-secondary px-3 py-1 bg-bg-elevated rounded-full border border-border-subtle hover:text-brand hover:border-brand/30 transition-all" />
             </div>
          </div>
       </section>
@@ -57,17 +54,11 @@
                <Icon name="ph:star-fill" class="text-brand" />
                Frequently Asked Questions
             </h2>
-            <div class="space-y-4">
-               <div v-for="article in popularArticles" :key="article.title"
-                  class="p-6 rounded-2xl border border-border-subtle bg-bg-base hover:bg-bg-elevated transition-all cursor-pointer flex items-center justify-between group">
-                  <div class="flex items-center gap-4">
-                     <Icon name="ph:file-text-fill" class="text-tx-muted group-hover:text-brand transition-colors" />
-                     <span class="text-sm font-bold">{{ article.title }}</span>
-                  </div>
-                  <Icon name="ph:arrow-right-bold"
-                     class="text-[10px] text-tx-muted opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
-               </div>
-            </div>
+            <LazyVAccordion :items="popularArticles" item-key="id">
+               <template #content="{ item }">
+                  <p class="text-sm text-tx-secondary leading-relaxed">{{ item.answer }}</p>
+               </template>
+            </LazyVAccordion>
          </div>
       </section>
 
@@ -112,10 +103,10 @@ const categories = [
 ]
 
 const popularArticles = [
-   { title: 'How to set up your first multi-warehouse location.' },
-   { title: 'Connecting your Stripe account to StoreOS Payments.' },
-   { title: 'Understanding the operational permission roles.' },
-   { title: 'Best practices for international shipping with DHL.' },
-   { title: 'Recovering abandoned carts via WhatsApp automation.' },
+   { id: 'warehouse', title: 'How to set up your first multi-warehouse location.', answer: 'Go to Settings → Warehouses → Add Location. Enter the warehouse address and assign products via the Inventory tab. You can set fulfillment priority per location to control which warehouse ships first.' },
+   { id: 'stripe', title: 'Connecting your Stripe account to StoreOS Payments.', answer: 'Navigate to Settings → Payments → Add Gateway, select Stripe, then complete the OAuth authorization. Test mode is available before you go live so you can verify the integration end-to-end.' },
+   { id: 'permissions', title: 'Understanding the operational permission roles.', answer: 'StoreOS has three built-in roles: Admin (full access), Manager (operational access), and Support (read-only + order management). Custom roles with per-resource granularity can be created in Settings → Staff & Permissions.' },
+   { id: 'dhl', title: 'Best practices for international shipping with DHL.', answer: 'Connect DHL in Settings → Shipping → Carriers and enable real-time rate calculation at checkout. Use DHL Express for time-sensitive shipments and DHL Economy for cost-sensitive orders. Print labels directly from the order detail page.' },
+   { id: 'whatsapp', title: 'Recovering abandoned carts via WhatsApp automation.', answer: 'Connect WhatsApp Business in Integrations → Messaging. In Automations, create a trigger on the "Cart Abandoned" event and select WhatsApp as the channel. Add a 1–2 hour delay before the first message and include a direct checkout link.' },
 ]
 </script>

@@ -48,8 +48,8 @@
             <p class="text-[11px] text-tx-secondary mb-6">{{ link.desc }}</p>
             <div
               class="text-[10px] font-black text-brand uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">
-              Learn More
-              <Icon name="ph:arrow-right-bold" />
+              <LazyVButton variant="none" label="Learn More" icon="ph:arrow-right-bold" size="none"
+                className="text-[10px] font-black text-brand uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all" />
             </div>
             <nuxt-link-locale to="" class="absolute inset-0 z-10"></nuxt-link-locale>
           </div>

@@ -9,11 +9,8 @@
         <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
           Guides, API references, and integration docs — all in one place.
         </p>
-        <div class="mt-8 relative max-w-lg">
-          <Icon name="ph:magnifying-glass-bold" class="absolute start-4 top-1/2 -translate-y-1/2 text-tx-muted" />
-          <input v-model="search" type="text" placeholder="Search documentation..."
-            class="w-full bg-bg-elevated border border-border-subtle rounded-xl ps-10 pe-4 py-3 text-sm outline-none focus:border-brand/40 transition-colors" />
-          <kbd class="absolute end-4 top-1/2 -translate-y-1/2 text-[10px] text-tx-muted font-mono bg-bg-base border border-border-subtle px-1.5 py-0.5 rounded">⌘K</kbd>
+        <div class="mt-8 max-w-lg">
+          <LazyVSearchInput v-model="search" placeholder="Search documentation..." input-class="py-3 text-sm" />
         </div>
       </div>
     </header>
@@ -44,13 +41,8 @@
             <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted uppercase mb-3">{{ group.title }}</p>
             <ul class="space-y-1">
               <li v-for="item in group.items" :key="item.label">
-                <button @click="activeDoc = item.id"
-                  class="w-full text-start px-3 py-2 rounded-lg text-sm transition-all"
-                  :class="activeDoc === item.id
-                    ? 'bg-brand/10 text-brand font-semibold'
-                    : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'">
-                  {{ item.label }}
-                </button>
+                <LazyVButton @click="activeDoc = item.id" :label="item.label" variant="none"
+                  :className="`w-full text-start px-3 py-2 rounded-lg text-sm transition-all ${activeDoc === item.id ? 'bg-brand/10 text-brand font-semibold' : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'}`" />
               </li>
             </ul>
           </div>
@@ -66,14 +58,11 @@
                 <p v-for="(para, i) in doc.content" :key="i">{{ para }}</p>
               </div>
               <div class="mt-8 pt-6 border-t border-border-subtle flex items-center justify-between">
-                <button class="text-sm text-tx-muted hover:text-tx-primary transition-colors flex items-center gap-1">
-                  <Icon name="ph:pencil-bold" class="text-xs" />
-                  Edit this page
-                </button>
+                <LazyVButton variant="ghost" icon="ph:pencil-bold" icon-position="left" label="Edit this page" size="none" className="text-sm text-tx-muted hover:text-tx-primary flex items-center gap-1" />
                 <div class="flex items-center gap-2 text-xs text-tx-muted">
                   Was this helpful?
-                  <button class="p-1 hover:text-brand transition-colors"><Icon name="ph:thumbs-up-bold" /></button>
-                  <button class="p-1 hover:text-red-400 transition-colors"><Icon name="ph:thumbs-down-bold" /></button>
+                  <LazyVButton variant="none" icon="ph:thumbs-up-bold" size="none" className="p-1 hover:text-brand transition-colors" />
+                  <LazyVButton variant="none" icon="ph:thumbs-down-bold" size="none" className="p-1 hover:text-red-400 transition-colors" />
                 </div>
               </div>
             </div>

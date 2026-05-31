@@ -62,11 +62,7 @@
         <div class="mt-12 bg-bg-primary border border-border-subtle rounded-2xl p-8 text-center">
           <p class="font-bold mb-2">Don't see a perfect fit?</p>
           <p class="text-sm text-tx-secondary mb-6">Send us your CV anyway. We're always interested in exceptional people.</p>
-          <a href="mailto:careers@storeos.io"
-            class="inline-flex items-center gap-2 bg-brand text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-brand/90 transition-all">
-            <Icon name="ph:envelope-bold" />
-            careers@storeos.io
-          </a>
+          <LazyVButton to="mailto:careers@storeos.io" label="careers@storeos.io" icon="ph:envelope-bold" icon-position="left" className="px-6 py-3 rounded-xl" />
         </div>
       </div>
     </section>

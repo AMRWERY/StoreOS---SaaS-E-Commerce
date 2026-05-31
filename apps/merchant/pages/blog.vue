@@ -12,16 +12,9 @@
     </header>
 
     <!-- Category filter -->
-    <div class="sticky top-0 z-10 bg-bg-base/90 backdrop-blur border-b border-border-subtle px-6 py-4">
-      <div class="max-w-5xl mx-auto flex items-center gap-2 overflow-x-auto hide-scrollbar">
-        <button v-for="cat in categories" :key="cat"
-          @click="activeCategory = cat"
-          class="px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all border"
-          :class="activeCategory === cat
-            ? 'bg-brand text-white border-brand'
-            : 'border-border-subtle text-tx-secondary hover:text-tx-primary'">
-          {{ cat }}
-        </button>
+    <div class="sticky top-0 z-10 bg-bg-base/90 backdrop-blur px-6 pt-4">
+      <div class="max-w-5xl mx-auto">
+        <LazyVTabs v-model="activeCategory" :tabs="categories" />
       </div>
     </div>
 

@@ -13,16 +13,9 @@
     </header>
 
     <!-- Filter tabs -->
-    <div class="sticky top-0 z-10 bg-bg-base/90 backdrop-blur border-b border-border-subtle px-6 py-4">
-      <div class="max-w-5xl mx-auto flex items-center gap-2 overflow-x-auto hide-scrollbar">
-        <button v-for="tab in tabs" :key="tab.id"
-          @click="activeTab = tab.id"
-          class="px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all border"
-          :class="activeTab === tab.id
-            ? 'bg-brand text-white border-brand'
-            : 'border-border-subtle text-tx-secondary hover:text-tx-primary hover:border-border-default'">
-          {{ tab.label }}
-        </button>
+    <div class="sticky top-0 z-10 bg-bg-base/90 backdrop-blur px-6 pt-4">
+      <div class="max-w-5xl mx-auto">
+        <LazyVTabs v-model="activeTab" :tabs="tabs.map(t => ({ name: t.label, value: t.id }))" />
       </div>
     </div>
 

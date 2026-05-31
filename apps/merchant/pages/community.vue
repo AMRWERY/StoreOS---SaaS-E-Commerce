@@ -10,16 +10,8 @@
           Join thousands of store owners sharing strategies, troubleshooting issues, and shaping the future of StoreOS together.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="https://discord.gg/storeos" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-[#5865F2] text-white px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all shadow-lg">
-            <Icon name="ph:discord-logo-bold" class="text-lg" />
-            Join Discord
-          </a>
-          <a href="https://github.com/storeos" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-bg-primary border border-border-subtle text-tx-primary px-6 py-3 rounded-xl font-bold text-sm hover:border-border-default transition-all">
-            <Icon name="ph:github-logo-bold" class="text-lg" />
-            GitHub Discussions
-          </a>
+          <LazyVButton to="https://discord.gg/storeos" label="Join Discord" icon="ph:discord-logo-bold" icon-position="left" variant="none" className="inline-flex items-center gap-2 bg-[#5865F2] text-white px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all shadow-lg" />
+          <LazyVButton to="https://github.com/storeos" label="GitHub Discussions" icon="ph:github-logo-bold" icon-position="left" variant="secondary" className="px-6 py-3 rounded-xl" />
         </div>
       </div>
     </header>
@@ -27,10 +19,7 @@
     <!-- Stats -->
     <section class="py-16 px-6 border-b border-border-subtle bg-bg-primary/30">
       <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div v-for="stat in stats" :key="stat.label" class="text-center">
-          <p class="text-3xl font-black text-tx-primary mb-1">{{ stat.value }}</p>
-          <p class="text-xs text-tx-muted">{{ stat.label }}</p>
-        </div>
+        <LazyVStatCard v-for="stat in stats" :key="stat.label" :label="stat.label" :value="stat.value" :icon-name="stat.icon" />
       </div>
     </section>
 
@@ -93,11 +82,7 @@
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Ready to join the conversation?</h2>
         <p class="text-tx-secondary mb-8">3,200+ merchants are already there. Come say hi.</p>
-        <a href="https://discord.gg/storeos" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 bg-brand text-white px-8 py-4 rounded-xl font-bold hover:bg-brand/90 transition-all shadow-lg shadow-brand/20">
-          Join the community
-          <Icon name="ph:arrow-right-bold" />
-        </a>
+        <LazyVButton to="https://discord.gg/storeos" label="Join the community" icon="ph:arrow-right-bold" className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
       </div>
     </section>
   </div>
@@ -107,10 +92,10 @@
 useSeoMeta({ title: 'Community — StoreOS', description: 'Join the StoreOS merchant community on Discord and GitHub.' })
 
 const stats = [
-  { value: '3.2K+', label: 'Discord members' },
-  { value: '480+', label: 'GitHub stars' },
-  { value: '1.1K', label: 'Discussions' },
-  { value: '98%', label: 'Questions answered' },
+  { value: '3.2K+', label: 'Discord members', icon: 'ph:discord-logo-bold' },
+  { value: '480+', label: 'GitHub stars', icon: 'ph:star-bold' },
+  { value: '1.1K', label: 'Discussions', icon: 'ph:chats-bold' },
+  { value: '98%', label: 'Questions answered', icon: 'ph:check-circle-bold' },
 ]
 
 const channels = [
