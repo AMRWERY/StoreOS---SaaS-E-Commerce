@@ -24,15 +24,15 @@
                   t('layout.footer.payments') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/integrations" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="/shipping" class="hover:text-tx-primary transition">{{
                   t('layout.footer.shipping') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/integrations" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="/marketing" class="hover:text-tx-primary transition">{{
                   t('layout.footer.marketing') }}</nuxt-link-locale>
               </li>
               <li>
-                <nuxt-link-locale to="/integrations" class="hover:text-tx-primary transition">{{
+                <nuxt-link-locale to="/messaging" class="hover:text-tx-primary transition">{{
                   t('layout.footer.messaging') }}</nuxt-link-locale>
               </li>
             </ul>
@@ -45,19 +45,19 @@
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
                 <nuxt-link-locale to="/about" class="hover:text-tx-primary transition">{{ t('layout.footer.aboutUs')
-                  }}</nuxt-link-locale>
+                }}</nuxt-link-locale>
               </li>
               <li>
                 <nuxt-link-locale to="/careers" class="hover:text-tx-primary transition">{{ t('layout.footer.careers')
-                  }}</nuxt-link-locale>
+                }}</nuxt-link-locale>
               </li>
               <li>
                 <nuxt-link-locale to="/blog" class="hover:text-tx-primary transition">{{ t('layout.footer.blogs')
-                  }}</nuxt-link-locale>
+                }}</nuxt-link-locale>
               </li>
               <li>
                 <nuxt-link-locale to="/privacy" class="hover:text-tx-primary transition">{{ t('layout.footer.privacy')
-                  }}</nuxt-link-locale>
+                }}</nuxt-link-locale>
               </li>
             </ul>
           </div>
@@ -81,11 +81,11 @@
               </li>
               <li>
                 <nuxt-link-locale to="/contact" class="hover:text-tx-primary transition">{{ t('layout.footer.contact')
-                  }}</nuxt-link-locale>
+                }}</nuxt-link-locale>
               </li>
             </ul>
           </div>
-         
+
           <div>
             <h4 class="font-bold mb-6 text-sm tracking-widest text-tx-secondary">
               {{ t('layout.footer.legal') }}
@@ -93,7 +93,7 @@
             <ul class="space-y-4 text-tx-secondary text-sm">
               <li>
                 <nuxt-link-locale to="/roadmap" class="hover:text-tx-primary transition">{{ t('layout.footer.roadmap')
-                  }}</nuxt-link-locale>
+                }}</nuxt-link-locale>
               </li>
             </ul>
           </div>
