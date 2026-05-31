@@ -34,9 +34,12 @@
           <div class="bg-bg-primary border border-border-subtle rounded-2xl p-5">
             <p class="text-xs font-bold text-tx-secondary mb-3 uppercase tracking-widest">Office Hours</p>
             <div class="space-y-2 text-xs text-tx-muted">
-              <div class="flex justify-between"><span>Sunday – Thursday</span><span class="font-medium text-tx-secondary">9:00 AM – 6:00 PM</span></div>
-              <div class="flex justify-between"><span>Friday – Saturday</span><span class="font-medium text-tx-secondary">Closed</span></div>
-              <div class="flex justify-between"><span>Timezone</span><span class="font-medium text-tx-secondary">Cairo (UTC+3)</span></div>
+              <div class="flex justify-between"><span>Sunday – Thursday</span><span
+                  class="font-medium text-tx-secondary">9:00 AM – 6:00 PM</span></div>
+              <div class="flex justify-between"><span>Friday – Saturday</span><span
+                  class="font-medium text-tx-secondary">Closed</span></div>
+              <div class="flex justify-between"><span>Timezone</span><span class="font-medium text-tx-secondary">Cairo
+                  (UTC+3)</span></div>
             </div>
           </div>
         </div>
@@ -98,8 +101,6 @@
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({ title: 'Contact — StoreOS', description: 'Get in touch with the StoreOS team.' })
-
 const sent = ref(false)
 const loading = ref(false)
 const form = reactive({ firstName: '', lastName: '', email: '', topic: '', message: '' })
@@ -116,9 +117,21 @@ const channels = [
   { icon: 'ph:headset-bold', title: 'Support', description: 'Technical issues and billing questions.', cta: 'support@storeos.io', href: 'mailto:support@storeos.io' },
   { icon: 'ph:chat-circle-dots-bold', title: 'Live chat', description: 'Available inside your dashboard for paid plans.', cta: 'Open dashboard', href: '/auth/login' },
 ]
+
+useSeoMeta({
+  title: 'Contact',
+  description: 'Get in touch with the StoreOS team.'
+})
 </script>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
-.fade-enter-from, .fade-leave-to { opacity: 0; }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

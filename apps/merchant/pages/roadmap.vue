@@ -41,13 +41,13 @@
               <div v-for="item in phase.items" :key="item.title" class="px-8 py-5 flex items-start gap-5">
                 <div class="mt-0.5 w-5 h-5 rounded-md flex items-center justify-center shrink-0"
                   :class="item.done ? 'bg-green-500/15' : 'bg-bg-elevated border border-border-subtle'">
-                  <Icon :name="item.done ? 'ph:check-bold' : 'ph:clock-bold'"
-                    class="text-xs"
+                  <Icon :name="item.done ? 'ph:check-bold' : 'ph:clock-bold'" class="text-xs"
                     :class="item.done ? 'text-green-400' : 'text-tx-muted'" />
                 </div>
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center gap-3 mb-1">
-                    <p class="font-semibold text-sm" :class="item.done ? 'line-through text-tx-muted' : ''">{{ item.title }}</p>
+                    <p class="font-semibold text-sm" :class="item.done ? 'line-through text-tx-muted' : ''">{{
+                      item.title }}</p>
                     <span v-if="item.tag" class="text-[9px] font-black tracking-wider px-2 py-0.5 rounded-full"
                       :class="item.tag === 'Core' ? 'bg-brand/10 text-brand' : item.tag === 'Builder' ? 'bg-purple-500/10 text-purple-400' : 'bg-bg-elevated text-tx-muted'">
                       {{ item.tag }}
@@ -65,8 +65,6 @@
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({ title: 'Roadmap — StoreOS', description: 'See what features are coming to StoreOS.' })
-
 const activeTab = ref('all')
 
 const tabs = [
@@ -118,4 +116,9 @@ const phases = [
 const filteredPhases = computed(() =>
   activeTab.value === 'all' ? phases : phases.filter((p) => p.filter === activeTab.value)
 )
+
+useSeoMeta({
+  title: 'Roadmap',
+  description: 'See what features are coming to StoreOS.'
+})
 </script>

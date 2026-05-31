@@ -58,11 +58,14 @@
                 <p v-for="(para, i) in doc.content" :key="i">{{ para }}</p>
               </div>
               <div class="mt-8 pt-6 border-t border-border-subtle flex items-center justify-between">
-                <LazyVButton variant="ghost" icon="ph:pencil-bold" icon-position="left" label="Edit this page" size="none" className="text-sm text-tx-muted hover:text-tx-primary flex items-center gap-1" />
+                <LazyVButton variant="ghost" icon="ph:pencil-bold" icon-position="left" label="Edit this page"
+                  size="none" className="text-sm text-tx-muted hover:text-tx-primary flex items-center gap-1" />
                 <div class="flex items-center gap-2 text-xs text-tx-muted">
                   Was this helpful?
-                  <LazyVButton variant="none" icon="ph:thumbs-up-bold" size="none" className="p-1 hover:text-brand transition-colors" />
-                  <LazyVButton variant="none" icon="ph:thumbs-down-bold" size="none" className="p-1 hover:text-red-400 transition-colors" />
+                  <LazyVButton variant="none" icon="ph:thumbs-up-bold" size="none"
+                    className="p-1 hover:text-brand transition-colors" />
+                  <LazyVButton variant="none" icon="ph:thumbs-down-bold" size="none"
+                    className="p-1 hover:text-red-400 transition-colors" />
                 </div>
               </div>
             </div>
@@ -74,8 +77,6 @@
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({ title: 'Documentation — StoreOS', description: 'Guides, API references, and integration docs for StoreOS merchants.' })
-
 const search = ref('')
 const activeDoc = ref('getting-started')
 
@@ -196,4 +197,9 @@ const allDocs = [
     content: ['Register webhook endpoints in Settings → Developer → Webhooks. Subscribe to events like order.created, product.updated, and inventory.low. All payloads are signed with HMAC-SHA256.'],
   },
 ]
+
+useSeoMeta({
+  title: 'Documentation',
+  description: 'Guides, API references, and integration docs for StoreOS merchants.'
+})
 </script>

@@ -7,11 +7,15 @@
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">Community</p>
         <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Built with<br />merchants, for merchants.</h1>
         <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
-          Join thousands of store owners sharing strategies, troubleshooting issues, and shaping the future of StoreOS together.
+          Join thousands of store owners sharing strategies, troubleshooting issues, and shaping the future of StoreOS
+          together.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
-          <LazyVButton to="https://discord.gg/storeos" label="Join Discord" icon="ph:discord-logo-bold" icon-position="left" variant="none" className="inline-flex items-center gap-2 bg-[#5865F2] text-white px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all shadow-lg" />
-          <LazyVButton to="https://github.com/storeos" label="GitHub Discussions" icon="ph:github-logo-bold" icon-position="left" variant="secondary" className="px-6 py-3 rounded-xl" />
+          <LazyVButton to="https://discord.gg/storeos" label="Join Discord" icon="ph:discord-logo-bold"
+            icon-position="left" variant="none"
+            className="inline-flex items-center gap-2 bg-[#5865F2] text-white px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all shadow-lg" />
+          <LazyVButton to="https://github.com/storeos" label="GitHub Discussions" icon="ph:github-logo-bold"
+            icon-position="left" variant="secondary" className="px-6 py-3 rounded-xl" />
         </div>
       </div>
     </header>
@@ -19,7 +23,8 @@
     <!-- Stats -->
     <section class="py-16 px-6 border-b border-border-subtle bg-bg-primary/30">
       <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-        <LazyVStatCard v-for="stat in stats" :key="stat.label" :label="stat.label" :value="stat.value" :icon-name="stat.icon" />
+        <LazyVStatCard v-for="stat in stats" :key="stat.label" :label="stat.label" :value="stat.value"
+          :icon-name="stat.icon" />
       </div>
     </section>
 
@@ -60,7 +65,8 @@
           <div v-for="thread in threads" :key="thread.title"
             class="bg-bg-primary border border-border-subtle rounded-2xl px-6 py-4 flex items-center justify-between gap-4 hover:border-brand/30 transition-all cursor-pointer">
             <div class="flex items-center gap-4 min-w-0">
-              <div class="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center shrink-0 text-sm font-black text-brand">
+              <div
+                class="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center shrink-0 text-sm font-black text-brand">
                 {{ thread.author[0] }}
               </div>
               <div class="min-w-0">
@@ -69,8 +75,12 @@
               </div>
             </div>
             <div class="flex items-center gap-4 shrink-0 text-xs text-tx-muted">
-              <span class="flex items-center gap-1"><Icon name="ph:chat-circle-bold" />{{ thread.replies }}</span>
-              <span class="flex items-center gap-1"><Icon name="ph:heart-bold" />{{ thread.likes }}</span>
+              <span class="flex items-center gap-1">
+                <Icon name="ph:chat-circle-bold" />{{ thread.replies }}
+              </span>
+              <span class="flex items-center gap-1">
+                <Icon name="ph:heart-bold" />{{ thread.likes }}
+              </span>
             </div>
           </div>
         </div>
@@ -82,15 +92,14 @@
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Ready to join the conversation?</h2>
         <p class="text-tx-secondary mb-8">3,200+ merchants are already there. Come say hi.</p>
-        <LazyVButton to="https://discord.gg/storeos" label="Join the community" icon="ph:arrow-right-bold" className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
+        <LazyVButton to="https://discord.gg/storeos" label="Join the community" icon="ph:arrow-right-bold"
+          className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
       </div>
     </section>
   </div>
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({ title: 'Community — StoreOS', description: 'Join the StoreOS merchant community on Discord and GitHub.' })
-
 const stats = [
   { value: '3.2K+', label: 'Discord members', icon: 'ph:discord-logo-bold' },
   { value: '480+', label: 'GitHub stars', icon: 'ph:star-bold' },
@@ -112,4 +121,9 @@ const threads = [
   { title: 'Feature request: bulk product import with variant mapping', author: 'Lina M.', time: '2d ago', replies: 6, likes: 44 },
   { title: 'Store Builder v2 early access — sharing my first impression', author: 'Tarek S.', time: '3d ago', replies: 18, likes: 73 },
 ]
+
+useSeoMeta({
+  title: 'Community',
+  description: 'Join the StoreOS merchant community on Discord and GitHub.'
+})
 </script>

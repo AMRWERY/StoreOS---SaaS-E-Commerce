@@ -84,13 +84,6 @@
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({
-   title: "Help Center — Support & Knowledge Base",
-   description: "Find answers to your questions about StoreOS. Detailed guides, FAQs, and support channels.",
-   ogTitle: "StoreOS Help Center",
-   ogDescription: "Your primary hub for learning and troubleshooting StoreOS.",
-})
-
 const popularTags = ['Integration Guide', 'API Keys', 'Billing', 'Mobile App', 'Warehouse Apps']
 
 const categories = [
@@ -109,4 +102,9 @@ const popularArticles = [
    { id: 'dhl', title: 'Best practices for international shipping with DHL.', answer: 'Connect DHL in Settings → Shipping → Carriers and enable real-time rate calculation at checkout. Use DHL Express for time-sensitive shipments and DHL Economy for cost-sensitive orders. Print labels directly from the order detail page.' },
    { id: 'whatsapp', title: 'Recovering abandoned carts via WhatsApp automation.', answer: 'Connect WhatsApp Business in Integrations → Messaging. In Automations, create a trigger on the "Cart Abandoned" event and select WhatsApp as the channel. Add a 1–2 hour delay before the first message and include a direct checkout link.' },
 ]
+
+useSeoMeta({
+   title: "Help Center",
+   description: "Find answers to your questions about StoreOS. Detailed guides, FAQs, and support channels.",
+})
 </script>

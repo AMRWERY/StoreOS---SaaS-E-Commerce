@@ -60,13 +60,6 @@
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({
-  title: "Privacy Policy — StoreOS Data Protection",
-  description: "Learn how StoreOS collects, uses, and protects your data. Transparency is at the core of our business.",
-  ogTitle: "StoreOS Privacy Policy",
-  ogDescription: "A clear and transparent guide to how we handle your information.",
-})
-
 const sections = [
   {
     id: 'intro',
@@ -120,4 +113,9 @@ const quickLinks = [
   { title: 'Cookie Policy', desc: 'How we use cookies to improve your experience.', icon: 'ph:cookie-fill' },
   { title: 'GDPR Compliance', desc: 'How we respect the privacy rights of EU citizens.', icon: 'ph:shield-star-fill' },
 ]
+
+useSeoMeta({
+  title: "Privacy Policy",
+  description: "Learn how StoreOS collects, uses, and protects your data. Transparency is at the core of our business.",
+})
 </script>

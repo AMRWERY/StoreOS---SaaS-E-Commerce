@@ -32,7 +32,8 @@
             <p class="text-sm text-tx-secondary mb-5 leading-relaxed">{{ featured.excerpt }}</p>
             <div class="flex items-center gap-4">
               <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center text-[9px] font-black text-brand">
+                <div
+                  class="w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center text-[9px] font-black text-brand">
                   {{ featured.author[0] }}
                 </div>
                 <span class="text-xs text-tx-muted">{{ featured.author }}</span>
@@ -53,7 +54,8 @@
             </div>
             <div class="p-5">
               <span class="text-[9px] font-black tracking-widest text-brand mb-2 block">{{ post.category }}</span>
-              <h3 class="font-bold text-sm mb-2 leading-snug group-hover:text-brand transition-colors">{{ post.title }}</h3>
+              <h3 class="font-bold text-sm mb-2 leading-snug group-hover:text-brand transition-colors">{{ post.title }}
+              </h3>
               <p class="text-xs text-tx-muted mb-4 leading-relaxed line-clamp-2">{{ post.excerpt }}</p>
               <div class="flex items-center justify-between text-[10px] text-tx-muted">
                 <span>{{ post.author }}</span>
@@ -68,8 +70,6 @@
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({ title: 'Blog — StoreOS', description: 'Guides, product updates, and e-commerce strategy from the StoreOS team.' })
-
 const activeCategory = ref('All')
 const categories = ['All', 'Product', 'Strategy', 'Operations', 'Engineering']
 
@@ -93,4 +93,9 @@ const posts = [
 const filteredPosts = computed(() =>
   activeCategory.value === 'All' ? posts : posts.filter((p) => p.category === activeCategory.value)
 )
+
+useSeoMeta({
+  title: 'Blog',
+  description: 'Guides, product updates, and e-commerce strategy from the StoreOS team.'
+})
 </script>

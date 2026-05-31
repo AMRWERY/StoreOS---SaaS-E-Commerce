@@ -7,7 +7,8 @@
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">Integrations</p>
         <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Connect your<br />entire stack.</h1>
         <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
-          StoreOS integrates with 60+ tools across payments, shipping, marketing, and messaging — so your existing workflows keep working.
+          StoreOS integrates with 60+ tools across payments, shipping, marketing, and messaging — so your existing
+          workflows keep working.
         </p>
         <div class="mt-8 max-w-md">
           <LazyVSearchInput v-model="search" placeholder="Search integrations..." input-class="py-3 text-sm" />
@@ -18,12 +19,8 @@
     <!-- Categories -->
     <div class="sticky top-0 z-10 bg-bg-base/90 backdrop-blur border-b border-border-subtle px-6 py-4">
       <div class="max-w-5xl mx-auto flex items-center gap-2 overflow-x-auto hide-scrollbar">
-        <LazyVButton v-for="cat in categories" :key="cat.id"
-          @click="activeCategory = cat.id"
-          :label="cat.label"
-          :icon="cat.icon"
-          icon-position="left"
-          variant="none"
+        <LazyVButton v-for="cat in categories" :key="cat.id" @click="activeCategory = cat.id" :label="cat.label"
+          :icon="cat.icon" icon-position="left" variant="none"
           :className="`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all border ${activeCategory === cat.id ? 'bg-brand text-white border-brand' : 'border-border-subtle text-tx-secondary hover:text-tx-primary'}`" />
       </div>
     </div>
@@ -49,7 +46,8 @@
                   </div>
                   <div class="flex-1 min-w-0">
                     <p class="font-bold text-sm mb-0.5">{{ item.name }}</p>
-                    <span v-if="item.popular" class="text-[9px] font-black tracking-wider text-brand bg-brand/10 px-2 py-0.5 rounded-full">POPULAR</span>
+                    <span v-if="item.popular"
+                      class="text-[9px] font-black tracking-wider text-brand bg-brand/10 px-2 py-0.5 rounded-full">POPULAR</span>
                   </div>
                 </div>
                 <p class="text-xs text-tx-muted leading-relaxed">{{ item.description }}</p>
@@ -64,8 +62,6 @@
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({ title: 'Integrations — StoreOS', description: 'Connect StoreOS with 60+ tools across payments, shipping, marketing, and messaging.' })
-
 const search = ref('')
 const activeCategory = ref('all')
 
@@ -118,5 +114,10 @@ const filteredIntegrations = (categoryId: string) => {
 const visibleCategories = computed(() => {
   if (activeCategory.value === 'all') return categories.filter((c) => c.id !== 'all')
   return categories.filter((c) => c.id === activeCategory.value)
+})
+
+useSeoMeta({
+  title: 'Integrations',
+  description: 'Connect StoreOS with 60+ tools across payments, shipping, marketing, and messaging.'
 })
 </script>

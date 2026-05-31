@@ -7,7 +7,8 @@
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">Careers</p>
         <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Build the future<br />of commerce.</h1>
         <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
-          We're a small, high-impact team. Every person here makes a visible difference. Remote-first, async-friendly, and obsessed with shipping.
+          We're a small, high-impact team. Every person here makes a visible difference. Remote-first, async-friendly,
+          and obsessed with shipping.
         </p>
       </div>
     </header>
@@ -18,7 +19,8 @@
         <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Why join us</p>
         <h2 class="text-2xl font-bold mb-12">What we offer</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div v-for="perk in perks" :key="perk.title" class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
+          <div v-for="perk in perks" :key="perk.title"
+            class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
             <Icon :name="perk.icon" class="text-brand text-2xl mb-4" />
             <h3 class="font-bold mb-2 text-sm">{{ perk.title }}</h3>
             <p class="text-xs text-tx-muted leading-relaxed">{{ perk.description }}</p>
@@ -61,8 +63,10 @@
         <!-- No role match -->
         <div class="mt-12 bg-bg-primary border border-border-subtle rounded-2xl p-8 text-center">
           <p class="font-bold mb-2">Don't see a perfect fit?</p>
-          <p class="text-sm text-tx-secondary mb-6">Send us your CV anyway. We're always interested in exceptional people.</p>
-          <LazyVButton to="mailto:careers@storeos.io" label="careers@storeos.io" icon="ph:envelope-bold" icon-position="left" className="px-6 py-3 rounded-xl" />
+          <p class="text-sm text-tx-secondary mb-6">Send us your CV anyway. We're always interested in exceptional
+            people.</p>
+          <LazyVButton to="mailto:careers@storeos.io" label="careers@storeos.io" icon="ph:envelope-bold"
+            icon-position="left" className="px-6 py-3 rounded-xl" />
         </div>
       </div>
     </section>
@@ -70,8 +74,6 @@
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({ title: 'Careers — StoreOS', description: 'Join the StoreOS team and help build the future of commerce.' })
-
 const perks = [
   { icon: 'ph:globe-bold', title: 'Remote-first', description: 'Work from anywhere. We hire globally and have no mandatory office days.' },
   { icon: 'ph:currency-dollar-bold', title: 'Competitive pay', description: 'Top-of-market salaries with equity participation for every full-time hire.' },
@@ -89,4 +91,9 @@ const roles = [
   { title: 'Customer Success Manager', team: 'Operations', location: 'Remote', type: 'Full-time', icon: 'ph:headset-bold' },
   { title: 'Technical Writer', team: 'Documentation', location: 'Remote', type: 'Contract', icon: 'ph:pencil-line-bold' },
 ]
+
+useSeoMeta({
+  title: 'Careers',
+  description: 'Join the StoreOS team and help build the future of commerce.'
+})
 </script>
