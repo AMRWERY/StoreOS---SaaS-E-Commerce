@@ -6,8 +6,9 @@
 
             <!-- Main Content Area -->
             <main class="flex-1 h-screen overflow-y-auto transition-all duration-300 flex flex-col hide-scrollbar">
-                <!-- Trial / Plan Banner -->
-                <trial-banner v-if="showBanner" />
+                <!-- Signed-out preview banner, else Trial / Plan Banner -->
+                <guest-banner v-if="isGuest" />
+                <trial-banner v-else-if="showBanner" />
 
                 <!-- Dashboard Header -->
                 <Header @toggle-sidebar="isSidebarOpen = true" />
@@ -17,6 +18,9 @@
                 </div>
             </main>
         </div>
+
+        <!-- Sign-in gate for locked features in preview mode -->
+        <auth-required-dialog />
     </div>
 </template>
 
@@ -29,6 +33,6 @@ watch(() => route.fullPath, () => {
     isSidebarOpen.value = false;
 });
 
-const { isTrial, isPaid } = useAuth();
+const { isGuest, isTrial, isPaid } = useAuth();
 const showBanner = computed(() => isTrial.value || !isPaid.value);
 </script>

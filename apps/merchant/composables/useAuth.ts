@@ -1,13 +1,28 @@
 import type { Plan, PlanConfig } from '../types/auth'
 
+/**
+ * Features a signed-out visitor may explore via "Start free trial" on the login page.
+ * Everything omitted here is gated behind `useAuthGate().requireAuth()`.
+ * Writing is never allowed in preview — see `canWrite` below.
+ */
+export const GUEST_FEATURES = ['dashboard', 'orders', 'products'] as const
+
 export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
+  guest: {
+    label: 'Preview',
+    color: 'indigo',
+    maxOrders: 0,
+    maxSkus: 0,
+    maxMembers: 0,
+    features: [...GUEST_FEATURES],
+  },
   trial: {
     label: 'Free Trial',
     color: 'orange',
     maxOrders: 50,
     maxSkus: 50,
     maxMembers: 1,
-    features: ['orders', 'products', 'inventory', 'settings'],
+    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'settings', 'profile'],
   },
   free: {
     label: 'Free',
@@ -15,7 +30,7 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
     maxOrders: 50,
     maxSkus: 50,
     maxMembers: 1,
-    features: ['orders', 'products', 'inventory', 'settings'],
+    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'settings', 'profile'],
   },
   starter: {
     label: 'Starter',
@@ -23,7 +38,7 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
     maxOrders: 1000,
     maxSkus: 500,
     maxMembers: 3,
-    features: ['orders', 'products', 'inventory', 'analytics', 'coupons', 'settings'],
+    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'analytics', 'coupons', 'settings', 'profile'],
   },
   growth: {
     label: 'Growth',
@@ -31,7 +46,7 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
     maxOrders: null,
     maxSkus: null,
     maxMembers: 10,
-    features: ['orders', 'products', 'inventory', 'analytics', 'coupons', 'staff', 'settings', 'builder'],
+    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'analytics', 'coupons', 'staff', 'settings', 'profile', 'builder'],
   },
   enterprise: {
     label: 'Enterprise',
@@ -39,7 +54,7 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
     maxOrders: null,
     maxSkus: null,
     maxMembers: null,
-    features: ['orders', 'products', 'inventory', 'analytics', 'coupons', 'staff', 'settings', 'builder'],
+    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'analytics', 'coupons', 'staff', 'settings', 'profile', 'builder'],
   },
 }
 
@@ -56,8 +71,12 @@ export const useAuth = () => {
   const trialDaysLeft = useState<number>('trialDaysLeft', () => 14)
 
   const planConfig = computed(() => PLAN_CONFIGS[plan.value])
-  const isTrial = computed(() => plan.value === 'trial' || (trialDaysLeft.value > 0 && !['free'].includes(plan.value) && !isPaid.value))
+  /** Signed-out visitor exploring the dashboard with sample data. */
+  const isGuest = computed(() => !isAuthenticated.value && plan.value === 'guest')
+  const isTrial = computed(() => plan.value === 'trial' || (trialDaysLeft.value > 0 && !['free', 'guest'].includes(plan.value) && !isPaid.value))
   const isPaid = computed(() => ['starter', 'growth', 'enterprise'].includes(plan.value))
+  /** Preview visitors may browse but never create, edit, delete or export. */
+  const canWrite = computed(() => !isGuest.value)
 
   const hasFeature = (feature: string): boolean => {
     return planConfig.value.features.includes(feature)
@@ -65,6 +84,7 @@ export const useAuth = () => {
 
   const login = () => {
     isAuthenticated.value = true
+    if (plan.value === 'guest') plan.value = 'free'
   }
 
   const register = (selectedPlan: Plan = 'trial') => {
@@ -79,16 +99,31 @@ export const useAuth = () => {
     trialDaysLeft.value = 0
   }
 
+  /** Enter the signed-out dashboard preview (login page → "Start free trial"). */
+  const startGuestPreview = () => {
+    isAuthenticated.value = false
+    plan.value = 'guest'
+    trialDaysLeft.value = 0
+  }
+
+  const exitGuestPreview = () => {
+    plan.value = 'free'
+  }
+
   return {
     isAuthenticated,
     plan,
     trialDaysLeft,
     planConfig,
+    isGuest,
     isTrial,
     isPaid,
+    canWrite,
     hasFeature,
     login,
     register,
     logout,
+    startGuestPreview,
+    exitGuestPreview,
   }
 }

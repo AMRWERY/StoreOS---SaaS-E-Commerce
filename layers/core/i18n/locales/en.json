@@ -13,6 +13,28 @@
     "registerNow": "Register now",
     "or": "or",
     "startFreeTrial": "Start free trial",
+    "previewHint": "Explore the dashboard with sample data — no account needed.",
+    "gate": {
+      "modalTitle": "SIGN IN REQUIRED",
+      "title": "Sign in to use this",
+      "titleFeature": "{feature} needs an account",
+      "subtitle": "You are exploring StoreOS in preview mode. Create your free account to unlock this and keep your work.",
+      "perk1": "Unlock every dashboard feature",
+      "perk2": "Save the products and orders you create",
+      "perk3": "14-day free trial — cancel anytime",
+      "createAccount": "Create free account",
+      "signIn": "I already have an account",
+      "keepExploring": "Keep exploring the preview",
+      "noCardRequired": "NO CREDIT CARD REQUIRED"
+    },
+    "guest": {
+      "badge": "Preview mode",
+      "bannerText": "You are exploring with sample data. Nothing you change here is saved.",
+      "createAccount": "Create free account",
+      "signIn": "Sign in",
+      "sidebarHint": "Unlock every feature",
+      "exitPreview": "Exit preview"
+    },
     "copyright": "© 2026 STOREOS. ALL RIGHTS RESERVED. BUILT FOR MODERN COMMERCE.",
     "register": {
       "title": "Create your store",

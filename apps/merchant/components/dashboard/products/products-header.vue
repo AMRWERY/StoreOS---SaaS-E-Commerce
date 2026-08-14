@@ -21,10 +21,11 @@
         </p>
       </div>
       <LazyVButton
-        to="/dashboard/products/product-form"
+        :to="canWrite ? '/dashboard/products/product-form' : undefined"
+        @click="canWrite ? undefined : requireAuth()"
         className="flex items-center gap-2 px-4 py-2.5 bg-brand hover:bg-brand-hover rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20"
       >
-        <Icon name="ph:plus-bold" />
+        <Icon :name="canWrite ? 'ph:plus-bold' : 'lucide:lock'" />
         {{ t("dashboard.products.addProduct") }}
       </LazyVButton>
     </header>
@@ -41,6 +42,8 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+const { canWrite } = useAuth();
+const { requireAuth } = useAuthGate();
 defineProps<{
   total: number;
 }>();

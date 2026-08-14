@@ -89,13 +89,18 @@
               {{ t("auth.registerNow") }}
             </nuxt-link-locale>
             <span class="text-tx-muted">{{ t("auth.or") }}</span>
-            <nuxt-link-locale
-              to="/auth/register"
-              class="text-brand font-medium hover:text-brand-hover hover:underline transition"
+            <button
+              type="button"
+              :disabled="isEnteringPreview"
+              @click="handleStartFreeTrial"
+              class="text-brand font-medium hover:text-brand-hover hover:underline transition disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {{ t("auth.startFreeTrial") }}
-            </nuxt-link-locale>
+            </button>
           </div>
+          <p class="mt-2 text-[10px] text-tx-muted">
+            {{ t("auth.previewHint") }}
+          </p>
         </div>
       </div>
 
@@ -109,19 +114,36 @@
 <script lang="ts" setup>
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { login, startGuestPreview } = useAuth();
 
 const email = ref("");
 const password = ref("");
 const isLoading = ref(false);
+const isEnteringPreview = ref(false);
 
 const handleSubmit = async () => {
   isLoading.value = true;
   try {
     // TODO: replace with real auth call
     await new Promise((resolve) => setTimeout(resolve, 2500));
+    login();
     await navigateTo(localePath("/dashboard"));
   } finally {
     isLoading.value = false;
+  }
+};
+
+/**
+ * No account needed: drop straight into the dashboard in preview mode.
+ * Locked features open the sign-in gate instead of navigating.
+ */
+const handleStartFreeTrial = async () => {
+  isEnteringPreview.value = true;
+  try {
+    startGuestPreview();
+    await navigateTo(localePath("/dashboard"));
+  } finally {
+    isEnteringPreview.value = false;
   }
 };
 

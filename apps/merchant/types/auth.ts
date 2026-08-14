@@ -1,4 +1,4 @@
-export type Plan = 'trial' | 'free' | 'starter' | 'growth' | 'enterprise'
+export type Plan = 'guest' | 'trial' | 'free' | 'starter' | 'growth' | 'enterprise'
 
 export interface PlanConfig {
   label: string
