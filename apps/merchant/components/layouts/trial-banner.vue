@@ -14,15 +14,15 @@
         <div class="hidden sm:block w-px h-3 bg-white/20" />
         <p class="truncate text-white/90">
           <span v-if="isTrial && trialDaysLeft > 0">
-            <strong class="text-white">{{ trialDaysLeft }} {{ trialDaysLeft === 1 ? 'day' : 'days' }}</strong>
-            left in your free trial —
-            <span class="text-white/80">upgrade now to keep full access.</span>
+            <strong class="text-white">{{ t("auth.trialBanner.daysLeft", trialDaysLeft) }}</strong>
+            {{ t("auth.trialBanner.leftInTrial") }}
+            <span class="text-white/80">{{ t("auth.trialBanner.upgradeToKeep") }}</span>
           </span>
           <span v-else-if="isTrial && trialDaysLeft === 0" class="text-orange-200">
-            Your trial has expired. Upgrade to continue using StoreOS.
+            {{ t("auth.trialBanner.expired") }}
           </span>
           <span v-else>
-            You're on the <strong>{{ planConfig.label }}</strong> plan with limited features.
+            {{ t("auth.trialBanner.limitedPlan", { plan: planConfig.label }) }}
           </span>
         </p>
       </div>
@@ -34,7 +34,7 @@
           class="flex items-center gap-1.5 bg-white/15 hover:bg-white/25 border border-white/20 px-3 py-1 rounded-md font-bold text-[11px] tracking-wide transition-all"
         >
           <Icon name="lucide:arrow-up-circle" class="w-3.5 h-3.5" />
-          Upgrade Plan
+          {{ t("nav.upgrade") }}
         </nuxt-link-locale>
         <button
           v-if="isTrial && trialDaysLeft > 3"
@@ -50,7 +50,8 @@
 </template>
 
 <script lang="ts" setup>
-const { plan, planConfig, isTrial, trialDaysLeft } = useAuth()
+const { t } = useI18n()
+const { planConfig, isTrial, trialDaysLeft } = useAuth()
 
 const visible = ref(true)
 

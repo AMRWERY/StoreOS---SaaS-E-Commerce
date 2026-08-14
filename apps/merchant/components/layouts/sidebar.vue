@@ -120,19 +120,36 @@
             v-if="!item.locked && expandedItems.includes(item.name)"
             class="ms-10 space-y-1 border-s border-border-subtle ps-2"
           >
-            <nuxt-link-locale
-              v-for="subItem in item.children"
-              :key="subItem.name"
-              :to="subItem.to"
-              class="block py-2 px-3 text-xs rounded-md transition-all"
-              :class="
-                route.path.includes(subItem.to)
-                  ? 'text-brand bg-brand-dim font-semibold'
-                  : 'text-tx-muted hover:text-tx-secondary hover:bg-bg-elevated'
-              "
-            >
-              {{ subItem.name }}
-            </nuxt-link-locale>
+            <template v-for="subItem in item.children" :key="subItem.name">
+              <!-- Locked child: ask instead of navigate -->
+              <button
+                v-if="subItem.feature && !hasFeature(subItem.feature)"
+                type="button"
+                @click="handleLockedClick(subItem.feature)"
+                class="w-full flex items-center gap-2 py-2 px-3 text-xs rounded-md transition-all text-tx-muted hover:bg-bg-elevated"
+              >
+                <span class="truncate flex-1 text-start opacity-50">{{
+                  subItem.name
+                }}</span>
+                <Icon
+                  name="lucide:lock"
+                  class="w-3 h-3 text-tx-muted opacity-60 shrink-0"
+                />
+              </button>
+
+              <nuxt-link-locale
+                v-else
+                :to="subItem.to"
+                class="block py-2 px-3 text-xs rounded-md transition-all"
+                :class="
+                  route.path.includes(subItem.to)
+                    ? 'text-brand bg-brand-dim font-semibold'
+                    : 'text-tx-muted hover:text-tx-secondary hover:bg-bg-elevated'
+                "
+              >
+                {{ subItem.name }}
+              </nuxt-link-locale>
+            </template>
           </div>
         </div>
       </div>
@@ -357,26 +374,40 @@ const navItems = computed(() => [
     feature: "settings",
     locked: !hasFeature("settings"),
     children: [
-      { name: t("nav.storeInformation"), to: "/dashboard/settings/store-info" },
+      {
+        name: t("nav.storeInformation"),
+        to: "/dashboard/settings/store-info",
+        feature: undefined,
+      },
       {
         name: t("nav.staffAndPermissions"),
         to: "/dashboard/settings/staff-and-permissions",
+        feature: "staff",
       },
       {
         name: t("nav.paymentGateways"),
         to: "/dashboard/settings/payment-gateways",
+        feature: "payments",
       },
       {
         name: t("nav.shippingLogistics"),
         to: "/dashboard/settings/shipping-logistics",
+        feature: "shipping",
       },
       {
         name: t("nav.notificationCenter"),
         to: "/dashboard/settings/notification-center",
+        feature: "notifications",
+      },
+      {
+        name: t("nav.apiAndWebhooks"),
+        to: "/dashboard/settings/api-and-webhooks",
+        feature: "api",
       },
       {
         name: t("nav.billingAndPlan"),
         to: "/dashboard/settings/billing-and-plan",
+        feature: undefined,
       },
     ],
   },

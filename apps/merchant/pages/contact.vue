@@ -101,9 +101,33 @@
 </template>
 
 <script lang="ts" setup>
+const route = useRoute()
+
+/**
+ * Arriving from the pricing page (`/contact?plan=enterprise&email=…`) — carry the
+ * email the visitor already typed so they never enter it twice. Seeded during setup,
+ * not onMounted, so the field is already filled in the server-rendered HTML.
+ */
+const PLAN_TOPICS: Record<string, string> = { enterprise: 'Sales & Pricing' }
+
+const queryParam = (key: string) => {
+  const value = route.query[key]
+  return typeof value === 'string' ? value : ''
+}
+
+const plan = queryParam('plan')
+
 const sent = ref(false)
 const loading = ref(false)
-const form = reactive({ firstName: '', lastName: '', email: '', topic: '', message: '' })
+const form = reactive({
+  firstName: '',
+  lastName: '',
+  email: queryParam('email'),
+  topic: PLAN_TOPICS[plan] ?? '',
+  message: PLAN_TOPICS[plan]
+    ? `I'd like to talk about the ${plan.charAt(0).toUpperCase() + plan.slice(1)} plan.`
+    : '',
+})
 
 const submit = async () => {
   loading.value = true

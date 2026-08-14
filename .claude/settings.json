@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node \"C:/Users/amrmo/AppData/Local/Temp/claude/d--Studying-Not-Done-Projects-StoreOS-storeos/0c3c9286-3290-48e5-8582-67152e426ab4/scratchpad/access-matrix.test.mjs\")",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(curl -s -o /dev/null -w \"3002 status=%{http_code}\\\\n\" http://localhost:3002/en)",
+      "Bash(curl -s http://localhost:3002/en)",
+      "Bash(curl -s -o /dev/null -w \"register?plan=growth status=%{http_code}\\\\n\" \"http://localhost:3002/en/auth/register?plan=growth\")",
+      "Bash(curl -s http://localhost:3002/en/auth/register)"
+    ]
+  }
+}

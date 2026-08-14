@@ -96,8 +96,8 @@
           </div>
 
           <!-- CTA -->
-          <LazyVButton variant="none" :to="tier.trial ? undefined : tier.ctaRoute"
-            @click="tier.trial ? openTrialModal(tier) : undefined" :className="`w-full py-3.5 rounded-xl font-bold text-sm transition-all mb-8 flex items-center justify-center ${tier.popular
+          <LazyVButton variant="none" @click="handleTierCta(tier)"
+            :className="`w-full py-3.5 rounded-xl font-bold text-sm transition-all mb-8 flex items-center justify-center ${tier.popular
               ? 'bg-brand hover:bg-brand-hover text-white shadow-lg shadow-brand/20'
               : tier.free
                 ? 'bg-success/15 hover:bg-success/25 border border-success/30 text-success'
@@ -227,8 +227,8 @@
       <div class="flex items-center gap-2">
         <span class="inline-flex w-2 h-2 rounded-full bg-brand animate-pulse"></span>
         {{
-          selectedTier?.free
-            ? t("home.pricing.modal.createFreeAccount")
+          selectedTier?.contactSales
+            ? t("home.pricing.modal.contactSales")
             : t("home.pricing.modal.startTrial")
         }}
       </div>
@@ -262,8 +262,8 @@
           </p>
           <p class="text-[11px] text-success font-bold">
             {{
-              selectedTier.free
-                ? t("home.pricing.modal.alwaysFree")
+              selectedTier.contactSales
+                ? t("home.pricing.modal.customQuote")
                 : t("home.pricing.modal.14daysFree")
             }}
           </p>
@@ -285,13 +285,13 @@
       </div>
 
       <!-- Submit -->
-      <LazyVButton variant="none" @click="startTrial" :className="`w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg ${selectedTier.free
-        ? 'bg-success/15 hover:bg-success/25 border border-success/30 text-success shadow-success/10'
+      <LazyVButton variant="none" @click="startTrial" :className="`w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg ${selectedTier.contactSales
+        ? 'bg-info/15 hover:bg-info/25 border border-info/30 text-info shadow-info/10'
         : 'bg-brand hover:bg-brand-hover text-white shadow-brand/20'
         }`">
         {{
-          selectedTier.free
-            ? t("home.pricing.modal.createFreeAccountBtn")
+          selectedTier.contactSales
+            ? t("home.pricing.modal.continueToContact")
             : t("home.pricing.modal.startMyTrial")
         }}
         <Icon name="ph:arrow-right-bold" class="text-base rtl:rotate-180" />
@@ -299,8 +299,8 @@
 
       <p class="text-center text-[11px] text-tx-muted">
         {{
-          selectedTier.free
-            ? t("home.pricing.modal.noCardFree")
+          selectedTier.contactSales
+            ? t("home.pricing.modal.salesWillReachOut")
             : t("home.pricing.modal.noCardTrial")
         }}
       </p>
@@ -313,7 +313,7 @@ import type { Tier } from "@/types/pricing";
 import type { Plan } from '@/types/auth';
 
 const { t } = useI18n();
-const { register } = useAuth();
+const { register, startGuestPreview } = useAuth();
 const localePath = useLocalePath();
 const billing = ref<"monthly" | "annual">("monthly");
 
@@ -329,15 +329,19 @@ const openTrialModal = (tier: Tier) => {
   isTrialOpen.value = true;
 };
 
-const planNameToKey = (name: string): Plan => {
-  const map: Record<string, Plan> = {
-    free: 'free',
-    starter: 'starter',
-    growth: 'growth',
-    enterprise: 'enterprise',
+/**
+ * The free tier asks for nothing up front — same as the login page's "Start free trial":
+ * straight into the dashboard in preview mode, no modal, no email, no account.
+ * Trial tiers and Enterprise both collect an email in the modal first.
+ */
+const handleTierCta = async (tier: Tier) => {
+  if (tier.free) {
+    startGuestPreview();
+    await navigateTo(localePath("/dashboard"));
+    return;
   }
-  return map[name.toLowerCase()] ?? 'trial'
-}
+  openTrialModal(tier);
+};
 
 const startTrial = async () => {
   if (
@@ -350,17 +354,26 @@ const startTrial = async () => {
   emailError.value = "";
   isTrialOpen.value = false;
 
-  const selectedPlan = selectedTier.value?.free
-    ? 'free'
-    : planNameToKey(selectedTier.value?.name ?? 'trial')
+  // Enterprise is sales-led: hand the email to the contact form instead of provisioning.
+  if (selectedTier.value?.contactSales) {
+    await navigateTo(
+      localePath({
+        path: "/contact",
+        query: { plan: selectedTier.value.plan, email: trialEmail.value },
+      }),
+    );
+    return;
+  }
 
-  register(selectedPlan as Plan)
+  // Trialling a tier grants exactly that tier's dashboard access for 14 days.
+  register(selectedTier.value?.plan ?? 'trial')
   await navigateTo(localePath('/dashboard'))
 };
 
 const tiers = computed(() => [
   {
     name: t("home.pricing.tiers.free.name"),
+    plan: 'free' as Plan,
     tagline: t("home.pricing.tiers.free.tagline"),
     monthlyPrice: 0,
     annualPrice: 0,
@@ -412,6 +425,7 @@ const tiers = computed(() => [
   },
   {
     name: t("home.pricing.tiers.starter.name"),
+    plan: 'starter' as Plan,
     tagline: t("home.pricing.tiers.starter.tagline"),
     monthlyPrice: 19,
     annualPrice: 15,
@@ -463,6 +477,7 @@ const tiers = computed(() => [
   },
   {
     name: t("home.pricing.tiers.growth.name"),
+    plan: 'growth' as Plan,
     tagline: t("home.pricing.tiers.growth.tagline"),
     monthlyPrice: 49,
     annualPrice: 39,
@@ -514,6 +529,7 @@ const tiers = computed(() => [
   },
   {
     name: t("home.pricing.tiers.enterprise.name"),
+    plan: 'enterprise' as Plan,
     tagline: t("home.pricing.tiers.enterprise.tagline"),
     monthlyPrice: 99,
     annualPrice: 79,
@@ -523,8 +539,9 @@ const tiers = computed(() => [
     popular: false,
     free: false,
     trial: false,
+    contactSales: true,
     cta: t("home.pricing.tiers.enterprise.cta"),
-    ctaRoute: "/auth/register?plan=enterprise",
+    ctaRoute: "/contact?plan=enterprise",
     featureGroups: [
       {
         label: t("home.pricing.ordersAndProducts"),

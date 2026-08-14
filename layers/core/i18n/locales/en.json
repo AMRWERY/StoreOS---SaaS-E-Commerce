@@ -14,6 +14,13 @@
     "or": "or",
     "startFreeTrial": "Start free trial",
     "previewHint": "Explore the dashboard with sample data — no account needed.",
+    "trialBanner": {
+      "daysLeft": "1 day | {n} days",
+      "leftInTrial": "left in your free trial —",
+      "upgradeToKeep": "upgrade now to keep full access.",
+      "expired": "Your trial has expired. Upgrade to continue using StoreOS.",
+      "limitedPlan": "You're on the {plan} plan with limited features."
+    },
     "gate": {
       "modalTitle": "SIGN IN REQUIRED",
       "title": "Sign in to use this",
@@ -116,6 +123,7 @@
     "shippingLogistics": "Shipping & Logistics",
     "notificationCenter": "Notification Center",
     "billingAndPlan": "Billing & Plan",
+    "apiAndWebhooks": "API & Webhooks",
     "storeBuilder": "Store Builder",
     "useLightTheme": "Switch to light theme",
     "useDarkTheme": "Switch to dark theme",
@@ -344,11 +352,27 @@
         "startMyTrial": "Start My Free Trial",
         "noCardFree": "No credit card, no time limit · Free forever",
         "noCardTrial": "No credit card required · Cancel anytime · 14 days free",
-        "invalidEmail": "Please enter a valid email address"
+        "invalidEmail": "Please enter a valid email address",
+        "contactSales": "Talk to our sales team",
+        "customQuote": "Custom quote",
+        "continueToContact": "Continue to contact form",
+        "salesWillReachOut": "Our team replies within one business day."
       }
     }
   },
   "dashboard": {
+    "api": {
+      "title": "API & Webhooks",
+      "subtitle": "Manage your secret key and webhook endpoints.",
+      "enterpriseOnly": "ENTERPRISE",
+      "secretKey": "Secret API key",
+      "lastUsed": "Last used 2h ago",
+      "reveal": "Reveal",
+      "hide": "Hide",
+      "webhooks": "Webhook endpoints",
+      "active": "ACTIVE",
+      "paused": "PAUSED"
+    },
     "home": {
       "recentOrders": "Recent Orders",
       "viewAll": "View All",

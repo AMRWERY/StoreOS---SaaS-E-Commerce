@@ -189,6 +189,8 @@
 </template>
 
 <script lang="ts" setup>
+import type { Plan } from "@/types/auth";
+
 const { t } = useI18n();
 
 const industries = ["Fashion", "Food", "Electronics", "Beauty"];
@@ -200,13 +202,22 @@ const password = ref("");
 const agree = ref(false);
 
 const localePath = useLocalePath();
+const route = useRoute();
+const { register } = useAuth();
 const isLoading = ref(false);
+
+/** Pricing CTAs link here as `?plan=growth`; anything unknown starts a plain trial. */
+const selectedPlan = computed<Plan>(() => {
+  const plan = String(route.query.plan ?? "");
+  return plan in PLAN_CONFIGS && plan !== "guest" ? (plan as Plan) : "trial";
+});
 
 const handleSubmit = async () => {
   isLoading.value = true;
   try {
     // TODO: replace with real register call
     await new Promise((resolve) => setTimeout(resolve, 2500));
+    register(selectedPlan.value);
     await navigateTo(localePath("/onboarding/add-first-product"));
   } finally {
     isLoading.value = false;

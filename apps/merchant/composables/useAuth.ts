@@ -7,6 +7,42 @@ import type { Plan, PlanConfig } from '../types/auth'
  */
 export const GUEST_FEATURES = ['dashboard', 'orders', 'products'] as const
 
+/**
+ * Dashboard access ladder. Each plan adds to the one below it, matching the
+ * comparison table in `home-components/pricing.vue`:
+ *
+ *   tab / feature   guest  free  starter  growth  enterprise
+ *   dashboard         ✓     ✓       ✓       ✓         ✓
+ *   orders            ✓     ✓       ✓       ✓         ✓
+ *   products          ✓     ✓       ✓       ✓         ✓
+ *   inventory         ✗     ✓       ✓       ✓         ✓
+ *   settings          ✗     ✓       ✓       ✓         ✓
+ *   profile           ✗     ✓       ✓       ✓         ✓
+ *   customers (CRM)   ✗     ✗       ✓       ✓         ✓
+ *   analytics         ✗     ✗       ✓       ✓         ✓
+ *   payments          ✗     ✗       ✓       ✓         ✓
+ *   shipping          ✗     ✗       ✓       ✓         ✓
+ *   notifications     ✗     ✗       ✓       ✓         ✓
+ *   coupons           ✗     ✗       ✗       ✓         ✓
+ *   builder           ✗     ✗       ✗       ✓         ✓
+ *   staff             ✗     ✗       ✗       ✓         ✓
+ *   api               ✗     ✗       ✗       ✗         ✓
+ *
+ * Free stays cash-on-delivery only with no integrations (ROADMAP Phase 1);
+ * payment/shipping/notification settings arrive with Starter.
+ */
+const FREE_FEATURES = [...GUEST_FEATURES, 'inventory', 'settings', 'profile']
+const STARTER_FEATURES = [
+  ...FREE_FEATURES,
+  'customers',
+  'analytics',
+  'payments',
+  'shipping',
+  'notifications',
+]
+const GROWTH_FEATURES = [...STARTER_FEATURES, 'coupons', 'builder', 'staff']
+const ENTERPRISE_FEATURES = [...GROWTH_FEATURES, 'api']
+
 export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
   guest: {
     label: 'Preview',
@@ -22,7 +58,7 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
     maxOrders: 50,
     maxSkus: 50,
     maxMembers: 1,
-    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'settings', 'profile'],
+    features: FREE_FEATURES,
   },
   free: {
     label: 'Free',
@@ -30,7 +66,7 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
     maxOrders: 50,
     maxSkus: 50,
     maxMembers: 1,
-    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'settings', 'profile'],
+    features: FREE_FEATURES,
   },
   starter: {
     label: 'Starter',
@@ -38,7 +74,7 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
     maxOrders: 1000,
     maxSkus: 500,
     maxMembers: 3,
-    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'analytics', 'coupons', 'settings', 'profile'],
+    features: STARTER_FEATURES,
   },
   growth: {
     label: 'Growth',
@@ -46,7 +82,7 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
     maxOrders: null,
     maxSkus: null,
     maxMembers: 10,
-    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'analytics', 'coupons', 'staff', 'settings', 'profile', 'builder'],
+    features: GROWTH_FEATURES,
   },
   enterprise: {
     label: 'Enterprise',
@@ -54,7 +90,7 @@ export const PLAN_CONFIGS: Record<Plan, PlanConfig> = {
     maxOrders: null,
     maxSkus: null,
     maxMembers: null,
-    features: ['dashboard', 'orders', 'products', 'customers', 'inventory', 'analytics', 'coupons', 'staff', 'settings', 'profile', 'builder'],
+    features: ENTERPRISE_FEATURES,
   },
 }
 
@@ -65,6 +101,21 @@ const PLAN_TRIAL_DAYS: Partial<Record<Plan, number>> = {
   enterprise: 14,
 }
 
+export const PAID_TIERS: Plan[] = ['starter', 'growth', 'enterprise']
+
+/**
+ * Trialling a paid tier is not the same as paying for it: a Starter trial has
+ * `plan: 'starter'` with days remaining and no card on file. Keep the two apart or
+ * the trial banner disappears for exactly the merchants it is meant to convert.
+ */
+export const isTrialingPlan = (plan: Plan, trialDaysLeft: number): boolean =>
+  // 'guest' and 'free' are never trials, whatever the day counter says — it defaults to 14.
+  plan !== 'guest' && plan !== 'free' && (plan === 'trial' || trialDaysLeft > 0)
+
+/** On a paid tier with the trial already over — i.e. actually subscribed. */
+export const isPayingPlan = (plan: Plan, trialDaysLeft: number): boolean =>
+  PAID_TIERS.includes(plan) && !isTrialingPlan(plan, trialDaysLeft)
+
 export const useAuth = () => {
   const isAuthenticated = useState<boolean>('isAuthenticated', () => false)
   const plan = useState<Plan>('plan', () => 'free')
@@ -73,8 +124,8 @@ export const useAuth = () => {
   const planConfig = computed(() => PLAN_CONFIGS[plan.value])
   /** Signed-out visitor exploring the dashboard with sample data. */
   const isGuest = computed(() => !isAuthenticated.value && plan.value === 'guest')
-  const isTrial = computed(() => plan.value === 'trial' || (trialDaysLeft.value > 0 && !['free', 'guest'].includes(plan.value) && !isPaid.value))
-  const isPaid = computed(() => ['starter', 'growth', 'enterprise'].includes(plan.value))
+  const isTrial = computed(() => !isGuest.value && isTrialingPlan(plan.value, trialDaysLeft.value))
+  const isPaid = computed(() => isPayingPlan(plan.value, trialDaysLeft.value))
   /** Preview visitors may browse but never create, edit, delete or export. */
   const canWrite = computed(() => !isGuest.value)
 
