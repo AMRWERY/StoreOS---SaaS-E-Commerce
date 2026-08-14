@@ -80,7 +80,7 @@
             className="bg-brand hover:bg-brand-hover text-white px-6 py-3 rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20">
             {{ t("home.integrations.requestIntegration") }}
           </LazyVButton>
-          <LazyVButton variant="none"
+          <LazyVButton variant="none" to="/roadmap"
             className="px-6 py-3 bg-bg-elevated hover:bg-white/10 border border-border-subtle rounded-xl text-xs font-bold text-tx-secondary hover:text-tx-primary transition-all">
             {{ t("home.integrations.viewRoadmap") }}
           </LazyVButton>
