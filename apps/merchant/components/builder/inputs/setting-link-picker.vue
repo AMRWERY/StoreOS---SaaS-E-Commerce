@@ -1,18 +1,19 @@
 ﻿<template>
-  <setting-group title="Link" default-open>
-    <setting-text
+  <lazy-setting-group title="Link" default-open>
+    <lazy-setting-text
       v-model="url"
       label="URL"
       input-type="url"
       placeholder="https://..."
     />
-    <setting-text
+
+    <lazy-setting-text
       v-model="label"
       class="mt-4"
       label="Label"
       placeholder="Shop now"
     />
-  </setting-group>
+  </lazy-setting-group>
 </template>
 
 <script lang="ts" setup>

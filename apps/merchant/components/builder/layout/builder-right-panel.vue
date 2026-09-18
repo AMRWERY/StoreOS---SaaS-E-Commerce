@@ -11,27 +11,30 @@
       class="w-full min-w-0 max-xl:block"
       :class="settingsPanelOpen ? 'xl:block' : 'xl:hidden'"
     >
-      <theme-settings-panel
+      <lazy-theme-settings-panel
         v-if="store.panelMode === 'theme-settings'"
         @collapse="settingsPanelOpen = false"
       />
 
-      <navbar-settings-panel
+      <lazy-navbar-settings-panel
         v-else-if="store.panelMode === 'navbar-settings'"
         @collapse="settingsPanelOpen = false"
       />
 
-      <footer-settings-panel
+      <lazy-footer-settings-panel
         v-else-if="store.panelMode === 'footer-settings'"
         @collapse="settingsPanelOpen = false"
       />
 
-      <page-settings-panel
+      <lazy-page-settings-panel
         v-else-if="store.panelMode === 'page-settings'"
         @collapse="settingsPanelOpen = false"
       />
 
-      <section-settings-panel v-else @collapse="settingsPanelOpen = false" />
+      <lazy-section-settings-panel
+        v-else
+        @collapse="settingsPanelOpen = false"
+      />
     </div>
 
     <div
@@ -49,6 +52,7 @@
       >
         <Icon name="ph:sidebar-simple-bold" class="text-xl rtl:rotate-180" />
       </component>
+
       <span
         class="select-none text-[9px] font-black tracking-[0.2em] text-tx-muted [writing-mode:vertical-rl] rotate-180"
         aria-hidden="true"

@@ -1,25 +1,28 @@
 ﻿<template>
   <div class="space-y-6">
-    <SettingGroup title="Newsletter" default-open>
-      <SettingText v-model="heading" label="Heading" />
+    <lazy-setting-group title="Newsletter" default-open>
+      <lazy-setting-text v-model="heading" label="Heading" />
       <div class="mt-4">
-        <SettingText v-model="placeholder" label="Input placeholder" />
+        <lazy-setting-text v-model="placeholder" label="Input placeholder" />
       </div>
+
       <div class="mt-4">
-        <SettingText v-model="buttonLabel" label="Button label" />
+        <lazy-setting-text v-model="buttonLabel" label="Button label" />
       </div>
+
       <div class="mt-4">
-        <SettingToggle v-model="gdpr" label="Show GDPR note" />
+        <lazy-setting-toggle v-model="gdpr" label="Show GDPR note" />
       </div>
-    </SettingGroup>
+    </lazy-setting-group>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
-const { str, bool } = useSectionSettingsForm()
-const heading = str('heading', 'Join the list')
-const placeholder = str('placeholder', 'Email address')
-const buttonLabel = str('button_label', 'Subscribe')
-const gdpr = bool('gdpr_note', true)
+const { t } = useI18n();
+const { str, bool } = useSectionSettingsForm();
+
+const heading = str("heading", "Join the list");
+const placeholder = str("placeholder", "Email address");
+const buttonLabel = str("button_label", "Subscribe");
+const gdpr = bool("gdpr_note", true);
 </script>

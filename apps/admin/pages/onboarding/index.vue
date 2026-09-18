@@ -53,7 +53,7 @@
       <Transition name="step" mode="out-in">
         <!-- Step 1: Store Setup -->
         <div v-if="currentStep === 1" key="s1">
-          <step-two
+          <lazy-step-two
             :progress="progress"
             :step="currentStep"
             :totalSteps="totalSteps"
@@ -63,7 +63,7 @@
 
         <!-- Step 2: Payment Methods -->
         <div v-else-if="currentStep === 2" key="s2">
-          <step-three
+          <lazy-step-three
             :progress="progress"
             :step="currentStep"
             :totalSteps="totalSteps"
@@ -75,7 +75,7 @@
         <!-- Step 3: Add First Product -->
         <div v-else-if="currentStep === 3" key="s3">
           <div class="flex items-center justify-center p-6 mt-4">
-            <step-one
+            <lazy-step-one
               :progress="progress"
               :step="currentStep"
               :totalSteps="totalSteps"
@@ -87,7 +87,7 @@
 
         <!-- Step 4: Store Ready -->
         <div v-else-if="currentStep === 4" key="s4">
-          <store-ready />
+          <lazy-store-ready />
         </div>
       </Transition>
     </div>

@@ -34,7 +34,6 @@
           <span class="hidden min-[360px]:inline">{{ tab.label }}</span>
         </component>
       </div>
-
       <component
         :is="UiButton"
         variant="none"
@@ -55,7 +54,9 @@
       <lazy-add-section-button />
     </div>
 
-    <div v-else class="flex min-h-0 flex-1 flex-col">lazy-<theme-panel /></div>
+    <div v-else class="flex min-h-0 flex-1 flex-col">
+      <lazy-theme-panel />
+    </div>
   </aside>
 </template>
 

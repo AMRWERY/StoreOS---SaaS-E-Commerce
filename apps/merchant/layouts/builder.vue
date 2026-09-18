@@ -3,10 +3,10 @@
     class="flex h-screen max-h-screen flex-col overflow-hidden bg-bg-base text-tx-primary"
     :style="cssVars"
   >
-    <BuilderTopbar @toggle-sidebar="isSidebarOpen = true" />
+    <lazy-builder-topbar @toggle-sidebar="isSidebarOpen = true" />
 
     <div class="flex min-h-0 flex-1 overflow-hidden">
-      <BuilderLeftPanel
+      <lazy-builder-left-panel
         :is-open="isSidebarOpen"
         @close="isSidebarOpen = false"
       />

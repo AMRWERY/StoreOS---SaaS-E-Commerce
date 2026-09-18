@@ -1,27 +1,28 @@
 ﻿<template>
   <div class="space-y-6">
-    <SettingGroup title="Trust row" default-open>
-      <SettingText v-model="heading" label="Heading" />
+    <lazy-setting-group title="Trust row" default-open>
+      <lazy-setting-text v-model="heading" label="Heading" />
       <div class="mt-4">
-        <SettingToggle v-model="icons" label="Show icons" />
+        <lazy-setting-toggle v-model="icons" label="Show icons" />
       </div>
-    </SettingGroup>
-    <SettingRepeater v-model="items" label="Badges">
+    </lazy-setting-group>
+
+    <lazy-setting-repeater v-model="items" label="Badges">
       <template #default="{ item }">
-        <SettingText
+        <lazy-setting-text
           :model-value="String(item.title ?? '')"
           label="Line"
           @update:model-value="(v: string) => updateItem(item, 'title', v)"
         />
       </template>
-    </SettingRepeater>
+    </lazy-setting-repeater>
   </div>
 </template>
 
 <script lang="ts" setup>
 const { t } = useI18n();
-
 const { str, bool, patch, section } = useSectionSettingsForm();
+
 const heading = str("heading", "Why shop with us");
 const icons = bool("show_icons", true);
 

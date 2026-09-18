@@ -64,7 +64,7 @@
         Sections
       </p>
       <div class="space-y-0.5">
-        <section-list-item v-for="s in ordered" :key="s.id" :section="s" />
+        <lazy-section-list-item v-for="s in ordered" :key="s.id" :section="s" />
       </div>
     </div>
 

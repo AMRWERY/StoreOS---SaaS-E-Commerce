@@ -1,5 +1,5 @@
 ﻿<template>
-  <setting-select
+  <lazy-setting-select
     :model-value="modelValue"
     :label="label"
     :options="fontOptions"

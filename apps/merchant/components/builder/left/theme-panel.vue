@@ -9,14 +9,14 @@
     <div
       class="mt-5 space-y-4 rounded-lg border border-border-subtle bg-bg-elevated/30 p-4"
     >
-      <setting-toggle
+      <lazy-setting-toggle
         v-model="announcement"
         label="Announcement bar"
         hint="Shown above the navbar"
       />
 
       <div class="mt-2">
-        <setting-text
+        <lazy-setting-text
           v-model="announcementText"
           label="Bar text"
           placeholder="Free shipping this week"

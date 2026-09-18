@@ -127,6 +127,7 @@
         <div class="mt-4">
           <lazy-setting-font-picker v-model="bodyFont" label="Body font" />
         </div>
+        
         <div class="mt-4">
           <lazy-setting-range
             v-model="baseSize"

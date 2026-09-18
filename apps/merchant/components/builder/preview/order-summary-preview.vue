@@ -128,6 +128,7 @@
         >
           Continue shopping
         </LazyVButton>
+        
         <LazyVButton
           variant="none"
           className="flex-1 rounded-2xl border border-neutral-200 bg-white py-3.5 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"

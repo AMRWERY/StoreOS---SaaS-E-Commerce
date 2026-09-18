@@ -7,7 +7,7 @@
     </p>
 
     <div class="min-h-0 flex-1 overflow-auto rounded-lg">
-      <preview-frame :device="store.device">
+      <lazy-preview-frame :device="store.device">
         <div
           class="flex h-full min-h-[520px] flex-col overflow-hidden rounded-t-xl bg-white"
         >
@@ -37,23 +37,25 @@
             class="relative min-h-0 flex-1 overflow-y-auto bg-white text-neutral-900"
           >
             <!-- ── Checkout page ───────────────────────────────────── -->
-            <checkout-preview v-if="store.currentPage?.type === 'checkout'" />
+            <lazy-checkout-preview
+              v-if="store.currentPage?.type === 'checkout'"
+            />
 
             <!-- ── Order confirmed page ───────────────────────────── -->
-            <order-summary-preview
+            <lazy-order-summary-preview
               v-else-if="store.currentPage?.type === 'order_confirmed'"
             />
 
             <!-- ── Regular page ───────────────────────────────────── -->
             <template v-else>
               <!-- Persistent Navbar -->
-              <navbar-preview
+              <lazy-navbar-preview
                 :selected="navbarSelected"
                 @select="selectNavbar"
               />
 
               <!-- Sections -->
-              <section-preview-block
+              <lazy-section-preview-block
                 v-for="section in store.sections"
                 :key="section.id"
                 :section="section"
@@ -77,14 +79,14 @@
               </div>
 
               <!-- Persistent Footer -->
-              <footer-preview
+              <lazy-footer-preview
                 :selected="footerSelected"
                 @select="selectFooter"
               />
             </template>
           </div>
         </div>
-      </preview-frame>
+      </lazy-preview-frame>
     </div>
   </div>
 </template>

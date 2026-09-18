@@ -2,21 +2,23 @@
   <div
     class="flex min-h-0 w-full flex-1 flex-col gap-6 xl:flex-row xl:items-stretch xl:gap-0"
   >
-    <BuilderPreview class="min-h-[480px] min-w-0 flex-1 xl:h-full xl:min-h-0" />
+    <lazy-builder-preview
+      class="min-h-[480px] min-w-0 flex-1 xl:h-full xl:min-h-0"
+    />
 
-    <BuilderRightPanel />
+    <lazy-builder-right-panel />
 
-    <AddSectionModal />
+    <lazy-add-section-modal />
 
-    <PublishModal />
+    <lazy-publish-modal />
 
-    <CreatePageModal />
+    <lazy-create-page-modal />
 
-    <DeletePageModal />
+    <lazy-delete-page-modal />
 
-    <TemplatePickerModal />
+    <lazy-template-picker-modal />
 
-    <PlanGateOverlay />
+    <lazy-plan-gate-overlay />
   </div>
 </template>
 
@@ -24,8 +26,8 @@
 import type { BuilderEditorHero } from "@/types/builder";
 
 const { t } = useI18n();
-const store = useBuilderStore();
 const route = useRoute();
+const store = useBuilderStore();
 
 const hero = reactive<BuilderEditorHero>({
   headline: "Redefining Minimalist Design.",
