@@ -117,43 +117,22 @@
           </div>
 
           <!-- Quantity -->
-          <div class="space-y-3">
-            <label
-              class="text-[10px] font-bold text-tx-secondary tracking-widest"
-              >{{ t("dashboard.inventory.quantity") }}</label
-            >
-            <input
-              type="number"
-              v-model="adjQty"
-              placeholder="0"
-              class="w-full bg-bg-primary border border-border-subtle rounded-xl px-4 py-4 text-base font-medium text-tx-primary focus:outline-none focus:border-brand transition-colors placeholder:text-tx-muted"
-            />
-          </div>
+          <LazyVInput
+            type="number"
+            v-model="adjQty"
+            :label="t('dashboard.inventory.quantity')"
+            placeholder="0"
+            inputClass="!w-full !bg-bg-primary !border !border-border-subtle !rounded-xl !px-4 !py-4 !text-base !font-medium !text-tx-primary focus:!outline-none focus:!border-brand !transition-colors placeholder:!text-tx-muted"
+          />
 
           <!-- Reason -->
-          <div class="space-y-3">
-            <label
-              class="text-[10px] font-bold text-tx-secondary tracking-widest"
-              >{{ t("dashboard.inventory.reasonForChange") }}</label
-            >
-            <div class="relative">
-              <select
-                v-model="adjReason"
-                class="w-full bg-bg-primary border border-border-subtle rounded-xl px-4 py-4 text-sm text-tx-secondary font-medium appearance-none focus:outline-none focus:border-brand transition-colors cursor-pointer"
-              >
-                <option value="" disabled>Select a reason...</option>
-                <option>Purchase</option>
-                <option>Sale</option>
-                <option>Return</option>
-                <option>Damage</option>
-                <option>Correction</option>
-              </select>
-              <Icon
-                name="ph:caret-down-bold"
-                class="absolute end-5 top-1/2 -translate-y-1/2 text-tx-secondary pointer-events-none"
-              />
-            </div>
-          </div>
+          <LazyVSelectInput
+            v-model="adjReason"
+            :label="t('dashboard.inventory.reasonForChange')"
+            placeholder="Select a reason..."
+            :options="['Purchase', 'Sale', 'Return', 'Damage', 'Correction']"
+            selectClass="!bg-bg-primary !border-border-subtle !rounded-xl !px-4 !py-4 !text-sm !text-tx-secondary font-medium focus:!border-brand"
+          />
 
           <!-- Notes -->
           <div class="space-y-3">
@@ -161,11 +140,11 @@
               class="text-[10px] font-bold text-tx-secondary tracking-widest"
               >{{ t("dashboard.inventory.notesOptional") }}</label
             >
-            <textarea
+            <LazyVTextareaInput
               v-model="adjNotes"
               :placeholder="t('dashboard.inventory.notesPlaceholder')"
-              class="w-full bg-bg-primary border border-border-subtle rounded-xl px-4 py-4 text-sm h-28 focus:border-brand outline-none resize-none placeholder:text-tx-muted transition-colors font-medium"
-            ></textarea>
+              textareaClass="!bg-bg-primary !border-border-subtle !rounded-xl !px-4 !py-4 !text-sm !h-28 focus:!border-brand font-medium"
+            />
           </div>
         </div>
 

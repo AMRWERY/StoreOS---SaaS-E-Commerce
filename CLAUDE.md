@@ -118,9 +118,6 @@ in templates. Shared cross-app components are `V*` in `layers/ui/components/` (`
 the `Lazy` prefix (`<LazyVPagination>`). Icons come from `@nuxt/icon` with `serverBundle: 'local'` — only
 the `@iconify-json/*` collections in the root `package.json` are available offline.
 
-**Deployment** is Vercel per app: each `apps/*/vercel.json` builds from the repo root
-(`cd ../.. && pnpm turbo build --filter=<app> --force`) with `outputDirectory: .output`.
-
 ## Gotchas
 
 - Both app configs carry a `fix-vue-default-import` Vite `generateBundle` plugin that rewrites

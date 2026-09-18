@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Product } from '../types/v-product-card'
+import type { Product } from '../types/VProductCard'
 
 const props = withDefaults(defineProps<{
   product: Product,

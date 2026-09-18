@@ -6,17 +6,29 @@
     <p class="mt-2 text-[11px] leading-relaxed text-tx-secondary">
       Full controls are in the right panel while this tab is active.
     </p>
-    <div class="mt-5 space-y-4 rounded-lg border border-border-subtle bg-bg-elevated/30 p-4">
-      <setting-toggle v-model="announcement" label="Announcement bar" hint="Shown above the navbar" />
+    <div
+      class="mt-5 space-y-4 rounded-lg border border-border-subtle bg-bg-elevated/30 p-4"
+    >
+      <setting-toggle
+        v-model="announcement"
+        label="Announcement bar"
+        hint="Shown above the navbar"
+      />
 
       <div class="mt-2">
-        <setting-text v-model="announcementText" label="Bar text" placeholder="Free shipping this week" />
+        <setting-text
+          v-model="announcementText"
+          label="Bar text"
+          placeholder="Free shipping this week"
+        />
       </div>
     </div>
 
-    <button type="button"
+    <button
+      type="button"
       class="mt-5 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-brand/35 py-3 text-[10px] font-black tracking-wider text-brand hover:bg-brand/15"
-      @click="planGateOpen = true">
+      @click="planGateOpen = true"
+    >
       <Icon name="ph:crown-simple-bold" />
       Compare plans
     </button>
@@ -24,9 +36,9 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
-const { planGateOpen } = useBuilderModals()
+const { t } = useI18n();
+const { planGateOpen } = useBuilderModals();
 
-const announcement = ref(false)
-const announcementText = ref('Free shipping on orders over $50')
+const announcement = ref(false);
+const announcementText = ref("Free shipping on orders over $50");
 </script>

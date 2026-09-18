@@ -18,11 +18,12 @@
             >{{ t("dashboard.settings.systemUrl") }}</label
           >
           <div class="flex items-center">
-            <input
-              :value="modelValue.systemUrl"
-              readonly
+            <LazyVInput
+              :model-value="modelValue.systemUrl"
               type="text"
-              class="flex-1 bg-bg-primary border border-border-subtle rounded-s-lg px-4 py-3 text-sm text-tx-secondary outline-none"
+              readonly
+              input-class="!bg-bg-primary !rounded-s-lg !rounded-e-none !px-4 !py-3 !text-sm !text-tx-secondary"
+              class="flex-1"
             />
             <button
               class="bg-bg-elevated hover:bg-bg-elevated border-y border-e border-border-default px-5 py-3 rounded-e-lg text-[10px] font-black tracking-widest flex items-center gap-2 transition-colors"

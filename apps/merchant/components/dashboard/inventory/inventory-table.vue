@@ -87,15 +87,14 @@
             @click.stop="startEditThreshold(item)"
           >
             <template v-if="editingId === item.id">
-              <input
+              <LazyVInput
                 type="number"
                 v-model="editValue"
                 @blur="saveThreshold(item)"
                 @keyup.enter="saveThreshold(item)"
                 @keyup.esc="editingId = null"
-                class="w-16 bg-bg-primary border border-indigo-500/50 rounded px-2 py-1 text-xs font-bold focus:outline-none"
-                ref="thresholdInput"
                 autofocus
+                inputClass="!w-16 !bg-bg-primary !border-indigo-500/50 !rounded !px-2 !py-1 !text-xs font-bold focus:!outline-none"
               />
             </template>
             <template v-else>

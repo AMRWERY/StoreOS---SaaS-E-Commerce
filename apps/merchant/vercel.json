@@ -1,6 +1,0 @@
-{
-  "buildCommand": "cd ../.. && pnpm turbo build --filter=@storeos/merchant --force",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "framework": "nuxtjs",
-  "outputDirectory": ".output"
-}

@@ -31,7 +31,8 @@
           <!-- Contextual Search -->
           <div class="bg-bg-overlay border border-border-subtle rounded-xl p-3 flex items-center gap-4 max-w-md">
             <Icon name="ph:magnifying-glass-bold" class="text-tx-muted" />
-            <input type="text" placeholder="Quick search staff..." class="bg-transparent outline-none text-xs flex-1" />
+            <LazyVInput type="text" placeholder="Quick search staff..."
+              input-class="!bg-transparent !border-0 !rounded-none !p-0 !text-xs !outline-none" class="flex-1" />
             <div class="flex items-center gap-3 text-[9px] font-black text-tx-muted">
               <span class="flex items-center gap-1">
                 <Icon name="ph:file-text-bold" />

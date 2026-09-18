@@ -137,49 +137,40 @@
             <!-- Starts -->
             <LazyVDatePicker v-model="form.startDate" label="Starts">
               <template #trigger="{ selectedDate }">
-                <div class="space-y-2">
-                  <label
-                    class="text-[10px] font-black text-tx-muted tracking-widest"
-                    >{{ t("dashboard.coupons.starts") }}</label
-                  >
-                  <div class="relative group cursor-pointer">
+                <LazyVInput
+                  readonly
+                  :label="t('dashboard.coupons.starts')"
+                  :modelValue="
+                    selectedDate || t('dashboard.coupons.immediateActivation')
+                  "
+                  inputClass="!w-full !bg-bg-primary !border-border-subtle !rounded-2xl !ps-14 !pe-5 !py-4 !text-sm !font-bold !text-tx-primary !cursor-pointer group-hover:!border-border-default !transition-colors"
+                >
+                  <template #prefix>
                     <Icon
                       name="ph:calendar-blank-bold"
                       class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-brand"
                     />
-                    <input
-                      readonly
-                      :value="
-                        selectedDate ||
-                        t('dashboard.coupons.immediateActivation')
-                      "
-                      class="w-full bg-bg-primary border border-border-subtle rounded-2xl ps-14 pe-5 py-4 text-sm font-bold text-tx-primary outline-none group-hover:border-border-default transition-colors"
-                    />
-                  </div>
-                </div>
+                  </template>
+                </LazyVInput>
               </template>
             </LazyVDatePicker>
 
             <!-- Expires -->
             <LazyVDatePicker v-model="form.expiryDate" label="Expires">
               <template #trigger="{ selectedDate }">
-                <div class="space-y-2">
-                  <label
-                    class="text-[10px] font-black text-tx-muted tracking-widest"
-                    >{{ t("dashboard.coupons.expires") }}</label
-                  >
-                  <div class="relative group cursor-pointer">
+                <LazyVInput
+                  readonly
+                  :label="t('dashboard.coupons.expires')"
+                  :modelValue="selectedDate || 'Dec 31, 2026'"
+                  inputClass="!w-full !bg-bg-primary !border-border-subtle !rounded-2xl !ps-14 !pe-5 !py-4 !text-sm !font-bold !text-tx-primary !cursor-pointer group-hover:!border-border-default !transition-colors"
+                >
+                  <template #prefix>
                     <Icon
                       name="ph:calendar-x-bold"
                       class="absolute start-5 top-1/2 -translate-y-1/2 text-xl text-accent"
                     />
-                    <input
-                      readonly
-                      :value="selectedDate || 'Dec 31, 2026'"
-                      class="w-full bg-bg-primary border border-border-subtle rounded-2xl ps-14 pe-5 py-4 text-sm font-bold text-tx-primary outline-none group-hover:border-border-default transition-colors"
-                    />
-                  </div>
-                </div>
+                  </template>
+                </LazyVInput>
               </template>
             </LazyVDatePicker>
           </div>

@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { TabInput } from '../types/v-tabs';
+import type { TabInput } from '../types/VTabs';
 
 defineProps<{
   tabs: (string | TabInput)[]

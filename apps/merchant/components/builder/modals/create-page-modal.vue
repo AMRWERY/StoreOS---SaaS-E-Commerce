@@ -1,22 +1,44 @@
 ﻿<template>
   <Teleport to="body">
-    <div v-if="createPageOpen" class="fixed inset-0 z-[200] flex items-center justify-center p-4" role="dialog"
-      aria-modal="true" aria-labelledby="create-page-title">
-      <div class="absolute inset-0 bg-black/65 backdrop-blur-sm" @click="close" />
-      <div class="relative w-full max-w-md rounded-2xl border border-border-subtle bg-bg-primary p-6 shadow-2xl">
-        <h2 id="create-page-title" class="text-lg font-bold tracking-wide text-tx-primary">
+    <div
+      v-if="createPageOpen"
+      class="fixed inset-0 z-[200] flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="create-page-title"
+    >
+      <div
+        class="absolute inset-0 bg-black/65 backdrop-blur-sm"
+        @click="close"
+      />
+      <div
+        class="relative w-full max-w-md rounded-2xl border border-border-subtle bg-bg-primary p-6 shadow-2xl"
+      >
+        <h2
+          id="create-page-title"
+          class="text-lg font-bold tracking-wide text-tx-primary"
+        >
           New page
         </h2>
         <p class="mt-2 text-sm text-tx-secondary">
-          Create a new admin page. You can add sections and customize it
-          right after.
+          Create a new admin page. You can add sections and customize it right
+          after.
         </p>
 
         <div class="mt-5 space-y-4">
-          <setting-text v-model="title" label="Title" placeholder="About us" @update:model-value="onTitleInput" />
+          <lazy-setting-text
+            v-model="title"
+            label="Title"
+            placeholder="About us"
+            @update:model-value="onTitleInput"
+          />
 
           <div>
-            <setting-text v-model="slug" label="Slug" placeholder="about-us" />
+            <lazy-setting-text
+              v-model="slug"
+              label="Slug"
+              placeholder="about-us"
+            />
             <p v-if="slugError" class="mt-1 text-[11px] text-red-400">
               {{ slugError }}
             </p>
@@ -25,18 +47,27 @@
             </p>
           </div>
 
-          <setting-select v-model="pageType" label="Page type" :options="typeOptions" />
+          <lazy-setting-select
+            v-model="pageType"
+            label="Page type"
+            :options="typeOptions"
+          />
         </div>
 
         <div class="mt-6 flex gap-3">
-          <button type="button"
+          <button
+            type="button"
             class="rounded-lg bg-brand px-5 py-2.5 text-[11px] font-black tracking-wider text-white transition-opacity hover:opacity-90 disabled:opacity-50"
-            :disabled="!canCreate" @click="onCreate">
+            :disabled="!canCreate"
+            @click="onCreate"
+          >
             Create page
           </button>
-          <button type="button"
+          <button
+            type="button"
             class="rounded-lg border border-border-subtle px-5 py-2.5 text-[11px] font-bold text-tx-secondary hover:bg-bg-elevated"
-            @click="close">
+            @click="close"
+          >
             Cancel
           </button>
         </div>
@@ -78,7 +109,7 @@ const slugError = computed(() => {
 });
 
 const canCreate = computed(
-  () => !!title.value.trim() && !!slug.value && !slugError.value
+  () => !!title.value.trim() && !!slug.value && !slugError.value,
 );
 
 const toSlug = (text: string): string => {

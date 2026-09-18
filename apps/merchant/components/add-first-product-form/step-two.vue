@@ -41,7 +41,7 @@
         />
 
         <!-- Store Logo Upload -->
-        <LazyVDropdownMenu
+        <LazyVFileUpload
           label="Store logo"
           icon="ph:cloud-arrow-up-fill"
           iconClass="text-brand text-3xl"
@@ -56,63 +56,27 @@
           <p class="text-[11px] text-tx-muted font-bold tracking-tight">
             PNG, JPG or SVG (Max. 2MB)
           </p>
-        </LazyVDropdownMenu>
+        </LazyVFileUpload>
 
         <!-- Store Description -->
-        <div class="space-y-2.5">
-          <label class="text-[11px] font-bold text-tx-secondary tracking-wider"
-            >Store description</label
-          >
-          <textarea
-            v-model="description"
-            rows="4"
-            placeholder="Describe what you sell..."
-            class="w-full bg-bg-elevated border border-border-default rounded-md px-3 py-2 text-[12px] text-tx-primary focus:outline-none focus:border-brand transition-colors resize-none placeholder:text-tx-muted"
-          ></textarea>
-        </div>
+        <LazyVTextareaInput
+          v-model="description"
+          label="Store description"
+          placeholder="Describe what you sell..."
+        />
 
         <!-- Country & Currency -->
         <div class="grid grid-cols-2 gap-4">
-          <div class="space-y-2.5">
-            <label
-              class="text-[11px] font-bold text-tx-secondary tracking-wider"
-              >Country</label
-            >
-            <div class="relative">
-              <select
-                v-model="country"
-                class="w-full bg-bg-elevated border border-border-default rounded-md px-3 py-2 text-[12px] text-tx-primary appearance-none focus:outline-none focus:border-brand cursor-pointer"
-              >
-                <option>United States</option>
-                <option>United Kingdom</option>
-                <option>Canada</option>
-              </select>
-              <Icon
-                name="ph:caret-down-bold"
-                class="absolute end-3 top-1/2 -translate-y-1/2 text-tx-secondary pointer-events-none"
-              />
-            </div>
-          </div>
-          <div class="space-y-2.5">
-            <label
-              class="text-[11px] font-bold text-tx-secondary tracking-wider"
-              >Currency</label
-            >
-            <div class="relative">
-              <select
-                v-model="currency"
-                class="w-full bg-bg-elevated border border-border-default rounded-md px-3 py-2 text-[12px] text-tx-primary appearance-none focus:outline-none focus:border-brand cursor-pointer"
-              >
-                <option>USD ($)</option>
-                <option>EUR (€)</option>
-                <option>GBP (£)</option>
-              </select>
-              <Icon
-                name="ph:caret-down-bold"
-                class="absolute end-3 top-1/2 -translate-y-1/2 text-tx-secondary pointer-events-none"
-              />
-            </div>
-          </div>
+          <LazyVSelectInput
+            v-model="country"
+            label="Country"
+            :options="['United States', 'United Kingdom', 'Canada']"
+          />
+          <LazyVSelectInput
+            v-model="currency"
+            label="Currency"
+            :options="['USD ($)', 'EUR (€)', 'GBP (£)']"
+          />
         </div>
 
         <!-- CTA Button -->

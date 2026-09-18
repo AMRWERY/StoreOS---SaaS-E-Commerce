@@ -66,24 +66,13 @@
 
                 <LazyVInput v-model="form.email" label="Email" type="email" placeholder="adam@mystore.com" required />
 
-                <div>
-                  <label class="block text-xs font-bold text-tx-secondary mb-2">Topic</label>
-                  <select v-model="form.topic"
-                    class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm outline-none focus:border-brand/40 transition-colors appearance-none">
-                    <option value="">Select a topic</option>
-                    <option>Sales & Pricing</option>
-                    <option>Technical Support</option>
-                    <option>Billing</option>
-                    <option>Partnership</option>
-                    <option>Other</option>
-                  </select>
-                </div>
+                <LazyVSelectInput v-model="form.topic" label="Topic" placeholder="Select a topic"
+                  :options="['Sales & Pricing', 'Technical Support', 'Billing', 'Partnership', 'Other']"
+                  selectClass="!bg-bg-elevated !border-border-subtle !rounded-xl !px-4 !py-3 !text-sm focus:!border-brand/40" />
 
-                <div>
-                  <label class="block text-xs font-bold text-tx-secondary mb-2">Message</label>
-                  <textarea v-model="form.message" required rows="5" placeholder="Tell us what you need..."
-                    class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm outline-none focus:border-brand/40 transition-colors resize-none" />
-                </div>
+                <LazyVTextareaInput v-model="form.message" label="Message" required :rows="5"
+                  placeholder="Tell us what you need..."
+                  textareaClass="!bg-bg-elevated !border-border-subtle !rounded-xl !px-4 !py-3 !text-sm focus:!border-brand/40" />
 
                 <LazyVButton type="submit" :disabled="loading" variant="none"
                   className="w-full bg-brand text-white py-3.5 rounded-xl font-bold text-sm hover:bg-brand/90 transition-all disabled:opacity-60 flex items-center justify-center gap-2">

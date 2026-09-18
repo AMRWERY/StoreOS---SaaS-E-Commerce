@@ -10,7 +10,11 @@
         </div>
         <div class="space-y-1.5">
           <h2 class="text-[15px] font-semibold text-tx-primary">
-            {{ featureLabel ? t("auth.gate.titleFeature", { feature: featureLabel }) : t("auth.gate.title") }}
+            {{
+              featureLabel
+                ? t("auth.gate.titleFeature", { feature: featureLabel })
+                : t("auth.gate.title")
+            }}
           </h2>
           <p class="text-xs text-tx-secondary max-w-[300px]">
             {{ t("auth.gate.subtitle") }}
@@ -87,7 +91,9 @@ const FEATURE_LABEL_KEYS: Record<string, string> = {
 };
 
 const featureLabel = computed(() => {
-  const key = gateFeature.value ? FEATURE_LABEL_KEYS[gateFeature.value] : undefined;
+  const key = gateFeature.value
+    ? FEATURE_LABEL_KEYS[gateFeature.value]
+    : undefined;
   return key ? t(key) : "";
 });
 

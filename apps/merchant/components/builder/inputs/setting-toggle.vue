@@ -8,25 +8,32 @@
         {{ hint }}
       </p>
     </div>
-    <button type="button" role="switch" :aria-checked="modelValue"
+    <button
+      type="button"
+      role="switch"
+      :aria-checked="modelValue"
       class="relative h-7 w-12 shrink-0 rounded-full border border-border-subtle transition-colors"
       :class="modelValue ? 'bg-brand/90 border-brand' : 'bg-bg-elevated'"
-      @click="$emit('update:modelValue', !modelValue)">
-      <span class="absolute top-0.5 size-5 rounded-full bg-white shadow transition-all"
-        :class="modelValue ? 'start-6' : 'start-0.5'" />
+      @click="$emit('update:modelValue', !modelValue)"
+    >
+      <span
+        class="absolute top-0.5 size-5 rounded-full bg-white shadow transition-all"
+        :class="modelValue ? 'start-6' : 'start-0.5'"
+      />
     </button>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
+
 defineProps<{
-  modelValue: boolean
-  label: string
-  hint?: string
-}>()
+  modelValue: boolean;
+  label: string;
+  hint?: string;
+}>();
 
 defineEmits<{
-  'update:modelValue': [value: boolean]
-}>()
+  "update:modelValue": [value: boolean];
+}>();
 </script>

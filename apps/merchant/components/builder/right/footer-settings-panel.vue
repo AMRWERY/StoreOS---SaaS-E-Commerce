@@ -1,35 +1,58 @@
 <template>
-  <aside class="flex h-full flex-col overflow-hidden" aria-label="Footer settings">
+  <aside
+    class="flex h-full flex-col overflow-hidden"
+    aria-label="Footer settings"
+  >
     <!-- Header -->
-    <div class="flex h-12 shrink-0 items-center gap-2.5 border-b border-border-subtle px-4">
+    <div
+      class="flex h-12 shrink-0 items-center gap-2.5 border-b border-border-subtle px-4"
+    >
       <Icon name="ph:layout-bold" class="text-sm text-brand" />
       <span class="text-[13px] font-semibold text-tx-primary">Footer</span>
     </div>
 
     <div class="flex-1 overflow-y-auto p-4 space-y-5">
-
       <!-- Style picker -->
       <div class="space-y-2">
-        <p class="text-[9px] font-black tracking-[0.2em] text-tx-muted">Footer style</p>
+        <p class="text-[9px] font-black tracking-[0.2em] text-tx-muted">
+          Footer style
+        </p>
         <div class="grid grid-cols-2 gap-2">
           <button
             v-for="style in FOOTER_STYLES"
             :key="style.value"
             type="button"
             class="relative flex flex-col items-start overflow-hidden rounded-xl border-2 p-3 text-start transition-all"
-            :class="store.footerStyle === style.value
-              ? 'border-brand bg-brand/5'
-              : 'border-border-default bg-bg-elevated hover:border-border-subtle'"
+            :class="
+              store.footerStyle === style.value
+                ? 'border-brand bg-brand/5'
+                : 'border-border-default bg-bg-elevated hover:border-border-subtle'
+            "
             @click="store.footerStyle = style.value"
           >
-            <div class="mb-2.5 w-full overflow-hidden rounded-lg border border-border-subtle" :class="style.dark ? 'bg-neutral-900' : 'bg-neutral-50'">
+            <div
+              class="mb-2.5 w-full overflow-hidden rounded-lg border border-border-subtle"
+              :class="style.dark ? 'bg-neutral-900' : 'bg-neutral-50'"
+            >
               <component :is="style.sketch" />
             </div>
-            <p class="text-[11px] font-bold" :class="store.footerStyle === style.value ? 'text-brand' : 'text-tx-primary'">
+            <p
+              class="text-[11px] font-bold"
+              :class="
+                store.footerStyle === style.value
+                  ? 'text-brand'
+                  : 'text-tx-primary'
+              "
+            >
               {{ style.label }}
             </p>
-            <p class="mt-0.5 text-[10px] text-tx-muted">{{ style.description }}</p>
-            <div v-if="store.footerStyle === style.value" class="absolute end-2 top-2 flex size-4 items-center justify-center rounded-full bg-brand">
+            <p class="mt-0.5 text-[10px] text-tx-muted">
+              {{ style.description }}
+            </p>
+            <div
+              v-if="store.footerStyle === style.value"
+              class="absolute end-2 top-2 flex size-4 items-center justify-center rounded-full bg-brand"
+            >
               <Icon name="ph:check-bold" class="text-[9px] text-white" />
             </div>
           </button>
@@ -38,33 +61,37 @@
 
       <!-- Tagline -->
       <div class="space-y-1.5">
-        <p class="text-[9px] font-black tracking-[0.2em] text-tx-muted">Brand</p>
-        <div>
-          <label class="mb-1 block text-[11px] font-medium text-tx-secondary">Tagline</label>
-          <input
-            type="text"
-            class="w-full rounded-lg border border-border-default bg-bg-elevated px-3 py-2 text-xs text-tx-primary focus:border-brand focus:outline-none"
-            :value="store.footerTagline"
-            placeholder="Short brand tagline…"
-            @input="store.footerTagline = ($event.target as HTMLInputElement).value"
-          />
-        </div>
+        <p class="text-[9px] font-black tracking-[0.2em] text-tx-muted">
+          Brand
+        </p>
+        <LazyVInput
+          type="text"
+          :model-value="store.footerTagline"
+          label="Tagline"
+          placeholder="Short brand tagline…"
+          input-class="!w-full !rounded-lg !border-border-default !bg-bg-elevated !px-3 !py-2 !text-xs !text-tx-primary focus:!border-brand focus:!outline-none"
+          @update:model-value="store.footerTagline = $event"
+        />
         <div class="mt-2">
-          <label class="mb-1 block text-[11px] font-medium text-tx-secondary">Copyright text</label>
-          <input
+          <LazyVInput
             type="text"
-            class="w-full rounded-lg border border-border-default bg-bg-elevated px-3 py-2 text-xs text-tx-primary focus:border-brand focus:outline-none"
-            :value="store.footerCopyright"
+            :model-value="store.footerCopyright"
+            label="Copyright text"
             placeholder="© 2025 My Store…"
-            @input="store.footerCopyright = ($event.target as HTMLInputElement).value"
+            input-class="!w-full !rounded-lg !border-border-default !bg-bg-elevated !px-3 !py-2 !text-xs !text-tx-primary focus:!border-brand focus:!outline-none"
+            @update:model-value="store.footerCopyright = $event"
           />
         </div>
       </div>
 
       <!-- Social toggle -->
       <div class="space-y-1.5">
-        <p class="text-[9px] font-black tracking-[0.2em] text-tx-muted">Social</p>
-        <div class="flex items-center justify-between rounded-lg border border-border-default bg-bg-elevated px-3 py-2.5">
+        <p class="text-[9px] font-black tracking-[0.2em] text-tx-muted">
+          Social
+        </p>
+        <div
+          class="flex items-center justify-between rounded-lg border border-border-default bg-bg-elevated px-3 py-2.5"
+        >
           <span class="text-xs text-tx-primary">Show social icons</span>
           <button
             type="button"
@@ -76,7 +103,9 @@
           >
             <span
               class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg ring-0 transition-transform"
-              :class="store.footerShowSocial ? 'translate-x-4' : 'translate-x-0'"
+              :class="
+                store.footerShowSocial ? 'translate-x-4' : 'translate-x-0'
+              "
             />
           </button>
         </div>
@@ -87,7 +116,10 @@
         <div class="flex items-center justify-between">
           <p class="text-[9px] font-black tracking-[0.2em] text-tx-muted">
             Link columns
-            <span class="ms-1 rounded-full bg-bg-overlay px-1.5 py-0.5 text-tx-secondary">{{ store.footerColumns.length }}</span>
+            <span
+              class="ms-1 rounded-full bg-bg-overlay px-1.5 py-0.5 text-tx-secondary"
+              >{{ store.footerColumns.length }}</span
+            >
           </p>
           <button
             type="button"
@@ -99,7 +131,10 @@
           </button>
         </div>
 
-        <p v-if="store.footerColumns.length === 0" class="rounded-lg border border-dashed border-border-default px-4 py-6 text-center text-xs text-tx-muted">
+        <p
+          v-if="store.footerColumns.length === 0"
+          class="rounded-lg border border-dashed border-border-default px-4 py-6 text-center text-xs text-tx-muted"
+        >
           No columns yet
         </p>
 
@@ -110,14 +145,19 @@
             class="overflow-hidden rounded-xl border border-border-default bg-bg-elevated"
           >
             <!-- Column header -->
-            <div class="flex items-center gap-2 border-b border-border-subtle px-3 py-2.5">
-              <Icon name="ph:dots-six-vertical-bold" class="text-sm text-tx-muted" />
-              <input
+            <div
+              class="flex items-center gap-2 border-b border-border-subtle px-3 py-2.5"
+            >
+              <Icon
+                name="ph:dots-six-vertical-bold"
+                class="text-sm text-tx-muted"
+              />
+              <LazyVInput
                 type="text"
-                class="min-w-0 flex-1 bg-transparent text-xs font-semibold text-tx-primary placeholder-tx-muted focus:outline-none"
-                :value="col.title"
+                :model-value="col.title"
                 placeholder="Column title"
-                @input="store.updateFooterColumn(ci, ($event.target as HTMLInputElement).value)"
+                input-class="!min-w-0 !flex-1 !bg-transparent !text-xs !font-semibold !text-tx-primary !placeholder-tx-muted focus:!outline-none"
+                @update:model-value="store.updateFooterColumn(ci, $event)"
               />
               <button
                 type="button"
@@ -131,7 +171,10 @@
 
             <!-- Links -->
             <div class="p-2.5">
-              <div v-if="col.links.length === 0" class="py-2 text-center text-[10px] text-tx-muted">
+              <div
+                v-if="col.links.length === 0"
+                class="py-2 text-center text-[10px] text-tx-muted"
+              >
                 No links
               </div>
               <div v-else class="space-y-1.5 mb-2">
@@ -141,19 +184,23 @@
                   class="flex items-center gap-1.5 rounded-lg bg-bg-base px-2 py-1.5"
                 >
                   <div class="min-w-0 flex-1 space-y-1">
-                    <input
+                    <LazyVInput
                       type="text"
-                      class="w-full bg-transparent text-[11px] font-medium text-tx-primary placeholder-tx-muted focus:outline-none"
-                      :value="link.label"
+                      :model-value="link.label"
                       placeholder="Label"
-                      @input="store.updateFooterLink(ci, li, 'label', ($event.target as HTMLInputElement).value)"
+                      input-class="!w-full !bg-transparent !text-[11px] !font-medium !text-tx-primary !placeholder-tx-muted focus:!outline-none"
+                      @update:model-value="
+                        store.updateFooterLink(ci, li, 'label', $event)
+                      "
                     />
-                    <input
+                    <LazyVInput
                       type="text"
-                      class="w-full bg-transparent text-[10px] text-tx-muted placeholder-tx-muted focus:outline-none"
-                      :value="link.href"
+                      :model-value="link.href"
                       placeholder="/path"
-                      @input="store.updateFooterLink(ci, li, 'href', ($event.target as HTMLInputElement).value)"
+                      input-class="!w-full !bg-transparent !text-[10px] !text-tx-muted !placeholder-tx-muted focus:!outline-none"
+                      @update:model-value="
+                        store.updateFooterLink(ci, li, 'href', $event)
+                      "
                     />
                   </div>
                   <button
@@ -182,14 +229,14 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
-const store = useBuilderStore()
+const { t } = useI18n();
+const store = useBuilderStore();
 
 const FOOTER_STYLES = [
   {
-    value: 'columns' as const,
-    label: 'Columns',
-    description: 'Dark · multi-column links',
+    value: "columns" as const,
+    label: "Columns",
+    description: "Dark · multi-column links",
     dark: true,
     sketch: {
       template: `<div class="bg-neutral-900 px-2 py-2.5">
@@ -215,9 +262,9 @@ const FOOTER_STYLES = [
     },
   },
   {
-    value: 'centered' as const,
-    label: 'Centered',
-    description: 'Light · all centered',
+    value: "centered" as const,
+    label: "Centered",
+    description: "Light · all centered",
     dark: false,
     sketch: {
       template: `<div class="bg-neutral-50 px-2 py-2.5 text-center">
@@ -232,9 +279,9 @@ const FOOTER_STYLES = [
     },
   },
   {
-    value: 'newsletter' as const,
-    label: 'Newsletter',
-    description: 'Dark · email signup form',
+    value: "newsletter" as const,
+    label: "Newsletter",
+    description: "Dark · email signup form",
     dark: true,
     sketch: {
       template: `<div class="bg-neutral-900 px-2 py-2.5">
@@ -259,9 +306,9 @@ const FOOTER_STYLES = [
     },
   },
   {
-    value: 'minimal' as const,
-    label: 'Minimal',
-    description: 'Light · single bar',
+    value: "minimal" as const,
+    label: "Minimal",
+    description: "Light · single bar",
     dark: false,
     sketch: {
       template: `<div class="flex items-center justify-between border-t border-neutral-200 bg-white px-2 py-1.5">
@@ -275,5 +322,5 @@ const FOOTER_STYLES = [
       </div>`,
     },
   },
-]
+];
 </script>

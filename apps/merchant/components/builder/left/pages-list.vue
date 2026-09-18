@@ -96,11 +96,11 @@
 import type { StorePage, StorePageType } from "@/types/sections";
 
 const { t } = useI18n();
+const localePath = useLocalePath();
 const store = useBuilderStore();
 
 const { createPageOpen, deletePageOpen, templatePickerOpen } =
   useBuilderModals();
-const localePath = useLocalePath();
 
 const onSelectPage = async (page: StorePage) => {
   store.switchPage(page.id);

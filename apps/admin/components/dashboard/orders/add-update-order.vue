@@ -226,11 +226,11 @@
               <Icon name="ph:notebook-bold" class="text-brand" />
               {{ t("dashboard.orders.orderNotes") }}
             </h3>
-            <textarea
+            <LazyVTextareaInput
               v-model="form.notes"
               :placeholder="t('dashboard.orders.orderNotesPlaceholder')"
-              class="w-full bg-bg-primary border border-border-default rounded-2xl p-5 text-sm h-32 focus:outline-none focus:border-brand transition-colors placeholder:text-tx-muted resize-none"
-            ></textarea>
+              textareaClass="!bg-bg-primary !border-border-default !rounded-2xl !p-5 !text-sm !h-32 focus:!border-brand"
+            />
           </section>
         </div>
 
@@ -246,36 +246,28 @@
               {{ t("dashboard.orders.orderStatus") }}
             </h3>
             <div class="space-y-6">
-              <div class="space-y-2">
-                <label
-                  class="text-[9px] font-bold text-tx-muted tracking-widest ps-1"
-                  >{{ t("dashboard.orders.paymentStatus") }}</label
-                >
-                <select
-                  v-model="form.paymentStatus"
-                  class="w-full bg-bg-primary border border-border-default rounded-xl py-2.5 px-4 text-xs font-bold focus:outline-none focus:border-brand transition-all select-scrollbar cursor-pointer appearance-none"
-                >
-                  <option value="PAID">Paid</option>
-                  <option value="UNPAID">Unpaid</option>
-                  <option value="COD">Cash on Delivery</option>
-                </select>
-              </div>
-              <div class="space-y-2">
-                <label
-                  class="text-[9px] font-bold text-tx-muted tracking-widest ps-1"
-                  >{{ t("dashboard.orders.fulfillmentStatus") }}</label
-                >
-                <select
-                  v-model="form.status"
-                  class="w-full bg-bg-primary border border-border-default rounded-xl py-2.5 px-4 text-xs font-bold focus:outline-none focus:border-brand transition-all select-scrollbar cursor-pointer appearance-none"
-                >
-                  <option value="NEW">New</option>
-                  <option value="CONFIRMED">Confirmed</option>
-                  <option value="PROCESSING">Processing</option>
-                  <option value="SHIPPED">Shipped</option>
-                  <option value="DELIVERED">Delivered</option>
-                </select>
-              </div>
+              <LazyVSelectInput
+                v-model="form.paymentStatus"
+                :label="t('dashboard.orders.paymentStatus')"
+                :options="[
+                  { value: 'PAID', label: 'Paid' },
+                  { value: 'UNPAID', label: 'Unpaid' },
+                  { value: 'COD', label: 'Cash on Delivery' },
+                ]"
+                selectClass="!bg-bg-primary !border-border-default !rounded-xl !py-2.5 !px-4 !text-xs font-bold focus:!border-brand select-scrollbar"
+              />
+              <LazyVSelectInput
+                v-model="form.status"
+                :label="t('dashboard.orders.fulfillmentStatus')"
+                :options="[
+                  { value: 'NEW', label: 'New' },
+                  { value: 'CONFIRMED', label: 'Confirmed' },
+                  { value: 'PROCESSING', label: 'Processing' },
+                  { value: 'SHIPPED', label: 'Shipped' },
+                  { value: 'DELIVERED', label: 'Delivered' },
+                ]"
+                selectClass="!bg-bg-primary !border-border-default !rounded-xl !py-2.5 !px-4 !text-xs font-bold focus:!border-brand select-scrollbar"
+              />
             </div>
           </section>
 

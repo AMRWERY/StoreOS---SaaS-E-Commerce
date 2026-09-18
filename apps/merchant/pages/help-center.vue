@@ -10,10 +10,15 @@
                   class="absolute inset-0 bg-brand/5 blur-2xl rounded-full opacity-0 group-focus-within:opacity-100 transition-opacity">
                </div>
                <div
-                  class="relative flex items-center bg-bg-elevated border border-border-subtle rounded-3xl p-2 ps-6 focus-within:border-brand/40 transition-all shadow-2xl">
-                  <Icon name="ph:magnifying-glass-bold" class="text-tx-muted text-xl" />
-                  <input type="text" placeholder="Search for documentation, guides, or help topics..."
-                     class="w-full bg-transparent border-none outline-none px-4 py-4 text-sm" />
+                  class="relative flex items-center bg-bg-elevated border border-border-subtle rounded-3xl p-2 focus-within:border-brand/40 transition-all shadow-2xl">
+                  <LazyVInput type="text" placeholder="Search for documentation, guides, or help topics..."
+                     class="flex-1"
+                     inputClass="!w-full !bg-transparent !border-none !outline-none !ps-12 !pe-4 !py-4 !text-sm">
+                     <template #prefix>
+                        <Icon name="ph:magnifying-glass-bold"
+                           class="absolute start-4 top-1/2 -translate-y-1/2 text-tx-muted text-xl z-10 pointer-events-none" />
+                     </template>
+                  </LazyVInput>
                   <LazyVButton label="Search" className="px-8 py-4 rounded-2xl shadow-xl shadow-brand/20" />
                </div>
             </div>

@@ -1,24 +1,29 @@
 ﻿<template>
-  <setting-select :model-value="modelValue" :label="label" :options="fontOptions"
-    @update:model-value="$emit('update:modelValue', $event)" />
+  <setting-select
+    :model-value="modelValue"
+    :label="label"
+    :options="fontOptions"
+    @update:model-value="$emit('update:modelValue', $event)"
+  />
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
+
 defineProps<{
-  modelValue: string
-  label?: string
-}>()
+  modelValue: string;
+  label?: string;
+}>();
 
 defineEmits<{
-  'update:modelValue': [value: string]
-}>()
+  "update:modelValue": [value: string];
+}>();
 
 const fontOptions = [
-  { value: 'Inter', label: 'Inter' },
-  { value: 'DM Sans', label: 'DM Sans' },
-  { value: 'Playfair Display', label: 'Playfair Display' },
-  { value: 'Space Grotesk', label: 'Space Grotesk' },
-  { value: 'system-ui', label: 'System UI' },
-] as const
+  { value: "Inter", label: "Inter" },
+  { value: "DM Sans", label: "DM Sans" },
+  { value: "Playfair Display", label: "Playfair Display" },
+  { value: "Space Grotesk", label: "Space Grotesk" },
+  { value: "system-ui", label: "System UI" },
+] as const;
 </script>

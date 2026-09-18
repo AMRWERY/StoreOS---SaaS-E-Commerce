@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { BreadcrumbItem } from "../types/v-breadcrumb";
+import type { BreadcrumbItem } from "../types/VBreadcrumb";
 
 const props = withDefaults(
   defineProps<{

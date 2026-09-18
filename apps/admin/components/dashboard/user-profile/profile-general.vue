@@ -40,24 +40,12 @@
         :label="t('dashboard.profile.phoneNumber')"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand"
       />
-      <div class="space-y-2">
-        <label class="text-[10px] font-bold text-tx-secondary tracking-wider">{{
-          t("dashboard.profile.jobTitle")
-        }}</label>
-        <div class="relative">
-          <select
-            v-model="profile.jobTitle"
-            class="w-full bg-bg-primary border border-border-default rounded-xl px-5 py-3.5 text-sm appearance-none outline-none focus:border-brand"
-          >
-            <option>Owner</option>
-            <option>Manager</option>
-          </select>
-          <Icon
-            name="ph:caret-down-bold"
-            class="absolute end-4 top-1/2 -translate-y-1/2 text-tx-muted pointer-events-none"
-          />
-        </div>
-      </div>
+      <LazyVSelectInput
+        v-model="profile.jobTitle"
+        :label="t('dashboard.profile.jobTitle')"
+        :options="['Owner', 'Manager']"
+        selectClass="!bg-bg-primary !border-border-default !rounded-xl !px-5 !py-3.5 !text-sm focus:!border-brand"
+      />
     </div>
   </section>
 </template>

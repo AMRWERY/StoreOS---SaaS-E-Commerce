@@ -97,14 +97,14 @@ const store = useBuilderStore();
 const isSystemPage = computed(
   () =>
     store.currentPage?.type === "checkout" ||
-    store.currentPage?.type === "order_confirmed"
+    store.currentPage?.type === "order_confirmed",
 );
 
 const navbarActive = computed(() => store.panelMode === "navbar-settings");
 const footerActive = computed(() => store.panelMode === "footer-settings");
 
 const ordered = computed(() =>
-  [...store.sections].sort((a, b) => a.sort_order - b.sort_order)
+  [...store.sections].sort((a, b) => a.sort_order - b.sort_order),
 );
 
 const selectNavbar = () => {

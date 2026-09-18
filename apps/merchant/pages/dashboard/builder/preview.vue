@@ -199,8 +199,8 @@
               Get new arrivals and exclusive offers first.
             </p>
             <div class="mt-4 flex gap-2">
-              <input type="email" placeholder="your@email.com"
-                class="flex-1 rounded-xl border border-neutral-600 bg-neutral-700/50 px-3 py-2.5 text-xs text-neutral-400 outline-none" />
+              <LazyVInput type="email" placeholder="your@email.com" class="flex-1"
+                inputClass="!w-full !rounded-xl !border !border-neutral-600 !bg-neutral-700/50 !px-3 !py-2.5 !text-xs !text-neutral-400 !outline-none" />
               <button type="button" class="shrink-0 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white">
                 Subscribe
               </button>

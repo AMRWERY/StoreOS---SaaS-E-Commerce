@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { TableHeader } from '../types/v-table'
+import type { TableHeader } from '../types/VTable'
 
 defineProps<{
   headers: TableHeader[]

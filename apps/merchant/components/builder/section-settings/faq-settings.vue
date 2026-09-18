@@ -1,20 +1,22 @@
 ﻿<template>
   <div class="space-y-6">
-    <SettingGroup title="FAQ" default-open>
-      <SettingText v-model="heading" label="Heading" />
+    <lazy-setting-group title="FAQ" default-open>
+      <lazy-setting-text v-model="heading" label="Heading" />
       <div class="mt-4">
-        <SettingToggle v-model="accordion" label="Accordion behavior" />
+        <lazy-setting-toggle v-model="accordion" label="Accordion behavior" />
       </div>
-    </SettingGroup>
-    <SettingRepeater v-model="items" label="Questions">
+    </lazy-setting-group>
+
+    <lazy-setting-repeater v-model="items" label="Questions">
       <template #default="{ item }">
-        <SettingText
+        <lazy-setting-text
           :model-value="String(item.q ?? '')"
           label="Question"
           @update:model-value="(v: string) => updateItem(item, 'q', v)"
         />
+
         <div class="mt-2">
-          <SettingTextarea
+          <lazy-setting-textarea
             :model-value="String(item.a ?? '')"
             label="Answer"
             :rows="2"
@@ -22,7 +24,7 @@
           />
         </div>
       </template>
-    </SettingRepeater>
+    </lazy-setting-repeater>
   </div>
 </template>
 

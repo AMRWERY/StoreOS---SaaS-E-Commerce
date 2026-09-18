@@ -27,19 +27,13 @@
           />
         </div>
 
-        <div class="space-y-2">
-          <label
-            class="text-[10px] font-bold text-tx-secondary tracking-wider"
-            >{{ t("dashboard.settings.storeInfo.storeDescription") }}</label
-          >
-          <textarea
-            v-model="modelValue.description"
-            rows="4"
-            class="w-full bg-bg-primary border border-border-subtle rounded-lg px-4 py-3 text-sm focus:border-orange-500/50 hover:border-border-default outline-none transition-all duration-200 resize-none"
-          ></textarea>
-        </div>
+        <LazyVTextareaInput
+          v-model="modelValue.description"
+          :label="t('dashboard.settings.storeInfo.storeDescription')"
+          textareaClass="!bg-bg-primary !border-border-subtle !rounded-lg !px-4 !py-3 !text-sm focus:!border-orange-500/50 hover:!border-border-default"
+        />
 
-        <LazyVDropdownMenu
+        <LazyVFileUpload
           :label="t('dashboard.settings.storeInfo.storeLogo')"
           :title="t('dashboard.settings.storeInfo.storeLogo')"
           :subtitle="t('dashboard.settings.storeInfo.storeLogoSubtitle')"

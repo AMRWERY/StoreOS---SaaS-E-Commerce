@@ -50,25 +50,12 @@
             :label="t('dashboard.settings.storeInfo.zipCode')"
             :placeholder="t('dashboard.settings.storeInfo.zipPlaceholder')"
           />
-          <div class="space-y-2">
-            <label
-              class="text-[10px] font-bold text-tx-secondary tracking-wider"
-              >{{ t("dashboard.settings.storeInfo.country") }}</label
-            >
-            <div class="relative">
-              <select
-                v-model="modelValue.country"
-                class="w-full bg-bg-primary border border-border-subtle rounded-lg px-4 py-2.5 text-xs outline-none appearance-none hover:border-border-default focus:border-orange-500/50 transition-all"
-              >
-                <option>Japan</option>
-                <option>USA</option>
-              </select>
-              <Icon
-                name="ph:caret-down-bold"
-                class="absolute end-3 top-1/2 -translate-y-1/2 text-tx-muted"
-              />
-            </div>
-          </div>
+          <LazyVSelectInput
+            v-model="modelValue.country"
+            :label="t('dashboard.settings.storeInfo.country')"
+            :options="['Japan', 'USA']"
+            selectClass="!bg-bg-primary !border-border-subtle !rounded-lg !px-4 !py-2.5 !text-xs hover:!border-border-default focus:!border-orange-500/50"
+          />
         </div>
       </div>
     </section>

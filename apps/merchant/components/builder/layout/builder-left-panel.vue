@@ -34,6 +34,7 @@
           <span class="hidden min-[360px]:inline">{{ tab.label }}</span>
         </component>
       </div>
+
       <component
         :is="UiButton"
         variant="none"
@@ -46,16 +47,15 @@
       </component>
     </div>
 
-    <pages-list />
+    <lazy-pages-list />
 
     <div v-if="activeTab === 'Sections'" class="flex min-h-0 flex-1 flex-col">
-      <section-list />
+      <lazy-section-list />
 
-      <add-section-button />
+      <lazy-add-section-button />
     </div>
-    <div v-else class="flex min-h-0 flex-1 flex-col">
-      <theme-panel />
-    </div>
+
+    <div v-else class="flex min-h-0 flex-1 flex-col">lazy-<theme-panel /></div>
   </aside>
 </template>
 
@@ -86,7 +86,7 @@ watch(
     if (activeTab.value === "Theme") store.setPanelMode("theme-settings");
     else store.setPanelMode(store.selectedId ? "section-settings" : "empty");
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 const sidebarTabClass = (id: string) => {

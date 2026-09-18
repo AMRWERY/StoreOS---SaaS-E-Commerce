@@ -272,12 +272,9 @@
 
       <!-- Email input -->
       <div>
-        <label class="text-xs font-bold text-tx-secondary mb-2 block">{{
-          t("home.pricing.modal.workEmail")
-        }}</label>
-        <input v-model="trialEmail" type="email" :placeholder="t('home.pricing.modal.emailPlaceholder')"
-          @keydown.enter="startTrial"
-          class="w-full bg-bg-elevated border border-border-subtle rounded-xl px-4 py-3 text-sm text-tx-primary placeholder:text-tx-muted focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/30 transition-all" />
+        <LazyVInput v-model="trialEmail" type="email" :label="t('home.pricing.modal.workEmail')"
+          :placeholder="t('home.pricing.modal.emailPlaceholder')" @keydown.enter="startTrial"
+          inputClass="!w-full !bg-bg-elevated !border !border-border-subtle !rounded-xl !px-4 !py-3 !text-sm !text-tx-primary placeholder:!text-tx-muted focus:!outline-none focus:!border-brand focus:!ring-1 focus:!ring-brand/30 !transition-all" />
         <p v-if="emailError" class="text-xs text-error mt-1.5 flex items-center gap-1">
           <Icon name="ph:warning-fill" class="text-sm shrink-0" />
           {{ emailError }}

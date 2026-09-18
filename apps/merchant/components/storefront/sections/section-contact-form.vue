@@ -5,14 +5,14 @@
     </h2>
     <p v-if="str('subheadline')" class="mt-2 text-sm text-neutral-500">{{ str('subheadline') }}</p>
     <form class="mt-6 grid max-w-xl grid-cols-2 gap-4" @submit.prevent>
-      <input type="text" placeholder="Name" readonly
-        class="rounded-md border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900" />
-      <input type="email" placeholder="Email" readonly
-        class="rounded-md border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900" />
-      <input v-if="bool('show_phone', true)" type="tel" placeholder="Phone" readonly
-        class="rounded-md border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900" />
-      <textarea placeholder="Message" rows="4" readonly
-        class="col-span-2 rounded-md border border-neutral-300 bg-white px-4 py-2.5 text-sm" />
+      <LazyVInput type="text" placeholder="Name" readonly
+        inputClass="!rounded-md !border-neutral-300 !bg-white !px-4 !py-2.5 !text-sm !text-neutral-900" />
+      <LazyVInput type="email" placeholder="Email" readonly
+        inputClass="!rounded-md !border-neutral-300 !bg-white !px-4 !py-2.5 !text-sm !text-neutral-900" />
+      <LazyVInput v-if="bool('show_phone', true)" type="tel" placeholder="Phone" readonly
+        inputClass="!rounded-md !border-neutral-300 !bg-white !px-4 !py-2.5 !text-sm !text-neutral-900" />
+      <LazyVTextareaInput placeholder="Message" readonly
+        textareaClass="!col-span-2 !rounded-md !border-neutral-300 !bg-white !px-4 !py-2.5 !text-sm !text-neutral-900" />
       <button type="submit" class="w-fit rounded-md bg-neutral-900 px-6 py-2.5 text-sm font-semibold text-white">
         {{ str('submit_label', str('submitLabel', 'Send message')) }}
       </button>

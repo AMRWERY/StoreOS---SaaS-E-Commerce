@@ -4,9 +4,6 @@
             class="min-h-screen bg-bg-base text-tx-primary flex items-center justify-center p-6 relative overflow-hidden flex-col selection:bg-indigo-500/30">
             <!-- Grid Background -->
             <div
-                class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay">
-            </div>
-            <div
                 class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/15 via-[#050505] to-[#050505] pointer-events-none">
             </div>
 

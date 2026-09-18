@@ -39,8 +39,8 @@
           </div>
 
           <!-- Photo Upload Area -->
-          <LazyVDropdownMenu label="Product photos" accept="image/png, image/jpeg, image/merchantp"
-            @click="handleUpload" />
+          <LazyVFileUpload label="Product photos" accept="image/png, image/jpeg, image/merchantp"
+            @change="handleUpload" />
 
           <!-- Footer Actions -->
           <div class="flex items-center gap-4 pt-4">

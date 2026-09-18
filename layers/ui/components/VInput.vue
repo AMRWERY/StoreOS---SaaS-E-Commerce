@@ -1,14 +1,26 @@
 <template>
-  <div>
+  <div :class="attrs.class" :style="attrs.style as any">
     <div class="space-y-2">
       <!-- Checkbox Type -->
       <template v-if="type === 'checkbox'">
-        <label class="flex items-center gap-3 cursor-pointer group">
+        <label
+          :class="[
+            'flex items-center cursor-pointer group',
+            labelPosition === 'start' ? 'w-full justify-between flex-row-reverse' : 'gap-3',
+          ]"
+        >
           <input
             type="checkbox"
             :checked="!!modelValue"
+            :name="name"
+            :required="required"
+            :disabled="disabled"
             @change="onInput"
-            class="w-4 h-4 rounded border-border-default bg-bg-elevated text-orange-500 focus:ring-orange-500 focus:ring-offset-0 transition-all cursor-pointer"
+            v-bind="attrsWithoutClass"
+            :class="[
+              'w-4 h-4 rounded border-border-default bg-bg-elevated text-orange-500 focus:ring-orange-500 focus:ring-offset-0 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed',
+              inputClass,
+            ]"
           />
           <span
             v-if="label || $slots.default"
@@ -37,7 +49,10 @@
             :placeholder="placeholder"
             :required="required"
             :name="name"
+            :disabled="disabled"
+            :readonly="readonly"
             @input="onInput"
+            v-bind="attrsWithoutClass"
             :class="inputClasses"
           />
 
@@ -68,20 +83,34 @@
       >
         <p v-if="error" class="text-xs text-red-500 mt-1 font-medium">
           {{ error }}
-        </p>
+        </p>../types/VInput
       </Transition>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { LazyVInputProps } from "../types/v-input";
+import type { LazyVInputProps } from "../types/VInput";
+
+defineOptions({ inheritAttrs: false });
 
 const props = withDefaults(defineProps<LazyVInputProps>(), {
   type: "text",
+  labelPosition: "end",
 });
 
 const emit = defineEmits(["update:modelValue"]);
+
+const attrs = useAttrs();
+
+// Vue disables automatic class/style fallthrough once inheritAttrs is false, so
+// re-apply them to the root manually (via attrs.class/attrs.style in the template)
+// while forwarding everything else (event listeners, autofocus, id, aria-*, data-*,
+// ...) to the real <input> instead of the wrapping <div>.
+const attrsWithoutClass = computed(() => {
+  const { class: _class, style: _style, ...rest } = attrs;
+  return rest;
+});
 
 const onInput = (e: Event) => {
   const target = e.target as HTMLInputElement;
@@ -91,7 +120,7 @@ const onInput = (e: Event) => {
 
 const inputClasses = computed(() => {
   return [
-    "w-full bg-bg-elevated border border-border-subtle rounded-md px-3 py-2 text-[12px] text-tx-primary placeholder:text-tx-muted outline-none transition-all duration-200",
+    "w-full bg-bg-elevated border border-border-subtle rounded-md px-3 py-2 text-[12px] text-tx-primary placeholder:text-tx-muted outline-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
     props.error
       ? "border-red-500/50 focus:border-red-500"
       : "focus:border-brand focus:ring-2 focus:ring-brand-dim hover:border-border-default",

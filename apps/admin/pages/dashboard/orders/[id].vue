@@ -229,10 +229,10 @@
               </h3>
               <div class="space-y-6">
                 <div class="relative">
-                  <textarea
+                  <LazyVTextareaInput
                     placeholder="Add internal note for this order..."
-                    class="w-full bg-bg-primary border border-border-default rounded-2xl p-5 text-sm h-32 focus:outline-none focus:border-brand/50 transition-colors placeholder:text-tx-muted resize-none"
-                  ></textarea>
+                    textareaClass="!bg-bg-primary !border-border-default !rounded-2xl !p-5 !text-sm !h-32 focus:!border-brand/50"
+                  />
                   <LazyVButton
                     variant="none"
                     className="absolute bottom-4 end-4 bg-bg-elevated hover:bg-bg-elevated px-4 py-2 rounded-lg text-[10px] font-black tracking-widest transition-colors"

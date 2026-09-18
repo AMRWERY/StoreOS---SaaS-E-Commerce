@@ -13,42 +13,18 @@
       </div>
       <div class="lg:col-span-8 space-y-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="space-y-2">
-            <label
-              class="text-[10px] font-bold text-tx-secondary tracking-wider"
-              >{{ t("dashboard.settings.storeInfo.currency") }}</label
-            >
-            <div class="relative">
-              <select
-                v-model="modelValue.currency"
-                class="w-full bg-bg-primary border border-border-subtle rounded-lg px-5 py-3.5 text-sm outline-none appearance-none hover:border-border-default focus:border-orange-500/50 transition-all"
-              >
-                <option>JPY (¥) - Japanese Yen</option>
-              </select>
-              <Icon
-                name="ph:caret-up-down-bold"
-                class="absolute end-5 top-1/2 -translate-y-1/2 text-tx-muted"
-              />
-            </div>
-          </div>
-          <div class="space-y-2">
-            <label
-              class="text-[10px] font-bold text-tx-secondary tracking-wider"
-              >{{ t("dashboard.settings.storeInfo.timezone") }}</label
-            >
-            <div class="relative">
-              <select
-                v-model="modelValue.timezone"
-                class="w-full bg-bg-primary border border-border-subtle rounded-lg px-5 py-3.5 text-sm outline-none appearance-none hover:border-border-default focus:border-orange-500/50 transition-all"
-              >
-                <option>(GMT+09:00) Tokyo</option>
-              </select>
-              <Icon
-                name="ph:caret-up-down-bold"
-                class="absolute end-5 top-1/2 -translate-y-1/2 text-tx-muted"
-              />
-            </div>
-          </div>
+          <LazyVSelectInput
+            v-model="modelValue.currency"
+            :label="t('dashboard.settings.storeInfo.currency')"
+            :options="['JPY (¥) - Japanese Yen']"
+            selectClass="!bg-bg-primary !border-border-subtle !rounded-lg !px-5 !py-3.5 !text-sm hover:!border-border-default focus:!border-orange-500/50"
+          />
+          <LazyVSelectInput
+            v-model="modelValue.timezone"
+            :label="t('dashboard.settings.storeInfo.timezone')"
+            :options="['(GMT+09:00) Tokyo']"
+            selectClass="!bg-bg-primary !border-border-subtle !rounded-lg !px-5 !py-3.5 !text-sm hover:!border-border-default focus:!border-orange-500/50"
+          />
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="space-y-3">
@@ -83,24 +59,12 @@
               </button>
             </div>
           </div>
-          <div class="space-y-2">
-            <label
-              class="text-[10px] font-bold text-tx-secondary tracking-wider"
-              >{{ t("dashboard.settings.storeInfo.defaultLanguage") }}</label
-            >
-            <div class="relative">
-              <select
-                v-model="modelValue.language"
-                class="w-full bg-bg-primary border border-border-subtle rounded-lg px-5 py-3.5 text-sm outline-none appearance-none hover:border-border-default focus:border-orange-500/50 transition-all"
-              >
-                <option>English (International)</option>
-              </select>
-              <Icon
-                name="ph:caret-up-down-bold"
-                class="absolute end-5 top-1/2 -translate-y-1/2 text-tx-muted"
-              />
-            </div>
-          </div>
+          <LazyVSelectInput
+            v-model="modelValue.language"
+            :label="t('dashboard.settings.storeInfo.defaultLanguage')"
+            :options="['English (International)']"
+            selectClass="!bg-bg-primary !border-border-subtle !rounded-lg !px-5 !py-3.5 !text-sm hover:!border-border-default focus:!border-orange-500/50"
+          />
         </div>
       </div>
     </section>

@@ -36,7 +36,7 @@
           </button>
         </header>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <section-template-card
+          <lazy-section-template-card
             v-for="item in builderSectionTemplates"
             :key="item.id"
             :title="item.title"

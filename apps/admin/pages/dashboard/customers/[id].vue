@@ -122,9 +122,9 @@
             <div v-if="activeTab === tabs[1]" class="space-y-6">
               <!-- Add Note -->
               <div class="bg-bg-overlay rounded-2xl p-6 border border-border-subtle">
-                <textarea v-model="newNote"
-                  class="w-full bg-transparent border-none focus:ring-0 text-sm placeholder-tx-muted resize-none h-24"
-                  :placeholder="t('dashboard.customers.notePlaceholder')"></textarea>
+                <LazyVTextareaInput v-model="newNote"
+                  textareaClass="!bg-transparent !border-0 focus:!ring-0 focus:!border-transparent !text-sm placeholder:!text-tx-muted !h-24"
+                  :placeholder="t('dashboard.customers.notePlaceholder')" />
                 <div class="flex justify-end mt-4">
                   <LazyVButton variant="primary" size="sm" :label="t('dashboard.customers.addNote')"
                     @click="handleAddNote" :disabled="!newNote.trim()" />
@@ -219,16 +219,16 @@
                 <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">
                   {{ t("dashboard.customers.primaryPhone") }}
                 </p>
-                <input v-model="editedContact.phone"
-                  class="w-full bg-bg-overlay border border-border-default rounded-xl px-4 py-3 text-xs font-bold focus:border-brand/50 focus:ring-1 focus:ring-brand/20 outline-none transition-all"
+                <LazyVInput v-model="editedContact.phone"
+                  inputClass="!w-full !bg-bg-overlay !border !border-border-default !rounded-xl !px-4 !py-3 !text-xs !font-bold focus:!border-brand/50 focus:!ring-1 focus:!ring-brand/20 !outline-none !transition-all"
                   placeholder="+20 000 000 0000" />
               </div>
               <div>
                 <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">
                   {{ t("dashboard.customers.primaryEmail") }}
                 </p>
-                <input v-model="editedContact.email"
-                  class="w-full bg-bg-overlay border border-border-default rounded-xl px-4 py-3 text-xs font-bold focus:border-brand/50 focus:ring-1 focus:ring-brand/20 outline-none transition-all"
+                <LazyVInput v-model="editedContact.email"
+                  inputClass="!w-full !bg-bg-overlay !border !border-border-default !rounded-xl !px-4 !py-3 !text-xs !font-bold focus:!border-brand/50 focus:!ring-1 focus:!ring-brand/20 !outline-none !transition-all"
                   placeholder="name@company.com" />
               </div>
               <div class="flex gap-2 pt-2">

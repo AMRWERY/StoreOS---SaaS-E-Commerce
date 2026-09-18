@@ -8,8 +8,8 @@
       {{ str('subheading', str('subheadline', 'Get the latest news and exclusive offers.')) }}
     </p>
     <form class="mt-6 flex justify-center gap-2" @submit.prevent>
-      <input type="email" :placeholder="str('placeholder', 'you@example.com')"
-        class="w-64 rounded-md border border-neutral-300 px-4 py-2 text-sm outline-none focus:border-neutral-500" />
+      <LazyVInput type="email" :placeholder="str('placeholder', 'you@example.com')"
+        inputClass="!w-64 !rounded-md !border-neutral-300 !px-4 !py-2 !text-sm !outline-none focus:!border-neutral-500" />
       <button type="submit"
         class="rounded-md bg-neutral-900 px-5 py-2 text-sm font-semibold text-white hover:bg-neutral-800">
         {{ str('button_text', str('buttonText', 'Subscribe')) }}

@@ -10,38 +10,16 @@
     </div>
 
     <div class="space-y-6">
-      <div class="space-y-2">
-        <label class="text-[10px] font-bold text-tx-secondary tracking-wider">{{
-          t("dashboard.profile.language")
-        }}</label>
-        <div class="relative">
-          <select
-            class="w-full bg-bg-primary border border-border-default rounded-xl px-5 py-3 text-sm appearance-none outline-none"
-          >
-            <option>English (US)</option>
-          </select>
-          <Icon
-            name="ph:caret-down-bold"
-            class="absolute end-4 top-1/2 -translate-y-1/2 text-tx-muted"
-          />
-        </div>
-      </div>
-      <div class="space-y-2">
-        <label class="text-[10px] font-bold text-tx-secondary tracking-wider">{{
-          t("dashboard.profile.timezone")
-        }}</label>
-        <div class="relative">
-          <select
-            class="w-full bg-bg-primary border border-border-default rounded-xl px-5 py-3 text-sm appearance-none outline-none"
-          >
-            <option>(GMT+09:00) Tokyo, Japan</option>
-          </select>
-          <Icon
-            name="ph:caret-down-bold"
-            class="absolute end-4 top-1/2 -translate-y-1/2 text-tx-muted"
-          />
-        </div>
-      </div>
+      <LazyVSelectInput
+        :label="t('dashboard.profile.language')"
+        :options="['English (US)']"
+        selectClass="!bg-bg-primary !border-border-default !rounded-xl !px-5 !py-3 !text-sm"
+      />
+      <LazyVSelectInput
+        :label="t('dashboard.profile.timezone')"
+        :options="['(GMT+09:00) Tokyo, Japan']"
+        selectClass="!bg-bg-primary !border-border-default !rounded-xl !px-5 !py-3 !text-sm"
+      />
       <div class="space-y-3 pt-4 border-t border-border-subtle">
         <label class="text-[10px] font-bold text-tx-secondary tracking-wider">{{
           t("dashboard.profile.interfaceTheme")

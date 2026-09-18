@@ -11,23 +11,11 @@
       </div>
 
       <div class="space-y-4">
-        <div class="space-y-2">
-          <label class="text-[9px] font-black text-tx-muted tracking-widest">{{
-            t("dashboard.settings.shipping.activeGateway")
-          }}</label>
-          <div class="relative">
-            <select
-              class="w-full bg-bg-primary border border-border-default rounded-xl px-4 py-3 text-sm appearance-none focus:border-brand outline-none transition"
-            >
-              <option>FedEx Priority Global</option>
-              <option>DHL Express</option>
-            </select>
-            <Icon
-              name="ph:caret-down-bold"
-              class="absolute end-4 top-1/2 -translate-y-1/2 text-tx-muted"
-            />
-          </div>
-        </div>
+        <LazyVSelectInput
+          :label="t('dashboard.settings.shipping.activeGateway')"
+          :options="['FedEx Priority Global', 'DHL Express']"
+          selectClass="!bg-bg-primary !border-border-default !rounded-xl !px-4 !py-3 !text-sm focus:!border-brand"
+        />
 
         <div class="flex justify-between items-end pt-4">
           <div class="space-y-1">

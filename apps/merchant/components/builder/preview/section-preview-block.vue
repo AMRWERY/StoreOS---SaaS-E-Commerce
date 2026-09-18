@@ -9,7 +9,7 @@
     @mouseleave="isHovered = false"
     @keydown.enter.prevent="$emit('select')"
   >
-    <SectionOverlay
+    <lazy-section-overlay
       :selected="selected"
       :highlighted="!selected && isHovered"
     />
@@ -21,7 +21,7 @@
       {{ label }}
     </div>
 
-    <FloatingToolbar
+    <lazy-floating-toolbar
       :visible="selected"
       placement="block"
       @action="$emit('toolbar-action', $event)"
@@ -32,13 +32,14 @@
       <div
         class="relative flex min-h-[340px] items-center bg-neutral-800 bg-cover bg-center ps-16 pe-8 py-20"
         style="
-          background-image: linear-gradient(
+          background-image:
+            linear-gradient(
               90deg,
               rgba(15, 15, 20, 0.75) 0%,
               rgba(15, 15, 20, 0.35) 45%,
               transparent 100%
             ),
-            url('category-02.avif');
+            url(&quot;category-02.avif&quot;);
         "
       >
         <div class="relative z-10 max-w-xl">
@@ -51,7 +52,7 @@
             {{
               str(
                 "subheadline",
-                "Discover a curated collection of artisanal furniture designed for the modern sanctuary."
+                "Discover a curated collection of artisanal furniture designed for the modern sanctuary.",
               )
             }}
           </p>
@@ -84,7 +85,7 @@
         </div>
         <div
           class="bg-cover bg-center bg-neutral-700"
-          style="background-image: url('/img/category-01.avif')"
+          style="background-image: url(&quot;/img/category-01.avif&quot;)"
         />
       </div>
     </template>
@@ -94,13 +95,14 @@
       <div
         class="relative flex min-h-[380px] items-center bg-cover bg-center"
         style="
-          background-image: linear-gradient(
+          background-image:
+            linear-gradient(
               90deg,
               rgba(15, 15, 20, 0.75) 0%,
               rgba(15, 15, 20, 0.35) 45%,
               transparent 100%
             ),
-            url('category-03.avif');
+            url(&quot;category-03.avif&quot;);
         "
       >
         <div class="max-w-xl ps-16">
@@ -510,7 +512,7 @@
       <div class="grid min-h-[400px] grid-cols-2">
         <div
           class="bg-cover bg-center bg-neutral-200"
-          style="background-image: url('/img/product-01.avif')"
+          style="background-image: url(&quot;/img/product-01.avif&quot;)"
         />
         <div class="flex flex-col justify-center px-10 py-12">
           <span class="text-xs font-bold tracking-widest text-neutral-500"
@@ -526,7 +528,7 @@
             {{
               str(
                 "description",
-                "Describe the product here. Highlight key features and benefits."
+                "Describe the product here. Highlight key features and benefits.",
               )
             }}
           </p>
@@ -648,7 +650,7 @@
           {{
             str(
               "body",
-              "Start writing your content here. You can add rich text, format it and customize it in the settings panel."
+              "Start writing your content here. You can add rich text, format it and customize it in the settings panel.",
             )
           }}
         </div>
@@ -660,7 +662,7 @@
       <div class="grid min-h-[280px] grid-cols-2">
         <div
           class="bg-cover bg-center bg-neutral-200"
-          style="background-image: url('/img/category-01.avif')"
+          style="background-image: url(&quot;/img/category-01.avif&quot;)"
         />
         <div class="flex flex-col justify-center px-10 py-12">
           <h2 class="text-2xl font-bold text-neutral-900">
@@ -670,7 +672,7 @@
             {{
               str(
                 "body",
-                "Tell your brand story, highlight what makes you special, and connect with your customers on a deeper level."
+                "Tell your brand story, highlight what makes you special, and connect with your customers on a deeper level.",
               )
             }}
           </p>
@@ -889,11 +891,11 @@
           {{ str("subheading", "Get the latest news and exclusive offers.") }}
         </p>
         <div class="mt-6 flex justify-center gap-2">
-          <input
+          <LazyVInput
             type="email"
             placeholder="you@example.com"
-            class="w-64 rounded-md border border-neutral-300 px-4 py-2 text-sm outline-none"
             readonly
+            input-class="!w-64 !rounded-md !border-neutral-300 !px-4 !py-2 !text-sm !outline-none"
           />
           <button
             type="button"
@@ -912,23 +914,22 @@
           {{ str("heading", "Contact us") }}
         </h2>
         <div class="mt-6 grid max-w-xl grid-cols-2 gap-4">
-          <input
+          <LazyVInput
             type="text"
             placeholder="Name"
-            class="rounded-md border border-neutral-300 px-4 py-2.5 text-sm"
             readonly
+            input-class="!rounded-md !border-neutral-300 !px-4 !py-2.5 !text-sm"
           />
-          <input
+          <LazyVInput
             type="email"
             placeholder="Email"
-            class="rounded-md border border-neutral-300 px-4 py-2.5 text-sm"
             readonly
+            input-class="!rounded-md !border-neutral-300 !px-4 !py-2.5 !text-sm"
           />
-          <textarea
+          <LazyVTextareaInput
             placeholder="Message"
-            rows="4"
-            class="col-span-2 rounded-md border border-neutral-300 px-4 py-2.5 text-sm"
             readonly
+            textareaClass="!col-span-2 !bg-transparent !rounded-md !border-neutral-300 !px-4 !py-2.5 !text-sm !text-inherit"
           />
           <button
             type="button"
@@ -1019,7 +1020,7 @@ defineEmits<{
 const isHovered = ref(false);
 
 const label = computed(
-  () => SECTION_TYPE_LABELS[props.section.type] ?? props.section.type
+  () => SECTION_TYPE_LABELS[props.section.type] ?? props.section.type,
 );
 
 const str = (key: string, fallback = "") => {
