@@ -1,31 +1,16 @@
-﻿<template>
-  <div class="space-y-2">
-    <div class="flex items-center justify-between gap-2">
-      <label class="text-[10px] font-bold tracking-wider text-tx-secondary">{{
-        label
-      }}</label>
-      <span class="text-[11px] text-tx-muted">{{ modelValue }}{{ unit }}</span>
-    </div>
-    <input
-      :value="modelValue"
-      type="range"
-      :min="min"
-      :max="max"
-      :step="step"
-      class="h-2 w-full cursor-pointer appearance-none rounded-full bg-bg-elevated accent-brand"
-      @input="
-        $emit(
-          'update:modelValue',
-          Number(($event.target as HTMLInputElement).value),
-        )
-      "
-    />
-  </div>
+<template>
+  <LazyVRangeInput
+    :model-value="modelValue"
+    :label="label"
+    :min="min"
+    :max="max"
+    :step="step"
+    :unit="unit"
+    @update:model-value="$emit('update:modelValue', $event as number)"
+  />
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n();
-
 withDefaults(
   defineProps<{
     modelValue: number;

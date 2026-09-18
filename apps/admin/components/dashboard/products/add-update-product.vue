@@ -341,7 +341,7 @@
                     :key="c"
                     type="checkbox"
                     :model-value="selectedCollections.includes(c)"
-                    @update:model-value="(checked) => toggleCollection(c, checked as boolean)"
+                    @update:model-value="(checked: string | number | boolean) => toggleCollection(c, checked as boolean)"
                     :label="c"
                     labelPosition="start"
                     inputClass="!accent-brand !w-3.5 !h-3.5 !bg-bg-primary !border-border-default !rounded"

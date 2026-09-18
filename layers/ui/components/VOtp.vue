@@ -10,7 +10,7 @@
       <input
         v-for="(digit, i) in boxes"
         :key="i"
-        :ref="(el) => setBoxRef(el, i)"
+        :ref="(el: Element | null) => setBoxRef(el, i)"
         :value="digit"
         type="text"
         inputmode="numeric"
