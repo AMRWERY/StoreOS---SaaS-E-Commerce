@@ -27,13 +27,14 @@
               Choose a block; it is appended to the end of the page.
             </p>
           </div>
-          <button
+          <LazyVButton
+            variant="none"
             type="button"
-            class="rounded-lg border border-border-subtle p-2 text-tx-muted transition-colors hover:bg-bg-elevated hover:text-tx-primary"
+            className="rounded-lg border border-border-subtle p-2 text-tx-muted transition-colors hover:bg-bg-elevated hover:text-tx-primary"
             @click="addSectionOpen = false"
           >
             <Icon name="ph:x-bold" class="text-xl" />
-          </button>
+          </LazyVButton>
         </header>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <lazy-section-template-card

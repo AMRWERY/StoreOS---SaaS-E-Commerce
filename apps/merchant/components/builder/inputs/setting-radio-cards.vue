@@ -5,16 +5,17 @@
       >{{ label }}</label
     >
     <div class="grid grid-cols-2 gap-2">
-      <button
+      <LazyVButton
         v-for="opt in options"
         :key="opt.value"
+        variant="none"
         type="button"
-        class="rounded-lg border px-3 py-3 text-start transition-all"
-        :class="
+        :class-name="[
+          'rounded-lg border px-3 py-3 text-start transition-all',
           modelValue === opt.value
             ? 'border-brand bg-brand/15 ring-1 ring-brand/40'
-            : 'border-border-subtle bg-bg-elevated hover:border-border-default'
-        "
+            : 'border-border-subtle bg-bg-elevated hover:border-border-default',
+        ].join(' ')"
         @click="$emit('update:modelValue', opt.value)"
       >
         <Icon
@@ -31,7 +32,7 @@
         >
           {{ opt.description }}
         </p>
-      </button>
+      </LazyVButton>
     </div>
   </div>
 </template>

@@ -64,13 +64,13 @@
                 placeholder="e.g. SUMMER24"
                 inputClass="bg-bg-primary border border-border-default rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-brand outline-none transition pe-14"
               />
-              <button
+              <LazyVButton
                 @click="generateCode"
-                class="absolute end-4 top-1/2 -translate-y-1/2 text-tx-muted hover:text-brand transition-colors"
-                type="button"
+                variant="none"
+                className="absolute end-4 top-1/2 -translate-y-1/2 text-tx-muted hover:text-brand transition-colors"
               >
                 <Icon name="ph:arrows-clockwise-bold" class="text-xl" />
-              </button>
+              </LazyVButton>
             </div>
           </div>
 
@@ -83,19 +83,19 @@
             <div
               class="bg-bg-primary p-1.5 rounded-2xl flex border border-border-subtle"
             >
-              <button
+              <LazyVButton
                 v-for="type in discountTypes"
                 :key="type.value"
                 @click="form.discountType = type.value"
-                class="flex-1 py-3.5 text-xs font-bold tracking-tight rounded-xl transition-all duration-300"
-                :class="
+                variant="none"
+                :className="`flex-1 py-3.5 text-xs font-bold tracking-tight rounded-xl transition-all duration-300 ${
                   form.discountType === type.value
                     ? 'bg-bg-elevated text-brand shadow-xl border border-border-subtle'
                     : 'text-tx-secondary hover:text-tx-secondary'
-                "
+                }`"
               >
                 {{ type.label }}
-              </button>
+              </LazyVButton>
             </div>
           </div>
 

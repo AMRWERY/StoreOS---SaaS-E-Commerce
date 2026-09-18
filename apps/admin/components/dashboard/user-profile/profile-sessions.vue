@@ -9,11 +9,12 @@
           {{ t("dashboard.profile.activeSessions") }}
         </h3>
       </div>
-      <button
-        class="text-[9px] font-bold text-accent/80 hover:text-accent transition-colors tracking-widest"
+      <LazyVButton
+        variant="none"
+        className="text-[9px] font-bold text-accent/80 hover:text-accent transition-colors tracking-widest"
       >
         {{ t("dashboard.profile.signOutAllSessions") }}
-      </button>
+      </LazyVButton>
     </div>
 
     <div class="space-y-3">

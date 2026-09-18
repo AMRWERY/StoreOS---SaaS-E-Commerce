@@ -34,20 +34,22 @@
         </div>
 
         <div class="mt-6 flex flex-wrap gap-3">
-          <button
+          <LazyVButton
+            variant="none"
             type="button"
-            class="rounded-lg bg-red-600 px-5 py-2.5 text-[11px] font-black tracking-wider text-white transition-colors hover:bg-red-500"
+            className="rounded-lg bg-red-600 px-5 py-2.5 text-[11px] font-black tracking-wider text-white transition-colors hover:bg-red-500"
             @click="onDelete"
           >
             Delete page
-          </button>
-          <button
+          </LazyVButton>
+          <LazyVButton
+            variant="none"
             type="button"
-            class="rounded-lg border border-border-subtle px-5 py-2.5 text-[11px] font-bold text-tx-secondary hover:bg-bg-elevated"
+            className="rounded-lg border border-border-subtle px-5 py-2.5 text-[11px] font-bold text-tx-secondary hover:bg-bg-elevated"
             @click="deletePageOpen = false"
           >
             Cancel
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </div>

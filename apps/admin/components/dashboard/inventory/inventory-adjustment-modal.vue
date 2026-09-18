@@ -36,12 +36,13 @@
           <h2 class="text-xl font-bold text-tx-primary tracking-tight">
             {{ t("dashboard.inventory.stockAdjustment") }}
           </h2>
-          <button
+          <LazyVButton
+            variant="none"
             @click="$emit('update:modelValue', false)"
-            class="text-tx-secondary hover:text-tx-primary transition-colors"
+            className="text-tx-secondary hover:text-tx-primary transition-colors"
           >
             <Icon name="ph:x-bold" class="text-xl" />
-          </button>
+          </LazyVButton>
         </div>
 
         <!-- Body -->
@@ -80,39 +81,39 @@
               >{{ t("dashboard.inventory.adjustmentType") }}</label
             >
             <div class="grid grid-cols-3 gap-2">
-              <button
+              <LazyVButton
+                variant="none"
                 @click="adjType = 'Add'"
-                :class="
+                :className="`py-3 border rounded-lg text-[10px] font-bold tracking-widest transition-all ${
                   adjType === 'Add'
                     ? 'bg-bg-elevated text-tx-primary border-border-default'
                     : 'bg-transparent border-border-default text-tx-secondary hover:bg-bg-elevated'
-                "
-                class="py-3 border rounded-lg text-[10px] font-bold tracking-widest transition-all"
+                }`"
               >
                 {{ t("dashboard.inventory.addPlus") }}
-              </button>
-              <button
+              </LazyVButton>
+              <LazyVButton
+                variant="none"
                 @click="adjType = 'Remove'"
-                :class="
+                :className="`py-3 border rounded-lg text-[10px] font-bold tracking-widest transition-all ${
                   adjType === 'Remove'
                     ? 'bg-bg-elevated text-tx-primary border-border-default'
                     : 'bg-transparent border-border-default text-tx-secondary hover:bg-bg-elevated'
-                "
-                class="py-3 border rounded-lg text-[10px] font-bold tracking-widest transition-all"
+                }`"
               >
                 {{ t("dashboard.inventory.removeMinus") }}
-              </button>
-              <button
+              </LazyVButton>
+              <LazyVButton
+                variant="none"
                 @click="adjType = 'Set'"
-                :class="
+                :className="`py-3 border rounded-lg text-[10px] font-bold tracking-widest transition-all ${
                   adjType === 'Set'
                     ? 'bg-bg-elevated text-tx-primary border-border-default'
                     : 'bg-transparent border-border-default text-tx-secondary hover:bg-bg-elevated'
-                "
-                class="py-3 border rounded-lg text-[10px] font-bold tracking-widest transition-all"
+                }`"
               >
                 {{ t("dashboard.inventory.setEquals") }}
-              </button>
+              </LazyVButton>
             </div>
           </div>
 
@@ -152,18 +153,20 @@
         <div
           class="p-6 border-t border-border-subtle flex items-center gap-3 bg-bg-elevated"
         >
-          <button
+          <LazyVButton
+            variant="none"
             @click="$emit('update:modelValue', false)"
-            class="flex-1 py-3.5 rounded-xl font-bold text-sm bg-transparent border border-border-default text-tx-primary hover:bg-bg-elevated transition-colors"
+            className="flex-1 py-3.5 rounded-xl font-bold text-sm bg-transparent border border-border-default text-tx-primary hover:bg-bg-elevated transition-colors"
           >
             {{ t("common.cancel") }}
-          </button>
-          <button
+          </LazyVButton>
+          <LazyVButton
+            variant="none"
             @click="save"
-            class="flex-1 py-3.5 rounded-xl font-bold text-sm bg-brand text-tx-primary hover:bg-brand-hover transition-colors shadow-lg shadow-brand/20"
+            className="flex-1 py-3.5 rounded-xl font-bold text-sm bg-brand text-tx-primary hover:bg-brand-hover transition-colors shadow-lg shadow-brand/20"
           >
             {{ t("common.save") }}
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </Transition>

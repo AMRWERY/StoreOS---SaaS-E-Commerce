@@ -4,13 +4,14 @@
       <label class="text-[10px] font-bold tracking-wider text-tx-secondary">{{
         label
       }}</label>
-      <button
+      <LazyVButton
+        variant="none"
         type="button"
-        class="rounded-md border border-dashed border-border-subtle px-2 py-1 text-[10px] font-bold tracking-wider text-brand transition-colors hover:bg-brand/15"
+        className="rounded-md border border-dashed border-border-subtle px-2 py-1 text-[10px] font-bold tracking-wider text-brand transition-colors hover:bg-brand/15"
         @click="add"
       >
         + Add
-      </button>
+      </LazyVButton>
     </div>
     <ul class="space-y-2">
       <li
@@ -21,14 +22,15 @@
         <div class="min-w-0 flex-1">
           <slot :item="item" :index="i" />
         </div>
-        <button
+        <LazyVButton
+          variant="none"
           type="button"
-          class="shrink-0 rounded p-1 text-tx-muted hover:bg-bg-overlay hover:text-red-400"
+          className="shrink-0 rounded p-1 text-tx-muted hover:bg-bg-overlay hover:text-red-400"
           title="Remove"
           @click="remove(i)"
         >
           <Icon name="ph:trash-bold" class="text-base" />
-        </button>
+        </LazyVButton>
       </li>
     </ul>
   </div>

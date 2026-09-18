@@ -13,11 +13,13 @@
         modelValue="********"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3"
       />
+
       <LazyVInput
         :label="t('dashboard.profile.newPassword')"
         type="password"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3"
       />
+
       <LazyVInput
         :label="t('dashboard.profile.confirmNewPassword')"
         type="password"
@@ -38,12 +40,13 @@
       </div>
 
       <div class="flex justify-between items-center">
-        <button
-          class="text-[10px] font-bold text-brand flex items-center gap-2 hover:underline"
+        <LazyVButton
+          variant="none"
+          className="text-[10px] font-bold text-brand flex items-center gap-2 hover:underline"
         >
           <Icon name="ph:key-bold" />
           {{ t("dashboard.profile.setupBackupCodes") }}
-        </button>
+        </LazyVButton>
         <span class="text-[8px] text-tx-muted font-bold"
           >Updated: 2023.11.14</span
         >
@@ -54,5 +57,6 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+
 const twoFactor = ref(false);
 </script>

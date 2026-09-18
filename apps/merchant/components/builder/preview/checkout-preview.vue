@@ -152,12 +152,12 @@
             </div>
           </div>
 
-          <button
-            type="button"
-            class="w-full rounded-2xl bg-indigo-600 py-4 text-sm font-bold text-white shadow-md hover:bg-indigo-700"
+          <LazyVButton
+            variant="none"
+            className="w-full rounded-2xl bg-indigo-600 py-4 text-sm font-bold text-white shadow-md hover:bg-indigo-700"
           >
             Place order — $275.00
-          </button>
+          </LazyVButton>
           <p class="text-center text-[10px] text-neutral-400">
             <Icon name="ph:lock-bold" class="me-0.5 text-[11px]" />
             Payments secured with 256-bit SSL encryption

@@ -35,28 +35,30 @@
             <div
               class="bg-bg-primary p-1 rounded-xl flex border border-border-default"
             >
-              <button
+              <LazyVButton
+                variant="none"
                 @click="modelValue.unitSystem = 'Metric'"
-                :class="
+                :className="[
+                  'flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all',
                   modelValue.unitSystem === 'Metric'
                     ? 'bg-bg-elevated text-tx-primary'
-                    : 'text-tx-muted'
-                "
-                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
+                    : 'text-tx-muted',
+                ].join(' ')"
               >
                 {{ t("dashboard.settings.storeInfo.metric") }}
-              </button>
-              <button
+              </LazyVButton>
+              <LazyVButton
+                variant="none"
                 @click="modelValue.unitSystem = 'Imperial'"
-                :class="
+                :className="[
+                  'flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all',
                   modelValue.unitSystem === 'Imperial'
                     ? 'bg-bg-elevated text-tx-primary'
-                    : 'text-tx-muted'
-                "
-                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
+                    : 'text-tx-muted',
+                ].join(' ')"
               >
                 {{ t("dashboard.settings.storeInfo.imperial") }}
-              </button>
+              </LazyVButton>
             </div>
           </div>
           <LazyVSelectInput

@@ -38,12 +38,13 @@
       </div>
 
       <div class="flex justify-between items-center">
-        <button
-          class="text-[10px] font-bold text-brand flex items-center gap-2 hover:underline"
+        <LazyVButton
+          variant="none"
+          className="text-[10px] font-bold text-brand flex items-center gap-2 hover:underline"
         >
           <Icon name="ph:key-bold" />
           {{ t("dashboard.profile.setupBackupCodes") }}
-        </button>
+        </LazyVButton>
         <span class="text-[8px] text-tx-muted font-bold"
           >Updated: 2023.11.14</span
         >

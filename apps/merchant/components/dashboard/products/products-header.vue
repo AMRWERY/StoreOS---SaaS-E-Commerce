@@ -44,6 +44,7 @@
 const { t } = useI18n();
 const { canWrite } = useAuth();
 const { requireAuth } = useAuthGate();
+
 defineProps<{
   total: number;
 }>();

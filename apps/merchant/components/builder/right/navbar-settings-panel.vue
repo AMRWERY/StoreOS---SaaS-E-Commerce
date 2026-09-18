@@ -45,16 +45,17 @@
           Navbar style
         </label>
         <div class="grid grid-cols-2 gap-2">
-          <button
+          <LazyVButton
             v-for="style in NAVBAR_STYLES"
             :key="style.value"
+            variant="none"
             type="button"
-            class="group relative flex flex-col items-start overflow-hidden rounded-xl border-2 p-3 text-start transition-all"
-            :class="
+            :class-name="[
+              'group relative flex flex-col items-start overflow-hidden rounded-xl border-2 p-3 text-start transition-all',
               store.navbarStyle === style.value
                 ? 'border-brand bg-brand/5'
-                : 'border-border-default bg-bg-elevated hover:border-border-subtle'
-            "
+                : 'border-border-default bg-bg-elevated hover:border-border-subtle',
+            ].join(' ')"
             @click="store.navbarStyle = style.value"
           >
             <!-- Mini preview sketch -->
@@ -83,7 +84,7 @@
             >
               <Icon name="ph:check-bold" class="text-[9px] text-white" />
             </div>
-          </button>
+          </LazyVButton>
         </div>
       </div>
 
@@ -113,14 +114,15 @@
               {{ store.navLinks.length }}
             </span>
           </label>
-          <button
+          <LazyVButton
+            variant="none"
             type="button"
-            class="flex items-center gap-1 rounded-lg border border-brand/40 bg-brand/10 px-2.5 py-1.5 text-[10px] font-bold tracking-wider text-brand transition-colors hover:bg-brand/20"
+            className="flex items-center gap-1 rounded-lg border border-brand/40 bg-brand/10 px-2.5 py-1.5 text-[10px] font-bold tracking-wider text-brand transition-colors hover:bg-brand/20"
             @click="store.addNavLink()"
           >
             <Icon name="ph:plus-bold" class="text-[11px]" />
             Add link
-          </button>
+          </LazyVButton>
         </div>
 
         <p
@@ -166,14 +168,15 @@
               </div>
 
               <!-- Delete -->
-              <button
+              <LazyVButton
+                variant="none"
                 type="button"
-                class="mt-0.5 shrink-0 rounded-lg p-1.5 text-tx-muted opacity-0 transition-all group-hover:opacity-100 hover:bg-red-500/10 hover:text-red-400"
+                className="mt-0.5 shrink-0 rounded-lg p-1.5 text-tx-muted opacity-0 transition-all group-hover:opacity-100 hover:bg-red-500/10 hover:text-red-400"
                 title="Remove link"
                 @click="store.removeNavLink(i)"
               >
                 <Icon name="ph:trash-bold" class="text-base" />
-              </button>
+              </LazyVButton>
             </div>
           </div>
         </div>

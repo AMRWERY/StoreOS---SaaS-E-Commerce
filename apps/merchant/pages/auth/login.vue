@@ -17,7 +17,7 @@
         </div>
 
         <!-- Form -->
-        <LazyVFormWrapper class="space-y-5" @submit="handleSubmit">
+        <LazyVFormWrapper formClass="!space-y-5" @submit="handleSubmit">
           <LazyVInput
             type="email"
             :label="t('auth.email')"
@@ -89,14 +89,15 @@
               {{ t("auth.registerNow") }}
             </nuxt-link-locale>
             <span class="text-tx-muted">{{ t("auth.or") }}</span>
-            <button
+            <LazyVButton
               type="button"
+              variant="none"
               :disabled="isEnteringPreview"
               @click="handleStartFreeTrial"
-              class="text-brand font-medium hover:text-brand-hover hover:underline transition disabled:opacity-60 disabled:cursor-not-allowed"
+              className="text-brand font-medium hover:text-brand-hover hover:underline transition disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {{ t("auth.startFreeTrial") }}
-            </button>
+            </LazyVButton>
           </div>
           <p class="mt-2 text-[10px] text-tx-muted">
             {{ t("auth.previewHint") }}

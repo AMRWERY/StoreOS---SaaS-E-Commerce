@@ -26,16 +26,16 @@
                 Notifications Center
               </h3>
               <div class="flex items-center gap-4">
-                <button @click="markAllAsRead"
-                  class="text-[9px] font-black tracking-widest text-brand hover:text-tx-primary transition-colors">
+                <LazyVButton @click="markAllAsRead" variant="none"
+                  className="text-[9px] font-black tracking-widest text-brand hover:text-tx-primary transition-colors">
                   Mark Read
-                </button>
-                <button @click="isInternalOpen = false"
-                  class="text-tx-secondary hover:text-tx-primary transition-colors">
+                </LazyVButton>
+                <LazyVButton @click="isInternalOpen = false" variant="none"
+                  className="text-tx-secondary hover:text-tx-primary transition-colors">
                   <ClientOnly>
                     <Icon name="ph:x-bold" class="text-lg" />
                   </ClientOnly>
-                </button>
+                </LazyVButton>
               </div>
             </div>
             <h2 class="text-2xl font-bold text-tx-primary tracking-tight flex items-center gap-3">
@@ -47,7 +47,7 @@
 
           <!-- Tabs -->
           <div class="flex border-b border-border-subtle bg-bg-overlay">
-            <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="[
+            <LazyVButton v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" variant="none" :className="[
               'flex-1 py-4 text-[10px] font-black tracking-[0.15em] transition-all relative',
               activeTab === tab.id ? 'text-tx-primary' : 'text-tx-muted hover:text-tx-secondary'
             ]">
@@ -55,7 +55,7 @@
               <div v-if="activeTab === tab.id"
                 class="absolute bottom-0 start-0 end-0 h-0.5 bg-brand shadow-[0_0_10px_rgba(99,102,241,0.5)]">
               </div>
-            </button>
+            </LazyVButton>
           </div>
 
           <!-- Content -->
@@ -89,13 +89,13 @@
                     </p>
 
                     <div v-if="n.type === 'orders'" class="mt-4">
-                      <button
-                        class="text-[10px] font-black tracking-widest text-brand hover:text-tx-primary flex items-center gap-2 transition-all group/btn">
+                      <LazyVButton variant="none"
+                        className="text-[10px] font-black tracking-widest text-brand hover:text-tx-primary flex items-center gap-2 transition-all group/btn">
                         View Order Details
                         <ClientOnly>
                           <Icon name="ph:caret-right-bold" class="rtl:rotate-180" />
                         </ClientOnly>
-                      </button>
+                      </LazyVButton>
                     </div>
                   </div>
                 </div>
@@ -119,10 +119,10 @@
 
           <!-- Footer -->
           <div class="px-4 py-3.5 border-t border-border-subtle bg-bg-primary">
-            <button
-              class="w-full py-4 rounded-xl font-black text-[10px] tracking-widest bg-bg-elevated hover:bg-bg-elevated text-tx-primary transition-all border border-border-subtle hover:border-border-default">
+            <LazyVButton variant="none"
+              className="w-full py-4 rounded-xl font-black text-[10px] tracking-widest bg-bg-elevated hover:bg-bg-elevated text-tx-primary transition-all border border-border-subtle hover:border-border-default">
               View All Activity Log
-            </button>
+            </LazyVButton>
           </div>
         </aside>
       </Transition>

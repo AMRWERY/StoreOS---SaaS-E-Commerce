@@ -7,18 +7,27 @@
     >
       <!-- Left: Trial info -->
       <div class="flex items-center gap-3 min-w-0">
-        <div class="shrink-0 flex items-center gap-1.5 font-black tracking-wide text-[10px] uppercase">
+        <div
+          class="shrink-0 flex items-center gap-1.5 font-black tracking-wide text-[10px] uppercase"
+        >
           <Icon name="lucide:zap" class="w-3.5 h-3.5" />
           <span>{{ planConfig.label }}</span>
         </div>
         <div class="hidden sm:block w-px h-3 bg-white/20" />
         <p class="truncate text-white/90">
           <span v-if="isTrial && trialDaysLeft > 0">
-            <strong class="text-white">{{ t("auth.trialBanner.daysLeft", trialDaysLeft) }}</strong>
+            <strong class="text-white">{{
+              t("auth.trialBanner.daysLeft", trialDaysLeft)
+            }}</strong>
             {{ t("auth.trialBanner.leftInTrial") }}
-            <span class="text-white/80">{{ t("auth.trialBanner.upgradeToKeep") }}</span>
+            <span class="text-white/80">{{
+              t("auth.trialBanner.upgradeToKeep")
+            }}</span>
           </span>
-          <span v-else-if="isTrial && trialDaysLeft === 0" class="text-orange-200">
+          <span
+            v-else-if="isTrial && trialDaysLeft === 0"
+            class="text-orange-200"
+          >
             {{ t("auth.trialBanner.expired") }}
           </span>
           <span v-else>
@@ -36,37 +45,39 @@
           <Icon name="lucide:arrow-up-circle" class="w-3.5 h-3.5" />
           {{ t("nav.upgrade") }}
         </nuxt-link-locale>
-        <button
+
+        <LazyVButton
           v-if="isTrial && trialDaysLeft > 3"
           @click="visible = false"
-          class="p-1 text-white/50 hover:text-white transition-colors"
+          variant="none"
+          className="p-1 text-white/50 hover:text-white transition-colors"
           aria-label="Dismiss"
         >
           <Icon name="lucide:x" class="w-3.5 h-3.5" />
-        </button>
+        </LazyVButton>
       </div>
     </div>
   </Transition>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
-const { planConfig, isTrial, trialDaysLeft } = useAuth()
+const { t } = useI18n();
+const { planConfig, isTrial, trialDaysLeft } = useAuth();
 
-const visible = ref(true)
+const visible = ref(true);
 
 const urgencyClass = computed(() => {
   if (isTrial.value && trialDaysLeft.value <= 3) {
-    return 'bg-red-600'
+    return "bg-red-600";
   }
   if (isTrial.value && trialDaysLeft.value <= 7) {
-    return 'bg-orange-600'
+    return "bg-orange-600";
   }
   if (isTrial.value) {
-    return 'bg-indigo-700'
+    return "bg-indigo-700";
   }
-  return 'bg-bg-elevated border-b border-border-subtle text-tx-secondary'
-})
+  return "bg-bg-elevated border-b border-border-subtle text-tx-secondary";
+});
 </script>
 
 <style scoped>
@@ -75,6 +86,7 @@ const urgencyClass = computed(() => {
   transition: all 0.3s ease;
   overflow: hidden;
 }
+
 .banner-enter-from,
 .banner-leave-to {
   max-height: 0;
@@ -82,6 +94,7 @@ const urgencyClass = computed(() => {
   padding-top: 0;
   padding-bottom: 0;
 }
+
 .banner-enter-to,
 .banner-leave-from {
   max-height: 60px;

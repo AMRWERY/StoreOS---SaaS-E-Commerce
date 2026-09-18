@@ -33,6 +33,7 @@
           Global Merchant
         </p>
       </div>
+
       <LazyVButton
         @click="$emit('close')"
         variant="none"
@@ -78,11 +79,14 @@
 
         <!-- Nav item with children -->
         <div v-else class="space-y-1">
-          <button
+          <LazyVButton
             @click="
-              item.locked ? handleLockedClick(item.feature) : toggleExpand(item.name)
+              item.locked
+                ? handleLockedClick(item.feature)
+                : toggleExpand(item.name)
             "
-            class="w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-md transition-all font-medium text-[12px] group"
+            variant="none"
+            className="w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-md transition-all font-medium text-[12px] group"
             :class="
               item.active
                 ? 'bg-brand-dim text-brand'
@@ -114,7 +118,7 @@
               class="text-[10px] transition-transform duration-300"
               :class="expandedItems.includes(item.name) ? 'rotate-180' : ''"
             />
-          </button>
+          </LazyVButton>
 
           <div
             v-if="!item.locked && expandedItems.includes(item.name)"
@@ -122,11 +126,12 @@
           >
             <template v-for="subItem in item.children" :key="subItem.name">
               <!-- Locked child: ask instead of navigate -->
-              <button
+              <LazyVButton
                 v-if="subItem.feature && !hasFeature(subItem.feature)"
                 type="button"
                 @click="handleLockedClick(subItem.feature)"
-                class="w-full flex items-center gap-2 py-2 px-3 text-xs rounded-md transition-all text-tx-muted hover:bg-bg-elevated"
+                variant="none"
+                className="w-full flex items-center gap-2 py-2 px-3 text-xs rounded-md transition-all text-tx-muted hover:bg-bg-elevated"
               >
                 <span class="truncate flex-1 text-start opacity-50">{{
                   subItem.name
@@ -135,7 +140,7 @@
                   name="lucide:lock"
                   class="w-3 h-3 text-tx-muted opacity-60 shrink-0"
                 />
-              </button>
+              </LazyVButton>
 
               <nuxt-link-locale
                 v-else
@@ -199,7 +204,9 @@
       <LazyVButton
         variant="none"
         :to="hasFeature('profile') ? '/dashboard/user-profile' : undefined"
-        @click="hasFeature('profile') ? undefined : handleLockedClick('profile')"
+        @click="
+          hasFeature('profile') ? undefined : handleLockedClick('profile')
+        "
         className="w-full flex items-center gap-2 px-3 py-1.5 transition-all group rounded-md text-[12px] font-medium"
         :class="
           route.path.includes('/dashboard/user-profile')
@@ -233,7 +240,9 @@
         className="w-full flex items-center gap-2 px-3 py-1.5 text-[12px] font-medium text-tx-secondary hover:text-tx-primary transition-colors group"
       >
         <Icon name="lucide:log-out" class="text-xl" />
-        <span class="truncate font-bold">{{ t("auth.guest.exitPreview") }}</span>
+        <span class="truncate font-bold">{{
+          t("auth.guest.exitPreview")
+        }}</span>
       </LazyVButton>
 
       <LazyVButton
@@ -250,15 +259,23 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{ isOpen: boolean }>();
-defineEmits(["close"]);
-
-const route = useRoute();
 const { t } = useI18n();
+const route = useRoute();
 const localePath = useLocalePath();
-const { hasFeature, isGuest, isTrial, isPaid, trialDaysLeft, logout, exitGuestPreview } =
-  useAuth();
+const {
+  hasFeature,
+  isGuest,
+  isTrial,
+  isPaid,
+  trialDaysLeft,
+  logout,
+  exitGuestPreview,
+} = useAuth();
 const { openGate } = useAuthGate();
+
+defineProps<{ isOpen: boolean }>();
+
+defineEmits(["close"]);
 
 /**
  * Preview visitors need an account, paying visitors need a bigger plan —
@@ -419,6 +436,7 @@ const navItems = computed(() => [
 .fade-leave-active {
   transition: opacity 0.3s ease;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;

@@ -31,11 +31,13 @@
             </div>
           </div>
         </template>
+
         <template #cell(email)="{ item }">
           <span class="text-xs text-tx-secondary font-medium">{{
             item.email
           }}</span>
         </template>
+
         <template #cell(role)="{ item }">
           <span
             :class="[
@@ -46,13 +48,18 @@
             {{ item.role }}
           </span>
         </template>
+
         <template #cell(active)="{ item }">
           <span class="text-xs text-tx-muted">{{ item.active }}</span>
         </template>
+
         <template #cell(actions)>
-          <button class="text-tx-muted hover:text-tx-primary transition-colors">
+          <LazyVButton
+            variant="none"
+            className="text-tx-muted hover:text-tx-primary transition-colors"
+          >
             <Icon name="ph:dots-three-bold" />
-          </button>
+          </LazyVButton>
         </template>
       </LazyVTable>
     </section>

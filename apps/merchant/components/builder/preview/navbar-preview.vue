@@ -106,12 +106,12 @@
           <Icon name="ph:magnifying-glass-bold" />
           <Icon name="ph:bag-bold" />
         </div>
-        <button
-          type="button"
-          class="rounded-lg bg-white px-4 py-1.5 text-xs font-bold text-neutral-900"
+        <LazyVButton
+          variant="none"
+          className="rounded-lg bg-white px-4 py-1.5 text-xs font-bold text-neutral-900"
         >
           Shop now
-        </button>
+        </LazyVButton>
       </div>
     </div>
 

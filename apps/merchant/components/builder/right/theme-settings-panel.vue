@@ -47,13 +47,14 @@
             >
               Navigation links
             </label>
-            <button
+            <LazyVButton
+              variant="none"
               type="button"
-              class="rounded-md border border-dashed border-border-subtle px-2 py-1 text-[10px] font-bold tracking-wider text-brand transition-colors hover:bg-brand/10"
+              className="rounded-md border border-dashed border-border-subtle px-2 py-1 text-[10px] font-bold tracking-wider text-brand transition-colors hover:bg-brand/10"
               @click="store.addNavLink()"
             >
               + Add link
-            </button>
+            </LazyVButton>
           </div>
 
           <div
@@ -80,14 +81,15 @@
                   @update:model-value="store.updateNavLink(i, 'href', $event)"
                 />
               </div>
-              <button
+              <LazyVButton
+                variant="none"
                 type="button"
-                class="mt-0.5 shrink-0 rounded-md p-1.5 text-tx-muted transition-colors hover:bg-bg-overlay hover:text-red-400"
+                className="mt-0.5 shrink-0 rounded-md p-1.5 text-tx-muted transition-colors hover:bg-bg-overlay hover:text-red-400"
                 title="Remove link"
                 @click="store.removeNavLink(i)"
               >
                 <Icon name="ph:trash-bold" class="text-base" />
-              </button>
+              </LazyVButton>
             </div>
           </div>
 
@@ -96,13 +98,14 @@
             class="rounded-lg border border-dashed border-border-subtle py-6 text-center"
           >
             <p class="text-[11px] text-tx-muted">No nav links yet.</p>
-            <button
+            <LazyVButton
+              variant="none"
               type="button"
-              class="mt-2 text-[11px] font-semibold text-brand hover:underline"
+              className="mt-2 text-[11px] font-semibold text-brand hover:underline"
               @click="store.addNavLink()"
             >
               Add your first link
-            </button>
+            </LazyVButton>
           </div>
         </div>
       </lazy-setting-group>
@@ -145,14 +148,15 @@
         />
       </lazy-setting-group>
 
-      <button
+      <LazyVButton
+        variant="none"
         type="button"
-        class="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-brand/40 bg-brand/10 py-3 text-[10px] font-black tracking-wider text-brand transition-colors hover:bg-brand/20"
+        className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-brand/40 bg-brand/10 py-3 text-[10px] font-black tracking-wider text-brand transition-colors hover:bg-brand/20"
         @click="planGateOpen = true"
       >
         <Icon name="ph:sparkle-bold" />
         Unlock premium fonts
-      </button>
+      </LazyVButton>
     </div>
   </aside>
 </template>

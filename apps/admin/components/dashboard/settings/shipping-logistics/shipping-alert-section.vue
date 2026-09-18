@@ -8,10 +8,11 @@
         <p class="text-xs text-danger/70 leading-relaxed font-medium">
           {{ t("dashboard.settings.shipping.unmappedRegionsDesc") }}
         </p>
-        <button
-          class="mt-2 text-[10px] font-black tracking-widest text-danger border-b border-red-400/30 pb-0.5 hover:text-danger hover:border-red-200 transition-all">
+        <LazyVButton
+          variant="none"
+          className="mt-2 text-[10px] font-black tracking-widest text-danger border-b border-red-400/30 pb-0.5 hover:text-danger hover:border-red-200 transition-all">
           {{ t("dashboard.settings.shipping.fixMappingNow") }}
-        </button>
+        </LazyVButton>
       </div>
     </LazyVAlertBanner>
   </div>

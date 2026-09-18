@@ -9,11 +9,12 @@
           class="p-6 border-b border-border-subtle flex justify-between items-center"
         >
           <h3 class="font-bold">{{ t("dashboard.home.topProducts") }}</h3>
-          <button
-            class="text-[10px] font-black text-brand tracking-widest hover:underline"
+          <LazyVButton
+            variant="none"
+            className="text-[10px] font-black text-brand tracking-widest hover:underline"
           >
             {{ t("common.viewAll") }}
-          </button>
+          </LazyVButton>
         </div>
         <div class="relative overflow-x-auto">
           <LazyVTable :headers="productHeaders" :items="products">
@@ -35,11 +36,13 @@
                 </div>
               </div>
             </template>
+
             <template #cell(sales)="{ item }">
               <span class="text-sm font-bold text-tx-secondary">{{
                 item.sales
               }}</span>
             </template>
+
             <template #cell(revenue)="{ item }">
               <span class="font-bold text-sm">{{ item.revenue }}</span>
             </template>
@@ -55,12 +58,14 @@
           class="p-6 border-b border-border-subtle flex justify-between items-center"
         >
           <h3 class="font-bold">{{ t("dashboard.customers.topCustomers") }}</h3>
-          <button
-            class="text-[10px] font-black text-brand tracking-widest hover:underline"
+          <LazyVButton
+            variant="none"
+            className="text-[10px] font-black text-brand tracking-widest hover:underline"
           >
             {{ t("common.viewAll") }}
-          </button>
+          </LazyVButton>
         </div>
+
         <div class="relative overflow-x-auto">
           <LazyVTable :headers="customerHeaders" :items="customers">
             <template #cell(customer)="{ item }">
@@ -77,11 +82,13 @@
                 </div>
               </div>
             </template>
+
             <template #cell(orders)="{ item }">
               <span class="text-sm font-bold text-tx-secondary">{{
                 item.orders
               }}</span>
             </template>
+
             <template #cell(spent)="{ item }">
               <span class="font-bold text-sm">{{ item.spent }}</span>
             </template>

@@ -20,12 +20,12 @@
             visibleSections.length !== 1 ? "s" : ""
           }}
         </span>
-        <button type="button"
-          class="flex items-center gap-1.5 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-semibold text-neutral-700 hover:bg-neutral-100"
+        <LazyVButton variant="none" type="button"
+          className="flex items-center gap-1.5 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-semibold text-neutral-700 hover:bg-neutral-100"
           @click="goBackToBuilder">
           <Icon name="ph:pencil-simple-bold" class="text-sm" />
           Edit in Builder
-        </button>
+        </LazyVButton>
       </div>
     </div>
 
@@ -39,12 +39,12 @@
         Go back to the builder, make some edits and click "Publish now" to see
         your store here.
       </p>
-      <button type="button"
-        class="mt-2 flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-indigo-700"
+      <LazyVButton variant="none" type="button"
+        className="mt-2 flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-indigo-700"
         @click="goBackToBuilder">
         <Icon name="ph:arrow-left-bold" />
         Back to Builder
-      </button>
+      </LazyVButton>
     </div>
 
     <!-- Rendered store -->
@@ -96,9 +96,9 @@
             <Icon name="ph:magnifying-glass-bold" />
             <Icon name="ph:bag-bold" />
           </div>
-          <button type="button" class="rounded-lg bg-white px-4 py-1.5 text-xs font-bold text-neutral-900">
+          <LazyVButton variant="none" type="button" className="rounded-lg bg-white px-4 py-1.5 text-xs font-bold text-neutral-900">
             Shop now
-          </button>
+          </LazyVButton>
         </div>
       </div>
 
@@ -201,9 +201,9 @@
             <div class="mt-4 flex gap-2">
               <LazyVInput type="email" placeholder="your@email.com" class="flex-1"
                 inputClass="!w-full !rounded-xl !border !border-neutral-600 !bg-neutral-700/50 !px-3 !py-2.5 !text-xs !text-neutral-400 !outline-none" />
-              <button type="button" class="shrink-0 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white">
+              <LazyVButton variant="none" type="button" className="shrink-0 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white">
                 Subscribe
-              </button>
+              </LazyVButton>
             </div>
           </div>
         </div>

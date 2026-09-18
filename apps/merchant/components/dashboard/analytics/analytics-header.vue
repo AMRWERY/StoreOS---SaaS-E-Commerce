@@ -56,6 +56,7 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+
 defineProps<{
   activeTimeframe: string;
   compareEnabled: boolean;

@@ -10,23 +10,25 @@
         >
       </div>
       <div class="flex items-center gap-8">
-        <button
-          class="flex items-center gap-2 text-xs font-bold text-tx-secondary hover:text-tx-primary transition-colors"
+        <LazyVButton
+          variant="none"
+          className="flex items-center gap-2 text-xs font-bold text-tx-secondary hover:text-tx-primary transition-colors"
         >
           <Icon name="ph:rocket-launch-bold" />
           {{ t("dashboard.settings.quickAction") }}
-        </button>
-        <button
-          class="flex items-center gap-2 text-xs font-bold text-tx-secondary hover:text-tx-primary transition-colors"
+        </LazyVButton>
+        <LazyVButton
+          variant="none"
+          className="flex items-center gap-2 text-xs font-bold text-tx-secondary hover:text-tx-primary transition-colors"
         >
           <Icon name="ph:clock-counter-clockwise-bold" />
           {{ t("dashboard.settings.shipping.auditLogs") }}
-        </button>
+        </LazyVButton>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 </script>

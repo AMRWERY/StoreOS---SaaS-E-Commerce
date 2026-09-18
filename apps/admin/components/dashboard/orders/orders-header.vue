@@ -54,7 +54,7 @@
               </LazyVButton>
             </template>
             <template #default="{ close }">
-              <button
+              <LazyVButton
                 v-for="s in [
                   t('dashboard.orders.all'),
                   t('dashboard.orders.new'),
@@ -67,15 +67,17 @@
                 ]"
                 :key="s"
                 @click="selectStatus(s, close)"
-                class="w-full text-start px-4 py-2.5 rounded-xl text-xs font-bold transition-all hover:bg-bg-elevated"
-                :class="
-                  selectedStatus === s
-                    ? 'text-brand bg-brand/5'
-                    : 'text-tx-secondary hover:text-tx-primary'
+                variant="none"
+                :className="
+                  `w-full text-start px-4 py-2.5 rounded-xl text-xs font-bold transition-all hover:bg-bg-elevated ${
+                    selectedStatus === s
+                      ? 'text-brand bg-brand/5'
+                      : 'text-tx-secondary hover:text-tx-primary'
+                  }`
                 "
               >
                 {{ s }}
-              </button>
+              </LazyVButton>
             </template>
           </LazyVDropdownMenu>
 
@@ -95,7 +97,7 @@
               </LazyVButton>
             </template>
             <template #default="{ close }">
-              <button
+              <LazyVButton
                 v-for="p in [
                   t('dashboard.orders.all'),
                   t('dashboard.orders.paid'),
@@ -104,15 +106,17 @@
                 ]"
                 :key="p"
                 @click="selectPayment(p, close)"
-                class="w-full text-start px-4 py-2.5 rounded-xl text-xs font-bold transition-all hover:bg-bg-elevated"
-                :class="
-                  selectedPayment === p
-                    ? 'text-brand bg-brand/5'
-                    : 'text-tx-secondary hover:text-tx-primary'
+                variant="none"
+                :className="
+                  `w-full text-start px-4 py-2.5 rounded-xl text-xs font-bold transition-all hover:bg-bg-elevated ${
+                    selectedPayment === p
+                      ? 'text-brand bg-brand/5'
+                      : 'text-tx-secondary hover:text-tx-primary'
+                  }`
                 "
               >
                 {{ p }}
-              </button>
+              </LazyVButton>
             </template>
           </LazyVDropdownMenu>
 
@@ -133,7 +137,7 @@
               </LazyVButton>
             </template>
             <template #default="{ close }">
-              <button
+              <LazyVButton
                 v-for="d in [
                   t('dashboard.orders.today'),
                   t('dashboard.orders.yesterday'),
@@ -144,15 +148,17 @@
                 ]"
                 :key="d"
                 @click="selectDate(d, close)"
-                class="w-full text-start px-4 py-2.5 rounded-xl text-xs font-bold transition-all hover:bg-bg-elevated"
-                :class="
-                  selectedDate === d
-                    ? 'text-brand bg-brand/5'
-                    : 'text-tx-secondary hover:text-tx-primary'
+                variant="none"
+                :className="
+                  `w-full text-start px-4 py-2.5 rounded-xl text-xs font-bold transition-all hover:bg-bg-elevated ${
+                    selectedDate === d
+                      ? 'text-brand bg-brand/5'
+                      : 'text-tx-secondary hover:text-tx-primary'
+                  }`
                 "
               >
                 {{ d }}
-              </button>
+              </LazyVButton>
             </template>
           </LazyVDropdownMenu>
         </div>

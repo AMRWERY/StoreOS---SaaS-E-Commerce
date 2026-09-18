@@ -24,16 +24,15 @@
       <div class="grid lg:grid-cols-12 gap-6 items-start">
         <!-- Left: Feature Tabs -->
         <div class="lg:col-span-4 space-y-2">
-          <button
+          <LazyVButton
             v-for="f in features"
             :key="f.id"
+            variant="none"
             @click="activeTab = f.id"
-            :class="[
-              'w-full text-start p-5 rounded-2xl transition-all duration-200 border group',
-              activeTab === f.id
-                ? 'bg-bg-primary border-brand/30 shadow-lg shadow-brand/5'
-                : 'bg-transparent border-transparent hover:bg-bg-elevated hover:border-border-subtle',
-            ]"
+            :className="`w-full text-start p-5 rounded-2xl transition-all duration-200 border group ${activeTab === f.id
+              ? 'bg-bg-primary border-brand/30 shadow-lg shadow-brand/5'
+              : 'bg-transparent border-transparent hover:bg-bg-elevated hover:border-border-subtle'
+              }`"
           >
             <div class="flex items-start gap-4">
               <div
@@ -77,7 +76,7 @@
                 </p>
               </div>
             </div>
-          </button>
+          </LazyVButton>
         </div>
 
         <!-- Right: Feature Preview -->
@@ -199,7 +198,7 @@ const features = computed(() => [
 ]);
 
 const activeFeature = computed(() =>
-  features.value.find((f) => f.id === activeTab.value)
+  features.value.find((f) => f.id === activeTab.value),
 );
 
 const platformStats = computed(() => [
@@ -269,7 +268,7 @@ const OrdersPreview = defineComponent({
                 class:
                   "text-[9px] font-black tracking-[0.2em] text-tx-muted mb-3 px-2",
               },
-              "NAVIGATION"
+              "NAVIGATION",
             ),
             ...[
               "Dashboard",
@@ -290,10 +289,10 @@ const OrdersPreview = defineComponent({
                     class: "w-1.5 h-1.5 rounded-full bg-current opacity-60",
                   }),
                   h("span", { class: "text-xs font-semibold" }, item),
-                ]
-              )
+                ],
+              ),
             ),
-          ]
+          ],
         ),
         h("div", { class: "flex-1 p-5 overflow-hidden" }, [
           h("div", { class: "flex items-center justify-between mb-4" }, [
@@ -305,7 +304,7 @@ const OrdersPreview = defineComponent({
                   class:
                     "px-3 py-1 bg-bg-elevated rounded-lg text-[10px] font-bold text-tx-muted",
                 },
-                "Filter"
+                "Filter",
               ),
               h(
                 "div",
@@ -313,7 +312,7 @@ const OrdersPreview = defineComponent({
                   class:
                     "px-3 py-1 bg-brand rounded-lg text-[10px] font-bold text-white",
                 },
-                "+ New Order"
+                "+ New Order",
               ),
             ]),
           ]),
@@ -331,28 +330,28 @@ const OrdersPreview = defineComponent({
                   h(
                     "span",
                     { class: "text-xs font-bold text-tx-secondary w-20" },
-                    o.id
+                    o.id,
                   ),
                   h(
                     "span",
                     { class: "text-xs font-semibold flex-1" },
-                    o.customer
+                    o.customer,
                   ),
                   h(
                     "span",
                     { class: "text-xs font-bold w-16 text-end" },
-                    o.total
+                    o.total,
                   ),
                   h(
                     "span",
                     {
                       class: `text-[9px] font-black px-2 py-0.5 rounded-md tracking-widest ${o.bg} ${o.color}`,
                     },
-                    o.status
+                    o.status,
                   ),
-                ]
-              )
-            )
+                ],
+              ),
+            ),
           ),
         ]),
       ]);
@@ -410,7 +409,7 @@ const InventoryPreview = defineComponent({
                 class: "w-1.5 h-1.5 bg-warning rounded-full animate-pulse",
               }),
               "3 Low Stock Alerts",
-            ]
+            ],
           ),
         ]),
         h(
@@ -435,11 +434,11 @@ const InventoryPreview = defineComponent({
                     class:
                       "text-[9px] text-tx-muted font-semibold tracking-widest mt-0.5",
                   },
-                  s.label
+                  s.label,
                 ),
-              ]
-            )
-          )
+              ],
+            ),
+          ),
         ),
         h(
           "div",
@@ -463,18 +462,18 @@ const InventoryPreview = defineComponent({
                 h(
                   "div",
                   { class: "text-xs font-bold w-8 text-center" },
-                  item.current
+                  item.current,
                 ),
                 h(
                   "span",
                   {
                     class: `text-[9px] font-black px-2 py-0.5 rounded tracking-widest ${item.color}`,
                   },
-                  item.status
+                  item.status,
                 ),
-              ]
-            )
-          )
+              ],
+            ),
+          ),
         ),
       ]);
   },
@@ -506,7 +505,7 @@ const AnalyticsPreview = defineComponent({
                     class:
                       "text-[9px] font-black text-tx-muted tracking-widest mb-1",
                   },
-                  k.label
+                  k.label,
                 ),
                 h("div", { class: "text-sm font-bold" }, k.val),
                 h(
@@ -516,11 +515,11 @@ const AnalyticsPreview = defineComponent({
                       k.up ? "text-success" : "text-danger"
                     }`,
                   },
-                  k.trend
+                  k.trend,
                 ),
-              ]
-            )
-          )
+              ],
+            ),
+          ),
         ),
         h(
           "div",
@@ -530,7 +529,7 @@ const AnalyticsPreview = defineComponent({
               h(
                 "span",
                 { class: "text-xs font-bold" },
-                "Revenue — Last 12 months"
+                "Revenue — Last 12 months",
               ),
               h("span", { class: "text-[10px] text-brand font-bold" }, "2026"),
             ]),
@@ -545,8 +544,8 @@ const AnalyticsPreview = defineComponent({
                       : "bg-brand/20 hover:bg-brand/40"
                   }`,
                   style: { height: `${h_val}%` },
-                })
-              )
+                }),
+              ),
             ),
             h(
               "div",
@@ -555,11 +554,11 @@ const AnalyticsPreview = defineComponent({
                 h(
                   "span",
                   { class: "text-[9px] text-tx-muted font-semibold" },
-                  m
-                )
-              )
+                  m,
+                ),
+              ),
             ),
-          ]
+          ],
         ),
       ]);
   },
@@ -600,7 +599,7 @@ const CustomersPreview = defineComponent({
           h(
             "div",
             { class: "text-[10px] text-tx-muted font-semibold" },
-            "1,240 Total"
+            "1,240 Total",
           ),
         ]),
         h(
@@ -625,11 +624,11 @@ const CustomersPreview = defineComponent({
                     class:
                       "text-[9px] text-tx-muted font-semibold tracking-widest mt-0.5",
                   },
-                  s.label
+                  s.label,
                 ),
-              ]
-            )
-          )
+              ],
+            ),
+          ),
         ),
         h(
           "div",
@@ -647,14 +646,14 @@ const CustomersPreview = defineComponent({
                   {
                     class: `w-9 h-9 rounded-xl flex items-center justify-center text-xs font-black shrink-0 ${c.bg}`,
                   },
-                  c.initials
+                  c.initials,
                 ),
                 h("div", { class: "flex-1 min-w-0" }, [
                   h("div", { class: "text-xs font-bold" }, c.name),
                   h(
                     "div",
                     { class: "text-[10px] text-tx-muted" },
-                    `${c.orders} orders · ${c.spent}`
+                    `${c.orders} orders · ${c.spent}`,
                   ),
                 ]),
                 h(
@@ -663,11 +662,11 @@ const CustomersPreview = defineComponent({
                     class:
                       "text-[9px] font-black px-2 py-0.5 rounded bg-brand-dim text-brand tracking-widest",
                   },
-                  c.tag
+                  c.tag,
                 ),
-              ]
-            )
-          )
+              ],
+            ),
+          ),
         ),
       ]);
   },
@@ -708,7 +707,7 @@ const SettingsPreview = defineComponent({
           h(
             "p",
             { class: "text-[11px] text-tx-muted" },
-            "Everything in one place, always in sync."
+            "Everything in one place, always in sync.",
           ),
         ]),
         h(
@@ -728,7 +727,7 @@ const SettingsPreview = defineComponent({
                     class:
                       "w-9 h-9 rounded-xl bg-brand-dim flex items-center justify-center shrink-0",
                   },
-                  [h("Icon", { name: s.icon, class: "text-brand text-lg" })]
+                  [h("Icon", { name: s.icon, class: "text-brand text-lg" })],
                 ),
                 h("div", { class: "flex-1 min-w-0" }, [
                   h("div", { class: "text-xs font-bold" }, s.title),
@@ -739,11 +738,11 @@ const SettingsPreview = defineComponent({
                   {
                     class: "text-[9px] font-black text-success tracking-widest",
                   },
-                  s.status
+                  s.status,
                 ),
-              ]
-            )
-          )
+              ],
+            ),
+          ),
         ),
       ]);
   },
@@ -763,12 +762,16 @@ const activePreview = computed(() => previews[activeTab.value]);
 <style scoped>
 .feature-fade-enter-active,
 .feature-fade-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
+
 .feature-fade-enter-from {
   opacity: 0;
   transform: translateY(8px);
 }
+
 .feature-fade-leave-to {
   opacity: 0;
   transform: translateY(-8px);

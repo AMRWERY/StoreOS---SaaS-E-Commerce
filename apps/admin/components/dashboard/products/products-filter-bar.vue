@@ -18,12 +18,12 @@
 
           <template #default="{ close }">
             <div class="flex flex-col gap-1">
-              <button v-for="cat in categories" :key="cat" @click="selectCategory(cat, close)" :class="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all ${selectedCategory === cat
+              <LazyVButton variant="none" v-for="cat in categories" :key="cat" @click="selectCategory(cat, close)" :className="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all ${selectedCategory === cat
                 ? 'bg-brand/20 text-brand'
                 : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'
                 }`">
                 {{ cat }}
-              </button>
+              </LazyVButton>
             </div>
           </template>
         </LazyVDropdownMenu>
@@ -46,13 +46,13 @@
 
           <template #default="{ close }">
             <div class="flex flex-col gap-1">
-              <button v-for="status in statuses" :key="status.label" @click="selectStatus(status, close)" :class="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${selectedStatus.label === status.label
+              <LazyVButton variant="none" v-for="status in statuses" :key="status.label" @click="selectStatus(status, close)" :className="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${selectedStatus.label === status.label
                 ? 'bg-brand/20 text-brand'
                 : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'
                 }`">
                 <span>{{ status.label }}</span>
                 <div v-if="status.dotClass" :class="`w-1.5 h-1.5 rounded-full ${status.dotClass} ms-auto`"></div>
-              </button>
+              </LazyVButton>
             </div>
           </template>
         </LazyVDropdownMenu>
@@ -72,12 +72,12 @@
 
           <template #default="{ close }">
             <div class="flex flex-col gap-1">
-              <button v-for="stock in stockOptions" :key="stock" @click="selectStock(stock, close)" :class="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all ${selectedStock === stock
+              <LazyVButton variant="none" v-for="stock in stockOptions" :key="stock" @click="selectStock(stock, close)" :className="`text-start px-3 py-2 rounded-lg text-sm font-medium transition-all ${selectedStock === stock
                 ? 'bg-brand/20 text-brand'
                 : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'
                 }`">
                 {{ stock }}
-              </button>
+              </LazyVButton>
             </div>
           </template>
         </LazyVDropdownMenu>

@@ -7,11 +7,12 @@
         <h3 class="text-[10px] font-black text-tx-muted tracking-widest">
           {{ t("dashboard.settings.billing.paymentMethod") }}
         </h3>
-        <button
-          class="text-[10px] font-bold text-tx-secondary hover:text-tx-primary transition-colors"
+        <LazyVButton
+          variant="none"
+          className="text-[10px] font-bold text-tx-secondary hover:text-tx-primary transition-colors"
         >
           {{ t("common.edit") }}
-        </button>
+        </LazyVButton>
       </div>
 
       <!-- Card Visual -->

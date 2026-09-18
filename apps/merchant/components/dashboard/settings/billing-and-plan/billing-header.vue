@@ -1,6 +1,8 @@
 ﻿<template>
   <div>
-    <header class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+    <header
+      class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6"
+    >
       <div>
         <h1 class="text-4xl font-bold tracking-tight text-tx-primary mt-2">
           {{ t("dashboard.settings.billing.title") }}
@@ -10,15 +12,21 @@
         </p>
       </div>
       <div class="flex items-center gap-3">
-        <LazyVButton variant="ghost" :label="t('dashboard.settings.billing.comparePlans')"
-          className="px-6 py-2.5 text-xs font-bold" />
-        <LazyVButton :label="t('dashboard.settings.billing.upgradePlan')"
-          className="px-6 py-2.5 text-xs font-bold shadow-lg shadow-indigo-600/30" />
+        <LazyVButton
+          variant="ghost"
+          :label="t('dashboard.settings.billing.comparePlans')"
+          className="px-6 py-2.5 text-xs font-bold"
+        />
+
+        <LazyVButton
+          :label="t('dashboard.settings.billing.upgradePlan')"
+          className="px-6 py-2.5 text-xs font-bold shadow-lg shadow-indigo-600/30"
+        />
       </div>
     </header>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 </script>

@@ -11,6 +11,7 @@
           {{ t("dashboard.settings.storeInfo.contactDetailsDesc") }}
         </p>
       </div>
+
       <div class="lg:col-span-8 space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <LazyVInput
@@ -21,12 +22,14 @@
               t('dashboard.settings.storeInfo.supportEmailPlaceholder')
             "
           />
+
           <LazyVInput
             v-model="modelValue.phone"
             :label="t('dashboard.settings.storeInfo.phone')"
             :placeholder="t('dashboard.settings.storeInfo.phonePlaceholder')"
           />
         </div>
+
         <LazyVInput
           v-model="modelValue.address"
           :label="t('dashboard.settings.storeInfo.physicalAddress')"
@@ -40,16 +43,19 @@
             :label="t('dashboard.settings.storeInfo.city')"
             :placeholder="t('dashboard.settings.storeInfo.cityPlaceholder')"
           />
+
           <LazyVInput
             v-model="modelValue.state"
             :label="t('dashboard.settings.storeInfo.state')"
             :placeholder="t('dashboard.settings.storeInfo.statePlaceholder')"
           />
+
           <LazyVInput
             v-model="modelValue.zip"
             :label="t('dashboard.settings.storeInfo.zipCode')"
             :placeholder="t('dashboard.settings.storeInfo.zipPlaceholder')"
           />
+
           <LazyVSelectInput
             v-model="modelValue.country"
             :label="t('dashboard.settings.storeInfo.country')"
@@ -64,6 +70,7 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+
 defineProps<{
   modelValue: any;
 }>();

@@ -49,12 +49,13 @@
         </div>
       </section>
 
-      <payment-method-stripe />
+      <lazy-payment-method-stripe />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 const { t } = useI18n();
+
 const codActive = ref(true);
 </script>

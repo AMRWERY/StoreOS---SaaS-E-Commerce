@@ -56,12 +56,12 @@
               )
             }}
           </p>
-          <button
-            type="button"
-            class="mt-8 rounded-md bg-white px-8 py-3 text-xs font-bold tracking-[0.2em] text-neutral-900 shadow-lg transition hover:bg-neutral-100"
+          <LazyVButton
+            variant="none"
+            className="mt-8 rounded-md bg-white px-8 py-3 text-xs font-bold tracking-[0.2em] text-neutral-900 shadow-lg transition hover:bg-neutral-100"
           >
             {{ str("buttonText", "Shop Collection") }}
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </template>
@@ -76,12 +76,12 @@
           <p class="mt-3 text-sm text-neutral-400">
             {{ str("subheadline", "Supporting text goes right here.") }}
           </p>
-          <button
-            type="button"
-            class="mt-6 w-fit rounded-md bg-white px-6 py-2.5 text-xs font-bold text-neutral-900"
+          <LazyVButton
+            variant="none"
+            className="mt-6 w-fit rounded-md bg-white px-6 py-2.5 text-xs font-bold text-neutral-900"
           >
             {{ str("buttonText", "Learn More") }}
-          </button>
+          </LazyVButton>
         </div>
         <div
           class="bg-cover bg-center bg-neutral-700"
@@ -199,13 +199,13 @@
                     >$100</span
                   >
                 </div>
-                <button
-                  type="button"
-                  class="flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2 text-xs font-semibold text-neutral-700 shadow-sm"
+                <LazyVButton
+                  variant="none"
+                  className="flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2 text-xs font-semibold text-neutral-700 shadow-sm"
                 >
                   <Icon name="ph:shopping-cart-bold" class="text-[11px]" />
                   Add
-                </button>
+                </LazyVButton>
               </div>
             </div>
           </div>
@@ -225,12 +225,12 @@
               class="absolute start-3 top-3 rounded-full bg-green-400 px-2.5 py-1 text-[11px] font-bold text-white"
               >20% off</span
             >
-            <button
-              type="button"
-              class="absolute end-3 top-3 rounded-full border border-neutral-200 bg-white p-1.5 shadow-sm"
+            <LazyVButton
+              variant="none"
+              className="absolute end-3 top-3 rounded-full border border-neutral-200 bg-white p-1.5 shadow-sm"
             >
               <Icon name="ph:bookmark-bold" class="text-sm text-neutral-400" />
-            </button>
+            </LazyVButton>
             <div
               class="flex aspect-square items-center justify-center rounded-xl bg-neutral-50"
             >
@@ -307,12 +307,12 @@
               <p class="mt-1.5 text-xs leading-relaxed text-neutral-500">
                 A beautifully crafted product designed for modern living.
               </p>
-              <button
-                type="button"
-                class="mt-4 rounded-xl bg-indigo-600 px-4 py-2 text-xs font-bold text-white"
+              <LazyVButton
+                variant="none"
+                className="mt-4 rounded-xl bg-indigo-600 px-4 py-2 text-xs font-bold text-white"
               >
                 View product
-              </button>
+              </LazyVButton>
             </div>
           </div>
         </div>
@@ -327,18 +327,18 @@
             {{ str("heading", "Featured Products") }}
           </h3>
           <div class="flex gap-2">
-            <button
-              type="button"
-              class="rounded-full border border-neutral-300 p-1.5"
+            <LazyVButton
+              variant="none"
+              className="rounded-full border border-neutral-300 p-1.5"
             >
               <Icon name="ph:arrow-left-bold" class="text-xs" />
-            </button>
-            <button
-              type="button"
-              class="rounded-full border border-neutral-300 p-1.5"
+            </LazyVButton>
+            <LazyVButton
+              variant="none"
+              className="rounded-full border border-neutral-300 p-1.5"
             >
               <Icon name="ph:arrow-right-bold" class="text-xs" />
-            </button>
+            </LazyVButton>
           </div>
         </div>
 
@@ -388,12 +388,12 @@
                     >$100</span
                   >
                 </div>
-                <button
-                  type="button"
-                  class="flex items-center gap-1 rounded-lg border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] font-semibold text-neutral-700"
+                <LazyVButton
+                  variant="none"
+                  className="flex items-center gap-1 rounded-lg border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] font-semibold text-neutral-700"
                 >
                   <Icon name="ph:shopping-cart-bold" class="text-[9px]" />Add
-                </button>
+                </LazyVButton>
               </div>
             </div>
           </div>
@@ -413,15 +413,15 @@
               class="absolute start-2.5 top-2.5 rounded-full bg-green-400 px-2 py-0.5 text-[10px] font-bold text-white"
               >20% off</span
             >
-            <button
-              type="button"
-              class="absolute end-2.5 top-2.5 rounded-full border border-neutral-100 bg-white p-1"
+            <LazyVButton
+              variant="none"
+              className="absolute end-2.5 top-2.5 rounded-full border border-neutral-100 bg-white p-1"
             >
               <Icon
                 name="ph:bookmark-bold"
                 class="text-[11px] text-neutral-400"
               />
-            </button>
+            </LazyVButton>
             <div
               class="flex aspect-square items-center justify-center rounded-xl bg-neutral-50"
             >
@@ -495,12 +495,12 @@
               <p class="mt-1 text-[10px] leading-relaxed text-neutral-500">
                 A beautifully crafted product for modern living.
               </p>
-              <button
-                type="button"
-                class="mt-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-[10px] font-bold text-white"
+              <LazyVButton
+                variant="none"
+                className="mt-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-[10px] font-bold text-white"
               >
                 View
-              </button>
+              </LazyVButton>
             </div>
           </div>
         </div>
@@ -532,12 +532,12 @@
               )
             }}
           </p>
-          <button
-            type="button"
-            class="mt-6 w-fit rounded-md bg-neutral-900 px-8 py-3 text-sm font-bold text-white"
+          <LazyVButton
+            variant="none"
+            className="mt-6 w-fit rounded-md bg-neutral-900 px-8 py-3 text-sm font-bold text-white"
           >
             Add to cart
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </template>
@@ -597,18 +597,18 @@
           v-else-if="str('card_style', 'overlay') === 'pill'"
           class="flex flex-wrap gap-3"
         >
-          <button
+          <LazyVButton
             v-for="(_, i) in CAT_IMGS"
             :key="i"
-            type="button"
-            class="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-100"
+            variant="none"
+            className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-100"
           >
             <span
               class="size-3 rounded-full"
               :style="{ backgroundColor: CAT_COLORS[i] }"
             />
             Category {{ i + 1 }}
-          </button>
+          </LazyVButton>
         </div>
 
         <!-- split style -->
@@ -712,12 +712,12 @@
           <p class="mt-3 text-neutral-400">
             {{ str("subheading", "Limited time deal — don't miss out") }}
           </p>
-          <button
-            type="button"
-            class="mt-6 rounded-md bg-white px-8 py-2.5 text-sm font-bold text-neutral-900"
+          <LazyVButton
+            variant="none"
+            className="mt-6 rounded-md bg-white px-8 py-2.5 text-sm font-bold text-neutral-900"
           >
             {{ str("buttonText", "Shop Now") }}
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </template>
@@ -732,12 +732,12 @@
             <h3 class="text-xl font-bold text-white">
               {{ str("heading1", "New Collection") }}
             </h3>
-            <button
-              type="button"
-              class="mt-4 rounded-md border border-white px-6 py-2 text-sm font-semibold text-white"
+            <LazyVButton
+              variant="none"
+              className="mt-4 rounded-md border border-white px-6 py-2 text-sm font-semibold text-white"
             >
               {{ str("button1", "Shop Now") }}
-            </button>
+            </LazyVButton>
           </div>
         </div>
         <div
@@ -747,12 +747,12 @@
             <h3 class="text-xl font-bold text-neutral-900">
               {{ str("heading2", "Sale Items") }}
             </h3>
-            <button
-              type="button"
-              class="mt-4 rounded-md bg-neutral-900 px-6 py-2 text-sm font-semibold text-white"
+            <LazyVButton
+              variant="none"
+              className="mt-4 rounded-md bg-neutral-900 px-6 py-2 text-sm font-semibold text-white"
             >
               {{ str("button2", "View Sale") }}
-            </button>
+            </LazyVButton>
           </div>
         </div>
       </div>
@@ -897,12 +897,12 @@
             readonly
             input-class="!w-64 !rounded-md !border-neutral-300 !px-4 !py-2 !text-sm !outline-none"
           />
-          <button
-            type="button"
-            class="rounded-md bg-neutral-900 px-5 py-2 text-sm font-semibold text-white"
+          <LazyVButton
+            variant="none"
+            className="rounded-md bg-neutral-900 px-5 py-2 text-sm font-semibold text-white"
           >
             {{ str("buttonText", "Subscribe") }}
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </template>
@@ -931,12 +931,12 @@
             readonly
             textareaClass="!col-span-2 !bg-transparent !rounded-md !border-neutral-300 !px-4 !py-2.5 !text-sm !text-inherit"
           />
-          <button
-            type="button"
-            class="w-fit rounded-md bg-neutral-900 px-6 py-2.5 text-sm font-semibold text-white"
+          <LazyVButton
+            variant="none"
+            className="w-fit rounded-md bg-neutral-900 px-6 py-2.5 text-sm font-semibold text-white"
           >
             {{ str("submitLabel", "Send message") }}
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </template>

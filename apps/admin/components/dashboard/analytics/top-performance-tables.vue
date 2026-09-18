@@ -9,11 +9,12 @@
           class="p-6 border-b border-border-subtle flex justify-between items-center"
         >
           <h3 class="font-bold">{{ t("dashboard.home.topProducts") }}</h3>
-          <button
-            class="text-[10px] font-black text-brand tracking-widest hover:underline"
+          <LazyVButton
+            variant="none"
+            className="text-[10px] font-black text-brand tracking-widest hover:underline"
           >
             {{ t("common.viewAll") }}
-          </button>
+          </LazyVButton>
         </div>
         <div class="relative overflow-x-auto">
           <LazyVTable :headers="productHeaders" :items="products">
@@ -55,11 +56,12 @@
           class="p-6 border-b border-border-subtle flex justify-between items-center"
         >
           <h3 class="font-bold">{{ t("dashboard.customers.topCustomers") }}</h3>
-          <button
-            class="text-[10px] font-black text-brand tracking-widest hover:underline"
+          <LazyVButton
+            variant="none"
+            className="text-[10px] font-black text-brand tracking-widest hover:underline"
           >
             {{ t("common.viewAll") }}
-          </button>
+          </LazyVButton>
         </div>
         <div class="relative overflow-x-auto">
           <LazyVTable :headers="customerHeaders" :items="customers">

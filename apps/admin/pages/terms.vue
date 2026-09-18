@@ -41,13 +41,12 @@
         <aside class="lg:col-span-3">
           <div class="sticky top-10 space-y-1">
             <p class="text-[10px] font-black text-tx-muted tracking-[0.3em] mb-6 px-4">Index Sections</p>
-            <button v-for="section in sections" :key="section.id" @click="scrollTo(section.id)"
-              class="w-full text-start px-4 py-3 rounded-md text-[12px] font-bold tracking-widest transition-all border-s-2"
-              :class="activeSection === section.id
+            <LazyVButton v-for="section in sections" :key="section.id" variant="none" @click="scrollTo(section.id)"
+              :className="`w-full text-start px-4 py-3 rounded-md text-[12px] font-bold tracking-widest transition-all border-s-2 ${activeSection === section.id
                 ? 'bg-bg-elevated border-brand text-white shadow-lg shadow-black/40'
-                : 'border-transparent text-tx-muted hover:text-tx-secondary hover:bg-white/[0.02]'">
+                : 'border-transparent text-tx-muted hover:text-tx-secondary hover:bg-white/[0.02]'}`">
               {{ section.title }}
-            </button>
+            </LazyVButton>
           </div>
         </aside>
 

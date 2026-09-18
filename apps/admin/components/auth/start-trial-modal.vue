@@ -101,20 +101,20 @@
               {{ t("auth.register.industry") }}
             </label>
             <div class="flex flex-wrap gap-2">
-              <button
+              <LazyVButton
                 v-for="tag in industries"
                 :key="tag.value"
                 type="button"
+                variant="none"
                 @click="form.industry = tag.value"
-                class="px-3 py-1.5 rounded-full border text-[11px] font-bold transition-all"
-                :class="
+                :className="`px-3 py-1.5 rounded-full border text-[11px] font-bold transition-all ${
                   form.industry === tag.value
                     ? 'border-orange-500 bg-orange-500/10 text-orange-400'
                     : 'border-border-subtle text-tx-secondary hover:border-border-default hover:text-tx-primary'
-                "
+                }`"
               >
                 {{ tag.emoji }} {{ tag.label }}
-              </button>
+              </LazyVButton>
             </div>
           </div>
 

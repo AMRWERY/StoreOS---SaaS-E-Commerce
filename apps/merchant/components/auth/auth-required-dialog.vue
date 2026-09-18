@@ -53,13 +53,14 @@
           {{ t("auth.gate.signIn") }}
         </LazyVButton>
 
-        <button
+        <LazyVButton
           type="button"
+          variant="none"
           @click="closeGate"
-          class="w-full py-1.5 text-[11px] font-medium text-tx-muted hover:text-tx-secondary transition-colors"
+          className="w-full py-1.5 text-[11px] font-medium text-tx-muted hover:text-tx-secondary transition-colors"
         >
           {{ t("auth.gate.keepExploring") }}
-        </button>
+        </LazyVButton>
       </div>
 
       <p class="text-center text-[10px] tracking-wider text-tx-muted">

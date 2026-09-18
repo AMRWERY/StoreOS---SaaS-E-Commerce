@@ -31,12 +31,13 @@
                   {{ t("dashboard.settings.notifications.nodeOverview") }}
                 </h2>
               </div>
-              <button
+              <LazyVButton
+                variant="none"
                 @click="$emit('update:modelValue', false)"
-                class="text-tx-secondary hover:text-tx-primary transition-colors p-2"
+                className="text-tx-secondary hover:text-tx-primary transition-colors p-2"
               >
                 <Icon name="ph:x-bold" class="text-lg" />
-              </button>
+              </LazyVButton>
             </div>
           </div>
 
@@ -124,7 +125,8 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
+
 defineProps<{
   modelValue: boolean;
 }>();

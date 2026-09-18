@@ -35,14 +35,15 @@
             <Icon name="lucide:arrow-up-circle" class="w-4 h-4" />
             Upgrade to unlock
           </nuxt-link-locale>
-          <button
+          <LazyVButton
             @click="$emit('preview')"
             v-if="allowPreview"
-            class="text-sm text-tx-secondary hover:text-tx-primary font-medium transition-colors flex items-center gap-1"
+            variant="none"
+            className="text-sm text-tx-secondary hover:text-tx-primary font-medium transition-colors flex items-center gap-1"
           >
             <Icon name="lucide:eye" class="w-3.5 h-3.5" />
             Preview (read-only)
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </div>

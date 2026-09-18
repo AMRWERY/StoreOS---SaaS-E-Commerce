@@ -1,38 +1,47 @@
 ﻿<template>
-    <div>
-        <div class="min-h-screen bg-bg-base text-tx-primary flex overflow-hidden lg:overflow-visible">
-            <!-- Sidebar Component -->
-            <sidebar :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
+  <div>
+    <div
+      class="min-h-screen bg-bg-base text-tx-primary flex overflow-hidden lg:overflow-visible"
+    >
+      <!-- Sidebar Component -->
+      <sidebar :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
 
-            <!-- Main Content Area -->
-            <main class="flex-1 h-screen overflow-y-auto transition-all duration-300 flex flex-col hide-scrollbar">
-                <!-- Signed-out preview banner, else Trial / Plan Banner -->
-                <guest-banner v-if="isGuest" />
-                <trial-banner v-else-if="showBanner" />
+      <!-- Main Content Area -->
+      <main
+        class="flex-1 h-screen overflow-y-auto transition-all duration-300 flex flex-col hide-scrollbar"
+      >
+        <!-- Signed-out preview banner, else Trial / Plan Banner -->
+        <lazy-guest-banner v-if="isGuest" />
 
-                <!-- Dashboard Header -->
-                <Header @toggle-sidebar="isSidebarOpen = true" />
+        <lazy-trial-banner v-else-if="showBanner" />
 
-                <div class="p-6 md:p-8 lg:p-10 pt-0">
-                    <slot />
-                </div>
-            </main>
+        <!-- Dashboard Header -->
+        <Header @toggle-sidebar="isSidebarOpen = true" />
+
+        <div class="p-6 md:p-8 lg:p-10 pt-0">
+          <slot />
         </div>
-
-        <!-- Sign-in gate for locked features in preview mode -->
-        <auth-required-dialog />
+      </main>
     </div>
+
+    <!-- Sign-in gate for locked features in preview mode -->
+    <lazy-auth-required-dialog />
+  </div>
 </template>
 
 <script lang="ts" setup>
+const route = useRoute();
+const { isGuest, isTrial, isPaid } = useAuth();
+
 // Sidebar Toggle State
 const isSidebarOpen = ref(false);
 
-const route = useRoute();
-watch(() => route.fullPath, () => {
+watch(
+  () => route.fullPath,
+  () => {
     isSidebarOpen.value = false;
-});
+  },
+);
 
-const { isGuest, isTrial, isPaid } = useAuth();
 const showBanner = computed(() => isTrial.value || !isPaid.value);
 </script>

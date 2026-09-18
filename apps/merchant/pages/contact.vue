@@ -58,7 +58,7 @@
                 <p class="text-sm text-tx-secondary">We'll get back to you within one business day.</p>
               </div>
 
-              <form v-else @submit.prevent="submit" class="space-y-5">
+              <LazyVFormWrapper v-else @submit="submit" formClass="!space-y-5">
                 <div class="grid sm:grid-cols-2 gap-5">
                   <LazyVInput v-model="form.firstName" label="First name" placeholder="Adam" required />
                   <LazyVInput v-model="form.lastName" label="Last name" placeholder="Karim" required />
@@ -80,7 +80,7 @@
                   {{ loading ? 'Sending...' : 'Send message' }}
                   <Icon v-if="!loading" name="ph:paper-plane-tilt-bold" />
                 </LazyVButton>
-              </form>
+              </LazyVFormWrapper>
             </Transition>
           </div>
         </div>

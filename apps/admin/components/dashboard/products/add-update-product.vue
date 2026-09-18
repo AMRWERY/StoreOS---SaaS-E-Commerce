@@ -74,13 +74,13 @@
                   selectClass="!bg-bg-primary !border-border-default !rounded-xl !px-5 !py-4 !text-sm focus:!border-brand"
                 />
                 <div class="flex items-end pb-3">
-                  <button
+                  <LazyVButton
+                    variant="none"
                     @click="showCategoryModal = true"
-                    type="button"
-                    class="text-[10px] font-bold text-brand hover:text-brand transition-colors hover:underline"
+                    className="text-[10px] font-bold text-brand hover:text-brand transition-colors hover:underline"
                   >
                     + {{ t("dashboard.products.createCategory") }}
-                  </button>
+                  </LazyVButton>
                 </div>
               </div>
             </div>
@@ -238,28 +238,28 @@
             <div
               class="bg-bg-primary p-1 rounded-xl flex border border-border-subtle mb-6"
             >
-              <button
+              <LazyVButton
+                variant="none"
                 @click="toggleStatus('Draft')"
-                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
-                :class="
+                :className="`flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all ${
                   product.status === 'Draft'
                     ? 'bg-bg-elevated text-tx-primary shadow-sm'
                     : 'text-tx-muted'
-                "
+                }`"
               >
                 {{ t("dashboard.products.draft") }}
-              </button>
-              <button
+              </LazyVButton>
+              <LazyVButton
+                variant="none"
                 @click="toggleStatus('Active')"
-                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
-                :class="
+                :className="`flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all ${
                   product.status === 'Active'
                     ? 'bg-brand text-tx-primary shadow-lg'
                     : 'text-tx-muted'
-                "
+                }`"
               >
                 {{ t("dashboard.products.active") }}
-              </button>
+              </LazyVButton>
             </div>
 
             <div class="space-y-4 pt-4 border-t border-border-subtle">

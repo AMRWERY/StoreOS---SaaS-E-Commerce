@@ -8,19 +8,22 @@
         {{ hint }}
       </p>
     </div>
-    <button
+    <LazyVButton
+      variant="none"
       type="button"
       role="switch"
       :aria-checked="modelValue"
-      class="relative h-7 w-12 shrink-0 rounded-full border border-border-subtle transition-colors"
-      :class="modelValue ? 'bg-brand/90 border-brand' : 'bg-bg-elevated'"
+      :class-name="[
+        'relative h-7 w-12 shrink-0 rounded-full border border-border-subtle transition-colors',
+        modelValue ? 'bg-brand/90 border-brand' : 'bg-bg-elevated',
+      ].join(' ')"
       @click="$emit('update:modelValue', !modelValue)"
     >
       <span
         class="absolute top-0.5 size-5 rounded-full bg-white shadow transition-all"
         :class="modelValue ? 'start-6' : 'start-0.5'"
       />
-    </button>
+    </LazyVButton>
   </div>
 </template>
 

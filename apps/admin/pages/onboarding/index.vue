@@ -38,13 +38,14 @@
         </template>
       </div>
 
-      <button
+      <LazyVButton
+        variant="none"
         @click="skipOnboarding"
-        class="text-[11px] font-bold text-tx-muted hover:text-tx-secondary transition flex items-center gap-1"
+        className="text-[11px] font-bold text-tx-muted hover:text-tx-secondary transition flex items-center gap-1"
       >
         Skip setup
         <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
-      </button>
+      </LazyVButton>
     </header>
 
     <!-- Step Content -->

@@ -34,10 +34,10 @@
         <div class="flex items-center gap-3">
           <LazyVButton variant="primary" :label="t('dashboard.customers.newOrder')" icon="ph:shopping-cart-light"
             iconPosition="left" to="/dashboard/orders/order-form" />
-          <button
-            class="p-3.5 bg-bg-elevated border border-border-default rounded-xl text-tx-secondary hover:text-tx-primary transition-colors">
+          <LazyVButton variant="none"
+            className="p-3.5 bg-bg-elevated border border-border-default rounded-xl text-tx-secondary hover:text-tx-primary transition-colors">
             <Icon name="ph:tag-bold" />
-          </button>
+          </LazyVButton>
         </div>
       </header>
 
@@ -63,14 +63,14 @@
         <div class="lg:col-span-8 bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden flex flex-col">
           <!-- Tabs Header -->
           <div class="px-6 pt-6 border-b border-border-subtle flex gap-8">
-            <button v-for="tab in tabs" :key="tab" @click="activeTab = tab"
-              class="pb-4 text-xs font-bold tracking-widest transition-all relative" :class="activeTab === tab
+            <LazyVButton v-for="tab in tabs" :key="tab" @click="activeTab = tab" variant="none"
+              :className="`pb-4 text-xs font-bold tracking-widest transition-all relative ${activeTab === tab
                 ? 'text-tx-primary'
                 : 'text-tx-muted hover:text-tx-secondary'
-                ">
+                }`">
               {{ tab }}
               <div v-if="activeTab === tab" class="absolute bottom-0 start-0 w-full h-0.5 bg-brand"></div>
-            </button>
+            </LazyVButton>
           </div>
 
           <!-- Tab Content -->
@@ -111,11 +111,11 @@
                 </div>
               </div>
 
-              <button
-                class="w-full mt-8 py-4 text-[10px] font-black tracking-[0.2em] text-tx-secondary hover:text-tx-primary transition-all flex items-center justify-center gap-2 group">
+              <LazyVButton variant="none"
+                className="w-full mt-8 py-4 text-[10px] font-black tracking-[0.2em] text-tx-secondary hover:text-tx-primary transition-all flex items-center justify-center gap-2 group">
                 {{ t("dashboard.customers.viewAllOrders") }}
                 <Icon name="ph:arrow-right-bold" class="group-hover:translate-x-1 transition-transform" />
-              </button>
+              </LazyVButton>
             </div>
 
             <!-- Notes Tab -->
@@ -142,9 +142,9 @@
                     <div class="flex items-center justify-between mb-3">
                       <span class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">{{ note.author }} • {{
                         note.date }}</span>
-                      <button class="text-tx-muted hover:text-danger transition-colors">
+                      <LazyVButton variant="none" className="text-tx-muted hover:text-danger transition-colors">
                         <Icon name="ph:trash-bold" />
-                      </button>
+                      </LazyVButton>
                     </div>
                     <p class="text-sm text-tx-secondary leading-relaxed">
                       {{ note.text }}
@@ -189,10 +189,10 @@
               <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">
                 {{ t("dashboard.customers.contactMetadata") }}
               </h3>
-              <button v-if="!isEditingContact" @click="startEditContact"
-                class="text-tx-muted hover:text-brand transition-colors">
+              <LazyVButton v-if="!isEditingContact" @click="startEditContact" variant="none"
+                className="text-tx-muted hover:text-brand transition-colors">
                 <Icon name="ph:pencil-simple-line-bold" />
-              </button>
+              </LazyVButton>
             </div>
 
             <div v-if="!isEditingContact" class="space-y-6">
@@ -246,10 +246,10 @@
               <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">
                 {{ t("dashboard.customers.shippingDestinations") }}
               </h3>
-              <button
-                class="text-tx-primary bg-bg-elevated rounded-md p-1 hover:bg-bg-elevated transition-all border border-border-subtle">
+              <LazyVButton variant="none"
+                className="text-tx-primary bg-bg-elevated rounded-md p-1 hover:bg-bg-elevated transition-all border border-border-subtle">
                 <Icon name="ph:plus-bold" />
-              </button>
+              </LazyVButton>
             </div>
             <div class="space-y-3">
               <div v-for="address in addresses" :key="address.label"
@@ -271,9 +271,9 @@
               <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">
                 {{ t("dashboard.customers.customerTags") }}
               </h3>
-              <button class="text-tx-muted hover:text-brand transition-colors">
+              <LazyVButton variant="none" className="text-tx-muted hover:text-brand transition-colors">
                 <Icon name="ph:gear-six-bold" />
-              </button>
+              </LazyVButton>
             </div>
             <div class="flex flex-wrap gap-2">
               <span v-for="t in customer.tags" :key="t"

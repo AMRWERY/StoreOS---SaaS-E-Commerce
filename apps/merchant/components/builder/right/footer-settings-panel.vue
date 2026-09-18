@@ -18,16 +18,17 @@
           Footer style
         </p>
         <div class="grid grid-cols-2 gap-2">
-          <button
+          <LazyVButton
             v-for="style in FOOTER_STYLES"
             :key="style.value"
+            variant="none"
             type="button"
-            class="relative flex flex-col items-start overflow-hidden rounded-xl border-2 p-3 text-start transition-all"
-            :class="
+            :class-name="[
+              'relative flex flex-col items-start overflow-hidden rounded-xl border-2 p-3 text-start transition-all',
               store.footerStyle === style.value
                 ? 'border-brand bg-brand/5'
-                : 'border-border-default bg-bg-elevated hover:border-border-subtle'
-            "
+                : 'border-border-default bg-bg-elevated hover:border-border-subtle',
+            ].join(' ')"
             @click="store.footerStyle = style.value"
           >
             <div
@@ -55,7 +56,7 @@
             >
               <Icon name="ph:check-bold" class="text-[9px] text-white" />
             </div>
-          </button>
+          </LazyVButton>
         </div>
       </div>
 
@@ -93,10 +94,13 @@
           class="flex items-center justify-between rounded-lg border border-border-default bg-bg-elevated px-3 py-2.5"
         >
           <span class="text-xs text-tx-primary">Show social icons</span>
-          <button
+          <LazyVButton
+            variant="none"
             type="button"
-            class="relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors focus:outline-none"
-            :class="store.footerShowSocial ? 'bg-brand' : 'bg-bg-overlay'"
+            :class-name="[
+              'relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors focus:outline-none',
+              store.footerShowSocial ? 'bg-brand' : 'bg-bg-overlay',
+            ].join(' ')"
             role="switch"
             :aria-checked="store.footerShowSocial"
             @click="store.footerShowSocial = !store.footerShowSocial"
@@ -107,7 +111,7 @@
                 store.footerShowSocial ? 'translate-x-4' : 'translate-x-0'
               "
             />
-          </button>
+          </LazyVButton>
         </div>
       </div>
 
@@ -121,14 +125,15 @@
               >{{ store.footerColumns.length }}</span
             >
           </p>
-          <button
+          <LazyVButton
+            variant="none"
             type="button"
-            class="flex items-center gap-1 rounded-md px-2 py-1 text-[10px] font-semibold text-brand hover:bg-brand/10"
+            className="flex items-center gap-1 rounded-md px-2 py-1 text-[10px] font-semibold text-brand hover:bg-brand/10"
             @click="store.addFooterColumn()"
           >
             <Icon name="ph:plus-bold" class="text-[9px]" />
             Add column
-          </button>
+          </LazyVButton>
         </div>
 
         <p
@@ -159,14 +164,15 @@
                 input-class="!min-w-0 !flex-1 !bg-transparent !text-xs !font-semibold !text-tx-primary !placeholder-tx-muted focus:!outline-none"
                 @update:model-value="store.updateFooterColumn(ci, $event)"
               />
-              <button
+              <LazyVButton
+                variant="none"
                 type="button"
-                class="rounded-md p-1 text-tx-muted hover:bg-bg-overlay hover:text-red-400"
+                className="rounded-md p-1 text-tx-muted hover:bg-bg-overlay hover:text-red-400"
                 title="Remove column"
                 @click="store.removeFooterColumn(ci)"
               >
                 <Icon name="ph:trash-bold" class="text-xs" />
-              </button>
+              </LazyVButton>
             </div>
 
             <!-- Links -->
@@ -203,23 +209,25 @@
                       "
                     />
                   </div>
-                  <button
+                  <LazyVButton
+                    variant="none"
                     type="button"
-                    class="shrink-0 rounded p-1 text-tx-muted hover:text-red-400"
+                    className="shrink-0 rounded p-1 text-tx-muted hover:text-red-400"
                     @click="store.removeFooterLink(ci, li)"
                   >
                     <Icon name="ph:x-bold" class="text-[10px]" />
-                  </button>
+                  </LazyVButton>
                 </div>
               </div>
-              <button
+              <LazyVButton
+                variant="none"
                 type="button"
-                class="flex w-full items-center justify-center gap-1 rounded-lg border border-dashed border-border-default py-1.5 text-[10px] font-semibold text-tx-muted hover:border-brand hover:text-brand"
+                className="flex w-full items-center justify-center gap-1 rounded-lg border border-dashed border-border-default py-1.5 text-[10px] font-semibold text-tx-muted hover:border-brand hover:text-brand"
                 @click="store.addFooterLink(ci)"
               >
                 <Icon name="ph:plus-bold" class="text-[9px]" />
                 Add link
-              </button>
+              </LazyVButton>
             </div>
           </div>
         </div>

@@ -70,16 +70,16 @@
           >
             Jump To Segment
           </p>
-          <button
+          <LazyVButton
             v-for="section in policySections"
             :key="section.id"
+            variant="none"
             @click="scrollTo(section.id)"
-            class="w-full text-start px-4 py-4 rounded-xl border-s-2 transition-all flex flex-col gap-1"
-            :class="
+            :className="`w-full text-start px-4 py-4 rounded-xl border-s-2 transition-all flex flex-col gap-1 ${
               activeTab === section.id
                 ? 'bg-bg-elevated border-brand text-white'
                 : 'border-transparent text-tx-muted hover:bg-white/[0.02] hover:text-tx-secondary'
-            "
+            }`"
           >
             <span class="text-[11px] font-bold tracking-widest">{{
               section.title
@@ -87,7 +87,7 @@
             <span class="text-[10px] opacity-60 font-medium">{{
               section.desc
             }}</span>
-          </button>
+          </LazyVButton>
         </div>
       </aside>
 

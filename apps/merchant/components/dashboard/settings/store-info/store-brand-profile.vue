@@ -18,6 +18,7 @@
               t('dashboard.settings.storeInfo.storeNamePlaceholder')
             "
           />
+
           <LazyVInput
             v-model="modelValue.legalName"
             :label="t('dashboard.settings.storeInfo.legalName')"
@@ -46,6 +47,7 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+
 defineProps<{
   modelValue: any;
 }>();

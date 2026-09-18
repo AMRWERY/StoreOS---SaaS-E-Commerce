@@ -62,15 +62,16 @@
       <div class="flex items-center gap-3 md:gap-4 shrink-0">
         <LazyThemeToggle />
         <!-- Locale Switcher -->
-        <button
+        <LazyVButton
           @click="switchLocale"
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg-elevated hover:bg-bg-elevated border border-border-subtle transition-colors text-tx-secondary hover:text-tx-primary text-xs font-bold"
+          variant="none"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg-elevated hover:bg-bg-elevated border border-border-subtle transition-colors text-tx-secondary hover:text-tx-primary text-xs font-bold"
         >
           <ClientOnly>
             <Icon name="ph:globe-bold" class="text-base shrink-0" />
           </ClientOnly>
           <span>{{ localeLabel }}</span>
-        </button>
+        </LazyVButton>
 
         <!-- Notifications -->
         <notifications />
@@ -101,12 +102,12 @@
 </template>
 
 <script lang="ts" setup>
-defineEmits(["toggle-sidebar"]);
-
+const router = useRouter();
 const { locale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
-const router = useRouter();
 const { greeting, emoji, currentDate, timeParts } = useGreeting();
+
+defineEmits(["toggle-sidebar"]);
 
 const isEnglish = computed(() => locale.value === "en");
 const localeLabel = computed(() => (isEnglish.value ? "ع" : "EN"));

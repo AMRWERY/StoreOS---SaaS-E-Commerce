@@ -1,7 +1,8 @@
 ﻿<template>
   <div>
     <section
-      class="bg-orange-950/20 border border-accent/10 rounded-2xl px-4 py-3.5 flex flex-col md:flex-row items-center justify-between gap-6">
+      class="bg-orange-950/20 border border-accent/10 rounded-2xl px-4 py-3.5 flex flex-col md:flex-row items-center justify-between gap-6"
+    >
       <div class="flex items-start gap-5 max-w-2xl">
         <div class="mt-1">
           <Icon name="ph:warning-octagon-bold" class="text-accent text-2xl" />
@@ -15,8 +16,11 @@
           </p>
         </div>
       </div>
-      <LazyVButton variant="outline"
-        className="bg-transparent border border-accent/30 text-accent/70 hover:text-accent hover:border-orange-500/50 px-5 py-2.5 rounded-lg text-[10px] font-black tracking-widest transition-all">
+      
+      <LazyVButton
+        variant="outline"
+        className="bg-transparent border border-accent/30 text-accent/70 hover:text-accent hover:border-orange-500/50 px-5 py-2.5 rounded-lg text-[10px] font-black tracking-widest transition-all"
+      >
         {{ t("dashboard.settings.payment.disableProtocol") }}
       </LazyVButton>
     </section>
@@ -24,5 +28,5 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 </script>

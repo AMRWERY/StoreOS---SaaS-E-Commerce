@@ -8,14 +8,14 @@
         Global
       </p>
       <div class="space-y-0.5">
-        <button
+        <LazyVButton
+          variant="none"
           type="button"
-          class="flex w-full items-center gap-3 rounded-md border border-transparent px-2 py-2.5 text-start text-[12px] font-medium transition-all"
-          :class="
+          :className="`flex w-full items-center gap-3 rounded-md border border-transparent px-2 py-2.5 text-start text-[12px] font-medium transition-all ${
             navbarActive
               ? 'border-border-subtle bg-bg-elevated text-brand'
               : 'text-tx-secondary hover:bg-bg-elevated/50'
-          "
+          }`"
           @click="selectNavbar"
         >
           <Icon
@@ -29,16 +29,16 @@
           >
             {{ store.navLinks.length }}
           </span>
-        </button>
+        </LazyVButton>
 
-        <button
+        <LazyVButton
+          variant="none"
           type="button"
-          class="flex w-full items-center gap-3 rounded-md border border-transparent px-2 py-2.5 text-start text-[12px] font-medium transition-all"
-          :class="
+          :className="`flex w-full items-center gap-3 rounded-md border border-transparent px-2 py-2.5 text-start text-[12px] font-medium transition-all ${
             footerActive
               ? 'border-border-subtle bg-bg-elevated text-brand'
               : 'text-tx-secondary hover:bg-bg-elevated/50'
-          "
+          }`"
           @click="selectFooter"
         >
           <Icon
@@ -52,7 +52,7 @@
           >
             {{ store.footerColumns.length }}
           </span>
-        </button>
+        </LazyVButton>
       </div>
     </div>
 

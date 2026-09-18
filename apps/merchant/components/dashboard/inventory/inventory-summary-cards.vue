@@ -8,6 +8,7 @@
         sub="Active in catalog"
         icon-color="text-tx-muted"
       />
+
       <LazyVStatCard
         label="Out of Stock"
         :value="outOfStockCount"
@@ -16,6 +17,7 @@
         icon-color="text-danger"
         value-color="text-danger"
       />
+
       <LazyVStatCard
         label="Low Stock"
         :value="lowStockCount"

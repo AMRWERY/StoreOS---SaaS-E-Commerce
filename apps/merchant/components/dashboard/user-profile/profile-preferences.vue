@@ -15,6 +15,7 @@
         :options="['English (US)']"
         selectClass="!bg-bg-primary !border-border-default !rounded-xl !px-5 !py-3 !text-sm"
       />
+
       <LazyVSelectInput
         :label="t('dashboard.profile.timezone')"
         :options="['(GMT+09:00) Tokyo, Japan']"
@@ -37,9 +38,11 @@
                 : t("dashboard.profile.lightMode")
             }}
           </div>
-          <button
+
+          <LazyVButton
             type="button"
-            class="relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border border-border-default bg-bg-elevated transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+            variant="none"
+            className="relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border border-border-default bg-bg-elevated transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
             role="switch"
             :aria-checked="!isDark"
             :aria-label="
@@ -51,7 +54,7 @@
               class="pointer-events-none absolute top-0.5 h-6 w-6 rounded-full bg-brand shadow transition-transform duration-200 ease-out"
               :class="isDark ? 'start-0.5' : 'end-0.5'"
             />
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </div>
@@ -59,6 +62,6 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 const { isDark, toggleTheme } = useAppTheme();
 </script>

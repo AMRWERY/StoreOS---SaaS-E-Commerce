@@ -74,13 +74,13 @@
                   selectClass="!bg-bg-primary !border-border-default !rounded-xl !px-5 !py-4 !text-sm focus:!border-brand"
                 />
                 <div class="flex items-end pb-3">
-                  <button
+                  <LazyVButton
+                    variant="none"
                     @click="showCategoryModal = true"
-                    type="button"
-                    class="text-[10px] font-bold text-brand hover:text-brand transition-colors hover:underline"
+                    className="text-[10px] font-bold text-brand hover:text-brand transition-colors hover:underline"
                   >
                     + {{ t("dashboard.products.createCategory") }}
-                  </button>
+                  </LazyVButton>
                 </div>
               </div>
             </div>
@@ -238,28 +238,29 @@
             <div
               class="bg-bg-primary p-1 rounded-xl flex border border-border-subtle mb-6"
             >
-              <button
+              <LazyVButton
+                variant="none"
                 @click="toggleStatus('Draft')"
-                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
-                :class="
+                :className="`flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all ${
                   product.status === 'Draft'
                     ? 'bg-bg-elevated text-tx-primary shadow-sm'
                     : 'text-tx-muted'
-                "
+                }`"
               >
                 {{ t("dashboard.products.draft") }}
-              </button>
-              <button
+              </LazyVButton>
+
+              <LazyVButton
+                variant="none"
                 @click="toggleStatus('Active')"
-                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
-                :class="
+                :className="`flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all ${
                   product.status === 'Active'
                     ? 'bg-brand text-tx-primary shadow-lg'
                     : 'text-tx-muted'
-                "
+                }`"
               >
                 {{ t("dashboard.products.active") }}
-              </button>
+              </LazyVButton>
             </div>
 
             <div class="space-y-4 pt-4 border-t border-border-subtle">
@@ -270,6 +271,7 @@
                 labelPosition="start"
                 inputClass="!accent-brand !bg-bg-primary"
               />
+
               <LazyVInput
                 type="checkbox"
                 v-model="product.shopifyInventorySync"
@@ -286,6 +288,7 @@
               >
                 {{ t("dashboard.products.saveDraft") }}</LazyVButton
               >
+
               <LazyVButton
                 variant="none"
                 className="flex-1 bg-brand hover:bg-brand-hover py-3 rounded-xl text-[10px] font-black tracking-widest shadow-lg shadow-brand/20 transition-all"
@@ -341,7 +344,10 @@
                     :key="c"
                     type="checkbox"
                     :model-value="selectedCollections.includes(c)"
-                    @update:model-value="(checked: string | number | boolean) => toggleCollection(c, checked as boolean)"
+                    @update:model-value="
+                      (checked: string | number | boolean) =>
+                        toggleCollection(c, checked as boolean)
+                    "
                     :label="c"
                     labelPosition="start"
                     inputClass="!accent-brand !w-3.5 !h-3.5 !bg-bg-primary !border-border-default !rounded"
@@ -384,6 +390,7 @@
 <script lang="ts" setup>
 const { t } = useI18n();
 const route = useRoute();
+
 const isEdit = computed(() => !!route.query.id);
 
 const showCategoryModal = ref(false);
@@ -417,7 +424,11 @@ const product = ref({
   shopifyInventorySync: false,
 });
 
-const collections = ["Winter Collection 2026", "Tools Essentials", "Staff Picks"];
+const collections = [
+  "Winter Collection 2026",
+  "Tools Essentials",
+  "Staff Picks",
+];
 const selectedCollections = ref(["Winter Collection 2026"]);
 
 const toggleCollection = (collection: string, checked: boolean) => {
@@ -436,7 +447,7 @@ const margin = computed(() => {
 });
 
 const profit = computed(() =>
-  (product.value.price - product.value.cost).toFixed(2)
+  (product.value.price - product.value.cost).toFixed(2),
 );
 
 const toggleStatus = (status: string) => (product.value.status = status);

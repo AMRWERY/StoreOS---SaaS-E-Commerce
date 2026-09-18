@@ -16,16 +16,18 @@
           </p>
         </div>
         <div class="flex gap-3">
-          <button
-            class="p-2.5 bg-bg-elevated border border-border-subtle rounded-xl text-tx-secondary hover:text-tx-primary transition-colors"
+          <LazyVButton
+            variant="none"
+            className="p-2.5 bg-bg-elevated border border-border-subtle rounded-xl text-tx-secondary hover:text-tx-primary transition-colors"
           >
             <Icon name="ph:sliders-horizontal-bold" />
-          </button>
-          <button
-            class="p-2.5 bg-bg-elevated border border-border-subtle rounded-xl text-tx-secondary hover:text-tx-primary transition-colors"
+          </LazyVButton>
+          <LazyVButton
+            variant="none"
+            className="p-2.5 bg-bg-elevated border border-border-subtle rounded-xl text-tx-secondary hover:text-tx-primary transition-colors"
           >
             <Icon name="ph:export-bold" />
-          </button>
+          </LazyVButton>
         </div>
       </div>
 
@@ -57,16 +59,20 @@
             </span>
           </template>
           <template #cell(action)="{}">
-            <button class="text-tx-muted hover:text-brand transition-colors">
+            <LazyVButton
+              variant="none"
+              className="text-tx-muted hover:text-brand transition-colors"
+            >
               <Icon name="ph:download-simple-bold" class="text-lg" />
-            </button>
+            </LazyVButton>
           </template>
         </LazyVTable>
-        <button
-          class="w-full py-6 text-[10px] font-black tracking-widest text-tx-muted hover:text-tx-primary transition-colors"
+        <LazyVButton
+          variant="none"
+          className="w-full py-6 text-[10px] font-black tracking-widest text-tx-muted hover:text-tx-primary transition-colors"
         >
           {{ t("dashboard.settings.billing.viewAllInvoices") }}
-        </button>
+        </LazyVButton>
       </div>
     </section>
   </div>

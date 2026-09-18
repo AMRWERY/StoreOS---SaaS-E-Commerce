@@ -1,7 +1,8 @@
 <template>
-  <button
+  <LazyVButton
+    variant="none"
     type="button"
-    class="group w-full rounded-xl border border-border-subtle bg-bg-elevated/40 text-start transition-all hover:border-brand/40 hover:bg-bg-elevated focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+    className="group w-full rounded-xl border border-border-subtle bg-bg-elevated/40 text-start transition-all hover:border-brand/40 hover:bg-bg-elevated focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
     @click="$emit('select')"
   >
     <div
@@ -106,7 +107,7 @@
         {{ description }}
       </p>
     </div>
-  </button>
+  </LazyVButton>
 </template>
 
 <script lang="ts" setup>

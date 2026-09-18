@@ -28,24 +28,29 @@
           <div
             class="hidden md:flex items-center gap-6 text-sm text-tx-secondary"
           >
-            <button
+            <LazyVButton
               @click="scrollTo('features')"
-              class="hover:text-tx-primary transition"
+              variant="none"
+              className="hover:text-tx-primary transition"
             >
               {{ t("nav.features") }}
-            </button>
-            <button
+            </LazyVButton>
+
+            <LazyVButton
               @click="scrollTo('integrations')"
-              class="hover:text-tx-primary transition"
+              variant="none"
+              className="hover:text-tx-primary transition"
             >
               {{ t("nav.integrations") }}
-            </button>
-            <button
+            </LazyVButton>
+
+            <LazyVButton
               @click="scrollTo('pricing')"
-              class="hover:text-tx-primary transition"
+              variant="none"
+              className="hover:text-tx-primary transition"
             >
               {{ t("nav.pricing") }}
-            </button>
+            </LazyVButton>
 
             <nuxt-link-locale
               to="/dashboard"
@@ -53,6 +58,7 @@
             >
               {{ t("nav.dashboard") }}
             </nuxt-link-locale>
+
             <nuxt-link-locale
               to="/dashboard/builder"
               class="flex items-center gap-1.5 hover:text-tx-primary transition"
@@ -64,6 +70,7 @@
 
         <div class="flex items-center gap-3">
           <LazyThemeToggle />
+
           <!-- Locale toggle -->
           <LazyVButton
             type="button"

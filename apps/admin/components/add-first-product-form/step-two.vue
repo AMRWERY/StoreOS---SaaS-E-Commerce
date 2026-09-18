@@ -32,7 +32,7 @@
       </div>
 
       <!-- Form -->
-      <LazyVFormWrapper @submit="handleContinue" class="space-y-7">
+      <LazyVFormWrapper @submit="handleContinue" formClass="!space-y-7">
         <!-- Store Name -->
         <LazyVInput
           v-model="storeName"

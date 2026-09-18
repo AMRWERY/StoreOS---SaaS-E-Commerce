@@ -7,16 +7,16 @@
       >
         Pages
       </p>
-      <button
+      <LazyVButton
         v-for="page in store.pages"
         :key="page.id"
+        variant="none"
         type="button"
-        class="flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-start transition-colors"
-        :class="
+        :className="`flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-start transition-colors ${
           page.id === store.currentPageId
             ? 'bg-brand/10 text-brand'
             : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'
-        "
+        }`"
         @click="onSelectPage(page)"
       >
         <Icon
@@ -39,7 +39,7 @@
           class="shrink-0 text-[10px] text-tx-muted"
           title="Published"
         />
-      </button>
+      </LazyVButton>
 
       <div
         v-if="store.pages.length === 0"
@@ -51,43 +51,47 @@
 
     <!-- Action buttons -->
     <div class="flex flex-wrap gap-1.5 p-2.5 pt-1">
-      <button
+      <LazyVButton
+        variant="none"
         type="button"
-        class="rounded-md border border-border-subtle bg-bg-elevated px-2 py-1.5 text-[9px] font-black tracking-wider text-tx-secondary transition-colors hover:border-brand/40 hover:text-brand"
+        className="rounded-md border border-border-subtle bg-bg-elevated px-2 py-1.5 text-[9px] font-black tracking-wider text-tx-secondary transition-colors hover:border-brand/40 hover:text-brand"
         title="Page settings"
         @click="store.setPanelMode('page-settings')"
       >
         Settings
-      </button>
-      <button
+      </LazyVButton>
+      <LazyVButton
+        variant="none"
         type="button"
-        class="rounded-md border border-brand/30 bg-brand/10 px-2 py-1.5 text-[9px] font-black tracking-wider text-brand transition-colors hover:bg-brand/20"
+        className="rounded-md border border-brand/30 bg-brand/10 px-2 py-1.5 text-[9px] font-black tracking-wider text-brand transition-colors hover:bg-brand/20"
         title="Create new page"
         @click="createPageOpen = true"
       >
         + New
-      </button>
-      <button
+      </LazyVButton>
+      <LazyVButton
+        variant="none"
         type="button"
-        class="rounded-md border border-border-subtle bg-bg-elevated px-2 py-1.5 text-[9px] font-black tracking-wider text-tx-secondary transition-colors hover:border-brand/40 hover:text-brand"
+        className="rounded-md border border-border-subtle bg-bg-elevated px-2 py-1.5 text-[9px] font-black tracking-wider text-tx-secondary transition-colors hover:border-brand/40 hover:text-brand"
         title="Apply a template"
         @click="templatePickerOpen = true"
       >
         Template
-      </button>
-      <button
+      </LazyVButton>
+      <LazyVButton
         v-if="
           store.pages.length > 1 &&
           store.currentPage &&
           !store.currentPage.is_system
         "
+        variant="none"
         type="button"
-        class="rounded-md border border-red-500/30 bg-bg-elevated px-2 py-1.5 text-[9px] font-black tracking-wider text-red-400/90 transition-colors hover:bg-red-500/10"
+        className="rounded-md border border-red-500/30 bg-bg-elevated px-2 py-1.5 text-[9px] font-black tracking-wider text-red-400/90 transition-colors hover:bg-red-500/10"
         title="Delete current page"
         @click="deletePageOpen = true"
       >
         Delete
-      </button>
+      </LazyVButton>
     </div>
   </div>
 </template>

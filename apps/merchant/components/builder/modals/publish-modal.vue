@@ -29,21 +29,23 @@
               Your store has been published. The new tab should have opened
               automatically.
             </p>
-            <button
+            <LazyVButton
+              variant="none"
               type="button"
-              class="mt-6 w-full rounded-lg bg-brand px-5 py-2.5 text-[11px] font-black tracking-wider text-white shadow-lg shadow-brand/25 flex items-center justify-center gap-2"
+              className="mt-6 w-full rounded-lg bg-brand px-5 py-2.5 text-[11px] font-black tracking-wider text-white shadow-lg shadow-brand/25 flex items-center justify-center gap-2"
               @click="openPreview"
             >
               <Icon name="ph:arrow-square-out-bold" />
               Open Store Preview
-            </button>
-            <button
+            </LazyVButton>
+            <LazyVButton
+              variant="none"
               type="button"
-              class="mt-3 w-full rounded-lg border border-border-subtle px-5 py-2.5 text-[11px] font-bold tracking-wider text-tx-secondary hover:bg-bg-elevated"
+              className="mt-3 w-full rounded-lg border border-border-subtle px-5 py-2.5 text-[11px] font-bold tracking-wider text-tx-secondary hover:bg-bg-elevated"
               @click="close"
             >
               Back to Builder
-            </button>
+            </LazyVButton>
           </div>
         </template>
 
@@ -80,9 +82,10 @@
           </ul>
 
           <div class="mt-6 flex flex-wrap gap-3">
-            <button
+            <LazyVButton
+              variant="none"
               type="button"
-              class="flex items-center gap-2 rounded-lg bg-brand px-5 py-2.5 text-[11px] font-black tracking-wider text-white shadow-lg shadow-brand/25 disabled:opacity-60"
+              className="flex items-center gap-2 rounded-lg bg-brand px-5 py-2.5 text-[11px] font-black tracking-wider text-white shadow-lg shadow-brand/25 disabled:opacity-60"
               :disabled="isSaving"
               @click="handlePublish"
             >
@@ -93,15 +96,16 @@
               />
               <Icon v-else name="ph:rocket-launch-bold" />
               {{ isSaving ? "Publishing…" : "Publish now" }}
-            </button>
-            <button
+            </LazyVButton>
+            <LazyVButton
+              variant="none"
               type="button"
-              class="rounded-lg border border-border-subtle px-5 py-2.5 text-[11px] font-bold tracking-wider text-tx-secondary hover:bg-bg-elevated disabled:opacity-40"
+              className="rounded-lg border border-border-subtle px-5 py-2.5 text-[11px] font-bold tracking-wider text-tx-secondary hover:bg-bg-elevated disabled:opacity-40"
               :disabled="isSaving"
               @click="close"
             >
               Cancel
-            </button>
+            </LazyVButton>
           </div>
         </template>
       </div>

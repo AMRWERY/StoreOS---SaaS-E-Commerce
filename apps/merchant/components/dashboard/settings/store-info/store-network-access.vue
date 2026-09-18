@@ -25,11 +25,13 @@
               input-class="!bg-bg-primary !rounded-s-lg !rounded-e-none !px-4 !py-3 !text-sm !text-tx-secondary"
               class="flex-1"
             />
-            <button
-              class="bg-bg-elevated hover:bg-bg-elevated border-y border-e border-border-default px-5 py-3 rounded-e-lg text-[10px] font-black tracking-widest flex items-center gap-2 transition-colors"
+
+            <LazyVButton
+              variant="none"
+              className="bg-bg-elevated hover:bg-bg-elevated border-y border-e border-border-default px-5 py-3 rounded-e-lg text-[10px] font-black tracking-widest flex items-center gap-2 transition-colors"
             >
               <Icon name="ph:copy-bold" /> {{ t("common.copy") }}
-            </button>
+            </LazyVButton>
           </div>
         </div>
 
@@ -41,6 +43,7 @@
               placeholder="e.g. shop.hyperlink.com"
               class="flex-1"
             />
+
             <LazyVButton
               variant="secondary"
               size="none"
@@ -49,6 +52,7 @@
               {{ t("dashboard.settings.connect") }}
             </LazyVButton>
           </div>
+
           <div class="flex items-center gap-2 pt-2">
             <Icon name="ph:info-bold" class="text-accent text-sm" />
             <p class="text-[10px] text-tx-secondary">
@@ -66,6 +70,7 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+
 defineProps<{
   modelValue: any;
 }>();

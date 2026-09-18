@@ -34,6 +34,7 @@
             </template>
           </LazyVInput>
         </div>
+
         <LazyVButton
           variant="secondary"
           className="px-8 py-3 bg-bg-elevated hover:bg-bg-elevated border border-border-default rounded-xl text-[11px] font-black tracking-widest text-tx-secondary transition-colors"

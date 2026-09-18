@@ -123,21 +123,23 @@
             class="inline-flex items-center bg-bg-primary border border-border-default rounded-lg overflow-hidden transition-colors"
             @click.stop
           >
-            <button
-              class="px-2.5 py-1.5 hover:bg-bg-elevated hover:text-tx-primary text-tx-secondary transition-colors"
+            <LazyVButton
+              variant="none"
+              className="px-2.5 py-1.5 hover:bg-bg-elevated hover:text-tx-primary text-tx-secondary transition-colors"
               @click="$emit('quick-adjust', item, -1)"
             >
               <Icon name="ph:minus-bold" class="text-[10px]" />
-            </button>
+            </LazyVButton>
             <span class="text-xs font-bold px-2 min-w-[32px] text-center">{{
               item.current
             }}</span>
-            <button
-              class="px-2.5 py-1.5 hover:bg-bg-elevated hover:text-tx-primary text-tx-secondary transition-colors"
+            <LazyVButton
+              variant="none"
+              className="px-2.5 py-1.5 hover:bg-bg-elevated hover:text-tx-primary text-tx-secondary transition-colors"
               @click="$emit('quick-adjust', item, 1)"
             >
               <Icon name="ph:plus-bold" class="text-[10px]" />
-            </button>
+            </LazyVButton>
           </div>
         </template>
 
@@ -147,25 +149,28 @@
             class="flex items-center justify-end gap-1 text-tx-secondary"
             @click.stop
           >
-            <button
+            <LazyVButton
+              variant="none"
               @click="$emit('view-history', item)"
-              class="hover:text-tx-primary hover:bg-bg-elevated p-2 rounded-lg transition-colors border border-transparent hover:border-border-default"
+              className="hover:text-tx-primary hover:bg-bg-elevated p-2 rounded-lg transition-colors border border-transparent hover:border-border-default"
               title="View History"
             >
               <Icon name="ph:clock-counter-clockwise-bold" class="w-4 h-4" />
-            </button>
-            <button
+            </LazyVButton>
+            <LazyVButton
+              variant="none"
               @click="$emit('adjust', item)"
-              class="hover:text-brand hover:bg-brand-dim p-2 rounded-lg transition-colors border border-transparent hover:border-brand/20"
+              className="hover:text-brand hover:bg-brand-dim p-2 rounded-lg transition-colors border border-transparent hover:border-brand/20"
               title="Adjust Stock"
             >
               <Icon name="ph:sliders-horizontal-bold" class="w-4 h-4" />
-            </button>
-            <button
-              class="hover:text-tx-primary hover:bg-bg-elevated p-2 rounded-lg transition-colors border border-transparent hover:border-border-default"
+            </LazyVButton>
+            <LazyVButton
+              variant="none"
+              className="hover:text-tx-primary hover:bg-bg-elevated p-2 rounded-lg transition-colors border border-transparent hover:border-border-default"
             >
               <Icon name="ph:dots-three-bold" class="w-5 h-5" />
-            </button>
+            </LazyVButton>
           </div>
         </template>
       </LazyVTable>

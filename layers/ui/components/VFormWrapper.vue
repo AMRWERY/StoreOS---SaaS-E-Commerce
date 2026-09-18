@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 const props = defineProps<{
-  class?: string;
+  formClass?: string;
 }>();
 
 defineEmits(["submit"]);
@@ -16,7 +16,7 @@ defineEmits(["submit"]);
 const formClasses = computed(() => {
   return [
     "space-y-6", // default spacing
-    props.class,
+    props.formClass,
   ];
 });
 </script>

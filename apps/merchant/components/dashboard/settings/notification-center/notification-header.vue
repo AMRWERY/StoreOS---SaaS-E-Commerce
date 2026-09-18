@@ -16,23 +16,34 @@
         </div>
       </div>
       <div class="flex items-center gap-3">
-        <LazyVButton variant="ghost" @click="$emit('open-stats')"
-          className="px-3.5 py-3.5 text-tx-secondary hover:text-tx-primary">
+        <LazyVButton
+          variant="ghost"
+          @click="$emit('open-stats')"
+          className="px-3.5 py-3.5 text-tx-secondary hover:text-tx-primary"
+        >
           <template #default>
             <Icon name="ph:bell-simple-bold" class="text-xl" />
           </template>
         </LazyVButton>
-        <LazyVButton variant="ghost" :label="t('dashboard.settings.notifications.discard')" @click="$emit('discard')"
-          className="px-8 py-3.5 text-xs font-bold" />
-        <LazyVButton :label="t('dashboard.settings.notifications.saveChanges')" @click="$emit('save')"
-          className="px-10 py-3.5 text-sm" />
+        <LazyVButton
+          variant="ghost"
+          :label="t('dashboard.settings.notifications.discard')"
+          @click="$emit('discard')"
+          className="px-8 py-3.5 text-xs font-bold"
+        />
+        <LazyVButton
+          :label="t('dashboard.settings.notifications.saveChanges')"
+          @click="$emit('save')"
+          className="px-10 py-3.5 text-sm"
+        />
       </div>
     </header>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
+
 defineEmits<{
   (e: "save"): void;
   (e: "discard"): void;

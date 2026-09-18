@@ -85,12 +85,14 @@
             >
               <Icon name="ph:eye-bold" />
             </LazyVButton>
+
             <LazyVButton
               variant="none"
               className="hover:text-tx-primary transition-colors"
             >
               <Icon name="ph:shopping-cart-bold" />
             </LazyVButton>
+
             <LazyVButton
               variant="none"
               className="hover:text-tx-primary transition-colors"

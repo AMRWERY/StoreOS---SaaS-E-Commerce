@@ -15,11 +15,12 @@
       >
         {{ t("dashboard.profile.updateAvatar") }}
       </LazyVButton>
-      <button
-        class="text-[10px] font-bold text-danger/60 hover:text-danger transition-colors tracking-widest"
+      <LazyVButton
+        variant="none"
+        className="text-[10px] font-bold text-danger/60 hover:text-danger transition-colors tracking-widest"
       >
         {{ t("common.remove") }}
-      </button>
+      </LazyVButton>
     </div>
 
     <!-- Form Side -->

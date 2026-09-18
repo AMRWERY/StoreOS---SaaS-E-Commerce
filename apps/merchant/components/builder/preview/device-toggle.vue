@@ -4,12 +4,12 @@
     role="group"
     aria-label="Preview device"
   >
-    <button
+    <LazyVButton
       v-for="v in viewports"
       :key="v.id"
-      type="button"
+      variant="none"
       :title="v.title"
-      class="rounded-md p-1.5 transition-all"
+      className="rounded-md p-1.5 transition-all"
       :class="
         modelValue === v.id
           ? 'bg-bg-overlay text-brand shadow-sm'
@@ -18,7 +18,7 @@
       @click="$emit('update:modelValue', v.id)"
     >
       <Icon :name="v.icon" class="text-base" />
-    </button>
+    </LazyVButton>
   </div>
 </template>
 

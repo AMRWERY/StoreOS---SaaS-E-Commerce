@@ -142,12 +142,12 @@
             >
               your@email.com
             </div>
-            <button
-              type="button"
-              class="shrink-0 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white"
+            <LazyVButton
+              variant="none"
+              className="shrink-0 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white"
             >
               Subscribe
-            </button>
+            </LazyVButton>
           </div>
           <div
             v-if="store.footerShowSocial"

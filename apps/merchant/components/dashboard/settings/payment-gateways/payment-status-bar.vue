@@ -31,7 +31,8 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
+
 const systemStats = {
   sync: "OK",
   latency: "42ms",

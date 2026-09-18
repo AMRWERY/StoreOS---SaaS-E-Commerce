@@ -19,6 +19,7 @@
             :options="['JPY (¥) - Japanese Yen']"
             selectClass="!bg-bg-primary !border-border-subtle !rounded-lg !px-5 !py-3.5 !text-sm hover:!border-border-default focus:!border-orange-500/50"
           />
+
           <LazyVSelectInput
             v-model="modelValue.timezone"
             :label="t('dashboard.settings.storeInfo.timezone')"
@@ -26,6 +27,7 @@
             selectClass="!bg-bg-primary !border-border-subtle !rounded-lg !px-5 !py-3.5 !text-sm hover:!border-border-default focus:!border-orange-500/50"
           />
         </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="space-y-3">
             <label
@@ -35,30 +37,38 @@
             <div
               class="bg-bg-primary p-1 rounded-xl flex border border-border-default"
             >
-              <button
+              <LazyVButton
+                variant="none"
                 @click="modelValue.unitSystem = 'Metric'"
-                :class="
-                  modelValue.unitSystem === 'Metric'
-                    ? 'bg-bg-elevated text-tx-primary'
-                    : 'text-tx-muted'
+                :className="
+                  [
+                    'flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all',
+                    modelValue.unitSystem === 'Metric'
+                      ? 'bg-bg-elevated text-tx-primary'
+                      : 'text-tx-muted',
+                  ].join(' ')
                 "
-                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
               >
                 {{ t("dashboard.settings.storeInfo.metric") }}
-              </button>
-              <button
+              </LazyVButton>
+
+              <LazyVButton
+                variant="none"
                 @click="modelValue.unitSystem = 'Imperial'"
-                :class="
-                  modelValue.unitSystem === 'Imperial'
-                    ? 'bg-bg-elevated text-tx-primary'
-                    : 'text-tx-muted'
+                :className="
+                  [
+                    'flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all',
+                    modelValue.unitSystem === 'Imperial'
+                      ? 'bg-bg-elevated text-tx-primary'
+                      : 'text-tx-muted',
+                  ].join(' ')
                 "
-                class="flex-1 py-2 text-[10px] font-black tracking-widest rounded-lg transition-all"
               >
                 {{ t("dashboard.settings.storeInfo.imperial") }}
-              </button>
+              </LazyVButton>
             </div>
           </div>
+
           <LazyVSelectInput
             v-model="modelValue.language"
             :label="t('dashboard.settings.storeInfo.defaultLanguage')"
@@ -72,7 +82,8 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
+
 defineProps<{
   modelValue: any;
 }>();

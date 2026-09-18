@@ -122,18 +122,18 @@
 
       <!-- CTA -->
       <div class="flex flex-col gap-3 sm:flex-row">
-        <button
-          type="button"
-          class="flex-1 rounded-2xl bg-indigo-600 py-3.5 text-sm font-bold text-white hover:bg-indigo-700"
+        <LazyVButton
+          variant="none"
+          className="flex-1 rounded-2xl bg-indigo-600 py-3.5 text-sm font-bold text-white hover:bg-indigo-700"
         >
           Continue shopping
-        </button>
-        <button
-          type="button"
-          class="flex-1 rounded-2xl border border-neutral-200 bg-white py-3.5 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
+        </LazyVButton>
+        <LazyVButton
+          variant="none"
+          className="flex-1 rounded-2xl border border-neutral-200 bg-white py-3.5 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
         >
           Track my order
-        </button>
+        </LazyVButton>
       </div>
     </div>
   </div>

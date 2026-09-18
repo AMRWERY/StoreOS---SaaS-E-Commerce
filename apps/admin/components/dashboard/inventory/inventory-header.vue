@@ -44,13 +44,13 @@
 
         <LazyVDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
-            <button
-              :class="
+            <LazyVButton
+              variant="none"
+              :className="`flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-tx-secondary transition-colors ${
                 open
                   ? 'bg-bg-elevated border-border-default'
                   : 'bg-bg-primary border-border-subtle hover:bg-bg-elevated'
-              "
-              class="flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-tx-secondary transition-colors"
+              }`"
             >
               {{ t("dashboard.products.category") }}:
               <span class="text-tx-primary ms-1">{{ category }}</span>
@@ -59,11 +59,12 @@
                 class="transition-transform duration-200"
                 :class="open ? 'rotate-180' : ''"
               />
-            </button>
+            </LazyVButton>
           </template>
           <template #default="{ close }">
             <div class="flex flex-col gap-1 p-1">
-              <button
+              <LazyVButton
+                variant="none"
                 v-for="cat in [
                   'All',
                   'ELECTRONICS',
@@ -76,28 +77,27 @@
                   $emit('update:category', cat);
                   close();
                 "
-                class="text-start px-3 py-2 rounded-xl text-xs font-bold hover:bg-bg-elevated transition-colors"
-                :class="
+                :className="`text-start px-3 py-2 rounded-xl text-xs font-bold hover:bg-bg-elevated transition-colors ${
                   category === cat
                     ? 'text-brand bg-brand/5'
                     : 'text-tx-secondary'
-                "
+                }`"
               >
                 {{ cat }}
-              </button>
+              </LazyVButton>
             </div>
           </template>
         </LazyVDropdownMenu>
 
         <LazyVDropdownMenu width="w-48" align="start">
           <template #trigger="{ open }">
-            <button
-              :class="
+            <LazyVButton
+              variant="none"
+              :className="`flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-tx-secondary transition-colors ${
                 open
                   ? 'bg-bg-elevated border-border-default'
                   : 'bg-bg-primary border-border-subtle hover:bg-bg-elevated'
-              "
-              class="flex items-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-bold text-tx-secondary transition-colors"
+              }`"
             >
               {{ t("dashboard.inventory.stockStatus") }}:
               <span class="text-tx-primary ms-1">{{ status }}</span>
@@ -106,34 +106,35 @@
                 class="transition-transform duration-200"
                 :class="open ? 'rotate-180' : ''"
               />
-            </button>
+            </LazyVButton>
           </template>
           <template #default="{ close }">
             <div class="flex flex-col gap-1 p-1">
-              <button
+              <LazyVButton
+                variant="none"
                 v-for="st in ['Any', 'In Stock', 'Low Stock', 'Out of Stock']"
                 :key="st"
                 @click="
                   $emit('update:status', st);
                   close();
                 "
-                class="text-start px-3 py-2 rounded-xl text-xs font-bold hover:bg-bg-elevated transition-colors"
-                :class="
+                :className="`text-start px-3 py-2 rounded-xl text-xs font-bold hover:bg-bg-elevated transition-colors ${
                   status === st ? 'text-brand bg-brand/5' : 'text-tx-secondary'
-                "
+                }`"
               >
                 {{ st }}
-              </button>
+              </LazyVButton>
             </div>
           </template>
         </LazyVDropdownMenu>
 
-        <button
+        <LazyVButton
+          variant="none"
           @click="clearFilters"
-          class="text-[10px] font-black tracking-widest text-brand hover:text-brand hover:underline transition-colors ms-2 shrink-0"
+          className="text-[10px] font-black tracking-widest text-brand hover:text-brand hover:underline transition-colors ms-2 shrink-0"
         >
           {{ t("common.clearFilters") }}
-        </button>
+        </LazyVButton>
       </div>
     </div>
   </div>

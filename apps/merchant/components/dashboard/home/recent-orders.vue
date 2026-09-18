@@ -20,15 +20,19 @@
           <template #cell(id)="{ item }">
             <span class="font-bold text-tx-secondary">{{ item.id }}</span>
           </template>
+
           <template #cell(customer)="{ item }">
             <span class="font-bold">{{ item.customer }}</span>
           </template>
+
           <template #cell(items)="{ item }">
             <span class="text-tx-secondary">{{ item.items }}</span>
           </template>
+
           <template #cell(total)="{ item }">
             <span class="font-bold">{{ item.total }}</span>
           </template>
+
           <template #cell(status)="{ item }">
             <span
               :class="[
@@ -39,6 +43,7 @@
               {{ item.status }}
             </span>
           </template>
+
           <template #cell(time)="{ item }">
             <span class="text-xs text-tx-muted">{{ item.time }}</span>
           </template>

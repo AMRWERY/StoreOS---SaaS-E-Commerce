@@ -10,12 +10,14 @@
           <Icon name="ph:clock-counter-clockwise-bold" class="text-brand" />
           {{ t("dashboard.inventory.movementHistory") }}
         </h2>
-        <button
-          class="text-[10px] font-black tracking-widest text-brand hover:text-brand hover:underline transition-colors mt-0.5 ms-2"
+        <LazyVButton
+          variant="none"
+          className="text-[10px] font-black tracking-widest text-brand hover:text-brand hover:underline transition-colors mt-0.5 ms-2"
         >
           {{ t("dashboard.inventory.viewFullLog") }}
-        </button>
+        </LazyVButton>
       </div>
+
       <LazyVTable :headers="headers" :items="historyLogs">
         <template #cell(date)="{ item }">
           <span
@@ -23,9 +25,11 @@
             >{{ item.date }}</span
           >
         </template>
+
         <template #cell(product)="{ item }">
           <span class="text-xs font-bold">{{ item.product }}</span>
         </template>
+
         <template #cell(type)="{ item }">
           <span
             class="rounded-full px-2 py-0.5 text-[10px] font-semibold"
@@ -33,36 +37,40 @@
               item.type === 'Add'
                 ? 'bg-success-dim text-success'
                 : item.type === 'Remove'
-                ? 'bg-danger-dim text-danger'
-                : 'bg-info-dim text-info'
+                  ? 'bg-danger-dim text-danger'
+                  : 'bg-info-dim text-info'
             "
           >
             {{ item.type }}
           </span>
         </template>
+
         <template #cell(change)="{ item }">
           <span
             :class="
               item.change > 0
                 ? 'text-success'
                 : item.change < 0
-                ? 'text-danger'
-                : 'text-tx-secondary'
+                  ? 'text-danger'
+                  : 'text-tx-secondary'
             "
           >
             {{ item.change > 0 ? "+" + item.change : item.change }}
           </span>
         </template>
+
         <template #cell(newStock)="{ item }">
           <span class="text-sm font-bold text-tx-primary">{{
             item.newStock
           }}</span>
         </template>
+
         <template #cell(reason)="{ item }">
           <span class="text-xs font-medium text-tx-secondary">{{
             item.reason
           }}</span>
         </template>
+
         <template #cell(staff)="{ item }">
           <span class="text-xs font-bold text-tx-secondary tracking-wider">{{
             item.staff

@@ -15,11 +15,13 @@
       >
         {{ t("dashboard.profile.updateAvatar") }}
       </LazyVButton>
-      <button
-        class="text-[10px] font-bold text-danger/60 hover:text-danger transition-colors tracking-widest"
+
+      <LazyVButton
+        variant="none"
+        className="text-[10px] font-bold text-danger/60 hover:text-danger transition-colors tracking-widest"
       >
         {{ t("common.remove") }}
-      </button>
+      </LazyVButton>
     </div>
 
     <!-- Form Side -->
@@ -29,17 +31,20 @@
         :label="t('dashboard.profile.fullName')"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand"
       />
+
       <LazyVInput
         v-model="profile.email"
         :label="t('dashboard.profile.emailAddress')"
         type="email"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand"
       />
+
       <LazyVInput
         v-model="profile.phone"
         :label="t('dashboard.profile.phoneNumber')"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3.5 focus:border-brand"
       />
+
       <LazyVSelectInput
         v-model="profile.jobTitle"
         :label="t('dashboard.profile.jobTitle')"
@@ -52,6 +57,7 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+
 defineProps<{
   profile: {
     name: string;

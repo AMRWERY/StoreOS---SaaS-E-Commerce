@@ -14,7 +14,7 @@
         </div>
 
         <!-- Form -->
-        <LazyVFormWrapper class="space-y-5" @submit="handleSubmit">
+        <LazyVFormWrapper formClass="!space-y-5" @submit="handleSubmit">
           <LazyVInput type="email" :label="t('auth.email')" :placeholder="t('auth.emailPlaceholder')" v-model="email" />
 
           <LazyVInput type="password" :label="t('auth.password')" v-model="password">
@@ -57,19 +57,21 @@
             {{ t("auth.noAccount") }}
           </p>
           <div class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1">
-            <button
+            <LazyVButton
               type="button"
+              variant="none"
               @click="showTrialModal = true"
-              class="text-orange-500 font-bold hover:text-orange-400 hover:underline transition">
+              className="text-orange-500 font-bold hover:text-orange-400 hover:underline transition">
               {{ t("auth.registerNow") }}
-            </button>
+            </LazyVButton>
             <span class="text-tx-muted">{{ t("auth.or") }}</span>
-            <button
+            <LazyVButton
               type="button"
+              variant="none"
               @click="showTrialModal = true"
-              class="text-brand font-medium hover:text-brand-hover hover:underline transition">
+              className="text-brand font-medium hover:text-brand-hover hover:underline transition">
               {{ t("auth.startFreeTrial") }}
-            </button>
+            </LazyVButton>
           </div>
         </div>
       </div>

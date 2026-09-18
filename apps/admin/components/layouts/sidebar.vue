@@ -50,8 +50,8 @@
 
         <!-- Nav Item with Children -->
         <div v-else class="space-y-1">
-          <button @click="toggleExpand(item.name)"
-            class="w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-md transition-all font-medium text-[12px] group"
+          <LazyVButton @click="toggleExpand(item.name)" variant="none"
+            className="w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-md transition-all font-medium text-[12px] group"
             :class="item.active
               ? 'bg-brand-dim text-brand'
               : expandedItems.includes(item.name)
@@ -64,7 +64,7 @@
             </div>
             <Icon name="ph:caret-down-bold" class="text-[10px] transition-transform duration-300"
               :class="expandedItems.includes(item.name) ? 'rotate-180' : ''" />
-          </button>
+          </LazyVButton>
 
           <!-- Sub Nav Items -->
           <div v-if="expandedItems.includes(item.name)" class="ms-10 space-y-1 border-s border-border-subtle ps-2">

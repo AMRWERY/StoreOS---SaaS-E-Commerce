@@ -12,6 +12,6 @@ withDefaults(
   }>(),
   {
     viewMode: "grid",
-  }
+  },
 );
 </script>

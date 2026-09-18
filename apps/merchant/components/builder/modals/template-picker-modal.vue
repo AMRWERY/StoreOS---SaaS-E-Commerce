@@ -36,13 +36,14 @@
             <Icon name="ph:caret-right-bold" class="text-tx-muted" />
           </li>
         </ul>
-        <button
+        <LazyVButton
+          variant="none"
           type="button"
-          class="mt-6 w-full rounded-lg border border-border-subtle py-2.5 text-[11px] font-bold tracking-wider text-tx-secondary hover:bg-bg-elevated"
+          className="mt-6 w-full rounded-lg border border-border-subtle py-2.5 text-[11px] font-bold tracking-wider text-tx-secondary hover:bg-bg-elevated"
           @click="templatePickerOpen = false"
         >
           Close
-        </button>
+        </LazyVButton>
       </div>
     </div>
   </Teleport>

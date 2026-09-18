@@ -25,6 +25,7 @@
         <Icon name="lucide:sparkles" class="w-3.5 h-3.5" />
         {{ t("auth.guest.createAccount") }}
       </nuxt-link-locale>
+
       <nuxt-link-locale
         to="/auth/login"
         class="hidden sm:block px-3 py-1 rounded-md font-bold text-[11px] tracking-wide text-white/70 hover:text-white transition-colors"

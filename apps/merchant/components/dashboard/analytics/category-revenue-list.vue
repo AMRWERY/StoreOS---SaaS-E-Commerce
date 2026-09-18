@@ -12,6 +12,7 @@
             <span class="text-tx-secondary">{{ cat.name }}</span>
             <span class="text-tx-primary">{{ cat.amount }}</span>
           </div>
+
           <LazyVProgressBar :progress="cat.percentage" color="indigo" shadow />
         </div>
       </div>

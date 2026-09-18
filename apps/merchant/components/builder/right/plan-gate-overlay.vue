@@ -25,20 +25,22 @@
           Custom fonts, advanced sections, and priority publishing are on the
           Growth plan.
         </p>
-        <button
+        <LazyVButton
+          variant="none"
           type="button"
-          class="mt-6 w-full rounded-lg bg-brand py-3 text-[11px] font-black tracking-wider text-white"
+          className="mt-6 w-full rounded-lg bg-brand py-3 text-[11px] font-black tracking-wider text-white"
           @click="planGateOpen = false"
         >
           View plans
-        </button>
-        <button
+        </LazyVButton>
+        <LazyVButton
+          variant="none"
           type="button"
-          class="mt-3 w-full text-[11px] font-semibold text-tx-muted hover:text-tx-secondary"
+          className="mt-3 w-full text-[11px] font-semibold text-tx-muted hover:text-tx-secondary"
           @click="planGateOpen = false"
         >
           Not now
-        </button>
+        </LazyVButton>
       </div>
     </div>
   </Teleport>

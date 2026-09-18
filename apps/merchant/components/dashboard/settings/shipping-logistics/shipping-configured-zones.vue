@@ -10,12 +10,18 @@
           {{ t("dashboard.settings.shipping.configuredZones") }}
         </h2>
         <div class="flex items-center gap-4 text-tx-secondary">
-          <button class="hover:text-tx-primary transition-colors">
+          <LazyVButton
+            variant="none"
+            className="hover:text-tx-primary transition-colors"
+          >
             <Icon name="ph:sliders-horizontal-bold" />
-          </button>
-          <button class="hover:text-tx-primary transition-colors">
+          </LazyVButton>
+          <LazyVButton
+            variant="none"
+            className="hover:text-tx-primary transition-colors"
+          >
             <Icon name="ph:dots-three-vertical-bold" />
-          </button>
+          </LazyVButton>
         </div>
       </div>
 
@@ -78,12 +84,13 @@
       </LazyVTable>
 
       <div class="p-6 border-t border-border-subtle text-center">
-        <button
-          class="text-[10px] font-black tracking-[0.2em] text-tx-muted hover:text-brand transition-colors flex items-center justify-center gap-2 mx-auto"
+        <LazyVButton
+          variant="none"
+          className="text-[10px] font-black tracking-[0.2em] text-tx-muted hover:text-brand transition-colors flex items-center justify-center gap-2 mx-auto"
         >
           <Icon name="ph:caret-up-down-bold" />
           {{ t("dashboard.settings.shipping.viewAllZones") }}
-        </button>
+        </LazyVButton>
       </div>
     </section>
   </div>

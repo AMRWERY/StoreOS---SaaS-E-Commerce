@@ -36,14 +36,15 @@
           <Icon name="lucide:arrow-up-circle" class="w-3.5 h-3.5" />
           Upgrade Plan
         </nuxt-link-locale>
-        <button
+        <LazyVButton
           v-if="isTrial && trialDaysLeft > 3"
           @click="visible = false"
-          class="p-1 text-white/50 hover:text-white transition-colors"
+          variant="none"
+          className="p-1 text-white/50 hover:text-white transition-colors"
           aria-label="Dismiss"
         >
           <Icon name="lucide:x" class="w-3.5 h-3.5" />
-        </button>
+        </LazyVButton>
       </div>
     </div>
   </Transition>

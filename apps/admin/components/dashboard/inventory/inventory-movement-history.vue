@@ -10,11 +10,12 @@
           <Icon name="ph:clock-counter-clockwise-bold" class="text-brand" />
           {{ t("dashboard.inventory.movementHistory") }}
         </h2>
-        <button
-          class="text-[10px] font-black tracking-widest text-brand hover:text-brand hover:underline transition-colors mt-0.5 ms-2"
+        <LazyVButton
+          variant="none"
+          className="text-[10px] font-black tracking-widest text-brand hover:text-brand hover:underline transition-colors mt-0.5 ms-2"
         >
           {{ t("dashboard.inventory.viewFullLog") }}
-        </button>
+        </LazyVButton>
       </div>
       <LazyVTable :headers="headers" :items="historyLogs">
         <template #cell(date)="{ item }">

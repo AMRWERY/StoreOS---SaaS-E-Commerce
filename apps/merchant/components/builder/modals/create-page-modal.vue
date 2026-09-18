@@ -55,21 +55,23 @@
         </div>
 
         <div class="mt-6 flex gap-3">
-          <button
+          <LazyVButton
+            variant="none"
             type="button"
-            class="rounded-lg bg-brand px-5 py-2.5 text-[11px] font-black tracking-wider text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="rounded-lg bg-brand px-5 py-2.5 text-[11px] font-black tracking-wider text-white transition-opacity hover:opacity-90 disabled:opacity-50"
             :disabled="!canCreate"
             @click="onCreate"
           >
             Create page
-          </button>
-          <button
+          </LazyVButton>
+          <LazyVButton
+            variant="none"
             type="button"
-            class="rounded-lg border border-border-subtle px-5 py-2.5 text-[11px] font-bold text-tx-secondary hover:bg-bg-elevated"
+            className="rounded-lg border border-border-subtle px-5 py-2.5 text-[11px] font-bold text-tx-secondary hover:bg-bg-elevated"
             @click="close"
           >
             Cancel
-          </button>
+          </LazyVButton>
         </div>
       </div>
     </div>

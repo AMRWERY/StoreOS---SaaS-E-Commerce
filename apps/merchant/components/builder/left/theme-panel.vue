@@ -24,14 +24,15 @@
       </div>
     </div>
 
-    <button
+    <LazyVButton
+      variant="none"
       type="button"
-      class="mt-5 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-brand/35 py-3 text-[10px] font-black tracking-wider text-brand hover:bg-brand/15"
+      className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-brand/35 py-3 text-[10px] font-black tracking-wider text-brand hover:bg-brand/15"
       @click="planGateOpen = true"
     >
       <Icon name="ph:crown-simple-bold" />
       Compare plans
-    </button>
+    </LazyVButton>
   </div>
 </template>
 

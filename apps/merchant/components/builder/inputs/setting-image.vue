@@ -4,9 +4,10 @@
       class="block text-[10px] font-bold tracking-wider text-tx-secondary"
       >{{ label }}</label
     >
-    <button
+    <LazyVButton
+      variant="none"
       type="button"
-      class="group relative flex aspect-[16/10] w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-dashed border-border-default bg-bg-elevated transition-colors hover:border-brand/50 hover:bg-bg-overlay"
+      className="group relative flex aspect-[16/10] w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-dashed border-border-default bg-bg-elevated transition-colors hover:border-brand/50 hover:bg-bg-overlay"
     >
       <div
         v-if="previewUrl"
@@ -21,7 +22,7 @@
           hint
         }}</span>
       </div>
-    </button>
+    </LazyVButton>
   </div>
 </template>
 

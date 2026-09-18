@@ -43,6 +43,7 @@
           >
             {{ t("common.discard") }}
           </LazyVButton>
+
           <LazyVButton
             @click="saveOrder"
             className="px-8 py-2.5 bg-brand hover:bg-brand-hover text-tx-primary rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20"
@@ -82,6 +83,7 @@
                   inputClass="!ps-10"
                 />
               </div>
+
               <LazyVInput
                 :label="t('dashboard.orders.contactEmail')"
                 type="email"
@@ -343,6 +345,7 @@
 const { t } = useI18n();
 const localePath = useLocalePath();
 const route = useRoute();
+
 const isEdit = computed(() => !!route.query.id);
 
 const form = reactive({

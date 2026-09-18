@@ -9,17 +9,17 @@
     "
     @click.stop
   >
-    <button
+    <LazyVButton
       v-for="action in actions"
       :key="action.id"
-      type="button"
+      variant="none"
       :title="action.title"
-      class="rounded-md p-1.5 text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
+      className="rounded-md p-1.5 text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
       :class="action.danger ? 'hover:!text-red-400' : ''"
       @click="$emit('action', action.id)"
     >
       <Icon :name="action.icon" class="text-base text-neutral-200" />
-    </button>
+    </LazyVButton>
   </div>
 </template>
 

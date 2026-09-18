@@ -1,7 +1,9 @@
 ﻿<template>
   <div>
     <LazyVBreadcrumb />
-    <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 max-w-7xl mx-auto">
+    <header
+      class="flex flex-col md:flex-row md:items-center justify-between gap-6 max-w-7xl mx-auto"
+    >
       <div>
         <h1 class="text-3xl font-bold tracking-tight">
           {{ t("dashboard.settings.staff.title") }}
@@ -19,5 +21,5 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 </script>
