@@ -1,6 +1,6 @@
 ﻿<template>
   <aside
-    class="lg:col-span-4 bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 space-y-8"
+    class="lg:col-span-4 card px-4 py-3.5 space-y-8"
   >
     <div class="flex items-center gap-3">
       <Icon name="ph:sliders-horizontal-bold" class="text-brand text-lg" />

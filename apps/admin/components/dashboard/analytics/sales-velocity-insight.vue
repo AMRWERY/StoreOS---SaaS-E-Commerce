@@ -2,7 +2,7 @@
   <div>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
       <!-- Heatmap -->
-      <div class="lg:col-span-8 bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
+      <div class="lg:col-span-8 card px-4 py-3.5">
         <div class="flex justify-between items-center mb-8">
           <div>
             <h3 class="font-bold text-lg mb-1">Sales Velocity Heatmap</h3>

@@ -62,7 +62,7 @@
         <div class="lg:col-span-2 space-y-8">
           <!-- Customer Selection -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+            class="card px-4 py-3.5"
           >
             <h3
               class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-8"
@@ -119,7 +119,7 @@
 
           <!-- Order Items -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden"
+            class="card overflow-hidden"
           >
             <div
               class="p-6 border-b border-border-subtle flex justify-between items-center bg-bg-elevated"
@@ -220,7 +220,7 @@
 
           <!-- Order Notes -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+            class="card px-4 py-3.5"
           >
             <h3
               class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-8"
@@ -240,7 +240,7 @@
         <aside class="space-y-8">
           <!-- Status & Tags -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-2xl"
+            class="card p-6 shadow-2xl"
           >
             <h3
               class="text-[10px] font-black text-tx-muted tracking-widest mb-6 px-1"
@@ -275,7 +275,7 @@
 
           <!-- Summary Statistics -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-2xl relative overflow-hidden"
+            class="card p-6 shadow-2xl relative overflow-hidden"
           >
             <div
               class="absolute -end-8 -top-8 w-24 h-24 bg-brand/5 rounded-full blur-2xl"
@@ -313,7 +313,7 @@
 
           <!-- Tags Panel -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-2xl"
+            class="card p-6 shadow-2xl"
           >
             <h3
               class="text-[10px] font-black text-tx-muted tracking-widest mb-6 px-1"

@@ -126,7 +126,7 @@
     <LazyVDialog v-model="isDemoOpen" maxWidth="5xl">
       <template #title>
         <div class="flex items-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></span>
+          <span class="status-dot bg-brand animate-pulse"></span>
           {{ t("home.hero.demo.title") }}
         </div>
       </template>
@@ -177,7 +177,7 @@
         <!-- Feature Highlights -->
         <div class="space-y-2">
           <p
-            class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-3"
+            class="text-eyebrow mb-3"
           >
             {{ t("home.hero.demo.whatYoullSee") }}
           </p>

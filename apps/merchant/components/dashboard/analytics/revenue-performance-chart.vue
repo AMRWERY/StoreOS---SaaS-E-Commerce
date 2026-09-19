@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <section
-      class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+      class="card px-4 py-3.5"
     >
       <div class="flex justify-between items-start mb-6">
         <div>

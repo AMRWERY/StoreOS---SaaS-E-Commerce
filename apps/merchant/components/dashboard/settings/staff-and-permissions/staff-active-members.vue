@@ -1,7 +1,7 @@
 <template>
   <div>
     <section
-      class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl max-w-7xl mx-auto"
+      class="card overflow-hidden shadow-2xl max-w-7xl mx-auto"
     >
       <div
         class="px-4 py-3.5 flex justify-between items-center border-b border-border-subtle"
@@ -42,7 +42,7 @@
           <span
             :class="[
               getRoleClass(item.role),
-              'rounded-full px-2 py-0.5 text-[10px] font-semibold',
+              'badge',
             ]"
           >
             {{ item.role }}

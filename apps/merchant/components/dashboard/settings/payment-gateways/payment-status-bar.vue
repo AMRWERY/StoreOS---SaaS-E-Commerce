@@ -6,7 +6,7 @@
       >
         <div class="flex items-center gap-6">
           <div class="flex items-center gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-success"></div>
+            <div class="status-dot bg-success"></div>
             <span class="text-[9px] font-bold text-success/80 tracking-widest"
               >{{ t("dashboard.settings.payment.gatewaySync") }}:
               {{ systemStats.sync }}</span

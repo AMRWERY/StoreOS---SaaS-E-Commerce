@@ -1,6 +1,6 @@
 <template>
   <div class="h-full">
-    <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 text-start h-full">
+    <section class="card px-4 py-3.5 text-start h-full">
       <div class="flex justify-between items-center mb-8">
         <h3 class="font-bold">{{ t("dashboard.home.topProducts") }}</h3>
         <Icon name="ph:dots-three-outline-fill"

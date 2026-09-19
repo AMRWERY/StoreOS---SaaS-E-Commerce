@@ -1,7 +1,7 @@
 <template>
   <div>
     <section
-      class="lg:col-span-12 bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden"
+      class="lg:col-span-12 card overflow-hidden"
     >
       <!-- Section header -->
       <div
@@ -53,7 +53,7 @@
           </template>
           <template #cell(status)="{ item }">
             <span
-              class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success"
+              class="badge bg-success-dim text-success"
             >
               {{ item.status }}
             </span>

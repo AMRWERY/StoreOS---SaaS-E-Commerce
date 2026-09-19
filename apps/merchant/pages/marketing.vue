@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
+  <div class="page-shell">
     <!-- Header -->
     <header class="pt-32 pb-24 px-6 border-b border-border-subtle bg-bg-primary/50 relative overflow-hidden">
       <div
@@ -41,7 +41,7 @@
       <div class="max-w-5xl mx-auto">
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Email & Automations</p>
+            <p class="text-kicker">Email & Automations</p>
             <h2 class="text-3xl font-bold mb-5">Email that sells while you sleep</h2>
             <p class="text-tx-secondary leading-relaxed mb-8">
               Build automated email sequences triggered by customer behavior — abandoned carts, post-purchase flows,
@@ -65,7 +65,7 @@
             </div>
           </div>
           <!-- Campaign preview -->
-          <div class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+          <div class="card overflow-hidden shadow-2xl shadow-black/20">
             <div class="h-10 bg-bg-elevated border-b border-border-subtle flex items-center justify-between px-4">
               <span class="text-[10px] text-tx-muted font-mono">Campaign Analytics</span>
               <span class="text-[9px] font-black text-success bg-success-dim px-2 py-0.5 rounded-full">LIVE</span>
@@ -101,7 +101,7 @@
     <!-- Features grid -->
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/20">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase text-center">Toolkit</p>
+        <p class="text-kicker text-center">Toolkit</p>
         <h2 class="text-3xl font-bold mb-16 text-center">Every growth tool in one place</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="feature in features" :key="feature.title"
@@ -121,7 +121,7 @@
     <section class="py-24 px-6 border-b border-border-subtle">
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>
-          <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Promotions Engine</p>
+          <p class="text-kicker">Promotions Engine</p>
           <h2 class="text-3xl font-bold mb-5">Discounts that don't require a developer</h2>
           <p class="text-tx-secondary leading-relaxed mb-6">
             Create percentage discounts, fixed amounts, buy-X-get-Y offers, free shipping rules, and flash sales — all
@@ -135,7 +135,7 @@
           </ul>
         </div>
         <!-- Discount builder mock -->
-        <div class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-xl shadow-black/10">
+        <div class="card overflow-hidden shadow-xl shadow-black/10">
           <div class="px-6 py-4 border-b border-border-subtle">
             <span class="text-xs font-bold">New Promotion</span>
           </div>
@@ -161,7 +161,7 @@
     <!-- Integrations strip -->
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/20">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase text-center">Integrations</p>
+        <p class="text-kicker text-center">Integrations</p>
         <h2 class="text-2xl font-bold mb-12 text-center">Works with your existing marketing stack</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
           <div v-for="integration in marketingIntegrations" :key="integration.name"

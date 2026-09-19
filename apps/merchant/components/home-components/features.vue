@@ -286,7 +286,7 @@ const OrdersPreview = defineComponent({
                 },
                 [
                   h("div", {
-                    class: "w-1.5 h-1.5 rounded-full bg-current opacity-60",
+                    class: "status-dot bg-current opacity-60",
                   }),
                   h("span", { class: "text-xs font-semibold" }, item),
                 ],

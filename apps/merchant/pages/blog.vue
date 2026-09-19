@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
+  <div class="page-shell">
     <!-- Header -->
     <header class="pt-32 pb-20 px-6 border-b border-border-subtle bg-bg-primary/50">
       <div class="max-w-5xl mx-auto">
@@ -22,7 +22,7 @@
     <section class="py-16 px-6">
       <div class="max-w-5xl mx-auto">
         <!-- Featured -->
-        <div class="mb-10 bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden grid md:grid-cols-2">
+        <div class="mb-10 card overflow-hidden grid md:grid-cols-2">
           <div class="bg-gradient-to-br from-brand/10 to-brand/5 h-52 md:h-auto flex items-center justify-center">
             <Icon name="ph:storefront-bold" class="text-brand/30 text-8xl" />
           </div>
@@ -47,7 +47,7 @@
         <!-- Grid -->
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="post in filteredPosts" :key="post.title"
-            class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden hover:border-brand/30 transition-all group cursor-pointer">
+            class="card overflow-hidden hover:border-brand/30 transition-all group cursor-pointer">
             <div class="h-36 flex items-center justify-center border-b border-border-subtle"
               :style="`background: linear-gradient(135deg, ${post.color}15, ${post.color}05)`">
               <Icon :name="post.icon" class="text-5xl opacity-20" :style="`color: ${post.color}`" />

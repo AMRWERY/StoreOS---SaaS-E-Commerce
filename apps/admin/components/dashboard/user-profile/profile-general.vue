@@ -1,6 +1,6 @@
 ﻿<template>
   <section
-    class="lg:col-span-8 bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 flex flex-col md:flex-row gap-10"
+    class="lg:col-span-8 card px-4 py-3.5 flex flex-col md:flex-row gap-10"
   >
     <!-- Avatar Side -->
     <div class="flex flex-col items-center gap-4 shrink-0">

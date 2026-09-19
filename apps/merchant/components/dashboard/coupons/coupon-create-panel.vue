@@ -10,7 +10,7 @@
     >
       <div
         v-if="isOpen"
-        class="fixed inset-0 bg-bg-overlay backdrop-blur-sm z-50"
+        class="overlay-backdrop z-50"
         @click="$emit('close')"
       ></div>
     </Transition>

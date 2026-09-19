@@ -1,6 +1,6 @@
 <template>
   <section
-    class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden mt-10"
+    class="card overflow-hidden mt-10"
   >
     <LazyVTable :headers="headers" :items="coupons">
       <template #cell(code)="{ item }">

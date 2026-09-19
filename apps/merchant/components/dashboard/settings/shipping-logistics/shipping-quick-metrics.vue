@@ -1,6 +1,6 @@
 ﻿<template>
   <div>
-    <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
+    <section class="card p-6">
       <div class="flex items-center gap-3 mb-6">
         <Icon name="ph:chart-bar-bold" class="text-brand text-lg" />
         <h3 class="text-xs font-black tracking-widest text-tx-secondary">

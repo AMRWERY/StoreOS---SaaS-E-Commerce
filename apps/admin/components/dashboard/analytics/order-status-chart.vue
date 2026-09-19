@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <div
-      class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 flex flex-col md:flex-row items-center gap-10">
+      class="card px-4 py-3.5 flex flex-col md:flex-row items-center gap-10">
       <div class="relative w-48 h-48 shrink-0">
         <svg viewBox="0 0 36 36" class="w-full h-full -rotate-90">
           <circle v-for="s in statusBreakdown" :key="s.name" cx="18" cy="18" r="15.5" fill="none" :stroke="s.stroke"

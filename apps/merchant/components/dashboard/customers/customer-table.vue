@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <section
-      class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl"
+      class="card overflow-hidden shadow-2xl"
     >
       <LazyVTable :headers="headers" :items="paginatedCustomers">
         <!-- Customer Info -->

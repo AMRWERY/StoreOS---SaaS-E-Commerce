@@ -1,6 +1,6 @@
 ﻿<template>
   <div>
-    <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
+    <section class="card px-4 py-3.5">
       <div class="flex justify-between items-start mb-6">
         <div>
           <h3 class="font-bold text-lg mb-1">Revenue Performance</h3>

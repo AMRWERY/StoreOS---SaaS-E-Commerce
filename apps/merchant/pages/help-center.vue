@@ -1,5 +1,5 @@
 <template>
-   <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
+   <div class="page-shell">
       <!-- Search Hero -->
       <section class="relative pt-32 pb-24 px-6 overflow-hidden border-b border-border-subtle bg-bg-primary/50">
          <div class="max-w-4xl mx-auto relative z-10 text-center">

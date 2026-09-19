@@ -20,11 +20,11 @@
 
                         <!-- Loading indicator -->
                         <div class="flex gap-1.5">
-                            <div class="w-1.5 h-1.5 rounded-full bg-brand/40 animate-bounce"
+                            <div class="status-dot bg-brand/40 animate-bounce"
                                 style="animation-delay: 0s"></div>
-                            <div class="w-1.5 h-1.5 rounded-full bg-brand/40 animate-bounce"
+                            <div class="status-dot bg-brand/40 animate-bounce"
                                 style="animation-delay: 0.1s"></div>
-                            <div class="w-1.5 h-1.5 rounded-full bg-brand/40 animate-bounce"
+                            <div class="status-dot bg-brand/40 animate-bounce"
                                 style="animation-delay: 0.2s"></div>
                         </div>
                     </div>

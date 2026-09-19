@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
+  <div class="page-shell">
     <!-- Header -->
     <header class="pt-32 pb-20 px-6 border-b border-border-subtle bg-bg-primary/50 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
@@ -16,11 +16,11 @@
     <!-- Perks -->
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/30">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Why join us</p>
+        <p class="text-kicker">Why join us</p>
         <h2 class="text-2xl font-bold mb-12">What we offer</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="perk in perks" :key="perk.title"
-            class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
+            class="card p-6">
             <Icon :name="perk.icon" class="text-brand text-2xl mb-4" />
             <h3 class="font-bold mb-2 text-sm">{{ perk.title }}</h3>
             <p class="text-xs text-tx-muted leading-relaxed">{{ perk.description }}</p>
@@ -32,7 +32,7 @@
     <!-- Open roles -->
     <section class="py-24 px-6">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Open roles</p>
+        <p class="text-kicker">Open roles</p>
         <h2 class="text-2xl font-bold mb-12">We're hiring</h2>
         <div class="space-y-3">
           <div v-for="role in roles" :key="role.title"

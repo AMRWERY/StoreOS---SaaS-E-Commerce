@@ -19,11 +19,11 @@
             <h1 class="text-3xl font-bold tracking-tight">{{ orderId }}</h1>
             <div class="flex gap-2">
               <span
-                class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-status-yellow-dim text-status-yellow"
+                class="badge bg-status-yellow-dim text-status-yellow"
                 >PROCESSING</span
               >
               <span
-                class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success"
+                class="badge bg-success-dim text-success"
                 >PAID</span
               >
             </div>
@@ -68,7 +68,7 @@
 
       <!-- Order Timeline / Stepper -->
       <section
-        class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 mb-6 relative overflow-hidden"
+        class="card px-4 py-3.5 mb-6 relative overflow-hidden"
       >
         <div class="flex justify-between items-start relative z-10">
           <div
@@ -130,7 +130,7 @@
           <div class="h-full space-y-6 overflow-y-auto hide-scrollbar pb-10">
             <!-- Order Items Card -->
             <div
-              class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden"
+              class="card overflow-hidden"
             >
               <div
                 class="p-6 border-b border-border-subtle flex justify-between items-center"
@@ -142,7 +142,7 @@
                   Order Items
                 </h3>
                 <span
-                  class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]"
+                  class="text-eyebrow"
                   >1 Item</span
                 >
               </div>
@@ -219,7 +219,7 @@
 
             <!-- Order Notes/Logs Card -->
             <div
-              class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+              class="card px-4 py-3.5"
             >
               <h3
                 class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-6"
@@ -273,11 +273,11 @@
         <aside class="space-y-6">
           <!-- Customer Panel -->
           <div
-            class="bg-bg-primary border border-border-subtle rounded-2xl p-6"
+            class="card p-6"
           >
             <div class="flex justify-between items-center mb-6">
               <h3
-                class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]"
+                class="text-eyebrow"
               >
                 Customer
               </h3>
@@ -309,7 +309,7 @@
                 class="bg-bg-elevated border border-border-subtle p-4 rounded-xl"
               >
                 <p
-                  class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2"
+                  class="text-eyebrow mb-2"
                 >
                   Orders
                 </p>
@@ -319,7 +319,7 @@
                 class="bg-bg-elevated border border-border-subtle p-4 rounded-xl"
               >
                 <p
-                  class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2"
+                  class="text-eyebrow mb-2"
                 >
                   LTV
                 </p>
@@ -330,10 +330,10 @@
 
           <!-- Shipping & Logistics Panel -->
           <div
-            class="bg-bg-primary border border-border-subtle rounded-2xl p-6"
+            class="card p-6"
           >
             <h3
-              class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-6"
+              class="text-eyebrow mb-6"
             >
               Shipping & Logistics
             </h3>
@@ -395,10 +395,10 @@
 
           <!-- Payment Method Panel -->
           <div
-            class="bg-bg-primary border border-border-subtle rounded-2xl p-6"
+            class="card p-6"
           >
             <h3
-              class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-6"
+              class="text-eyebrow mb-6"
             >
               Payment Method
             </h3>
@@ -419,7 +419,7 @@
                 </div>
               </div>
               <span
-                class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success"
+                class="badge bg-success-dim text-success"
                 >PAID</span
               >
             </div>
@@ -486,20 +486,3 @@ useSeoPage({
   titleTemplate: () => "Order " + orderId.value,
 });
 </script>
-
-<style scoped>
-/* Scoped adjustments for StoreOS visual fidelity */
-.animate-spin-slow {
-  animation: spin 3s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-</style>

@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <section
-      class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 flex flex-col lg:flex-row items-center gap-12"
+      class="card px-4 py-3.5 flex flex-col lg:flex-row items-center gap-12"
     >
       <div class="flex items-center gap-6 lg:w-1/3 shrink-0">
         <div

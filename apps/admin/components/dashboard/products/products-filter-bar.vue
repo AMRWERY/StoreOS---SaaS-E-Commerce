@@ -39,7 +39,7 @@
               <span :class="selectedStatus.colorClass">{{
                 selectedStatus.label
               }}</span>
-              <div v-if="selectedStatus.dotClass" :class="`w-1.5 h-1.5 rounded-full ${selectedStatus.dotClass}`"></div>
+              <div v-if="selectedStatus.dotClass" :class="`status-dot ${selectedStatus.dotClass}`"></div>
               <Icon name="ph:caret-down-bold" :class="`transition-transform ${open ? 'rotate-180' : ''}`" />
             </LazyVButton>
           </template>
@@ -51,7 +51,7 @@
                 : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'
                 }`">
                 <span>{{ status.label }}</span>
-                <div v-if="status.dotClass" :class="`w-1.5 h-1.5 rounded-full ${status.dotClass} ms-auto`"></div>
+                <div v-if="status.dotClass" :class="`status-dot ${status.dotClass} ms-auto`"></div>
               </LazyVButton>
             </div>
           </template>

@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <section
-      class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 relative overflow-hidden"
+      class="card px-4 py-3.5 relative overflow-hidden"
     >
       <div class="flex flex-col md:flex-row justify-between gap-8 mb-6">
         <div>

@@ -60,7 +60,7 @@
               }}</span>
               <div
                 v-if="selectedStatus.dotClass"
-                :class="`w-1.5 h-1.5 rounded-full ${selectedStatus.dotClass}`"
+                :class="`status-dot ${selectedStatus.dotClass}`"
               ></div>
               <Icon
                 name="ph:caret-down-bold"
@@ -85,7 +85,7 @@
                 <span>{{ status.label }}</span>
                 <div
                   v-if="status.dotClass"
-                  :class="`w-1.5 h-1.5 rounded-full ${status.dotClass} ms-auto`"
+                  :class="`status-dot ${status.dotClass} ms-auto`"
                 ></div>
               </LazyVButton>
             </div>

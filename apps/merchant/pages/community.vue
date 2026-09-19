@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
+  <div class="page-shell">
     <!-- Header -->
     <header class="pt-32 pb-20 px-6 border-b border-border-subtle bg-bg-primary/50 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
@@ -31,11 +31,11 @@
     <!-- Channels -->
     <section class="py-24 px-6 border-b border-border-subtle">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Where to find us</p>
+        <p class="text-kicker">Where to find us</p>
         <h2 class="text-2xl font-bold mb-12">Community channels</h2>
         <div class="grid sm:grid-cols-2 gap-6">
           <div v-for="channel in channels" :key="channel.title"
-            class="bg-bg-primary border border-border-subtle rounded-2xl p-6 hover:border-brand/30 transition-all group">
+            class="card p-6 hover:border-brand/30 transition-all group">
             <div class="flex items-start gap-4 mb-4">
               <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                 :style="`background-color: ${channel.color}20`">
@@ -59,7 +59,7 @@
     <!-- Recent discussions -->
     <section class="py-24 px-6 border-b border-border-subtle">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Trending</p>
+        <p class="text-kicker">Trending</p>
         <h2 class="text-2xl font-bold mb-10">Recent discussions</h2>
         <div class="space-y-3">
           <div v-for="thread in threads" :key="thread.title"

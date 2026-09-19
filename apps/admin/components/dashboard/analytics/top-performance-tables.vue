@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- Top Products -->
       <div
-        class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden"
+        class="card overflow-hidden"
       >
         <div
           class="p-6 border-b border-border-subtle flex justify-between items-center"
@@ -50,7 +50,7 @@
 
       <!-- Top Customers -->
       <div
-        class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden"
+        class="card overflow-hidden"
       >
         <div
           class="p-6 border-b border-border-subtle flex justify-between items-center"

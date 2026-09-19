@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <section
-      class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+      class="card px-4 py-3.5"
     >
       <div class="flex items-center gap-3 mb-6">
         <Icon name="ph:truck-bold" class="text-brand text-lg" />
@@ -27,7 +27,7 @@
             </p>
           </div>
           <span
-            class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success"
+            class="badge bg-success-dim text-success"
             >Active</span
           >
         </div>

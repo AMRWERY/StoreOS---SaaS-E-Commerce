@@ -70,7 +70,7 @@
               <!-- "Live" badge for active ones -->
               <span
                 v-if="item.live"
-                class="absolute top-2 end-2 w-1.5 h-1.5 rounded-full bg-success"
+                class="absolute top-2 end-2 status-dot bg-success"
               ></span>
 
               <!-- Coming Soon badge -->

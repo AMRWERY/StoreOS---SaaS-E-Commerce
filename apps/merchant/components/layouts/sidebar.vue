@@ -4,7 +4,7 @@
     <div
       v-if="isOpen"
       @click="$emit('close')"
-      class="fixed inset-0 bg-bg-overlay backdrop-blur-sm z-40 lg:hidden"
+      class="overlay-backdrop z-40 lg:hidden"
     />
   </Transition>
 
@@ -430,15 +430,3 @@ const navItems = computed(() => [
   },
 ]);
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>

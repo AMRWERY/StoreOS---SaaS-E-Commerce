@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <section
-      class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl"
+      class="card overflow-hidden shadow-2xl"
     >
       <div
         class="p-6 border-b border-border-subtle flex justify-between items-center bg-bg-elevated"

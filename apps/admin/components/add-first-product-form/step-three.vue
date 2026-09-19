@@ -77,7 +77,7 @@
                 class="p-5 rounded-xl bg-bg-primary border border-border-subtle flex items-center gap-4"
               >
                 <div
-                  class="w-12 h-12 rounded-xl bg-bg-elevated flex items-center justify-center shrink-0"
+                  class="icon-tile"
                 >
                   <Icon
                     name="ph:credit-card-duotone"
@@ -103,7 +103,7 @@
                 class="p-5 rounded-xl bg-bg-primary border border-border-subtle flex items-center gap-4"
               >
                 <div
-                  class="w-12 h-12 rounded-xl bg-bg-elevated flex items-center justify-center shrink-0"
+                  class="icon-tile"
                 >
                   <Icon
                     name="ph:wallet-duotone"

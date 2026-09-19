@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5">
+    <section class="card px-4 py-3.5">
       <h3 class="text-[10px] font-black text-tx-muted tracking-widest mb-8">
         {{ t("dashboard.settings.billing.realtimeUsage") }}
       </h3>

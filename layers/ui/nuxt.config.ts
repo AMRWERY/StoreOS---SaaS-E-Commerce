@@ -3,7 +3,10 @@ import { fileURLToPath } from "node:url";
 const currentDir = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineNuxtConfig({
-  css: [`${currentDir}/assets/css/main.css`],
+  css: [
+    `${currentDir}/assets/css/main.css`,
+    `${currentDir}/assets/css/transitions.css`,
+  ],
   tailwindcss: {
     cssPath: `${currentDir}/assets/css/tailwind.css`,
   },

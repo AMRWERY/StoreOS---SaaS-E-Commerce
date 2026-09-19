@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <div
-      class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+      class="card px-4 py-3.5"
     >
       <h3 class="font-bold text-lg mb-6">Revenue by Category</h3>
       <div class="space-y-8">

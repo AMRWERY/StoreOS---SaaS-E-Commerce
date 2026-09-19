@@ -11,7 +11,7 @@
               <span class="text-sm font-bold text-brand">#SO-{{ order.id }}</span>
               <span :class="[
                 getOrderStatusClass(order.orderStatus),
-                'rounded-full px-2 py-0.5 text-[10px] font-semibold',
+                'badge',
               ]">{{ order.orderStatus }}</span>
             </div>
             <LazyVButton @click="$emit('close')" variant="none"

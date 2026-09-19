@@ -82,6 +82,31 @@ export default {
       spacing: {
         "4.5": "18px",
       },
+      transitionTimingFunction: {
+        spring: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      },
+      transitionDuration: {
+        "250": "250ms",
+      },
+      keyframes: {
+        fadeUp: {
+          from: { opacity: "0", transform: "translateY(8px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        pulseDot: {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%": { opacity: "0.5", transform: "scale(0.85)" },
+        },
+        spinSlow: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+      },
+      animation: {
+        "fade-up": "fadeUp 0.3s ease-out forwards",
+        "pulse-dot": "pulseDot 1.5s ease-in-out infinite",
+        "spin-slow": "spinSlow 3s linear infinite",
+      },
     },
   },
   corePlugins: {

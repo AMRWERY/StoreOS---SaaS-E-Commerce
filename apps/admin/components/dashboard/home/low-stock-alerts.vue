@@ -18,7 +18,7 @@
             <h4 class="text-xs font-bold truncate">{{ item.name }}</h4>
             <div class="flex items-center gap-3 mt-1.5">
               <span
-                class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-danger-dim text-danger whitespace-nowrap">{{
+                class="badge bg-danger-dim text-danger whitespace-nowrap">{{
                   item.left }} {{ t("dashboard.home.left") }}</span>
               <LazyVButton variant="none"
                 className="text-[10px] font-bold text-brand hover:text-brand transition-colors tracking-widest whitespace-nowrap">

@@ -1,6 +1,6 @@
 ﻿<template>
   <section
-    class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 flex flex-col justify-between"
+    class="card px-4 py-3.5 flex flex-col justify-between"
   >
     <div class="flex justify-between items-start mb-6">
       <div class="flex items-center gap-4">

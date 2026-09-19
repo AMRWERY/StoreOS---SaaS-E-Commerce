@@ -54,7 +54,7 @@
                   class="text-[10px] font-black text-tx-muted tracking-widest group-hover/col:text-brand transition-colors">
                   {{ col }}
                 </h4>
-                <div class="w-1.5 h-1.5 rounded-full bg-bg-elevated" :class="col === 'OWNER' ? 'bg-brand' : ''"></div>
+                <div class="status-dot bg-bg-elevated" :class="col === 'OWNER' ? 'bg-brand' : ''"></div>
               </div>
 
               <div v-if="col === 'STAFF'" class="text-[10px] text-tx-muted italic">

@@ -11,7 +11,7 @@
     <Teleport to="body">
       <!-- Backdrop -->
       <Transition name="fade">
-        <div v-if="isInternalOpen" class="fixed inset-0 bg-bg-overlay backdrop-blur-sm z-[100]"
+        <div v-if="isInternalOpen" class="overlay-backdrop z-[100]"
           @click="isInternalOpen = false"></div>
       </Transition>
 
@@ -137,30 +137,3 @@ const { markAllAsRead } = notificationsStore
 
 const isInternalOpen = ref(false)
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.slide-enter-from,
-.slide-leave-to {
-  transform: translateX(100%);
-}
-
-[dir="rtl"] .slide-enter-from,
-[dir="rtl"] .slide-leave-to {
-  transform: translateX(-100%);
-}
-</style>

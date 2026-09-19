@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
+  <div class="page-shell">
     <!-- Header -->
     <header class="pt-32 pb-24 px-6 border-b border-border-subtle bg-bg-primary/50 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
@@ -39,7 +39,7 @@
       <div class="max-w-5xl mx-auto">
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Carriers</p>
+            <p class="text-kicker">Carriers</p>
             <h2 class="text-3xl font-bold mb-5">Every major carrier, ready out of the box</h2>
             <p class="text-tx-secondary leading-relaxed mb-8">
               Connect Aramex, DHL, Bosta, J&T, ShipBob, and more in minutes. Automatic rate fetching, label printing,
@@ -61,7 +61,7 @@
             </div>
           </div>
           <!-- Mock dashboard panel -->
-          <div class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+          <div class="card overflow-hidden shadow-2xl shadow-black/20">
             <div class="h-10 bg-bg-elevated border-b border-border-subtle flex items-center px-4 gap-2">
               <div class="w-2.5 h-2.5 rounded-full bg-red-500/40"></div>
               <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/40"></div>
@@ -94,7 +94,7 @@
     <!-- Features grid -->
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/20">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase text-center">Core Features</p>
+        <p class="text-kicker text-center">Core Features</p>
         <h2 class="text-3xl font-bold mb-16 text-center">Everything your logistics team needs</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="feature in features" :key="feature.title"
@@ -115,7 +115,7 @@
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <!-- Zone rules panel -->
         <div
-          class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-xl shadow-black/10 order-2 md:order-1">
+          class="card overflow-hidden shadow-xl shadow-black/10 order-2 md:order-1">
           <div class="px-6 py-4 border-b border-border-subtle">
             <span class="text-xs font-bold">Shipping Zones</span>
           </div>
@@ -139,7 +139,7 @@
           </div>
         </div>
         <div class="order-1 md:order-2">
-          <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Zones & Rates</p>
+          <p class="text-kicker">Zones & Rates</p>
           <h2 class="text-3xl font-bold mb-5">Build shipping rules that match your business</h2>
           <p class="text-tx-secondary leading-relaxed mb-6">
             Create unlimited shipping zones with custom rules — flat rates, weight-based pricing, free shipping
@@ -179,7 +179,7 @@
                     event.label }}</p>
                   <p class="text-[10px] text-tx-muted">{{ event.time }}</p>
                 </div>
-                <div v-if="event.active" class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></div>
+                <div v-if="event.active" class="status-dot bg-brand animate-pulse"></div>
               </div>
             </div>
           </div>

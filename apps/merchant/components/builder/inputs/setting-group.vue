@@ -4,7 +4,7 @@
     :open="defaultOpen"
   >
     <summary
-      class="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 text-[10px] font-black tracking-[0.15em] text-tx-secondary marker:content-none [&::-merchantkit-details-marker]:hidden"
+      class="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 text-[10px] font-black tracking-[0.15em] text-tx-secondary marker:content-none [&::-webkit-details-marker]:hidden"
     >
       {{ title }}
       <Icon

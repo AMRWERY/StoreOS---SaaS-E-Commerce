@@ -40,7 +40,7 @@
         <div class="lg:col-span-8 space-y-8">
           <!-- Basic Information -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+            class="card px-4 py-3.5"
           >
             <div class="flex justify-between items-center mb-8">
               <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">
@@ -88,7 +88,7 @@
 
           <!-- Media Assets -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+            class="card px-4 py-3.5"
           >
             <div class="flex justify-between items-center mb-8">
               <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">
@@ -137,7 +137,7 @@
 
           <!-- Financials -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+            class="card px-4 py-3.5"
           >
             <h3
               class="text-xs font-black tracking-[0.2em] text-tx-secondary mb-8"
@@ -195,7 +195,7 @@
                   >{{ t("dashboard.products.projectedMargin") }}:</span
                 >
                 <span
-                  class="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-success-dim text-success"
+                  class="badge bg-success-dim text-success"
                   >{{ t("dashboard.products.margin") }} : {{ margin }}%</span
                 >
               </div>
@@ -215,7 +215,7 @@
         <aside class="lg:col-span-4 space-y-8 lg:sticky lg:top-8 self-start">
           <!-- Status Card -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+            class="card px-4 py-3.5"
           >
             <div class="flex justify-between items-center mb-6">
               <h3 class="text-[10px] font-black text-tx-muted tracking-widest">
@@ -223,7 +223,7 @@
               </h3>
               <div class="flex items-center gap-1.5">
                 <div
-                  class="w-1.5 h-1.5 rounded-full"
+                  class="status-dot"
                   :class="
                     product.status === 'Active' ? 'bg-success' : 'bg-tx-muted'
                   "
@@ -297,7 +297,7 @@
 
           <!-- Organization -->
           <section
-            class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5"
+            class="card px-4 py-3.5"
           >
             <h3
               class="text-[10px] font-black text-tx-muted tracking-widest mb-6"

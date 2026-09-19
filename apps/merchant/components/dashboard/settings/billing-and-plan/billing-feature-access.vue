@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <section
-      class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden"
+      class="card overflow-hidden"
     >
       <div class="px-4 py-3.5 bg-bg-elevated border-b border-border-subtle">
         <h3 class="font-bold text-lg">

@@ -11,7 +11,7 @@
     >
       <div
         v-if="modelValue"
-        class="fixed inset-0 bg-bg-overlay backdrop-blur-sm z-50"
+        class="overlay-backdrop z-50"
         @click="$emit('update:modelValue', false)"
       ></div>
     </Transition>

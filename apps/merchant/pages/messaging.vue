@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
+  <div class="page-shell">
     <!-- Header -->
     <header class="pt-32 pb-24 px-6 border-b border-border-subtle bg-bg-primary/50 relative overflow-hidden">
       <div
@@ -41,7 +41,7 @@
       <div class="max-w-5xl mx-auto">
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Channels</p>
+            <p class="text-kicker">Channels</p>
             <h2 class="text-3xl font-bold mb-5">One inbox. Every channel.</h2>
             <p class="text-tx-secondary leading-relaxed mb-8">
               Customers reach you on WhatsApp, SMS, live chat, and email. StoreOS unifies all conversations into a
@@ -67,7 +67,7 @@
           </div>
 
           <!-- Inbox mock -->
-          <div class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+          <div class="card overflow-hidden shadow-2xl shadow-black/20">
             <div class="h-10 bg-bg-elevated border-b border-border-subtle flex items-center justify-between px-4">
               <span class="text-[10px] text-tx-muted font-mono">Unified Inbox</span>
               <span class="text-[9px] font-black text-brand bg-brand/10 px-2 py-0.5 rounded-full">4 unread</span>
@@ -123,7 +123,7 @@
     <!-- Features grid -->
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/20">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase text-center">Capabilities</p>
+        <p class="text-kicker text-center">Capabilities</p>
         <h2 class="text-3xl font-bold mb-16 text-center">Built for commerce conversations</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="feature in features" :key="feature.title"
@@ -143,7 +143,7 @@
     <section class="py-24 px-6 border-b border-border-subtle">
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         <div>
-          <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Automations</p>
+          <p class="text-kicker">Automations</p>
           <h2 class="text-3xl font-bold mb-5">Automated messages that feel personal</h2>
           <p class="text-tx-secondary leading-relaxed mb-6">
             Set up trigger-based message sequences once. StoreOS handles the sending — order confirmations, shipping
@@ -186,7 +186,7 @@
     <!-- Partner integrations -->
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/20">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase text-center">Messaging Partners
+        <p class="text-kicker text-center">Messaging Partners
         </p>
         <h2 class="text-2xl font-bold mb-12 text-center">Connect the tools your team already uses</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">

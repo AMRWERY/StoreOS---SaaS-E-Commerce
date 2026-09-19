@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Cash on Delivery -->
       <section
-        class="bg-bg-primary border border-border-subtle rounded-2xl px-4 py-3.5 flex flex-col justify-between"
+        class="card px-4 py-3.5 flex flex-col justify-between"
       >
         <div class="flex justify-between items-start mb-6">
           <div class="flex items-center gap-4">
@@ -18,7 +18,7 @@
               </h3>
               <div class="flex items-center gap-1.5 mt-1">
                 <div
-                  class="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_#10b981]"
+                  class="status-dot bg-success shadow-[0_0_8px_#10b981]"
                 ></div>
                 <span class="text-[9px] font-black text-success tracking-widest"
                   >{{ t("common.status") }}: {{ t("common.active") }}</span

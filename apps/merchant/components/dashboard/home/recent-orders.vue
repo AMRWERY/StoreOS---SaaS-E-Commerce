@@ -1,7 +1,7 @@
 <template>
   <div class="h-full">
     <section
-      class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden flex flex-col h-full"
+      class="card overflow-hidden flex flex-col h-full"
     >
       <div
         class="p-6 flex justify-between items-center border-b border-border-subtle"

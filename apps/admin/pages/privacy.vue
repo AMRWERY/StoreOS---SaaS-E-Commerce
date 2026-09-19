@@ -117,7 +117,7 @@
                 ]"
                 class="bg-bg-primary border border-border-subtle p-4 rounded-lg flex items-center gap-3"
               >
-                <div class="w-1.5 h-1.5 rounded-full bg-brand"></div>
+                <div class="status-dot bg-brand"></div>
                 <span class="text-[13px] font-medium text-white">{{
                   item
                 }}</span>

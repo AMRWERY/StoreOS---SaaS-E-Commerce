@@ -77,7 +77,7 @@
                   {{ col }}
                 </h4>
                 <div
-                  class="w-1.5 h-1.5 rounded-full bg-bg-elevated"
+                  class="status-dot bg-bg-elevated"
                   :class="col === 'OWNER' ? 'bg-brand' : ''"
                 ></div>
               </div>

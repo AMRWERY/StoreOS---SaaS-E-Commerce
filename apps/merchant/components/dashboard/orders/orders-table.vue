@@ -92,8 +92,12 @@
         <div class="col-span-2 text-center">
           <span :class="[
             getOrderStatusClass(order.orderStatus),
-            'rounded-full px-2 py-0.5 text-[10px] font-semibold',
+            'badge inline-flex items-center gap-1',
           ]">
+            <span
+              v-if="order.orderStatus === 'NEW'"
+              class="status-dot bg-accent animate-pulse-dot"
+            ></span>
             {{ order.orderStatus }}
           </span>
         </div>

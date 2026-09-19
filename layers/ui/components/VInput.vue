@@ -83,7 +83,7 @@
       >
         <p v-if="error" class="text-xs text-red-500 mt-1 font-medium">
           {{ error }}
-        </p>../types/VInput
+        </p>
       </Transition>
     </div>
   </div>

@@ -25,7 +25,7 @@
                 {{ customer.email }}
               </div>
             </div>
-            <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mt-3">
+            <p class="text-eyebrow mt-3">
               Member Since {{ customer.memberSince }}
             </p>
           </div>
@@ -45,7 +45,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 mb-6">
         <div v-for="stat in stats" :key="stat.label"
           class="bg-bg-primary border border-border-subtle rounded-xl px-4 py-3.5 group hover:border-border-default transition-all">
-          <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-3">
+          <h3 class="text-eyebrow mb-3">
             {{ stat.label }}
           </h3>
           <div class="flex items-baseline gap-2">
@@ -60,7 +60,7 @@
       <!-- Main Content Split -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
         <!-- Main Content: Tabs & History -->
-        <div class="lg:col-span-8 bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden flex flex-col">
+        <div class="lg:col-span-8 card overflow-hidden flex flex-col">
           <!-- Tabs Header -->
           <div class="px-6 pt-6 border-b border-border-subtle flex gap-8">
             <LazyVButton v-for="tab in tabs" :key="tab" @click="activeTab = tab" variant="none"
@@ -77,7 +77,7 @@
           <div class="px-4 py-3.5 flex-1">
             <!-- Orders Tab -->
             <div v-if="activeTab === tabs[0]">
-              <div class="grid grid-cols-4 text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-6 px-4">
+              <div class="grid grid-cols-4 text-eyebrow mb-6 px-4">
                 <span>{{ t("dashboard.orders.orderNumber") }}</span>
                 <span class="text-center">{{
                   t("dashboard.orders.status")
@@ -140,7 +140,7 @@
                   <div
                     class="bg-bg-elevated border border-border-subtle rounded-2xl p-6 hover:border-border-default transition-colors">
                     <div class="flex items-center justify-between mb-3">
-                      <span class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">{{ note.author }} • {{
+                      <span class="text-eyebrow">{{ note.author }} • {{
                         note.date }}</span>
                       <LazyVButton variant="none" className="text-tx-muted hover:text-danger transition-colors">
                         <Icon name="ph:trash-bold" />
@@ -184,9 +184,9 @@
         <!-- Sidebar: Metadata & Risk -->
         <aside class="lg:col-span-4 space-y-6">
           <!-- Contact Metadata -->
-          <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 shadow-xl shadow-black/20">
+          <section class="card p-6 shadow-xl shadow-black/20">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">
+              <h3 class="text-eyebrow">
                 {{ t("dashboard.customers.contactMetadata") }}
               </h3>
               <LazyVButton v-if="!isEditingContact" @click="startEditContact" variant="none"
@@ -197,7 +197,7 @@
 
             <div v-if="!isEditingContact" class="space-y-6">
               <div class="group/field">
-                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">
+                <p class="text-eyebrow mb-2">
                   {{ t("dashboard.customers.primaryPhone") }}
                 </p>
                 <p class="text-xs font-bold text-tx-secondary">
@@ -205,7 +205,7 @@
                 </p>
               </div>
               <div class="group/field">
-                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">
+                <p class="text-eyebrow mb-2">
                   {{ t("dashboard.customers.primaryEmail") }}
                 </p>
                 <p class="text-xs font-bold text-tx-secondary">
@@ -216,7 +216,7 @@
 
             <div v-else class="space-y-6">
               <div>
-                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">
+                <p class="text-eyebrow mb-2">
                   {{ t("dashboard.customers.primaryPhone") }}
                 </p>
                 <LazyVInput v-model="editedContact.phone"
@@ -224,7 +224,7 @@
                   placeholder="+20 000 000 0000" />
               </div>
               <div>
-                <p class="text-[10px] font-semibold text-tx-muted tracking-[0.6px] mb-2">
+                <p class="text-eyebrow mb-2">
                   {{ t("dashboard.customers.primaryEmail") }}
                 </p>
                 <LazyVInput v-model="editedContact.email"
@@ -241,9 +241,9 @@
           </section>
 
           <!-- Shipping Destinations -->
-          <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6 overflow-hidden">
+          <section class="card p-6 overflow-hidden">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">
+              <h3 class="text-eyebrow">
                 {{ t("dashboard.customers.shippingDestinations") }}
               </h3>
               <LazyVButton variant="none"
@@ -266,9 +266,9 @@
           </section>
 
           <!-- Customer Tags -->
-          <section class="bg-bg-primary border border-border-subtle rounded-2xl p-6">
+          <section class="card p-6">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-[10px] font-semibold text-tx-muted tracking-[0.6px]">
+              <h3 class="text-eyebrow">
                 {{ t("dashboard.customers.customerTags") }}
               </h3>
               <LazyVButton variant="none" className="text-tx-muted hover:text-brand transition-colors">

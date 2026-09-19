@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
+  <div class="page-shell">
     <!-- Header -->
     <header class="pt-32 pb-20 px-6 border-b border-border-subtle bg-bg-primary/50 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
@@ -19,7 +19,7 @@
     <section class="py-24 px-6 border-b border-border-subtle">
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>
-          <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">Our Mission</p>
+          <p class="text-kicker">Our Mission</p>
           <h2 class="text-3xl font-bold mb-6">Commerce infrastructure for everyone</h2>
           <p class="text-tx-secondary leading-relaxed mb-4">
             We believe that building and running a store online should be fast, intuitive, and powerful — regardless of
@@ -40,7 +40,7 @@
     <!-- Values -->
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/30">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase text-center">What drives us</p>
+        <p class="text-kicker text-center">What drives us</p>
         <h2 class="text-3xl font-bold mb-16 text-center">Our core values</h2>
         <div class="grid md:grid-cols-3 gap-8">
           <div v-for="value in values" :key="value.title"
@@ -58,7 +58,7 @@
     <!-- Team -->
     <section class="py-24 px-6 border-b border-border-subtle">
       <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase">The team</p>
+        <p class="text-kicker">The team</p>
         <h2 class="text-3xl font-bold mb-4">Built by people who've run stores</h2>
         <p class="text-tx-secondary max-w-2xl mb-16 leading-relaxed">
           Our founding team comes from e-commerce operations, logistics, and developer tooling. We understand the pain
@@ -66,7 +66,7 @@
         </p>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="member in team" :key="member.name"
-            class="bg-bg-primary border border-border-subtle rounded-2xl p-6 flex items-center gap-4">
+            class="card p-6 flex items-center gap-4">
             <div
               class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand/20 to-brand/5 flex items-center justify-center shrink-0">
               <span class="text-brand font-black text-sm">{{ member.initials }}</span>

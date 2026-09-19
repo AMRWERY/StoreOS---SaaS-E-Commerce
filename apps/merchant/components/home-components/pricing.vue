@@ -183,7 +183,7 @@
 
       <!-- Feature Comparison Table -->
       <div
-        class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden mb-20"
+        class="card overflow-hidden mb-20"
       >
         <div class="p-6 border-b border-border-subtle">
           <h3 class="font-bold">

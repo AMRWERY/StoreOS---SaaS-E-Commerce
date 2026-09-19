@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer base {
+
     html,
     body {
         background-color: var(--bg-base);
@@ -19,21 +20,77 @@
         color-scheme: light;
     }
 
-    ::-merchantkit-scrollbar {
+    ::-webkit-scrollbar {
         width: 4px;
     }
 
-    ::-merchantkit-scrollbar-track {
+    ::-webkit-scrollbar-track {
         background: transparent;
     }
 
-    ::-merchantkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb {
         background: var(--border-default);
         border-radius: 4px;
     }
 
-    ::-merchantkit-scrollbar-thumb:hover {
+    ::-webkit-scrollbar-thumb:hover {
         background: var(--text-muted);
+    }
+}
+
+@layer components {
+
+    /* Card shell — pair with a padding utility (p-6, px-4 py-3.5, overflow-hidden, ...) */
+    .card {
+        @apply bg-bg-primary border border-border-subtle rounded-2xl;
+    }
+
+    /* Status/label pill shell — pair with a color utility (bg-success-dim text-success, ...) */
+    .badge {
+        @apply rounded-full px-2 py-0.5 text-[10px] font-semibold;
+    }
+
+    /* Full-page dashboard/marketing wrapper */
+    .page-shell {
+        @apply bg-bg-base min-h-screen text-tx-primary pb-32;
+    }
+
+    /* Small uppercase label above a dashboard section */
+    .text-eyebrow {
+        @apply text-[10px] font-semibold text-tx-muted tracking-[0.6px];
+    }
+
+    /* Marketing-page section kicker */
+    .text-kicker {
+        @apply text-[10px] font-black tracking-[0.4em] text-tx-muted mb-4 uppercase;
+    }
+
+    /* Square icon/avatar tile shell — pair with a bg color utility */
+    .icon-tile {
+        @apply w-12 h-12 rounded-xl bg-bg-elevated flex items-center justify-center shrink-0;
+    }
+
+    /* Fixed backdrop behind modals/drawers — pair with a z-index utility */
+    .overlay-backdrop {
+        @apply fixed inset-0 bg-bg-overlay backdrop-blur-sm;
+    }
+
+    /* Small status indicator dot — pair with a bg color utility */
+    .status-dot {
+        @apply w-1.5 h-1.5 rounded-full;
+    }
+
+    /* Motion scale per rules/design.md §8 */
+    .transition-base {
+        @apply transition-all duration-150 ease-out;
+    }
+
+    .transition-slow {
+        @apply transition-all duration-250 ease-out;
+    }
+
+    .transition-spring {
+        @apply transition-all duration-250 ease-spring;
     }
 }
 

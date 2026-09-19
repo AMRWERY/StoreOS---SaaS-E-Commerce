@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-bg-base min-h-screen text-tx-primary pb-32">
+  <div class="page-shell">
     <!-- Header -->
     <header class="pt-32 pb-20 px-6 border-b border-border-subtle bg-bg-primary/50 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
@@ -23,7 +23,7 @@
     <section class="py-16 px-6">
       <div class="max-w-5xl mx-auto space-y-6">
         <template v-for="phase in filteredPhases" :key="phase.quarter">
-          <div class="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden">
+          <div class="card overflow-hidden">
             <!-- Phase header -->
             <div class="flex items-center justify-between px-8 py-5 border-b border-border-subtle"
               :class="`bg-${phase.color}/5`">
