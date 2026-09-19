@@ -74,7 +74,7 @@
         </LazyVButton>
 
         <!-- Notifications -->
-        <notifications />
+        <lazy-notifications />
 
         <!-- Avatar -->
         <img
