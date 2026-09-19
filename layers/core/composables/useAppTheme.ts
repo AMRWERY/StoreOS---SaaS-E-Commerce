@@ -1,4 +1,4 @@
-export type AppColorScheme = "light" | "dark";
+import type { AppColorScheme } from "@/types/useAppTheme";
 
 /**
  * App-wide light/dark theme. Always starts dark on every page load.
