@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Hero />
+    <lazy-hero />
 
-    <problem-section />
+    <lazy-problem-section />
 
-    <features />
+    <lazy-features />
 
-    <integrations />
+    <lazy-integrations />
 
-    <pricing />
+    <lazy-pricing />
   </div>
 </template>
 

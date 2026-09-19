@@ -7,7 +7,7 @@
             <!-- Main Content Area -->
             <main class="flex-1 h-screen overflow-y-auto transition-all duration-300 flex flex-col hide-scrollbar">
                 <!-- Trial / Plan Banner -->
-                <trial-banner v-if="showBanner" />
+                <lazy-trial-banner v-if="showBanner" />
 
                 <!-- Dashboard Header -->
                 <Header @toggle-sidebar="isSidebarOpen = true" />

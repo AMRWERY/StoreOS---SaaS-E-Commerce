@@ -76,7 +76,7 @@
         </div>
       </div>
 
-      <start-trial-modal v-model="showTrialModal" />
+      <lazy-start-trial-modal v-model="showTrialModal" />
 
       <p class="mt-8 text-[10px] tracking-wider text-tx-muted">
         {{ t("auth.copyright") }}
