@@ -171,7 +171,7 @@
                 <p class="text-xs font-bold">{{ step.label }}</p>
                 <p class="text-[10px] text-tx-muted">{{ step.desc }}</p>
               </div>
-              <div class="text-right shrink-0">
+              <div class="text-end shrink-0">
                 <p class="text-xs font-black text-success">{{ step.rate }}</p>
                 <p class="text-[9px] text-tx-muted">{{ step.rateLabel }}</p>
               </div>

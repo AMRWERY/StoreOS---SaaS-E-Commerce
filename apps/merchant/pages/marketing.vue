@@ -57,7 +57,7 @@
                   <p class="font-bold text-sm">{{ flow.name }}</p>
                   <p class="text-xs text-tx-muted">{{ flow.desc }}</p>
                 </div>
-                <div class="text-right shrink-0">
+                <div class="text-end shrink-0">
                   <p class="text-xs font-black" :class="flow.metricColor">{{ flow.metric }}</p>
                   <p class="text-[9px] text-tx-muted">avg. revenue</p>
                 </div>
