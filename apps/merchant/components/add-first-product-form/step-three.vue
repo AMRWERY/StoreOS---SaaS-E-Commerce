@@ -177,7 +177,7 @@
               >
                 <Icon
                   name="ph:arrow-start-bold"
-                  class="group-hover:-translate-x-1 transition-transform w-4 h-4"
+                  class="icon-nudge-start w-4 h-4"
                 />
                 Back
               </LazyVButton>

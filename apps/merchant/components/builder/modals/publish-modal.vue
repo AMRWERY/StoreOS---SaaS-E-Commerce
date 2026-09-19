@@ -35,7 +35,7 @@
               className="mt-6 w-full rounded-lg bg-brand px-5 py-2.5 text-[11px] font-black tracking-wider text-white shadow-lg shadow-brand/25 flex items-center justify-center gap-2"
               @click="openPreview"
             >
-              <Icon name="ph:arrow-square-out-bold" />
+              <Icon name="ph:arrow-square-out-bold" class="icon-nudge-diagonal" />
               Open Store Preview
             </LazyVButton>
             <LazyVButton

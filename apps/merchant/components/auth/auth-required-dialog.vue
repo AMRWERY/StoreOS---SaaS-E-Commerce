@@ -42,7 +42,7 @@
           className="w-full flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-500 text-white py-3 rounded-lg font-bold text-xs transition-all shadow-lg shadow-orange-600/20"
         >
           {{ t("auth.gate.createAccount") }}
-          <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
+          <Icon name="lucide:arrow-right" class="w-3.5 h-3.5 icon-nudge-end" />
         </LazyVButton>
 
         <LazyVButton

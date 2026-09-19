@@ -44,7 +44,7 @@
         className="text-[11px] font-bold text-tx-muted hover:text-tx-secondary transition flex items-center gap-1"
       >
         Skip setup
-        <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
+        <Icon name="lucide:arrow-right" class="w-3.5 h-3.5 icon-nudge-end" />
       </LazyVButton>
     </header>
 

@@ -58,7 +58,7 @@
         className="mt-2 flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-indigo-700"
         @click="goBackToBuilder"
       >
-        <Icon name="ph:arrow-left-bold" />
+        <Icon name="ph:arrow-left-bold" class="icon-nudge-start" />
         Back to Builder
       </LazyVButton>
     </div>

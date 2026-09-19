@@ -1,18 +1,18 @@
 <template>
   <nuxt-link-locale v-if="to" :to="to" :class="buttonClass" :disabled="disabled" v-bind="$attrs">
-    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" />
+    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" :class="isArrowIcon ? 'icon-nudge-start' : ''" />
     <slot>
       <span v-if="label">{{ label }}</span>
     </slot>
-    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" />
+    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" :class="isArrowIcon ? 'icon-nudge-end' : ''" />
   </nuxt-link-locale>
 
   <button v-else :type="type" :class="buttonClass" :disabled="disabled" v-bind="$attrs">
-    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" />
+    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" :class="isArrowIcon ? 'icon-nudge-start' : ''" />
     <slot>
       <span v-if="label">{{ label }}</span>
     </slot>
-    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" />
+    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" :class="isArrowIcon ? 'icon-nudge-end' : ''" />
   </button>
 </template>
 
@@ -29,12 +29,14 @@ const props = defineProps({
   className: { type: [String, Array, Object], default: "" },
 });
 
+const isArrowIcon = computed(() => props.icon.toLowerCase().includes("arrow"));
+
 const buttonClass = computed(() => {
   const isNone = props.variant === "none";
 
   const base = isNone
-    ? ""
-    : "flex items-center justify-center gap-2 rounded-md font-bold text-sm transition-all duration-200";
+    ? "group"
+    : "group flex items-center justify-center gap-2 rounded-md font-bold text-sm transition-all duration-200";
 
   const padding = isNone || props.size === "none"
     ? ""

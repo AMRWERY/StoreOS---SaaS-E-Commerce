@@ -61,7 +61,7 @@
             className="w-full flex items-center justify-center bg-orange-600 hover:bg-orange-500 text-white py-3.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-600/20"
           >
             {{ t("auth.trial.continue") }}
-            <Icon name="lucide:arrow-right" class="w-4 h-4 ms-2" />
+            <Icon name="lucide:arrow-right" class="w-4 h-4 ms-2 icon-nudge-end" />
           </LazyVButton>
         </LazyVFormWrapper>
 
@@ -133,7 +133,7 @@
               className="flex-[2] flex items-center justify-center bg-orange-600 hover:bg-orange-500 text-white py-3 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-600/20"
             >
               {{ t("auth.trial.continue") }}
-              <Icon name="lucide:arrow-right" class="w-4 h-4 ms-2" />
+              <Icon name="lucide:arrow-right" class="w-4 h-4 ms-2 icon-nudge-end" />
             </LazyVButton>
           </div>
         </LazyVFormWrapper>

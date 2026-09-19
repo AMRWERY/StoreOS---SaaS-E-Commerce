@@ -55,7 +55,7 @@
                 :class="role.type === 'Full-time' ? 'bg-brand/10 text-brand' : 'bg-bg-elevated text-tx-muted'">
                 {{ role.type }}
               </span>
-              <Icon name="ph:arrow-right-bold" class="text-tx-muted group-hover:text-brand transition-colors" />
+              <Icon name="ph:arrow-right-bold" class="text-tx-muted group-hover:text-brand group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-all duration-150 ease-out" />
             </div>
           </div>
         </div>

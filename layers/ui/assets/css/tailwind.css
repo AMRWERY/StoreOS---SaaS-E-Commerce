@@ -80,6 +80,33 @@
         @apply w-1.5 h-1.5 rounded-full;
     }
 
+    /* Directional icon hover nudge — pair with .group on the hoverable ancestor */
+    .icon-nudge-end {
+        @apply transition-transform duration-150 ease-out group-hover:translate-x-1 rtl:group-hover:-translate-x-1;
+    }
+
+    .icon-nudge-start {
+        @apply transition-transform duration-150 ease-out group-hover:-translate-x-1 rtl:group-hover:translate-x-1;
+    }
+
+    .icon-nudge-diagonal {
+        @apply transition-transform duration-150 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5;
+    }
+
+    /* Refresh/regenerate icon spin — pair with .group on the hoverable ancestor */
+    .icon-spin-hover {
+        @apply transition-transform duration-300 ease-out group-hover:rotate-180;
+    }
+
+    /* Vertical directional icon hover nudge — pair with .group on the hoverable ancestor */
+    .icon-nudge-up {
+        @apply transition-transform duration-150 ease-out group-hover:-translate-y-0.5;
+    }
+
+    .icon-nudge-down {
+        @apply transition-transform duration-150 ease-out group-hover:translate-y-0.5;
+    }
+
     /* Motion scale per rules/design.md §8 */
     .transition-base {
         @apply transition-all duration-150 ease-out;

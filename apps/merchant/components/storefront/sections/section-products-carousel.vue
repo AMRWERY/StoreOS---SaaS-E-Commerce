@@ -12,14 +12,14 @@
           variant="none"
           className="rounded-full border border-neutral-300 p-1.5"
         >
-          <Icon name="ph:arrow-left-bold" class="text-xs" />
+          <Icon name="ph:arrow-left-bold" class="text-xs icon-nudge-start" />
         </LazyVButton>
 
         <LazyVButton
           variant="none"
           className="rounded-full border border-neutral-300 p-1.5"
         >
-          <Icon name="ph:arrow-right-bold" class="text-xs" />
+          <Icon name="ph:arrow-right-bold" class="text-xs icon-nudge-end" />
         </LazyVButton>
       </div>
     </div>

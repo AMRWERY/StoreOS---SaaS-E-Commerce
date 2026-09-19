@@ -67,10 +67,10 @@
         <!-- Main CTA -->
         <nuxt-link-locale
           to="/dashboard"
-          class="w-full max-w-md mx-auto bg-brand hover:bg-brand-hover py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-brand/20 active:scale-[0.98] text-white"
+          class="w-full max-w-md mx-auto bg-brand hover:bg-brand-hover py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-brand/20 active:scale-[0.98] text-white group"
         >
           Go to Dashboard
-          <Icon name="ph:arrow-right-bold" class="w-4 h-4" />
+          <Icon name="ph:arrow-right-bold" class="w-4 h-4 icon-nudge-end" />
         </nuxt-link-locale>
       </div>
 
@@ -99,10 +99,10 @@
         <p class="text-xs text-tx-muted mb-2">Need help setting up?</p>
         <nuxt-link-locale
           to="/"
-          class="text-brand text-xs font-bold flex items-center justify-center gap-1.5 hover:underline"
+          class="text-brand text-xs font-bold flex items-center justify-center gap-1.5 hover:underline group"
         >
           Visit our Help Center
-          <Icon name="ph:arrow-square-out" class="w-3.5 h-3.5" />
+          <Icon name="ph:arrow-square-out" class="w-3.5 h-3.5 icon-nudge-diagonal" />
         </nuxt-link-locale>
       </div>
     </div>

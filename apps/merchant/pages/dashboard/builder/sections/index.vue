@@ -14,9 +14,9 @@
         </div>
         <nuxt-link-locale
           :to="`/dashboard/builder/${store.currentPage?.slug ?? 'home'}`"
-          class="flex items-center gap-1.5 rounded-lg border border-border-subtle px-3 py-2 text-[11px] font-bold text-tx-secondary transition-colors hover:bg-bg-elevated hover:text-tx-primary"
+          class="flex items-center gap-1.5 rounded-lg border border-border-subtle px-3 py-2 text-[11px] font-bold text-tx-secondary transition-colors hover:bg-bg-elevated hover:text-tx-primary group"
         >
-          <Icon name="ph:arrow-left-bold" class="text-[13px]" />
+          <Icon name="ph:arrow-left-bold" class="text-[13px] icon-nudge-start" />
           Back to builder
         </nuxt-link-locale>
       </header>

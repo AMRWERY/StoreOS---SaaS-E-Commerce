@@ -114,7 +114,7 @@
               <LazyVButton variant="none"
                 className="w-full mt-8 py-4 text-[10px] font-black tracking-[0.2em] text-tx-secondary hover:text-tx-primary transition-all flex items-center justify-center gap-2 group">
                 {{ t("dashboard.customers.viewAllOrders") }}
-                <Icon name="ph:arrow-right-bold" class="group-hover:translate-x-1 transition-transform" />
+                <Icon name="ph:arrow-right-bold" class="icon-nudge-end" />
               </LazyVButton>
             </div>
 

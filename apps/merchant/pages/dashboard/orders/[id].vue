@@ -286,7 +286,7 @@
                 className="text-[10px] font-bold text-brand hover:underline"
               >
                 Profile
-                <Icon name="ph:arrow-square-out-bold" class="inline ms-1" />
+                <Icon name="ph:arrow-square-out-bold" class="inline ms-1 icon-nudge-diagonal" />
               </LazyVButton>
             </div>
             <div class="flex items-center gap-4 mb-6">

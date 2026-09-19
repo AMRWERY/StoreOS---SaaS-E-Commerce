@@ -64,7 +64,7 @@
                   <Icon
                     name="ph:arrow-right-bold"
                     :class="[
-                      'text-xs transition-all',
+                      'text-xs transition-all group-hover:translate-x-1 rtl:group-hover:-translate-x-1',
                       activeTab === f.id
                         ? 'text-brand opacity-100'
                         : 'opacity-0 group-hover:opacity-50',

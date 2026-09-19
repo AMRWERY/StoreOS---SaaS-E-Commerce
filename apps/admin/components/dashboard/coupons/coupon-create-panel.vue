@@ -69,7 +69,7 @@
                 variant="none"
                 className="absolute end-4 top-1/2 -translate-y-1/2 text-tx-muted hover:text-brand transition-colors"
               >
-                <Icon name="ph:arrows-clockwise-bold" class="text-xl" />
+                <Icon name="ph:arrows-clockwise-bold" class="text-xl icon-spin-hover" />
               </LazyVButton>
             </div>
           </div>

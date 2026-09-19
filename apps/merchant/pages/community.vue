@@ -47,9 +47,9 @@
               </div>
             </div>
             <a :href="channel.href" target="_blank" rel="noopener noreferrer"
-              class="text-xs font-bold text-brand hover:underline flex items-center gap-1">
+              class="text-xs font-bold text-brand hover:underline flex items-center gap-1 group">
               {{ channel.cta }}
-              <Icon name="ph:arrow-up-right-bold" class="text-xs" />
+              <Icon name="ph:arrow-up-right-bold" class="text-xs icon-nudge-diagonal" />
             </a>
           </div>
         </div>

@@ -38,7 +38,7 @@
                     <LazyVButton @click="handleGoBack" variant="none"
                         className="w-full sm:w-auto px-8 py-4 bg-white text-black font-black text-[10px] tracking-[0.2em] rounded-2xl hover:bg-gray-200 transition-all active:scale-95 shadow-xl shadow-white/10 flex items-center justify-center gap-3 group">
                         <Icon name="ph:arrow-left-bold"
-                            class="text-base group-hover:-translate-x-1 transition-transform" />
+                            class="text-base icon-nudge-start" />
                         <span>GO BACK</span>
                     </LazyVButton>
                     <LazyVButton @click="handleGoHome" variant="none"

@@ -18,7 +18,17 @@
       :class="action.danger ? 'hover:!text-red-400' : ''"
       @click="$emit('action', action.id)"
     >
-      <Icon :name="action.icon" class="text-base text-neutral-200" />
+      <Icon
+        :name="action.icon"
+        class="text-base text-neutral-200"
+        :class="
+          action.id === 'up'
+            ? 'icon-nudge-up'
+            : action.id === 'down'
+              ? 'icon-nudge-down'
+              : ''
+        "
+      />
     </LazyVButton>
   </div>
 </template>

@@ -373,7 +373,7 @@
             ? t("home.pricing.modal.continueToContact")
             : t("home.pricing.modal.startMyTrial")
         }}
-        <Icon name="ph:arrow-right-bold" class="text-base rtl:rotate-180" />
+        <Icon name="ph:arrow-right-bold" class="text-base rtl:rotate-180 icon-nudge-end" />
       </LazyVButton>
 
       <p class="text-center text-[11px] text-tx-muted">
