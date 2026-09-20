@@ -100,7 +100,7 @@
               class="rounded-2xl overflow-hidden relative group border border-border-subtle"
             >
               <img
-                src="/img/product-01.avif"
+                src="/img/product-01.png"
                 class="w-full h-40 object-cover grayscale opacity-40 group-hover:opacity-60 transition-opacity"
               />
               <div
@@ -125,7 +125,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t } = useI18n();
 defineProps<{
   modelValue: boolean;
 }>();

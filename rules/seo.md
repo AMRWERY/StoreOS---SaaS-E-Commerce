@@ -219,7 +219,7 @@ useHead({
         "@type": "Organization",
         name: "Store Name",
         url: "https://yourdomain.com",
-        logo: "https://yourdomain.com/logo.avif",
+        logo: "https://yourdomain.com/logo.png",
       }),
     },
   ],

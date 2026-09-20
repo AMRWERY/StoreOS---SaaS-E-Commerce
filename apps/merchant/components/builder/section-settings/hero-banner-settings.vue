@@ -13,7 +13,7 @@
     <lazy-setting-image
       label="Background image"
       hint="Replace image"
-      preview-url="/img/category-01.avif"
+      preview-url="/img/category-01.png"
     />
   </div>
 </template>

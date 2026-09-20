@@ -1,8 +1,6 @@
 <template>
   <div>
-    <section
-      class="card overflow-hidden shadow-2xl max-w-7xl mx-auto"
-    >
+    <section class="card overflow-hidden shadow-2xl max-w-7xl mx-auto">
       <div
         class="px-4 py-3.5 flex justify-between items-center border-b border-border-subtle"
       >
@@ -37,12 +35,7 @@
           }}</span>
         </template>
         <template #cell(role)="{ item }">
-          <span
-            :class="[
-              getRoleClass(item.role),
-              'badge',
-            ]"
-          >
+          <span :class="[getRoleClass(item.role), 'badge']">
             {{ item.role }}
           </span>
         </template>
@@ -50,7 +43,10 @@
           <span class="text-xs text-tx-muted">{{ item.active }}</span>
         </template>
         <template #cell(actions)>
-          <LazyVButton variant="none" className="text-tx-muted hover:text-tx-primary transition-colors">
+          <LazyVButton
+            variant="none"
+            className="text-tx-muted hover:text-tx-primary transition-colors"
+          >
             <Icon name="ph:dots-three-bold" />
           </LazyVButton>
         </template>
@@ -103,7 +99,7 @@ const members = [
     email: "m.thorne@storeos.com",
     role: "OWNER",
     active: "2026-05-31 12:33",
-    avatar: "/img/avatar-01.avif",
+    avatar: "/img/avatar-01.png",
   },
   {
     name: "Elena Rodriguez",
@@ -111,7 +107,7 @@ const members = [
     email: "e.rodriguez@storeos.com",
     role: "MANAGER",
     active: "2026-05-28 09:15",
-    avatar: "/img/avatar-02.avif",
+    avatar: "/img/avatar-02.png",
   },
   {
     name: "Sarah Jenkins",
@@ -119,7 +115,7 @@ const members = [
     email: "s.jenkins@storeos.com",
     role: "STAFF",
     active: "2026-05-23 18:45",
-    avatar: "/img/avatar-03.avif",
+    avatar: "/img/avatar-03.png",
   },
 ];
 

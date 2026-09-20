@@ -128,7 +128,7 @@
         >
           Continue shopping
         </LazyVButton>
-        
+
         <LazyVButton
           variant="none"
           className="flex-1 rounded-2xl border border-neutral-200 bg-white py-3.5 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
@@ -146,19 +146,19 @@ const store = useBuilderStore();
 
 const MOCK_ITEMS = [
   {
-    img: "/img/category-01.avif",
+    img: "/img/category-01.png",
     name: "Modern Smart Speaker",
     variant: "White · 1×",
     price: "$99.00",
   },
   {
-    img: "/img/category-02.avif",
+    img: "/img/category-02.png",
     name: "Casual Running Shoes",
     variant: "Size 42 · 1×",
     price: "$80.00",
   },
   {
-    img: "/img/category-03.avif",
+    img: "/img/category-03.png",
     name: "Minimalist Lamp",
     variant: "Black · 1×",
     price: "$61.00",

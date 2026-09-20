@@ -89,10 +89,10 @@ const bool = (key: string, fallback = false) =>
 const cardStyle = computed(() => str("card_style", "overlay"));
 
 const CAT_IMGS = [
-  "/img/product-01.avif",
-  "/img/product-02.avif",
-  "/img/product-03.avif",
-  "/img/product-04.avif",
+  "/img/product-01.png",
+  "/img/product-02.png",
+  "/img/product-03.png",
+  "/img/product-04.png",
 ];
 
 const CAT_COLORS = ["#6366f1", "#f59e0b", "#10b981", "#f43f5e"];

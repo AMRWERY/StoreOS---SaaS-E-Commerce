@@ -39,9 +39,7 @@
         <!-- Left Column: Main Editor -->
         <div class="lg:col-span-8 space-y-8">
           <!-- Basic Information -->
-          <section
-            class="card px-4 py-3.5"
-          >
+          <section class="card px-4 py-3.5">
             <div class="flex justify-between items-center mb-8">
               <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">
                 {{ t("dashboard.products.basicInfo") }}
@@ -87,9 +85,7 @@
           </section>
 
           <!-- Media Assets -->
-          <section
-            class="card px-4 py-3.5"
-          >
+          <section class="card px-4 py-3.5">
             <div class="flex justify-between items-center mb-8">
               <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">
                 {{ t("dashboard.products.mediaAssets") }}
@@ -115,7 +111,7 @@
                 class="aspect-square bg-bg-elevated rounded-2xl overflow-hidden border border-border-subtle relative group cursor-pointer"
               >
                 <img
-                  src="/img/product-01.avif"
+                  src="/img/product-01.png"
                   class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all opacity-60"
                 />
               </div>
@@ -123,7 +119,7 @@
                 class="aspect-square bg-bg-elevated rounded-2xl overflow-hidden border border-border-subtle relative group cursor-pointer"
               >
                 <img
-                  src="/img/product-02.avif"
+                  src="/img/product-02.png"
                   class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all opacity-60"
                 />
                 <div
@@ -136,9 +132,7 @@
           </section>
 
           <!-- Financials -->
-          <section
-            class="card px-4 py-3.5"
-          >
+          <section class="card px-4 py-3.5">
             <h3
               class="text-xs font-black tracking-[0.2em] text-tx-secondary mb-8"
             >
@@ -194,8 +188,7 @@
                 <span class="text-xs text-tx-secondary font-medium"
                   >{{ t("dashboard.products.projectedMargin") }}:</span
                 >
-                <span
-                  class="badge bg-success-dim text-success"
+                <span class="badge bg-success-dim text-success"
                   >{{ t("dashboard.products.margin") }} : {{ margin }}%</span
                 >
               </div>
@@ -214,9 +207,7 @@
         <!-- Right Column: Sidebar Widgets -->
         <aside class="lg:col-span-4 space-y-8 lg:sticky lg:top-8 self-start">
           <!-- Status Card -->
-          <section
-            class="card px-4 py-3.5"
-          >
+          <section class="card px-4 py-3.5">
             <div class="flex justify-between items-center mb-6">
               <h3 class="text-[10px] font-black text-tx-muted tracking-widest">
                 {{ t("dashboard.products.status") }}
@@ -299,9 +290,7 @@
           </section>
 
           <!-- Organization -->
-          <section
-            class="card px-4 py-3.5"
-          >
+          <section class="card px-4 py-3.5">
             <h3
               class="text-[10px] font-black text-tx-muted tracking-widest mb-6"
             >

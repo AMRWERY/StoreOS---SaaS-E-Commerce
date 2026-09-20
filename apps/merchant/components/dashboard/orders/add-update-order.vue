@@ -61,9 +61,7 @@
         <!-- Left side: Main Form -->
         <div class="lg:col-span-2 space-y-8">
           <!-- Customer Selection -->
-          <section
-            class="card px-4 py-3.5"
-          >
+          <section class="card px-4 py-3.5">
             <h3
               class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-8"
             >
@@ -118,9 +116,7 @@
           </section>
 
           <!-- Order Items -->
-          <section
-            class="card overflow-hidden"
-          >
+          <section class="card overflow-hidden">
             <div
               class="p-6 border-b border-border-subtle flex justify-between items-center bg-bg-elevated"
             >
@@ -219,9 +215,7 @@
           </section>
 
           <!-- Order Notes -->
-          <section
-            class="card px-4 py-3.5"
-          >
+          <section class="card px-4 py-3.5">
             <h3
               class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-8"
             >
@@ -239,9 +233,7 @@
         <!-- Right side: Meta Panels -->
         <aside class="space-y-8">
           <!-- Status & Tags -->
-          <section
-            class="card p-6 shadow-2xl"
-          >
+          <section class="card p-6 shadow-2xl">
             <h3
               class="text-[10px] font-black text-tx-muted tracking-widest mb-6 px-1"
             >
@@ -274,9 +266,7 @@
           </section>
 
           <!-- Summary Statistics -->
-          <section
-            class="card p-6 shadow-2xl relative overflow-hidden"
-          >
+          <section class="card p-6 shadow-2xl relative overflow-hidden">
             <div
               class="absolute -end-8 -top-8 w-24 h-24 bg-brand/5 rounded-full blur-2xl"
             ></div>
@@ -312,9 +302,7 @@
           </section>
 
           <!-- Tags Panel -->
-          <section
-            class="card p-6 shadow-2xl"
-          >
+          <section class="card p-6 shadow-2xl">
             <h3
               class="text-[10px] font-black text-tx-muted tracking-widest mb-6 px-1"
             >
@@ -356,7 +344,7 @@ const form = reactive({
       name: "Velocity Elite Runner",
       variant: "Size: 42 | Crimson",
       sku: "VER-42-CRIM",
-      image: "/img/product-01.avif",
+      image: "/img/product-01.png",
       price: 189,
       qty: 1,
     },
@@ -365,7 +353,7 @@ const form = reactive({
       name: "Urban Stealth Hoodie",
       variant: "Size: L | Charcoal",
       sku: "USH-L-CHA",
-      image: "/img/product-02.avif",
+      image: "/img/product-02.png",
       price: 95,
       qty: 2,
     },
@@ -374,7 +362,7 @@ const form = reactive({
       name: "Minimal Leather Watch",
       variant: "Black Dial | Brown Strap",
       sku: "MLW-BK-BR",
-      image: "/img/product-03.avif",
+      image: "/img/product-03.png",
       price: 340,
       qty: 1,
     },

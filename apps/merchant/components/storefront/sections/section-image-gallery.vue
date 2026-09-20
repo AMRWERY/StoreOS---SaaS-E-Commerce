@@ -23,11 +23,11 @@ const str = (key: string, fallback = "") =>
   String(props.section.settings[key] ?? fallback);
 
 const GALLERY_IMGS = [
-  "/img/collection-01.avif",
-  "/img/collection-02.avif",
-  "/img/collection-03.avif",
-  "/img/collection-04.avif",
-  "/img/collection-05.avif",
-  "/img/collection-06.avif",
+  "/img/collection-01.png",
+  "/img/collection-02.png",
+  "/img/collection-03.png",
+  "/img/collection-04.png",
+  "/img/collection-05.png",
+  "/img/collection-06.png",
 ];
 </script>

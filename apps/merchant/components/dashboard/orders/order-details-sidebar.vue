@@ -18,10 +18,7 @@
                 >#SO-{{ order.id }}</span
               >
               <span
-                :class="[
-                  getOrderStatusClass(order.orderStatus),
-                  'badge',
-                ]"
+                :class="[getOrderStatusClass(order.orderStatus), 'badge']"
                 >{{ order.orderStatus }}</span
               >
             </div>
@@ -96,7 +93,7 @@
                   class="w-12 h-12 bg-bg-elevated border border-border-subtle rounded-xl overflow-hidden shrink-0"
                 >
                   <img
-                    :src="`/img/product-0${(i % 3) + 1}.avif`"
+                    :src="`/img/product-0${(i % 3) + 1}.png`"
                     class="w-full h-full object-cover grayscale opacity-80"
                   />
                 </div>

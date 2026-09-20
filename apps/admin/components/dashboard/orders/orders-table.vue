@@ -97,7 +97,7 @@
               class="w-6 h-6 bg-bg-elevated border border-black rounded-md overflow-hidden relative"
             >
               <img
-                :src="`/img/product-0${(order.id % 3) + 1}.avif`"
+                :src="`/img/product-0${(order.id % 3) + 1}.png`"
                 class="w-full h-full object-cover"
               />
             </div>

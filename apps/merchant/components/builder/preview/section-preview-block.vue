@@ -39,7 +39,7 @@
               rgba(15, 15, 20, 0.35) 45%,
               transparent 100%
             ),
-            url(&quot;category-02.avif&quot;);
+            url(&quot;category-02.png&quot;);
         "
       >
         <div class="relative z-10 max-w-xl">
@@ -85,7 +85,7 @@
         </div>
         <div
           class="bg-cover bg-center bg-neutral-700"
-          style="background-image: url(&quot;/img/category-01.avif&quot;)"
+          style="background-image: url(&quot;/img/category-01.png&quot;)"
         />
       </div>
     </template>
@@ -102,7 +102,7 @@
               rgba(15, 15, 20, 0.35) 45%,
               transparent 100%
             ),
-            url(&quot;category-03.avif&quot;);
+            url(&quot;category-03.png&quot;);
         "
       >
         <div class="max-w-xl ps-16">
@@ -331,7 +331,10 @@
               variant="none"
               className="rounded-full border border-neutral-300 p-1.5"
             >
-              <Icon name="ph:arrow-left-bold" class="text-xs icon-nudge-start" />
+              <Icon
+                name="ph:arrow-left-bold"
+                class="text-xs icon-nudge-start"
+              />
             </LazyVButton>
             <LazyVButton
               variant="none"
@@ -512,7 +515,7 @@
       <div class="grid min-h-[400px] grid-cols-2">
         <div
           class="bg-cover bg-center bg-neutral-200"
-          style="background-image: url(&quot;/img/product-01.avif&quot;)"
+          style="background-image: url(&quot;/img/product-01.png&quot;)"
         />
         <div class="flex flex-col justify-center px-10 py-12">
           <span class="text-xs font-bold tracking-widest text-neutral-500"
@@ -662,7 +665,7 @@
       <div class="grid min-h-[280px] grid-cols-2">
         <div
           class="bg-cover bg-center bg-neutral-200"
-          style="background-image: url(&quot;/img/category-01.avif&quot;)"
+          style="background-image: url(&quot;/img/category-01.png&quot;)"
         />
         <div class="flex flex-col justify-center px-10 py-12">
           <h2 class="text-2xl font-bold text-neutral-900">
@@ -1032,29 +1035,29 @@ const num = (key: string, fallback: number) => {
 };
 
 const PRODUCT_IMGS = [
-  "/img/category-01.avif",
-  "/img/category-02.avif",
-  "/img/category-03.avif",
+  "/img/category-01.png",
+  "/img/category-02.png",
+  "/img/category-03.png",
 ];
 
 const PRODUCT_CATS = ["Electronics", "Sports", "Home & Living"];
 
 const CAT_IMGS = [
-  "/img/product-01.avif",
-  "/img/product-02.avif",
-  "/img/product-03.avif",
-  "/img/product-04.avif",
+  "/img/product-01.png",
+  "/img/product-02.png",
+  "/img/product-03.png",
+  "/img/product-04.png",
 ];
 
 const CAT_COLORS = ["#6366f1", "#f59e0b", "#10b981", "#f43f5e"];
 
 const GALLERY_IMGS = [
-  "/img/collection-01.avif",
-  "/img/collection-02.avif",
-  "/img/gallery-03.avif",
-  "/img/collection-04.avif",
-  "/img/collection-05.avif",
-  "/img/collection-06.avif",
+  "/img/collection-01.png",
+  "/img/collection-02.png",
+  "/img/gallery-03.png",
+  "/img/collection-04.png",
+  "/img/collection-05.png",
+  "/img/collection-06.png",
 ];
 
 const TRUST_BADGES = [

@@ -69,9 +69,9 @@ const bool = (key: string, fallback = false) =>
   Boolean(props.section.settings[key] ?? fallback);
 
 const PRODUCT_IMGS = [
-  "/img/category-01.avif",
-  "/img/category-02.avif",
-  "/img/category-03.avif",
+  "/img/category-01.png",
+  "/img/category-02.png",
+  "/img/category-03.png",
 ];
 
 const PRODUCT_CATS = ["Electronics", "Sports", "Home & Living"];

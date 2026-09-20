@@ -243,21 +243,21 @@ const store = useBuilderStore();
 
 const MOCK_ITEMS = [
   {
-    img: "/img/category-01.avif",
+    img: "/img/category-01.png",
     name: "Modern Smart Speaker",
     variant: "White · 1×",
     qty: 1,
     price: "$99.00",
   },
   {
-    img: "/img/category-02.avif",
+    img: "/img/category-02.png",
     name: "Casual Running Shoes",
     variant: "Size 42 · 1×",
     qty: 1,
     price: "$80.00",
   },
   {
-    img: "/img/category-03.avif",
+    img: "/img/category-03.png",
     name: "Minimalist Lamp",
     variant: "Black · 1×",
     qty: 1,

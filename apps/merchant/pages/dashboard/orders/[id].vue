@@ -18,14 +18,10 @@
           <div class="flex items-center gap-4">
             <h1 class="text-3xl font-bold tracking-tight">{{ orderId }}</h1>
             <div class="flex gap-2">
-              <span
-                class="badge bg-status-yellow-dim text-status-yellow"
+              <span class="badge bg-status-yellow-dim text-status-yellow"
                 >PROCESSING</span
               >
-              <span
-                class="badge bg-success-dim text-success"
-                >PAID</span
-              >
+              <span class="badge bg-success-dim text-success">PAID</span>
             </div>
           </div>
           <p class="text-xs text-tx-secondary mt-2 font-medium">
@@ -67,9 +63,7 @@
       </header>
 
       <!-- Order Timeline / Stepper -->
-      <section
-        class="card px-4 py-3.5 mb-6 relative overflow-hidden"
-      >
+      <section class="card px-4 py-3.5 mb-6 relative overflow-hidden">
         <div class="flex justify-between items-start relative z-10">
           <div
             v-for="(step, i) in timeline"
@@ -129,9 +123,7 @@
         <div class="lg:col-span-2 h-full">
           <div class="h-full space-y-6 overflow-y-auto hide-scrollbar pb-10">
             <!-- Order Items Card -->
-            <div
-              class="card overflow-hidden"
-            >
+            <div class="card overflow-hidden">
               <div
                 class="p-6 border-b border-border-subtle flex justify-between items-center"
               >
@@ -141,10 +133,7 @@
                   <Icon name="ph:package-bold" class="text-brand" />
                   Order Items
                 </h3>
-                <span
-                  class="text-eyebrow"
-                  >1 Item</span
-                >
+                <span class="text-eyebrow">1 Item</span>
               </div>
 
               <div class="px-4 py-3.5">
@@ -218,9 +207,7 @@
             </div>
 
             <!-- Order Notes/Logs Card -->
-            <div
-              class="card px-4 py-3.5"
-            >
+            <div class="card px-4 py-3.5">
               <h3
                 class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-6"
               >
@@ -272,26 +259,23 @@
         <!-- Right Column: Sidebar Panels -->
         <aside class="space-y-6">
           <!-- Customer Panel -->
-          <div
-            class="card p-6"
-          >
+          <div class="card p-6">
             <div class="flex justify-between items-center mb-6">
-              <h3
-                class="text-eyebrow"
-              >
-                Customer
-              </h3>
+              <h3 class="text-eyebrow">Customer</h3>
               <LazyVButton
                 variant="none"
                 className="text-[10px] font-bold text-brand hover:underline"
               >
                 Profile
-                <Icon name="ph:arrow-square-out-bold" class="inline ms-1 icon-nudge-diagonal" />
+                <Icon
+                  name="ph:arrow-square-out-bold"
+                  class="inline ms-1 icon-nudge-diagonal"
+                />
               </LazyVButton>
             </div>
             <div class="flex items-center gap-4 mb-6">
               <img
-                src="/img/avatar-01.avif"
+                src="/img/avatar-01.png"
                 class="w-12 h-12 rounded-xl border border-border-default"
               />
               <div>
@@ -308,35 +292,21 @@
               <div
                 class="bg-bg-elevated border border-border-subtle p-4 rounded-xl"
               >
-                <p
-                  class="text-eyebrow mb-2"
-                >
-                  Orders
-                </p>
+                <p class="text-eyebrow mb-2">Orders</p>
                 <p class="text-[22px] font-semibold">12</p>
               </div>
               <div
                 class="bg-bg-elevated border border-border-subtle p-4 rounded-xl"
               >
-                <p
-                  class="text-eyebrow mb-2"
-                >
-                  LTV
-                </p>
+                <p class="text-eyebrow mb-2">LTV</p>
                 <p class="text-[22px] font-semibold">$4,200</p>
               </div>
             </div>
           </div>
 
           <!-- Shipping & Logistics Panel -->
-          <div
-            class="card p-6"
-          >
-            <h3
-              class="text-eyebrow mb-6"
-            >
-              Shipping & Logistics
-            </h3>
+          <div class="card p-6">
+            <h3 class="text-eyebrow mb-6">Shipping & Logistics</h3>
             <div class="space-y-6">
               <div class="flex gap-4">
                 <Icon name="ph:map-pin-bold" class="text-brand mt-1 shrink-0" />
@@ -394,14 +364,8 @@
           </div>
 
           <!-- Payment Method Panel -->
-          <div
-            class="card p-6"
-          >
-            <h3
-              class="text-eyebrow mb-6"
-            >
-              Payment Method
-            </h3>
+          <div class="card p-6">
+            <h3 class="text-eyebrow mb-6">Payment Method</h3>
             <div
               class="bg-bg-elevated border border-border-subtle p-4 rounded-xl flex items-center justify-between"
             >
@@ -418,10 +382,7 @@
                   </p>
                 </div>
               </div>
-              <span
-                class="badge bg-success-dim text-success"
-                >PAID</span
-              >
+              <span class="badge bg-success-dim text-success">PAID</span>
             </div>
           </div>
         </aside>
@@ -451,7 +412,7 @@ const orderItems = [
     sku: "VER-42-CRIM",
     qty: 1,
     unitPrice: 189.0,
-    image: "/img/product-01.avif",
+    image: "/img/product-01.png",
   },
 ];
 
