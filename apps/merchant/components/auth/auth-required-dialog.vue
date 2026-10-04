@@ -86,7 +86,7 @@ const FEATURE_LABEL_KEYS: Record<string, string> = {
   customers: "nav.customers",
   analytics: "nav.analytics",
   coupons: "nav.coupons",
-  builder: "nav.storeBuilder",
+  builder: "nav.store_builder",
   settings: "nav.settings",
   profile: "nav.userProfile",
 };

@@ -56,8 +56,8 @@
             item.active
               ? 'bg-brand-dim text-brand'
               : item.locked
-                ? 'text-tx-muted cursor-pointer hover:bg-bg-elevated'
-                : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
+              ? 'text-tx-muted cursor-pointer hover:bg-bg-elevated'
+              : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
           "
         >
           <Icon
@@ -91,10 +91,10 @@
               item.active
                 ? 'bg-brand-dim text-brand'
                 : item.locked
-                  ? 'text-tx-muted hover:bg-bg-elevated'
-                  : expandedItems.includes(item.name)
-                    ? 'text-brand'
-                    : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
+                ? 'text-tx-muted hover:bg-bg-elevated'
+                : expandedItems.includes(item.name)
+                ? 'text-brand'
+                : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
             "
           >
             <div class="flex items-center gap-2">
@@ -212,8 +212,8 @@
           route.path.includes('/dashboard/user-profile')
             ? 'bg-brand-dim text-brand'
             : hasFeature('profile')
-              ? 'text-tx-secondary hover:text-tx-primary'
-              : 'text-tx-muted hover:bg-bg-elevated'
+            ? 'text-tx-secondary hover:text-tx-primary'
+            : 'text-tx-muted hover:bg-bg-elevated'
         "
       >
         <Icon
@@ -262,6 +262,7 @@
 const { t } = useI18n();
 const route = useRoute();
 const localePath = useLocalePath();
+
 const {
   hasFeature,
   isGuest,
@@ -377,7 +378,7 @@ const navItems = computed(() => [
     locked: !hasFeature("coupons"),
   },
   {
-    name: t("nav.admin.storeBuilder"),
+    name: t("nav.admin.store_builder"),
     icon: "ph:paint-brush-fill",
     active: route.path.includes("/dashboard/builder"),
     to: "/dashboard/builder",

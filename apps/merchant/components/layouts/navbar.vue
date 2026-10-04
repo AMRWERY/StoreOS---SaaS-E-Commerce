@@ -63,7 +63,7 @@
               to="/dashboard/builder"
               class="flex items-center gap-1.5 hover:text-tx-primary transition"
             >
-              {{ t("nav.admin.storeBuilder") }}
+              {{ t("nav.admin.store_builder") }}
             </nuxt-link-locale>
           </div>
         </div>
