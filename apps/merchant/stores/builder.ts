@@ -475,6 +475,18 @@ export const useBuilderStore = defineStore('builder', () => {
     isDirty.value = true
   }
 
+  /**
+   * Quick-save the current section/page settings without publishing.
+   * Flushes working state and clears the dirty flag.
+   */
+  async function saveSettings(): Promise<void> {
+    isSaving.value = true
+    _flush()
+    isDirty.value = false
+    await new Promise((resolve) => setTimeout(resolve, 400))
+    isSaving.value = false
+  }
+
   return {
     pages,
     storeName,
@@ -525,6 +537,7 @@ export const useBuilderStore = defineStore('builder', () => {
     redo,
     reorderSortOrder,
     publish,
+    saveSettings,
     hydrateFromStorage,
   }
 })

@@ -1,6 +1,6 @@
 ﻿<template>
   <div
-    class="flex min-h-0 w-full flex-1 flex-col gap-6 xl:flex-row xl:items-stretch xl:gap-0"
+    class="flex min-h-0 w-full flex-1 flex-col gap-6 xl:flex-row xl:items-stretch xl:gap-0 max-w-screen"
   >
     <lazy-builder-preview
       class="min-h-[480px] min-w-0 flex-1 xl:h-full xl:min-h-0"

@@ -5,6 +5,7 @@
       <div class="mt-4">
         <lazy-setting-textarea v-model="hero.subheadline" label="Subheadline" />
       </div>
+
       <div class="mt-4">
         <lazy-setting-text v-model="hero.buttonText" label="Button text" />
       </div>
@@ -20,5 +21,6 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+
 const hero = useBuilderEditorHero();
 </script>

@@ -11,7 +11,7 @@
         @close="isSidebarOpen = false"
       />
 
-      <div class="flex min-h-0 min-w-0 flex-1 overflow-hidden">
+      <div class="flex min-h-0 min-w-0 flex-1 overflow-hidden ms-4">
         <slot />
       </div>
     </div>
