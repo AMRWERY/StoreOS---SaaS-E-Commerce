@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <Teleport to="body">
     <div
       v-if="planGateOpen"
@@ -19,19 +19,22 @@
           <Icon name="ph:lock-key-bold" class="text-2xl" />
         </div>
         <h2 class="mt-5 text-lg font-bold tracking-wide text-tx-primary">
-          Starter plan
+          {{ isTrialMode ? "Free Trial — Limited Access" : "Growth Plan Required" }}
         </h2>
         <p class="mt-2 text-sm leading-relaxed text-tx-secondary">
-          Custom fonts, advanced sections, and priority publishing are on the
-          Growth plan.
+          {{
+            isTrialMode
+              ? "Publishing stores live, custom domains, and premium sections require the Growth plan. Upgrade to unlock all Store Builder features."
+              : "Custom fonts, advanced sections, and priority publishing are on the Growth plan."
+          }}
         </p>
         <LazyVButton
           variant="none"
           type="button"
-          className="mt-6 w-full rounded-lg bg-brand py-3 text-[11px] font-black tracking-wider text-white"
-          @click="planGateOpen = false"
+          className="mt-6 w-full rounded-lg bg-brand py-3 text-[11px] font-black tracking-wider text-white shadow-lg shadow-brand/25 transition-transform hover:scale-[1.02]"
+          @click="handleUpgrade"
         >
-          View plans
+          View plans & upgrade
         </LazyVButton>
         <LazyVButton
           variant="none"
@@ -39,7 +42,7 @@
           className="mt-3 w-full text-[11px] font-semibold text-tx-muted hover:text-tx-secondary"
           @click="planGateOpen = false"
         >
-          Not now
+          Continue free trial
         </LazyVButton>
       </div>
     </div>
@@ -48,6 +51,14 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
-
 const { planGateOpen } = useBuilderModals();
+const { hasFeature } = useAuth();
+const localePath = useLocalePath();
+
+const isTrialMode = computed(() => !hasFeature("builder"));
+
+const handleUpgrade = () => {
+  planGateOpen.value = false;
+  navigateTo(localePath("/dashboard/settings/billing-and-plan"));
+};
 </script>

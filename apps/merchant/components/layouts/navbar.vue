@@ -59,12 +59,14 @@
               {{ t("nav.dashboard") }}
             </nuxt-link-locale>
 
-            <nuxt-link-locale
-              to="/dashboard/builder"
-              class="flex items-center gap-1.5 hover:text-tx-primary transition"
+            <LazyVButton
+              variant="none"
+              @click="handleBuilderPreview"
+              className="flex items-center gap-1.5 hover:text-tx-primary transition"
             >
+              <Icon name="ph:paint-brush-bold" class="text-sm" />
               {{ t("nav.admin.store_builder") }}
-            </nuxt-link-locale>
+            </LazyVButton>
           </div>
         </div>
 
@@ -100,8 +102,22 @@
 <script lang="ts" setup>
 const { locale, t } = useI18n();
 
+const { register, isAuthenticated } = useAuth();
+const localePath = useLocalePath();
+
 const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
+
+/**
+ * Landing-page CTA: start a free trial session and navigate
+ * directly to the store builder page with limited trial access.
+ */
+const handleBuilderPreview = async () => {
+  if (!isAuthenticated.value) {
+    register("trial");
+  }
+  await navigateTo(localePath("/dashboard/builder/home"));
 };
 
 const switchLocalePath = useSwitchLocalePath();

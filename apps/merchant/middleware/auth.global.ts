@@ -5,7 +5,7 @@ const GUEST_BLOCKED_PREFIXES = ['/onboarding']
 const UPGRADE_ROUTE = '/dashboard/settings/billing-and-plan'
 
 export default defineNuxtRouteMiddleware((to) => {
-  const { isAuthenticated, isGuest, hasFeature, canWrite } = useAuth()
+  const { isAuthenticated, isGuest, hasFeature, canWrite, register } = useAuth()
   const { openGate } = useAuthGate()
   const localePath = useLocalePath()
 
@@ -20,6 +20,15 @@ export default defineNuxtRouteMiddleware((to) => {
   }
 
   if (!isProtected) return
+
+  // Store Builder allows limited trial / preview access for all visitors
+  const isBuilderRoute = path === '/dashboard/builder' || path.startsWith('/dashboard/builder/')
+  if (isBuilderRoute) {
+    if (!isAuthenticated.value && !isGuest.value) {
+      register('trial')
+    }
+    return
+  }
 
   const feature = featureForPath(path)
   const allowsFeature = () =>
