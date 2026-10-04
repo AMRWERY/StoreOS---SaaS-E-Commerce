@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div
     v-if="visible"
     class="z-30 flex items-center gap-0.5 rounded-lg border border-white/10 bg-neutral-950/90 p-1 shadow-xl backdrop-blur-md"
@@ -16,7 +16,7 @@
       :title="action.title"
       className="rounded-md p-1.5 text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
       :class="action.danger ? 'hover:!text-red-400' : ''"
-      @click="$emit('action', action.id)"
+      @click="handleAction(action.id)"
     >
       <Icon
         :name="action.icon"
@@ -44,7 +44,7 @@ withDefaults(
   { placement: "hero" },
 );
 
-defineEmits<{
+const emit = defineEmits<{
   action: [id: string];
 }>();
 
@@ -55,4 +55,15 @@ const actions = [
   { id: "hide", title: "Hide section", icon: "ph:eye-slash-bold" },
   { id: "del", title: "Delete", icon: "ph:trash-bold", danger: true },
 ] as const;
+
+const handleAction = (id: string) => {
+  // Invert 'up' and 'down' so Move Up actually moves the section up and Move Down moves it down
+  if (id === "up") {
+    emit("action", "down");
+  } else if (id === "down") {
+    emit("action", "up");
+  } else {
+    emit("action", id);
+  }
+};
 </script>
