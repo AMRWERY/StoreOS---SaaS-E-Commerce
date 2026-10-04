@@ -55,7 +55,7 @@
                   <Icon name="ph:check-circle-bold" class="text-green-400 text-3xl" />
                 </div>
                 <h3 class="font-bold text-lg mb-2">Message sent!</h3>
-                <p class="text-sm text-tx-secondary">We'll get back to you within one business day.</p>
+                <p class="text-sm text-tx-secondary">We'll get back to you within 2 business days.</p>
               </div>
 
               <LazyVFormWrapper v-else @submit="submit" formClass="!space-y-5">

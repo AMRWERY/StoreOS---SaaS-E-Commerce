@@ -114,12 +114,9 @@ const showOverlay = ref(false);
 const switchLocale = async () => {
   const newLocale = isEnglish.value ? "ar" : "en";
   showOverlay.value = true;
-
   // Wait for the overlay to fade in (increased to 2.5s per user request)
   await new Promise((resolve) => setTimeout(resolve, 2500));
-
   await navigateTo(switchLocalePath(newLocale));
-
   // Small delay after navigation/locale change
   setTimeout(() => {
     showOverlay.value = false;
