@@ -39,13 +39,13 @@
           </div>
         </nuxt-link-locale>
 
-        <nuxt-link-locale
+        <!-- <nuxt-link-locale
           to="/dashboard"
           class="hidden md:flex items-center gap-1.5 text-xs text-tx-secondary hover:text-tx-primary transition-colors ms-1 px-2.5 py-1 rounded-md border border-border-subtle hover:bg-bg-elevated"
         >
           <Icon name="ph:arrow-left-bold" class="rtl:rotate-180 text-xs" />
           <span>Dashboard</span>
-        </nuxt-link-locale>
+        </nuxt-link-locale> -->
       </div>
 
       <!-- Center: unsaved / trial badge -->
