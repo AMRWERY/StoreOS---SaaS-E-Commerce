@@ -17,21 +17,21 @@
         <p class="truncate text-white/90">
           <span v-if="isTrial && trialDaysLeft > 0">
             <strong class="text-white">{{
-              t("auth.trialBanner.daysLeft", trialDaysLeft)
+              t("auth.trial_banner.days_left", trialDaysLeft)
             }}</strong>
-            {{ t("auth.trialBanner.leftInTrial") }}
+            {{ t("auth.trial_banner.left_in_trial") }}
             <span class="text-white/80">{{
-              t("auth.trialBanner.upgradeToKeep")
+              t("auth.trial_banner.upgrade_to_keep")
             }}</span>
           </span>
           <span
             v-else-if="isTrial && trialDaysLeft === 0"
             class="text-orange-200"
           >
-            {{ t("auth.trialBanner.expired") }}
+            {{ t("auth.trial_banner.expired") }}
           </span>
           <span v-else>
-            {{ t("auth.trialBanner.limitedPlan", { plan: planConfig.label }) }}
+            {{ t("auth.trial_banner.limited_plan", { plan: planConfig.label }) }}
           </span>
         </p>
       </div>

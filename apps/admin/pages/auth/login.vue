@@ -1,8 +1,11 @@
 <template>
   <div>
-    <div class="flex flex-col items-center justify-center p-6 text-white selection:bg-indigo-500/30 mt-12">
+    <div
+      class="flex flex-col items-center justify-center p-6 text-white selection:bg-indigo-500/30 mt-12"
+    >
       <div
-        class="w-full max-w-[440px] rounded-2xl px-4 py-3.5 md:px-6 md:py-5 shadow-2xl border bg-bg-primary border-border-subtle">
+        class="w-full max-w-[440px] rounded-2xl px-4 py-3.5 md:px-6 md:py-5 shadow-2xl border bg-bg-primary border-border-subtle"
+      >
         <!-- Header -->
         <div class="flex flex-col items-center text-center mb-6">
           <div class="flex items-center gap-2 font-bold text-2xl mb-4">
@@ -15,20 +18,33 @@
 
         <!-- Form -->
         <LazyVFormWrapper formClass="!space-y-5" @submit="handleSubmit">
-          <LazyVInput type="email" :label="t('auth.email')" :placeholder="t('auth.emailPlaceholder')" v-model="email" />
+          <LazyVInput
+            type="email"
+            :label="t('auth.email')"
+            :placeholder="t('auth.email_placeholder')"
+            v-model="email"
+          />
 
-          <LazyVInput type="password" :label="t('auth.password')" v-model="password">
+          <LazyVInput
+            type="password"
+            :label="t('auth.password')"
+            v-model="password"
+          >
             <template #label-right>
               <span class="text-xs text-brand hover:underline cursor-pointer">
-                {{ t("auth.forgotPassword") }}
+                {{ t("auth.forgot_password") }}
               </span>
             </template>
           </LazyVInput>
 
-          <LazyVButton type="submit" variant="none" :disabled="isLoading"
-            className="w-full flex items-center justify-center bg-brand hover:bg-brand-hover disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10">
+          <LazyVButton
+            type="submit"
+            variant="none"
+            :disabled="isLoading"
+            className="w-full flex items-center justify-center bg-brand hover:bg-brand-hover disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10"
+          >
             <LazyVLoadingSpinner v-if="isLoading" size="sm" />
-            <span v-else>{{ t("auth.signIn") }}</span>
+            <span v-else>{{ t("auth.sign_in") }}</span>
           </LazyVButton>
         </LazyVFormWrapper>
 
@@ -37,40 +53,48 @@
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-border-subtle"></div>
           </div>
-          <div class="relative flex justify-center text-[10px] tracking-widest font-bold">
+          <div
+            class="relative flex justify-center text-[10px] tracking-widest font-bold"
+          >
             <span class="px-4 text-tx-muted bg-bg-primary">
-              {{ t("auth.orContinueWith") }}
+              {{ t("auth.or_continue_with") }}
             </span>
           </div>
         </div>
 
         <!-- Social -->
-        <LazyVButton variant="none"
-          className="w-full py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-3 transition border bg-transparent hover:bg-bg-elevated border-border-default text-tx-primary">
+        <LazyVButton
+          variant="none"
+          className="w-full py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-3 transition border bg-transparent hover:bg-bg-elevated border-border-default text-tx-primary"
+        >
           <Icon name="devicon:google" class="w-4 h-4" />
-          {{ t("auth.signInWithGoogle") }}
+          {{ t("auth.sign_in_with_google") }}
         </LazyVButton>
 
         <!-- Register CTA -->
         <div class="mt-8 text-center">
           <p class="text-sm text-tx-secondary mb-1">
-            {{ t("auth.noAccount") }}
+            {{ t("auth.no_account") }}
           </p>
-          <div class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1">
+          <div
+            class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1"
+          >
             <LazyVButton
               type="button"
               variant="none"
               @click="showTrialModal = true"
-              className="text-orange-500 font-bold hover:text-orange-400 hover:underline transition">
-              {{ t("auth.registerNow") }}
+              className="text-orange-500 font-bold hover:text-orange-400 hover:underline transition"
+            >
+              {{ t("auth.register_now") }}
             </LazyVButton>
             <span class="text-tx-muted">{{ t("auth.or") }}</span>
             <LazyVButton
               type="button"
               variant="none"
               @click="showTrialModal = true"
-              className="text-brand font-medium hover:text-brand-hover hover:underline transition">
-              {{ t("auth.startFreeTrial") }}
+              className="text-brand font-medium hover:text-brand-hover hover:underline transition"
+            >
+              {{ t("auth.start_free_trial") }}
             </LazyVButton>
           </div>
         </div>
@@ -86,7 +110,7 @@
 </template>
 
 <script lang="ts" setup>
-definePageMeta({ layout: false })
+definePageMeta({ layout: false });
 
 const { t } = useI18n();
 const { login } = useAuth();

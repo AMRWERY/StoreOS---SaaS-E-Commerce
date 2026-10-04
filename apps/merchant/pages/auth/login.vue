@@ -21,7 +21,7 @@
           <LazyVInput
             type="email"
             :label="t('auth.email')"
-            :placeholder="t('auth.emailPlaceholder')"
+            :placeholder="t('auth.email_placeholder')"
             v-model="email"
           />
 
@@ -35,7 +35,7 @@
                 to=""
                 class="text-xs text-brand hover:underline"
               >
-                {{ t("auth.forgotPassword") }}
+                {{ t("auth.forgot_password") }}
               </nuxt-link-locale>
             </template>
           </LazyVInput>
@@ -47,7 +47,8 @@
             className="w-full flex items-center justify-center bg-brand hover:bg-brand-hover disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10"
           >
             <LazyVLoadingSpinner v-if="isLoading" size="sm" />
-            <span v-else>{{ t("auth.signIn") }}</span>
+
+            <span v-else>{{ t("auth.sign_in") }}</span>
           </LazyVButton>
         </LazyVFormWrapper>
 
@@ -60,7 +61,7 @@
             class="relative flex justify-center text-[10px] tracking-widest font-bold"
           >
             <span class="px-4 text-tx-muted bg-bg-primary">
-              {{ t("auth.orContinueWith") }}
+              {{ t("auth.or_continue_with") }}
             </span>
           </div>
         </div>
@@ -71,13 +72,13 @@
           className="w-full py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-3 transition border bg-transparent hover:bg-bg-elevated border-border-default text-tx-primary"
         >
           <Icon name="devicon:google" class="w-4 h-4" />
-          {{ t("auth.signInWithGoogle") }}
+          {{ t("auth.sign_in_with_google") }}
         </LazyVButton>
 
         <!-- Register CTA -->
         <div class="mt-8 text-center">
           <p class="text-sm text-tx-secondary mb-1">
-            {{ t("auth.noAccount") }}
+            {{ t("auth.no_account") }}
           </p>
           <div
             class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1"
@@ -86,7 +87,7 @@
               to="/auth/register"
               class="text-orange-500 font-bold hover:text-orange-400 hover:underline transition"
             >
-              {{ t("auth.registerNow") }}
+              {{ t("auth.register_now") }}
             </nuxt-link-locale>
             <span class="text-tx-muted">{{ t("auth.or") }}</span>
             <LazyVButton
@@ -96,11 +97,11 @@
               @click="handleStartFreeTrial"
               className="text-brand font-medium hover:text-brand-hover hover:underline transition disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {{ t("auth.startFreeTrial") }}
+              {{ t("auth.start_free_trial") }}
             </LazyVButton>
           </div>
           <p class="mt-2 text-[10px] text-tx-muted">
-            {{ t("auth.previewHint") }}
+            {{ t("auth.preview_hint") }}
           </p>
         </div>
       </div>
