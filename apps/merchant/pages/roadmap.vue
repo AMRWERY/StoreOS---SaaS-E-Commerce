@@ -5,10 +5,16 @@
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
       <div class="max-w-5xl mx-auto relative z-10">
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">Product Roadmap</p>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">What's coming<br />to StoreOS.</h1>
-        <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
-          A live view of our product direction. We ship fast and keep this updated as priorities evolve.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+          v-html="wordReveal([`What's coming`, `to StoreOS.`])"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-2xl leading-relaxed"
+          v-html="wordReveal(`A live view of our product direction. We ship fast and keep this updated as priorities evolve.`, { delay: 320, stagger: 40 })"
+        />
       </div>
     </header>
 
@@ -65,6 +71,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const activeTab = ref('all')
 
 const tabs = [

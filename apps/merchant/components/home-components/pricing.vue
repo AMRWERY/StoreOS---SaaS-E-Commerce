@@ -9,10 +9,16 @@
         <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">
           {{ t("home.pricing.sectionLabel") }}
         </p>
-        <h2 class="text-4xl md:text-5xl font-bold mb-5">
-          {{ t("home.pricing.title") }}
-        </h2>
-        <p class="text-tx-secondary mb-10">{{ t("home.pricing.subtitle") }}</p>
+        <h2
+          data-word-reveal
+          class="text-4xl md:text-5xl font-bold mb-5"
+          v-html="wordReveal(t('home.pricing.title'))"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary mb-10"
+          v-html="wordReveal(t('home.pricing.subtitle'), { delay: 300, stagger: 40 })"
+        />
 
         <!-- Billing Toggle -->
         <div
@@ -388,6 +394,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 import type { Tier } from "@/types/pricing";
 import type { Plan } from "@/types/auth";
 

@@ -4,10 +4,16 @@
     <header class="pt-32 pb-20 px-6 border-b border-border-subtle bg-bg-primary/50">
       <div class="max-w-5xl mx-auto">
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">Blog</p>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">Insights for<br />modern merchants.</h1>
-        <p class="text-tx-secondary text-lg max-w-2xl">
-          Guides, product updates, and e-commerce strategy from the StoreOS team.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-6xl font-bold mb-6"
+          v-html="wordReveal([`Insights for`, `modern merchants.`])"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-2xl"
+          v-html="wordReveal(`Guides, product updates, and e-commerce strategy from the StoreOS team.`, { delay: 320, stagger: 40 })"
+        />
       </div>
     </header>
 
@@ -70,6 +76,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const activeCategory = ref('All')
 const categories = ['All', 'Product', 'Strategy', 'Operations', 'Engineering']
 

@@ -5,13 +5,16 @@
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
       <div class="max-w-5xl mx-auto relative z-10">
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">About StoreOS</p>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Built for merchants<br />who mean business.
-        </h1>
-        <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
-          StoreOS is the modern operating system for commerce — a single platform that replaces the patchwork of tools
-          most merchants juggle every day.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+          v-html="wordReveal([`Built for merchants`, `who mean business.`])"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-2xl leading-relaxed"
+          v-html="wordReveal(`StoreOS is the modern operating system for commerce — a single platform that replaces the patchwork of tools most merchants juggle every day.`, { delay: 480, stagger: 40 })"
+        />
       </div>
     </header>
 
@@ -20,7 +23,11 @@
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>
           <p class="text-kicker">Our Mission</p>
-          <h2 class="text-3xl font-bold mb-6">Commerce infrastructure for everyone</h2>
+          <h2
+            data-word-reveal
+            class="text-3xl font-bold mb-6"
+            v-html="wordReveal(`Commerce infrastructure for everyone`)"
+          />
           <p class="text-tx-secondary leading-relaxed mb-4">
             We believe that building and running a store online should be fast, intuitive, and powerful — regardless of
             the size of your team or your technical background.
@@ -41,7 +48,11 @@
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/30">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker text-center">What drives us</p>
-        <h2 class="text-3xl font-bold mb-16 text-center">Our core values</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-16 text-center"
+          v-html="wordReveal(`Our core values`)"
+        />
         <div class="grid md:grid-cols-3 gap-8">
           <div v-for="value in values" :key="value.title"
             class="bg-bg-primary border border-border-subtle rounded-2xl p-8">
@@ -59,7 +70,11 @@
     <section class="py-24 px-6 border-b border-border-subtle">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker">The team</p>
-        <h2 class="text-3xl font-bold mb-4">Built by people who've run stores</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-4"
+          v-html="wordReveal(`Built by people who've run stores`)"
+        />
         <p class="text-tx-secondary max-w-2xl mb-16 leading-relaxed">
           Our founding team comes from e-commerce operations, logistics, and developer tooling. We understand the pain
           because we've lived it.
@@ -83,7 +98,11 @@
     <!-- CTA -->
     <section class="py-24 px-6">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-4">Ready to upgrade your operations?</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-4"
+          v-html="wordReveal(`Ready to upgrade your operations?`)"
+        />
         <p class="text-tx-secondary mb-10">Start your 14-day free trial. No credit card required.</p>
         <LazyVButton to="/" label="Get started free" icon="ph:arrow-right-bold"
           className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
@@ -93,6 +112,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const stats = [
   { value: '12K+', label: 'Stores powered', icon: 'ph:storefront-bold' },
   { value: '99.9%', label: 'Uptime SLA', icon: 'ph:activity-bold' },

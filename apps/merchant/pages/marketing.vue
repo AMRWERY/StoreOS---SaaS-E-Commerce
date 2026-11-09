@@ -11,14 +11,16 @@
           <Icon name="ph:megaphone-bold" class="text-purple-400 text-sm" />
           <span class="text-[10px] font-black tracking-[0.3em] text-purple-400 uppercase">Marketing Suite</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Grow revenue.<br />
-          <span class="text-tx-secondary">Not your workload.</span>
-        </h1>
-        <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed mb-10">
-          Email campaigns, discount engines, ad catalog sync, and customer segmentation — the complete marketing toolkit
-          built for e-commerce merchants.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+          v-html="wordReveal([`Grow revenue.`, { text: `Not your workload.`, class: 'text-tx-secondary' }])"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-2xl leading-relaxed mb-10"
+          v-html="wordReveal(`Email campaigns, discount engines, ad catalog sync, and customer segmentation — the complete marketing toolkit built for e-commerce merchants.`, { delay: 400, stagger: 40 })"
+        />
         <div class="flex flex-wrap gap-4">
           <LazyVButton to="/auth/register" label="Launch your first campaign" icon="ph:arrow-right-bold"
             className="px-7 py-3.5 rounded-xl shadow-lg shadow-brand/20" />
@@ -42,7 +44,11 @@
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <p class="text-kicker">Email & Automations</p>
-            <h2 class="text-3xl font-bold mb-5">Email that sells while you sleep</h2>
+            <h2
+              data-word-reveal
+              class="text-3xl font-bold mb-5"
+              v-html="wordReveal(`Email that sells while you sleep`)"
+            />
             <p class="text-tx-secondary leading-relaxed mb-8">
               Build automated email sequences triggered by customer behavior — abandoned carts, post-purchase flows,
               re-engagement campaigns, and seasonal promotions.
@@ -102,7 +108,11 @@
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/20">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker text-center">Toolkit</p>
-        <h2 class="text-3xl font-bold mb-16 text-center">Every growth tool in one place</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-16 text-center"
+          v-html="wordReveal(`Every growth tool in one place`)"
+        />
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="feature in features" :key="feature.title"
             class="bg-bg-primary border border-border-subtle rounded-2xl p-7 hover:border-purple-500/30 transition-all group">
@@ -122,7 +132,11 @@
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>
           <p class="text-kicker">Promotions Engine</p>
-          <h2 class="text-3xl font-bold mb-5">Discounts that don't require a developer</h2>
+          <h2
+            data-word-reveal
+            class="text-3xl font-bold mb-5"
+            v-html="wordReveal(`Discounts that don't require a developer`)"
+          />
           <p class="text-tx-secondary leading-relaxed mb-6">
             Create percentage discounts, fixed amounts, buy-X-get-Y offers, free shipping rules, and flash sales — all
             configurable in the dashboard with scheduling built in.
@@ -162,7 +176,11 @@
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/20">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker text-center">Integrations</p>
-        <h2 class="text-2xl font-bold mb-12 text-center">Works with your existing marketing stack</h2>
+        <h2
+          data-word-reveal
+          class="text-2xl font-bold mb-12 text-center"
+          v-html="wordReveal(`Works with your existing marketing stack`)"
+        />
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
           <div v-for="integration in marketingIntegrations" :key="integration.name"
             class="flex items-center gap-4 p-5 bg-bg-primary border border-border-subtle rounded-2xl hover:border-purple-500/30 transition-all">
@@ -181,7 +199,11 @@
     <!-- CTA -->
     <section class="py-24 px-6">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-4">Start growing your store today</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-4"
+          v-html="wordReveal(`Start growing your store today`)"
+        />
         <p class="text-tx-secondary mb-10">Your first campaign is free. No credit card required.</p>
         <LazyVButton to="/auth/register" label="Launch a campaign" icon="ph:arrow-right-bold"
           className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
@@ -191,6 +213,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const stats = [
   { value: '3.4x', label: 'Avg. email ROI', icon: 'ph:chart-line-up-bold', trend: 'vs. industry avg' },
   { value: '42%', label: 'Cart recovery rate', icon: 'ph:shopping-cart-bold', trend: 'Abandoned cart flows' },

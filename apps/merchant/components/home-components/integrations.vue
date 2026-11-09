@@ -9,15 +9,24 @@
         <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">
           {{ t("home.integrations.sectionLabel") }}
         </p>
-        <h2 class="text-4xl md:text-5xl font-bold mb-6">
-          {{ t("home.integrations.title") }}<br />
-          <span class="text-tx-secondary">{{
-            t("home.integrations.titleSecondary")
-          }}</span>
-        </h2>
-        <p class="text-tx-secondary max-w-xl mx-auto leading-relaxed">
-          {{ t("home.integrations.subtitle") }}
-        </p>
+        <h2
+          data-word-reveal
+          class="text-4xl md:text-5xl font-bold mb-6"
+          v-html="
+            wordReveal([
+              t('home.integrations.title'),
+              {
+                text: t('home.integrations.titleSecondary'),
+                class: 'text-tx-secondary',
+              },
+            ])
+          "
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary max-w-xl mx-auto leading-relaxed"
+          v-html="wordReveal(t('home.integrations.subtitle'), { delay: 500, stagger: 40 })"
+        />
       </div>
 
       <!-- Integration Categories -->
@@ -119,9 +128,11 @@
         <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">
           {{ t("home.integrations.getStarted") }}
         </p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-16">
-          {{ t("home.integrations.goLive") }}
-        </h2>
+        <h2
+          data-word-reveal
+          class="text-3xl md:text-4xl font-bold mb-16"
+          v-html="wordReveal(t('home.integrations.goLive'))"
+        />
         <div class="grid md:grid-cols-3 gap-8 relative">
           <div
             class="hidden md:block absolute top-10 start-1/6 end-1/6 h-px bg-border-subtle -z-10"
@@ -148,6 +159,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const { t } = useI18n();
 
 const categories = computed(() => [

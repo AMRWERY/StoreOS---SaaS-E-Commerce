@@ -5,10 +5,16 @@
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
       <div class="max-w-5xl mx-auto relative z-10">
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">Documentation</p>
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">Everything you need<br />to run your store.</h1>
-        <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
-          Guides, API references, and integration docs — all in one place.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-5xl font-bold mb-6"
+          v-html="wordReveal([`Everything you need`, `to run your store.`])"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-2xl leading-relaxed"
+          v-html="wordReveal(`Guides, API references, and integration docs — all in one place.`, { delay: 560, stagger: 40 })"
+        />
         <div class="mt-8 max-w-lg">
           <LazyVSearchInput v-model="search" placeholder="Search documentation..." input-class="py-3 text-sm" />
         </div>
@@ -77,6 +83,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const search = ref('')
 const activeDoc = ref('getting-started')
 

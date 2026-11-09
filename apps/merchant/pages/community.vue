@@ -5,11 +5,16 @@
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
       <div class="max-w-5xl mx-auto relative z-10">
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">Community</p>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Built with<br />merchants, for merchants.</h1>
-        <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
-          Join thousands of store owners sharing strategies, troubleshooting issues, and shaping the future of StoreOS
-          together.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+          v-html="wordReveal([`Built with`, `merchants, for merchants.`])"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-2xl leading-relaxed"
+          v-html="wordReveal(`Join thousands of store owners sharing strategies, troubleshooting issues, and shaping the future of StoreOS together.`, { delay: 400, stagger: 40 })"
+        />
         <div class="mt-8 flex flex-wrap gap-4">
           <LazyVButton to="https://discord.gg/storeos" label="Join Discord" icon="ph:discord-logo-bold"
             icon-position="left" variant="none"
@@ -32,7 +37,11 @@
     <section class="py-24 px-6 border-b border-border-subtle">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker">Where to find us</p>
-        <h2 class="text-2xl font-bold mb-12">Community channels</h2>
+        <h2
+          data-word-reveal
+          class="text-2xl font-bold mb-12"
+          v-html="wordReveal(`Community channels`)"
+        />
         <div class="grid sm:grid-cols-2 gap-6">
           <div v-for="channel in channels" :key="channel.title"
             class="card p-6 hover:border-brand/30 transition-all group">
@@ -60,7 +69,11 @@
     <section class="py-24 px-6 border-b border-border-subtle">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker">Trending</p>
-        <h2 class="text-2xl font-bold mb-10">Recent discussions</h2>
+        <h2
+          data-word-reveal
+          class="text-2xl font-bold mb-10"
+          v-html="wordReveal(`Recent discussions`)"
+        />
         <div class="space-y-3">
           <div v-for="thread in threads" :key="thread.title"
             class="bg-bg-primary border border-border-subtle rounded-2xl px-6 py-4 flex items-center justify-between gap-4 hover:border-brand/30 transition-all cursor-pointer">
@@ -90,7 +103,11 @@
     <!-- CTA -->
     <section class="py-24 px-6">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-4">Ready to join the conversation?</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-4"
+          v-html="wordReveal(`Ready to join the conversation?`)"
+        />
         <p class="text-tx-secondary mb-8">3,200+ merchants are already there. Come say hi.</p>
         <LazyVButton to="https://discord.gg/storeos" label="Join the community" icon="ph:arrow-right-bold"
           className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
@@ -100,6 +117,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const stats = [
   { value: '3.2K+', label: 'Discord members', icon: 'ph:discord-logo-bold' },
   { value: '480+', label: 'GitHub stars', icon: 'ph:star-bold' },

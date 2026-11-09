@@ -3,10 +3,16 @@
     <section class="py-24 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">
-            {{ t("home.problem.title") }}
-          </h2>
-          <p class="text-gray-400">{{ t("home.problem.subtitle") }}</p>
+          <h2
+            data-word-reveal
+            class="text-3xl md:text-4xl font-bold mb-4"
+            v-html="wordReveal(t('home.problem.title'))"
+          />
+          <p
+            data-word-reveal
+            class="text-gray-400"
+            v-html="wordReveal(t('home.problem.subtitle'), { delay: 300, stagger: 40 })"
+          />
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
@@ -36,6 +42,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const { t } = useI18n();
 
 const problems = computed(() => [

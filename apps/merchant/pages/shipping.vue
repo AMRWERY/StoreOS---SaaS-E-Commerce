@@ -9,14 +9,16 @@
           <Icon name="ph:truck-bold" class="text-brand text-sm" />
           <span class="text-[10px] font-black tracking-[0.3em] text-brand uppercase">Shipping & Logistics</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Ship faster.<br />
-          <span class="text-tx-secondary">Stress less.</span>
-        </h1>
-        <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed mb-10">
-          Connect 10+ carriers, auto-generate labels, calculate live rates at checkout, and manage returns — all from
-          one unified shipping dashboard.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+          v-html="wordReveal([`Ship faster.`, { text: `Stress less.`, class: 'text-tx-secondary' }])"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-2xl leading-relaxed mb-10"
+          v-html="wordReveal(`Connect 10+ carriers, auto-generate labels, calculate live rates at checkout, and manage returns — all from one unified shipping dashboard.`, { delay: 320, stagger: 40 })"
+        />
         <div class="flex flex-wrap gap-4">
           <LazyVButton to="/auth/register" label="Start shipping free" icon="ph:arrow-right-bold"
             className="px-7 py-3.5 rounded-xl shadow-lg shadow-brand/20" />
@@ -40,7 +42,11 @@
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <p class="text-kicker">Carriers</p>
-            <h2 class="text-3xl font-bold mb-5">Every major carrier, ready out of the box</h2>
+            <h2
+              data-word-reveal
+              class="text-3xl font-bold mb-5"
+              v-html="wordReveal(`Every major carrier, ready out of the box`)"
+            />
             <p class="text-tx-secondary leading-relaxed mb-8">
               Connect Aramex, DHL, Bosta, J&T, ShipBob, and more in minutes. Automatic rate fetching, label printing,
               and tracking — no developer required.
@@ -95,7 +101,11 @@
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/20">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker text-center">Core Features</p>
-        <h2 class="text-3xl font-bold mb-16 text-center">Everything your logistics team needs</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-16 text-center"
+          v-html="wordReveal(`Everything your logistics team needs`)"
+        />
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="feature in features" :key="feature.title"
             class="bg-bg-primary border border-border-subtle rounded-2xl p-7 hover:border-brand/30 transition-all group">
@@ -140,7 +150,11 @@
         </div>
         <div class="order-1 md:order-2">
           <p class="text-kicker">Zones & Rates</p>
-          <h2 class="text-3xl font-bold mb-5">Build shipping rules that match your business</h2>
+          <h2
+            data-word-reveal
+            class="text-3xl font-bold mb-5"
+            v-html="wordReveal(`Build shipping rules that match your business`)"
+          />
           <p class="text-tx-secondary leading-relaxed mb-6">
             Create unlimited shipping zones with custom rules — flat rates, weight-based pricing, free shipping
             thresholds, and carrier-calculated rates. Changes go live instantly.
@@ -209,7 +223,11 @@
     <!-- CTA -->
     <section class="py-24 px-6">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-4">Ready to streamline your shipping?</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-4"
+          v-html="wordReveal(`Ready to streamline your shipping?`)"
+        />
         <p class="text-tx-secondary mb-10">Set up in minutes. Your first 500 labels are free.</p>
         <LazyVButton to="/auth/register" label="Get started free" icon="ph:arrow-right-bold"
           className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
@@ -219,6 +237,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const stats = [
   { value: '10+', label: 'Carriers integrated', icon: 'ph:truck-bold', trend: 'Regional & global' },
   { value: '<2s', label: 'Rate calculation', icon: 'ph:lightning-bold', trend: 'Live at checkout' },

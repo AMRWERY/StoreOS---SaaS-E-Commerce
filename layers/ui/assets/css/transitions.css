@@ -43,3 +43,158 @@
 .layout-leave-to {
   filter: grayscale(1);
 }
+
+/* Word-by-word text reveal. Markup comes from wordReveal() in layers/core/utils,
+   and layers/core/plugins/word-reveal.client.ts sets data-visible on scroll-in. */
+[data-word-reveal] .wr-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.35em);
+  filter: blur(4px);
+}
+
+[data-word-reveal][data-visible] .wr-word {
+  animation: wr-in 0.3s ease-out forwards;
+  animation-delay: var(--wr-delay, 0ms);
+}
+
+@keyframes wr-in {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Show the text as-is for reduced motion, and when JS is unavailable. */
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  [data-word-reveal] .wr-word {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+}
+
+
+/* ---- Headline decoration (opt-in via the line class passed to wordReveal) ----
+   .wr-shine     gradient text with a slow light sweep across the words
+   .wr-underline a wavy underline that draws itself in after the words land
+   Both use design tokens, so they follow the dark/light theme. */
+
+/* Fallback colour first; the gradient only applies where background-clip:text works. */
+[data-word-reveal] .wr-shine .wr-word {
+  color: rgb(var(--brand-rgb));
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  [data-word-reveal] .wr-shine .wr-word {
+    background-image: linear-gradient(
+      100deg,
+      rgb(var(--brand-rgb)) 0%,
+      rgb(var(--brand-hover-rgb)) 38%,
+      rgb(var(--text-primary-rgb)) 50%,
+      rgb(var(--brand-hover-rgb)) 62%,
+      rgb(var(--brand-rgb)) 100%
+    );
+    background-size: 250% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Gradient text paints only inside the box, so give descenders (Arabic
+       especially) room, and cancel it with a negative margin to keep layout. */
+    padding-block: 0.2em;
+    margin-block: -0.2em;
+  }
+
+  [data-word-reveal][data-visible] .wr-shine .wr-word {
+    /* word-in uses the per-word delay; the sheen starts once the words have landed */
+    animation:
+      wr-in 0.3s ease-out forwards var(--wr-delay, 0ms),
+      wr-sheen 5s ease-in-out infinite 1.2s;
+  }
+}
+
+@keyframes wr-sheen {
+  0%,
+  35% {
+    background-position: 100% 0;
+  }
+  70%,
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+[data-word-reveal] .wr-underline {
+  position: relative;
+  display: inline-block;
+}
+
+[data-word-reveal] .wr-underline::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -0.36em;
+  height: 0.26em;
+  background: linear-gradient(
+    90deg,
+    rgb(var(--brand-rgb)),
+    rgb(var(--brand-hover-rgb)) 55%,
+    rgb(var(--accent-rgb))
+  );
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0 10 5T20 5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")
+    0 50% / 0.52em 100% repeat-x;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0 10 5T20 5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")
+    0 50% / 0.52em 100% repeat-x;
+  clip-path: inset(0 100% 0 0);
+}
+
+[dir="rtl"] [data-word-reveal] .wr-underline::after {
+  clip-path: inset(0 0 0 100%);
+}
+
+[data-word-reveal][data-visible] .wr-underline::after {
+  animation: wr-draw 0.5s ease-out forwards 0.85s;
+}
+
+@keyframes wr-draw {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Twinkling sparkle (ambient decoration, not a word animation) */
+.wr-twinkle {
+  animation: wr-twinkle 3.2s ease-in-out infinite;
+}
+
+@keyframes wr-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  [data-word-reveal] .wr-underline::after {
+    clip-path: none;
+    animation: none;
+  }
+
+  [data-word-reveal][data-visible] .wr-shine .wr-word {
+    animation: none;
+  }
+
+  .wr-twinkle {
+    animation: none;
+    opacity: 0.7;
+  }
+}

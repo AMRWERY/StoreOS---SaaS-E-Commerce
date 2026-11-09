@@ -9,15 +9,24 @@
         <p class="text-[10px] font-black tracking-[0.3em] text-brand mb-4">
           {{ t("home.features.sectionLabel") }}
         </p>
-        <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-          {{ t("home.features.title") }}<br />
-          <span class="text-tx-secondary">{{
-            t("home.features.titleSecondary")
-          }}</span>
-        </h2>
-        <p class="text-tx-secondary leading-relaxed">
-          {{ t("home.features.subtitle") }}
-        </p>
+        <h2
+          data-word-reveal
+          class="text-4xl md:text-5xl font-bold leading-tight mb-6"
+          v-html="
+            wordReveal([
+              t('home.features.title'),
+              {
+                text: t('home.features.titleSecondary'),
+                class: 'text-tx-secondary',
+              },
+            ])
+          "
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary leading-relaxed"
+          v-html="wordReveal(t('home.features.subtitle'), { delay: 500, stagger: 40 })"
+        />
       </div>
 
       <!-- Interactive Feature Explorer -->
@@ -146,6 +155,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const { t } = useI18n();
 const activeTab = ref("orders");
 

@@ -11,14 +11,16 @@
           <Icon name="ph:chats-bold" class="text-green-400 text-sm" />
           <span class="text-[10px] font-black tracking-[0.3em] text-green-400 uppercase">Messaging</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Talk to customers<br />
-          <span class="text-tx-secondary">on every channel.</span>
-        </h1>
-        <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed mb-10">
-          WhatsApp order confirmations, SMS alerts, live chat, and automated sequences — manage all customer
-          communication from a single inbox.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+          v-html="wordReveal([`Talk to customers`, { text: `on every channel.`, class: 'text-tx-secondary' }])"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-2xl leading-relaxed mb-10"
+          v-html="wordReveal(`WhatsApp order confirmations, SMS alerts, live chat, and automated sequences — manage all customer communication from a single inbox.`, { delay: 480, stagger: 40 })"
+        />
         <div class="flex flex-wrap gap-4">
           <LazyVButton to="/auth/register" label="Connect your channels" icon="ph:arrow-right-bold"
             className="px-7 py-3.5 rounded-xl shadow-lg shadow-brand/20" />
@@ -42,7 +44,11 @@
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <p class="text-kicker">Channels</p>
-            <h2 class="text-3xl font-bold mb-5">One inbox. Every channel.</h2>
+            <h2
+              data-word-reveal
+              class="text-3xl font-bold mb-5"
+              v-html="wordReveal(`One inbox. Every channel.`)"
+            />
             <p class="text-tx-secondary leading-relaxed mb-8">
               Customers reach you on WhatsApp, SMS, live chat, and email. StoreOS unifies all conversations into a
               single timeline so your team never loses context.
@@ -124,7 +130,11 @@
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/20">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker text-center">Capabilities</p>
-        <h2 class="text-3xl font-bold mb-16 text-center">Built for commerce conversations</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-16 text-center"
+          v-html="wordReveal(`Built for commerce conversations`)"
+        />
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="feature in features" :key="feature.title"
             class="bg-bg-primary border border-border-subtle rounded-2xl p-7 hover:border-green-500/30 transition-all group">
@@ -144,7 +154,11 @@
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         <div>
           <p class="text-kicker">Automations</p>
-          <h2 class="text-3xl font-bold mb-5">Automated messages that feel personal</h2>
+          <h2
+            data-word-reveal
+            class="text-3xl font-bold mb-5"
+            v-html="wordReveal(`Automated messages that feel personal`)"
+          />
           <p class="text-tx-secondary leading-relaxed mb-6">
             Set up trigger-based message sequences once. StoreOS handles the sending — order confirmations, shipping
             updates, cart recovery, review requests — automatically.
@@ -188,7 +202,11 @@
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker text-center">Messaging Partners
         </p>
-        <h2 class="text-2xl font-bold mb-12 text-center">Connect the tools your team already uses</h2>
+        <h2
+          data-word-reveal
+          class="text-2xl font-bold mb-12 text-center"
+          v-html="wordReveal(`Connect the tools your team already uses`)"
+        />
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
           <div v-for="integration in messagingIntegrations" :key="integration.name"
             class="flex items-center gap-4 p-5 bg-bg-primary border border-border-subtle rounded-2xl hover:border-green-500/30 transition-all">
@@ -207,7 +225,11 @@
     <!-- CTA -->
     <section class="py-24 px-6">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-4">Start talking to your customers</h2>
+        <h2
+          data-word-reveal
+          class="text-3xl font-bold mb-4"
+          v-html="wordReveal(`Start talking to your customers`)"
+        />
         <p class="text-tx-secondary mb-10">Connect WhatsApp in 2 minutes. Free for 1,000 messages/month.</p>
         <LazyVButton to="/auth/register" label="Get started free" icon="ph:arrow-right-bold"
           className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
@@ -217,6 +239,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const stats = [
   { value: '98%', label: 'WhatsApp open rate', icon: 'ph:whatsapp-logo-bold', trend: 'vs. 20% email avg' },
   { value: '6', label: 'Channels in one inbox', icon: 'ph:chats-bold', trend: 'Unified timeline' },

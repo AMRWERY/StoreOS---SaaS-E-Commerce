@@ -4,8 +4,16 @@
     <header class="pt-32 pb-16 px-6 border-b border-border-subtle bg-bg-primary/50">
       <div class="max-w-4xl mx-auto">
         <p class="text-[10px] font-black tracking-[0.4em] text-tx-muted mb-6 uppercase">Legal & Compliance</p>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
-        <p class="text-tx-secondary text-sm">Last Updated: April 21, 2026</p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-5xl font-bold mb-4"
+          v-html="wordReveal(`Privacy Policy`)"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-sm"
+          v-html="wordReveal(`Last Updated: April 21, 2026`, { delay: 160, stagger: 40 })"
+        />
       </div>
     </header>
 
@@ -60,6 +68,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const sections = [
   {
     id: 'intro',

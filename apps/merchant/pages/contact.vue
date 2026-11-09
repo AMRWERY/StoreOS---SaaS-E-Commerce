@@ -5,10 +5,16 @@
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
       <div class="max-w-5xl mx-auto relative z-10">
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">Contact</p>
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">Let's talk.</h1>
-        <p class="text-tx-secondary text-lg max-w-xl leading-relaxed">
-          Whether you have a sales question, need technical support, or just want to say hi — we're here.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-5xl font-bold mb-6"
+          v-html="wordReveal(`Let's talk.`)"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-xl leading-relaxed"
+          v-html="wordReveal(`Whether you have a sales question, need technical support, or just want to say hi — we're here.`, { delay: 160, stagger: 40 })"
+        />
       </div>
     </header>
 
@@ -47,7 +53,11 @@
         <!-- Form -->
         <div class="md:col-span-3">
           <div class="bg-bg-primary border border-border-subtle rounded-2xl p-8">
-            <h2 class="font-bold text-lg mb-6">Send us a message</h2>
+            <h2
+              data-word-reveal
+              class="font-bold text-lg mb-6"
+              v-html="wordReveal(`Send us a message`)"
+            />
 
             <Transition name="fade" mode="out-in">
               <div v-if="sent" class="text-center py-12">
@@ -90,6 +100,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const route = useRoute()
 
 /**

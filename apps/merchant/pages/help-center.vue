@@ -4,7 +4,11 @@
       <section class="relative pt-32 pb-24 px-6 overflow-hidden border-b border-border-subtle bg-bg-primary/50">
          <div class="max-w-4xl mx-auto relative z-10 text-center">
             <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">StoreOS Support</p>
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-10">How can we help?</h1>
+            <h1
+              data-word-reveal
+              class="text-4xl md:text-6xl font-bold leading-tight mb-10"
+              v-html="wordReveal(`How can we help?`)"
+            />
             <div class="relative max-w-2xl mx-auto group">
                <div
                   class="absolute inset-0 bg-brand/5 blur-2xl rounded-full opacity-0 group-focus-within:opacity-100 transition-opacity">
@@ -73,7 +77,11 @@
             class="max-w-4xl mx-auto p-12 rounded-[3rem] border border-brand/20 bg-gradient-to-br from-bg-elevated to-bg-base text-center relative overflow-hidden">
             <div class="absolute inset-0 bg-brand/5 blur-[80px] rounded-full"></div>
             <Icon name="ph:chat-circle-dots-fill" class="text-4xl text-brand mb-6" />
-            <h2 class="text-3xl font-bold mb-4">Still need help?</h2>
+            <h2
+              data-word-reveal
+              class="text-3xl font-bold mb-4"
+              v-html="wordReveal(`Still need help?`)"
+            />
             <p class="text-tx-secondary mb-10">Our community and support specialists are here to guide you.</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                <LazyVButton variant="none"
@@ -89,6 +97,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const popularTags = ['Integration Guide', 'API Keys', 'Billing', 'Mobile App', 'Warehouse Apps']
 
 const categories = [

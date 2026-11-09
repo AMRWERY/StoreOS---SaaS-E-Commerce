@@ -2,15 +2,45 @@
   <div>
     <section class="pt-32 pb-20 px-6 text-center">
       <div class="max-w-4xl mx-auto">
-        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-          {{ t("home.hero.title") }} <br />
-          <span class="text-brand">{{ t("home.hero.titleBrand") }}</span>
-        </h1>
+        <div class="relative isolate mb-9">
+          <!-- Soft glow behind the headline -->
+          <div
+            class="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[140%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/20 blur-[90px]"
+            aria-hidden="true"
+          ></div>
+
+          <!-- Sparkles -->
+          <Icon
+            name="ph:sparkle-fill"
+            class="wr-twinkle absolute -top-4 end-[6%] text-2xl text-brand-hover"
+            aria-hidden="true"
+          />
+          <Icon
+            name="ph:sparkle-fill"
+            class="wr-twinkle absolute bottom-6 start-[3%] text-lg text-accent"
+            style="animation-delay: 1.1s"
+            aria-hidden="true"
+          />
+
+          <h1
+            data-word-reveal
+            class="text-5xl md:text-7xl font-bold tracking-tight"
+            v-html="
+              wordReveal([
+                t('home.hero.title'),
+                {
+                  text: t('home.hero.titleBrand'),
+                  class: 'text-brand wr-shine wr-underline',
+                },
+              ])
+            "
+          />
+        </div>
         <p
+          data-word-reveal
           class="text-tx-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          {{ t("home.hero.subtitle") }}
-        </p>
+          v-html="wordReveal(t('home.hero.subtitle'), { delay: 600, stagger: 40 })"
+        />
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
           <LazyVButton
@@ -210,6 +240,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const { t } = useI18n();
 const { isDemoOpen, openDemo, closeDemo } = useDemoModal();
 

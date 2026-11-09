@@ -5,11 +5,16 @@
       <div class="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent pointer-events-none" />
       <div class="max-w-5xl mx-auto relative z-10">
         <p class="text-[10px] font-black tracking-[0.4em] text-brand mb-6 uppercase">Careers</p>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Build the future<br />of commerce.</h1>
-        <p class="text-tx-secondary text-lg max-w-2xl leading-relaxed">
-          We're a small, high-impact team. Every person here makes a visible difference. Remote-first, async-friendly,
-          and obsessed with shipping.
-        </p>
+        <h1
+          data-word-reveal
+          class="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+          v-html="wordReveal([`Build the future`, `of commerce.`])"
+        />
+        <p
+          data-word-reveal
+          class="text-tx-secondary text-lg max-w-2xl leading-relaxed"
+          v-html="wordReveal(`We're a small, high-impact team. Every person here makes a visible difference. Remote-first, async-friendly, and obsessed with shipping.`, { delay: 400, stagger: 40 })"
+        />
       </div>
     </header>
 
@@ -17,7 +22,11 @@
     <section class="py-24 px-6 border-b border-border-subtle bg-bg-primary/30">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker">Why join us</p>
-        <h2 class="text-2xl font-bold mb-12">What we offer</h2>
+        <h2
+          data-word-reveal
+          class="text-2xl font-bold mb-12"
+          v-html="wordReveal(`What we offer`)"
+        />
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div v-for="perk in perks" :key="perk.title"
             class="card p-6">
@@ -33,7 +42,11 @@
     <section class="py-24 px-6">
       <div class="max-w-5xl mx-auto">
         <p class="text-kicker">Open roles</p>
-        <h2 class="text-2xl font-bold mb-12">We're hiring</h2>
+        <h2
+          data-word-reveal
+          class="text-2xl font-bold mb-12"
+          v-html="wordReveal(`We're hiring`)"
+        />
         <div class="space-y-3">
           <div v-for="role in roles" :key="role.title"
             class="bg-bg-primary border border-border-subtle rounded-2xl px-6 py-5 flex items-center justify-between gap-4 hover:border-brand/30 transition-all group cursor-pointer">
@@ -74,6 +87,8 @@
 </template>
 
 <script lang="ts" setup>
+// Templates do not get Nuxt auto-imports on the client, so import it explicitly.
+import { wordReveal } from "#imports";
 const perks = [
   { icon: 'ph:globe-bold', title: 'Remote-first', description: 'Work from anywhere. We hire globally and have no mandatory office days.' },
   { icon: 'ph:currency-dollar-bold', title: 'Competitive pay', description: 'Top-of-market salaries with equity participation for every full-time hire.' },
