@@ -1,278 +1,141 @@
 <template>
-  <div class="relative w-full">
-    <!-- Trigger: Slot or Default Card -->
-    <div @click="toggle" class="cursor-pointer">
-      <slot name="trigger" :selectedDate="formattedDate" :isOpen="isOpen">
-        <div
-          class="bg-bg-primary border border-border-subtle rounded-xl px-4 py-3.5 flex items-center gap-5 hover:border-border-default transition-colors group">
+  <div class="v-date-picker relative w-full">
+    <VueDatePicker
+      :model-value="dateValue"
+      :locale="dpLocale"
+      :min-date="minDate"
+      :max-date="maxDate"
+      :disabled="disabled"
+      :time-config="{ enableTimePicker }"
+      :config="{ keepActionRow: true }"
+      :action-row="{
+        showNow: true,
+        showSelect: false,
+        showCancel: false,
+        nowBtnLabel: t('common.today'),
+      }"
+      :formats="{ input: enableTimePicker ? 'PP p' : 'PP' }"
+      :dark="isDark"
+      auto-apply
+      @update:model-value="onUpdate"
+      @open="isOpen = true"
+      @closed="isOpen = false"
+    >
+      <!-- Trigger: slot or default card -->
+      <template #trigger>
+        <slot name="trigger" :selectedDate="formattedDate" :isOpen="isOpen">
           <div
-            class="w-12 h-12 rounded-xl bg-brand-dim flex items-center justify-center shrink-0 border border-brand/10">
-            <Icon name="ph:calendar-blank-bold" class="text-xl text-brand" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-[10px] font-black text-tx-muted tracking-widest mb-1">{{ label || 'Select Date' }}</p>
-            <h4 class="text-base font-bold text-tx-primary tracking-tight">{{ formattedDate || 'No date selected' }}</h4>
-          </div>
-          <Icon :name="isOpen ? 'ph:caret-up-bold' : 'ph:caret-down-bold'"
-            class="text-tx-muted group-hover:text-tx-primary transition-colors" />
-        </div>
-      </slot>
-    </div>
-
-    <!-- Calendar Dropdown -->
-    <Transition enter-active-class="transition ease-out duration-200"
-      enter-from-class="opacity-0 translate-y-2 scale-95" enter-to-class="opacity-100 translate-y-0 scale-100"
-      leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0 scale-100"
-      leave-to-class="opacity-0 translate-y-2 scale-95">
-      <div v-if="isOpen"
-        class="absolute z-[60] mt-3 w-full bg-bg-primary border border-border-default rounded-xl shadow-2xl p-5 overflow-hidden ring-1 ring-black">
-        <!-- Header -->
-        <div class="flex items-center justify-between mb-6">
-          <button @click="handlePrev"
-            class="p-2 hover:bg-bg-elevated rounded-md text-tx-secondary hover:text-tx-primary transition-colors">
-            <Icon name="ph:caret-left-bold" />
-          </button>
-
-          <!-- Month/Year Toggle -->
-          <div class="flex items-center gap-1">
-            <button @click="toggleView('month')"
-              class="text-xs font-bold text-tx-primary tracking-tight px-2 py-1 rounded-md hover:bg-bg-elevated transition-colors flex items-center gap-1 group/header">
-              {{ currentMonthName }}
-              <Icon name="ph:caret-down-bold"
-                class="text-[10px] text-tx-muted group-hover/header:text-brand transition-colors"
-                :class="{ 'rotate-180': view === 'month' }" />
-            </button>
-            <button @click="toggleView('year')"
-              class="text-xs font-bold text-tx-primary tracking-tight px-2 py-1 rounded-md hover:bg-bg-elevated transition-colors flex items-center gap-1 group/header">
-              {{ view === 'year' ? yearRangeTitle : currentYear }}
-              <Icon name="ph:caret-down-bold"
-                class="text-[10px] text-tx-muted group-hover/header:text-brand transition-colors"
-                :class="{ 'rotate-180': view === 'year' }" />
-            </button>
-          </div>
-
-          <button @click="handleNext"
-            class="p-2 hover:bg-bg-elevated rounded-md text-tx-secondary hover:text-tx-primary transition-colors">
-            <Icon name="ph:caret-right-bold" />
-          </button>
-        </div>
-
-        <div class="relative min-h-[220px]">
-          <!-- Days View -->
-          <Transition name="fade-view">
-            <div v-if="view === 'day'" class="space-y-4">
-              <!-- Weekdays -->
-              <div class="grid grid-cols-7">
-                <div v-for="day in ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']" :key="day"
-                  class="text-center text-[9px] font-black text-tx-muted">
-                  {{ day }}
-                </div>
-              </div>
-
-              <!-- Days Grid -->
-              <div class="grid grid-cols-7 gap-1">
-                <button v-for="{ date, isCurrentMonth, isToday, isSelected } in calendarDays" :key="date.getTime()"
-                  @click="selectDate(date)" :disabled="!isCurrentMonth"
-                  class="h-10 w-10 flex items-center justify-center rounded-xl text-xs font-bold transition-all relative group"
-                  :class="[
-                    !isCurrentMonth ? 'text-tx-muted/30 pointer-events-none' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary',
-                    isSelected ? 'bg-brand !text-white shadow-lg shadow-brand/30 border border-brand/50' : '',
-                    isToday && !isSelected ? 'text-brand ring-1 ring-brand/20' : ''
-                  ]">
-                  {{ date.getDate() }}
-                  <div v-if="isToday && !isSelected" class="absolute bottom-1.5 w-1 h-1 rounded-full bg-brand/50">
-                  </div>
-                </button>
-              </div>
+            class="bg-bg-primary border border-border-subtle rounded-xl px-4 py-3.5 flex items-center gap-5 hover:border-border-default transition-colors group cursor-pointer"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-brand-dim flex items-center justify-center shrink-0 border border-brand/10"
+            >
+              <Icon name="ph:calendar-blank-bold" class="text-xl text-brand" />
             </div>
-          </Transition>
-
-          <!-- Month View -->
-          <Transition name="fade-view">
-            <div v-if="view === 'month'" class="absolute inset-0 grid grid-cols-3 gap-2 py-2">
-              <button v-for="(name, index) in monthNames" :key="name" @click="selectMonth(index)"
-                class="flex items-center justify-center rounded-xl text-[10px] font-bold tracking-widest transition-all"
-                :class="viewDate.getMonth() === index ? 'bg-brand text-white shadow-lg shadow-brand/20' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'">
-                {{ name }}
-              </button>
+            <div class="flex-1 min-w-0">
+              <p
+                class="text-[10px] font-black text-tx-muted tracking-widest mb-1"
+              >
+                {{ label || t("common.selectDate") }}
+              </p>
+              <h4 class="text-base font-bold text-tx-primary tracking-tight">
+                {{ formattedDate || t("common.noDateSelected") }}
+              </h4>
             </div>
-          </Transition>
-
-          <!-- Year View -->
-          <Transition name="fade-view">
-            <div v-if="view === 'year'" class="absolute inset-0 grid grid-cols-3 gap-2 py-2">
-              <button v-for="year in yearRange" :key="year" @click="selectYear(year)"
-                class="flex items-center justify-center rounded-xl text-xs font-bold transition-all"
-                :class="viewDate.getFullYear() === year ? 'bg-brand text-white shadow-lg shadow-brand/20' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'">
-                {{ year }}
-              </button>
-            </div>
-          </Transition>
-        </div>
-
-        <!-- Footer Actions -->
-        <div class="mt-6 pt-5 border-t border-border-subtle flex justify-end gap-2">
-          <button @click="isOpen = false"
-            class="px-4 py-2 text-[10px] font-black text-tx-muted hover:text-tx-primary tracking-widest transition-colors">
-            Cancel
-          </button>
-          <button @click="setToday"
-            class="px-4 py-2 bg-bg-elevated border border-border-default rounded-md text-[10px] font-black text-tx-primary hover:bg-bg-elevated tracking-widest transition-all">
-            Today
-          </button>
-        </div>
-      </div>
-    </Transition>
+            <Icon
+              :name="isOpen ? 'ph:caret-up-bold' : 'ph:caret-down-bold'"
+              class="text-tx-muted group-hover:text-tx-primary transition-colors"
+            />
+          </div>
+        </slot>
+      </template>
+    </VueDatePicker>
   </div>
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
-  modelValue?: string | Date
-  label?: string
-}>()
+import { VueDatePicker } from "@vuepic/vue-datepicker";
+import { ar, enUS } from "date-fns/locale";
 
-const emit = defineEmits(['update:modelValue'])
+const props = withDefaults(
+  defineProps<{
+    modelValue?: string | Date | null;
+    label?: string;
+    minDate?: Date | string;
+    maxDate?: Date | string;
+    disabled?: boolean;
+    enableTimePicker?: boolean;
+  }>(),
+  { modelValue: null, enableTimePicker: false },
+);
 
-const isOpen = ref(false)
-const view = ref<'day' | 'month' | 'year'>('day')
-const viewDate = ref(new Date())
-const selectedDate = ref(props.modelValue ? new Date(props.modelValue) : null)
+const emit = defineEmits<{
+  "update:modelValue": [value: Date | null];
+}>();
 
-const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const { t, locale } = useI18n();
+const { isDark } = useAppTheme();
 
-const yearRangeStart = ref(Math.floor(new Date().getFullYear() / 12) * 12)
-const yearRange = computed(() => Array.from({ length: 12 }, (_, i) => yearRangeStart.value + i))
-const yearRangeTitle = computed(() => `${yearRange.value[0]} - ${yearRange.value[11]}`)
+const isOpen = ref(false);
 
-const currentMonthName = computed(() => {
-  return viewDate.value.toLocaleString('default', { month: 'long' })
-})
+const dpLocale = computed(() => (locale.value === "ar" ? ar : enUS));
 
-const currentYear = computed(() => viewDate.value.getFullYear())
+// The form state may hold "" or an ISO string; the picker needs a Date or null.
+const dateValue = computed<Date | null>(() => {
+  if (!props.modelValue) return null;
+  const date = new Date(props.modelValue);
+  return Number.isNaN(date.getTime()) ? null : date;
+});
 
 const formattedDate = computed(() => {
-  if (!selectedDate.value) return null
-  return selectedDate.value.toLocaleDateString('default', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  })
-})
+  if (!dateValue.value) return null;
+  return dateValue.value.toLocaleDateString(dpLocale.value.code, {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    ...(props.enableTimePicker && { hour: "numeric", minute: "2-digit" }),
+  });
+});
 
-const toggleView = (target: 'day' | 'month' | 'year') => {
-  if (view.value === target) view.value = 'day'
-  else view.value = target
-
-  if (target === 'year') {
-    yearRangeStart.value = Math.floor(viewDate.value.getFullYear() / 12) * 12
-  }
-}
-
-const handlePrev = () => {
-  if (view.value === 'day') {
-    viewDate.value = new Date(viewDate.value.getFullYear(), viewDate.value.getMonth() - 1, 1)
-  } else if (view.value === 'month') {
-    viewDate.value = new Date(viewDate.value.getFullYear() - 1, viewDate.value.getMonth(), 1)
-  } else {
-    yearRangeStart.value -= 12
-  }
-}
-
-const handleNext = () => {
-  if (view.value === 'day') {
-    viewDate.value = new Date(viewDate.value.getFullYear(), viewDate.value.getMonth() + 1, 1)
-  } else if (view.value === 'month') {
-    viewDate.value = new Date(viewDate.value.getFullYear() + 1, viewDate.value.getMonth(), 1)
-  } else {
-    yearRangeStart.value += 12
-  }
-}
-
-const selectMonth = (index: number) => {
-  viewDate.value = new Date(viewDate.value.getFullYear(), index, 1)
-  view.value = 'day'
-}
-
-const selectYear = (year: number) => {
-  viewDate.value = new Date(year, viewDate.value.getMonth(), 1)
-  view.value = 'day'
-}
-
-const setToday = () => {
-  const today = new Date()
-  viewDate.value = new Date(today.getFullYear(), today.getMonth(), 1)
-  selectDate(today)
-  view.value = 'day'
-}
-
-const selectDate = (date: Date) => {
-  selectedDate.value = date
-  emit('update:modelValue', date)
-  isOpen.value = false
-}
-
-const toggle = () => {
-  isOpen.value = !isOpen.value
-  if (!isOpen.value) view.value = 'day'
-}
-
-const calendarDays = computed(() => {
-  const year = viewDate.value.getFullYear()
-  const month = viewDate.value.getMonth()
-  const firstDayOfMonth = new Date(year, month, 1)
-  const lastDayOfMonth = new Date(year, month + 1, 0)
-  const days = []
-
-  const startDay = firstDayOfMonth.getDay()
-  for (let i = startDay - 1; i >= 0; i--) {
-    days.push({
-      date: new Date(year, month, -i),
-      isCurrentMonth: false,
-      isToday: false,
-      isSelected: false
-    })
-  }
-
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
-    const date = new Date(year, month, i)
-    days.push({
-      date,
-      isCurrentMonth: true,
-      isToday: date.getTime() === today.getTime(),
-      isSelected: selectedDate.value?.getTime() === date.getTime()
-    })
-  }
-  return days
-})
-
-if (typeof window !== 'undefined') {
-  onMounted(() => {
-    window.addEventListener('click', (e) => {
-      if (!(e.target as HTMLElement).closest('.relative')) {
-        isOpen.value = false
-        view.value = 'day'
-      }
-    })
-  })
-}
+const onUpdate = (value: Date | null) => emit("update:modelValue", value);
 </script>
 
-<style scoped>
-.fade-view-enter-active,
-.fade-view-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
+<style>
+/*
+ * Map the picker's --dp-* variables onto StoreOS design tokens so it follows
+ * the html[data-theme] toggle. The doubled selector beats the library's own
+ * .dp--theme-* rules, which define the same variables with fixed hex colors.
+ */
+.v-date-picker .dp--theme-dark,
+.v-date-picker .dp--theme-light {
+  --dp-font-family: inherit;
+  --dp-border-radius: 12px;
+  --dp-cell-border-radius: 10px;
+  --dp-font-size: 0.75rem;
+  --dp-common-transition: all 0.15s ease-out;
 
-.fade-view-enter-from {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.fade-view-leave-to {
-  opacity: 0;
-  transform: scale(1.05);
+  --dp-background-color: var(--bg-primary);
+  --dp-text-color: var(--text-primary);
+  --dp-hover-color: var(--bg-elevated);
+  --dp-hover-text-color: var(--text-primary);
+  --dp-hover-icon-color: var(--text-primary);
+  --dp-primary-color: var(--brand);
+  --dp-primary-disabled-color: var(--brand-dim);
+  --dp-primary-text-color: #fff;
+  --dp-secondary-color: var(--text-muted);
+  --dp-border-color: var(--border-subtle);
+  --dp-menu-border-color: var(--border-default);
+  --dp-border-color-hover: var(--border-default);
+  --dp-border-color-focus: var(--brand);
+  --dp-disabled-color: var(--bg-elevated);
+  --dp-disabled-color-text: var(--text-muted);
+  --dp-scroll-bar-background: var(--bg-elevated);
+  --dp-scroll-bar-color: var(--border-default);
+  --dp-icon-color: var(--text-muted);
+  --dp-success-color: var(--success);
+  --dp-danger-color: var(--danger);
+  --dp-marker-color: var(--danger);
+  --dp-tooltip-color: var(--bg-overlay);
+  --dp-highlight-color: var(--brand-dim);
 }
 </style>

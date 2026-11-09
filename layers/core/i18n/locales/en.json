@@ -1035,6 +1035,9 @@
     }
   },
   "common": {
+    "today": "Today",
+    "selectDate": "Select Date",
+    "noDateSelected": "No date selected",
     "save": "Save",
     "cancel": "Cancel",
     "copy": "Copy",

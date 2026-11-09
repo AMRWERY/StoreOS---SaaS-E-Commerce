@@ -4,6 +4,7 @@ const currentDir = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineNuxtConfig({
   css: [
+    `${currentDir}/node_modules/@vuepic/vue-datepicker/dist/main.css`,
     `${currentDir}/assets/css/main.css`,
     `${currentDir}/assets/css/transitions.css`,
   ],

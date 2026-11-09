@@ -9,11 +9,17 @@
   },
   "typesVersions": {
     "*": {
-      "*": ["./*"]
+      "*": [
+        "./*"
+      ]
     }
   },
   "scripts": {
     "lint": "echo \"No lint configured\"",
     "clean": "rm -rf .nuxt"
+  },
+  "dependencies": {
+    "@vuepic/vue-datepicker": "^14.0.0",
+    "date-fns": "^4.4.0"
   }
 }

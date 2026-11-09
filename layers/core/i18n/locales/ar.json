@@ -1034,6 +1034,9 @@
     }
   },
   "common": {
+    "today": "اليوم",
+    "selectDate": "اختر التاريخ",
+    "noDateSelected": "لم يتم اختيار تاريخ",
     "save": "حفظ",
     "cancel": "إلغاء",
     "copy": "نسخ",
