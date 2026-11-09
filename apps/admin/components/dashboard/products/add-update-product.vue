@@ -34,7 +34,7 @@
       </div>
 
       <div
-        class="max-w-[1400px] mx-auto px-4 py-3.5 lg:px-4 lg:py-3.5 grid grid-cols-1 lg:grid-cols-12 gap-8 -mt-5"
+        class="max-w-[1400px] mx-auto px-4 py-3.5 lg:px-4 lg:py-3.5 grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6"
       >
         <!-- Left Column: Main Editor -->
         <div class="lg:col-span-8 space-y-8">

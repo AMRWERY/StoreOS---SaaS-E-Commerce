@@ -5,7 +5,7 @@
             <sidebar :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
 
             <!-- Main Content Area -->
-            <main class="flex-1 h-screen overflow-y-auto transition-all duration-300 flex flex-col hide-scrollbar">
+            <main ref="mainRef" class="flex-1 h-screen overflow-y-auto transition-all duration-300 flex flex-col hide-scrollbar">
                 <!-- Trial / Plan Banner -->
                 <lazy-trial-banner v-if="showBanner" />
 
@@ -22,6 +22,10 @@
 
 <script lang="ts" setup>
 const isSidebarOpen = ref(false);
+
+// <main> is the scroll container here, so reset it on every page change.
+const mainRef = ref<HTMLElement | null>(null);
+useScrollTopOnNavigate(mainRef);
 
 const route = useRoute();
 watch(() => route.fullPath, () => {

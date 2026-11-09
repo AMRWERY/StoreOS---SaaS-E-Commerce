@@ -14,6 +14,7 @@
           v-model:active-timeframe="activeTimeframe"
           v-model:compare-enabled="compareEnabled"
           @export="handleExport"
+          @create="isCreatePanelOpen = true"
         />
 
         <lazy-analytics-kpi-grid :kpis="kpis" />
@@ -38,6 +39,13 @@
         />
 
         <lazy-sales-velocity-insight />
+
+        <!-- SIDE PANEL: CREATE REPORT -->
+        <lazy-analytics-create-panel
+          :isOpen="isCreatePanelOpen"
+          @close="isCreatePanelOpen = false"
+          @create="isCreatePanelOpen = false"
+        />
       </div>
     </lazy-layouts-feature-gate>
   </div>
@@ -55,6 +63,7 @@ const {
   statusBreakdown,
 } = storeToRefs(analyticsStore);
 const { handleExport } = analyticsStore;
+const isCreatePanelOpen = ref(false);
 
 definePageMeta({
   layout: "dashboard",

@@ -43,6 +43,7 @@
 
             <LazyVButton
               :label="t('common.createNew')"
+              @click="$emit('create')"
               icon="ph:plus-bold"
               size="sm"
               class="flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-hover text-tx-primary rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20"
@@ -61,5 +62,10 @@ defineProps<{
   compareEnabled: boolean;
 }>();
 
-defineEmits(["update:activeTimeframe", "update:compareEnabled", "export"]);
+defineEmits([
+  "update:activeTimeframe",
+  "update:compareEnabled",
+  "export",
+  "create",
+]);
 </script>

@@ -12,6 +12,13 @@
 
       <!-- Bottom Stats Grid -->
       <customer-stats :stats="stats" />
+
+      <!-- SIDE PANEL: ADD CUSTOMER -->
+      <lazy-customer-create-panel
+        :isOpen="isAddPanelOpen"
+        @close="isAddPanelOpen = false"
+        @create="isAddPanelOpen = false"
+      />
     </div>
   </div>
 </template>
@@ -19,13 +26,14 @@
 <script lang="ts" setup>
 const customersStore = useCustomersStore()
 const { activeFilter, filters, currentPage, customers, stats } = storeToRefs(customersStore)
+const isAddPanelOpen = ref(false)
 
 const handleExport = () => {
   console.log('Exporting customers...')
 }
 
 const handleAdd = () => {
-  console.log('Adding customer...')
+  isAddPanelOpen.value = true
 }
 
 definePageMeta({

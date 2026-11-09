@@ -8,6 +8,7 @@
 
       <!-- Main Content Area -->
       <main
+        ref="mainRef"
         class="flex-1 h-screen overflow-y-auto transition-all duration-300 flex flex-col hide-scrollbar"
       >
         <!-- Signed-out preview banner, else Trial / Plan Banner -->
@@ -35,6 +36,10 @@ const { isGuest, isTrial, isPaid } = useAuth();
 
 // Sidebar Toggle State
 const isSidebarOpen = ref(false);
+
+// <main> is the scroll container here, so reset it on every page change.
+const mainRef = ref<HTMLElement | null>(null);
+useScrollTopOnNavigate(mainRef);
 
 watch(
   () => route.fullPath,
