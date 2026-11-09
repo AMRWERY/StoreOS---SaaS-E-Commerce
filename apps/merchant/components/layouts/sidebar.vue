@@ -18,21 +18,13 @@
     "
   >
     <div class="flex items-center gap-2 mb-10">
-      <div
-        class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center text-white"
-      >
-        <Icon name="ph:storefront-bold" class="text-xl" />
-      </div>
-      <div class="flex-1">
-        <h1 class="font-bold text-lg leading-none text-tx-primary text-start">
-          Store<span class="text-brand">OS</span>
-        </h1>
-        <p
-          class="text-[9px] text-tx-muted tracking-[0.6px] font-semibold mt-1 text-start"
-        >
-          Global Merchant
-        </p>
-      </div>
+      <img
+        src="/gif/storeose-logo.gif"
+        alt="storeose-logo"
+        class="h-12 w-auto"
+        width="117"
+        height="40"
+      />
 
       <LazyVButton
         @click="$emit('close')"
@@ -56,8 +48,8 @@
             item.active
               ? 'bg-brand-dim text-brand'
               : item.locked
-              ? 'text-tx-muted cursor-pointer hover:bg-bg-elevated'
-              : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
+                ? 'text-tx-muted cursor-pointer hover:bg-bg-elevated'
+                : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
           "
         >
           <Icon
@@ -91,10 +83,10 @@
               item.active
                 ? 'bg-brand-dim text-brand'
                 : item.locked
-                ? 'text-tx-muted hover:bg-bg-elevated'
-                : expandedItems.includes(item.name)
-                ? 'text-brand'
-                : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
+                  ? 'text-tx-muted hover:bg-bg-elevated'
+                  : expandedItems.includes(item.name)
+                    ? 'text-brand'
+                    : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
             "
           >
             <div class="flex items-center gap-2">
@@ -212,8 +204,8 @@
           route.path.includes('/dashboard/user-profile')
             ? 'bg-brand-dim text-brand'
             : hasFeature('profile')
-            ? 'text-tx-secondary hover:text-tx-primary'
-            : 'text-tx-muted hover:bg-bg-elevated'
+              ? 'text-tx-secondary hover:text-tx-primary'
+              : 'text-tx-muted hover:bg-bg-elevated'
         "
       >
         <Icon

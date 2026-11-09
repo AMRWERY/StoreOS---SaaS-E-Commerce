@@ -8,10 +8,13 @@
       >
         <!-- Header -->
         <div class="flex flex-col items-center text-center mb-6">
-          <div class="flex items-center gap-2 font-bold text-2xl mb-4">
-            <div class="w-6 h-6 bg-orange-500 rounded-sm"></div>
-            StoreOS
-          </div>
+          <img
+            src="/gif/storeose-logo.gif"
+            alt="storeose-logo"
+            class="h-14 w-auto"
+            width="117"
+            height="40"
+          />
           <h1 class="text-xl font-bold mb-2">{{ t("auth.title") }}</h1>
           <p class="text-sm text-tx-secondary">{{ t("auth.subtitle") }}</p>
         </div>

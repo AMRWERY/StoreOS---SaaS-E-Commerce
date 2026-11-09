@@ -1,32 +1,37 @@
 <template>
   <!-- Mobile Sidebar Backdrop -->
   <Transition name="fade">
-    <div v-if="isOpen" @click="$emit('close')" class="overlay-backdrop z-40 lg:hidden">
-    </div>
+    <div
+      v-if="isOpen"
+      @click="$emit('close')"
+      class="overlay-backdrop z-40 lg:hidden"
+    ></div>
   </Transition>
 
   <!-- Sidebar -->
   <aside
     class="fixed lg:sticky top-0 start-0 w-[220px] h-screen bg-bg-primary border-e border-border-subtle flex flex-col p-6 shrink-0 z-50 transition-all duration-300"
-    :class="isOpen
-      ? 'translate-x-0'
-      : 'ltr:-translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0'
-      ">
+    :class="
+      isOpen
+        ? 'translate-x-0'
+        : 'ltr:-translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0'
+    "
+  >
     <div class="flex items-center gap-2 mb-10">
-      <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center text-white">
-        <Icon name="ph:storefront-bold" class="text-xl" />
-      </div>
-      <div class="flex-1">
-        <h1 class="font-bold text-lg leading-none text-tx-primary text-start">
-          Store<span class="text-brand">OS</span>
-        </h1>
-        <p class="text-[9px] text-tx-muted tracking-[0.6px] font-semibold mt-1 text-start">
-          Global Merchant
-        </p>
-      </div>
+      <img
+        src="/gif/storeose-logo.gif"
+        alt="storeose-logo"
+        class="h-12 w-auto"
+        width="117"
+        height="40"
+      />
+
       <!-- Mobile Close Button -->
-      <LazyVButton @click="$emit('close')" variant="none"
-        className="lg:hidden text-tx-secondary hover:text-tx-primary p-1">
+      <LazyVButton
+        @click="$emit('close')"
+        variant="none"
+        className="lg:hidden text-tx-secondary hover:text-tx-primary p-1"
+      >
         <Icon name="ph:x-bold" class="text-xl" />
       </LazyVButton>
     </div>
@@ -34,45 +39,78 @@
     <nav class="flex-1 space-y-2 overflow-y-auto hide-scrollbar">
       <div v-for="item in navItems" :key="item.name">
         <!-- Main Nav Item -->
-        <LazyVButton v-if="!item.children" :to="item.locked ? undefined : item.to" variant="none"
+        <LazyVButton
+          v-if="!item.children"
+          :to="item.locked ? undefined : item.to"
+          variant="none"
           @click="item.locked ? handleLockedClick() : undefined"
           className="w-full flex items-center justify-start gap-2 px-3 py-1.5 rounded-md transition-all font-medium text-[12px] group"
-          :class="item.active
-            ? 'bg-brand-dim text-brand'
-            : item.locked
-              ? 'text-tx-muted cursor-pointer hover:bg-bg-elevated'
-              : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
-            ">
-          <Icon :name="item.icon" class="text-lg" :class="item.locked ? 'opacity-40' : ''" />
-          <span class="truncate flex-1" :class="item.locked ? 'opacity-50' : ''">{{ item.name }}</span>
-          <Icon v-if="item.locked" name="lucide:lock" class="w-3 h-3 text-tx-muted opacity-60 shrink-0" />
+          :class="
+            item.active
+              ? 'bg-brand-dim text-brand'
+              : item.locked
+                ? 'text-tx-muted cursor-pointer hover:bg-bg-elevated'
+                : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
+          "
+        >
+          <Icon
+            :name="item.icon"
+            class="text-lg"
+            :class="item.locked ? 'opacity-40' : ''"
+          />
+          <span
+            class="truncate flex-1"
+            :class="item.locked ? 'opacity-50' : ''"
+            >{{ item.name }}</span
+          >
+          <Icon
+            v-if="item.locked"
+            name="lucide:lock"
+            class="w-3 h-3 text-tx-muted opacity-60 shrink-0"
+          />
         </LazyVButton>
 
         <!-- Nav Item with Children -->
         <div v-else class="space-y-1">
-          <LazyVButton @click="toggleExpand(item.name)" variant="none"
+          <LazyVButton
+            @click="toggleExpand(item.name)"
+            variant="none"
             className="w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-md transition-all font-medium text-[12px] group"
-            :class="item.active
-              ? 'bg-brand-dim text-brand'
-              : expandedItems.includes(item.name)
-                ? 'text-brand'
-                : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
-              ">
+            :class="
+              item.active
+                ? 'bg-brand-dim text-brand'
+                : expandedItems.includes(item.name)
+                  ? 'text-brand'
+                  : 'text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated'
+            "
+          >
             <div class="flex items-center gap-2">
               <Icon :name="item.icon" class="text-lg" />
               <span class="truncate">{{ item.name }}</span>
             </div>
-            <Icon name="ph:caret-down-bold" class="text-[10px] transition-transform duration-300"
-              :class="expandedItems.includes(item.name) ? 'rotate-180' : ''" />
+            <Icon
+              name="ph:caret-down-bold"
+              class="text-[10px] transition-transform duration-300"
+              :class="expandedItems.includes(item.name) ? 'rotate-180' : ''"
+            />
           </LazyVButton>
 
           <!-- Sub Nav Items -->
-          <div v-if="expandedItems.includes(item.name)" class="ms-10 space-y-1 border-s border-border-subtle ps-2">
-            <nuxt-link-locale v-for="subItem in item.children" :key="subItem.name" :to="subItem.to"
-              class="block py-2 px-3 text-xs rounded-md transition-all" :class="route.path.includes(subItem.to)
-                ? 'text-brand bg-brand-dim font-semibold'
-                : 'text-tx-muted hover:text-tx-secondary hover:bg-bg-elevated'
-                ">
+          <div
+            v-if="expandedItems.includes(item.name)"
+            class="ms-10 space-y-1 border-s border-border-subtle ps-2"
+          >
+            <nuxt-link-locale
+              v-for="subItem in item.children"
+              :key="subItem.name"
+              :to="subItem.to"
+              class="block py-2 px-3 text-xs rounded-md transition-all"
+              :class="
+                route.path.includes(subItem.to)
+                  ? 'text-brand bg-brand-dim font-semibold'
+                  : 'text-tx-muted hover:text-tx-secondary hover:bg-bg-elevated'
+              "
+            >
               {{ subItem.name }}
             </nuxt-link-locale>
           </div>
@@ -86,24 +124,38 @@
         to="/dashboard/settings/billing-and-plan"
         class="flex items-center gap-2 px-3 py-2 rounded-lg bg-orange-500/10 border border-orange-500/20 hover:bg-orange-500/15 transition-all group"
       >
-        <Icon name="lucide:arrow-up-circle" class="w-3.5 h-3.5 text-orange-400 shrink-0" />
+        <Icon
+          name="lucide:arrow-up-circle"
+          class="w-3.5 h-3.5 text-orange-400 shrink-0"
+        />
         <div class="flex-1 min-w-0">
-          <p class="text-[10px] font-black text-orange-400 tracking-wider">{{ t("nav.upgrade") }}</p>
-          <p v-if="isTrial" class="text-[9px] text-orange-400/60 font-medium">{{ trialDaysLeft }}d left in trial</p>
+          <p class="text-[10px] font-black text-orange-400 tracking-wider">
+            {{ t("nav.upgrade") }}
+          </p>
+          <p v-if="isTrial" class="text-[9px] text-orange-400/60 font-medium">
+            {{ trialDaysLeft }}d left in trial
+          </p>
         </div>
       </nuxt-link-locale>
-      <LazyVButton variant="none" to="/dashboard/user-profile"
+      <LazyVButton
+        variant="none"
+        to="/dashboard/user-profile"
         className="w-full flex items-center gap-2 px-3 py-1.5 transition-all group rounded-md text-[12px] font-medium"
-        :class="route.path.includes('/dashboard/user-profile')
-          ? 'bg-brand-dim text-brand'
-          : 'text-tx-secondary hover:text-tx-primary'
-          ">
+        :class="
+          route.path.includes('/dashboard/user-profile')
+            ? 'bg-brand-dim text-brand'
+            : 'text-tx-secondary hover:text-tx-primary'
+        "
+      >
         <Icon name="ph:user-circle" class="text-xl" />
         <span class="truncate">{{ t("nav.userProfile") }}</span>
       </LazyVButton>
       <!-- Logout Button -->
-      <LazyVButton @click="handleLogout" variant="none"
-        className="w-full flex items-center gap-2 px-3 py-1.5 text-[12px] font-medium text-red-500/60 hover:text-red-500 transition-colors group">
+      <LazyVButton
+        @click="handleLogout"
+        variant="none"
+        className="w-full flex items-center gap-2 px-3 py-1.5 text-[12px] font-medium text-red-500/60 hover:text-red-500 transition-colors group"
+      >
         <Icon name="ph:sign-out-bold" class="text-xl" />
         <span class="truncate font-bold">{{ t("nav.logout") }}</span>
       </LazyVButton>
@@ -147,12 +199,12 @@ const localePath = useLocalePath();
 const { hasFeature, isTrial, isPaid, trialDaysLeft, logout } = useAuth();
 
 const handleLockedClick = () => {
-  navigateTo(localePath('/dashboard/settings/billing-and-plan'));
+  navigateTo(localePath("/dashboard/settings/billing-and-plan"));
 };
 
 const handleLogout = () => {
   logout();
-  navigateTo(localePath('/auth/login'));
+  navigateTo(localePath("/auth/login"));
 };
 
 const navItems = computed(() => [
@@ -191,14 +243,14 @@ const navItems = computed(() => [
     icon: "ph:chart-bar-fill",
     active: route.path.includes("/dashboard/analytics"),
     to: "/dashboard/analytics",
-    locked: !hasFeature('analytics'),
+    locked: !hasFeature("analytics"),
   },
   {
     name: t("nav.coupons"),
     icon: "ph:ticket-fill",
     active: route.path.includes("/dashboard/coupons"),
     to: "/dashboard/coupons",
-    locked: !hasFeature('coupons'),
+    locked: !hasFeature("coupons"),
   },
   {
     name: t("nav.settings"),

@@ -8,21 +8,13 @@
       >
         <div class="flex items-center gap-8">
           <nuxt-link-locale to="/" class="flex items-center gap-3">
-            <div
-              class="w-9 h-9 bg-brand rounded-lg flex items-center justify-center text-white shrink-0"
-            >
-              <Icon name="ph:storefront-bold" class="text-xl" />
-            </div>
-            <div>
-              <h1 class="font-bold text-lg leading-none text-tx-primary">
-                Store<span class="text-brand">OS</span>
-              </h1>
-              <p
-                class="text-[9px] text-tx-secondary tracking-[0.2em] font-semibold mt-1"
-              >
-                Global Merchant
-              </p>
-            </div>
+            <img
+              src="/gif/storeose-logo.gif"
+              alt="storeose-logo"
+              class="h-12 w-auto"
+              width="117"
+              height="40"
+            />
           </nuxt-link-locale>
 
           <div
