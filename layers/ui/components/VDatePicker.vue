@@ -17,6 +17,7 @@
       :formats="{ input: enableTimePicker ? 'PP p' : 'PP' }"
       :dark="isDark"
       auto-apply
+      teleport
       @update:model-value="onUpdate"
       @open="isOpen = true"
       @closed="isOpen = false"
@@ -103,11 +104,12 @@ const onUpdate = (value: Date | null) => emit("update:modelValue", value);
 <style>
 /*
  * Map the picker's --dp-* variables onto StoreOS design tokens so it follows
- * the html[data-theme] toggle. The doubled selector beats the library's own
- * .dp--theme-* rules, which define the same variables with fixed hex colors.
+ * the html[data-theme] toggle. The menu is teleported to <body>, so this must
+ * not depend on the component's wrapper. The :root prefix raises specificity
+ * above the library's own .dp--theme-* rules, which use fixed hex colors.
  */
-.v-date-picker .dp--theme-dark,
-.v-date-picker .dp--theme-light {
+:root .dp--theme-dark,
+:root .dp--theme-light {
   --dp-font-family: inherit;
   --dp-border-radius: 12px;
   --dp-cell-border-radius: 10px;

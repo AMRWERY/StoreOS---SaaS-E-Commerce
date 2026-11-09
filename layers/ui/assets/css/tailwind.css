@@ -72,7 +72,7 @@
 
     /* Fixed backdrop behind modals/drawers — pair with a z-index utility */
     .overlay-backdrop {
-        @apply fixed inset-0 bg-bg-overlay backdrop-blur-sm;
+        @apply fixed inset-0 bg-bg-overlay/60 backdrop-blur-sm;
     }
 
     /* Small status indicator dot — pair with a bg color utility */
