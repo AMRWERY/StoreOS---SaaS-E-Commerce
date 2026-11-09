@@ -11,15 +11,15 @@
     </Transition>
 
     <!-- Panel -->
-    <!-- Always docked to the physical right edge and slides in from the right,
-         in both LTR and RTL (hence right-0 / translate-x-full, not end-0). -->
+    <!-- Docked to the inline-end edge: right in LTR, left in RTL. It slides
+         in from that same edge (translate-x-full in LTR, flipped by rtl:). -->
     <Transition
       enter-active-class="transition-transform duration-300 ease-in-out"
-      enter-from-class="translate-x-full"
+      enter-from-class="translate-x-full rtl:-translate-x-full"
       enter-to-class="translate-x-0"
       leave-active-class="transition-transform duration-300 ease-in-out"
       leave-from-class="translate-x-0"
-      leave-to-class="translate-x-full"
+      leave-to-class="translate-x-full rtl:-translate-x-full"
     >
       <aside
         v-if="modelValue"
@@ -27,7 +27,7 @@
         aria-modal="true"
         :aria-labelledby="titleId"
         :class="[
-          'fixed inset-y-0 right-0 z-[100] w-full bg-bg-primary border-l border-border-default shadow-2xl flex flex-col',
+          'fixed inset-y-0 end-0 z-[100] w-full bg-bg-primary border-s border-border-default shadow-2xl flex flex-col',
           widthClass,
         ]"
       >
