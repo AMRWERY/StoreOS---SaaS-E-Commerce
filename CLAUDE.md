@@ -46,10 +46,8 @@ Nothing talks to a backend yet. Treat this as the default assumption when adding
 - Pinia stores in `apps/*/stores/*.ts` are setup-style stores holding **hardcoded demo data** inline.
 - `apps/merchant/server/api/{orders,products,shipping,webhooks}/index.ts` are empty `defineEventHandler` stubs.
 - `composables/usePageSections.ts`, `useStorePages.ts`, `useStoreTheme.ts` are stubs returning `[]`/`null`.
-- `useAuth()` is in-memory `useState` only — `login()` flips a boolean; there is no Supabase client wired up.
-- [supabase/migrations/](supabase/migrations/) holds the intended schema (stores, store_members, products,
-  product_variants, inventory_movements, customers, orders, order_items, coupons, shipping_zones,
-  store_themes, store_pages, page_sections + builder RLS). Use it as the target shape for types.
+- `useAuth()` is in-memory `useState` only — `login()` flips a boolean; there is no auth/backend client wired up.
+- There is no database schema in the repo; the types in `types/` are the source of truth for data shapes.
 
 ### apps/admin is stale
 
@@ -69,7 +67,6 @@ touching all of these:
 - `components/builder/section-settings/` — the settings panel for that type
 - `data/builder-section-templates.ts` — default settings payload
 - `stores/builder.ts` — `sectionsMap` (sections keyed by page id), global navbar/footer settings, `isDirty`
-- `supabase/migrations/013–016` — `store_themes`, `store_pages`, `page_sections`, builder RLS
 
 Builder routes live under `pages/dashboard/builder/` with a dedicated `builder` layout and the
 `redirect-builder-home` middleware.

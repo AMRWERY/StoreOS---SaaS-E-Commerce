@@ -475,8 +475,6 @@ TECH STACK:
   Framework:  Nuxt 3 (Vue 3 Composition API)
   Styling:    Tailwind CSS + custom CSS variables
   Mobile:     Capacitor (same codebase → iOS/Android)
-  Database:   Supabase (PostgreSQL)
-  Auth:       Supabase Auth
 
 STITCH GENERATION RULES:
   1. Always use IBM Plex Sans + IBM Plex Mono (preloaded via Google Fonts)

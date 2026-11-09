@@ -1,4 +1,4 @@
-/** CRUD for `store_pages` – replace with Supabase/API calls. */
+/** CRUD for `store_pages` – replace with API calls. */
 export function useStorePages() {
   return {
     list: async (_storeId: string) => [],

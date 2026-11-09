@@ -1,4 +1,4 @@
-/** CRUD for `page_sections` – replace with Supabase/API calls. */
+/** CRUD for `page_sections` – replace with API calls. */
 export function usePageSections() {
   return {
     list: async (_pageId: string) => [],
