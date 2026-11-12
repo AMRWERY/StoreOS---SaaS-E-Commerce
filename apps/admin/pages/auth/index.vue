@@ -121,7 +121,7 @@ const handleSubmit = async () => {
     // TODO: replace with real auth call
     await new Promise((resolve) => setTimeout(resolve, 2500));
     login();
-    await navigateTo(localePath("/dashboard"));
+    await navigateTo(localePath("/platform"));
   } finally {
     isLoading.value = false;
   }

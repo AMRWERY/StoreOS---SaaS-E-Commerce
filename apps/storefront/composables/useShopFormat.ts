@@ -1,10 +1,13 @@
-/** Money and number formatting for the storefront. Prices are EGP integers. */
+/** Money and number formatting for the storefront. Catalog prices are EGP; pass `currency` for another market. */
 export function useShopFormat() {
-  const { t, locale } = useI18n()
+  const { locale } = useI18n()
+  const { formatMoney: money } = useCurrency('EGP')
 
   // Western digits in both locales: numbers are always shown in the mono font.
   const formatNumber = (n: number) => new Intl.NumberFormat('en-US').format(n)
-  const formatMoney = (n: number) => `${formatNumber(n)} ${t('shop.currency')}`
+  const formatMoney = (n: number, currency = 'EGP') =>
+    // Whole pounds for EGP (existing storefront look); other currencies keep their ISO precision.
+    money(n, currency, currency === 'EGP' ? { minimumFractionDigits: 0, maximumFractionDigits: 0 } : {})
   const formatDate = (iso: string) =>
     new Intl.DateTimeFormat(locale.value === 'ar' ? 'ar-EG-u-nu-latn' : 'en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).format(new Date(iso))
 

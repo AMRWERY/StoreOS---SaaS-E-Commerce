@@ -1,6 +1,6 @@
 // Legacy merchant-style sign-in (/auth) is kept as-is. The register / add-first-product pages were
 // removed from the admin app: it is an operator console, not a merchant onboarding surface.
-const PUBLIC_ROUTES = ['/auth']
+const PUBLIC_ROUTES = ['/auth', '/privacy', '/terms']
 
 // The operator console is guarded by a mock operator session (composables/usePlatformAuth.ts) until
 // a real auth backend exists. /platform/login is the only public page under /platform.
@@ -33,7 +33,7 @@ export default defineNuxtRouteMiddleware((to) => {
   if (path === STATUS_PREFIX || path.startsWith(`${STATUS_PREFIX}/`)) return
 
   // Admin entry points land on the platform console (which sends logged-out visitors to its login).
-  if (path === '/' || path === '/dashboard') {
+  if (path === '/') {
     return navigateTo(localePath('/platform'), { replace: true })
   }
 

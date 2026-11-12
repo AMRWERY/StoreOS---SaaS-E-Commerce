@@ -400,7 +400,7 @@ const handleSubmit = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     open.value = false;
     register("trial");
-    await navigateTo(localePath("/dashboard"));
+    await navigateTo(localePath("/platform"));
   } finally {
     isLoading.value = false;
   }

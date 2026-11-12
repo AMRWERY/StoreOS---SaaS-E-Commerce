@@ -146,7 +146,10 @@ export interface SubscriptionInvoice {
   issuedAt: string
 }
 
-export type MarketCode = 'EG' | 'SA' | 'AE' | 'KW' | 'QA' | 'JO'
+/** All 22 Arab League markets — mirrors ARAB_MARKETS in layers/core/utils/currencies.ts. */
+export type MarketCode =
+  | 'EG' | 'SA' | 'AE' | 'KW' | 'QA' | 'BH' | 'OM' | 'JO' | 'LB' | 'SY' | 'IQ'
+  | 'YE' | 'PS' | 'LY' | 'TN' | 'DZ' | 'MA' | 'MR' | 'SD' | 'SO' | 'DJ' | 'KM'
 export type RatePolicy = 'auto' | 'manual'
 export type RoundingRule = 'none' | 'whole' | 'five' | 'ninetyNine'
 export type DomainStrategy = 'domain' | 'subfolder' | 'subdomain'

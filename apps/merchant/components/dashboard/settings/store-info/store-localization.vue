@@ -16,7 +16,7 @@
           <LazyVSelectInput
             v-model="modelValue.currency"
             :label="t('dashboard.settings.storeInfo.currency')"
-            :options="['JPY (¥) - Japanese Yen']"
+            :options="currencyOptions"
             selectClass="!bg-bg-primary !border-border-subtle !rounded-lg !px-5 !py-3.5 !text-sm hover:!border-border-default focus:!border-orange-500/50"
           />
 
@@ -82,7 +82,13 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n();
+const { t, locale } = useI18n();
+
+// All Arab currencies, named in the active locale (e.g. "KWD - Kuwaiti Dinar" / "KWD - دينار كويتي").
+const currencyOptions = computed(() => {
+  const names = new Intl.DisplayNames(locale.value, { type: "currency" });
+  return ARAB_CURRENCY_CODES.map((code) => `${code} - ${names.of(code)}`);
+});
 
 defineProps<{
   modelValue: any;

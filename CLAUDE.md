@@ -26,7 +26,7 @@ pnpm workspace + Turborepo. Two Nuxt 4 apps, two Nuxt layers:
 
 ```
 apps/merchant   @storeos/merchant  — marketing site + merchant dashboard + storefront builder
-apps/admin      @storeos/admin     — platform operator console at /platform (legacy dashboard copy still present, see below)
+apps/admin      @storeos/admin     — platform operator console at /platform (login, status page; no dashboard route)
 apps/storefront @storeos/storefront — customer-facing store UI (mock data), dev on :3004; strings under `shop.*`
 layers/core     @storeos/core      — Nuxt modules, i18n config + locale files, theme plugin
 layers/ui       @storeos/ui        — CSS/design tokens, tailwind.config.ts, V* components
@@ -50,17 +50,14 @@ Nothing talks to a backend yet. Treat this as the default assumption when adding
 - `useAuth()` is in-memory `useState` only — `login()` flips a boolean; there is no auth/backend client wired up.
 - There is no database schema in the repo; the types in `types/` are the source of truth for data shapes.
 
-### apps/admin: platform console + legacy copy
+### apps/admin: platform operator console
 
-`apps/admin/pages/platform/*` (layout `platform`, stores `platform*.ts`, strings under `platform.*`) is the StoreOS operator
-console (mock data). The old dashboard pages below are now unlinked legacy; `/`, `/dashboard` and `/auth` redirect to `/platform`.
-The rest of this section describes that legacy copy:
-
-`apps/admin` is an older near-copy of the merchant dashboard (same `components/dashboard/*` and
-`pages/dashboard/*` trees, but no builder, no `server/`, fewer pages). Active development is in
-`apps/merchant`. Don't mirror changes into `apps/admin` unless asked — check `git log -- apps/admin`
-first. Note the naming is misleading: `rules/*.md` calls the customer-facing storefront "admin", and
-`layers/core/i18n/locales/*.json` has an `admin.*` namespace holding **storefront** strings.
+`apps/admin` is the StoreOS operator console (mock data, no backend). Routes: `/platform/*` (layout `platform`, stores
+`platform*.ts`, strings under `platform.*`), a public `/status` page, `/platform/login` (mock operator sign-in + 2FA,
+session cookie in `composables/usePlatformAuth.ts`, guarded in `middleware/auth.global.ts`), and a kept legacy `/auth`
+sign-in. There is no `/dashboard` in admin anymore (the old merchant-dashboard copy was removed). Note the naming is
+misleading elsewhere: `rules/*.md` calls the customer-facing storefront "admin", and `layers/core/i18n/locales/*.json` has an
+`admin.*` namespace holding **storefront** strings.
 
 ### Storefront builder (merchant only)
 

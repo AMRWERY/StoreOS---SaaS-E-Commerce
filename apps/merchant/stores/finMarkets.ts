@@ -1,13 +1,8 @@
 import type { Market, MarketCode, PriceListProduct } from '@/types/insights'
 
-export const MARKET_DEFAULTS: Record<MarketCode, { currency: string; rate: number; language: 'ar' | 'en' }> = {
-  EG: { currency: 'EGP', rate: 1, language: 'ar' },
-  SA: { currency: 'SAR', rate: 0.076, language: 'ar' },
-  AE: { currency: 'AED', rate: 0.074, language: 'en' },
-  KW: { currency: 'KWD', rate: 0.0062, language: 'ar' },
-  QA: { currency: 'QAR', rate: 0.073, language: 'ar' },
-  JO: { currency: 'JOD', rate: 0.0143, language: 'ar' },
-}
+export const MARKET_DEFAULTS = Object.fromEntries(
+  ARAB_MARKETS.map((m) => [m.country, { currency: m.currency, rate: m.rate, language: m.language }]),
+) as Record<MarketCode, { currency: string; rate: number; language: 'ar' | 'en' }>
 
 export const useFinMarketsStore = defineStore('finMarkets', () => {
   const markets = ref<Market[]>([
