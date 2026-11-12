@@ -32,7 +32,8 @@
               <div>
                 <p class="font-bold text-sm mb-1">{{ channel.title }}</p>
                 <p class="text-xs text-tx-muted mb-2 leading-relaxed">{{ channel.description }}</p>
-                <a :href="channel.href" class="text-xs text-brand font-semibold hover:underline">{{ channel.cta }}</a>
+                <a v-if="channel.href.startsWith('mailto:')" :href="channel.href" class="text-xs text-brand font-semibold hover:underline">{{ channel.cta }}</a>
+                <nuxt-link-locale v-else :to="channel.href" class="text-xs text-brand font-semibold hover:underline">{{ channel.cta }}</nuxt-link-locale>
               </div>
             </div>
           </div>
