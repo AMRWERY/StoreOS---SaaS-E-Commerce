@@ -22,21 +22,13 @@
           to="/"
           class="flex min-w-0 shrink-0 items-center gap-2.5 md:gap-3"
         >
-          <div
-            class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand text-white"
-          >
-            <Icon name="ph:storefront-bold" class="text-xl" />
-          </div>
-          <div class="min-w-0">
-            <h1 class="text-lg font-bold leading-none text-tx-primary">
-              Store<span class="text-brand">OS</span>
-            </h1>
-            <p
-              class="mt-1 text-[9px] font-semibold tracking-[0.2em] text-tx-secondary"
-            >
-              Global Merchant
-            </p>
-          </div>
+          <img
+            src="/gif/storeose-logo.gif"
+            alt="storeose-logo"
+            class="h-12 w-auto"
+            width="117"
+            height="40"
+          />
         </nuxt-link-locale>
 
         <!-- <nuxt-link-locale
@@ -64,10 +56,7 @@
         </div>
 
         <!-- Free Trial Limited Access Badge -->
-        <div
-          v-if="isTrialMode"
-          class="flex items-center gap-2"
-        >
+        <div v-if="isTrialMode" class="flex items-center gap-2">
           <span
             class="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-0.5 text-[10px] font-bold text-amber-400"
           >
@@ -89,7 +78,7 @@
       <!-- Right -->
       <div class="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
         <lazy-device-toggle v-model="store.device" />
-        
+
         <LazyThemeToggle />
 
         <component
