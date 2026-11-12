@@ -81,7 +81,7 @@
                   {{ link }}
                 </code>
                 <LazyVButton
-                  size="sm"
+                  className="!py-1 !px-3 !text-xs"
                   :label="copied ? t('dashboard.ops.themeHistory.copied') : t('dashboard.ops.themeHistory.copy')"
                   @click="copy"
                 />

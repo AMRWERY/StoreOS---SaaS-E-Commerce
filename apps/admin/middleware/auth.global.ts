@@ -4,6 +4,7 @@ const PUBLIC_ROUTES = ['/auth', '/auth/register']
 // so /platform/* is reachable directly. The legacy merchant-style dashboard
 // still sits behind the old in-memory auth guard.
 const PLATFORM_PREFIX = '/platform'
+const STATUS_PREFIX = '/status'
 
 export default defineNuxtRouteMiddleware((to) => {
   const { isAuthenticated } = useAuth()
@@ -12,6 +13,9 @@ export default defineNuxtRouteMiddleware((to) => {
   const path = to.path.replace(/^\/[a-z]{2}(-[A-Z]{2})?/, '') || '/'
 
   if (path === PLATFORM_PREFIX || path.startsWith(`${PLATFORM_PREFIX}/`)) return
+
+  // Public status page: reachable by logged-out visitors, never redirected.
+  if (path === STATUS_PREFIX || path.startsWith(`${STATUS_PREFIX}/`)) return
 
   // Admin entry points land on the platform console.
   if (path === '/' || path === '/dashboard') {

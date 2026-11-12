@@ -165,9 +165,10 @@ function submit() {
   const from = form.from.trim()
   const to = form.to.trim()
   if (!from || !to) return
+  const type = form.type === '302' ? 302 : 301
   const wasNotFound = notFounds.value.some((n) => n.path === from)
-  if (wasNotFound) store.fixNotFound(from, to)
-  else store.add(from, to, form.type === '302' ? 302 : 301)
+  if (wasNotFound) store.fixNotFound(from, to, type)
+  else store.add(from, to, type)
   isOpen.value = false
 }
 

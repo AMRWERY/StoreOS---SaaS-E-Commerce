@@ -5,18 +5,17 @@
 
       <header class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
         <div>
-          <h1 class="text-3xl font-bold tracking-tight">Store Information</h1>
-          <p class="text-sm text-tx-secondary mt-2">Manage your brand identity, contact details, and localization
-            settings.</p>
+          <h1 class="text-3xl font-bold tracking-tight">{{ t("nav.storeInformation") }}</h1>
+          <p class="text-sm text-tx-secondary mt-2">{{ t("dashboard.storeInfo2.subtitle") }}</p>
         </div>
         <div class="flex items-center gap-3">
           <LazyVButton variant="ghost" size="none"
             className="px-6 py-2.5 text-xs font-bold text-tx-secondary hover:text-tx-primary transition-colors">
-            Discard
+            {{ t("common.discard") }}
           </LazyVButton>
 
           <LazyVButton @click="saveSettings" className="px-8 py-3">
-            Save Changes
+            {{ t("common.saveChanges") }}
           </LazyVButton>
         </div>
       </header>
@@ -37,6 +36,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 const storeSettingsStore = useStoreSettingsStore()
 const { storeData } = storeToRefs(storeSettingsStore)
 const { saveSettings } = storeSettingsStore
@@ -46,6 +46,6 @@ definePageMeta({
 });
 
 useSeoPage({
-  titleTemplate: () => 'Settings - Store Info',
+  titleTemplate: () => t('dashboard.storeInfo2.seoTitle'),
 });
 </script>

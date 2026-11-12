@@ -19,18 +19,19 @@
           class="relative z-10 w-full max-w-xl bg-bg-primary border border-border-default rounded-xl overflow-hidden flex flex-col max-h-[70vh]"
         >
           <div class="flex items-center gap-3 px-4 py-3 border-b border-border-subtle">
-            <Icon name="ph:magnifying-glass-bold" class="text-tx-muted" />
+            <Icon name="ph:magnifying-glass-bold" class="text-tx-muted" aria-hidden="true" />
             <input
               ref="inputRef"
               v-model="query"
               type="text"
+              :aria-label="t('dashboard.ops.search.title')"
               class="flex-1 bg-transparent text-sm text-tx-primary placeholder:text-tx-muted outline-none"
               :placeholder="t('dashboard.ops.search.placeholder')"
               @keydown.down.prevent="move(1)"
               @keydown.up.prevent="move(-1)"
               @keydown.enter.prevent="choose(results[active])"
             />
-            <kbd class="font-mono text-[10px] text-tx-muted border border-border-subtle rounded px-1.5 py-0.5">Esc</kbd>
+            <kbd dir="ltr" class="font-mono text-[10px] text-tx-muted border border-border-subtle rounded px-1.5 py-0.5">Esc</kbd>
           </div>
 
           <div class="overflow-y-auto hide-scrollbar py-2">
@@ -49,7 +50,7 @@
                   @mouseenter="active = results.findIndex((x) => x.id === r.id)"
                   @click="choose(r)"
                 >
-                  <Icon :name="r.icon" class="text-tx-muted shrink-0" />
+                  <Icon :name="r.icon" class="text-tx-muted shrink-0" aria-hidden="true" />
                   <span class="flex-1 min-w-0">
                     <span class="block text-sm text-tx-primary truncate">{{ r.label }}</span>
                     <span v-if="r.hint" class="block font-mono text-[10px] text-tx-muted truncate">{{ r.hint }}</span>

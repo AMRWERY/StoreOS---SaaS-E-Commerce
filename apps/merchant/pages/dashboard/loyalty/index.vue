@@ -162,7 +162,7 @@
                   </code>
                   <LazyVButton
                     variant="secondary"
-                    size="sm"
+                    className="!py-1 !px-3 !text-xs"
                     :icon="copied ? 'ph:check-bold' : 'ph:copy-bold'"
                     iconPosition="left"
                     :label="copied ? t('dashboard.ops.loyalty.referral.copied') : t('dashboard.ops.loyalty.referral.copy')"

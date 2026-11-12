@@ -95,7 +95,7 @@
           :label="t('dashboard.ops.autoDiscounts.eligibility')"
           :options="eligibilityOptions"
         />
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <LazyVInput v-model="form.startsAt" type="date" :label="t('dashboard.ops.autoDiscounts.starts')" required />
           <LazyVInput v-model="form.endsAt" type="date" :label="t('dashboard.ops.autoDiscounts.ends')" required />
         </div>

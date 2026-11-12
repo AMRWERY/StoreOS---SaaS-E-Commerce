@@ -34,7 +34,7 @@
           />
         </div>
 
-        <div class="grid grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div v-for="k in exceptionKinds" :key="k" class="card px-4 py-3 flex items-center justify-between">
             <span class="text-xs text-tx-secondary">{{ t(`dashboard.ops.tracking.state.${k}`) }}</span>
             <span class="font-mono text-lg font-semibold">{{ shipments.filter((s) => s.state === k).length }}</span>

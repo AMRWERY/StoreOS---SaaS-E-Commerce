@@ -6,7 +6,11 @@
           <span class="w-8 h-8 rounded-xl bg-brand text-white flex items-center justify-center"><Icon name="lucide:shopping-bag" class="w-4 h-4" /></span>
           <span class="text-base font-semibold tracking-tight">{{ t('shop.brand') }}</span>
         </nuxt-link-locale>
-        <span class="inline-flex items-center gap-1.5 text-xs text-tx-muted"><Icon name="lucide:lock" class="w-3.5 h-3.5" />{{ t('shop.checkout.secure') }}</span>
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center gap-1.5 text-xs text-tx-muted"><Icon name="lucide:lock" class="w-3.5 h-3.5" />{{ t('shop.checkout.secure') }}</span>
+          <LazyThemeToggle />
+          <LazyVLocaleSwitch />
+        </div>
       </div>
     </header>
     <main class="flex-1"><slot /></main>

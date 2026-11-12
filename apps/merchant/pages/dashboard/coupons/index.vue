@@ -28,6 +28,7 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n();
 const couponsStore = useCouponsStore();
 const { isPanelOpen, stats, coupons } = storeToRefs(couponsStore);
 
@@ -36,6 +37,6 @@ definePageMeta({
 });
 
 useSeoPage({
-  titleTemplate: () => "Coupons",
+  titleTemplate: () => t("dashboard.coupons.title"),
 });
 </script>

@@ -52,7 +52,7 @@
     >
       <form class="space-y-5 p-1" @submit.prevent="submit">
         <LazyVInput v-model="form.name" :label="t('dashboard.ops.b2b.companies.name')" required />
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <LazyVInput v-model="form.locations" type="number" :label="t('dashboard.ops.b2b.companies.locations')" />
           <LazyVInput v-model="form.buyers" type="number" :label="t('dashboard.ops.b2b.companies.buyers')" />
         </div>

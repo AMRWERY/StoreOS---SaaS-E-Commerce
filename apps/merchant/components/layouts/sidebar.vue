@@ -176,21 +176,21 @@
       <nuxt-link-locale
         v-else-if="!isPaid"
         to="/dashboard/settings/billing-and-plan"
-        class="flex items-center gap-2 px-3 py-2 rounded-lg bg-orange-500/10 border border-orange-500/20 hover:bg-orange-500/15 transition-all"
+        class="flex items-center gap-2 px-3 py-2 rounded-lg bg-accent/10 border border-accent/20 hover:bg-accent/15 transition-all"
       >
         <Icon
           name="lucide:arrow-up-circle"
-          class="w-3.5 h-3.5 text-orange-400 shrink-0"
+          class="w-3.5 h-3.5 text-accent shrink-0"
         />
         <div class="flex-1 min-w-0">
-          <p class="text-[10px] font-black text-orange-400 tracking-wider">
+          <p class="text-[10px] font-black text-accent tracking-wider">
             {{ t("nav.upgrade") }}
           </p>
           <p
             v-if="isTrial && trialDaysLeft > 0"
-            class="text-[9px] text-orange-400/60 font-medium"
+            class="text-[9px] text-accent/60 font-medium"
           >
-            {{ trialDaysLeft }}d left in trial
+            {{ t("nav.trialDaysLeft", { n: trialDaysLeft }) }}
           </p>
         </div>
       </nuxt-link-locale>
@@ -243,7 +243,7 @@
         v-else
         @click="handleLogout"
         variant="none"
-        className="w-full flex items-center gap-2 px-3 py-1.5 text-[12px] font-medium text-red-500/60 hover:text-red-500 transition-colors group"
+        className="w-full flex items-center gap-2 px-3 py-1.5 text-[12px] font-medium text-danger/60 hover:text-danger transition-colors group"
       >
         <Icon name="ph:sign-out-bold" class="text-xl" />
         <span class="truncate font-bold">{{ t("nav.logout") }}</span>
@@ -297,15 +297,13 @@ const handleExitPreview = () => {
 const expandedItems = ref<string[]>([]);
 
 onMounted(() => {
-  navItems.value.forEach((item) => {
-    if (
-      item.active &&
-      item.children &&
-      !expandedItems.value.includes(item.name)
-    ) {
-      expandedItems.value.push(item.name);
-    }
-  });
+  // Only the group that contains the active route opens on mount.
+  const activeGroup = navItems.value.find(
+    (item) => item.active && item.children,
+  );
+  if (activeGroup && !expandedItems.value.includes(activeGroup.name)) {
+    expandedItems.value.push(activeGroup.name);
+  }
 });
 
 const toggleExpand = (name: string) => {
@@ -586,6 +584,82 @@ const navItems = computed(() => [
       { name: t("nav.pos"), to: "/dashboard/pos", feature: "orders" },
       { name: t("nav.apps"), to: "/dashboard/apps", feature: "api" },
       { name: t("nav.webhookLog"), to: "/dashboard/webhooks/deliveries", feature: "api" },
+    ],
+  },
+  {
+    name: t("nav.catalogToolsGroup"),
+    icon: "ph:squares-four-fill",
+    active: [
+      "/dashboard/products/metafields",
+      "/dashboard/products/bulk-editor",
+      "/dashboard/products/scheduling",
+      "/dashboard/products/digital",
+      "/dashboard/products/subscriptions",
+      "/dashboard/products/seo-audit",
+      "/dashboard/inventory/preorders",
+      "/dashboard/inventory/waitlist",
+      "/dashboard/customers/credit",
+      "/dashboard/customers/duplicates",
+      "/dashboard/customers/tags",
+      "/dashboard/customers/import-export",
+    ].some((p) => route.path.includes(p)),
+    feature: "products",
+    locked: !hasFeature("products"),
+    children: [
+      { name: t("nav.metafields"), to: "/dashboard/products/metafields", feature: "products" },
+      { name: t("nav.bulkEditor"), to: "/dashboard/products/bulk-editor", feature: "products" },
+      { name: t("nav.scheduling"), to: "/dashboard/products/scheduling", feature: "products" },
+      { name: t("nav.digitalProducts"), to: "/dashboard/products/digital", feature: "products" },
+      { name: t("nav.subscriptions"), to: "/dashboard/products/subscriptions", feature: "products" },
+      { name: t("nav.seoAudit"), to: "/dashboard/products/seo-audit", feature: "products" },
+      { name: t("nav.preorders"), to: "/dashboard/inventory/preorders", feature: "inventory" },
+      { name: t("nav.waitlist"), to: "/dashboard/inventory/waitlist", feature: "inventory" },
+      { name: t("nav.storeCredit"), to: "/dashboard/customers/credit", feature: "customers" },
+      { name: t("nav.duplicates"), to: "/dashboard/customers/duplicates", feature: "customers" },
+      { name: t("nav.customerTags"), to: "/dashboard/customers/tags", feature: "customers" },
+      { name: t("nav.customerImportExport"), to: "/dashboard/customers/import-export", feature: "customers" },
+    ],
+  },
+  {
+    name: t("nav.checkoutGroup"),
+    icon: "ph:shopping-bag-open-fill",
+    active: [
+      "/dashboard/settings/checkout-offers",
+      "/dashboard/settings/express-checkout",
+      "/dashboard/settings/checkout-fields",
+      "/dashboard/settings/flash-sale",
+      "/dashboard/payment-links",
+    ].some((p) => route.path.includes(p)),
+    feature: "payments",
+    locked: !hasFeature("payments"),
+    children: [
+      { name: t("nav.checkoutOffers"), to: "/dashboard/settings/checkout-offers", feature: "settings" },
+      { name: t("nav.paymentLinks"), to: "/dashboard/payment-links", feature: "payments" },
+      { name: t("nav.expressCheckout"), to: "/dashboard/settings/express-checkout", feature: "payments" },
+      { name: t("nav.checkoutFields"), to: "/dashboard/settings/checkout-fields", feature: "settings" },
+      { name: t("nav.flashSale"), to: "/dashboard/settings/flash-sale", feature: "settings" },
+    ],
+  },
+  {
+    name: t("nav.trustGroup"),
+    icon: "ph:shield-check-fill",
+    active: [
+      "/dashboard/settings/kyc",
+      "/dashboard/settings/email-domain",
+      "/dashboard/settings/bot-protection",
+      "/dashboard/settings/privacy",
+      "/dashboard/settings/legal",
+      "/dashboard/settings/custom-code",
+    ].some((p) => route.path.includes(p)),
+    feature: "settings",
+    locked: !hasFeature("settings"),
+    children: [
+      { name: t("nav.trustKyc"), to: "/dashboard/settings/kyc", feature: "settings" },
+      { name: t("nav.trustEmailDomain"), to: "/dashboard/settings/email-domain", feature: "settings" },
+      { name: t("nav.trustBotProtection"), to: "/dashboard/settings/bot-protection", feature: "settings" },
+      { name: t("nav.trustPrivacy"), to: "/dashboard/settings/privacy", feature: "settings" },
+      { name: t("nav.trustLegal"), to: "/dashboard/settings/legal", feature: "settings" },
+      { name: t("nav.trustCustomCode"), to: "/dashboard/settings/custom-code", feature: "settings" },
     ],
   },
   {

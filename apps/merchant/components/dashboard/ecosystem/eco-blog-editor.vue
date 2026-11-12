@@ -30,6 +30,7 @@
           </button>
         </div>
         <textarea
+          :aria-label="t('dashboard.ops.blog.content')"
           ref="contentEl"
           v-model="form.content"
           rows="9"

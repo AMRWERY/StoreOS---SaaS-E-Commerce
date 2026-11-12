@@ -35,7 +35,10 @@ export const useEcoPosStore = defineStore('ecoPos', () => {
   }
   function resume(index: number) {
     const next = held.value.splice(index, 1)[0]
-    if (next) cart.value = next
+    if (!next) return
+    // Park the current sale instead of discarding it.
+    if (cart.value.length) held.value.push(cart.value)
+    cart.value = next
   }
   function clear() {
     cart.value = []

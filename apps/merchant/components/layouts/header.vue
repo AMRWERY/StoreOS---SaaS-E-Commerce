@@ -60,6 +60,26 @@
       </div>
 
       <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <!-- Global search trigger (opens components/layouts/global-search.vue) -->
+        <button
+          type="button"
+          class="flex items-center gap-2 px-2.5 py-1.5 rounded-md bg-bg-elevated border border-border-subtle hover:border-border-default text-tx-secondary hover:text-tx-primary transition-colors text-xs"
+          :aria-label="t('dashboard.ops.search.title')"
+          @click="searchOpen = true"
+        >
+          <ClientOnly>
+            <Icon name="ph:magnifying-glass-bold" class="text-base shrink-0" />
+          </ClientOnly>
+          <span class="hidden md:inline font-semibold">{{
+            t("dashboard.ops.search.title")
+          }}</span>
+          <kbd
+            class="hidden md:inline font-mono text-[10px] text-tx-muted border border-border-subtle rounded px-1.5 py-0.5"
+            dir="ltr"
+            >Ctrl K</kbd
+          >
+        </button>
+
         <LazyThemeToggle />
         <!-- Locale Switcher -->
         <LazyVButton
@@ -103,7 +123,8 @@
 
 <script lang="ts" setup>
 const router = useRouter();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
+const searchOpen = useState<boolean>("global-search-open", () => false);
 const switchLocalePath = useSwitchLocalePath();
 const { greeting, emoji, currentDate, timeParts } = useGreeting();
 

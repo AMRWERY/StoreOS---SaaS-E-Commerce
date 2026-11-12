@@ -21,6 +21,7 @@
             </span>
             <input
               v-model="drafts[i]"
+              :aria-label="t('dashboard.ops.variants.addValue')"
               class="flex-1 min-w-[80px] bg-transparent outline-none text-sm"
               :placeholder="t('dashboard.ops.variants.addValue')"
               @keydown.enter.prevent="addValue(i)"
@@ -55,16 +56,16 @@
           <span class="text-sm font-semibold">{{ item.title }}</span>
         </template>
         <template #cell(sku)="{ item }">
-          <input v-model="item.sku" class="w-36 bg-bg-base border border-border-subtle rounded px-2 py-1 font-mono text-xs" />
+          <input v-model="item.sku" aria-label="SKU" class="w-36 bg-bg-base border border-border-subtle rounded px-2 py-1 font-mono text-xs" />
         </template>
         <template #cell(price)="{ item }">
-          <input v-model.number="item.price" type="number" min="0" class="w-24 bg-bg-base border border-border-subtle rounded px-2 py-1 font-mono text-xs" />
+          <input v-model.number="item.price" :aria-label="t('dashboard.ops.variants.price')" type="number" min="0" class="w-24 bg-bg-base border border-border-subtle rounded px-2 py-1 font-mono text-xs" />
         </template>
         <template #cell(compareAt)="{ item }">
-          <input v-model.number="item.compareAt" type="number" min="0" class="w-24 bg-bg-base border border-border-subtle rounded px-2 py-1 font-mono text-xs" />
+          <input v-model.number="item.compareAt" :aria-label="t('dashboard.ops.variants.compareAt')" type="number" min="0" class="w-24 bg-bg-base border border-border-subtle rounded px-2 py-1 font-mono text-xs" />
         </template>
         <template #cell(stock)="{ item }">
-          <input v-model.number="item.stock" type="number" min="0" class="w-20 bg-bg-base border border-border-subtle rounded px-2 py-1 font-mono text-xs" />
+          <input v-model.number="item.stock" :aria-label="t('dashboard.ops.variants.stock')" type="number" min="0" class="w-20 bg-bg-base border border-border-subtle rounded px-2 py-1 font-mono text-xs" />
         </template>
       </LazyVTable>
       <ops-empty-state

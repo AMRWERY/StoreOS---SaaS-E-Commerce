@@ -40,7 +40,7 @@
             <LazyVInput
               v-model="modelValue.customDomain"
               :label="t('dashboard.settings.customDomain')"
-              placeholder="e.g. shop.hyperlink.com"
+              :placeholder="t('dashboard.storeInfo2.customDomainPlaceholder')"
               class="flex-1"
             />
 

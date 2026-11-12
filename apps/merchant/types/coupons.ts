@@ -1,5 +1,6 @@
 export interface Stat {
   label: string;
+  labelKey?: string;
   value: string | number;
   trend?: string | null;
 }

@@ -139,6 +139,7 @@
               <div class="flex items-center gap-2">
                 <button
                   type="button"
+                  :aria-label="t('dashboard.ops.pos.decrease')"
                   class="flex h-6 w-6 items-center justify-center rounded border border-border-default text-tx-secondary transition-colors hover:text-tx-primary"
                   @click="step(p.id, -1)"
                 >
@@ -147,6 +148,7 @@
                 <span class="w-5 text-center font-mono text-xs">{{ qty[p.id] ?? 0 }}</span>
                 <button
                   type="button"
+                  :aria-label="t('dashboard.ops.pos.increase')"
                   class="flex h-6 w-6 items-center justify-center rounded border border-border-default text-tx-secondary transition-colors hover:text-tx-primary"
                   @click="step(p.id, 1)"
                 >

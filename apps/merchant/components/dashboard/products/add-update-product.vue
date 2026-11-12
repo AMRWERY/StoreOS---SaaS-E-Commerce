@@ -219,6 +219,17 @@
             </div>
             <product-variants-editor v-if="product.hasVariants" />
           </section>
+
+          <!-- SEO -->
+          <section class="card px-4 py-3.5 space-y-6">
+            <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">
+              {{ t("dashboard.ops.productSeo.title") }}
+            </h3>
+            <catx-product-seo-panel
+              :product-name="product.name"
+              handle="kinetic-modular-rack-v2"
+            />
+          </section>
         </div>
 
         <!-- Right Column: Sidebar Widgets -->

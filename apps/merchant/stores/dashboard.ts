@@ -2,6 +2,8 @@ export const useDashboardStore = defineStore("dashboard", () => {
   const stats = ref([
     {
       label: "ORDERS TODAY",
+      labelKey: "dashboard.home2.stats.ordersToday",
+      trendKey: "dashboard.home2.stats.ordersTrend",
       value: "142",
       trend: "+12.5% from yesterday",
       iconName: "ph:chart-line-up-bold",
@@ -9,6 +11,8 @@ export const useDashboardStore = defineStore("dashboard", () => {
     },
     {
       label: "REVENUE TODAY",
+      labelKey: "dashboard.home2.stats.revenueToday",
+      trendKey: "dashboard.home2.stats.revenueTrend",
       value: "$12,840.00",
       trend: "+5.2% from yesterday",
       iconName: "ph:wallet-bold",
@@ -16,6 +20,8 @@ export const useDashboardStore = defineStore("dashboard", () => {
     },
     {
       label: "PENDING ORDERS",
+      labelKey: "dashboard.home2.stats.pendingOrders",
+      trendKey: "dashboard.home2.stats.pendingTrend",
       value: "28",
       trend: "Requires immediate fulfillment",
       iconName: "ph:clock-bold",
@@ -23,6 +29,8 @@ export const useDashboardStore = defineStore("dashboard", () => {
     },
     {
       label: "INVENTORY ALERTS",
+      labelKey: "dashboard.home2.stats.inventoryAlerts",
+      trendKey: "dashboard.home2.stats.inventoryTrend",
       value: "09",
       trend: "Items below safety threshold",
       iconName: "ph:warning-circle-bold",

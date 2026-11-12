@@ -7,6 +7,16 @@
       <div v-if="orders.length > 0" class="flex flex-1 overflow-hidden">
         <!-- Left Content: List & Filters -->
         <div class="flex-1 flex flex-col overflow-y-auto p-4 hide-scrollbar">
+          <!-- Saved views -->
+          <ops-saved-views
+            v-model="activeViewId"
+            :views="views"
+            class="mb-4"
+            @save="(name: string) => savedViews.saveCurrent('orders', name, { tab: activeTab })"
+            @apply="(view: OpsSavedView) => (activeTab = view.filters.tab ?? 'New')"
+            @delete="(id: string) => savedViews.remove('orders', id)"
+          />
+
           <!-- Tabs & Filters -->
           <orders-filter-bar v-model:activeTab="activeTab" :tabs="tabs" />
 
@@ -82,6 +92,15 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+import type { OpsSavedView } from '@/types/platformTools'
+
+const savedViews = useSavedViewsStore()
+const views = computed(() => savedViews.viewsFor('orders'))
+const activeViewId = computed({
+  get: () => savedViews.activeByPage['orders'] ?? '',
+  set: (id: string) => (savedViews.activeByPage['orders'] = id),
+})
+
 const ordersStore = useOrdersStore();
 const {
   activeTab,

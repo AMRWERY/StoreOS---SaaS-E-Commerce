@@ -14,7 +14,7 @@
         <div class="relative group">
           <LazyVInput
             v-model="form.code"
-            placeholder="e.g. SUMMER24"
+            :placeholder="t('dashboard.coupons.couponCodePlaceholder')"
             inputClass="bg-bg-primary border border-border-default rounded-xl px-5 py-4 text-sm font-bold tracking-widest focus:border-brand outline-none transition pe-14"
           />
           <LazyVButton
@@ -90,7 +90,7 @@
       <!-- Date Selection Design -->
       <div class="space-y-4">
         <!-- Starts -->
-        <LazyVDatePicker v-model="form.startDate" label="Starts">
+        <LazyVDatePicker v-model="form.startDate" :label="t('dashboard.coupons.starts')">
           <template #trigger="{ selectedDate }">
             <LazyVInput
               readonly
@@ -111,7 +111,7 @@
         </LazyVDatePicker>
 
         <!-- Expires -->
-        <LazyVDatePicker v-model="form.expiryDate" label="Expires">
+        <LazyVDatePicker v-model="form.expiryDate" :label="t('dashboard.coupons.expires')">
           <template #trigger="{ selectedDate }">
             <LazyVInput
               readonly

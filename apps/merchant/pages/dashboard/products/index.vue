@@ -4,6 +4,16 @@
       <!-- Header -->
       <products-header :total="products.length" />
 
+      <!-- Saved views -->
+      <ops-saved-views
+        v-model="activeViewId"
+        :views="views"
+        class="mb-4"
+        @save="(name: string) => savedViews.saveCurrent('products', name, { filter: activeFilter })"
+        @apply="(view: OpsSavedView) => (activeFilter = view.filters.filter ?? 'All')"
+        @delete="(id: string) => savedViews.remove('products', id)"
+      />
+
       <!-- Filter Bar -->
       <products-filter-bar v-model:view-mode="viewMode" />
 
@@ -43,6 +53,15 @@
 </template>
 
 <script lang="ts" setup>
+import type { OpsSavedView } from '@/types/platformTools'
+
+const savedViews = useSavedViewsStore()
+const views = computed(() => savedViews.viewsFor('products'))
+const activeViewId = computed({
+  get: () => savedViews.activeByPage['products'] ?? '',
+  set: (id: string) => (savedViews.activeByPage['products'] = id),
+})
+
 const productsStore = useProductsStore();
 const {
   activeFilter,

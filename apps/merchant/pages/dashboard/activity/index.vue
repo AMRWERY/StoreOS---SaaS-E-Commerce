@@ -84,7 +84,7 @@
           </div>
         </dl>
 
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div class="rounded-md border border-border-subtle bg-danger-dim p-3 space-y-1">
             <p class="text-[10px] font-bold text-danger">{{ t('dashboard.ops.activity.before') }}</p>
             <template v-if="selected.before">

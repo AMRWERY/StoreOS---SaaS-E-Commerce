@@ -3,7 +3,7 @@
     <LazyVStatCard
       v-for="stat in stats"
       :key="stat.label"
-      :label="stat.label"
+      :label="stat.labelKey ? t(stat.labelKey) : stat.label"
       :value="stat.value"
       :trend="stat.trend"
       iconName="ph:ticket-bold"
@@ -13,6 +13,8 @@
 
 <script lang="ts" setup>
 import type { Stat } from "@/types/coupons";
+
+const { t } = useI18n();
 
 defineProps<{
   stats: Stat[];

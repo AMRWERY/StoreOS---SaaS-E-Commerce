@@ -75,7 +75,7 @@
           <div
             v-for="(rule, i) in form.rules"
             :key="i"
-            class="grid grid-cols-[1fr_90px_1fr_auto] gap-2 items-center"
+            class="grid grid-cols-1 sm:grid-cols-[1fr_90px_1fr_auto] gap-2 sm:items-center"
           >
             <LazyVSelectInput v-model="rule.field" :options="fieldOptions" />
             <LazyVSelectInput v-model="rule.operator" :options="operatorOptions" />

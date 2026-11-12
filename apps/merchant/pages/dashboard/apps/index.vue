@@ -47,7 +47,7 @@
                 </div>
                 <LazyVButton
                   v-if="!app.installed"
-                  size="sm"
+                  className="!py-1 !px-3 !text-xs"
                   class="w-full"
                   :label="t('dashboard.ops.appsMarket.install')"
                   @click="startInstall(app)"

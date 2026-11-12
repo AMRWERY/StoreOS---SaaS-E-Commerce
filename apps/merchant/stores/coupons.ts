@@ -4,9 +4,9 @@ export const useCouponsStore = defineStore('coupons', () => {
   const isPanelOpen = ref(false)
 
   const stats = ref<Stat[]>([
-    { label: 'ACTIVE COUPONS', value: '1,284', trend: '+12%' },
-    { label: 'TOTAL REDEMPTIONS', value: '42,901', trend: null },
-    { label: 'REVENUE GENERATED', value: '$ 840k', trend: null },
+    { label: 'ACTIVE COUPONS', labelKey: 'dashboard.coupons2.stats.active', value: '1,284', trend: '+12%' },
+    { label: 'TOTAL REDEMPTIONS', labelKey: 'dashboard.coupons2.stats.redemptions', value: '42,901', trend: null },
+    { label: 'REVENUE GENERATED', labelKey: 'dashboard.coupons2.stats.revenue', value: '$ 840k', trend: null },
   ])
 
   const coupons = ref<Coupon[]>([

@@ -53,7 +53,7 @@
                     :placeholder="t('dashboard.ops.b2b.priceLists.assignHint')"
                     :options="companyOptions"
                   />
-                  <LazyVButton size="sm" variant="secondary" :label="t('dashboard.ops.b2b.priceLists.assign')" @click="assign(list.id)" />
+                  <LazyVButton className="!py-1 !px-3 !text-xs" variant="secondary" :label="t('dashboard.ops.b2b.priceLists.assign')" @click="assign(list.id)" />
                 </div>
               </div>
             </div>

@@ -26,7 +26,7 @@
         <div class="mb-6 flex h-16 shrink-0 items-center">
           <img
             src="/gif/storeose-logo-admin.gif"
-            alt="storeose-logo-admin"
+            alt="StoreOS"
             class="h-16 w-auto max-w-full object-contain"
             width="117"
             height="40"
@@ -34,9 +34,9 @@
         </div>
 
         <nav class="flex-1 space-y-1 overflow-y-auto hide-scrollbar">
+          <template v-for="item in navItems" :key="item.to">
+          <p v-if="item.section" class="px-3 pb-1 pt-4 text-eyebrow">{{ item.section }}</p>
           <nuxt-link-locale
-            v-for="item in navItems"
-            :key="item.to"
             :to="item.to"
             class="flex items-center gap-2 rounded-md px-3 py-1.5 text-[12px] font-medium transition-colors"
             :class="
@@ -53,6 +53,7 @@
               >{{ item.badge }}</span
             >
           </nuxt-link-locale>
+          </template>
         </nav>
 
         <div class="mt-4 border-t border-border-subtle pt-4">
@@ -94,14 +95,15 @@
 
           <div class="flex items-center gap-3">
             <ThemeToggle />
+            <LazyVLocaleSwitch />
             <div
-              class="flex items-center gap-2 rounded-full border border-border-subtle bg-bg-primary py-1 pe-3 ps-1"
+              class="flex items-center gap-2 rounded-full border border-border-subtle bg-bg-primary p-1 sm:pe-3"
             >
               <span
                 class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-dim text-[10px] font-bold text-brand"
                 >AM</span
               >
-              <div class="leading-tight">
+              <div class="hidden leading-tight sm:block">
                 <p class="text-[11px] font-semibold">
                   {{ t("platform.topbar.operatorName") }}
                 </p>
@@ -144,6 +146,7 @@ interface NavItem {
   label: string;
   exact?: boolean;
   badge?: number;
+  section?: string;
 }
 
 const openCases = computed(
@@ -171,25 +174,59 @@ const navItems = computed<NavItem[]>(() => [
     label: t("platform.nav.flags"),
   },
   {
+    to: "/platform/kyc",
+    icon: "ph:identification-card",
+    label: t("platform.nav.kyc"),
+    section: t("platform.nav.sections.trust"),
+  },
+  {
     to: "/platform/abuse",
     icon: "ph:warning-octagon",
     label: t("platform.nav.abuse"),
     badge: openCases.value || undefined,
   },
   {
+    to: "/platform/impersonation",
+    icon: "ph:key",
+    label: t("platform.nav.impersonation"),
+  },
+  {
     to: "/platform/health",
     icon: "ph:heartbeat",
     label: t("platform.nav.health"),
+    section: t("platform.nav.sections.operations"),
+  },
+  {
+    to: "/platform/incidents",
+    icon: "ph:siren",
+    label: t("platform.nav.incidents"),
+  },
+  {
+    to: "/platform/announcements",
+    icon: "ph:megaphone",
+    label: t("platform.nav.announcements"),
+  },
+  {
+    to: "/platform/config",
+    icon: "ph:sliders-horizontal",
+    label: t("platform.nav.config"),
   },
   {
     to: "/platform/support",
     icon: "ph:lifebuoy",
     label: t("platform.nav.support"),
+    section: t("platform.nav.sections.team"),
   },
   {
     to: "/platform/staff",
     icon: "ph:users-three",
     label: t("platform.nav.staff"),
+  },
+  {
+    to: "/platform/developer-sandbox",
+    icon: "ph:flask",
+    label: t("platform.nav.sandbox"),
+    section: t("platform.nav.sections.developers"),
   },
 ]);
 

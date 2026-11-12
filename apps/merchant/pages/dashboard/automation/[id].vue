@@ -58,7 +58,7 @@
               <div
                 v-for="c in wf.conditions"
                 :key="c.id"
-                class="grid grid-cols-[1fr_1fr_1fr_auto] gap-2 items-center"
+                class="grid grid-cols-1 sm:grid-cols-[1fr_1fr_1fr_auto] gap-2 sm:items-center"
               >
                 <LazyVSelectInput v-model="c.field" :options="fieldOptions" />
                 <LazyVSelectInput v-model="c.operator" :options="operatorOptions" />
@@ -96,7 +96,7 @@
               <p v-if="!wf.actions.length" class="text-xs text-tx-muted">
                 {{ t('dashboard.ops.automation.builder.noActions') }}
               </p>
-              <div v-for="a in wf.actions" :key="a.id" class="grid grid-cols-[1fr_1fr_auto] gap-2 items-center">
+              <div v-for="a in wf.actions" :key="a.id" class="grid grid-cols-1 sm:grid-cols-[1fr_1fr_auto] gap-2 sm:items-center">
                 <LazyVSelectInput v-model="a.type" :options="actionOptions" />
                 <LazyVInput v-model="a.param" :placeholder="t('dashboard.ops.automation.builder.param')" />
                 <LazyVButton

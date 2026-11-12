@@ -150,7 +150,7 @@
               <div class="flex gap-2">
                 <LazyVButton class="flex-1" className="min-h-12" :disabled="!cart.length" :label="t('dashboard.ops.pos.charge')" @click="charge" />
                 <LazyVButton variant="secondary" className="min-h-12" :disabled="!cart.length" :label="t('dashboard.ops.pos.hold')" @click="store.hold()" />
-                <LazyVButton variant="ghost" className="min-h-12" icon="ph:trash-bold" :disabled="!cart.length" @click="store.clear()" />
+                <LazyVButton variant="ghost" className="min-h-12" icon="ph:trash-bold" :aria-label="t('dashboard.ops.common.delete')" :disabled="!cart.length" @click="store.clear()" />
               </div>
             </div>
           </aside>

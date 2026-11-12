@@ -15,7 +15,7 @@ export const useLaunchChecklistStore = defineStore('launchChecklist', () => {
   ])
 
   const doneCount = computed(() => tasks.value.filter((t) => t.done).length)
-  const progress = computed(() => Math.round((doneCount.value / tasks.value.length) * 100))
+  const progress = computed(() => tasks.value.length ? Math.round((doneCount.value / tasks.value.length) * 100) : 0)
 
   function toggle(id: string) {
     const t = tasks.value.find((x) => x.id === id)

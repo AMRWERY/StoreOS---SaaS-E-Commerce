@@ -22,6 +22,7 @@ export const ROUTE_FEATURES: Array<{ prefix: string; feature: string }> = [
   { prefix: '/dashboard/products', feature: 'products' },
   { prefix: '/dashboard/collections', feature: 'products' },
   { prefix: '/dashboard/files', feature: 'products' },
+  { prefix: '/dashboard/payment-links', feature: 'payments' },
   { prefix: '/dashboard/campaigns', feature: 'coupons' },
   { prefix: '/dashboard/loyalty', feature: 'coupons' },
   { prefix: '/dashboard/bundles', feature: 'coupons' },

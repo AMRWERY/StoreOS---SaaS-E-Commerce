@@ -207,7 +207,34 @@
     "fulfillmentGroup": "Fulfillment",
     "marketingGroup": "Marketing",
     "insightsGroup": "Insights & Channels",
-    "ecosystemGroup": "Growth Tools"
+    "ecosystemGroup": "Growth Tools",
+    "trustKyc": "Identity Verification",
+    "trustEmailDomain": "Email Domain",
+    "trustBotProtection": "Bot Protection",
+    "trustPrivacy": "Privacy & Data",
+    "trustLegal": "Legal Documents",
+    "trustCustomCode": "Custom Code Safety",
+    "metafields": "Metafields",
+    "bulkEditor": "Bulk editor",
+    "scheduling": "Scheduled publishing",
+    "digitalProducts": "Digital products",
+    "subscriptions": "Subscriptions",
+    "seoAudit": "SEO audit",
+    "preorders": "Pre-orders",
+    "waitlist": "Back-in-stock waitlist",
+    "storeCredit": "Store credit",
+    "duplicates": "Duplicate customers",
+    "customerTags": "Tags and notes",
+    "customerImportExport": "Customer import/export",
+    "checkoutOffers": "Order Bumps & Offers",
+    "paymentLinks": "Payment Links",
+    "expressCheckout": "Express Checkout",
+    "checkoutFields": "Checkout Fields",
+    "flashSale": "Flash Sale Protection",
+    "trustGroup": "Trust & Compliance",
+    "checkoutGroup": "Checkout Extras",
+    "catalogToolsGroup": "Catalog & Customer Tools",
+    "switchLanguage": "Switch language"
   },
   "home": {
     "hero": {
@@ -3126,6 +3153,1056 @@
         "thanks": "Thank you for shopping with us.",
         "print": "Print",
         "newSale": "New sale"
+      },
+      "kyc": {
+        "title": "Identity Verification (KYC/KYB)",
+        "subtitle": "Verify your business to enable payouts and lift account limits.",
+        "banner": {
+          "not_started": {
+            "title": "Verification not started",
+            "hint": "Complete the steps below to verify your business."
+          },
+          "in_review": {
+            "title": "Under review",
+            "hint": "Our team is reviewing your documents. This usually takes 1 to 3 business days."
+          },
+          "verified": {
+            "title": "Verified",
+            "hint": "Your business is verified and payouts are enabled."
+          },
+          "rejected": {
+            "title": "Verification rejected",
+            "hint": "Some documents need to be corrected before we can approve your account."
+          }
+        },
+        "resubmit": "Fix and resubmit",
+        "steps": {
+          "type": "Business type",
+          "details": "Business details",
+          "docs": "Documents",
+          "payout": "Payout details",
+          "review": "Review"
+        },
+        "businessType": "Business type",
+        "businessTypeHint": "Pick the legal form under which you sell. Required documents depend on this choice.",
+        "businessTypes": {
+          "individual": "Individual seller",
+          "sole": "Sole proprietorship",
+          "company": "Registered company"
+        },
+        "fields": {
+          "legalName": "Legal business name",
+          "commercialRegisterNo": "Commercial register number",
+          "taxCardNo": "Tax card number",
+          "nationalId": "Owner national ID (14 digits)",
+          "address": "Registered address",
+          "nationalIdHint": "The national ID must belong to the owner or authorized signatory."
+        },
+        "docs": {
+          "idFront": "National ID (front)",
+          "idBack": "National ID (back)",
+          "commercialRegister": "Commercial register",
+          "taxCard": "Tax card"
+        },
+        "docStatus": {
+          "missing": "Missing",
+          "uploaded": "Uploaded",
+          "in_review": "In review",
+          "approved": "Approved",
+          "rejected": "Rejected"
+        },
+        "docReasons": {
+          "blurry": "The scan is blurry or cropped. Upload a clear, full-page copy."
+        },
+        "uploadTitle": "Click to upload or drag and drop",
+        "uploadSubtitle": "JPG, PNG or PDF (max. 5MB)",
+        "payout": {
+          "method": "Payout method",
+          "methods": {
+            "bank": "Bank account",
+            "wallet": "Mobile wallet"
+          },
+          "bankName": "Bank name",
+          "accountName": "Account holder name",
+          "iban": "IBAN",
+          "walletNumber": "Wallet mobile number"
+        },
+        "policy": {
+          "title": "Prohibited goods policy",
+          "body": "Selling counterfeit goods, weapons, illegal drugs, adult content or other items prohibited by Egyptian law or StoreOS policy will lead to account suspension.",
+          "ack": "I confirm I will not sell prohibited goods and the information provided is accurate."
+        },
+        "back": "Back",
+        "next": "Next",
+        "submit": "Submit for review",
+        "documentsHeading": "Submitted documents",
+        "document": "Document",
+        "file": "File",
+        "empty": "No documents",
+        "emptyHint": "Uploaded documents will appear here."
+      },
+      "emailDomain": {
+        "title": "Email Sending Domain",
+        "subtitle": "Send order and marketing emails from your own domain to improve deliverability.",
+        "verify": "Verify records",
+        "stats": {
+          "sent": "EMAILS SENT (30D)",
+          "bounce": "BOUNCE RATE",
+          "complaint": "COMPLAINT RATE"
+        },
+        "senderSettings": "Sender settings",
+        "domain": "Sending domain",
+        "senderName": "Sender name",
+        "fromAddress": "From address (local part)",
+        "dnsRecords": "DNS records",
+        "dnsHint": "Add these records at your DNS provider, then press Verify records.",
+        "purposes": {
+          "spf": "SPF",
+          "dkim1": "DKIM 1",
+          "dkim2": "DKIM 2",
+          "dmarc": "DMARC"
+        },
+        "purpose": "Purpose",
+        "dnsType": "Type",
+        "dnsHost": "Host",
+        "dnsValue": "Value",
+        "dnsStatus": {
+          "verified": "Verified",
+          "pending": "Pending",
+          "failed": "Failed"
+        },
+        "copy": "Copy",
+        "emptyRecords": "No DNS records",
+        "emptyRecordsHint": "Enter a sending domain to generate the records.",
+        "suppression": "Suppression list",
+        "suppressionHint": "Addresses that will never receive emails from your store.",
+        "address": "Email address",
+        "reason": "Reason",
+        "add": "Add",
+        "reasons": {
+          "bounced": "Bounced",
+          "complained": "Complained",
+          "unsubscribed": "Unsubscribed"
+        },
+        "remove": "Remove",
+        "emptySuppression": "Suppression list is empty",
+        "emptySuppressionHint": "Bounced, complained and unsubscribed addresses will appear here."
+      },
+      "botProtection": {
+        "title": "Bot Protection",
+        "subtitle": "Stop fake signups, credential stuffing and checkout abuse with CAPTCHA and rate limits.",
+        "saved": "Saved",
+        "protectedAreas": "Protected areas",
+        "areas": {
+          "login": "Login",
+          "registration": "Registration",
+          "checkout": "Checkout",
+          "forms": "Contact and newsletter forms"
+        },
+        "providerSection": "CAPTCHA provider",
+        "provider": "Provider",
+        "siteKey": "Site key",
+        "sensitivity": "Sensitivity",
+        "sensitivityHint": "Higher sensitivity blocks more bots but may challenge more real customers.",
+        "providers": {
+          "turnstile": "Cloudflare Turnstile",
+          "hcaptcha": "hCaptcha",
+          "recaptcha": "Google reCAPTCHA"
+        },
+        "rateLimits": "Rate-limit rules",
+        "route": "Route",
+        "limit": "Requests",
+        "window": "Window",
+        "action": "Action",
+        "actions": {
+          "block": "Block",
+          "challenge": "Challenge",
+          "throttle": "Throttle"
+        },
+        "emptyRules": "No rate-limit rules",
+        "emptyRulesHint": "Rules you add will appear here.",
+        "blocklist": "Blocked IPs and countries",
+        "blocklistHint": "Traffic from these sources is rejected before reaching your store.",
+        "kind": "Type",
+        "kinds": {
+          "ip": "IP address",
+          "country": "Country"
+        },
+        "value": "Value",
+        "add": "Add",
+        "emptyBlocklist": "Nothing blocked",
+        "emptyBlocklistHint": "Add an IP address or a two-letter country code.",
+        "recentEvents": "Recent blocked events",
+        "ip": "IP address",
+        "reason": "Reason",
+        "reasons": {
+          "rate_limit": "Rate limit",
+          "captcha_failed": "CAPTCHA failed",
+          "blocklist": "Blocklist",
+          "bot_signature": "Bot signature"
+        },
+        "emptyEvents": "No blocked events",
+        "emptyEventsHint": "Blocked requests will be logged here."
+      },
+      "privacy": {
+        "title": "Privacy & Data Requests",
+        "subtitle": "Handle customer data requests, track consent and set retention rules.",
+        "tabs": {
+          "requests": "Data requests",
+          "consent": "Consent log",
+          "retention": "Retention"
+        },
+        "id": "Request",
+        "type": "Type",
+        "types": {
+          "export": "Export",
+          "delete": "Delete",
+          "correct": "Correct"
+        },
+        "requestedAt": "Requested",
+        "dueAt": "Due date",
+        "sla": {
+          "overdue": "Overdue",
+          "daysLeft": "{n} days left"
+        },
+        "status": {
+          "open": "Open",
+          "processing": "Processing",
+          "completed": "Completed"
+        },
+        "process": "Process",
+        "complete": "Complete",
+        "emptyRequests": "No data requests",
+        "emptyRequestsHint": "Customer export, deletion and correction requests will appear here.",
+        "contact": "Contact",
+        "channel": "Channel",
+        "channels": {
+          "email": "Email",
+          "sms": "SMS",
+          "whatsapp": "WhatsApp"
+        },
+        "consentLabel": "Consent",
+        "consent": {
+          "given": "Given",
+          "withdrawn": "Withdrawn"
+        },
+        "source": "Source",
+        "sources": {
+          "checkout": "Checkout",
+          "signup": "Sign-up",
+          "popup": "Popup",
+          "import": "Import"
+        },
+        "timestamp": "Timestamp",
+        "emptyConsent": "No consent records",
+        "emptyConsentHint": "Consent given or withdrawn by contacts will be logged here.",
+        "retention": {
+          "title": "Data retention",
+          "orders": "Orders",
+          "customers": "Inactive customers",
+          "logs": "Access logs",
+          "abandoned": "Abandoned carts",
+          "periods": {
+            "90d": "90 days",
+            "1y": "1 year",
+            "3y": "3 years",
+            "5y": "5 years",
+            "10y": "10 years"
+          }
+        },
+        "law": {
+          "title": "Egyptian Personal Data Protection Law (Law No. 151 of 2020)",
+          "body": "Customers have the right to access, correct and erase their personal data, and to withdraw consent. Respond to each request within the legal deadline and keep a record of consent.",
+          "disclaimer": "This is general guidance, not legal advice. Verify your obligations with a legal advisor."
+        },
+        "subprocessors": {
+          "title": "Subprocessors",
+          "name": "Provider",
+          "purpose": "Purpose",
+          "region": "Region",
+          "purposes": {
+            "hosting": "Hosting",
+            "payments": "Payments",
+            "cdn": "CDN and security",
+            "messaging": "Messaging"
+          },
+          "empty": "No subprocessors",
+          "emptyHint": "Third parties processing customer data will be listed here."
+        },
+        "confirmDelete": {
+          "title": "Confirm data deletion",
+          "body": "This permanently erases the customer's personal data and cannot be undone. Order records required by tax law will be anonymized instead.",
+          "cancel": "Cancel",
+          "confirm": "Delete data"
+        }
+      },
+      "legal": {
+        "title": "Legal Documents",
+        "subtitle": "Review and accept the agreements that govern your StoreOS account.",
+        "version": "Version",
+        "updated": "Updated",
+        "accepted": "Accepted",
+        "pending": "Action required",
+        "acceptedBy": "Accepted by",
+        "acceptedAt": "Accepted at",
+        "read": "Read",
+        "accept": "Accept",
+        "docs": {
+          "tos": {
+            "title": "Terms of Service",
+            "hint": "The main agreement between you and StoreOS.",
+            "ack": "I have read and accept the Terms of Service.",
+            "body1": "By using StoreOS you agree to these terms on behalf of your business. You are responsible for the products you sell and for complying with applicable Egyptian law.",
+            "body2": "StoreOS provides the platform as is and may suspend accounts that violate these terms or the acceptable-use policy.",
+            "body3": "We may update these terms. You will be notified and asked to accept new versions."
+          },
+          "aup": {
+            "title": "Acceptable Use Policy",
+            "hint": "Rules about what you may sell and how you may use the platform.",
+            "ack": "I have read and accept the Acceptable Use Policy.",
+            "body1": "You may not sell counterfeit, illegal or prohibited goods, or use the platform for fraud, spam or abuse.",
+            "body2": "You may not upload malicious code, including scripts intended to harm visitors or other merchants.",
+            "body3": "Violations can result in content removal, payout holds or account termination."
+          },
+          "refund": {
+            "title": "Subscription Refund Policy",
+            "hint": "How refunds work for your StoreOS subscription fees.",
+            "ack": "I have read and accept the Subscription Refund Policy.",
+            "body1": "Monthly plans can be cancelled at any time and are not refunded for the current billing period.",
+            "body2": "Annual plans can be refunded pro rata within 14 days of purchase.",
+            "body3": "Transaction fees and add-on usage already consumed are non-refundable."
+          }
+        },
+        "dpa": {
+          "title": "Data Processing Agreement (DPA)",
+          "hint": "Download the signed agreement describing how StoreOS processes your customers' data.",
+          "download": "Download PDF"
+        },
+        "history": "Acceptance history",
+        "document": "Document",
+        "ip": "IP address",
+        "empty": "No documents",
+        "emptyHint": "Legal documents will appear here.",
+        "emptyHistory": "No acceptance history",
+        "emptyHistoryHint": "Each acceptance is recorded here."
+      },
+      "customCode": {
+        "title": "Custom Code Safety",
+        "subtitle": "Control how custom HTML, CSS and JavaScript runs on your storefront.",
+        "saved": "Saved",
+        "warning": {
+          "title": "Custom code can put your customers at risk",
+          "body": "Malicious or careless scripts can steal customer data, hijack checkout or inject fake payment forms (XSS). Only allow code you trust and prefer the sanitized or sandboxed modes."
+        },
+        "settings": "Settings",
+        "allowHtml": "Allow custom HTML in sections",
+        "allowHtmlHint": "Enables the Custom HTML section in the storefront builder.",
+        "mode": "Execution mode",
+        "modes": {
+          "sanitized": "Sanitized (scripts stripped)",
+          "sandboxed": "Sandboxed iframe",
+          "disabled": "Disabled"
+        },
+        "modeHints": {
+          "sanitized": "Script tags and inline event handlers are removed before the HTML is rendered.",
+          "sandboxed": "Code runs inside an isolated iframe with no access to the storefront page or cookies.",
+          "disabled": "Custom HTML sections are not rendered on the storefront."
+        },
+        "allowInlineStyles": "Allow inline styles",
+        "allowFrames": "Allow embedded frames",
+        "allowedDomains": "Allowed domains",
+        "domainKinds": {
+          "script": "Scripts",
+          "style": "Styles",
+          "frame": "Frames"
+        },
+        "noDomains": "No domains added",
+        "add": "Add",
+        "cspPreview": "Content Security Policy preview",
+        "cspHint": "Generated from the settings above. Read-only.",
+        "origin": {
+          "title": "Separate origin",
+          "isolated": "Isolated",
+          "shared": "Shared origin",
+          "hint": "The storefront must be served from a different origin than the dashboard so storefront scripts cannot reach merchant sessions.",
+          "storefront": "Storefront origin",
+          "dashboard": "Dashboard origin",
+          "differ": "Origins are different"
+        },
+        "scan": {
+          "title": "Scan results for existing custom code",
+          "page": "Page",
+          "section": "Section",
+          "finding": "Finding",
+          "findings": {
+            "inline_script": "Inline script",
+            "external_script": "External script",
+            "iframe": "Embedded iframe",
+            "inline_handler": "Inline event handler",
+            "style_only": "Styles only"
+          },
+          "severityLabel": "Severity",
+          "severity": {
+            "high": "High",
+            "medium": "Medium",
+            "low": "Low"
+          },
+          "action": "Action",
+          "actions": {
+            "stripped": "Stripped",
+            "sandboxed": "Sandboxed",
+            "review": "Needs review",
+            "allowed": "Allowed"
+          },
+          "empty": "No custom code found",
+          "emptyHint": "Your storefront has no custom code blocks."
+        }
+      },
+      "catxCommon": {
+        "cancel": "Cancel",
+        "done": "Done",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "metafields": {
+        "title": "Metafields",
+        "subtitle": "Define custom data fields for products, collections and customers.",
+        "create": "New metafield",
+        "createSubtitle": "Add a custom data definition.",
+        "name": "Name",
+        "namespace": "Namespace",
+        "key": "Key",
+        "namespaceKey": "Namespace.key",
+        "type": "Type",
+        "appliesTo": "Applies to",
+        "required": "Required",
+        "product": "Product",
+        "value": "Value",
+        "empty": "No metafields yet",
+        "emptyHint": "Create a definition to store extra data on your catalog.",
+        "previewTitle": "Values preview",
+        "previewHint": "Sample values stored per product.",
+        "previewEmpty": "No values stored yet",
+        "types": {
+          "text": "Text",
+          "number": "Number",
+          "date": "Date",
+          "boolean": "Boolean",
+          "file": "File",
+          "list": "List"
+        },
+        "owners": {
+          "products": "Products",
+          "collections": "Collections",
+          "customers": "Customers"
+        }
+      },
+      "bulkEditor": {
+        "title": "Bulk editor",
+        "subtitle": "Edit many products at once in a spreadsheet-style grid.",
+        "unsaved": "Unsaved changes: {n}",
+        "undo": "Undo",
+        "discard": "Discard",
+        "bulkSet": "Bulk set",
+        "selected": "Selected: {n}",
+        "percent": "Percent",
+        "setStatus": "Set status",
+        "addTag": "Add tag",
+        "apply": "Apply",
+        "selectRow": "Select row",
+        "empty": "No products to edit",
+        "emptyHint": "Add products to start editing in bulk.",
+        "cols": {
+          "title": "Title",
+          "sku": "SKU",
+          "price": "Price",
+          "compareAt": "Compare-at",
+          "stock": "Stock",
+          "tags": "Tags"
+        },
+        "statuses": {
+          "active": "Active",
+          "draft": "Draft",
+          "archived": "Archived"
+        }
+      },
+      "scheduling": {
+        "title": "Scheduled publishing",
+        "subtitle": "Publish or unpublish products automatically at a set time.",
+        "create": "Schedule change",
+        "createSubtitle": "Pick a product, an action and a date.",
+        "upcoming": "Upcoming",
+        "noUpcoming": "Nothing scheduled.",
+        "product": "Product",
+        "action": "Action",
+        "channel": "Channel",
+        "dateTime": "Date and time",
+        "empty": "No scheduled changes",
+        "emptyHint": "Schedule a product to go live or be hidden automatically.",
+        "actions": {
+          "publish": "Publish",
+          "unpublish": "Unpublish"
+        },
+        "channels": {
+          "online": "Online store",
+          "pos": "Point of sale",
+          "all": "All channels"
+        },
+        "statuses": {
+          "pending": "Pending",
+          "done": "Done",
+          "cancelled": "Cancelled"
+        }
+      },
+      "digital": {
+        "title": "Digital products",
+        "subtitle": "Deliver downloadable files and license keys after purchase.",
+        "attach": "Attach files",
+        "attachTitle": "Attach files",
+        "uploadTitle": "Click to upload a file",
+        "uploadHint": "PDF, ZIP or any downloadable file",
+        "currentFiles": "Files attached",
+        "empty": "No digital products",
+        "emptyHint": "Mark a product as digital to deliver files automatically.",
+        "emailPreview": "Delivery email preview",
+        "emailSubject": "Subject: Your download is ready",
+        "emailGreeting": "Thank you for your order!",
+        "emailBody": "Your files are ready. The link below expires after the configured time and has a download limit.",
+        "emailButton": "Download now",
+        "emailFooter": "Order reference EG-10482",
+        "recentDownloads": "Recent downloads",
+        "noDownloads": "No downloads yet",
+        "cols": {
+          "product": "Product",
+          "files": "Files",
+          "limit": "Download limit",
+          "expiry": "Link expiry (hours)",
+          "license": "License keys",
+          "ip": "IP address"
+        }
+      },
+      "subscriptions": {
+        "title": "Subscriptions",
+        "subtitle": "Sell recurring plans and manage your subscribers.",
+        "create": "New plan",
+        "createSubtitle": "Create a selling plan for recurring purchases.",
+        "plans": "Selling plans",
+        "subscribers": "Subscribers",
+        "name": "Plan name",
+        "interval": "Interval",
+        "discount": "Discount %",
+        "price": "Price per cycle",
+        "productsCount": "Products",
+        "plan": "Plan",
+        "nextBilling": "Next billing",
+        "pause": "Pause",
+        "resume": "Resume",
+        "emptyPlans": "No selling plans",
+        "emptyPlansHint": "Create a plan to start recurring sales.",
+        "emptySubs": "No subscribers yet",
+        "stats": {
+          "mrr": "Monthly recurring revenue",
+          "active": "Active subscribers",
+          "churned": "Cancelled"
+        },
+        "intervals": {
+          "weekly": "Weekly",
+          "monthly": "Monthly",
+          "quarterly": "Quarterly"
+        },
+        "statuses": {
+          "active": "Active",
+          "paused": "Paused",
+          "cancelled": "Cancelled"
+        }
+      },
+      "productSeo": {
+        "title": "Search engine listing",
+        "seoTitle": "SEO title",
+        "seoDescription": "SEO description",
+        "handle": "URL handle",
+        "canonical": "Canonical URL",
+        "socialImage": "Social sharing image",
+        "uploadTitle": "Upload social image",
+        "uploadHint": "Recommended 1200x630",
+        "jsonLd": "Structured data (JSON-LD)",
+        "preview": "Search result preview",
+        "titlePlaceholder": "Page title appears here",
+        "descriptionPlaceholder": "Meta description appears here."
+      },
+      "seoAudit": {
+        "title": "SEO audit",
+        "subtitle": "Find products with missing or weak search metadata.",
+        "product": "Product",
+        "score": "SEO score",
+        "missing": "Missing",
+        "complete": "Complete",
+        "quickFix": "Quick fix",
+        "empty": "No products to audit",
+        "emptyHint": "Add products to see their SEO score.",
+        "stats": {
+          "average": "Average score",
+          "healthy": "Healthy products",
+          "needsWork": "Need work"
+        },
+        "fields": {
+          "title": "Title",
+          "description": "Description",
+          "handle": "Handle",
+          "image": "Image"
+        }
+      },
+      "preorders": {
+        "title": "Pre-orders and backorders",
+        "subtitle": "Keep selling products that are out of stock or not yet released.",
+        "create": "New rule",
+        "createSubtitle": "Enable pre-order or backorder for a product.",
+        "settings": "Settings",
+        "allowBackorders": "Allow backorders",
+        "message": "Pre-order message",
+        "expectedShip": "Expected ship date",
+        "product": "Product",
+        "mode": "Mode",
+        "limit": "Limit",
+        "sold": "Sold",
+        "expectedDate": "Expected date",
+        "empty": "No pre-order products",
+        "emptyHint": "Create a rule to accept orders before stock arrives.",
+        "modes": {
+          "preorder": "Pre-order",
+          "backorder": "Backorder"
+        },
+        "statuses": {
+          "active": "Active",
+          "paused": "Paused",
+          "ended": "Ended"
+        }
+      },
+      "waitlist": {
+        "title": "Back-in-stock waitlist",
+        "subtitle": "See who is waiting for out-of-stock products and notify them.",
+        "notifyAll": "Notify all",
+        "view": "View",
+        "send": "Send notifications",
+        "template": "Notification template",
+        "defaultTemplate": "Good news! The product you were waiting for is back in stock. Order now before it sells out again.",
+        "confirmTitle": "Notify all subscribers",
+        "confirmBody": "A notification will be sent to {n} subscribers.",
+        "detailTitle": "Subscribers",
+        "noSubscribers": "No subscribers for this product",
+        "notifiedYes": "Notified",
+        "notifiedNo": "Waiting",
+        "empty": "Waitlist is empty",
+        "emptyHint": "Customers can join the waitlist on out-of-stock product pages.",
+        "stats": {
+          "subscribers": "Total subscribers",
+          "pending": "Waiting",
+          "notified": "Notified"
+        },
+        "cols": {
+          "product": "Product / variant",
+          "subscribers": "Subscribers",
+          "lastRequest": "Last request",
+          "notified": "Notified"
+        },
+        "channels": {
+          "email": "Email",
+          "whatsapp": "WhatsApp"
+        }
+      },
+      "storeCredit": {
+        "title": "Store credit",
+        "subtitle": "Issue and track store credit balances for your customers.",
+        "adjust": "Adjust credit",
+        "adjustSubtitle": "Add or deduct credit from a customer balance.",
+        "operation": "Operation",
+        "reason": "Reason",
+        "apply": "Apply adjustment",
+        "balance": "Balance",
+        "balanceAfter": "Balance after",
+        "lastActivity": "Last activity",
+        "actor": "Actor",
+        "ledger": "Ledger",
+        "empty": "No credit balances",
+        "emptyHint": "Issue credit to a customer to see balances here.",
+        "emptyLedger": "No ledger entries",
+        "stats": {
+          "outstanding": "Total outstanding credit",
+          "issued": "Issued this month"
+        },
+        "types": {
+          "add": "Add",
+          "deduct": "Deduct"
+        }
+      },
+      "duplicates": {
+        "title": "Duplicate customers",
+        "subtitle": "Review suspected duplicates and merge them into one profile.",
+        "review": "Review",
+        "notDuplicates": "Not duplicates",
+        "merge": "Merge customers",
+        "compareTitle": "Compare records",
+        "compareSubtitle": "Choose which value to keep for each field.",
+        "combined": "Combined",
+        "orders": "orders",
+        "confirmTitle": "Merge customers",
+        "confirmBody": "The two profiles will be combined into one. This action cannot be undone.",
+        "empty": "No duplicates found",
+        "emptyHint": "We will flag suspected duplicate customers here.",
+        "cols": {
+          "customers": "Customers",
+          "reason": "Match reason",
+          "confidence": "Confidence"
+        },
+        "reasons": {
+          "phone": "Same phone number",
+          "email": "Same email",
+          "name_address": "Same name and address"
+        },
+        "fields": {
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone",
+          "address": "Address"
+        },
+        "statuses": {
+          "open": "Open",
+          "merged": "Merged",
+          "dismissed": "Dismissed"
+        }
+      },
+      "customerTags": {
+        "title": "Customer tags and notes",
+        "subtitle": "Organize customers with tags and keep internal notes.",
+        "manager": "Tag manager",
+        "tagName": "Tag name",
+        "color": "Color",
+        "create": "Create tag",
+        "rename": "Rename",
+        "customers": "customers",
+        "addNote": "Add note",
+        "addNoteSubtitle": "Write an internal note on a customer.",
+        "note": "Note",
+        "author": "Author",
+        "recentNotes": "Recent notes",
+        "emptyTags": "No tags yet",
+        "emptyTagsHint": "Create your first tag to segment customers.",
+        "emptyNotes": "No notes yet",
+        "colors": {
+          "brand": "Brand",
+          "accent": "Orange",
+          "success": "Green",
+          "warning": "Amber",
+          "danger": "Red",
+          "info": "Blue",
+          "purple": "Purple"
+        }
+      },
+      "customerIo": {
+        "title": "Customer import and export",
+        "subtitle": "Bring customers in from CSV or export your customer list.",
+        "importTitle": "Import customers",
+        "uploadTitle": "Click to upload a CSV file",
+        "uploadHint": "CSV up to 10 MB",
+        "mapping": "Map columns for",
+        "validation": "Validation errors",
+        "noErrors": "No validation errors",
+        "startImport": "Start import",
+        "exportTitle": "Export customers",
+        "filter": "Filter",
+        "includeTags": "Include tags",
+        "startExport": "Export CSV",
+        "history": "Jobs history",
+        "emptyJobs": "No jobs yet",
+        "emptyJobsHint": "Imports and exports will appear here.",
+        "cols": {
+          "row": "Row",
+          "field": "Field",
+          "reason": "Reason",
+          "type": "Type",
+          "file": "File",
+          "rows": "Rows"
+        },
+        "fields": {
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone",
+          "city": "City",
+          "skip": "Skip column"
+        },
+        "filters": {
+          "all": "All customers",
+          "marketing": "Accepts marketing",
+          "vip": "VIP",
+          "inactive": "Inactive"
+        },
+        "kinds": {
+          "import": "Import",
+          "export": "Export"
+        },
+        "statuses": {
+          "done": "Done",
+          "processing": "Processing",
+          "failed": "Failed"
+        },
+        "reasons": {
+          "invalid_email": "Invalid email address",
+          "invalid_phone": "Invalid phone number",
+          "missing_name": "Name is missing",
+          "duplicate": "Duplicate of an existing customer"
+        }
+      },
+      "checkoutOffers": {
+        "title": "Order bumps & post-purchase offers",
+        "subtitle": "Increase average order value with one-click add-ons at checkout and on the thank-you page.",
+        "create": "Create offer",
+        "stats": {
+          "revenue": "Offer revenue",
+          "views": "Offer views",
+          "conversion": "Avg. conversion"
+        },
+        "tabs": {
+          "bump": "Order bumps",
+          "post_purchase": "Post-purchase"
+        },
+        "triggers": {
+          "product": "Product",
+          "collection": "Collection",
+          "cart_value": "Cart value"
+        },
+        "placements": {
+          "in_checkout": "In checkout",
+          "thank_you": "Thank-you page"
+        },
+        "discountTypes": {
+          "percent": "Percentage",
+          "fixed": "Fixed amount (EGP)"
+        },
+        "cols": {
+          "name": "Offer",
+          "trigger": "Trigger",
+          "offered": "Offered product",
+          "discount": "Discount",
+          "placement": "Placement",
+          "views": "Views",
+          "conversion": "Conv. %",
+          "revenue": "Revenue",
+          "enabled": "Enabled"
+        },
+        "empty": "No offers yet",
+        "emptyHint": "Create your first offer to start boosting order value.",
+        "panel": {
+          "title": "New offer",
+          "subtitle": "Configure trigger, product and discount",
+          "name": "Offer name",
+          "triggerType": "Show when cart contains",
+          "triggerProduct": "Trigger product",
+          "triggerCollection": "Trigger collection",
+          "triggerCartValue": "Minimum cart value (EGP)",
+          "offered": "Offered product",
+          "discountType": "Discount type",
+          "discountValue": "Discount value",
+          "placement": "Placement",
+          "preview": "Checkout preview"
+        },
+        "preview": {
+          "add": "Yes, add this to my order",
+          "placeholder": "Choose an offered product"
+        }
+      },
+      "paymentLinks": {
+        "title": "Payment links & buy buttons",
+        "subtitle": "Collect payments from anywhere with shareable links, QR codes and embeddable buttons.",
+        "create": "Create link",
+        "oneTime": "One-time use",
+        "modes": {
+          "fixed": "Fixed amount",
+          "open": "Open amount"
+        },
+        "disable": "Disable",
+        "enable": "Enable",
+        "status": {
+          "active": "Active",
+          "expired": "Expired",
+          "disabled": "Disabled"
+        },
+        "empty": "No payment links yet",
+        "emptyHint": "Create a link and share it on WhatsApp, Instagram or email.",
+        "tabs": {
+          "links": "Payment links",
+          "buy": "Buy button / embed",
+          "cart": "Embeddable cart"
+        },
+        "cols": {
+          "name": "Link name",
+          "amount": "Amount",
+          "product": "Product",
+          "url": "URL",
+          "uses": "Uses"
+        },
+        "snippet": "Embed code",
+        "copied": "Copied",
+        "buy": {
+          "title": "Buy button",
+          "hint": "Paste this snippet into any website to sell a product with one click.",
+          "product": "Product",
+          "buttonLabel": "Button label",
+          "preview": "Preview",
+          "defaultLabel": "Buy now"
+        },
+        "cart": {
+          "title": "Embeddable cart",
+          "hint": "Add a full cart and checkout experience to an external website.",
+          "style": "Cart style",
+          "showCount": "Show item count",
+          "styles": {
+            "floating": "Floating button",
+            "inline": "Inline",
+            "drawer": "Side drawer"
+          }
+        },
+        "qrAlt": "QR code placeholder",
+        "panel": {
+          "title": "New payment link",
+          "subtitle": "Fixed amount or product",
+          "createdTitle": "Link created",
+          "qrNote": "Placeholder shown for preview. A scannable QR code is generated once the backend is connected.",
+          "downloadQr": "Download QR code",
+          "name": "Link name",
+          "amountMode": "Amount type",
+          "amount": "Amount (EGP)",
+          "product": "Product (optional)",
+          "noProduct": "No product",
+          "expiry": "Expiry date",
+          "oneTime": "One-time use only",
+          "note": "Internal note",
+          "done": "Done"
+        }
+      },
+      "expressCheckout": {
+        "title": "Express checkout & installments",
+        "subtitle": "Offer digital wallets and buy-now-pay-later options to convert faster.",
+        "testBanner": "Test mode is on. Payments are simulated and no real money moves.",
+        "goLive": "Go live",
+        "groups": {
+          "express": {
+            "title": "Express wallets",
+            "hint": "One-tap payment from the customer's phone."
+          },
+          "wallet": {
+            "title": "Mobile wallets",
+            "hint": "Popular Egyptian mobile money wallets."
+          },
+          "bnpl": {
+            "title": "Buy now, pay later",
+            "hint": "Installment providers available in Egypt."
+          }
+        },
+        "providers": {
+          "apple_pay": "Apple Pay",
+          "google_pay": "Google Pay",
+          "vodafone_cash": "Vodafone Cash",
+          "orange_cash": "Orange Cash",
+          "valu": "valU",
+          "sympl": "Sympl",
+          "contact": "Contact"
+        },
+        "connection": {
+          "connected": "Connected",
+          "not_connected": "Not connected",
+          "pending": "Pending approval"
+        },
+        "connect": "Connect",
+        "minAmount": "Min order (EGP)",
+        "maxAmount": "Max order (EGP)",
+        "plans": "Installment plans",
+        "months": "{n} mo",
+        "fee": "Provider fee per transaction",
+        "oneClick": {
+          "title": "Saved payment methods & one-click checkout",
+          "hint": "Returning customers can pay with a saved card or wallet in a single tap. Details are stored securely by the payment provider."
+        }
+      },
+      "checkoutFields": {
+        "title": "Custom checkout fields",
+        "subtitle": "Collect extra information such as gift messages, delivery notes or a tax ID.",
+        "add": "Add field",
+        "moveUp": "Move up",
+        "moveDown": "Move down",
+        "types": {
+          "text": "Text",
+          "textarea": "Text area",
+          "select": "Dropdown",
+          "checkbox": "Checkbox"
+        },
+        "placements": {
+          "contact": "Contact",
+          "shipping": "Shipping",
+          "payment": "Payment",
+          "notes": "Order notes"
+        },
+        "required": "Required",
+        "codBadge": "COD only",
+        "empty": "No custom fields",
+        "emptyHint": "Add a field to collect extra details at checkout.",
+        "preview": "Live preview",
+        "rtl": "RTL",
+        "previewEmpty": "No enabled fields to preview.",
+        "panel": {
+          "addTitle": "Add field",
+          "editTitle": "Edit field",
+          "labelEn": "Label (English)",
+          "labelAr": "Label (Arabic)",
+          "type": "Field type",
+          "placement": "Placement",
+          "options": "Options",
+          "optionsHint": "One option per line",
+          "required": "Required field",
+          "codOnly": "Show for cash on delivery only"
+        }
+      },
+      "flashSale": {
+        "title": "Flash sale & capacity protection",
+        "subtitle": "Keep checkout stable during traffic spikes with a virtual waiting room.",
+        "stats": {
+          "queue": "People in queue",
+          "avgWait": "Avg. wait",
+          "capacity": "Concurrent capacity"
+        },
+        "waitingRoom": "Waiting room",
+        "waitingRoomHint": "When capacity is reached, new visitors wait in line instead of overloading checkout.",
+        "capacity": "Concurrent checkout capacity",
+        "messageEn": "Queue message (English)",
+        "messageAr": "Queue message (Arabic)",
+        "countdownStart": "Countdown start",
+        "countdownEnd": "Countdown end",
+        "schedule": "Sale schedule",
+        "cols": {
+          "name": "Sale",
+          "start": "Start",
+          "end": "End",
+          "discount": "Discount"
+        },
+        "status": {
+          "scheduled": "Scheduled",
+          "live": "Live",
+          "ended": "Ended"
+        },
+        "emptySales": "No sales scheduled",
+        "emptySalesHint": "Schedule a flash sale to prepare your store for the spike.",
+        "readiness": {
+          "title": "Load-test readiness",
+          "hint": "Complete these checks before your next big sale.",
+          "empty": "No checks configured",
+          "items": {
+            "cdn": "CDN caching verified for storefront pages",
+            "inventory": "Inventory counts synced and reserved at checkout",
+            "gateway": "Payment gateway limits confirmed",
+            "loadTest": "Load test passed at 2x expected traffic",
+            "alerts": "Error and latency alerts configured",
+            "support": "Support team briefed on sale timing"
+          }
+        }
       }
     }
   },
@@ -3414,7 +4491,19 @@
       "abuse": "Abuse & fraud",
       "health": "Integrations health",
       "support": "Support",
-      "staff": "Staff & audit"
+      "staff": "Staff & audit",
+      "kyc": "KYC review",
+      "impersonation": "Impersonation",
+      "incidents": "Incidents & SLA",
+      "announcements": "Announcements",
+      "config": "Configuration",
+      "sandbox": "Developer sandbox",
+      "sections": {
+        "trust": "Trust & safety",
+        "operations": "Operations",
+        "team": "Team",
+        "developers": "Developers"
+      }
     },
     "topbar": {
       "openMenu": "Open menu",
@@ -3706,6 +4795,367 @@
       "retryJob": "Retried a failed job",
       "resolveCase": "Resolved an abuse case",
       "addNote": "Added an internal note"
+    },
+    "kyc": {
+      "title": "KYC / KYB review",
+      "subtitle": "Verify merchant identity and business documents before payouts are enabled.",
+      "tabs": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected"
+      },
+      "businessType": "Business type",
+      "businessTypes": {
+        "individual": "Individual",
+        "company": "Company",
+        "llc": "LLC"
+      },
+      "submittedAt": "Submitted",
+      "documentsCount": "Documents",
+      "risk": "Risk",
+      "riskScore": "Risk score",
+      "status": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "infoRequested": "Info requested"
+      },
+      "empty": "No verification requests here",
+      "emptyHint": "New submissions will appear in the pending tab.",
+      "documents": "Submitted documents",
+      "docKinds": {
+        "nationalId": "National ID",
+        "commercialRegister": "Commercial register",
+        "taxCard": "Tax card",
+        "bankLetter": "Bank letter",
+        "selfie": "Selfie with ID",
+        "addressProof": "Proof of address"
+      },
+      "checklist": "Verification checklist",
+      "checks": {
+        "idMatch": "ID matches the owner name",
+        "selfie": "Selfie matches the ID photo",
+        "commercialRegister": "Commercial register is valid",
+        "taxCard": "Tax card is valid and not expired",
+        "bankAccount": "Bank account belongs to the business",
+        "addressProof": "Business address is confirmed"
+      },
+      "infoRequestedNote": "More information was requested from the merchant. The case stays pending until they reply.",
+      "rejectionReason": "Rejection reason",
+      "requestInfo": "Request info",
+      "reject": "Reject",
+      "approve": "Approve",
+      "approveBlocked": "Complete every checklist item to approve.",
+      "rejectTitle": "Reject verification",
+      "rejectBody": "Reject the verification for {store}. The merchant will be told why."
+    },
+    "announcements": {
+      "title": "Announcements",
+      "subtitle": "Publish platform notices and in-dashboard banners to merchants.",
+      "create": "New announcement",
+      "headers": {
+        "title": "Title",
+        "audience": "Audience",
+        "schedule": "Schedule"
+      },
+      "audience": {
+        "all": "All merchants",
+        "plan": "By plan",
+        "segment": "By segment"
+      },
+      "segments": {
+        "egyptMerchants": "Egypt merchants",
+        "ksaMerchants": "Saudi merchants",
+        "highGmv": "High GMV stores",
+        "atRisk": "At-risk stores"
+      },
+      "severity": {
+        "info": "Info",
+        "warning": "Warning",
+        "critical": "Critical"
+      },
+      "status": {
+        "draft": "Draft",
+        "scheduled": "Scheduled",
+        "live": "Live",
+        "expired": "Expired"
+      },
+      "expire": "End now",
+      "empty": "No announcements yet",
+      "emptyHint": "Create one to show a banner in merchant dashboards.",
+      "createTitle": "New announcement",
+      "createSubtitle": "Write it in both languages and pick who sees it.",
+      "titleEn": "Title (English)",
+      "titleAr": "Title (Arabic)",
+      "bodyEn": "Message (English)",
+      "bodyAr": "Message (Arabic)",
+      "audienceLabel": "Audience",
+      "severityLabel": "Severity",
+      "planLabel": "Plan",
+      "segmentLabel": "Segment",
+      "startAt": "Starts",
+      "endAt": "Ends",
+      "preview": "Live banner preview",
+      "previewLang": {
+        "en": "English",
+        "ar": "Arabic"
+      },
+      "previewPlaceholder": "Your announcement title appears here",
+      "saveDraft": "Save draft",
+      "publish": "Schedule"
+    },
+    "config": {
+      "title": "Platform configuration",
+      "subtitle": "Global defaults, fees, providers and maintenance mode.",
+      "tabs": {
+        "general": "General",
+        "fees": "Fees & limits",
+        "providers": "Providers",
+        "maintenance": "Maintenance"
+      },
+      "saved": "Saved",
+      "general": {
+        "name": "Platform name",
+        "supportEmail": "Support email",
+        "locale": "Default language",
+        "currency": "Default currency",
+        "trialDays": "Trial length (days)"
+      },
+      "locales": {
+        "en": "English",
+        "ar": "Arabic"
+      },
+      "fees": {
+        "planFees": "Transaction fee per plan",
+        "codFee": "COD fee (EGP)",
+        "rateLimits": "Rate limits",
+        "rateEmpty": "No rate limits configured",
+        "endpoint": "Surface",
+        "perMinute": "Requests per minute"
+      },
+      "rateKeys": {
+        "storefrontApi": "Storefront API",
+        "adminApi": "Merchant API",
+        "webhooks": "Outgoing webhooks",
+        "checkout": "Checkout",
+        "login": "Login attempts"
+      },
+      "providers": {
+        "type": "Type",
+        "kind": {
+          "payment": "Payment",
+          "shipping": "Shipping"
+        },
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "empty": "No providers registered"
+      },
+      "maintenance": {
+        "mode": "Maintenance mode",
+        "modeHint": "Merchants and storefronts see the maintenance message instead of the app.",
+        "on": "On",
+        "off": "Off",
+        "messageEn": "Message (English)",
+        "messageAr": "Message (Arabic)",
+        "enableTitle": "Turn on maintenance mode",
+        "enableBody": "All merchant dashboards and storefronts will show the maintenance message until you turn it off. Continue?",
+        "disableTitle": "Turn off maintenance mode",
+        "disableBody": "The platform will be available to merchants and shoppers again. Continue?"
+      }
+    },
+    "impersonation": {
+      "title": "Support impersonation",
+      "subtitle": "Access a store as its merchant only with approval. Every action is audited.",
+      "requestAccess": "Request access",
+      "activeBanner": "You are impersonating {store}",
+      "timeLeft": "Time left",
+      "endSession": "End session",
+      "minutes": "{n} min",
+      "status": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "denied": "Denied",
+        "active": "Active",
+        "ended": "Ended"
+      },
+      "deny": "Deny",
+      "approve": "Approve",
+      "start": "Start session",
+      "empty": "No access requests",
+      "emptyHint": "Requests from support staff will appear here.",
+      "auditTitle": "Audit trail",
+      "auditEmpty": "No impersonation activity yet",
+      "requester": "Requester",
+      "targetStore": "Target store",
+      "approver": "Approver",
+      "actor": "Actor",
+      "action": "Action",
+      "ticket": "Ticket reference",
+      "ticketRequired": "A ticket reference is required.",
+      "duration": "Duration",
+      "actions": {
+        "requested": "Requested access",
+        "approved": "Approved request",
+        "denied": "Denied request",
+        "started": "Started session",
+        "ended": "Ended session",
+        "viewedOrders": "Viewed orders",
+        "viewedSettings": "Viewed settings"
+      },
+      "panelTitle": "Request store access",
+      "panelSubtitle": "A different staff member must approve it.",
+      "policyNote": "You cannot approve your own request. Sessions end automatically when the time runs out.",
+      "submit": "Send request"
+    },
+    "incidents": {
+      "title": "Incidents & SLA",
+      "subtitle": "Track uptime targets, active incidents and postmortems.",
+      "report": "Report incident",
+      "sla": {
+        "uptime": "Uptime this month",
+        "rpo": "Recovery point (RPO)",
+        "rto": "Recovery time (RTO)",
+        "target": "Target: {value}"
+      },
+      "minutes": "{n} min",
+      "hm": "{h}h {m}m",
+      "m": "{m}m",
+      "headers": {
+        "title": "Incident",
+        "started": "Started",
+        "duration": "Duration",
+        "postmortem": "Postmortem"
+      },
+      "sev": {
+        "sev1": "SEV1",
+        "sev2": "SEV2",
+        "sev3": "SEV3"
+      },
+      "status": {
+        "investigating": "Investigating",
+        "identified": "Identified",
+        "monitoring": "Monitoring",
+        "resolved": "Resolved"
+      },
+      "postmortemLink": "Read",
+      "postmortemPending": "Pending",
+      "empty": "No incidents",
+      "emptyHint": "All systems have been quiet.",
+      "createTitle": "Report incident",
+      "updateTitle": "Post an update",
+      "titleEn": "Title (English)",
+      "titleAr": "Title (Arabic)",
+      "message": "Update message (English)",
+      "messageAr": "Update message (Arabic)",
+      "publish": "Publish to status page",
+      "publishHint": "Visible to everyone on the public status page.",
+      "timeline": "Timeline",
+      "timelineEmpty": "No updates yet",
+      "postUpdate": "Post update",
+      "create": "Create incident"
+    },
+    "statusPage": {
+      "brand": "StoreOS Status",
+      "language": "Language",
+      "footer": "Live status of the StoreOS platform.",
+      "metaTitle": "StoreOS Status - platform uptime and incidents",
+      "metaDescription": "Live status, 90-day uptime and recent incidents for the StoreOS dashboard, storefronts, checkout, payments, webhooks and messaging.",
+      "overall": {
+        "operational": "All systems operational",
+        "degraded": "Partial service degradation",
+        "outage": "Major outage"
+      },
+      "updatedAt": "Last updated",
+      "componentsTitle": "Components",
+      "components": {
+        "dashboard": "Merchant dashboard",
+        "storefront": "Storefront",
+        "checkout": "Checkout",
+        "payments": "Payment providers",
+        "webhooks": "Webhooks",
+        "messaging": "Email & WhatsApp"
+      },
+      "levels": {
+        "operational": "Operational",
+        "degraded": "Degraded",
+        "outage": "Outage"
+      },
+      "uptimeAria": "{name}: {value}% uptime over the last 90 days",
+      "daysAgo": "{n} days ago",
+      "uptimeValue": "{value}% uptime",
+      "today": "Today",
+      "legend": {
+        "up": "Operational",
+        "degraded": "Degraded",
+        "down": "Outage"
+      },
+      "incidentsTitle": "Recent incidents",
+      "incidentsEmpty": "No incidents in the last 90 days",
+      "subscribe": {
+        "title": "Subscribe to updates",
+        "hint": "Get an email when an incident is created or resolved.",
+        "placeholder": "you{'@'}example.com",
+        "button": "Subscribe",
+        "success": "Thanks. You are subscribed to status updates.",
+        "invalid": "Enter a valid email address."
+      }
+    },
+    "sandbox": {
+      "title": "Developer sandbox",
+      "subtitle": "Test stores, theme CLI access and sandbox webhooks for theme and app developers.",
+      "createStore": "Create test store",
+      "createStoreTitle": "Create test store",
+      "storesTitle": "Test stores",
+      "storesEmpty": "No test stores",
+      "storesEmptyHint": "Create one to try themes and apps safely.",
+      "lastReset": "Reset",
+      "themes": {
+        "dawn": "Dawn",
+        "noor": "Noor",
+        "cairo": "Cairo",
+        "souq": "Souq"
+      },
+      "status": {
+        "active": "Active",
+        "archived": "Archived"
+      },
+      "reset": "Reset",
+      "theme": "Theme",
+      "nameLabel": "Store name",
+      "nameRequired": "A name is required.",
+      "themeLabel": "Theme",
+      "cli": {
+        "title": "Theme CLI",
+        "hint": "Install the CLI and authenticate with a sandbox API token.",
+        "copy": "Copy",
+        "copied": "Copied",
+        "tokens": "API tokens",
+        "createToken": "Create token",
+        "tokenName": "Token name",
+        "scopes": "Scopes",
+        "scopeRequired": "Pick at least one scope.",
+        "tokenShownOnce": "Copy this token now. It will not be shown again.",
+        "done": "Done",
+        "revoked": "Revoked",
+        "active": "Active",
+        "revoke": "Revoke",
+        "tokensEmpty": "No API tokens"
+      },
+      "webhooks": {
+        "title": "Sandbox webhooks",
+        "hint": "Endpoints that receive test events from sandbox stores.",
+        "sendTest": "Send test",
+        "empty": "No sandbox webhooks",
+        "deliveries": "Recent deliveries",
+        "deliveriesEmpty": "No deliveries yet"
+      },
+      "docs": {
+        "title": "Documentation",
+        "themeGuide": "Theme development guide",
+        "apiReference": "API reference",
+        "webhooksGuide": "Webhooks guide",
+        "cliReference": "CLI reference"
+      }
     }
   },
   "shop": {

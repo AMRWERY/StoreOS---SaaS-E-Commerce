@@ -144,7 +144,7 @@
                   </p>
                 </div>
                 <LazyVButton
-                  size="sm"
+                  className="!py-1 !px-3 !text-xs"
                   class="w-full"
                   :variant="applied === tpl.id ? 'secondary' : 'primary'"
                   :label="applied === tpl.id ? t('dashboard.ops.importer.applied') : t('dashboard.ops.importer.apply')"

@@ -16,7 +16,7 @@
           <span class="block text-xs font-bold truncate">{{ activeStore?.name }}</span>
           <span class="block text-[10px] text-tx-muted truncate">{{ orgName }}</span>
         </span>
-        <Icon name="ph:caret-up-down-bold" class="text-tx-muted" />
+        <Icon name="ph:caret-up-down-bold" class="text-tx-muted shrink-0" aria-hidden="true" />
       </div>
     </template>
     <template #default="{ close }">
@@ -29,6 +29,7 @@
           :key="s.id"
           type="button"
           class="w-full flex items-center gap-2 rounded-md px-2 py-2 text-start hover:bg-bg-elevated transition-colors"
+          :aria-current="s.id === activeStoreId ? 'true' : undefined"
           @click="select(s.id, close)"
         >
           <span class="flex-1 min-w-0">

@@ -18,8 +18,8 @@ export const useEcoRedirectsStore = defineStore('ecoRedirects', () => {
   function remove(id: string) {
     redirects.value = redirects.value.filter((r) => r.id !== id)
   }
-  function fixNotFound(path: string, to: string) {
-    add(path, to, 301)
+  function fixNotFound(path: string, to: string, type: 301 | 302 = 301) {
+    add(path, to, type)
     notFounds.value = notFounds.value.filter((n) => n.path !== path)
   }
   function importCsv(count: number) {

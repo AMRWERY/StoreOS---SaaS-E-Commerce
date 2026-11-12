@@ -1,5 +1,7 @@
 <template>
   <div>
+    <launch-progress-card />
+
     <!-- Stats Overview Grid -->
     <stats-grid />
 
@@ -24,8 +26,9 @@
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n()
 definePageMeta({ layout: 'dashboard' })
-useSeoMeta({ title: 'Dashboard', robots: 'noindex, nofollow' })
+useSeoMeta({ title: () => t('nav.dashboard'), robots: 'noindex, nofollow' })
 </script>
 
 <style scoped>

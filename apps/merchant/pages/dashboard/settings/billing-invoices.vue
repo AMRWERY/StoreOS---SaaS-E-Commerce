@@ -109,7 +109,7 @@
     <LazyVSidePanel v-model="cardOpen" :title="t(`${p}.updateMethod`)" :subtitle="t(`${p}.updateSubtitle`)">
       <form class="space-y-5 p-1" @submit.prevent="submitCard">
         <LazyVInput v-model="cardForm.number" :label="t(`${p}.cardNumber`)" placeholder="4242 4242 4242 4242" dir="ltr" required />
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <LazyVInput v-model="cardForm.expiry" :label="t(`${p}.expiry`)" placeholder="MM/YY" dir="ltr" required />
           <LazyVInput v-model="cardForm.cvc" :label="t(`${p}.cvc`)" placeholder="123" dir="ltr" required />
         </div>

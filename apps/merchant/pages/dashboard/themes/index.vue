@@ -62,8 +62,8 @@
                   <p class="text-xs text-tx-muted">{{ t(`dashboard.ops.themes.desc.${th.id}`) }}</p>
                 </div>
                 <div class="flex gap-2">
-                  <LazyVButton size="sm" variant="secondary" :label="t('dashboard.ops.themes.preview')" />
-                  <LazyVButton size="sm" :label="t('dashboard.ops.themes.activate')" @click="activate(th.id)" />
+                  <LazyVButton className="!py-1 !px-3 !text-xs" variant="secondary" :label="t('dashboard.ops.themes.preview')" />
+                  <LazyVButton className="!py-1 !px-3 !text-xs" :label="t('dashboard.ops.themes.activate')" @click="activate(th.id)" />
                 </div>
               </div>
             </article>
@@ -92,8 +92,8 @@
                   <p class="text-xs text-tx-muted">{{ t(`dashboard.ops.themes.desc.${th.id}`) }}</p>
                 </div>
                 <div class="flex gap-2">
-                  <LazyVButton size="sm" variant="secondary" :label="t('dashboard.ops.themes.preview')" />
-                  <LazyVButton size="sm" :label="t('dashboard.ops.themes.install')" @click="install(th.id)" />
+                  <LazyVButton className="!py-1 !px-3 !text-xs" variant="secondary" :label="t('dashboard.ops.themes.preview')" />
+                  <LazyVButton className="!py-1 !px-3 !text-xs" :label="t('dashboard.ops.themes.install')" @click="install(th.id)" />
                 </div>
               </div>
             </article>

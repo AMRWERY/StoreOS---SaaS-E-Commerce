@@ -255,7 +255,7 @@
             :options="courierOptions"
           />
 
-          <div class="grid grid-cols-2 gap-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <LazyVInput v-model="form.weightKg" type="number" :label="t('dashboard.ops.fulfillment.weight')" input-class="font-mono" />
             <LazyVInput v-model="form.lengthCm" type="number" :label="t('dashboard.ops.fulfillment.length')" input-class="font-mono" />
             <LazyVInput v-model="form.widthCm" type="number" :label="t('dashboard.ops.fulfillment.width')" input-class="font-mono" />

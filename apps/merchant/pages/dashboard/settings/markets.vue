@@ -107,7 +107,7 @@
     <LazyVSidePanel v-model="isOpen" :title="t(`${p}.create`)" :subtitle="t(`${p}.createSubtitle`)">
       <form class="space-y-5 p-1" @submit.prevent="submit">
         <LazyVSelectInput v-model="form.code" :label="t(`${p}.country`)" :options="countryOptions" />
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <LazyVInput :modelValue="defaults.currency" :label="t(`${p}.currency`)" readonly />
           <LazyVSelectInput v-model="form.language" :label="t(`${p}.language`)" :options="languageOptions" />
         </div>
