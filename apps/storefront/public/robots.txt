@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /en/cart
+Disallow: /ar/cart
+Disallow: /en/checkout
+Disallow: /ar/checkout
+Disallow: /en/account
+Disallow: /ar/account
+Disallow: /en/auth
+Disallow: /ar/auth
+Disallow: /en/order-status
+Disallow: /ar/order-status

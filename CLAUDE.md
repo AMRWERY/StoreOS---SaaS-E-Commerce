@@ -26,7 +26,8 @@ pnpm workspace + Turborepo. Two Nuxt 4 apps, two Nuxt layers:
 
 ```
 apps/merchant   @storeos/merchant  — marketing site + merchant dashboard + storefront builder
-apps/admin      @storeos/admin     — near-duplicate of the dashboard (see below)
+apps/admin      @storeos/admin     — platform operator console at /platform (legacy dashboard copy still present, see below)
+apps/storefront @storeos/storefront — customer-facing store UI (mock data), dev on :3004; strings under `shop.*`
 layers/core     @storeos/core      — Nuxt modules, i18n config + locale files, theme plugin
 layers/ui       @storeos/ui        — CSS/design tokens, tailwind.config.ts, V* components
 ```
@@ -49,7 +50,11 @@ Nothing talks to a backend yet. Treat this as the default assumption when adding
 - `useAuth()` is in-memory `useState` only — `login()` flips a boolean; there is no auth/backend client wired up.
 - There is no database schema in the repo; the types in `types/` are the source of truth for data shapes.
 
-### apps/admin is stale
+### apps/admin: platform console + legacy copy
+
+`apps/admin/pages/platform/*` (layout `platform`, stores `platform*.ts`, strings under `platform.*`) is the StoreOS operator
+console (mock data). The old dashboard pages below are now unlinked legacy; `/`, `/dashboard` and `/auth` redirect to `/platform`.
+The rest of this section describes that legacy copy:
 
 `apps/admin` is an older near-copy of the merchant dashboard (same `components/dashboard/*` and
 `pages/dashboard/*` trees, but no builder, no `server/`, fewer pages). Active development is in

@@ -177,7 +177,37 @@
     "whatsappBusiness": "WhatsApp",
     "automation": "Automation",
     "helpSupport": "Help & support",
-    "organization": "Organization"
+    "organization": "Organization",
+    "fulfillment": "Fulfillment",
+    "packingSlips": "Packing slips",
+    "exchanges": "Exchanges",
+    "shipmentTracking": "Shipment tracking",
+    "campaigns": "Campaigns",
+    "loyalty": "Loyalty",
+    "bundles": "Bundles",
+    "affiliates": "Affiliates",
+    "reviews": "Reviews",
+    "funnel": "Conversion funnel",
+    "cohorts": "Cohorts",
+    "attribution": "Attribution",
+    "analyticsReports": "Custom reports",
+    "salesChannels": "Sales channels",
+    "inbox": "Social inbox",
+    "payouts": "Payouts",
+    "billingInvoices": "Invoices & usage",
+    "markets": "Markets",
+    "themes": "Themes",
+    "blog": "Blog",
+    "redirects": "Redirects",
+    "importer": "Import & Templates",
+    "apps": "Apps",
+    "webhookLog": "Webhook Deliveries",
+    "b2b": "Wholesale (B2B)",
+    "pos": "Point of Sale",
+    "fulfillmentGroup": "Fulfillment",
+    "marketingGroup": "Marketing",
+    "insightsGroup": "Insights & Channels",
+    "ecosystemGroup": "Growth Tools"
   },
   "home": {
     "hero": {
@@ -1829,6 +1859,1273 @@
           "message": "Message",
           "submit": "Submit ticket"
         }
+      },
+      "fulfillment": {
+        "title": "Fulfillment",
+        "subtitle": "Pick, pack and ship orders with your couriers.",
+        "stats": {
+          "toPack": "To pack",
+          "inTransit": "In transit",
+          "exceptions": "Exceptions"
+        },
+        "selectAll": "Select all",
+        "printSlips": "Print packing slips",
+        "buyLabels": "Buy labels",
+        "open": "Open",
+        "empty": "No orders in this stage",
+        "emptyHint": "Orders move here as they progress through fulfillment.",
+        "status": {
+          "toPack": "To pack",
+          "packed": "Packed",
+          "shipped": "Shipped",
+          "delivered": "Delivered",
+          "exception": "Exceptions"
+        },
+        "courier": "Courier",
+        "tracking": "Tracking number",
+        "manual": "Manual",
+        "pickList": "Pick list",
+        "bin": "Bin",
+        "markPacked": "Mark all as packed",
+        "packages": "Packages",
+        "newPackage": "New package",
+        "splitHint": "Ship part of the order now and the rest in another package.",
+        "qtyInPackage": "Quantity in this package",
+        "remaining": "Remaining",
+        "weight": "Weight (kg)",
+        "length": "Length (cm)",
+        "width": "Width (cm)",
+        "height": "Height (cm)",
+        "createShipment": "Create shipment",
+        "markDelivered": "Mark as delivered",
+        "flagException": "Flag exception",
+        "labelsBought": "{n} label(s) purchased and shipments created.",
+        "shipmentCreated": "Shipment created with tracking number {tracking}."
+      },
+      "packingSlips": {
+        "title": "Packing slips",
+        "subtitle": "Preview and print packing slips and shipping labels.",
+        "print": "Print",
+        "format": "Format",
+        "formatSlip": "Packing slip (A4)",
+        "formatLabel": "Shipping label (4x6)",
+        "arabicBlock": "Include Arabic address block",
+        "empty": "Nothing to print",
+        "emptyHint": "Select orders on the fulfillment board and choose Print packing slips.",
+        "shippingLabel": "Shipping label",
+        "slip": "Packing slip",
+        "shipTo": "Ship to",
+        "shipToAr": "شحن إلى",
+        "egypt": "Egypt",
+        "tracking": "Tracking",
+        "item": "Item",
+        "sku": "SKU",
+        "qty": "Qty",
+        "thanks": "Thank you for your order.",
+        "units": "Units"
+      },
+      "orderTimeline": {
+        "title": "Activity timeline",
+        "notesTitle": "Internal notes",
+        "by": "by",
+        "system": "System",
+        "empty": "No activity yet",
+        "emptyHint": "Events appear here as the order progresses.",
+        "notesEmpty": "No notes yet",
+        "notesEmptyHint": "Notes are only visible to your team.",
+        "notePlaceholder": "Add an internal note for this order...",
+        "addNote": "Add note",
+        "events": {
+          "created": "Order placed",
+          "paid": "Payment received",
+          "confirmed": "Order confirmed",
+          "packed": "Packed",
+          "shipped": "Shipped",
+          "delivered": "Delivered",
+          "refund": "Refund issued",
+          "note": "Note added"
+        }
+      },
+      "refundDialog": {
+        "action": "Refund",
+        "title": "Refund order",
+        "items": "Items",
+        "qty": "Qty",
+        "amount": "Amount",
+        "qtyHint": "Set the quantity to refund per line; the amount can be adjusted.",
+        "shipping": "Shipping refund",
+        "reason": "Reason",
+        "reasons": {
+          "customer": "Customer request",
+          "damaged": "Damaged item",
+          "wrongItem": "Wrong item sent",
+          "unavailable": "Item unavailable",
+          "other": "Other"
+        },
+        "restock": "Restock refunded items",
+        "itemsSubtotal": "Items",
+        "total": "Total refund",
+        "cancel": "Cancel",
+        "confirm": "Confirm refund"
+      },
+      "exchanges": {
+        "title": "Exchanges",
+        "subtitle": "Replacement orders for returned items.",
+        "create": "Create exchange",
+        "createSubtitle": "Swap a returned item for a replacement.",
+        "stats": {
+          "open": "Open exchanges",
+          "completed": "Completed",
+          "diff": "Net price difference"
+        },
+        "empty": "No exchanges yet",
+        "emptyHint": "Create an exchange when a customer wants a different item.",
+        "id": "Exchange",
+        "originalOrder": "Original order",
+        "swap": "Returned item to replacement",
+        "priceDiff": "Price difference",
+        "priceDiffHint": "Positive: customer pays the difference. Negative: refund to the customer.",
+        "returnedItem": "Returned item",
+        "replacementItem": "Replacement item",
+        "markShipped": "Mark shipped",
+        "complete": "Complete",
+        "status": {
+          "requested": "Requested",
+          "shipped": "Shipped",
+          "completed": "Completed"
+        }
+      },
+      "tracking": {
+        "title": "Shipment tracking",
+        "subtitle": "Follow courier status and resolve delivery exceptions.",
+        "stats": {
+          "deliveredRate": "Delivered rate",
+          "avgTime": "Avg. delivery time",
+          "inTransit": "In transit",
+          "exceptions": "Exceptions"
+        },
+        "days": "{n} days",
+        "state": {
+          "inTransit": "In transit",
+          "outForDelivery": "Out for delivery",
+          "delivered": "Delivered",
+          "failedAttempt": "Failed attempt",
+          "refused": "Refused",
+          "rto": "Return to sender"
+        },
+        "exceptionsTab": "Exceptions",
+        "tracking": "Tracking number",
+        "lastEvent": "Last event",
+        "attempts": "Attempts",
+        "retry": "Retry",
+        "returnToSender": "Return",
+        "empty": "No shipments",
+        "emptyHint": "Shipments appear here once labels are created.",
+        "events": {
+          "title": "Events",
+          "pickedUp": "Picked up by courier",
+          "arrivedHub": "Arrived at hub",
+          "outForDelivery": "Out for delivery",
+          "delivered": "Delivered",
+          "failedAttempt": "Delivery attempt failed",
+          "refused": "Refused by customer",
+          "returning": "Returning to sender"
+        }
+      },
+      "campaigns": {
+        "title": "Campaigns",
+        "subtitle": "Reach opted-in customers by email, SMS and WhatsApp.",
+        "create": "New Campaign",
+        "subscribers": "Subscribers",
+        "abandoned": "Abandoned Carts",
+        "stats": {
+          "sent": "Messages Sent",
+          "openRate": "Open Rate",
+          "clickRate": "Click Rate",
+          "revenue": "Revenue"
+        },
+        "cols": {
+          "name": "Campaign",
+          "channel": "Channel",
+          "audience": "Audience"
+        },
+        "channel": {
+          "email": "Email",
+          "sms": "SMS",
+          "whatsapp": "WhatsApp"
+        },
+        "status": {
+          "draft": "Draft",
+          "scheduled": "Scheduled",
+          "sent": "Sent"
+        },
+        "empty": "No campaigns here",
+        "emptyHint": "Create a campaign to start reaching your customers."
+      },
+      "campaignBuilder": {
+        "title": "New Email Campaign",
+        "subtitle": "Pick an audience, design the email, then send or schedule it.",
+        "saveDraft": "Save Draft",
+        "back": "Back",
+        "next": "Next",
+        "sendNow": "Send Now",
+        "schedule": "Schedule Campaign",
+        "untitled": "Untitled campaign",
+        "steps": {
+          "audience": "Audience",
+          "content": "Content",
+          "schedule": "Schedule",
+          "review": "Review"
+        },
+        "segment": "Audience segment",
+        "segments": {
+          "all": "All subscribers",
+          "vip": "VIP customers",
+          "active": "Active buyers",
+          "inactive": "Inactive 60 days",
+          "cairo": "Cairo customers"
+        },
+        "subject": "Email subject",
+        "subjectPlaceholder": "e.g. New arrivals just landed",
+        "recipients": "Opted-in recipients",
+        "consentTitle": "Consent required",
+        "consentBody": "Only contacts who opted in to marketing messages will receive this campaign. Unsubscribed and pending contacts are excluded automatically.",
+        "blocks": {
+          "header": "Header",
+          "text": "Text",
+          "image": "Image",
+          "products": "Product row",
+          "button": "Button",
+          "footer": "Footer"
+        },
+        "defaults": {
+          "header": "Your Store",
+          "text": "Hello, we have something new for you this week.",
+          "products": "Picked for you",
+          "button": "Shop now",
+          "footer": "You receive this email because you subscribed. Unsubscribe at any time."
+        },
+        "imageHint": "Image placeholder. You can upload the image when the campaign is connected.",
+        "moveUp": "Move up",
+        "moveDown": "Move down",
+        "noBlocks": "No blocks yet",
+        "noBlocksHint": "Add a block above to start building the email.",
+        "previewTitle": "Live preview",
+        "previewEmpty": "Nothing to preview yet.",
+        "device": {
+          "desktop": "Desktop",
+          "mobile": "Mobile"
+        },
+        "rtlPreview": "RTL preview",
+        "mode": {
+          "now": "Send now",
+          "nowHint": "The campaign is sent right after you confirm.",
+          "later": "Schedule for later",
+          "laterHint": "Choose a date for the campaign to go out."
+        },
+        "sendAt": "Send date",
+        "blocksCount": "Content blocks"
+      },
+      "subscribers": {
+        "title": "Subscribers",
+        "subtitle": "Newsletter, SMS and WhatsApp contacts with their consent status.",
+        "import": "Import CSV",
+        "export": "Export",
+        "importDone": "{file} was imported. New contacts are pending consent confirmation.",
+        "uploadTitle": "Upload a CSV file",
+        "uploadHint": "Columns: email or phone, tags. CSV only.",
+        "importConsent": "Only import contacts who gave you explicit permission to market to them.",
+        "stats": {
+          "total": "Total Contacts",
+          "optedIn": "Opted In",
+          "pending": "Pending",
+          "unsubscribed": "Unsubscribed"
+        },
+        "gdprTitle": "Consent and data protection",
+        "gdprBody": "Under GDPR and Egypt's Personal Data Protection Law (PDPL), you may only message contacts who consented, and you must honour unsubscribe requests immediately.",
+        "cols": {
+          "contact": "Email / Phone",
+          "source": "Source",
+          "consent": "Consent",
+          "subscribedAt": "Subscribed",
+          "tags": "Tags"
+        },
+        "source": {
+          "checkout": "Checkout",
+          "popup": "Popup",
+          "import": "Import",
+          "storefront": "Storefront"
+        },
+        "consent": {
+          "opted_in": "Opted in",
+          "pending": "Pending",
+          "unsubscribed": "Unsubscribed"
+        },
+        "unsubscribe": "Unsubscribe",
+        "empty": "No subscribers yet",
+        "emptyHint": "Import a CSV or collect sign-ups from your storefront."
+      },
+      "abandonedCart": {
+        "title": "Abandoned Cart Recovery",
+        "subtitle": "Automatically follow up with shoppers who left items in their cart.",
+        "saved": "Recovery flow saved.",
+        "stats": {
+          "abandoned": "Abandoned Carts",
+          "recovered": "Recovered",
+          "rate": "Recovery Rate",
+          "revenue": "Recovered Revenue"
+        },
+        "flowTitle": "Recovery flow",
+        "flowHint": "Messages go out in order, only to contacts who opted in, and stop once the order is completed.",
+        "after": "After {n}h",
+        "couponBadge": "{n}% coupon",
+        "enable": "Enabled",
+        "delay": "Delay (hours)",
+        "coupon": "Coupon discount (%)",
+        "template": "Message template",
+        "variables": "Variables: {'{{name}}'}  {'{{cart_link}}'}",
+        "empty": "No recovery steps",
+        "emptyHint": "Add a step to start recovering abandoned carts."
+      },
+      "loyalty": {
+        "title": "Loyalty Program",
+        "subtitle": "Reward repeat customers with points and tiers.",
+        "enable": "Program enabled",
+        "stats": {
+          "members": "Members",
+          "outstanding": "Points Outstanding",
+          "liability": "Redemption Value",
+          "referrals": "Referrals"
+        },
+        "rules": {
+          "title": "Earn and redeem rules",
+          "pointsPerEgp": "Points per 1 EGP spent",
+          "signupBonus": "Signup bonus (points)",
+          "reviewBonus": "Review bonus (points)",
+          "redeem": "Points per 1 EGP discount",
+          "redeemHint": "{n} points are worth 1 EGP at checkout."
+        },
+        "tier": {
+          "silver": "Silver",
+          "gold": "Gold",
+          "vip": "VIP"
+        },
+        "tiers": {
+          "title": "Tiers",
+          "cols": {
+            "tier": "Tier",
+            "threshold": "Lifetime spend",
+            "perks": "Perks"
+          },
+          "perk": "{discount}% discount, {mult}x points",
+          "empty": "No tiers",
+          "emptyHint": "Define tiers to reward your best customers."
+        },
+        "members": {
+          "title": "Members",
+          "cols": {
+            "member": "Member",
+            "points": "Points",
+            "orders": "Orders"
+          },
+          "empty": "No members yet",
+          "emptyHint": "Customers join automatically when they place an order."
+        },
+        "referral": {
+          "title": "Referral program",
+          "referrer": "Referrer reward (points)",
+          "referee": "New customer reward (points)",
+          "link": "Referral link",
+          "copy": "Copy",
+          "copied": "Copied"
+        }
+      },
+      "bundles": {
+        "title": "Bundles and Kits",
+        "subtitle": "Sell products together at a better price and suggest add-ons.",
+        "create": "Create Bundle",
+        "createSubtitle": "Choose products and set a bundle price.",
+        "name": "Bundle name",
+        "pickProducts": "Included products",
+        "sum": "Total of products",
+        "suggested": "Suggested price (10% off)",
+        "discount": "Discount",
+        "price": "Bundle price (EGP)",
+        "stockLabel": "Stock",
+        "stats": {
+          "total": "Bundles",
+          "active": "Active",
+          "savings": "Average Discount"
+        },
+        "cols": {
+          "bundle": "Bundle",
+          "products": "Included products",
+          "price": "Price",
+          "discount": "Discount",
+          "stock": "Stock"
+        },
+        "status": {
+          "active": "Active",
+          "draft": "Draft"
+        },
+        "empty": "No bundles yet",
+        "emptyHint": "Create your first bundle to increase order value.",
+        "placement": {
+          "product": "Product page",
+          "cart": "Cart",
+          "post_purchase": "Post-purchase"
+        },
+        "upsell": {
+          "title": "Upsell and cross-sell rules",
+          "subtitle": "Offer a related product when a customer views or buys another.",
+          "trigger": "When customer views",
+          "offered": "Offer",
+          "placement": "Placement",
+          "add": "Add Rule",
+          "empty": "No rules yet",
+          "emptyHint": "Add a rule to suggest products automatically."
+        }
+      },
+      "affiliates": {
+        "title": "Affiliates",
+        "subtitle": "Partners who promote your store for a commission.",
+        "stats": {
+          "total": "Affiliates",
+          "pending": "Pending Approval",
+          "clicks": "Total Clicks",
+          "earnings": "Total Earnings"
+        },
+        "cols": {
+          "affiliate": "Affiliate",
+          "code": "Referral code",
+          "clicks": "Clicks",
+          "orders": "Orders",
+          "commission": "Commission",
+          "earnings": "Earnings"
+        },
+        "status": {
+          "pending": "Pending",
+          "approved": "Approved",
+          "blocked": "Blocked"
+        },
+        "approve": "Approve",
+        "unblock": "Unblock",
+        "block": "Block",
+        "empty": "No affiliates yet",
+        "emptyHint": "Affiliates who sign up will appear here for approval.",
+        "settings": {
+          "title": "Commission settings",
+          "defaultCommission": "Default commission (%)",
+          "cookieDays": "Cookie duration (days)",
+          "minPayout": "Minimum payout (EGP)",
+          "autoApprove": "Auto-approve new affiliates",
+          "saved": "Settings saved."
+        },
+        "payouts": {
+          "title": "Payouts",
+          "cols": {
+            "id": "Payout",
+            "method": "Method"
+          },
+          "method": {
+            "wallet": "Mobile wallet",
+            "bank": "Bank transfer"
+          },
+          "status": {
+            "paid": "Paid",
+            "pending": "Pending"
+          },
+          "empty": "No payouts yet",
+          "emptyHint": "Payouts appear once affiliates reach the minimum amount."
+        }
+      },
+      "reviews": {
+        "title": "Product Reviews",
+        "subtitle": "Moderate customer reviews before they appear on your storefront.",
+        "stats": {
+          "total": "Total Reviews",
+          "average": "Average Rating",
+          "pending": "Awaiting Moderation",
+          "withPhoto": "With Photos"
+        },
+        "status": {
+          "pending": "Pending",
+          "published": "Published",
+          "rejected": "Rejected"
+        },
+        "photo": "Photo",
+        "product": "Product",
+        "approve": "Approve",
+        "reject": "Reject",
+        "reply": "Reply",
+        "editReply": "Edit reply",
+        "yourReply": "Your reply",
+        "replyPlaceholder": "Thank the customer or address their feedback...",
+        "sendReply": "Send Reply",
+        "distribution": "Rating distribution",
+        "empty": "No reviews in this tab",
+        "emptyHint": "Reviews will show up here as customers submit them."
+      },
+      "funnel": {
+        "title": "Conversion Funnel",
+        "subtitle": "See where shoppers drop off between landing on your store and paying.",
+        "stats": {
+          "conversion": "OVERALL CONVERSION",
+          "cartRate": "VIEW TO CART RATE",
+          "abandoned": "ABANDONED CHECKOUTS"
+        },
+        "stepsTitle": "Funnel steps",
+        "steps": {
+          "sessions": "Sessions",
+          "productViews": "Product views",
+          "addToCart": "Add to cart",
+          "checkout": "Reached checkout",
+          "purchase": "Purchase"
+        },
+        "stepRate": "{rate}% continued from the previous step",
+        "empty": "No funnel data yet",
+        "emptyHint": "Data appears once your store receives visitors.",
+        "abandonTitle": "Checkout abandonment by stage",
+        "abandonHint": "The checkout stage where shoppers left without paying.",
+        "stages": {
+          "contact": "Contact details",
+          "shipping": "Shipping",
+          "payment": "Payment",
+          "review": "Order review"
+        },
+        "stage": "Stage",
+        "abandoned": "Abandoned",
+        "share": "Share",
+        "ranges": {
+          "7d": "Last 7 days",
+          "30d": "Last 30 days",
+          "90d": "Last 90 days"
+        },
+        "compare": {
+          "none": "No comparison",
+          "previous": "Compare to previous period"
+        }
+      },
+      "cohorts": {
+        "title": "Customer Cohorts",
+        "subtitle": "Track how many customers from each first-order month come back to buy again.",
+        "stats": {
+          "avgM1": "AVG. MONTH-1 RETENTION",
+          "avgLtv": "AVG. LTV",
+          "bestCohort": "BEST COHORT BY LTV"
+        },
+        "heatmapTitle": "Retention heatmap",
+        "heatmapHint": "Percentage of each cohort that ordered again, by months since first order.",
+        "cohort": "Cohort",
+        "size": "Customers",
+        "empty": "No cohorts yet",
+        "emptyHint": "Cohorts form once customers place their first orders.",
+        "ltvTitle": "Lifetime value by cohort"
+      },
+      "attribution": {
+        "title": "Attribution",
+        "subtitle": "Which traffic sources and campaigns actually bring in orders and revenue.",
+        "stats": {
+          "revenue": "ATTRIBUTED REVENUE",
+          "spend": "AD SPEND",
+          "roas": "BLENDED ROAS"
+        },
+        "sourcesTitle": "Traffic sources",
+        "source": "Source / medium",
+        "sessions": "Sessions",
+        "orders": "Orders",
+        "revenue": "Revenue",
+        "conversion": "Conv. rate",
+        "spend": "Spend",
+        "campaign": "Campaign",
+        "campaignsTitle": "Campaign performance",
+        "empty": "No traffic data yet",
+        "emptyHint": "Share your store link or launch a campaign to start collecting data.",
+        "emptyCampaigns": "No campaigns yet",
+        "status": {
+          "active": "Active",
+          "paused": "Paused",
+          "ended": "Ended"
+        }
+      },
+      "reports": {
+        "title": "Custom Reports",
+        "subtitle": "Build your own reports, save them and send them to your team on a schedule.",
+        "newSchedule": "New schedule",
+        "builderTitle": "Report builder",
+        "metrics": "Metrics",
+        "metric": {
+          "revenue": "Revenue",
+          "orders": "Orders",
+          "aov": "Avg. order value",
+          "sessions": "Sessions",
+          "conversion": "Conversion rate"
+        },
+        "dimension": "Group by",
+        "filter": "Filter",
+        "range": "Date range",
+        "reportName": "Report name",
+        "preview": "Live preview (sample data)",
+        "chart": "Chart",
+        "table": "Table",
+        "savedTitle": "Saved reports",
+        "open": "Open",
+        "emptySaved": "No saved reports",
+        "emptySavedHint": "Build a report above and save it to reuse it later.",
+        "scheduledTitle": "Scheduled reports",
+        "emptyScheduled": "No scheduled reports",
+        "emptyScheduledHint": "Schedule a saved report to receive it by email automatically.",
+        "dim": {
+          "channel": "Channel",
+          "city": "City",
+          "payment": "Payment method"
+        },
+        "ranges": {
+          "7d": "Last 7 days",
+          "30d": "Last 30 days",
+          "90d": "Last 90 days"
+        },
+        "filters": {
+          "all": "All customers",
+          "newCustomers": "New customers",
+          "returning": "Returning customers",
+          "codOnly": "Cash on delivery only"
+        },
+        "freq": {
+          "daily": "Daily",
+          "weekly": "Weekly",
+          "monthly": "Monthly"
+        },
+        "scheduleStatus": {
+          "active": "Active",
+          "paused": "Paused"
+        },
+        "pause": "Pause",
+        "resume": "Resume",
+        "scheduleSubtitle": "Email a saved report to your team automatically.",
+        "report": "Report",
+        "frequency": "Frequency",
+        "recipients": "Recipients",
+        "format": "Format",
+        "createSchedule": "Create schedule",
+        "nextRun": "Next run"
+      },
+      "channels": {
+        "title": "Sales Channels",
+        "subtitle": "Publish your catalog to marketplaces and ad platforms and keep feeds healthy.",
+        "stats": {
+          "connected": "CONNECTED CHANNELS",
+          "synced": "PRODUCTS SYNCED",
+          "errors": "OPEN ERRORS"
+        },
+        "status": {
+          "connected": "Connected",
+          "disconnected": "Not connected",
+          "error": "Needs attention"
+        },
+        "products": "Products",
+        "errors": "Errors",
+        "lastSync": "Last sync",
+        "connect": "Connect",
+        "disconnect": "Disconnect",
+        "syncNow": "Sync now",
+        "empty": "No channels available",
+        "emptyHint": "Channels will appear here once they are available for your plan.",
+        "publishingTitle": "Publishing settings",
+        "publishingHint": "Choose what StoreOS keeps in sync on each connected channel.",
+        "channel": "Channel",
+        "publish": {
+          "products": "Publish products",
+          "inventory": "Sync inventory",
+          "prices": "Sync prices"
+        },
+        "diagnosticsTitle": "Feed diagnostics",
+        "product": "Product",
+        "issue": "Issue",
+        "issues": {
+          "missingGtin": "Missing GTIN / barcode",
+          "imageSmall": "Main image is below the minimum size",
+          "priceMismatch": "Price differs from the storefront",
+          "missingCategory": "Product category is not mapped",
+          "noStock": "Out of stock but still published",
+          "shortTitle": "Title is too short"
+        },
+        "severity": {
+          "error": "Error",
+          "warning": "Warning",
+          "info": "Info"
+        },
+        "severityLabel": "Severity",
+        "noIssues": "No feed issues",
+        "noIssuesHint": "All your published products pass channel checks."
+      },
+      "inbox": {
+        "title": "Social Inbox",
+        "subtitle": "Answer WhatsApp, Messenger and Instagram chats and turn them into orders.",
+        "unread": "Unread",
+        "channels": {
+          "whatsapp": "WhatsApp",
+          "messenger": "Messenger",
+          "instagram": "Instagram"
+        },
+        "draftCreated": "Draft order {id} created from this chat",
+        "quick": {
+          "greeting": "Hello and welcome! How can we help you today?",
+          "inStock": "Yes, this item is available in stock.",
+          "shipping": "We deliver across Egypt within 2 to 4 business days.",
+          "codInfo": "Cash on delivery is available for your order.",
+          "thanks": "Thank you for shopping with us!"
+        },
+        "quickLabels": {
+          "greeting": "Greeting",
+          "inStock": "In stock",
+          "shipping": "Shipping time",
+          "codInfo": "Cash on delivery",
+          "thanks": "Thanks"
+        },
+        "typeMessage": "Type a message",
+        "send": "Send",
+        "orderHistory": "Order history",
+        "orderStatus": {
+          "delivered": "Delivered",
+          "shipped": "Shipped",
+          "processing": "Processing"
+        },
+        "noOrders": "No previous orders",
+        "createDraft": "Create draft order from this chat",
+        "empty": "No conversations",
+        "emptyHint": "Connect WhatsApp, Messenger or Instagram to receive customer chats here.",
+        "draftSubtitle": "Pick products to add to a draft order for this customer.",
+        "decrease": "Decrease quantity",
+        "increase": "Increase quantity",
+        "noProducts": "No products",
+        "noProductsHint": "Add products to your catalog first.",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "total": "Total",
+        "createDraftCta": "Create draft order"
+      },
+      "payouts": {
+        "title": "Payouts",
+        "subtitle": "Track your balance, payouts and the fees StoreOS deducts.",
+        "stats": {
+          "available": "AVAILABLE BALANCE",
+          "pending": "PENDING",
+          "nextPayout": "NEXT PAYOUT",
+          "fees": "FEES (RECENT PAYOUTS)"
+        },
+        "payoutsTitle": "Payout history",
+        "status": {
+          "paid": "Paid",
+          "inTransit": "In transit",
+          "failed": "Failed"
+        },
+        "empty": "No payouts yet",
+        "emptyHint": "Payouts appear after your first online or delivered order is settled.",
+        "splitTitle": "Cash on delivery vs online payments",
+        "split": {
+          "cod": "Cash on delivery",
+          "online": "Online payments"
+        },
+        "statementsTitle": "Platform fee statements",
+        "download": "Download",
+        "downloadStatement": "Download statement {id}",
+        "emptyStatements": "No statements yet",
+        "payoutId": "Payout",
+        "orders": "Orders",
+        "fees": "Fees",
+        "statement": "Statement",
+        "period": "Period",
+        "gmv": "Order value",
+        "platformFee": "Platform fee"
+      },
+      "billingInvoices": {
+        "title": "Invoices & Usage",
+        "subtitle": "Your StoreOS subscription invoices, plan usage and payment method.",
+        "dunning": {
+          "title": "Your last payment failed",
+          "body": "Update your payment method to avoid interruption to your store."
+        },
+        "updateMethod": "Update payment method",
+        "usageTitle": "Plan usage",
+        "currentPlan": "{plan} plan",
+        "meters": {
+          "orders": "Orders this month",
+          "skus": "Products (SKUs)",
+          "members": "Team members"
+        },
+        "unlimited": "Unlimited",
+        "methodTitle": "Payment method",
+        "expires": "Expires",
+        "upcomingTitle": "Upcoming invoice",
+        "upcomingDate": "Billing date",
+        "planFee": "{plan} plan",
+        "vat": "VAT (14%)",
+        "total": "Total",
+        "invoicesTitle": "Invoices",
+        "inclVat": "incl. 14% VAT",
+        "status": {
+          "paid": "Paid",
+          "failed": "Failed",
+          "due": "Due"
+        },
+        "download": "Download",
+        "downloadInvoice": "Download invoice {id}",
+        "empty": "No invoices yet",
+        "emptyHint": "Invoices appear here after your first billing cycle.",
+        "updateSubtitle": "Your new card is used for all future invoices.",
+        "cardNumber": "Card number",
+        "expiry": "Expiry date",
+        "cvc": "Security code",
+        "saveMethod": "Save payment method",
+        "invoiceNumber": "Invoice",
+        "period": "Period"
+      },
+      "markets": {
+        "title": "Markets",
+        "subtitle": "Sell in more countries with local currency, language, shipping and payment methods.",
+        "create": "Create market",
+        "primary": "Primary",
+        "countries": {
+          "EG": "Egypt",
+          "SA": "Saudi Arabia",
+          "AE": "United Arab Emirates",
+          "KW": "Kuwait",
+          "QA": "Qatar",
+          "JO": "Jordan"
+        },
+        "language": "Language",
+        "ratePolicy": "Exchange rate",
+        "rounding": "Price rounding",
+        "domain": "Domain strategy",
+        "shippingMethods": "Shipping methods",
+        "paymentMethods": "Payment methods",
+        "lang": {
+          "ar": "Arabic",
+          "en": "English"
+        },
+        "policy": {
+          "auto": "Automatic",
+          "manual": "Manual"
+        },
+        "rules": {
+          "none": "No rounding",
+          "whole": "Nearest whole number",
+          "five": "Nearest 5",
+          "ninetyNine": "End in .99"
+        },
+        "strategy": {
+          "domain": "Own domain",
+          "subfolder": "Subfolder",
+          "subdomain": "Subdomain"
+        },
+        "ship": {
+          "bosta": "Bosta",
+          "aramex": "Aramex",
+          "dhl": "DHL",
+          "pickup": "Store pickup"
+        },
+        "pay": {
+          "cod": "Cash on delivery",
+          "card": "Cards",
+          "fawry": "Fawry",
+          "wallet": "Mobile wallet",
+          "mada": "Mada",
+          "applePay": "Apple Pay"
+        },
+        "empty": "No markets yet",
+        "emptyHint": "Create a market to start selling in another country.",
+        "priceListTitle": "Price list",
+        "priceListHint": "Converted prices use each market's exchange rate and rounding rule.",
+        "product": "Product",
+        "basePrice": "Base price (EGP)",
+        "emptyPrices": "No products to price",
+        "createSubtitle": "Choose a country and set how prices are converted.",
+        "country": "Country",
+        "currency": "Currency",
+        "rate": "Rate (1 EGP equals)"
+      },
+      "themes": {
+        "title": "Themes",
+        "subtitle": "Manage the look of your storefront and switch between themes.",
+        "history": "Version history",
+        "current": "Published theme",
+        "active": "Live",
+        "lastPublished": "Last published",
+        "customize": "Customize",
+        "noneTitle": "No theme is published",
+        "noneHint": "Activate an installed theme or install a starter theme below.",
+        "installedTitle": "Installed themes",
+        "startersTitle": "Starter themes",
+        "preview": "Preview",
+        "install": "Install",
+        "activate": "Activate",
+        "rtl": "RTL",
+        "emptyInstalled": "No other installed themes",
+        "emptyInstalledHint": "Install a starter theme to try a different look.",
+        "emptyStarters": "All starter themes are installed",
+        "emptyStartersHint": "New starter themes will appear here.",
+        "desc": {
+          "minimal": "Clean, fast and content-first layout for any catalog.",
+          "boutique": "Editorial layout with large imagery for small collections.",
+          "electronics": "Spec-focused product pages with comparison tables.",
+          "fashion-rtl": "Arabic-first fashion theme with full right-to-left layout."
+        }
+      },
+      "themeHistory": {
+        "title": "Version history",
+        "subtitle": "Review past versions of your theme, roll back, and share draft previews.",
+        "back": "Back to themes",
+        "version": "Version",
+        "author": "Author",
+        "note": "Note",
+        "status": {
+          "published": "Published",
+          "draft": "Draft",
+          "previous": "Previous"
+        },
+        "restore": "Restore",
+        "restoreTitle": "Restore this version?",
+        "restoreBody": "This version will become the published theme. The current published version will be kept in history.",
+        "confirm": "Restore version",
+        "cancel": "Cancel",
+        "empty": "No versions yet",
+        "emptyHint": "Versions are created every time you publish your theme.",
+        "diffTitle": "Draft vs published",
+        "diffHint": "Summary of changes waiting in the draft.",
+        "diff": {
+          "added": "Sections added",
+          "changed": "Settings changed",
+          "removed": "Sections removed"
+        },
+        "previewLink": "Preview link",
+        "previewLinkHint": "Share the draft with your team without publishing it.",
+        "expiry": "Link expires after",
+        "expiryOptions": {
+          "h1": "1 hour",
+          "h24": "24 hours",
+          "d7": "7 days"
+        },
+        "generate": "Generate link",
+        "copy": "Copy",
+        "copied": "Copied"
+      },
+      "blog": {
+        "title": "Blog",
+        "subtitle": "Publish articles to grow traffic and tell your brand story.",
+        "new": "New article",
+        "newArticle": "New article",
+        "editArticle": "Edit article",
+        "editorSubtitle": "Write, format and schedule your article.",
+        "empty": "No articles yet",
+        "emptyHint": "Write your first article to start your store blog.",
+        "articleTitle": "Title",
+        "author": "Author",
+        "publishDate": "Publish date",
+        "slug": "URL slug",
+        "excerpt": "Excerpt",
+        "content": "Content (Markdown)",
+        "rtl": "Arabic (right-to-left)",
+        "toolbar": {
+          "bold": "Bold",
+          "italic": "Italic",
+          "heading": "Heading",
+          "link": "Link",
+          "list": "Bulleted list",
+          "quote": "Quote"
+        },
+        "cover": "Cover image",
+        "coverTitle": "Upload a cover image",
+        "coverHint": "PNG or JPG, 1600x900 recommended",
+        "tagsLabel": "Tags",
+        "tagsHint": "Separate tags with commas",
+        "status": {
+          "draft": "Draft",
+          "scheduled": "Scheduled",
+          "published": "Published"
+        },
+        "schedule": "Scheduled publish date",
+        "seo": "Search engine listing",
+        "seoTitle": "SEO title",
+        "seoDescription": "SEO description",
+        "serp": "Search result preview",
+        "serpPlaceholder": "Your article title"
+      },
+      "redirects": {
+        "title": "Redirects & 404s",
+        "subtitle": "Keep old links working and fix broken pages that visitors hit.",
+        "add": "Add redirect",
+        "importCsv": "Import CSV",
+        "createSubtitle": "Send visitors from an old path to a new one.",
+        "from": "From path",
+        "to": "To path",
+        "type": "Type",
+        "permanent": "301 Permanent",
+        "temporary": "302 Temporary",
+        "hits": "Hits",
+        "empty": "No redirects yet",
+        "emptyHint": "Add a redirect or import a CSV of old URLs.",
+        "top404": "Top 404 pages",
+        "top404Hint": "Paths visitors requested that do not exist.",
+        "path": "Path",
+        "lastSeen": "Last seen",
+        "createRedirect": "Create redirect",
+        "noneTop": "No broken links",
+        "noneTopHint": "Every requested path resolves correctly.",
+        "importHint": "Upload a CSV with from, to and type columns.",
+        "importDrop": "Click to upload a CSV file",
+        "importFormat": "CSV, up to 5MB",
+        "importDo": "Import redirects",
+        "imported": "{n} redirects imported."
+      },
+      "importer": {
+        "title": "Import & Templates",
+        "subtitle": "Migrate from another platform or start from an industry template.",
+        "chooseSource": "Where are you importing from?",
+        "source": {
+          "shopify": "Shopify",
+          "woocommerce": "WooCommerce",
+          "csv": "CSV file",
+          "sallazid": "Salla / Zid"
+        },
+        "sourceHint": {
+          "shopify": "Products, customers and orders",
+          "woocommerce": "Products, customers and orders",
+          "csv": "Upload a spreadsheet",
+          "sallazid": "Products and customers"
+        },
+        "steps": {
+          "connect": "Connect",
+          "map": "Map fields",
+          "review": "Review",
+          "import": "Import"
+        },
+        "csvDrop": "Click to upload your CSV file",
+        "csvHint": "UTF-8 CSV, up to 10MB",
+        "connectHint": "Enter your store address and a read-only API key.",
+        "storeUrl": "Store URL",
+        "apiKey": "API key",
+        "mapHint": "We matched your columns to StoreOS fields automatically.",
+        "sourceField": "Source field",
+        "targetField": "StoreOS field",
+        "target": {
+          "title": "Product title",
+          "price": "Price",
+          "sku": "SKU",
+          "description": "Description"
+        },
+        "reviewHint": "This is what will be imported.",
+        "products": "Products",
+        "customers": "Customers",
+        "orders": "Orders",
+        "redirects": "Redirects",
+        "pages": "pages",
+        "running": "Importing your data...",
+        "resultTitle": "Import completed",
+        "warningsTitle": "Warnings",
+        "warning1": "12 products have no image and were imported as drafts.",
+        "warning2": "5 customers share the same email and were merged.",
+        "warning3": "3 orders reference deleted products.",
+        "back": "Back",
+        "next": "Continue",
+        "start": "Start import",
+        "importAnother": "Import another source",
+        "templatesTitle": "Starter templates",
+        "templatesHint": "Launch faster with a ready-made store for your industry.",
+        "sampleData": "Include sample data",
+        "tpl": {
+          "fashion": "Fashion & Apparel",
+          "electronics": "Electronics",
+          "grocery": "Grocery",
+          "beauty": "Beauty & Care"
+        },
+        "apply": "Apply template",
+        "applied": "Applied",
+        "noTemplates": "No templates available",
+        "noTemplatesHint": "Industry templates will appear here."
+      },
+      "appsMarket": {
+        "title": "Apps",
+        "subtitle": "Extend your store with apps and integrations.",
+        "tabs": {
+          "browse": "Marketplace",
+          "installed": "Installed"
+        },
+        "categoryTitle": "CATEGORIES",
+        "categories": {
+          "all": "All apps",
+          "marketing": "Marketing",
+          "shipping": "Shipping",
+          "payments": "Payments",
+          "analytics": "Analytics",
+          "support": "Support"
+        },
+        "installedBadge": "Installed",
+        "install": "Install",
+        "review": "Review permissions",
+        "uninstall": "Uninstall",
+        "free": "Free",
+        "perMonth": "/ month",
+        "app": "App",
+        "developer": "Developer",
+        "permissions": "Permissions",
+        "empty": "No apps in this category",
+        "emptyHint": "Try another category.",
+        "noInstalled": "No apps installed",
+        "noInstalledHint": "Browse the marketplace to add your first app.",
+        "installTitle": "Install {name}",
+        "requests": "This app is requesting permission to:",
+        "scopes": {
+          "readProducts": "View your products",
+          "readOrders": "View your orders",
+          "writeOrders": "Create and update orders",
+          "readCustomers": "View your customers",
+          "writeCustomers": "Create and update customers",
+          "writePayments": "Process payments"
+        },
+        "consent": "I understand and allow this app to access the data above.",
+        "cancel": "Cancel",
+        "confirmInstall": "Install app",
+        "permissionsTitle": "{name} permissions",
+        "close": "Close",
+        "uninstallTitle": "Uninstall {name}?",
+        "uninstallBody": "The app will lose access to your store data and its settings will be removed.",
+        "devTitle": "Build for StoreOS",
+        "devBody": "Create your own apps using the public API and webhooks.",
+        "devSandbox": "Every developer account includes a free sandbox store for testing.",
+        "devDocs": "API documentation"
+      },
+      "webhookLog": {
+        "title": "Webhook deliveries",
+        "subtitle": "Inspect every delivery attempt and retry or replay failed events.",
+        "status": {
+          "delivered": "Delivered",
+          "failed": "Failed",
+          "retrying": "Retrying"
+        },
+        "event": "Event",
+        "endpoint": "Endpoint",
+        "attempts": "Attempts",
+        "code": "Code",
+        "time": "Time",
+        "empty": "No deliveries",
+        "emptyHint": "Deliveries matching this filter will appear here.",
+        "detail": "Delivery details",
+        "request": "Request payload",
+        "response": "Response",
+        "retry": "Retry",
+        "replay": "Replay",
+        "scheduleTitle": "Retry schedule",
+        "scheduleHint": "Failed deliveries are retried with exponential backoff, up to 5 attempts.",
+        "attempt": "Attempt"
+      },
+      "b2b": {
+        "title": "Wholesale",
+        "tabs": {
+          "companies": "Companies",
+          "priceLists": "Price lists",
+          "quotes": "Quotes"
+        },
+        "terms": {
+          "net30": "Net 30",
+          "prepaid": "Prepaid"
+        },
+        "status": {
+          "active": "Active",
+          "pending": "Pending",
+          "suspended": "Suspended"
+        },
+        "quoteStatus": {
+          "requested": "Requested",
+          "sent": "Sent",
+          "accepted": "Accepted",
+          "expired": "Expired"
+        },
+        "companies": {
+          "title": "Wholesale companies",
+          "subtitle": "Business customers with their own terms and pricing.",
+          "add": "Add company",
+          "createSubtitle": "Set up a wholesale account.",
+          "name": "Company name",
+          "locations": "Locations",
+          "buyers": "Buyers",
+          "terms": "Payment terms",
+          "creditLimit": "Credit limit",
+          "empty": "No companies yet",
+          "emptyHint": "Add your first wholesale customer."
+        },
+        "priceLists": {
+          "title": "Price lists",
+          "subtitle": "Quantity-break pricing assigned to wholesale companies.",
+          "product": "Product",
+          "minQty": "Min quantity",
+          "price": "Unit price",
+          "orderRules": "ORDER RULES",
+          "minOrder": "Min order",
+          "maxOrder": "Max order",
+          "assigned": "ASSIGNED COMPANIES",
+          "noCompanies": "Not assigned to any company.",
+          "assignHint": "Select a company",
+          "assign": "Assign",
+          "empty": "No price lists",
+          "emptyHint": "Create a price list to offer quantity discounts."
+        },
+        "quotes": {
+          "title": "Quote requests",
+          "subtitle": "Respond to wholesale buyers with custom quotes.",
+          "quote": "Quote",
+          "company": "Company",
+          "contact": "Contact",
+          "total": "Total",
+          "detail": "Quote details",
+          "item": "Item",
+          "qty": "Qty",
+          "unitPrice": "Unit price",
+          "discount": "Discount (%)",
+          "subtotal": "Subtotal",
+          "send": "Send quote",
+          "empty": "No quote requests",
+          "emptyHint": "Requests from wholesale buyers will appear here."
+        }
+      },
+      "pos": {
+        "title": "Point of sale",
+        "subtitle": "Ring up in-store sales quickly.",
+        "offline": "Offline mode",
+        "online": "Online",
+        "offlineHint": "You are offline. Sales are saved on this device and will sync when you reconnect.",
+        "shift": {
+          "cashDrawer": "Cash drawer",
+          "sales": "Sales this shift",
+          "revenue": "Shift revenue",
+          "opened": "Shift opened"
+        },
+        "search": "Search products",
+        "barcode": "Scan barcode and press Enter",
+        "noProducts": "No products found",
+        "noProductsHint": "Try a different name or barcode.",
+        "cart": "Current sale",
+        "resume": "Resume",
+        "decrease": "Decrease quantity",
+        "increase": "Increase quantity",
+        "emptyCart": "Cart is empty",
+        "emptyCartHint": "Tap a product or scan a barcode to add it.",
+        "customer": "Customer",
+        "noCustomer": "Walk-in customer",
+        "discount": "Discount (%)",
+        "subtotal": "Subtotal",
+        "total": "Total",
+        "pay": {
+          "cash": "Cash",
+          "card": "Card",
+          "wallet": "Wallet"
+        },
+        "charge": "Charge",
+        "hold": "Hold",
+        "receiptTitle": "Receipt",
+        "thanks": "Thank you for shopping with us.",
+        "print": "Print",
+        "newSale": "New sale"
       }
     }
   },
@@ -2409,6 +3706,336 @@
       "retryJob": "Retried a failed job",
       "resolveCase": "Resolved an abuse case",
       "addNote": "Added an internal note"
+    }
+  },
+  "shop": {
+    "brand": "StoreOS Store",
+    "currency": "EGP",
+    "announcement": {
+      "shipping": "Free shipping on orders over {amount} EGP",
+      "cod": "Cash on delivery across Egypt"
+    },
+    "common": {
+      "home": "Home",
+      "viewAll": "View all",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "save": "Save changes",
+      "quantity": "Quantity",
+      "increase": "Increase quantity",
+      "decrease": "Decrease quantity",
+      "skipToContent": "Skip to main content"
+    },
+    "header": {
+      "shopAll": "Shop all",
+      "newArrivals": "New arrivals",
+      "collections": "Collections",
+      "about": "About",
+      "trackOrder": "Track order",
+      "account": "Account",
+      "search": "Search",
+      "searchPlaceholder": "Search products",
+      "menu": "Menu",
+      "mainNav": "Main navigation",
+      "openCart": "Open cart, {count} items"
+    },
+    "footer": {
+      "tagline": "Everyday essentials made to last, delivered across Egypt.",
+      "cod": "Cash on delivery available",
+      "shop": "Shop",
+      "help": "Help",
+      "company": "Company",
+      "bestSellers": "Best sellers",
+      "shippingPolicy": "Shipping policy",
+      "returnsPolicy": "Returns & exchanges",
+      "privacy": "Privacy policy",
+      "language": "Language",
+      "rights": "© {year} StoreOS Store. All rights reserved."
+    },
+    "seo": {
+      "homeTitle": "Everyday essentials, delivered across Egypt",
+      "homeDesc": "Shop apparel, home and beauty essentials with cash on delivery and fast shipping to every governorate in Egypt.",
+      "collectionsTitle": "Collections",
+      "collectionsDesc": "Browse our collections: new arrivals, best sellers and seasonal edits.",
+      "cartTitle": "Your cart",
+      "cartDesc": "Review the items in your cart.",
+      "checkoutTitle": "Checkout",
+      "checkoutDesc": "Complete your order securely.",
+      "successTitle": "Order confirmed",
+      "successDesc": "Your order has been placed.",
+      "orderLookupTitle": "Track your order",
+      "orderLookupDesc": "Find your order status with your order number and phone.",
+      "orderStatusTitle": "Order status",
+      "orderStatusDesc": "Follow your order from confirmation to delivery.",
+      "accountTitle": "My account",
+      "accountDesc": "Manage your orders, addresses and profile.",
+      "ordersTitle": "My orders",
+      "orderDetailTitle": "Order details",
+      "addressesTitle": "My addresses",
+      "profileTitle": "My profile",
+      "loginTitle": "Log in",
+      "loginDesc": "Log in to your account.",
+      "registerTitle": "Create account",
+      "registerDesc": "Create an account to track orders and check out faster."
+    },
+    "home": {
+      "eyebrow": "New season",
+      "title": "Thoughtful pieces for everyday living.",
+      "subtitle": "Honest materials, clean design and prices that make sense. Pay on delivery, anywhere in Egypt.",
+      "shopNow": "Shop now",
+      "newArrivals": "New arrivals",
+      "codNote": "Cash on delivery to every governorate",
+      "featuredEyebrow": "Customer favourites",
+      "featuredTitle": "Best sellers",
+      "categoriesTitle": "Shop by category",
+      "categoriesSubtitle": "Find what you need, from wardrobe staples to home comforts.",
+      "freshEyebrow": "Just landed",
+      "freshTitle": "New this week"
+    },
+    "trust": {
+      "codTitle": "Cash on delivery",
+      "codDesc": "Pay the courier when your order arrives.",
+      "shippingTitle": "Fast delivery",
+      "shippingDesc": "1 to 5 business days across Egypt.",
+      "returnsTitle": "14-day returns",
+      "returnsDesc": "Changed your mind? Send it back.",
+      "secureTitle": "Secure payments",
+      "secureDesc": "Cards are handled by our payment provider."
+    },
+    "newsletter": {
+      "title": "Get 10% off your first order",
+      "subtitle": "Join our list for new arrivals, restocks and private offers.",
+      "placeholder": "Your email address",
+      "subscribe": "Subscribe",
+      "thanks": "Thanks for subscribing. Use code WELCOME10 at checkout."
+    },
+    "collections": {
+      "title": "Collections",
+      "subtitle": "Curated edits, updated every week.",
+      "productCount": "{count} products",
+      "results": "products",
+      "emptyTitle": "No collections yet",
+      "emptyDesc": "Check back soon for new collections.",
+      "noResultsTitle": "No products match your filters",
+      "noResultsDesc": "Try removing a filter or widening the price range.",
+      "notFoundTitle": "Collection not found",
+      "notFoundDesc": "This collection does not exist or has been removed."
+    },
+    "filters": {
+      "title": "Filters",
+      "clear": "Clear all",
+      "price": "Price",
+      "min": "Min",
+      "max": "Max",
+      "availability": "Availability",
+      "inStockOnly": "In stock only",
+      "show": "Show {count} products"
+    },
+    "sort": {
+      "label": "Sort by",
+      "featured": "Featured",
+      "price-asc": "Price: low to high",
+      "price-desc": "Price: high to low",
+      "newest": "Newest",
+      "rating": "Top rated"
+    },
+    "product": {
+      "new": "New",
+      "sale": "Sale",
+      "soldOut": "Sold out",
+      "reviews": "reviews",
+      "codAvailable": "Cash on delivery",
+      "inStock": "In stock",
+      "lowStock": "Only {count} left",
+      "outOfStock": "Out of stock",
+      "unavailable": "This combination is unavailable",
+      "addToCart": "Add to cart",
+      "deliveryEstimate": "Delivered in {from} to {to} business days",
+      "freeReturns": "Free returns within 14 days",
+      "gallery": "Product images",
+      "viewImage": "View image {n}",
+      "tabDescription": "Description",
+      "tabShipping": "Shipping",
+      "tabReturns": "Returns",
+      "shipping1": "Greater Cairo and Alexandria: 1 to 2 business days.",
+      "shipping2": "Other governorates: 3 to 5 business days.",
+      "shipping3": "Free standard shipping on orders over 1,500 EGP.",
+      "returns1": "Return unused items in original packaging within 14 days.",
+      "returns2": "Refunds are issued within 5 business days of receiving the return.",
+      "related": "You may also like",
+      "notFoundTitle": "Product not found",
+      "notFoundDesc": "This product does not exist or is no longer available."
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search for products",
+      "resultsFor": "{count} results for \"{query}\"",
+      "noResultsTitle": "No results for \"{query}\"",
+      "noResultsDesc": "Check the spelling or try a more general term.",
+      "browseAll": "Browse all products",
+      "startTitle": "What are you looking for?",
+      "startDesc": "Type a product name or category to begin.",
+      "popular": "Popular right now",
+      "seoTitle": "Search: {query}",
+      "seoDesc": "Search our catalogue."
+    },
+    "cart": {
+      "title": "Your cart",
+      "pageTitle": "Shopping cart",
+      "itemCount": "{count} items",
+      "emptyTitle": "Your cart is empty",
+      "emptyDesc": "Looks like you have not added anything yet.",
+      "continue": "Continue shopping",
+      "remove": "Remove",
+      "summary": "Order summary",
+      "checkout": "Checkout",
+      "viewCart": "View cart",
+      "shippingAtCheckout": "Shipping and discounts are calculated at checkout.",
+      "codNote": "Cash on delivery available at checkout",
+      "freeShippingAway": "You are {amount} away from free shipping",
+      "freeShippingUnlocked": "You have unlocked free shipping"
+    },
+    "coupon": {
+      "label": "Discount code",
+      "placeholder": "Discount code",
+      "apply": "Apply",
+      "applied": "applied",
+      "invalid": "This code is not valid.",
+      "hint": "Try WELCOME10 or FREESHIP."
+    },
+    "totals": {
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "free": "Free",
+      "total": "Total"
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Enter a valid email address",
+      "phone": "Enter a valid Egyptian mobile number",
+      "password": "Password must be at least 6 characters"
+    },
+    "checkout": {
+      "title": "Checkout",
+      "secure": "Secure checkout",
+      "emptyDesc": "Add something to your cart before checking out.",
+      "contact": "Contact",
+      "email": "Email",
+      "haveAccount": "Already have an account?",
+      "address": "Delivery address",
+      "fullName": "Full name",
+      "phone": "Mobile number",
+      "phoneHint": "Egyptian mobile, e.g. 010 1234 5678. We save it as +20.",
+      "governorate": "Governorate",
+      "city": "City",
+      "area": "Area",
+      "select": "Select",
+      "street": "Street, building and apartment",
+      "landmark": "Nearby landmark (optional)",
+      "landmarkHint": "Helps the courier find you faster.",
+      "delivery": "Delivery method",
+      "delivery_standard": "Standard delivery",
+      "delivery_standardDesc": "2 to 4 business days",
+      "delivery_express": "Express delivery",
+      "delivery_expressDesc": "1 to 2 business days",
+      "delivery_pickup": "Store pickup",
+      "delivery_pickupDesc": "Ready in 24 hours at our Cairo studio",
+      "payment": "Payment method",
+      "pay_cod": "Cash on delivery",
+      "pay_codDesc": "Pay in cash when your order arrives",
+      "pay_card": "Credit or debit card",
+      "pay_cardDesc": "Visa, Mastercard and Meeza",
+      "pay_wallet": "Mobile wallet",
+      "pay_walletDesc": "Vodafone Cash, Orange Cash and others",
+      "cardPlaceholderTitle": "Secure card form",
+      "cardPlaceholderDesc": "Card details are entered in a secure form handled by our payment provider. We never see or store your card number.",
+      "walletNote": "You will receive a payment request on your mobile wallet after placing the order.",
+      "summary": "Order summary",
+      "placeOrder": "Place order",
+      "placing": "Placing order...",
+      "terms": "By placing your order you agree to our shipping and returns policies."
+    },
+    "success": {
+      "title": "Thank you, your order is placed",
+      "subtitle": "We have received your order and will confirm it shortly.",
+      "orderNumber": "Order number",
+      "paymentMethod": "Payment method",
+      "smsNote": "We will send order updates to your mobile number.",
+      "track": "Track order"
+    },
+    "orderLookup": {
+      "title": "Track your order",
+      "subtitle": "Enter your order number and the mobile number used at checkout.",
+      "orderNumber": "Order number",
+      "track": "Track order",
+      "notFound": "We could not find an order matching those details.",
+      "demoHint": "Demo: try SO-10482 with 01012345678."
+    },
+    "orderStatus": {
+      "timeline": "Order progress",
+      "items": "Items",
+      "notFoundTitle": "Order not found",
+      "notFoundDesc": "We could not find this order. Check the number and try again.",
+      "placed": "Order placed",
+      "placedDesc": "We have received your order.",
+      "confirmed": "Confirmed",
+      "confirmedDesc": "Your order is being prepared.",
+      "shipped": "Shipped",
+      "shippedDesc": "Your order has left our warehouse.",
+      "out_for_delivery": "Out for delivery",
+      "out_for_deliveryDesc": "The courier is on the way to you.",
+      "delivered": "Delivered",
+      "deliveredDesc": "Your order has arrived. Enjoy!",
+      "cancelled": "Cancelled",
+      "cancelledDesc": "This order was cancelled."
+    },
+    "account": {
+      "nav": "Account navigation",
+      "overview": "Overview",
+      "orders": "Orders",
+      "addresses": "Addresses",
+      "profile": "Profile",
+      "logout": "Log out",
+      "signInTitle": "Sign in to your account",
+      "signInDesc": "Log in to see your orders, saved addresses and profile.",
+      "welcome": "Welcome back, {name}",
+      "overviewSubtitle": "Here is a summary of your account.",
+      "statOrders": "Orders",
+      "statSpent": "Total spent",
+      "statAddresses": "Saved addresses",
+      "recentOrders": "Recent orders",
+      "noOrdersTitle": "No orders yet",
+      "noOrdersDesc": "When you place an order it will show up here.",
+      "ordersSubtitle": "Track and review your past orders.",
+      "backToOrders": "Back to orders",
+      "addressesSubtitle": "Save addresses for faster checkout.",
+      "addAddress": "Add address",
+      "editAddress": "Edit address",
+      "addressLabel": "Label (Home, Work)",
+      "makeDefault": "Make this my default address",
+      "default": "Default",
+      "noAddressesTitle": "No saved addresses",
+      "noAddressesDesc": "Add an address to check out faster next time.",
+      "profileSubtitle": "Update your personal details.",
+      "saved": "Changes saved"
+    },
+    "auth": {
+      "login": "Log in",
+      "register": "Create account",
+      "loginTitle": "Welcome back",
+      "loginSubtitle": "Log in to track orders and check out faster.",
+      "registerTitle": "Create your account",
+      "registerSubtitle": "Save your details and follow your orders.",
+      "password": "Password",
+      "noAccount": "New here?",
+      "haveAccount": "Already have an account?",
+      "demoNote": "Demo only: any email and a password of 6+ characters will work."
+    },
+    "pages": {
+      "contactNote": "Questions? Contact our support team and we will be happy to help.",
+      "notFoundTitle": "Page not found",
+      "notFoundDesc": "The page you are looking for does not exist."
     }
   }
 }

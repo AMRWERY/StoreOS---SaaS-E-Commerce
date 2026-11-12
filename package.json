@@ -4,9 +4,11 @@
   "scripts": {
     "dev:merchant": "turbo run dev --filter=@storeos/merchant",
     "dev:admin": "turbo run dev --filter=@storeos/admin",
+    "dev:storefront": "turbo run dev --filter=@storeos/storefront",
     "build": "turbo run build --concurrency=1",
     "build:merchant": "turbo run build --filter=@storeos/merchant",
     "build:admin": "turbo run build --filter=@storeos/admin",
+    "build:storefront": "turbo run build --filter=@storeos/storefront",
     "lint": "turbo run lint",
     "clean": "turbo run clean"
   },

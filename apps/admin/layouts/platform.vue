@@ -1,27 +1,33 @@
 <template>
   <div>
-    <div class="min-h-screen bg-bg-base text-tx-primary flex overflow-hidden lg:overflow-visible">
+    <div
+      class="min-h-screen bg-bg-base text-tx-primary flex overflow-hidden lg:overflow-visible"
+    >
       <!-- Mobile backdrop -->
       <Transition name="fade">
-        <div v-if="isSidebarOpen" class="overlay-backdrop z-40 lg:hidden" @click="isSidebarOpen = false"></div>
+        <div
+          v-if="isSidebarOpen"
+          class="overlay-backdrop z-40 lg:hidden"
+          @click="isSidebarOpen = false"
+        ></div>
       </Transition>
 
       <!-- Sidebar -->
       <aside
         class="fixed lg:sticky top-0 start-0 z-50 flex h-screen w-[230px] shrink-0 flex-col border-e border-border-subtle bg-bg-primary p-4 transition-transform duration-300"
-        :class="isSidebarOpen
-          ? 'translate-x-0'
-          : 'ltr:-translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0'"
+        :class="
+          isSidebarOpen
+            ? 'translate-x-0'
+            : 'ltr:-translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0'
+        "
       >
-        <div class="mb-6 flex items-center gap-2 px-2">
-          <div class="flex h-8 w-8 items-center justify-center rounded-md bg-brand text-white">
-            <Icon name="ph:shield-check-bold" class="text-lg" />
-          </div>
-          <div class="min-w-0">
-            <p class="text-sm font-bold leading-tight">{{ t('platform.brand') }}</p>
-            <p class="text-[10px] font-semibold text-brand">{{ t('platform.badge') }}</p>
-          </div>
-        </div>
+        <img
+          src="/gif/storeose-logo-admin.gif"
+          alt="storeose-logo-admin"
+          class="h-12 w-auto"
+          width="117"
+          height="40"
+        />
 
         <nav class="flex-1 space-y-1 overflow-y-auto hide-scrollbar">
           <nuxt-link-locale
@@ -29,24 +35,34 @@
             :key="item.to"
             :to="item.to"
             class="flex items-center gap-2 rounded-md px-3 py-1.5 text-[12px] font-medium transition-colors"
-            :class="isActive(item) ? 'bg-brand-dim text-brand' : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'"
+            :class="
+              isActive(item)
+                ? 'bg-brand-dim text-brand'
+                : 'text-tx-secondary hover:bg-bg-elevated hover:text-tx-primary'
+            "
           >
             <Icon :name="item.icon" class="text-lg" />
             <span class="flex-1 truncate">{{ item.label }}</span>
             <span
               v-if="item.badge"
               class="rounded-full bg-danger-dim px-1.5 py-0.5 font-mono text-[9px] font-semibold text-danger"
-            >{{ item.badge }}</span>
+              >{{ item.badge }}</span
+            >
           </nuxt-link-locale>
         </nav>
 
         <div class="mt-4 border-t border-border-subtle pt-4">
-          <p class="px-3 text-[10px] text-tx-muted">{{ t('platform.legacyHint') }}</p>
+          <p class="px-3 text-[10px] text-tx-muted">
+            {{ t("platform.legacyHint") }}
+          </p>
         </div>
       </aside>
 
       <!-- Main -->
-      <main ref="mainRef" class="flex h-screen flex-1 flex-col overflow-y-auto hide-scrollbar">
+      <main
+        ref="mainRef"
+        class="flex h-screen flex-1 flex-col overflow-y-auto hide-scrollbar"
+      >
         <header
           class="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-border-subtle bg-bg-base/70 px-4 py-3 backdrop-blur-md md:px-8"
         >
@@ -59,22 +75,35 @@
             >
               <Icon name="ph:list-bold" class="text-xl" />
             </button>
-            <span class="inline-flex items-center gap-1 rounded-full bg-danger-dim px-2.5 py-1 text-[10px] font-semibold text-danger">
+            <span
+              class="inline-flex items-center gap-1 rounded-full bg-danger-dim px-2.5 py-1 text-[10px] font-semibold text-danger"
+            >
               <Icon name="ph:shield-warning-bold" class="text-xs" />
-              {{ t('platform.badge') }}
+              {{ t("platform.badge") }}
             </span>
-            <span class="hidden rounded-full bg-bg-elevated px-2 py-0.5 font-mono text-[10px] font-semibold text-tx-secondary sm:inline">
-              {{ t('platform.topbar.env') }}
+            <span
+              class="hidden rounded-full bg-bg-elevated px-2 py-0.5 font-mono text-[10px] font-semibold text-tx-secondary sm:inline"
+            >
+              {{ t("platform.topbar.env") }}
             </span>
           </div>
 
           <div class="flex items-center gap-3">
             <ThemeToggle />
-            <div class="flex items-center gap-2 rounded-full border border-border-subtle bg-bg-primary py-1 pe-3 ps-1">
-              <span class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-dim text-[10px] font-bold text-brand">AM</span>
+            <div
+              class="flex items-center gap-2 rounded-full border border-border-subtle bg-bg-primary py-1 pe-3 ps-1"
+            >
+              <span
+                class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-dim text-[10px] font-bold text-brand"
+                >AM</span
+              >
               <div class="leading-tight">
-                <p class="text-[11px] font-semibold">{{ t('platform.topbar.operatorName') }}</p>
-                <p class="text-[9px] text-tx-muted">{{ t('platform.topbar.operatorRole') }}</p>
+                <p class="text-[11px] font-semibold">
+                  {{ t("platform.topbar.operatorName") }}
+                </p>
+                <p class="text-[9px] text-tx-muted">
+                  {{ t("platform.topbar.operatorRole") }}
+                </p>
               </div>
             </div>
           </div>
@@ -89,43 +118,82 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
-const route = useRoute()
-const localePath = useLocalePath()
-const abuse = usePlatformAbuseStore()
+const { t } = useI18n();
+const route = useRoute();
+const localePath = useLocalePath();
+const abuse = usePlatformAbuseStore();
 
-const isSidebarOpen = ref(false)
-const mainRef = ref<HTMLElement | null>(null)
-useScrollTopOnNavigate(mainRef)
+const isSidebarOpen = ref(false);
+const mainRef = ref<HTMLElement | null>(null);
+useScrollTopOnNavigate(mainRef);
 
-watch(() => route.fullPath, () => {
-  isSidebarOpen.value = false
-})
+watch(
+  () => route.fullPath,
+  () => {
+    isSidebarOpen.value = false;
+  },
+);
 
 interface NavItem {
-  to: string
-  icon: string
-  label: string
-  exact?: boolean
-  badge?: number
+  to: string;
+  icon: string;
+  label: string;
+  exact?: boolean;
+  badge?: number;
 }
 
-const openCases = computed(() => abuse.cases.filter((c) => c.status === 'open' || c.status === 'escalated').length)
+const openCases = computed(
+  () =>
+    abuse.cases.filter((c) => c.status === "open" || c.status === "escalated")
+      .length,
+);
 
 const navItems = computed<NavItem[]>(() => [
-  { to: '/platform', icon: 'ph:squares-four', label: t('platform.nav.overview'), exact: true },
-  { to: '/platform/merchants', icon: 'ph:storefront', label: t('platform.nav.merchants') },
-  { to: '/platform/plans', icon: 'ph:stack', label: t('platform.nav.plans') },
-  { to: '/platform/feature-flags', icon: 'ph:flag', label: t('platform.nav.flags') },
-  { to: '/platform/abuse', icon: 'ph:warning-octagon', label: t('platform.nav.abuse'), badge: openCases.value || undefined },
-  { to: '/platform/health', icon: 'ph:heartbeat', label: t('platform.nav.health') },
-  { to: '/platform/support', icon: 'ph:lifebuoy', label: t('platform.nav.support') },
-  { to: '/platform/staff', icon: 'ph:users-three', label: t('platform.nav.staff') },
-])
+  {
+    to: "/platform",
+    icon: "ph:squares-four",
+    label: t("platform.nav.overview"),
+    exact: true,
+  },
+  {
+    to: "/platform/merchants",
+    icon: "ph:storefront",
+    label: t("platform.nav.merchants"),
+  },
+  { to: "/platform/plans", icon: "ph:stack", label: t("platform.nav.plans") },
+  {
+    to: "/platform/feature-flags",
+    icon: "ph:flag",
+    label: t("platform.nav.flags"),
+  },
+  {
+    to: "/platform/abuse",
+    icon: "ph:warning-octagon",
+    label: t("platform.nav.abuse"),
+    badge: openCases.value || undefined,
+  },
+  {
+    to: "/platform/health",
+    icon: "ph:heartbeat",
+    label: t("platform.nav.health"),
+  },
+  {
+    to: "/platform/support",
+    icon: "ph:lifebuoy",
+    label: t("platform.nav.support"),
+  },
+  {
+    to: "/platform/staff",
+    icon: "ph:users-three",
+    label: t("platform.nav.staff"),
+  },
+]);
 
 const isActive = (item: NavItem) => {
-  const target = localePath(item.to)
-  const current = route.path.replace(/\/$/, '')
-  return item.exact ? current === target : current === target || current.startsWith(`${target}/`)
-}
+  const target = localePath(item.to);
+  const current = route.path.replace(/\/$/, "");
+  return item.exact
+    ? current === target
+    : current === target || current.startsWith(`${target}/`);
+};
 </script>

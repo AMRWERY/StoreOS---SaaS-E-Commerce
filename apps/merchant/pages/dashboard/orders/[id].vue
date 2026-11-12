@@ -48,6 +48,14 @@
             <Icon name="ph:printer-bold" />
           </LazyVButton>
           <LazyVButton
+            variant="secondary"
+            icon="ph:receipt-x-bold"
+            iconPosition="left"
+            className="px-5 py-2.5 rounded-xl text-xs font-bold border-border-subtle bg-bg-elevated hover:bg-bg-elevated transition-all"
+            :label="t('dashboard.ops.refundDialog.action')"
+            @click="refundOpen = true"
+          />
+          <LazyVButton
             variant="none"
             className="px-5 py-2.5 text-red-500/70 hover:text-red-500 text-xs font-bold transition-colors"
           >
@@ -206,52 +214,26 @@
               </div>
             </div>
 
-            <!-- Order Notes/Logs Card -->
+            <!-- Order Notes Card -->
             <div class="card px-4 py-3.5">
               <h3
                 class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-6"
               >
                 <Icon name="ph:notebook-bold" class="text-brand" />
-                Order Notes
+                {{ t('dashboard.ops.orderTimeline.notesTitle') }}
               </h3>
-              <div class="space-y-6">
-                <div class="relative">
-                  <LazyVTextareaInput
-                    placeholder="Add internal note for this order..."
-                    textareaClass="!bg-bg-primary !border-border-default !rounded-2xl !p-5 !text-sm !h-32 focus:!border-brand/50"
-                  />
-                  <LazyVButton
-                    variant="none"
-                    className="absolute bottom-4 end-4 bg-bg-elevated hover:bg-bg-elevated px-4 py-2 rounded-lg text-[10px] font-black tracking-widest transition-colors"
-                  >
-                    Add Note
-                  </LazyVButton>
-                </div>
+              <fulfil-order-notes :notes="orderNotes" @add="onAddNote" />
+            </div>
 
-                <div class="space-y-6 pt-4">
-                  <div
-                    v-for="log in orderLogs"
-                    :key="log.time"
-                    class="flex gap-4 group"
-                  >
-                    <div
-                      class="w-2 h-2 rounded-full bg-brand/40 mt-1.5 shrink-0 group-hover:bg-brand transition-colors"
-                    ></div>
-                    <div>
-                      <p class="text-xs leading-relaxed text-tx-secondary">
-                        {{ log.text }}
-                      </p>
-                      <div class="mt-2 text-[10px] font-bold">
-                        <span class="text-brand"
-                          >added by {{ log.author }}</span
-                        >
-                        <span class="mx-2 text-tx-muted">•</span>
-                        <span class="text-tx-muted">{{ log.time }}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <!-- Order Activity Timeline Card -->
+            <div class="card px-4 py-3.5">
+              <h3
+                class="text-xs font-black tracking-[0.15em] flex items-center gap-2 mb-6"
+              >
+                <Icon name="ph:clock-counter-clockwise-bold" class="text-brand" />
+                {{ t('dashboard.ops.orderTimeline.title') }}
+              </h3>
+              <fulfil-order-timeline :events="orderEvents" />
             </div>
           </div>
         </div>
@@ -388,12 +370,37 @@
         </aside>
       </div>
     </div>
+
+    <fulfil-refund-dialog
+      v-model="refundOpen"
+      :lines="refundLines"
+      :shipping-paid="10"
+      currency="USD"
+      @confirm="onRefund"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
+import type { RefundPayload } from "@/types/fulfillment";
+
 const route = useRoute();
+const { t } = useI18n();
 const orderId = computed(() => `ORD-${route.params.id}`);
+
+const detailStore = useFulfilOrderDetailStore();
+detailStore.ensure(orderId.value);
+const orderEvents = computed(() => detailStore.events[orderId.value] ?? []);
+const orderNotes = computed(() => detailStore.notes[orderId.value] ?? []);
+const refundOpen = ref(false);
+
+function onAddNote(text: string) {
+  detailStore.addNote(orderId.value, text);
+}
+
+function onRefund(payload: RefundPayload) {
+  detailStore.addRefund(orderId.value, payload);
+}
 const createdAt = "March 15, 2026, 10:45 AM";
 
 const itemHeaders = [
@@ -416,6 +423,13 @@ const orderItems = [
   },
 ];
 
+const refundLines = orderItems.map((i) => ({
+  sku: i.sku,
+  name: i.name,
+  qty: i.qty,
+  unitPrice: i.unitPrice,
+}));
+
 // Timeline steps
 const timeline = [
   { name: "New", date: "Oct 24, 10:45", status: "completed" },
@@ -423,20 +437,6 @@ const timeline = [
   { name: "Processing", date: "ACTIVE", status: "active" },
   { name: "Shipped", date: "pending", status: "upcoming" },
   { name: "Delivered", date: "pending", status: "upcoming" },
-];
-
-// Log/Notes items
-const orderLogs = [
-  {
-    text: "Customer requested express shipping as they need it before the weekend.",
-    author: "Sarah J.",
-    time: "Oct 24, 10:50 AM",
-  },
-  {
-    text: "Payment confirmed via Stripe (ch_3Nle...8Zkz)",
-    author: "System",
-    time: "Oct 24, 10:45 AM",
-  },
 ];
 
 definePageMeta({
