@@ -128,7 +128,7 @@
 </template>
 
 <script lang="ts" setup>
-const storeUrl = ref("https://storeos.app/my-awesome-shop");
+const { storeUrl } = useOnboarding();
 
 const copied = ref(false);
 let copiedTimer: ReturnType<typeof setTimeout> | undefined;

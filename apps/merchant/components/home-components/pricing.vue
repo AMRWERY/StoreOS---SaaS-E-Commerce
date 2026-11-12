@@ -400,7 +400,6 @@ import type { Tier } from "@/types/pricing";
 import type { Plan } from "@/types/auth";
 
 const { t } = useI18n();
-const { register, startGuestPreview } = useAuth();
 const localePath = useLocalePath();
 const billing = ref<"monthly" | "annual">("monthly");
 
@@ -417,14 +416,15 @@ const openTrialModal = (tier: Tier) => {
 };
 
 /**
- * The free tier asks for nothing up front — same as the login page's "Start free trial":
- * straight into the dashboard in preview mode, no modal, no email, no account.
- * Trial tiers and Enterprise both collect an email in the modal first.
+ * Every plan starts on the real register form (store name → onboarding → dashboard).
+ * The free tier goes straight there; trial tiers and Enterprise collect an email in the
+ * modal first, which is then prefilled on the form.
  */
 const handleTierCta = async (tier: Tier) => {
   if (tier.free) {
-    startGuestPreview();
-    await navigateTo(localePath("/dashboard"));
+    await navigateTo(
+      localePath({ path: "/auth/register", query: { plan: tier.plan } }),
+    );
     return;
   }
   openTrialModal(tier);
@@ -452,9 +452,17 @@ const startTrial = async () => {
     return;
   }
 
-  // Trialling a tier grants exactly that tier's dashboard access for 14 days.
-  register(selectedTier.value?.plan ?? "trial");
-  await navigateTo(localePath("/dashboard"));
+  // Trialling a tier grants exactly that tier's dashboard access for 14 days; the account
+  // itself is created on the register form, with the plan and email carried over.
+  await navigateTo(
+    localePath({
+      path: "/auth/register",
+      query: {
+        plan: selectedTier.value?.plan ?? "trial",
+        email: trialEmail.value,
+      },
+    }),
+  );
 };
 
 const tiers = computed(() => [

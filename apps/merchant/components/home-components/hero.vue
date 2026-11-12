@@ -45,7 +45,7 @@
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
           <LazyVButton
             variant="none"
-            @click="scrollToPricing"
+            to="/auth/register"
             className="bg-brand hover:bg-brand-hover px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-brand/20 transition"
           >
             {{ t("home.hero.startFreeTrial") }}
@@ -244,10 +244,6 @@
 import { wordReveal } from "#imports";
 const { t } = useI18n();
 const { isDemoOpen, openDemo, closeDemo } = useDemoModal();
-
-const scrollToPricing = () => {
-  document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
-};
 
 const videoRef = ref<HTMLVideoElement | null>(null);
 

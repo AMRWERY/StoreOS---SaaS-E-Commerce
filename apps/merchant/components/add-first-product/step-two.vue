@@ -133,7 +133,8 @@ const props = defineProps({
 
 const emit = defineEmits<{ next: []; prev: [] }>();
 
-const storeName = ref("My Awesome Shop");
+// Prefilled from registration; edits flow back so the "store is live" URL matches.
+const { storeName } = useOnboarding();
 const description = ref("");
 const country = ref("United States");
 const currency = ref("USD ($)");

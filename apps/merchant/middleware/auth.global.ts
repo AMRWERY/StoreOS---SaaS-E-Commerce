@@ -12,7 +12,10 @@ export default defineNuxtRouteMiddleware((to) => {
   const path = stripLocale(to.path)
 
   const isProtected = PROTECTED_PREFIXES.some((prefix) => path === prefix || path.startsWith(prefix + '/'))
-  const isAuthRoute = AUTH_ROUTES.some((route) => path === route || path.startsWith(route + '/'))
+  // `/auth/add-first-product` lives under `/auth` but is the signed-in onboarding step, so it
+  // must not count as an auth route (otherwise a new merchant is bounced past onboarding).
+  const isAuthRoute =
+    !isProtected && AUTH_ROUTES.some((route) => path === route || path.startsWith(route + '/'))
 
   // Authenticated user on auth routes → dashboard
   if (isAuthenticated.value && isAuthRoute) {

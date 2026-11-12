@@ -81,7 +81,11 @@
               {{ t("auth.register.title") }}
             </h1>
             <p class="text-tx-secondary mb-6 text-sm">
-              {{ t("auth.register.subtitle") }}
+              {{
+                selectedPlan === "free"
+                  ? t("auth.register.subtitleFree")
+                  : t("auth.register.subtitle")
+              }}
             </p>
 
             <LazyVFormWrapper @submit="handleSubmit">
@@ -90,11 +94,15 @@
                   :label="t('auth.register.storeName')"
                   :placeholder="t('auth.register.storeNamePlaceholder')"
                   v-model="storeName"
+                  :error="errors.storeName"
+                  autocomplete="organization"
                 />
                 <LazyVInput
                   :label="t('auth.register.fullName')"
                   :placeholder="t('auth.register.fullNamePlaceholder')"
                   v-model="fullName"
+                  :error="errors.fullName"
+                  autocomplete="name"
                 />
               </div>
 
@@ -103,6 +111,8 @@
                 :label="t('auth.register.emailAddress')"
                 :placeholder="t('auth.register.emailPlaceholder')"
                 v-model="email"
+                :error="errors.email"
+                autocomplete="email"
               />
 
               <LazyVInput
@@ -110,6 +120,8 @@
                 :label="t('auth.register.password')"
                 :placeholder="t('auth.register.passwordPlaceholder')"
                 v-model="password"
+                :error="errors.password"
+                autocomplete="new-password"
               />
 
               <!-- Industry Dropdown & Tags -->
@@ -118,10 +130,11 @@
                 :label="t('auth.register.industry')"
                 :placeholder="t('auth.register.selectIndustry')"
                 :options="industries"
+                :error="errors.industry"
                 :hint="`${t('auth.register.industryHint')}: ${industries.join(' · ')}`"
               />
 
-              <LazyVInput type="checkbox" v-model="agree">
+              <LazyVInput type="checkbox" v-model="agree" :error="errors.agree">
                 {{ t("auth.register.agreeTerms") }}
                 <nuxt-link-locale
                   to="/terms"
@@ -172,7 +185,8 @@ const industries = ["Fashion", "Food", "Electronics", "Beauty"];
 const industry = ref("");
 const storeName = ref("");
 const fullName = ref("");
-const email = ref("");
+// The pricing modal passes the email it already collected (`?email=`) so it isn't retyped.
+const email = ref(String(useRoute().query.email ?? ""));
 const password = ref("");
 const agree = ref(false);
 
@@ -187,9 +201,48 @@ const selectedPlan = computed<Plan>(() => {
   return plan in PLAN_CONFIGS && plan !== "guest" ? (plan as Plan) : "trial";
 });
 
+const { setRegistration } = useOnboarding();
+
+type Field = "storeName" | "fullName" | "email" | "password" | "industry" | "agree";
+const errors = reactive<Record<Field, string>>({
+  storeName: "",
+  fullName: "",
+  email: "",
+  password: "",
+  industry: "",
+  agree: "",
+});
+
+const validate = (): boolean => {
+  errors.storeName = storeName.value.trim() ? "" : t("auth.register.errStoreName");
+  errors.fullName = fullName.value.trim() ? "" : t("auth.register.errFullName");
+  errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())
+    ? ""
+    : t("auth.register.errEmail");
+  errors.password = password.value.length >= 8 ? "" : t("auth.register.errPassword");
+  errors.industry = industry.value ? "" : t("auth.register.errIndustry");
+  errors.agree = agree.value ? "" : t("auth.register.errAgree");
+  return Object.values(errors).every((message) => !message);
+};
+
+// Clear a field's error as soon as the user fixes it.
+watch(storeName, () => (errors.storeName = ""));
+watch(fullName, () => (errors.fullName = ""));
+watch(email, () => (errors.email = ""));
+watch(password, () => (errors.password = ""));
+watch(industry, () => (errors.industry = ""));
+watch(agree, () => (errors.agree = ""));
+
 const handleSubmit = async () => {
+  if (isLoading.value || !validate()) return;
   isLoading.value = true;
   try {
+    setRegistration({
+      storeName: storeName.value,
+      fullName: fullName.value,
+      email: email.value,
+      industry: industry.value,
+    });
     // TODO: replace with real register call
     await new Promise((resolve) => setTimeout(resolve, 2500));
     register(selectedPlan.value);

@@ -93,17 +93,23 @@
               {{ t("auth.register_now") }}
             </nuxt-link-locale>
             <span class="text-tx-muted">{{ t("auth.or") }}</span>
-            <LazyVButton
-              type="button"
-              variant="none"
-              :disabled="isEnteringPreview"
-              @click="handleStartFreeTrial"
-              className="text-brand font-medium hover:text-brand-hover hover:underline transition disabled:opacity-60 disabled:cursor-not-allowed"
+            <nuxt-link-locale
+              to="/auth/register"
+              class="text-brand font-medium hover:text-brand-hover hover:underline transition"
             >
               {{ t("auth.start_free_trial") }}
-            </LazyVButton>
+            </nuxt-link-locale>
           </div>
-          <p class="mt-2 text-[10px] text-tx-muted">
+          <LazyVButton
+            type="button"
+            variant="none"
+            :disabled="isEnteringPreview"
+            @click="handleStartFreeTrial"
+            className="mt-3 text-xs text-tx-secondary hover:text-tx-primary hover:underline transition disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {{ t("auth.explore_demo") }}
+          </LazyVButton>
+          <p class="mt-1 text-[10px] text-tx-muted">
             {{ t("auth.preview_hint") }}
           </p>
         </div>

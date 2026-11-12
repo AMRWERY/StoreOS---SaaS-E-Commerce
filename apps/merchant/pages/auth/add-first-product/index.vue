@@ -37,13 +37,8 @@ watch(step, () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-const finish = () => {
-  window.alert("Setup complete!");
-};
-
-const skip = () => {
-  window.alert("Skipped onboarding.");
-};
+// "Skip for now" on the product step moves on to store setup without saving a product.
+const skip = () => nextStep();
 
 useSeoPage({
   titleTemplate: () => 'Add First Product',
