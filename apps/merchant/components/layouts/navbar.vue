@@ -97,8 +97,29 @@ const { locale, t } = useI18n();
 const { register, isAuthenticated } = useAuth();
 const localePath = useLocalePath();
 
-const scrollTo = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+const route = useRoute();
+
+const isHome = () =>
+  route.path.replace(/\/$/, "") === localePath("/").replace(/\/$/, "");
+
+// Wait for the section to exist (the home page may still be mounting after navigation).
+const waitForElement = async (id: string, timeout = 3000) => {
+  const start = Date.now();
+  while (Date.now() - start < timeout) {
+    const el = document.getElementById(id);
+    if (el) return el;
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  return null;
+};
+
+// On any non-home route (footer pages etc.), go to the home page first, then scroll.
+const scrollTo = async (id: string) => {
+  if (!isHome()) {
+    await navigateTo(localePath("/"));
+  }
+  const el = await waitForElement(id);
+  el?.scrollIntoView({ behavior: "smooth" });
 };
 
 /**
