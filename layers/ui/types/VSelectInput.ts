@@ -11,6 +11,7 @@ export interface LazyVSelectInputProps {
   placeholder?: string;
   name?: string;
   error?: string;
+  hint?: string;
   required?: boolean;
   disabled?: boolean;
   selectClass?: string;

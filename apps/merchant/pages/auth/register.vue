@@ -113,35 +113,13 @@
               />
 
               <!-- Industry Dropdown & Tags -->
-              <div class="space-y-4">
-                <div class="space-y-2">
-                  <label
-                    class="text-[10px] font-semibold text-tx-secondary tracking-[0.6px]"
-                    >{{ t("auth.register.industry") }}</label
-                  >
-                  <div class="relative cursor-pointer group">
-                    <div
-                      class="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-3 text-sm text-tx-secondary flex justify-between items-center group-hover:border-border-default transition"
-                    >
-                      {{ t("auth.register.selectIndustry") }}
-                      <Icon
-                        name="lucide:chevron-down"
-                        class="w-4 h-4 shrink-0"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  <LazyVButton
-                    v-for="tag in industries"
-                    :key="tag"
-                    variant="none"
-                    className="px-3 py-1.5 rounded-full border border-border-subtle text-[10px] font-bold text-tx-secondary hover:border-orange-500/50 hover:text-tx-primary transition"
-                  >
-                    {{ tag }}
-                  </LazyVButton>
-                </div>
-              </div>
+              <LazyVSelectInput
+                v-model="industry"
+                :label="t('auth.register.industry')"
+                :placeholder="t('auth.register.selectIndustry')"
+                :options="industries"
+                :hint="`${t('auth.register.industryHint')}: ${industries.join(' · ')}`"
+              />
 
               <LazyVInput type="checkbox" v-model="agree">
                 {{ t("auth.register.agreeTerms") }}
@@ -191,6 +169,7 @@ const { t } = useI18n();
 
 const industries = ["Fashion", "Food", "Electronics", "Beauty"];
 
+const industry = ref("");
 const storeName = ref("");
 const fullName = ref("");
 const email = ref("");

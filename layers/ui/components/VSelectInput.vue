@@ -44,6 +44,8 @@
         {{ error }}
       </p>
     </Transition>
+
+    <p v-if="hint && !error" class="text-[10px] text-tx-muted">{{ hint }}</p>
   </div>
 </template>
 
