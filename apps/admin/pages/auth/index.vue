@@ -82,14 +82,12 @@
           <div
             class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1"
           >
-            <LazyVButton
-              type="button"
-              variant="none"
-              @click="showTrialModal = true"
-              className="text-orange-500 font-bold hover:text-orange-400 hover:underline transition"
+            <nuxt-link-locale
+              to="/auth/register"
+              class="text-orange-500 font-bold hover:text-orange-400 hover:underline transition"
             >
               {{ t("auth.register_now") }}
-            </LazyVButton>
+            </nuxt-link-locale>
             <span class="text-tx-muted">{{ t("auth.or") }}</span>
             <LazyVButton
               type="button"

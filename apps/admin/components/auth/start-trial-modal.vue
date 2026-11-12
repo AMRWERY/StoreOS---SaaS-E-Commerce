@@ -1,42 +1,42 @@
 <template>
-  <LazyVDialog v-model="open" maxWidth="lg" @close="reset">
+  <LazyVDialog
+    v-model="open"
+    maxWidth="lg"
+    hideClose
+    hideHeaderBorder
+    @close="reset"
+  >
     <template #title>
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-orange-500 rounded-sm"></div>
-        <span>{{ t("auth.trial.modalTitle") }}</span>
+      <div class="flex flex-col items-center text-center gap-3">
+        <img
+          src="/gif/storeose-logo.gif"
+          alt="storeose-logo"
+          class="h-12 w-auto"
+          width="117"
+          height="40"
+        />
+
+        <div class="space-y-1.5">
+          <h2 class="text-[15px] font-semibold text-tx-primary">
+            {{ t("auth.trial.modalTitle") }}
+          </h2>
+        </div>
       </div>
     </template>
 
     <!-- Step Progress -->
-    <div class="flex items-center justify-center gap-2 mb-8">
-      <template v-for="(s, i) in steps" :key="i">
-        <div class="flex items-center gap-2">
-          <div
-            class="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-black transition-all duration-300"
-            :class="
-              step > i + 1
-                ? 'bg-green-500 text-white'
-                : step === i + 1
-                ? 'bg-brand text-white shadow-lg shadow-indigo-500/30'
-                : 'bg-bg-elevated text-tx-muted border border-border-subtle'
-            "
-          >
-            <Icon v-if="step > i + 1" name="lucide:check" class="w-3.5 h-3.5" />
-            <span v-else>{{ i + 1 }}</span>
-          </div>
-          <span
-            class="text-[10px] font-bold tracking-wider transition-colors"
-            :class="step === i + 1 ? 'text-tx-primary' : 'text-tx-muted'"
-          >
-            {{ s }}
-          </span>
-        </div>
-        <div
-          v-if="i < steps.length - 1"
-          class="flex-1 h-px mx-1 transition-all duration-500"
-          :class="step > i + 1 ? 'bg-green-500/50' : 'bg-border-subtle'"
-        />
-      </template>
+    <div class="mb-8">
+      <LazyVProgressBar
+        :progress="progress"
+        :height="8"
+        color="blue"
+        trackVariant="slate"
+        :showHeader="true"
+        :headerLeft="steps[step - 1]"
+        :headerRight="`${Math.round(progress)}%`"
+        :showLabel="false"
+        :shadow="false"
+      />
     </div>
 
     <!-- Step 1: Email -->
@@ -44,7 +44,9 @@
       <div v-if="step === 1" key="step1" class="space-y-5">
         <div class="text-center space-y-1 mb-6">
           <h2 class="text-xl font-bold">{{ t("auth.trial.step1Title") }}</h2>
-          <p class="text-sm text-tx-secondary">{{ t("auth.trial.step1Subtitle") }}</p>
+          <p class="text-sm text-tx-secondary">
+            {{ t("auth.trial.step1Subtitle") }}
+          </p>
         </div>
 
         <LazyVFormWrapper @submit="goToStep2">
@@ -53,7 +55,8 @@
             :label="t('auth.register.emailAddress')"
             :placeholder="t('auth.register.emailPlaceholder')"
             v-model="form.email"
-            required
+            :error="errors.email"
+            autocomplete="email"
           />
           <LazyVButton
             type="submit"
@@ -61,7 +64,10 @@
             className="w-full flex items-center justify-center bg-orange-600 hover:bg-orange-500 text-white py-3.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-600/20"
           >
             {{ t("auth.trial.continue") }}
-            <Icon name="lucide:arrow-right" class="w-4 h-4 ms-2 icon-nudge-end" />
+            <Icon
+              name="lucide:arrow-right"
+              class="w-4 h-4 ms-2 icon-nudge-end"
+            />
           </LazyVButton>
         </LazyVFormWrapper>
 
@@ -76,7 +82,9 @@
       <div v-if="step === 2" key="step2" class="space-y-5">
         <div class="text-center space-y-1 mb-6">
           <h2 class="text-xl font-bold">{{ t("auth.trial.step2Title") }}</h2>
-          <p class="text-sm text-tx-secondary">{{ t("auth.trial.step2Subtitle") }}</p>
+          <p class="text-sm text-tx-secondary">
+            {{ t("auth.trial.step2Subtitle") }}
+          </p>
         </div>
 
         <LazyVFormWrapper @submit="goToStep3">
@@ -85,19 +93,23 @@
               :label="t('auth.register.storeName')"
               :placeholder="t('auth.register.storeNamePlaceholder')"
               v-model="form.storeName"
-              required
+              :error="errors.storeName"
+              autocomplete="organization"
             />
             <LazyVInput
               :label="t('auth.register.fullName')"
               :placeholder="t('auth.register.fullNamePlaceholder')"
               v-model="form.fullName"
-              required
+              :error="errors.fullName"
+              autocomplete="name"
             />
           </div>
 
           <!-- Industry Tags -->
           <div class="space-y-2">
-            <label class="text-[10px] font-bold text-tx-secondary tracking-wider">
+            <label
+              class="text-[10px] font-bold text-tx-secondary tracking-wider"
+            >
               {{ t("auth.register.industry") }}
             </label>
             <div class="flex flex-wrap gap-2">
@@ -116,6 +128,9 @@
                 {{ tag.emoji }} {{ tag.label }}
               </LazyVButton>
             </div>
+            <p v-if="errors.industry" class="text-xs text-red-500 font-medium">
+              {{ errors.industry }}
+            </p>
           </div>
 
           <div class="flex gap-3">
@@ -133,7 +148,10 @@
               className="flex-[2] flex items-center justify-center bg-orange-600 hover:bg-orange-500 text-white py-3 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-600/20"
             >
               {{ t("auth.trial.continue") }}
-              <Icon name="lucide:arrow-right" class="w-4 h-4 ms-2 icon-nudge-end" />
+              <Icon
+                name="lucide:arrow-right"
+                class="w-4 h-4 ms-2 icon-nudge-end"
+              />
             </LazyVButton>
           </div>
         </LazyVFormWrapper>
@@ -145,7 +163,9 @@
       <div v-if="step === 3" key="step3" class="space-y-5">
         <div class="text-center space-y-1 mb-6">
           <h2 class="text-xl font-bold">{{ t("auth.trial.step3Title") }}</h2>
-          <p class="text-sm text-tx-secondary">{{ t("auth.trial.step3Subtitle") }}</p>
+          <p class="text-sm text-tx-secondary">
+            {{ t("auth.trial.step3Subtitle") }}
+          </p>
         </div>
 
         <LazyVFormWrapper @submit="handleSubmit">
@@ -154,7 +174,8 @@
             :label="t('auth.register.password')"
             :placeholder="t('auth.register.passwordPlaceholder')"
             v-model="form.password"
-            required
+            :error="errors.password"
+            autocomplete="new-password"
           />
 
           <!-- Password strength indicator -->
@@ -164,7 +185,9 @@
                 v-for="i in 4"
                 :key="i"
                 class="h-1 flex-1 rounded-full transition-all duration-300"
-                :class="passwordStrength >= i ? strengthColor : 'bg-bg-elevated'"
+                :class="
+                  passwordStrength >= i ? strengthColor : 'bg-bg-elevated'
+                "
               />
             </div>
             <p class="text-[10px] font-bold" :class="strengthTextColor">
@@ -172,7 +195,11 @@
             </p>
           </div>
 
-          <LazyVInput type="checkbox" v-model="form.agree">
+          <LazyVInput
+            type="checkbox"
+            v-model="form.agree"
+            :error="errors.agree"
+          >
             {{ t("auth.register.agreeTerms") }}
             <span class="text-orange-500 hover:underline cursor-pointer">{{
               t("auth.register.termsOfService")
@@ -195,7 +222,7 @@
             <LazyVButton
               type="submit"
               variant="none"
-              :disabled="isLoading || !form.agree"
+              :disabled="isLoading"
               className="flex-[2] flex items-center justify-center bg-orange-600 hover:bg-orange-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-600/20"
             >
               <LazyVLoadingSpinner v-if="isLoading" size="sm" color="white" />
@@ -206,7 +233,11 @@
 
         <!-- Trust badges -->
         <div class="flex items-center justify-center gap-6 pt-2">
-          <div v-for="badge in trustBadges" :key="badge.icon" class="flex items-center gap-1.5 text-tx-muted">
+          <div
+            v-for="badge in trustBadges"
+            :key="badge.icon"
+            class="flex items-center gap-1.5 text-tx-muted"
+          >
             <Icon :name="badge.icon" class="w-3.5 h-3.5 text-green-500" />
             <span class="text-[10px] font-medium">{{ badge.label }}</span>
           </div>
@@ -247,10 +278,17 @@ const steps = computed(() => [
   t("auth.trial.stepPassword"),
 ]);
 
+// Step 1 of 3 shows a third of the bar, the final step fills it.
+const progress = computed(() => (step.value / steps.value.length) * 100);
+
 const industries = computed(() => [
   { value: "fashion", label: t("auth.trial.industryFashion"), emoji: "👗" },
   { value: "food", label: t("auth.trial.industryFood"), emoji: "🍔" },
-  { value: "electronics", label: t("auth.trial.industryElectronics"), emoji: "📱" },
+  {
+    value: "electronics",
+    label: t("auth.trial.industryElectronics"),
+    emoji: "📱",
+  },
   { value: "beauty", label: t("auth.trial.industryBeauty"), emoji: "💄" },
   { value: "home", label: t("auth.trial.industryHome"), emoji: "🏠" },
   { value: "sports", label: t("auth.trial.industrySports"), emoji: "⚽" },
@@ -279,7 +317,12 @@ const strengthColor = computed(() => {
 });
 
 const strengthTextColor = computed(() => {
-  const map = ["text-red-400", "text-orange-400", "text-yellow-400", "text-green-400"];
+  const map = [
+    "text-red-400",
+    "text-orange-400",
+    "text-yellow-400",
+    "text-green-400",
+  ];
   return map[passwordStrength.value - 1] || "text-red-400";
 });
 
@@ -293,17 +336,71 @@ const strengthLabel = computed(() => {
   return map[passwordStrength.value - 1] || map[0];
 });
 
-const goToStep2 = () => { step.value = 2; };
-const goToStep3 = () => { step.value = 3; };
+type Field =
+  | "email"
+  | "storeName"
+  | "fullName"
+  | "industry"
+  | "password"
+  | "agree";
+const errors = reactive<Record<Field, string>>({
+  email: "",
+  storeName: "",
+  fullName: "",
+  industry: "",
+  password: "",
+  agree: "",
+});
+
+// Clear a field's error as soon as the user fixes it.
+(Object.keys(errors) as Field[]).forEach((field) =>
+  watch(
+    () => form[field],
+    () => (errors[field] = ""),
+  ),
+);
+
+const fieldError = (field: Field): string => {
+  switch (field) {
+    case "email":
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())
+        ? ""
+        : t("auth.register.errEmail");
+    case "storeName":
+      return form.storeName.trim() ? "" : t("auth.register.errStoreName");
+    case "fullName":
+      return form.fullName.trim() ? "" : t("auth.register.errFullName");
+    case "industry":
+      return form.industry ? "" : t("auth.register.errIndustry");
+    case "password":
+      return form.password.length >= 8 ? "" : t("auth.register.errPassword");
+    case "agree":
+      return form.agree ? "" : t("auth.register.errAgree");
+  }
+};
+
+/** Validates one wizard step; returns true when every field on it is valid. */
+const validateFields = (fields: Field[]): boolean => {
+  fields.forEach((field) => (errors[field] = fieldError(field)));
+  return fields.every((field) => !errors[field]);
+};
+
+const goToStep2 = () => {
+  if (validateFields(["email"])) step.value = 2;
+};
+const goToStep3 = () => {
+  if (validateFields(["storeName", "fullName", "industry"])) step.value = 3;
+};
 
 const handleSubmit = async () => {
+  if (isLoading.value || !validateFields(["password", "agree"])) return;
   isLoading.value = true;
   try {
     // TODO: replace with real register call
     await new Promise((resolve) => setTimeout(resolve, 2000));
     open.value = false;
-    register();
-    await navigateTo(localePath("/auth/add-first-product"));
+    register("trial");
+    await navigateTo(localePath("/dashboard"));
   } finally {
     isLoading.value = false;
   }
@@ -311,7 +408,15 @@ const handleSubmit = async () => {
 
 const reset = () => {
   step.value = 1;
-  Object.assign(form, { email: "", storeName: "", fullName: "", industry: "", password: "", agree: false });
+  Object.assign(form, {
+    email: "",
+    storeName: "",
+    fullName: "",
+    industry: "",
+    password: "",
+    agree: false,
+  });
+  (Object.keys(errors) as Field[]).forEach((field) => (errors[field] = ""));
 };
 </script>
 

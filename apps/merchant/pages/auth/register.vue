@@ -131,7 +131,7 @@
                 :placeholder="t('auth.register.selectIndustry')"
                 :options="industries"
                 :error="errors.industry"
-                :hint="`${t('auth.register.industryHint')}: ${industries.join(' · ')}`"
+                :hint="industryHint"
               />
 
               <LazyVInput type="checkbox" v-model="agree" :error="errors.agree">
@@ -180,7 +180,22 @@ import type { Plan } from "@/types/auth";
 
 const { t } = useI18n();
 
-const industries = ["Fashion", "Food", "Electronics", "Beauty"];
+const industryList = computed(() => [
+  { value: "fashion", label: t("auth.trial.industryFashion"), emoji: "👗" },
+  { value: "food", label: t("auth.trial.industryFood"), emoji: "🍔" },
+  { value: "electronics", label: t("auth.trial.industryElectronics"), emoji: "📱" },
+  { value: "beauty", label: t("auth.trial.industryBeauty"), emoji: "💄" },
+  { value: "home", label: t("auth.trial.industryHome"), emoji: "🏠" },
+  { value: "sports", label: t("auth.trial.industrySports"), emoji: "⚽" },
+]);
+// Dropdown options and the hint line share the same emoji-labelled list.
+const industries = computed(() =>
+  industryList.value.map((i) => ({ value: i.value, label: `${i.emoji} ${i.label}` })),
+);
+const industryHint = computed(
+  () =>
+    `${t("auth.register.industryHint")}: ${industries.value.map((i) => i.label).join(" · ")}`,
+);
 
 const industry = ref("");
 const storeName = ref("");

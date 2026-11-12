@@ -9,11 +9,13 @@
             class="relative bg-bg-primary border border-border-subtle shadow-2xl rounded-xl w-full flex flex-col overflow-hidden transition-all transform z-10"
             :class="maxWidthClass">
             <!-- Header -->
-            <div class="flex items-center justify-between px-6 py-5 border-b border-border-subtle">
-              <h3 class="text-xs font-black tracking-widest text-tx-primary">
+            <div class="flex items-center justify-between px-6 py-5"
+              :class="hideHeaderBorder ? '' : 'border-b border-border-subtle'">
+              <h3 class="text-xs font-black tracking-widest text-tx-primary"
+                :class="hideClose ? 'w-full text-center' : ''">
                 <slot name="title">{{ title }}</slot>
               </h3>
-              <button @click="close"
+              <button v-if="!hideClose" @click="close"
                 class="text-tx-secondary hover:text-tx-primary transition-colors p-1.5 rounded-lg hover:bg-bg-elevated">
                 <Icon name="ph:x-bold" class="w-4 h-4" />
               </button>
@@ -41,9 +43,15 @@ const props = withDefaults(defineProps<{
   modelValue: boolean;
   title?: string;
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl';
+  /** Hide the header's X button (the dialog can still be dismissed via the backdrop). */
+  hideClose?: boolean;
+  /** Drop the divider line under the header. */
+  hideHeaderBorder?: boolean;
 }>(), {
   title: 'Modal',
-  maxWidth: 'md'
+  maxWidth: 'md',
+  hideClose: false,
+  hideHeaderBorder: false,
 });
 
 const emit = defineEmits(['update:modelValue', 'close']);
