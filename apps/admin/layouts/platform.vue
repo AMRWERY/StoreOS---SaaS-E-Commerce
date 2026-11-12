@@ -21,13 +21,17 @@
             : 'ltr:-translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0'
         "
       >
-        <img
-          src="/gif/storeose-logo-admin.gif"
-          alt="storeose-logo-admin"
-          class="h-12 w-auto"
-          width="117"
-          height="40"
-        />
+        <!-- The aside is a flex column, so a bare <img> gets stretched to the full sidebar
+             width (distorted). Keep it in a fixed-height row and let the image size itself. -->
+        <div class="mb-6 flex h-16 shrink-0 items-center">
+          <img
+            src="/gif/storeose-logo-admin.gif"
+            alt="storeose-logo-admin"
+            class="h-16 w-auto max-w-full object-contain"
+            width="117"
+            height="40"
+          />
+        </div>
 
         <nav class="flex-1 space-y-1 overflow-y-auto hide-scrollbar">
           <nuxt-link-locale
