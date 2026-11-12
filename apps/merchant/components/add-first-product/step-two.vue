@@ -72,6 +72,7 @@
             label="Country"
             :options="['United States', 'United Kingdom', 'Canada']"
           />
+
           <LazyVSelectInput
             v-model="currency"
             label="Currency"
@@ -89,6 +90,7 @@
             iconPosition="left"
             @click="emit('prev')"
           />
+
           <LazyVButton
             type="submit"
             className="flex-1"
@@ -104,7 +106,9 @@
     <div class="mt-8 flex items-center gap-2 text-xs text-tx-muted">
       <Icon name="ph:question-fill" class="text-sm" />
       <span>Need help with your setup?</span>
-      <nuxt-link-locale to="" class="text-brand font-bold hover:underline"
+      <nuxt-link-locale
+        to="/contact"
+        class="text-brand font-bold hover:underline"
         >Contact support</nuxt-link-locale
       >
     </div>
