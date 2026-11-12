@@ -32,10 +32,26 @@
       >
         {{ t("auth.guest.signIn") }}
       </nuxt-link-locale>
+
+      <button
+        type="button"
+        class="hidden md:block px-2 py-1 rounded-md text-[11px] text-white/60 hover:text-white transition-colors"
+        @click="leavePreview"
+      >
+        {{ t("auth.guest.exitPreview") }}
+      </button>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 const { t } = useI18n();
+const localePath = useLocalePath();
+const { exitGuestPreview } = useAuth();
+
+/** Leave preview mode and go back to the marketing site. */
+const leavePreview = async () => {
+  exitGuestPreview();
+  await navigateTo(localePath("/"));
+};
 </script>

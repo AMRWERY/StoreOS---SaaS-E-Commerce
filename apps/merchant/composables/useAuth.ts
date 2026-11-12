@@ -117,8 +117,15 @@ export const isPayingPlan = (plan: Plan, trialDaysLeft: number): boolean =>
   PAID_TIERS.includes(plan) && !isTrialingPlan(plan, trialDaysLeft)
 
 export const useAuth = () => {
+  // Preview mode survives a page refresh (everything else here is still in-memory only),
+  // otherwise reloading the dashboard would bounce the visitor to the login page.
+  const previewCookie = useCookie<string | null>('storeos-preview', {
+    maxAge: 60 * 60 * 24,
+    sameSite: 'lax',
+    default: () => null,
+  })
   const isAuthenticated = useState<boolean>('isAuthenticated', () => false)
-  const plan = useState<Plan>('plan', () => 'free')
+  const plan = useState<Plan>('plan', () => (previewCookie.value ? 'guest' : 'free'))
   const trialDaysLeft = useState<number>('trialDaysLeft', () => 14)
 
   const planConfig = computed(() => PLAN_CONFIGS[plan.value])
@@ -136,29 +143,36 @@ export const useAuth = () => {
   const login = () => {
     isAuthenticated.value = true
     if (plan.value === 'guest') plan.value = 'free'
+    previewCookie.value = null
   }
 
   const register = (selectedPlan: Plan = 'trial') => {
     isAuthenticated.value = true
     plan.value = selectedPlan
     trialDaysLeft.value = PLAN_TRIAL_DAYS[selectedPlan] ?? 0
+    previewCookie.value = null
   }
 
   const logout = () => {
     isAuthenticated.value = false
     plan.value = 'free'
     trialDaysLeft.value = 0
+    previewCookie.value = null
   }
 
-  /** Enter the signed-out dashboard preview (login page → "Start free trial"). */
+  /** Enter the signed-out dashboard preview (login page → "Explore with sample data"). */
   const startGuestPreview = () => {
     isAuthenticated.value = false
     plan.value = 'guest'
     trialDaysLeft.value = 0
+    previewCookie.value = '1'
+    // A fresh preview visit gets the welcome intro again.
+    useCookie<string | null>('storeos-preview-welcome').value = null
   }
 
   const exitGuestPreview = () => {
     plan.value = 'free'
+    previewCookie.value = null
   }
 
   return {

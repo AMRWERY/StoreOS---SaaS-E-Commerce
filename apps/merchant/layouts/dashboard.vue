@@ -27,6 +27,9 @@
 
     <!-- Sign-in gate for locked features in preview mode -->
     <lazy-auth-required-dialog />
+
+    <!-- One-time "what is preview mode" intro for signed-out visitors -->
+    <lazy-preview-welcome-dialog v-if="isGuest" />
   </div>
 </template>
 

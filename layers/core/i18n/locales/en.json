@@ -41,7 +41,14 @@
       "createAccount": "Create free account",
       "signIn": "Sign in",
       "sidebarHint": "Unlock every feature",
-      "exitPreview": "Exit preview"
+      "exitPreview": "Exit preview",
+      "welcomeModalTitle": "PREVIEW MODE",
+      "welcomeTitle": "Welcome to the StoreOS preview",
+      "welcomeSubtitle": "Look around a fully working dashboard — no account needed.",
+      "welcomePoint1": "Everything you see is sample data, so nothing is real.",
+      "welcomePoint2": "Orders, products and the main dashboard are open to browse.",
+      "welcomePoint3": "Creating or editing things, and features like analytics, need a free account.",
+      "welcomeStart": "Start exploring"
     },
     "copyright": "© 2026 STOREOS. ALL RIGHTS RESERVED. BUILT FOR MODERN COMMERCE.",
     "register": {

@@ -59,6 +59,10 @@ export default defineNuxtRouteMiddleware((to) => {
       openGate(feature ?? undefined)
       return navigateTo(localePath('/dashboard'), { replace: true })
     }
+
+    // Account-only routes (e.g. onboarding) → explain why via the sign-up prompt, not a bare login page.
+    openGate()
+    return navigateTo(localePath('/dashboard'), { replace: true })
   }
 
   // Unauthenticated user trying to access protected route → login
