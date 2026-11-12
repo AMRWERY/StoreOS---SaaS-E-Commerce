@@ -202,6 +202,23 @@
               </div>
             </div>
           </section>
+
+          <!-- Variants -->
+          <section class="card px-4 py-3.5 space-y-6">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xs font-black tracking-[0.2em] text-tx-secondary">
+                {{ t("dashboard.ops.variants.title") }}
+              </h3>
+              <LazyVInput
+                type="checkbox"
+                v-model="product.hasVariants"
+                :label="t('dashboard.ops.variants.hasVariants')"
+                labelPosition="start"
+                inputClass="!accent-brand !bg-bg-primary"
+              />
+            </div>
+            <product-variants-editor v-if="product.hasVariants" />
+          </section>
         </div>
 
         <!-- Right Column: Sidebar Widgets -->

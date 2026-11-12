@@ -158,7 +158,26 @@
     "codOperations": "COD Operations",
     "collections": "Collections",
     "productVariants": "Variants & Options",
-    "launchChecklist": "Launch Checklist"
+    "launchChecklist": "Launch Checklist",
+    "customerSegments": "Segments",
+    "autoDiscounts": "Automatic discounts",
+    "importExport": "Import / Export",
+    "purchaseOrders": "Purchase orders",
+    "suppliers": "Suppliers",
+    "transfers": "Stock transfers",
+    "navigation": "Navigation",
+    "files": "Files",
+    "translations": "Translations",
+    "policies": "Policies",
+    "taxes": "Taxes",
+    "domains": "Domains",
+    "checkoutSettings": "Checkout",
+    "securityCenter": "Security",
+    "activityLog": "Activity log",
+    "whatsappBusiness": "WhatsApp",
+    "automation": "Automation",
+    "helpSupport": "Help & support",
+    "organization": "Organization"
   },
   "home": {
     "hero": {
@@ -901,7 +920,8 @@
         "compareAt": "Compare-at price",
         "stock": "Stock",
         "empty": "No variants",
-        "emptyHint": "Add an option with at least one value to generate variants."
+        "emptyHint": "Add an option with at least one value to generate variants.",
+        "hasVariants": "This product has variants"
       },
       "returns": {
         "title": "Returns",
@@ -1101,6 +1121,713 @@
             "title": "Place a test order",
             "hint": "Verify checkout end to end."
           }
+        }
+      },
+      "segments": {
+        "title": "Customer segments",
+        "subtitle": "Group customers by rules to target discounts and campaigns.",
+        "create": "Create segment",
+        "createSubtitle": "Customers matching all rules join this segment.",
+        "name": "Segment name",
+        "rules": "Rules",
+        "addRule": "Add rule",
+        "customers": "Customers",
+        "and": "and",
+        "empty": "No segments yet",
+        "emptyHint": "Create your first segment to group customers.",
+        "stats": {
+          "total": "Segments",
+          "active": "Active segments",
+          "covered": "Customers covered"
+        },
+        "fields": {
+          "total_spent": "Total spent",
+          "orders_count": "Orders count",
+          "city": "City",
+          "last_order_days": "Days since last order",
+          "accepts_marketing": "Accepts marketing"
+        },
+        "operators": {
+          "gt": "is greater than",
+          "lt": "is less than",
+          "eq": "equals"
+        }
+      },
+      "autoDiscounts": {
+        "title": "Automatic discounts",
+        "subtitle": "Discounts applied at checkout without a code.",
+        "create": "Create discount",
+        "createSubtitle": "Applied automatically when the customer is eligible.",
+        "name": "Name",
+        "type": "Type",
+        "value": "Value",
+        "eligibility": "Eligibility",
+        "combinable": "Combinable with other discounts",
+        "dates": "Dates",
+        "starts": "Starts",
+        "ends": "Ends",
+        "empty": "No automatic discounts",
+        "emptyHint": "Create a discount that applies without a code.",
+        "stats": {
+          "active": "Active",
+          "scheduled": "Scheduled",
+          "combinable": "Combinable"
+        },
+        "types": {
+          "percentage": "Percentage",
+          "fixed": "Fixed amount",
+          "free_shipping": "Free shipping",
+          "bxgy": "Buy X get Y"
+        },
+        "eligibilities": {
+          "all": "All customers",
+          "segment": "Customer segment",
+          "min_subtotal": "Minimum subtotal"
+        },
+        "status": {
+          "active": "Active",
+          "scheduled": "Scheduled",
+          "expired": "Expired",
+          "draft": "Draft"
+        }
+      },
+      "importExport": {
+        "title": "Import / Export products",
+        "subtitle": "Bulk update your catalog with CSV files.",
+        "import": "Import",
+        "export": "Export",
+        "dropTitle": "Click to upload a CSV file",
+        "dropHint": "CSV only, up to 10MB",
+        "parsed": "Rows parsed",
+        "issues": "issues",
+        "runImport": "Run import",
+        "runExport": "Export CSV",
+        "columns": {
+          "title": "Title",
+          "sku": "SKU",
+          "price": "Price",
+          "stock": "Stock",
+          "vendor": "Vendor",
+          "tags": "Tags"
+        },
+        "report": "Validation report",
+        "row": "Row",
+        "field": "Field",
+        "error": "Error",
+        "errors": {
+          "required": "Required value is missing",
+          "invalid_price": "Invalid price",
+          "duplicate_sku": "Duplicate SKU",
+          "invalid_stock": "Invalid stock quantity"
+        },
+        "noIssues": "No issues found",
+        "noIssuesHint": "Your file is ready to import.",
+        "history": "Recent jobs",
+        "job": "Job",
+        "type": "Type",
+        "file": "File",
+        "rows": "Rows",
+        "kinds": {
+          "import": "Import",
+          "export": "Export"
+        },
+        "status": {
+          "completed": "Completed",
+          "failed": "Failed",
+          "processing": "Processing"
+        },
+        "empty": "No jobs yet",
+        "emptyHint": "Imports and exports will appear here."
+      },
+      "purchaseOrders": {
+        "title": "Purchase orders",
+        "subtitle": "Order stock from suppliers and receive it into inventory.",
+        "create": "Create purchase order",
+        "createSubtitle": "Draft an order for a supplier.",
+        "po": "PO",
+        "supplier": "Supplier",
+        "expected": "Expected date",
+        "total": "Total",
+        "place": "Place order",
+        "receive": "Receive stock",
+        "empty": "No purchase orders",
+        "emptyHint": "Create a purchase order to restock.",
+        "stats": {
+          "open": "Open orders",
+          "value": "Open value",
+          "received": "Received"
+        },
+        "status": {
+          "draft": "Draft",
+          "ordered": "Ordered",
+          "partial": "Partial",
+          "received": "Received"
+        }
+      },
+      "suppliers": {
+        "title": "Suppliers",
+        "subtitle": "Manage the vendors you buy stock from.",
+        "create": "Add supplier",
+        "createSubtitle": "Save supplier contact details.",
+        "name": "Supplier name",
+        "contact": "Contact person",
+        "phone": "Phone",
+        "city": "City",
+        "leadDays": "Lead time (days)",
+        "empty": "No suppliers",
+        "emptyHint": "Add a supplier to create purchase orders.",
+        "status": {
+          "active": "Active",
+          "inactive": "Inactive"
+        }
+      },
+      "transfers": {
+        "title": "Stock transfers",
+        "subtitle": "Move inventory between your locations.",
+        "create": "Create transfer",
+        "createSubtitle": "Move stock from one location to another.",
+        "id": "Transfer",
+        "from": "From",
+        "to": "To",
+        "ship": "Mark in transit",
+        "receive": "Receive",
+        "sameLocation": "Origin and destination must be different.",
+        "empty": "No transfers",
+        "emptyHint": "Create a transfer to move stock between locations.",
+        "status": {
+          "draft": "Draft",
+          "in_transit": "In transit",
+          "received": "Received"
+        }
+      },
+      "navigation": {
+        "title": "Navigation",
+        "subtitle": "Build the menus shown in your storefront header and footer.",
+        "savedAt": "Saved at",
+        "addItem": "Add item",
+        "addChild": "Add child",
+        "moveUp": "Move up",
+        "moveDown": "Move down",
+        "label": "Label",
+        "link": "Link",
+        "empty": "This menu has no items",
+        "emptyHint": "Add your first link to start building the menu."
+      },
+      "files": {
+        "title": "Files",
+        "subtitle": "Images, videos and documents used across your store.",
+        "stats": {
+          "total": "Total files",
+          "storage": "Storage used"
+        },
+        "uploadTitle": "Click to upload or drag and drop",
+        "uploadHint": "Images, videos or PDF files",
+        "search": "Search files",
+        "grid": "Grid view",
+        "list": "List view",
+        "usage": "Used in",
+        "name": "Name",
+        "type": "Type",
+        "size": "Size",
+        "types": {
+          "image": "Image",
+          "video": "Video",
+          "document": "Document"
+        },
+        "empty": "No files found",
+        "emptyHint": "Upload a file or change your search."
+      },
+      "policies": {
+        "title": "Store policies",
+        "subtitle": "Generate and publish the legal pages your customers expect.",
+        "names": {
+          "privacy": "Privacy",
+          "refund": "Refund",
+          "shipping": "Shipping",
+          "terms": "Terms"
+        },
+        "published": "Published",
+        "unpublished": "Not published",
+        "publish": "Publish",
+        "placeholder": "Write your policy or generate it from the template.",
+        "lastUpdated": "Last updated",
+        "generate": "Generate from template"
+      },
+      "taxes": {
+        "title": "Taxes",
+        "subtitle": "Configure VAT and regional tax rules for Egypt.",
+        "etaNotice": "E-invoicing with the Egyptian Tax Authority (ETA) is not connected yet. Connect your tax registration number to be ready for mandatory e-invoices.",
+        "vat": "Value added tax (VAT)",
+        "vatHint": "The standard VAT rate in Egypt is 14%.",
+        "enabled": "Enabled",
+        "defaultRate": "Default rate (%)",
+        "pricesInclude": "Prices include tax",
+        "example": "A 1,000 EGP product is charged at",
+        "inclTax": "tax included",
+        "exclTax": "tax added",
+        "regions": "Regional overrides",
+        "addRegion": "Add region",
+        "noRegions": "No regional overrides",
+        "noRegionsHint": "The default rate applies to every governorate.",
+        "region": "Region",
+        "governorates": "Governorates",
+        "rate": "Rate",
+        "exempt": "Tax-exempt categories",
+        "exemptHint": "Products in these categories are not charged VAT.",
+        "categories": {
+          "books": "Books",
+          "basicFood": "Basic food items",
+          "medicine": "Medicine",
+          "apparel": "Apparel"
+        }
+      },
+      "domains": {
+        "title": "Domains",
+        "subtitle": "Connect a custom domain to your storefront.",
+        "add": "Add domain",
+        "addHint": "Connect a domain you own",
+        "subdomain": "StoreOS subdomain",
+        "primary": "Primary",
+        "ssl": {
+          "issuing": "Issuing",
+          "active": "Active",
+          "expired": "Expired"
+        },
+        "verification": {
+          "pending": "Pending",
+          "verified": "Verified",
+          "failed": "Failed"
+        },
+        "setPrimary": "Set as primary",
+        "empty": "No custom domains",
+        "emptyHint": "Add a domain to use your own brand address.",
+        "dnsRecords": "DNS records for",
+        "copy": "Copy",
+        "hostLabel": "Domain name",
+        "dnsNote": "After adding the domain, create the DNS records shown on this page at your domain provider.",
+        "cancel": "Cancel",
+        "domain": "Domain",
+        "verificationLabel": "Verification",
+        "sslLabel": "SSL",
+        "dnsType": "Type",
+        "dnsHost": "Host",
+        "dnsValue": "Value"
+      },
+      "checkoutSettings": {
+        "title": "Checkout settings",
+        "subtitle": "Tune the address form, phone numbers and cash on delivery for Egypt.",
+        "saved": "Settings saved",
+        "address": "Egypt address",
+        "reqGovernorate": "Require governorate",
+        "reqCity": "Require city",
+        "reqArea": "Require area",
+        "landmark": "Show landmark field",
+        "mapPin": "Optional map pin",
+        "phone": "Phone numbers",
+        "phoneHint": "Convert local numbers to the international +20 format.",
+        "normalize": "Normalize to +20",
+        "sampleInput": "Sample number",
+        "preview": "Preview",
+        "cod": "Cash on delivery (COD)",
+        "codConfirm": "Require order confirmation",
+        "maxCod": "Maximum COD amount (EGP)",
+        "deposit": "Deposit for high-risk orders",
+        "depositPercent": "Deposit (%)",
+        "allowed": "Governorates where COD is allowed",
+        "gov": {
+          "cairo": "Cairo",
+          "giza": "Giza",
+          "alexandria": "Alexandria",
+          "qalyubia": "Qalyubia",
+          "sharqia": "Sharqia",
+          "dakahlia": "Dakahlia",
+          "gharbia": "Gharbia",
+          "monufia": "Monufia",
+          "beheira": "Beheira",
+          "portSaid": "Port Said",
+          "suez": "Suez",
+          "ismailia": "Ismailia",
+          "faiyum": "Faiyum",
+          "minya": "Minya",
+          "assiut": "Assiut",
+          "sohag": "Sohag",
+          "qena": "Qena",
+          "luxor": "Luxor",
+          "aswan": "Aswan"
+        },
+        "guest": "Guest checkout",
+        "guestHint": "Let customers order without creating an account.",
+        "guestLabel": "Allow guest checkout"
+      },
+      "translations": {
+        "title": "Translations",
+        "subtitle": "Manage Arabic content for products, collections and pages.",
+        "stats": {
+          "complete": "Completeness",
+          "missing": "Missing",
+          "outdated": "Outdated"
+        },
+        "kinds": {
+          "product": "Product",
+          "collection": "Collection",
+          "page": "Page"
+        },
+        "arPlaceholder": "Arabic name",
+        "status": {
+          "translated": "Translated",
+          "missing": "Missing",
+          "outdated": "Outdated"
+        },
+        "markDone": "Mark translated",
+        "empty": "Nothing to translate",
+        "emptyHint": "All content in this view is up to date.",
+        "nameEn": "Name (English)",
+        "nameAr": "Name (Arabic)",
+        "descStatus": "Description",
+        "completeness": "Completeness"
+      },
+      "security": {
+        "title": "Security center",
+        "subtitle": "Protect your account with two-factor authentication, alerts and device control.",
+        "twoFa": {
+          "title": "Two-factor authentication",
+          "desc": "Require a one-time code in addition to your password when signing in.",
+          "enabled": "Enabled",
+          "notEnabled": "Not enabled",
+          "methodApp": "Authenticator app",
+          "methodSms": "SMS",
+          "scanQr": "Scan this QR code with your authenticator app.",
+          "manualKey": "Or enter this key manually",
+          "phone": "Phone number",
+          "smsHint": "We will text a 6-digit code to this number.",
+          "enterCode": "Verification code",
+          "verify": "Verify and enable"
+        },
+        "backup": {
+          "title": "Backup codes",
+          "desc": "Each code can be used once if you lose access to your device.",
+          "regenerate": "Regenerate",
+          "empty": "No backup codes yet"
+        },
+        "alerts": {
+          "title": "Login alerts",
+          "newDevice": "New device sign-in",
+          "newDeviceDesc": "Notify me when my account is accessed from a new device.",
+          "failedLogin": "Failed login attempts",
+          "failedLoginDesc": "Notify me after repeated failed sign-ins.",
+          "emailAlerts": "Send alerts by email",
+          "emailAlertsDesc": "Receive security alerts in your inbox as well as in the dashboard."
+        },
+        "reauth": {
+          "title": "Re-authenticate for sensitive actions",
+          "desc": "Ask for your password before refunds, payouts and staff changes."
+        },
+        "devices": {
+          "title": "Trusted devices and sessions",
+          "desc": "Devices that are currently signed in to your account.",
+          "name": "Device",
+          "location": "Location",
+          "ip": "IP address",
+          "lastActive": "Last active",
+          "current": "This device",
+          "revoke": "Revoke",
+          "empty": "No active sessions"
+        },
+        "passkeys": {
+          "title": "Passkeys",
+          "desc": "Sign in with your fingerprint, face or device PIN instead of a password.",
+          "soon": "Coming soon"
+        }
+      },
+      "activity": {
+        "title": "Activity log",
+        "subtitle": "An audit trail of every change made in your store.",
+        "export": "Export",
+        "search": "Search by user, resource or IP",
+        "empty": "No activity found",
+        "emptyHint": "Try a different filter or search term.",
+        "detail": "Event details",
+        "actor": "User",
+        "action": "Action",
+        "resource": "Resource",
+        "ip": "IP address",
+        "time": "Time",
+        "before": "Before",
+        "after": "After",
+        "none": "Nothing",
+        "tabs": {
+          "orders": "Orders",
+          "products": "Products",
+          "payments": "Payments",
+          "staff": "Staff",
+          "settings": "Settings"
+        },
+        "actions": {
+          "order_status": "Changed order status",
+          "product_price": "Changed product price",
+          "refund_issued": "Issued a refund",
+          "staff_role": "Changed staff role",
+          "product_created": "Created a product",
+          "store_settings": "Updated store settings",
+          "order_cancelled": "Cancelled an order",
+          "gateway_connected": "Connected a payment gateway"
+        }
+      },
+      "whatsapp": {
+        "title": "WhatsApp Business",
+        "subtitle": "Message customers about their orders with approved templates.",
+        "connection": {
+          "title": "Connection",
+          "connected": "Connected",
+          "disconnected": "Disconnected",
+          "number": "Business number",
+          "connect": "Connect",
+          "disconnect": "Disconnect"
+        },
+        "stats": {
+          "optIn": "Opted-in customers",
+          "sent": "Messages sent",
+          "cost": "Conversation cost"
+        },
+        "templates": {
+          "title": "Message templates",
+          "new": "New template",
+          "name": "Name",
+          "category": "Category",
+          "language": "Language",
+          "preview": "Preview",
+          "empty": "No templates yet",
+          "emptyHint": "Create a template and submit it for approval."
+        },
+        "categories": {
+          "utility": "Utility",
+          "marketing": "Marketing"
+        },
+        "approval": {
+          "approved": "Approved",
+          "pending": "Pending",
+          "rejected": "Rejected"
+        },
+        "languages": {
+          "en": "English",
+          "ar": "Arabic"
+        },
+        "messages": {
+          "title": "Order status messages",
+          "desc": "Automatically message customers when their order changes status.",
+          "confirmed": "Order confirmed",
+          "shipped": "Order shipped",
+          "outForDelivery": "Out for delivery",
+          "delivered": "Order delivered"
+        },
+        "panel": {
+          "title": "Create template",
+          "subtitle": "Submitted to WhatsApp for approval",
+          "name": "Template name",
+          "body": "Message body",
+          "bodyHint": "Use numbered variables such as 1 in double braces for the customer name, order number and total.",
+          "preview": "Live preview",
+          "previewEmpty": "Your message will appear here",
+          "submit": "Submit for approval"
+        }
+      },
+      "automation": {
+        "title": "Automation",
+        "subtitle": "Run actions automatically when something happens in your store.",
+        "new": "New workflow",
+        "name": "Workflow",
+        "trigger": "Trigger",
+        "lastRun": "Last run",
+        "runs": "Runs",
+        "enabled": "Enabled",
+        "edit": "Edit",
+        "empty": "No workflows yet",
+        "emptyHint": "Start from a template or create your own.",
+        "untitled": "Untitled workflow",
+        "templates": {
+          "title": "Starter templates",
+          "desc": "Pick a ready-made workflow and adjust it.",
+          "use": "Use template"
+        },
+        "templateNames": {
+          "codConfirm": "Confirm COD orders",
+          "lowStock": "Low stock alert",
+          "vipTag": "Tag VIP orders"
+        },
+        "triggers": {
+          "order_created": "Order created",
+          "low_stock": "Low stock",
+          "cod_unconfirmed": "COD order unconfirmed",
+          "order_delivered": "Order delivered",
+          "cart_abandoned": "Cart abandoned"
+        },
+        "actions": {
+          "tag_order": "Tag order",
+          "send_whatsapp": "Send WhatsApp message",
+          "hold_order": "Hold order",
+          "notify_staff": "Notify staff"
+        },
+        "fields": {
+          "order_total": "Order total",
+          "payment_method": "Payment method",
+          "city": "City",
+          "stock_level": "Stock level",
+          "customer_tag": "Customer tag"
+        },
+        "operators": {
+          "equals": "equals",
+          "greater_than": "is greater than",
+          "less_than": "is less than",
+          "contains": "contains"
+        },
+        "builder": {
+          "subtitle": "Define when it runs, what it checks and what it does.",
+          "back": "Back to workflows",
+          "save": "Save workflow",
+          "saved": "Workflow saved",
+          "when": "When this happens",
+          "if": "Only if",
+          "then": "Then do",
+          "noConditions": "No conditions. The workflow runs every time.",
+          "noActions": "No actions yet.",
+          "addCondition": "Add condition",
+          "addAction": "Add action",
+          "param": "Value"
+        },
+        "history": {
+          "title": "Run history",
+          "success": "Success",
+          "failed": "Failed",
+          "skipped": "Skipped",
+          "target": "Target",
+          "duration": "Duration",
+          "empty": "This workflow has not run yet"
+        }
+      },
+      "search": {
+        "title": "Search",
+        "placeholder": "Search orders, products, customers, settings",
+        "empty": "No results found",
+        "navigate": "Up and down to navigate",
+        "select": "Enter to open",
+        "groups": {
+          "orders": "Orders",
+          "products": "Products",
+          "customers": "Customers",
+          "settings": "Settings"
+        },
+        "settingsItems": {
+          "storeInfo": "Store information",
+          "billing": "Billing and plan",
+          "staff": "Staff and permissions",
+          "security": "Security center",
+          "whatsapp": "WhatsApp Business",
+          "organization": "Organization"
+        }
+      },
+      "savedViews": {
+        "title": "Saved views",
+        "empty": "No saved views",
+        "save": "Save view",
+        "saveCurrent": "Save current filters",
+        "namePlaceholder": "View name"
+      },
+      "storeSwitcher": {
+        "stores": "Stores",
+        "create": "Create store",
+        "limitHint": "Your plan includes up to {count} store(s). Upgrade to add more."
+      },
+      "organization": {
+        "title": "Organization",
+        "subtitle": "Manage the stores and members that belong to your organization.",
+        "orgName": "Organization name",
+        "save": "Save changes",
+        "members": "Members",
+        "membersDesc": "Shared across all stores",
+        "stores": "Stores",
+        "storeName": "Store",
+        "domain": "Domain",
+        "plan": "Plan",
+        "role": "Your role",
+        "roles": {
+          "owner": "Owner",
+          "admin": "Admin",
+          "staff": "Staff"
+        },
+        "active": "Active",
+        "empty": "No stores yet",
+        "billing": {
+          "title": "Shared billing",
+          "desc": "Billing is managed at the organization level. Each store keeps its own plan, and invoices are combined on one payment method."
+        },
+        "add": {
+          "button": "Add store",
+          "title": "Add a store",
+          "subtitle": "Create another store in this organization",
+          "name": "Store name",
+          "domain": "Subdomain",
+          "submit": "Create store",
+          "limitHint": "Your plan includes up to {count} store(s). Upgrade to add more."
+        }
+      },
+      "support": {
+        "title": "Help and support",
+        "subtitle": "Find answers, contact our team and track your tickets.",
+        "newTicket": "New ticket",
+        "status": {
+          "operational": "All systems operational",
+          "desc": "Storefront, checkout and dashboard are running normally."
+        },
+        "contact": {
+          "chat": "Live chat",
+          "chatDesc": "Chat with our team during working hours.",
+          "whatsapp": "WhatsApp",
+          "whatsappDesc": "Message us any time and we will reply within the day.",
+          "email": "Email",
+          "emailDesc": "Best for detailed questions and attachments."
+        },
+        "articles": {
+          "title": "Help articles",
+          "search": "Search help articles",
+          "minutes": "{n} min read",
+          "empty": "No articles found",
+          "emptyHint": "Try different keywords or open a ticket."
+        },
+        "articleTitles": {
+          "art-1": "Connect Paymob and accept cards",
+          "art-2": "Set up shipping zones for Egyptian governorates",
+          "art-3": "Confirm cash on delivery orders faster",
+          "art-4": "Import products from a CSV file",
+          "art-5": "Point your own domain to your store"
+        },
+        "topics": {
+          "payments": "Payments",
+          "shipping": "Shipping",
+          "orders": "Orders",
+          "products": "Products",
+          "settings": "Settings"
+        },
+        "tickets": {
+          "title": "Your tickets",
+          "id": "Ticket",
+          "open": "Open",
+          "pending": "Pending",
+          "resolved": "Resolved",
+          "empty": "No tickets yet",
+          "emptyHint": "Open a ticket and our team will get back to you."
+        },
+        "priority": {
+          "low": "Low",
+          "normal": "Normal",
+          "high": "High"
+        },
+        "panel": {
+          "title": "New ticket",
+          "subtitle": "Tell us what you need help with",
+          "subject": "Subject",
+          "priority": "Priority",
+          "message": "Message",
+          "submit": "Submit ticket"
         }
       }
     }
@@ -1377,5 +2104,311 @@
     "enabled": "Enabled",
     "disabled": "Disabled",
     "or": "or"
+  },
+  "platform": {
+    "brand": "StoreOS",
+    "badge": "Platform Admin",
+    "legacyHint": "Internal operator console. Mock data only.",
+    "nav": {
+      "overview": "Overview",
+      "merchants": "Merchants",
+      "plans": "Plans & entitlements",
+      "flags": "Feature flags",
+      "abuse": "Abuse & fraud",
+      "health": "Integrations health",
+      "support": "Support",
+      "staff": "Staff & audit"
+    },
+    "topbar": {
+      "openMenu": "Open menu",
+      "env": "production",
+      "operatorName": "Amr Mohamed",
+      "operatorRole": "Super admin"
+    },
+    "common": {
+      "egp": "EGP",
+      "store": "Store",
+      "owner": "Owner",
+      "plan": "Plan",
+      "status": "Status",
+      "gmv": "GMV",
+      "signupDate": "Signup date",
+      "unlimited": "Unlimited",
+      "reason": "Reason",
+      "reasonPlaceholder": "Explain why. This is recorded in the audit log.",
+      "reasonRequired": "A reason is required.",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "save": "Save changes",
+      "email": "Email",
+      "city": "City",
+      "lastActive": "Last active",
+      "id": "ID",
+      "severity": "Severity",
+      "actions": "Actions",
+      "created": "Created",
+      "name": "Name",
+      "date": "Date"
+    },
+    "plan": {
+      "trial": "Trial",
+      "free": "Free",
+      "starter": "Starter",
+      "growth": "Growth",
+      "enterprise": "Enterprise"
+    },
+    "status": {
+      "active": "Active",
+      "trial": "Trial",
+      "suspended": "Suspended",
+      "open": "Open",
+      "pending": "Pending",
+      "resolved": "Resolved",
+      "investigating": "Investigating",
+      "escalated": "Escalated",
+      "cleared": "Cleared"
+    },
+    "severity": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
+    },
+    "activity": {
+      "orderSpike": "Order volume spiked above the 7-day average",
+      "planChange": "Plan changed by the merchant",
+      "login": "Owner signed in from a new device",
+      "productImport": "Imported products from CSV",
+      "paymentFailed": "Subscription payment failed",
+      "domainConnected": "Custom domain connected"
+    },
+    "features": {
+      "dashboard": "Dashboard",
+      "orders": "Orders",
+      "products": "Products",
+      "inventory": "Inventory",
+      "settings": "Settings",
+      "profile": "Profile",
+      "customers": "Customers (CRM)",
+      "analytics": "Analytics",
+      "payments": "Payments",
+      "shipping": "Shipping",
+      "notifications": "Notifications",
+      "coupons": "Coupons",
+      "builder": "Storefront builder",
+      "staff": "Staff accounts",
+      "api": "API access"
+    },
+    "overview": {
+      "title": "Platform overview",
+      "subtitle": "Health of the StoreOS network across all merchants.",
+      "kpi": {
+        "activeStores": "Active stores",
+        "activeStoresSub": "+84 this week",
+        "mrr": "MRR",
+        "mrrSub": "+8.8% vs last month",
+        "gmv": "GMV (30 days)",
+        "gmvSub": "+10.3% vs last month",
+        "abuse": "Open abuse cases",
+        "abuseSub": "2 critical"
+      },
+      "systemHealth": "System health",
+      "viewHealth": "View details",
+      "trend": {
+        "title": "Growth trend",
+        "subtitle": "Last 6 months",
+        "gmv": "GMV",
+        "mrr": "MRR"
+      },
+      "plans": {
+        "title": "Plan distribution",
+        "subtitle": "Stores by current plan"
+      },
+      "signups": {
+        "title": "Recent signups",
+        "viewAll": "View all merchants"
+      }
+    },
+    "merchants": {
+      "title": "Merchants",
+      "subtitle": "Every store on the platform. Select a row to manage it.",
+      "searchPlaceholder": "Search store, owner, email or ID",
+      "tabs": {
+        "all": "All",
+        "active": "Active",
+        "trial": "Trial",
+        "suspended": "Suspended"
+      },
+      "empty": "No merchants match your filters",
+      "emptyHint": "Try a different search or status tab.",
+      "back": "Back to merchants",
+      "notFound": "Merchant not found",
+      "impersonate": "Impersonate",
+      "impersonateTooltip": "Requires approval + audit",
+      "suspend": "Suspend store",
+      "reactivate": "Reactivate store",
+      "profile": "Profile",
+      "usage": "Plan usage",
+      "usageHint": "Usage against the {plan} plan limits.",
+      "meter": {
+        "orders": "Orders this month",
+        "skus": "Products (SKUs)",
+        "staff": "Staff accounts"
+      },
+      "activity": "Recent activity",
+      "notes": "Internal notes",
+      "notePlaceholder": "Add an internal note",
+      "addNote": "Add note",
+      "notesEmpty": "No notes yet",
+      "suspendTitle": "Suspend store",
+      "reactivateTitle": "Reactivate store",
+      "suspendBody": "{store} will be taken offline and the owner will be notified.",
+      "reactivateBody": "{store} will be restored and go back online."
+    },
+    "plans": {
+      "title": "Plans & entitlements",
+      "subtitle": "Limits and features per plan tier. Changes here are mock only.",
+      "saved": "Saved (mock)",
+      "perMonth": "/mo",
+      "blankUnlimited": "Leave a limit blank for unlimited.",
+      "matrix": "Feature matrix",
+      "matrixHint": "Select a cell to toggle a feature for that plan.",
+      "feature": "Feature",
+      "maxOrders": "Orders per month",
+      "maxSkus": "Products (SKUs)",
+      "maxStaff": "Staff accounts"
+    },
+    "flags": {
+      "title": "Feature flags",
+      "subtitle": "Control rollouts by percentage, plan and environment.",
+      "env": {
+        "production": "Production",
+        "staging": "Staging"
+      },
+      "items": {
+        "checkout_v2": "Redesigned one-page checkout.",
+        "whatsapp_order_updates": "Order status updates sent to customers via WhatsApp.",
+        "ai_product_descriptions": "AI-generated product descriptions in Arabic and English.",
+        "bosta_auto_dispatch": "Automatically create Bosta shipments when an order is paid.",
+        "storefront_arabic_seo": "Arabic-first meta tags and sitemaps for storefronts.",
+        "bulk_import_v3": "Faster CSV importer with background processing."
+      },
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "rollout": "Rollout",
+      "targetPlan": "Target plan",
+      "allPlans": "All plans",
+      "empty": "No feature flags defined"
+    },
+    "abuse": {
+      "title": "Abuse & fraud review",
+      "subtitle": "Reported stores awaiting a trust and safety decision.",
+      "empty": "No cases in the queue",
+      "emptyHint": "New reports will show up here.",
+      "signal": {
+        "fakeStore": "Fake store",
+        "phishing": "Phishing",
+        "prohibited": "Prohibited goods",
+        "chargebacks": "High chargebacks",
+        "spam": "Spam"
+      },
+      "signalLabel": "Signal",
+      "evidence": {
+        "title": "Evidence",
+        "url": "Reported URL",
+        "reports": "User reports",
+        "chargebackRate": "Chargeback rate",
+        "ip": "Source IP",
+        "screenshot": "Screenshot"
+      },
+      "reportedOn": "Reported on",
+      "approve": "Approve",
+      "suspend": "Suspend",
+      "escalate": "Escalate"
+    },
+    "health": {
+      "title": "Integrations & jobs health",
+      "subtitle": "Third-party providers, queues and failed deliveries.",
+      "status": {
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "down": "Down"
+      },
+      "latency": "Latency",
+      "uptime": "Uptime (30d)",
+      "queueDepth": "Jobs waiting",
+      "processing": "Processing",
+      "failed24h": "Failed (24h)",
+      "oldest": "Oldest job",
+      "failedJobs": "Failed webhooks and jobs",
+      "kind": {
+        "webhook": "Webhook",
+        "email": "Email",
+        "sync": "Sync"
+      },
+      "retry": "Retry",
+      "noFailed": "No failed jobs",
+      "noFailedHint": "Everything is delivering normally.",
+      "type": "Type",
+      "provider": "Provider",
+      "error": "Error",
+      "attempts": "Attempts",
+      "failedAt": "Failed at"
+    },
+    "support": {
+      "title": "Merchant support",
+      "subtitle": "Tickets raised by merchants and their owners.",
+      "tabs": {
+        "all": "All"
+      },
+      "empty": "No tickets here",
+      "emptyHint": "Nothing matches this status.",
+      "priority": {
+        "low": "Low",
+        "normal": "Normal",
+        "high": "High"
+      },
+      "priorityLabel": "Priority",
+      "subject": "Subject",
+      "assignee": "Assignee",
+      "internalNotes": "Internal notes",
+      "notesEmpty": "No internal notes",
+      "notePlaceholder": "Write an internal note (not visible to the merchant)",
+      "addNote": "Add note",
+      "markPending": "Mark pending",
+      "resolve": "Resolve"
+    },
+    "staff": {
+      "title": "Staff & audit log",
+      "subtitle": "Who can operate the platform and what they did.",
+      "members": "Platform staff",
+      "empty": "No staff members",
+      "auditLog": "Audit log",
+      "auditHint": "Every admin action is recorded and cannot be edited.",
+      "auditEmpty": "No audit entries yet",
+      "role": {
+        "superAdmin": "Super admin",
+        "support": "Support",
+        "finance": "Finance",
+        "trustSafety": "Trust & safety"
+      },
+      "roleLabel": "Role",
+      "twoFactor": "Two-factor",
+      "twoFactorOn": "Enabled",
+      "twoFactorOff": "Not enabled",
+      "actor": "Actor",
+      "action": "Action",
+      "target": "Target",
+      "ip": "IP address"
+    },
+    "audit": {
+      "suspendStore": "Suspended a store",
+      "reactivateStore": "Reactivated a store",
+      "changePlan": "Changed a plan",
+      "toggleFlag": "Toggled a feature flag",
+      "retryJob": "Retried a failed job",
+      "resolveCase": "Resolved an abuse case",
+      "addNote": "Added an internal note"
+    }
   }
 }

@@ -18,6 +18,7 @@
 
         <!-- Dashboard Header -->
         <Header @toggle-sidebar="isSidebarOpen = true" />
+        <global-search />
 
         <div class="p-6 md:p-8 lg:p-10 pt-0">
           <slot />

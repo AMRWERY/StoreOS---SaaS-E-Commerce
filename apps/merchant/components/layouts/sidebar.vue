@@ -35,6 +35,8 @@
       </LazyVButton>
     </div>
 
+    <store-switcher class="mb-4" />
+
     <nav class="flex-1 space-y-2 overflow-y-auto hide-scrollbar">
       <div v-for="item in navItems" :key="item.name">
         <!-- Regular nav item -->
@@ -388,6 +390,18 @@ const navItems = computed(() => [
       "/dashboard/returns",
       "/dashboard/gift-cards",
       "/dashboard/cod",
+      "/dashboard/customers/segments",
+      "/dashboard/coupons/automatic",
+      "/dashboard/products/import-export",
+      "/dashboard/inventory/purchase-orders",
+      "/dashboard/inventory/suppliers",
+      "/dashboard/inventory/transfers",
+      "/dashboard/navigation",
+      "/dashboard/files",
+      "/dashboard/translations",
+      "/dashboard/activity",
+      "/dashboard/automation",
+      "/dashboard/support",
     ].some((p) => route.path.includes(p)),
     feature: "orders",
     locked: !hasFeature("orders"),
@@ -426,6 +440,66 @@ const navItems = computed(() => [
         name: t("nav.giftCards"),
         to: "/dashboard/gift-cards",
         feature: "coupons",
+      },
+      {
+        name: t("nav.customerSegments"),
+        to: "/dashboard/customers/segments",
+        feature: "customers",
+      },
+      {
+        name: t("nav.autoDiscounts"),
+        to: "/dashboard/coupons/automatic",
+        feature: "coupons",
+      },
+      {
+        name: t("nav.importExport"),
+        to: "/dashboard/products/import-export",
+        feature: "products",
+      },
+      {
+        name: t("nav.purchaseOrders"),
+        to: "/dashboard/inventory/purchase-orders",
+        feature: "inventory",
+      },
+      {
+        name: t("nav.suppliers"),
+        to: "/dashboard/inventory/suppliers",
+        feature: "inventory",
+      },
+      {
+        name: t("nav.transfers"),
+        to: "/dashboard/inventory/transfers",
+        feature: "inventory",
+      },
+      {
+        name: t("nav.navigation"),
+        to: "/dashboard/navigation",
+        feature: "settings",
+      },
+      {
+        name: t("nav.files"),
+        to: "/dashboard/files",
+        feature: "products",
+      },
+      {
+        name: t("nav.translations"),
+        to: "/dashboard/translations",
+        feature: "settings",
+      },
+      {
+        name: t("nav.automation"),
+        to: "/dashboard/automation",
+        feature: "orders",
+      },
+      {
+        name: t("nav.activityLog"),
+        to: "/dashboard/activity",
+        feature: "settings",
+      },
+      {
+        name: t("nav.helpSupport"),
+        to: "/dashboard/support",
+        feature: "dashboard",
       },
     ],
   },
@@ -473,6 +547,41 @@ const navItems = computed(() => [
         name: t("nav.apiAndWebhooks"),
         to: "/dashboard/settings/api-and-webhooks",
         feature: "api",
+      },
+      {
+        name: t("nav.policies"),
+        to: "/dashboard/settings/policies",
+        feature: "settings",
+      },
+      {
+        name: t("nav.taxes"),
+        to: "/dashboard/settings/taxes",
+        feature: "settings",
+      },
+      {
+        name: t("nav.domains"),
+        to: "/dashboard/settings/domains",
+        feature: "settings",
+      },
+      {
+        name: t("nav.checkoutSettings"),
+        to: "/dashboard/settings/checkout",
+        feature: "settings",
+      },
+      {
+        name: t("nav.securityCenter"),
+        to: "/dashboard/settings/security",
+        feature: "settings",
+      },
+      {
+        name: t("nav.whatsappBusiness"),
+        to: "/dashboard/settings/whatsapp",
+        feature: "notifications",
+      },
+      {
+        name: t("nav.organization"),
+        to: "/dashboard/settings/organization",
+        feature: "settings",
       },
       {
         name: t("nav.billingAndPlan"),
