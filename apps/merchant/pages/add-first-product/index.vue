@@ -3,16 +3,16 @@
     <div class="min-h-screen pt-8 text-white flex flex-col items-center">
       <div class="w-full max-w-3xl mx-auto">
         <ClientOnly>
-          <StepOne v-if="step === 1" :progress="progress" :step="step" :total-steps="totalSteps" @next="nextStep"
+          <step-one v-if="step === 1" :progress="progress" :step="step" :total-steps="totalSteps" @next="nextStep"
             @skip="skip" />
 
-          <StepTwo v-else-if="step === 2" :progress="progress" :step="step" :total-steps="totalSteps" @next="nextStep"
+          <step-two v-else-if="step === 2" :progress="progress" :step="step" :total-steps="totalSteps" @next="nextStep"
             @prev="prevStep" />
 
-          <StepThree v-else-if="step === 3" :progress="progress" :step="step" :total-steps="totalSteps" @prev="prevStep"
+          <step-three v-else-if="step === 3" :progress="progress" :step="step" :total-steps="totalSteps" @prev="prevStep"
             @next="nextStep" />
 
-          <StoreReady v-else-if="step === 4" />
+          <store-ready v-else-if="step === 4" />
         </ClientOnly>
       </div>
     </div>
@@ -31,6 +31,11 @@ const nextStep = () => {
 const prevStep = () => {
   if (step.value > 1) step.value -= 1;
 };
+
+// Every step change (Next / Skip / Back) starts the new step at the top of the page.
+watch(step, () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 const finish = () => {
   window.alert("Setup complete!");

@@ -79,14 +79,24 @@
           />
         </div>
 
-        <!-- CTA Button -->
-        <LazyVButton
-          type="submit"
-          className="w-full mt-4"
-          label="Continue"
-          icon="ph:arrow-end-bold"
-          iconPosition="right"
-        />
+        <!-- Footer Navigation -->
+        <div class="flex items-center gap-4 mt-4">
+          <LazyVButton
+            variant="secondary"
+            className="flex-1"
+            label="Back"
+            icon="ph:arrow-left-bold"
+            iconPosition="left"
+            @click="emit('prev')"
+          />
+          <LazyVButton
+            type="submit"
+            className="flex-1"
+            label="Continue"
+            icon="ph:arrow-right-bold"
+            iconPosition="right"
+          />
+        </div>
       </LazyVFormWrapper>
     </div>
 

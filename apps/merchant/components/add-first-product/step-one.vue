@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex items-center justify-center p-6 text-tx-primary">
+    <div class="flex items-center justify-center p-6 text-tx-primary mt-12">
       <!-- Main Card -->
       <div
         class="w-full max-w-2xl bg-bg-primary border border-border-subtle rounded-2xl p-5 shadow-2xl"
@@ -76,7 +76,7 @@
             <LazyVButton
               className="flex-1"
               label="Next"
-              icon="ph:arrow-end-bold"
+              icon="ph:arrow-right-bold"
               iconPosition="right"
               @click="emit('next')"
             />

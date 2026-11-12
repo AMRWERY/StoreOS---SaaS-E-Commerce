@@ -214,7 +214,7 @@ const handleSubmit = async () => {
     // TODO: replace with real register call
     await new Promise((resolve) => setTimeout(resolve, 2500));
     register(selectedPlan.value);
-    await navigateTo(localePath("/onboarding/add-first-product"));
+    await navigateTo(localePath("/add-first-product"));
   } finally {
     isLoading.value = false;
   }

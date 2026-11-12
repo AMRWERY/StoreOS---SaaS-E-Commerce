@@ -74,7 +74,7 @@ Builder routes live under `pages/dashboard/builder/` with a dedicated `builder` 
 ### Auth & plan gating
 
 `middleware/auth.global.ts` strips the locale prefix with a regex, then guards `/dashboard` and
-`/onboarding`, and bounces authenticated users off `/auth/*`. Feature access is plan-driven:
+`/add-first-product`, and bounces authenticated users off `/auth/*`. Feature access is plan-driven:
 `PLAN_CONFIGS` in `composables/useAuth.ts` (trial/free/starter/growth/enterprise) defines limits and a
 `features` array; gate UI with `hasFeature('builder')` rather than checking the plan name.
 
@@ -96,7 +96,7 @@ box-shadows; status badges are always pills (`rounded-full`, 9–10px, weight 60
 every data table needs an empty state.
 
 **SEO rules** live in [rules/seo.md](rules/seo.md) and [rules/storeos-seo.mdc](rules/storeos-seo.mdc). Every page calls `useSeoMeta(...)`.
-`/dashboard/*`, `/onboarding/*`, `/auth/*`, `/cart`, `/checkout` and order-detail pages must be
+`/dashboard/*`, `/add-first-product/*`, `/auth/*`, `/cart`, `/checkout` and order-detail pages must be
 `robots: 'noindex, nofollow'`. `apps/merchant/app.vue` also sets robots per-route and wires
 `useLocaleHead()` + `dir`/`lang`. Note the project uses `useSeoPage()` (a thin alias for `useHead` in
 `layers/core/composables/`) in app.vue/plugins — follow whichever the surrounding file uses.

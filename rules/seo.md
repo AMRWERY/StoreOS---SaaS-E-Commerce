@@ -146,8 +146,8 @@ Allow: /en/auth/
 Allow: /ar/auth/
 Disallow: /en/dashboard/
 Disallow: /ar/dashboard/
-Disallow: /en/onboarding/
-Disallow: /ar/onboarding/
+Disallow: /en/add-first-product/
+Disallow: /ar/add-first-product/
 
 Sitemap: https://dashboard.yourdomain.com/sitemap.xml
 ```
@@ -308,7 +308,7 @@ These pages must ALWAYS have `robots: 'noindex, nofollow'`:
 | App      | Route                                 |
 | -------- | ------------------------------------- |
 | merchant | `/dashboard/*` (all dashboard routes) |
-| merchant | `/onboarding/*`                       |
+| merchant | `/add-first-product/*`                       |
 | merchant | `/auth/login`                         |
 | merchant | `/auth/register`                      |
 | admin    | `/checkout`                           |

@@ -1,18 +1,18 @@
 <template>
   <nuxt-link-locale v-if="to" :to="to" :class="buttonClass" :disabled="disabled" v-bind="$attrs">
-    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" :class="isArrowIcon ? 'icon-nudge-start' : ''" />
+    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" :class="[isArrowIcon ? 'icon-nudge-start' : '', flipInRtl ? 'rtl:rotate-180' : '']" />
     <slot>
       <span v-if="label">{{ label }}</span>
     </slot>
-    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" :class="isArrowIcon ? 'icon-nudge-end' : ''" />
+    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" :class="[isArrowIcon ? 'icon-nudge-end' : '', flipInRtl ? 'rtl:rotate-180' : '']" />
   </nuxt-link-locale>
 
   <button v-else :type="type" :class="buttonClass" :disabled="disabled" v-bind="$attrs">
-    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" :class="isArrowIcon ? 'icon-nudge-start' : ''" />
+    <Icon v-if="icon && iconPosition === 'left'" :name="icon" class="w-4 h-4" :class="[isArrowIcon ? 'icon-nudge-start' : '', flipInRtl ? 'rtl:rotate-180' : '']" />
     <slot>
       <span v-if="label">{{ label }}</span>
     </slot>
-    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" :class="isArrowIcon ? 'icon-nudge-end' : ''" />
+    <Icon v-if="icon && iconPosition === 'right'" :name="icon" class="w-4 h-4" :class="[isArrowIcon ? 'icon-nudge-end' : '', flipInRtl ? 'rtl:rotate-180' : '']" />
   </button>
 </template>
 
@@ -30,6 +30,8 @@ const props = defineProps({
 });
 
 const isArrowIcon = computed(() => props.icon.toLowerCase().includes("arrow"));
+// Directional arrows must point the other way in RTL.
+const flipInRtl = computed(() => /arrow-(left|right)/i.test(props.icon));
 
 const buttonClass = computed(() => {
   const isNone = props.variant === "none";

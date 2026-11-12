@@ -176,8 +176,8 @@
                 @click="$emit('prev')"
               >
                 <Icon
-                  name="ph:arrow-start-bold"
-                  class="icon-nudge-start w-4 h-4"
+                  name="ph:arrow-left-bold"
+                  class="icon-nudge-start w-4 h-4 rtl:rotate-180"
                 />
                 Back
               </LazyVButton>

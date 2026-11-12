@@ -1,7 +1,7 @@
-const PROTECTED_PREFIXES = ['/dashboard', '/onboarding']
+const PROTECTED_PREFIXES = ['/dashboard', '/add-first-product']
 const AUTH_ROUTES = ['/auth/login', '/auth/register']
 /** Preview visitors have no account yet, so account setup stays sign-in only. */
-const GUEST_BLOCKED_PREFIXES = ['/onboarding']
+const GUEST_BLOCKED_PREFIXES = ['/add-first-product']
 const UPGRADE_ROUTE = '/dashboard/settings/billing-and-plan'
 
 export default defineNuxtRouteMiddleware((to) => {
