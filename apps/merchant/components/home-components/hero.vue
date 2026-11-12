@@ -39,7 +39,9 @@
         <p
           data-word-reveal
           class="text-tx-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
-          v-html="wordReveal(t('home.hero.subtitle'), { delay: 600, stagger: 40 })"
+          v-html="
+            wordReveal(t('home.hero.subtitle'), { delay: 600, stagger: 40 })
+          "
         />
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
@@ -153,87 +155,20 @@
     </section>
 
     <!-- Video Demo Dialog -->
-    <LazyVDialog v-model="isDemoOpen" maxWidth="5xl">
-      <template #title>
-        <div class="flex items-center gap-2">
-          <span class="status-dot bg-brand animate-pulse"></span>
-          {{ t("home.hero.demo.title") }}
-        </div>
-      </template>
-
-      <!-- Video Player -->
-      <div
-        class="relative group rounded-xl overflow-hidden bg-bg-base border border-border-subtle shadow-2xl"
-      >
+    <LazyVDialog v-model="isDemoOpen" maxWidth="5xl" hideHeader hideClose flush>
+      <!-- Video Player: fills the dialog edge to edge; letterboxed (not cropped) if the viewport is short -->
+      <div class="bg-black">
         <video
           ref="videoRef"
-          class="w-full aspect-video object-cover"
+          class="block w-full aspect-video max-h-[calc(100vh-2rem)] object-contain"
           controls
-          preload="metadata"
+          autoplay
+          playsinline
+          preload="auto"
           poster="/storeos-demo-poster.png"
         >
-          <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+          <source src="/video/storeos-website-overview.mp4" type="video/mp4" />
         </video>
-      </div>
-
-      <!-- Description -->
-      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="md:col-span-2 space-y-3">
-          <h2 class="text-base font-bold text-tx-primary">
-            {{ t("home.hero.demo.title") }}
-          </h2>
-          <p class="text-[13px] text-tx-secondary leading-relaxed">
-            {{ t("home.hero.demo.description") }}
-          </p>
-          <div class="flex gap-3 pt-2">
-            <LazyVButton
-              variant="none"
-              to="/auth/register"
-              className="bg-brand hover:bg-brand-hover text-white px-5 py-2 rounded-md text-xs font-bold transition-all shadow-lg shadow-brand/20"
-            >
-              {{ t("home.hero.demo.startFreeTrial") }}
-            </LazyVButton>
-
-            <LazyVButton
-              variant="none"
-              @click="closeDemo"
-              className="bg-bg-elevated hover:bg-bg-overlay border border-border-subtle text-tx-secondary hover:text-tx-primary px-5 py-2 rounded-md text-xs font-bold transition-all"
-            >
-              {{ t("home.hero.demo.close") }}
-            </LazyVButton>
-          </div>
-        </div>
-
-        <!-- Feature Highlights -->
-        <div class="space-y-2">
-          <p
-            class="text-eyebrow mb-3"
-          >
-            {{ t("home.hero.demo.whatYoullSee") }}
-          </p>
-          <div
-            v-for="feature in demoFeatures"
-            :key="feature.label"
-            class="flex items-start gap-3 p-3 rounded-lg bg-bg-elevated border border-border-subtle"
-          >
-            <div
-              class="w-6 h-6 rounded-md flex items-center justify-center shrink-0 mt-0.5"
-              :class="feature.bg"
-            >
-              <icon
-                :name="feature.icon"
-                class="text-sm"
-                :class="feature.color"
-              />
-            </div>
-            <div>
-              <p class="text-[11px] font-semibold text-tx-primary">
-                {{ feature.label }}
-              </p>
-              <p class="text-[10px] text-tx-muted mt-0.5">{{ feature.desc }}</p>
-            </div>
-          </div>
-        </div>
       </div>
     </LazyVDialog>
   </div>
@@ -242,46 +177,24 @@
 <script lang="ts" setup>
 // Templates do not get Nuxt auto-imports on the client, so import it explicitly.
 import { wordReveal } from "#imports";
+
 const { t } = useI18n();
+
 const { isDemoOpen, openDemo, closeDemo } = useDemoModal();
 
 const videoRef = ref<HTMLVideoElement | null>(null);
 
-watch(isDemoOpen, (open) => {
-  if (!open && videoRef.value) {
+watch(isDemoOpen, async (open) => {
+  if (open) {
+    // The dialog body renders on open, so wait for the <video> to mount, then start it.
+    // Allowed by browsers because the dialog opens from a user click (Watch demo).
+    await nextTick();
+    videoRef.value?.play().catch(() => {});
+    return;
+  }
+  if (videoRef.value) {
     videoRef.value.pause();
     videoRef.value.currentTime = 0;
   }
 });
-
-const demoFeatures = computed(() => [
-  {
-    icon: "ph:shopping-cart-fill",
-    label: t("home.hero.demo.orderManagement"),
-    desc: t("home.hero.demo.orderManagementDesc"),
-    bg: "bg-brand-dim",
-    color: "text-brand",
-  },
-  {
-    icon: "ph:chart-bar-fill",
-    label: t("home.hero.demo.analyticsDashboard"),
-    desc: t("home.hero.demo.analyticsDashboardDesc"),
-    bg: "bg-success-dim",
-    color: "text-success",
-  },
-  {
-    icon: "ph:stack-fill",
-    label: t("home.hero.demo.inventorySync"),
-    desc: t("home.hero.demo.inventorySyncDesc"),
-    bg: "bg-warning-dim",
-    color: "text-warning",
-  },
-  {
-    icon: "ph:gear-six-fill",
-    label: t("home.hero.demo.storeSettings"),
-    desc: t("home.hero.demo.storeSettingsDesc"),
-    bg: "bg-brand-dim",
-    color: "text-brand",
-  },
-]);
 </script>

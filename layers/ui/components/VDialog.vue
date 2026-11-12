@@ -8,8 +8,14 @@
           <div
             class="relative bg-bg-primary border border-border-subtle shadow-2xl rounded-xl w-full flex flex-col overflow-hidden transition-all transform z-10"
             :class="maxWidthClass">
+            <!-- Header-less mode: floating close button only -->
+            <button v-if="hideHeader && !hideClose" @click="close" aria-label="Close"
+              class="absolute top-3 end-3 z-20 text-tx-secondary hover:text-tx-primary transition-colors p-1.5 rounded-lg bg-bg-primary/70 hover:bg-bg-elevated backdrop-blur">
+              <Icon name="ph:x-bold" class="w-4 h-4" />
+            </button>
+
             <!-- Header -->
-            <div class="flex items-center justify-between px-6 py-5"
+            <div v-if="!hideHeader" class="flex items-center justify-between px-6 py-5"
               :class="hideHeaderBorder ? '' : 'border-b border-border-subtle'">
               <h3 class="text-xs font-black tracking-widest text-tx-primary"
                 :class="hideClose ? 'w-full text-center' : ''">
@@ -22,7 +28,7 @@
             </div>
 
             <!-- Body -->
-            <div class="p-6 overflow-y-auto max-h-[calc(100vh-200px)] hide-scrollbar">
+            <div :class="flush ? '' : 'p-6 overflow-y-auto max-h-[calc(100vh-200px)] hide-scrollbar'">
               <slot></slot>
             </div>
 
@@ -47,7 +53,13 @@ const props = withDefaults(defineProps<{
   hideClose?: boolean;
   /** Drop the divider line under the header. */
   hideHeaderBorder?: boolean;
+  /** Remove the title bar entirely; a floating close button is shown instead (unless hideClose). */
+  hideHeader?: boolean;
+  /** Edge-to-edge body: no padding or scroll, so media fills the dialog. */
+  flush?: boolean;
 }>(), {
+  hideHeader: false,
+  flush: false,
   title: 'Modal',
   maxWidth: 'md',
   hideClose: false,
