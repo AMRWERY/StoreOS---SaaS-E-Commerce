@@ -4534,7 +4534,10 @@
       "openMenu": "فتح القائمة",
       "env": "الإنتاج",
       "operatorName": "عمرو محمد",
-      "operatorRole": "مدير عام"
+      "operatorRole": "مدير عام",
+      "accountMenu": "قائمة الحساب",
+      "signedInAs": "تم تسجيل الدخول باسم",
+      "signOut": "تسجيل الخروج"
     },
     "common": {
       "egp": "ج.م",
@@ -5180,6 +5183,26 @@
         "apiReference": "مرجع واجهة API",
         "webhooksGuide": "دليل الويب هوك",
         "cliReference": "مرجع أداة CLI"
+      }
+    },
+    "login": {
+      "title": "تسجيل دخول المشغّل",
+      "subtitle": "ادخل إلى لوحة تحكم منصة StoreOS.",
+      "email": "البريد الإلكتروني للعمل",
+      "emailPlaceholder": "name{'@'}storeos.app",
+      "password": "كلمة المرور",
+      "continue": "متابعة",
+      "twoFactorTitle": "التحقق بخطوتين",
+      "twoFactorSubtitle": "أدخل الرمز المكوّن من 6 أرقام من تطبيق المصادقة للحساب {email}.",
+      "demoHint": "للعرض فقط، لا يوجد تحقق حقيقي بعد. استخدم الرمز",
+      "back": "رجوع",
+      "verify": "تحقق وسجّل الدخول",
+      "statusLink": "عرض حالة المنصة",
+      "footer": "لوحة تحكم منصة StoreOS. للمشغّلين المصرّح لهم فقط.",
+      "errors": {
+        "email": "أدخل بريدًا إلكترونيًا صحيحًا.",
+        "password": "يجب ألا تقل كلمة المرور عن 8 أحرف.",
+        "code": "هذا الرمز غير صحيح. حاول مرة أخرى."
       }
     }
   },

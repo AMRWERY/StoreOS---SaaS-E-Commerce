@@ -4535,7 +4535,10 @@
       "openMenu": "Open menu",
       "env": "production",
       "operatorName": "Amr Mohamed",
-      "operatorRole": "Super admin"
+      "operatorRole": "Super admin",
+      "accountMenu": "Account menu",
+      "signedInAs": "Signed in as",
+      "signOut": "Sign out"
     },
     "common": {
       "egp": "EGP",
@@ -5181,6 +5184,26 @@
         "apiReference": "API reference",
         "webhooksGuide": "Webhooks guide",
         "cliReference": "CLI reference"
+      }
+    },
+    "login": {
+      "title": "Operator sign in",
+      "subtitle": "Access the StoreOS platform console.",
+      "email": "Work email",
+      "emailPlaceholder": "name{'@'}storeos.app",
+      "password": "Password",
+      "continue": "Continue",
+      "twoFactorTitle": "Two-factor verification",
+      "twoFactorSubtitle": "Enter the 6-digit code from your authenticator app for {email}.",
+      "demoHint": "Demo only, no real authentication yet. Use code",
+      "back": "Back",
+      "verify": "Verify and sign in",
+      "statusLink": "View platform status",
+      "footer": "StoreOS platform console. Authorized operators only.",
+      "errors": {
+        "email": "Enter a valid email address.",
+        "password": "Password must be at least 8 characters.",
+        "code": "That code is not valid. Try again."
       }
     }
   },

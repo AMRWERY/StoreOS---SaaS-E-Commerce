@@ -96,22 +96,46 @@
           <div class="flex items-center gap-3">
             <ThemeToggle />
             <LazyVLocaleSwitch />
-            <div
-              class="flex items-center gap-2 rounded-full border border-border-subtle bg-bg-primary p-1 sm:pe-3"
-            >
-              <span
-                class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-dim text-[10px] font-bold text-brand"
-                >AM</span
-              >
-              <div class="hidden leading-tight sm:block">
-                <p class="text-[11px] font-semibold">
-                  {{ t("platform.topbar.operatorName") }}
-                </p>
-                <p class="text-[9px] text-tx-muted">
-                  {{ t("platform.topbar.operatorRole") }}
-                </p>
-              </div>
-            </div>
+            <LazyVDropdownMenu align="end" width="w-60">
+              <template #trigger>
+                <div
+                  class="flex items-center gap-2 rounded-full border border-border-subtle bg-bg-primary p-1 transition-colors hover:border-border-default sm:pe-3"
+                  role="button"
+                  tabindex="0"
+                  :aria-label="t('platform.topbar.accountMenu')"
+                >
+                  <span
+                    class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-dim text-[10px] font-bold text-brand"
+                    >{{ operatorInitials }}</span
+                  >
+                  <div class="hidden leading-tight sm:block">
+                    <p class="text-[11px] font-semibold">
+                      {{ operatorName || t("platform.topbar.operatorName") }}
+                    </p>
+                    <p class="text-[9px] text-tx-muted">
+                      {{ t("platform.topbar.operatorRole") }}
+                    </p>
+                  </div>
+                  <Icon name="ph:caret-down-bold" class="hidden text-[10px] text-tx-muted sm:block" />
+                </div>
+              </template>
+              <template #default="{ close }">
+                <div class="border-b border-border-subtle px-2 pb-2 pt-1">
+                  <p class="text-[10px] font-semibold text-tx-muted">
+                    {{ t("platform.topbar.signedInAs") }}
+                  </p>
+                  <p class="truncate font-mono text-xs" dir="ltr">{{ operatorEmail }}</p>
+                </div>
+                <button
+                  type="button"
+                  class="mt-1 flex w-full items-center gap-2 rounded-md px-2 py-2 text-xs font-semibold text-danger transition-colors hover:bg-danger-dim"
+                  @click="close(); handleSignOut()"
+                >
+                  <Icon name="ph:sign-out-bold" class="text-sm" />
+                  {{ t("platform.topbar.signOut") }}
+                </button>
+              </template>
+            </LazyVDropdownMenu>
           </div>
         </header>
 
@@ -128,6 +152,12 @@ const { t } = useI18n();
 const route = useRoute();
 const localePath = useLocalePath();
 const abuse = usePlatformAbuseStore();
+const { operatorEmail, operatorName, operatorInitials, signOut } = usePlatformAuth();
+
+async function handleSignOut() {
+  signOut();
+  await navigateTo(localePath("/platform/login"), { replace: true });
+}
 
 const isSidebarOpen = ref(false);
 const mainRef = ref<HTMLElement | null>(null);
