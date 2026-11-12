@@ -41,7 +41,7 @@ useSeoMeta({
 | Route pattern | `robots` value |
 |---------------|----------------|
 | `/dashboard/*` | `noindex, nofollow` |
-| `/add-first-product/*` | `noindex, nofollow` |
+| `/auth/add-first-product/*` | `noindex, nofollow` |
 | `/auth/*` | `noindex, nofollow` |
 | `/cart`, `/checkout` | `noindex, nofollow` |
 | `/orders/:id` | `noindex, nofollow` |

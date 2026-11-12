@@ -1,7 +1,7 @@
-const PROTECTED_PREFIXES = ['/dashboard', '/add-first-product']
-const AUTH_ROUTES = ['/auth/login', '/auth/register']
+const PROTECTED_PREFIXES = ['/dashboard', '/auth/add-first-product']
+const AUTH_ROUTES = ['/auth', '/auth/register']
 /** Preview visitors have no account yet, so account setup stays sign-in only. */
-const GUEST_BLOCKED_PREFIXES = ['/add-first-product']
+const GUEST_BLOCKED_PREFIXES = ['/auth/add-first-product']
 const UPGRADE_ROUTE = '/dashboard/settings/billing-and-plan'
 
 export default defineNuxtRouteMiddleware((to) => {
@@ -59,5 +59,5 @@ export default defineNuxtRouteMiddleware((to) => {
   }
 
   // Unauthenticated user trying to access protected route → login
-  return navigateTo(localePath('/auth/login'), { replace: true })
+  return navigateTo(localePath('/auth'), { replace: true })
 })

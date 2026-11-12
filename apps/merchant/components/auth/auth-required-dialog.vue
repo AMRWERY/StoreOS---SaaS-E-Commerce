@@ -111,6 +111,6 @@ const goToRegister = async () => {
 
 const goToLogin = async () => {
   closeGate();
-  await navigateTo(localePath("/auth/login"));
+  await navigateTo(localePath("/auth"));
 };
 </script>

@@ -77,7 +77,7 @@
       <!-- Quick Action Grid -->
       <div class="w-full max-w-3xl grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
         <nuxt-link-locale
-          :to="action.route || '/add-first-product'"
+          :to="action.route || '/auth/add-first-product'"
           v-for="action in quickActions"
           :key="action.title"
           class="bg-bg-primary border border-border-subtle px-4 py-3.5 rounded-xl hover:border-border-default transition-colors group cursor-pointer"

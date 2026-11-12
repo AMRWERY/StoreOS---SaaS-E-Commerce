@@ -78,7 +78,7 @@
           </LazyVButton>
 
           <nuxt-link-locale
-            to="/auth/login"
+            to="/auth"
             class="text-sm font-medium text-tx-secondary hover:text-tx-primary transition"
           >
             {{ t("nav.signIn") }}

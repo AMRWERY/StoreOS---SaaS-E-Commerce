@@ -92,7 +92,7 @@
       <!-- Quick Action Grid -->
       <div class="w-full max-w-3xl grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
         <nuxt-link-locale
-          :to="action.route || '/add-first-product'"
+          :to="action.route || '/auth/add-first-product'"
           v-for="action in quickActions"
           :key="action.title"
           class="bg-bg-primary border border-border-subtle px-4 py-3.5 rounded-xl hover:border-brand/30 hover:bg-bg-elevated hover:shadow-lg hover:shadow-brand/5 hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer"
@@ -172,7 +172,7 @@ const quickActions = [
     title: "Add products",
     desc: "Expand your catalog with more items.",
     icon: "ph:plus-square-duotone",
-    route: "/add-first-product",
+    route: "/auth/add-first-product",
   },
   {
     title: "Share store",

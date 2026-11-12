@@ -1,4 +1,4 @@
-const PUBLIC_ROUTES = ['/auth/login', '/auth/register']
+const PUBLIC_ROUTES = ['/auth', '/auth/register']
 
 export default defineNuxtRouteMiddleware((to) => {
   const { isAuthenticated } = useAuth()
@@ -9,7 +9,7 @@ export default defineNuxtRouteMiddleware((to) => {
   const isPublic = PUBLIC_ROUTES.some((route) => path === route || path.startsWith(route + '/'))
 
   if (!isAuthenticated.value && !isPublic) {
-    return navigateTo(localePath('/auth/login'), { replace: true })
+    return navigateTo(localePath('/auth'), { replace: true })
   }
 
   if (isAuthenticated.value && isPublic) {

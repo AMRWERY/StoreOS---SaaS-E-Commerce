@@ -27,7 +27,7 @@
       </nuxt-link-locale>
 
       <nuxt-link-locale
-        to="/auth/login"
+        to="/auth"
         class="hidden sm:block px-3 py-1 rounded-md font-bold text-[11px] tracking-wide text-white/70 hover:text-white transition-colors"
       >
         {{ t("auth.guest.signIn") }}

@@ -130,7 +130,7 @@
 
             <p class="text-center mt-8 text-sm text-tx-secondary">
               {{ t("auth.register.alreadyHaveAccount") }}
-              <nuxt-link-locale to="/auth/login" class="text-orange-500 font-bold hover:underline">{{
+              <nuxt-link-locale to="/auth" class="text-orange-500 font-bold hover:underline">{{
                 t("auth.register.signIn") }}</nuxt-link-locale>
             </p>
           </div>

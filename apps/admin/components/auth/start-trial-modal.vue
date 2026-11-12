@@ -303,7 +303,7 @@ const handleSubmit = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     open.value = false;
     register();
-    await navigateTo(localePath("/add-first-product"));
+    await navigateTo(localePath("/auth/add-first-product"));
   } finally {
     isLoading.value = false;
   }

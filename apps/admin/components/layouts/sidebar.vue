@@ -204,7 +204,7 @@ const handleLockedClick = () => {
 
 const handleLogout = () => {
   logout();
-  navigateTo(localePath("/auth/login"));
+  navigateTo(localePath("/auth"));
 };
 
 const navItems = computed(() => [

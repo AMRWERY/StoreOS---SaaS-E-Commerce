@@ -150,7 +150,7 @@
             <p class="text-center mt-8 text-sm text-tx-secondary">
               {{ t("auth.register.alreadyHaveAccount") }}
               <nuxt-link-locale
-                to="/auth/login"
+                to="/auth"
                 class="text-orange-500 font-bold hover:underline"
                 >{{ t("auth.register.signIn") }}</nuxt-link-locale
               >
@@ -193,7 +193,7 @@ const handleSubmit = async () => {
     // TODO: replace with real register call
     await new Promise((resolve) => setTimeout(resolve, 2500));
     register(selectedPlan.value);
-    await navigateTo(localePath("/add-first-product"));
+    await navigateTo(localePath("/auth/add-first-product"));
   } finally {
     isLoading.value = false;
   }

@@ -284,12 +284,12 @@ const handleLockedClick = (feature?: string) => {
 
 const handleLogout = () => {
   logout();
-  navigateTo(localePath("/auth/login"));
+  navigateTo(localePath("/auth"));
 };
 
 const handleExitPreview = () => {
   exitGuestPreview();
-  navigateTo(localePath("/auth/login"));
+  navigateTo(localePath("/auth"));
 };
 
 const expandedItems = ref<string[]>([]);

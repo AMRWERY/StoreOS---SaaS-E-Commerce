@@ -24,7 +24,7 @@ const i18nHead = useLocaleHead({ addSeoAttributes: true })
 const RTL_LOCALES = ['ar', 'he', 'fa', 'ur']
 
 const isPublicRoute = computed(() =>
-  !route.path.includes('/dashboard') && !route.path.includes('/add-first-product')
+  !route.path.includes('/dashboard') && !route.path.includes('/auth/add-first-product')
 )
 
 useSeoPage(computed(() => ({
