@@ -14,7 +14,7 @@
     "or": "or",
     "start_free_trial": "Start free trial",
     "explore_demo": "Explore with sample data",
-    "preview_hint":"Explore the dashboard with sample data — no account needed.",
+    "preview_hint": "Explore the dashboard with sample data — no account needed.",
     "trial_banner": {
       "days_left": "1 day | {n} days",
       "left_in_trial": "left in your free trial —",
@@ -149,7 +149,16 @@
       "collections": "Collections",
       "editorial": "Editorial",
       "store_builder": "Store Builder"
-    }
+    },
+    "operations": "Operations",
+    "draftOrders": "Draft Orders",
+    "abandonedCheckouts": "Abandoned Checkouts",
+    "returns": "Returns",
+    "giftCards": "Gift Cards",
+    "codOperations": "COD Operations",
+    "collections": "Collections",
+    "productVariants": "Variants & Options",
+    "launchChecklist": "Launch Checklist"
   },
   "home": {
     "hero": {
@@ -844,6 +853,256 @@
       "dangerZone": "Danger Zone",
       "deleteDesc": "Irreversibly delete your profile and all store associations.",
       "deleteAccount": "Delete Account"
+    },
+    "ops": {
+      "common": {
+        "status": {
+          "active": "Active",
+          "draft": "Draft"
+        },
+        "statusLabel": "Status",
+        "delete": "Delete",
+        "save": "Save",
+        "all": "All",
+        "updated": "Updated",
+        "order": "Order",
+        "customer": "Customer",
+        "amount": "Amount",
+        "date": "Date",
+        "items": "Items"
+      },
+      "collections": {
+        "title": "Collections",
+        "subtitle": "Group products manually or with automatic rules.",
+        "create": "Create Collection",
+        "createSubtitle": "Choose how products are added to this collection.",
+        "name": "Collection name",
+        "typeLabel": "Type",
+        "types": {
+          "manual": "Manual",
+          "automated": "Automated"
+        },
+        "rule": "Condition",
+        "rulePlaceholder": "e.g. tag = summer AND price < 100",
+        "productsCount": "Products",
+        "empty": "No collections yet",
+        "emptyHint": "Create a collection to organize your catalog."
+      },
+      "variants": {
+        "title": "Variants & Options",
+        "subtitle": "Define options like size and color, then set SKU, price and stock per variant.",
+        "options": "Options",
+        "optionName": "Option name",
+        "optionValues": "Values",
+        "addValue": "Type a value and press Enter",
+        "addOption": "Add option",
+        "variant": "Variant",
+        "price": "Price",
+        "compareAt": "Compare-at price",
+        "stock": "Stock",
+        "empty": "No variants",
+        "emptyHint": "Add an option with at least one value to generate variants."
+      },
+      "returns": {
+        "title": "Returns",
+        "subtitle": "Review return requests, receive items and issue refunds.",
+        "stats": {
+          "open": "OPEN RETURNS",
+          "refunded": "REFUNDED",
+          "rate": "RETURN RATE"
+        },
+        "id": "Return",
+        "reason": "Reason",
+        "reasons": {
+          "damaged": "Damaged item",
+          "wrong_item": "Wrong item sent",
+          "not_as_described": "Not as described",
+          "changed_mind": "Changed mind"
+        },
+        "status": {
+          "requested": "Requested",
+          "approved": "Approved",
+          "received": "Received",
+          "refunded": "Refunded",
+          "rejected": "Rejected"
+        },
+        "approve": "Approve",
+        "reject": "Reject",
+        "markReceived": "Mark received",
+        "refund": "Refund",
+        "empty": "No returns",
+        "emptyHint": "Return requests from customers will appear here."
+      },
+      "giftCards": {
+        "title": "Gift Cards",
+        "subtitle": "Issue and track store-credit gift cards.",
+        "issue": "Issue Gift Card",
+        "issueSubtitle": "The code is generated automatically.",
+        "stats": {
+          "issued": "TOTAL ISSUED",
+          "outstanding": "OUTSTANDING BALANCE",
+          "active": "ACTIVE CARDS"
+        },
+        "code": "Code",
+        "recipient": "Recipient",
+        "value": "Initial value",
+        "balance": "Balance",
+        "expires": "Expires",
+        "status": {
+          "active": "Active",
+          "redeemed": "Redeemed",
+          "expired": "Expired",
+          "disabled": "Disabled"
+        },
+        "disable": "Disable",
+        "empty": "No gift cards",
+        "emptyHint": "Issue your first gift card to get started."
+      },
+      "cod": {
+        "title": "COD Operations",
+        "subtitle": "Confirm cash-on-delivery orders, reconcile courier cash and block repeat refusers.",
+        "stats": {
+          "pending": "AWAITING CONFIRMATION",
+          "toCollect": "COURIER CASH PENDING",
+          "blocked": "BLOCKED CONTACTS"
+        },
+        "tabs": {
+          "confirmations": "Confirmation queue",
+          "remittance": "Courier remittance",
+          "blocklist": "Blocklist"
+        },
+        "phone": "Phone",
+        "governorate": "Governorate",
+        "attempts": "Attempts",
+        "riskLabel": "Risk",
+        "risk": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High"
+        },
+        "confirmStatus": {
+          "pending": "Pending",
+          "confirmed": "Confirmed",
+          "no_answer": "No answer",
+          "refused": "Refused"
+        },
+        "remitStatus": {
+          "pending": "Pending",
+          "settled": "Settled",
+          "disputed": "Disputed"
+        },
+        "confirm": "Confirm",
+        "noAnswer": "No answer",
+        "refused": "Refused",
+        "batch": "Batch",
+        "courier": "Courier",
+        "ordersCount": "Orders",
+        "collected": "Collected",
+        "fees": "Fees",
+        "net": "Net payout",
+        "reason": "Reason",
+        "refusals": "Refusals",
+        "reasons": {
+          "refused_parcels": "Refused parcels",
+          "fake_orders": "Fake orders",
+          "merchant_blocked": "Blocked by merchant"
+        },
+        "addToBlocklist": "Add to blocklist",
+        "unblock": "Unblock",
+        "emptyConfirmations": "No COD orders to confirm",
+        "emptyRemittance": "No remittance batches yet",
+        "emptyBlocklist": "No blocked contacts"
+      },
+      "drafts": {
+        "title": "Draft Orders",
+        "subtitle": "Create orders manually for phone, chat or wholesale customers.",
+        "create": "Create Draft Order",
+        "id": "Draft",
+        "status": {
+          "open": "Open",
+          "invoice_sent": "Invoice sent",
+          "completed": "Completed"
+        },
+        "empty": "No draft orders",
+        "emptyHint": "Draft orders you create will appear here."
+      },
+      "abandoned": {
+        "title": "Abandoned Checkouts",
+        "subtitle": "Customers who started checkout but did not finish.",
+        "stats": {
+          "value": "UNRECOVERED VALUE",
+          "recovered": "RECOVERED",
+          "rate": "RECOVERY RATE"
+        },
+        "id": "Checkout",
+        "contact": "Contact",
+        "stage": "Stopped at",
+        "stages": {
+          "cart": "Cart",
+          "shipping": "Shipping",
+          "payment": "Payment"
+        },
+        "recovered": "Recovered",
+        "open": "Open",
+        "sendReminder": "Send reminder",
+        "empty": "No abandoned checkouts",
+        "emptyHint": "Great news: every checkout is being completed."
+      },
+      "launch": {
+        "title": "Launch Checklist",
+        "subtitle": "Finish these steps to get your store ready for its first customers.",
+        "progress": "SETUP PROGRESS",
+        "ready": "You are ready to launch!",
+        "go": "Set up",
+        "groups": {
+          "store": "Store",
+          "payments": "Payments",
+          "shipping": "Shipping",
+          "launch": "Go live"
+        },
+        "tasks": {
+          "storeInfo": {
+            "title": "Add store details",
+            "hint": "Name, contact info and currency."
+          },
+          "firstProduct": {
+            "title": "Add your first product",
+            "hint": "At least one published product."
+          },
+          "theme": {
+            "title": "Customize your storefront",
+            "hint": "Design your pages in the builder."
+          },
+          "policies": {
+            "title": "Add store policies",
+            "hint": "Shipping, returns and privacy policies."
+          },
+          "cod": {
+            "title": "Enable cash on delivery",
+            "hint": "Accept payment when orders arrive."
+          },
+          "onlinePayment": {
+            "title": "Connect an online payment provider",
+            "hint": "Stripe, Paymob or a wallet."
+          },
+          "shippingZones": {
+            "title": "Set up shipping zones",
+            "hint": "Choose governorates and delivery fees."
+          },
+          "carrier": {
+            "title": "Connect a courier",
+            "hint": "Automate labels and tracking."
+          },
+          "domain": {
+            "title": "Connect your domain",
+            "hint": "Use your own address for the store."
+          },
+          "testOrder": {
+            "title": "Place a test order",
+            "hint": "Verify checkout end to end."
+          }
+        }
+      }
     }
   },
   "admin": {

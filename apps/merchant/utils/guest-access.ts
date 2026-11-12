@@ -20,6 +20,10 @@ export const ROUTE_FEATURES: Array<{ prefix: string; feature: string }> = [
   { prefix: '/dashboard/user-profile', feature: 'profile' },
   { prefix: '/dashboard/orders', feature: 'orders' },
   { prefix: '/dashboard/products', feature: 'products' },
+  { prefix: '/dashboard/collections', feature: 'products' },
+  { prefix: '/dashboard/returns', feature: 'orders' },
+  { prefix: '/dashboard/cod', feature: 'orders' },
+  { prefix: '/dashboard/gift-cards', feature: 'coupons' },
   { prefix: '/dashboard', feature: 'dashboard' },
 ]
 

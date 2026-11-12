@@ -378,6 +378,66 @@ const navItems = computed(() => [
     locked: !hasFeature("builder"),
   },
   {
+    name: t("nav.operations"),
+    icon: "ph:briefcase-fill",
+    active: [
+      "/dashboard/collections",
+      "/dashboard/products/variants",
+      "/dashboard/orders/drafts",
+      "/dashboard/orders/abandoned",
+      "/dashboard/returns",
+      "/dashboard/gift-cards",
+      "/dashboard/cod",
+    ].some((p) => route.path.includes(p)),
+    feature: "orders",
+    locked: !hasFeature("orders"),
+    children: [
+      {
+        name: t("nav.collections"),
+        to: "/dashboard/collections",
+        feature: "products",
+      },
+      {
+        name: t("nav.productVariants"),
+        to: "/dashboard/products/variants",
+        feature: "products",
+      },
+      {
+        name: t("nav.draftOrders"),
+        to: "/dashboard/orders/drafts",
+        feature: "orders",
+      },
+      {
+        name: t("nav.abandonedCheckouts"),
+        to: "/dashboard/orders/abandoned",
+        feature: "orders",
+      },
+      {
+        name: t("nav.returns"),
+        to: "/dashboard/returns",
+        feature: "orders",
+      },
+      {
+        name: t("nav.codOperations"),
+        to: "/dashboard/cod",
+        feature: "orders",
+      },
+      {
+        name: t("nav.giftCards"),
+        to: "/dashboard/gift-cards",
+        feature: "coupons",
+      },
+    ],
+  },
+  {
+    name: t("nav.launchChecklist"),
+    icon: "ph:rocket-launch-fill",
+    active: route.path.includes("/dashboard/launch-checklist"),
+    to: "/dashboard/launch-checklist",
+    feature: "dashboard",
+    locked: !hasFeature("dashboard"),
+  },
+  {
     name: t("nav.settings"),
     icon: "ph:gear-six-fill",
     active: route.path.includes("/dashboard/settings"),
