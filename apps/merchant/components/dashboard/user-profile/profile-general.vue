@@ -3,25 +3,13 @@
     class="lg:col-span-8 card px-4 py-3.5 flex flex-col md:flex-row gap-10"
   >
     <!-- Avatar Side -->
-    <div class="flex flex-col items-center gap-4 shrink-0">
-      <div
-        class="w-32 h-32 bg-bg-overlay border border-border-default rounded-2xl flex items-center justify-center text-3xl font-black text-tx-secondary shadow-inner"
-      >
-        MT
-      </div>
-      <LazyVButton
-        variant="secondary"
-        className="w-full py-2 bg-bg-elevated hover:bg-bg-elevated border border-border-subtle rounded-lg text-[10px] font-black tracking-widest transition-colors"
-      >
-        {{ t("dashboard.profile.updateAvatar") }}
-      </LazyVButton>
-
-      <LazyVButton
-        variant="none"
-        className="text-[10px] font-bold text-danger/60 hover:text-danger transition-colors tracking-widest"
-      >
-        {{ t("common.remove") }}
-      </LazyVButton>
+    <div class="w-full md:w-56 shrink-0">
+      <LazyVFileUpload
+        :title="t('dashboard.profile.updateAvatar')"
+        subtitle="PNG, JPG or WEBP (max. 2MB)"
+        icon="ph:user-circle-bold"
+        accept="image/png, image/jpeg, image/webp"
+      />
     </div>
 
     <!-- Form Side -->
