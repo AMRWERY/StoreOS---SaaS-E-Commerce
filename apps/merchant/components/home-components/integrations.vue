@@ -25,13 +25,18 @@
         <p
           data-word-reveal
           class="text-tx-secondary max-w-xl mx-auto leading-relaxed"
-          v-html="wordReveal(t('home.integrations.subtitle'), { delay: 500, stagger: 40 })"
+          v-html="
+            wordReveal(t('home.integrations.subtitle'), {
+              delay: 500,
+              stagger: 40,
+            })
+          "
         />
       </div>
 
       <!-- Integration Categories -->
       <div class="space-y-12">
-        <div v-for="category in categories" :key="category.label">
+        <div v-for="(category, index) in categories" :key="category.label">
           <div class="flex items-center gap-4 mb-6">
             <div
               :class="[
@@ -50,44 +55,56 @@
             <div class="flex-1 h-px bg-border-subtle"></div>
           </div>
 
-          <div
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3"
-          >
+          <div class="marquee overflow-hidden py-2 -my-2">
             <div
-              v-for="item in category.items"
-              :key="item.name"
-              class="group relative bg-bg-primary border border-border-subtle hover:border-brand/30 rounded-2xl p-4 flex flex-col items-center gap-3 transition-all duration-200 cursor-pointer hover:bg-bg-elevated hover:shadow-lg hover:shadow-brand/5 hover:-translate-y-0.5"
+              :class="[
+                'marquee-track flex w-max',
+                index % 2 ? 'marquee-reverse' : '',
+              ]"
             >
-              <!-- Logo / Icon -->
               <div
-                :class="[
-                  'w-10 h-10 rounded-xl flex items-center justify-center shrink-0',
-                  item.bg,
-                ]"
+                v-for="copy in 4"
+                :key="copy"
+                class="flex gap-3 pe-3"
+                :aria-hidden="copy > 1 ? 'true' : undefined"
               >
-                <Icon :name="item.icon" :class="['text-xl', item.color]" />
-              </div>
-              <div class="text-center">
-                <div class="text-xs font-bold text-tx-primary">
-                  {{ item.name }}
-                </div>
-                <div class="text-[10px] text-tx-muted mt-0.5">
-                  {{ item.sub }}
-                </div>
-              </div>
+                <div
+                  v-for="item in category.items"
+                  :key="item.name"
+                  class="group relative shrink-0 w-36 sm:w-40 lg:w-44 bg-bg-primary border border-border-subtle hover:border-brand/30 rounded-2xl p-4 flex flex-col items-center gap-3 transition-all duration-200 cursor-pointer hover:bg-bg-elevated hover:shadow-lg hover:shadow-brand/5 hover:-translate-y-0.5"
+                >
+                  <!-- Logo / Icon -->
+                  <div
+                    :class="[
+                      'w-10 h-10 rounded-xl flex items-center justify-center shrink-0',
+                      item.bg,
+                    ]"
+                  >
+                    <Icon :name="item.icon" :class="['text-xl', item.color]" />
+                  </div>
+                  <div class="text-center">
+                    <div class="text-xs font-bold text-tx-primary">
+                      {{ item.name }}
+                    </div>
+                    <div class="text-[10px] text-tx-muted mt-0.5">
+                      {{ item.sub }}
+                    </div>
+                  </div>
 
-              <!-- "Live" badge for active ones -->
-              <span
-                v-if="item.live"
-                class="absolute top-2 end-2 status-dot bg-success"
-              ></span>
+                  <!-- "Live" badge for active ones -->
+                  <span
+                    v-if="item.live"
+                    class="absolute top-2 end-2 status-dot bg-success"
+                  ></span>
 
-              <!-- Coming Soon badge -->
-              <span
-                v-if="item.soon"
-                class="absolute top-2 end-2 text-[8px] font-black text-tx-muted bg-bg-elevated border border-border-subtle rounded px-1.5 py-0.5 tracking-widest"
-                >{{ t("home.integrations.soon") }}</span
-              >
+                  <!-- Coming Soon badge -->
+                  <span
+                    v-if="item.soon"
+                    class="absolute top-2 end-2 text-[8px] font-black text-tx-muted bg-bg-elevated border border-border-subtle rounded px-1.5 py-0.5 tracking-widest"
+                    >{{ t("home.integrations.soon") }}</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -376,3 +393,51 @@ const steps = computed(() => [
   },
 ]);
 </script>
+
+<style scoped>
+/* Infinite marquee: the track holds 4 identical copies, so shifting by one copy (25%) loops seamlessly. */
+.marquee {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+}
+
+.marquee-track {
+  animation: integrations-marquee 40s linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* In RTL the track overflows to the left, so it has to travel right instead. */
+:global([dir="rtl"]) .marquee-track {
+  animation-name: integrations-marquee-rtl;
+}
+
+@keyframes integrations-marquee {
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes integrations-marquee-rtl {
+  to {
+    transform: translateX(25%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+</style>
