@@ -10,15 +10,7 @@
         >
           <!-- Subtle Grid Pattern Background -->
           <div
-            class="absolute inset-0 opacity-10 pointer-events-none"
-            style="
-              background-image: radial-gradient(
-                circle at 2px 2px,
-                white 1px,
-                transparent 0
-              );
-              background-size: 32px 32px;
-            "
+            class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] bg-[length:32px_32px]"
           ></div>
 
           <div class="relative z-10">
@@ -153,13 +145,17 @@
 
               <LazyVInput type="checkbox" v-model="agree">
                 {{ t("auth.register.agreeTerms") }}
-                <span class="text-orange-500 hover:underline">{{
-                  t("auth.register.termsOfService")
-                }}</span>
+                <nuxt-link-locale
+                  to="/terms"
+                  class="text-orange-500 hover:underline"
+                  >{{ t("auth.register.termsOfService") }}</nuxt-link-locale
+                >
                 {{ t("auth.register.and") }}
-                <span class="text-orange-500 hover:underline">{{
-                  t("auth.register.privacyPolicy")
-                }}</span>
+                <nuxt-link-locale
+                  to="/privacy"
+                  class="text-orange-500 hover:underline"
+                  >{{ t("auth.register.privacyPolicy") }}</nuxt-link-locale
+                >
               </LazyVInput>
 
               <LazyVButton
