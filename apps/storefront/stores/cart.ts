@@ -35,6 +35,7 @@ export const useCartStore = defineStore('shop-cart', () => {
 
   function add(productId: string, variantId: string, qty = 1) {
     const stock = catalog.getProduct(catalog.products.find(p => p.id === productId)?.handle ?? '')?.variants.find(v => v.id === variantId)?.stock ?? 0
+    if (stock <= 0 || !(qty > 0)) return
     const next = [...lines.value]
     const existing = next.find(l => l.variantId === variantId)
     if (existing) existing.qty = Math.min(stock || existing.qty + qty, existing.qty + qty)

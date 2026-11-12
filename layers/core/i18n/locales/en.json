@@ -234,7 +234,8 @@
     "trustGroup": "Trust & Compliance",
     "checkoutGroup": "Checkout Extras",
     "catalogToolsGroup": "Catalog & Customer Tools",
-    "switchLanguage": "Switch language"
+    "switchLanguage": "Switch language",
+    "trialDaysLeft": "{n}d left in trial"
   },
   "home": {
     "hero": {
@@ -1178,7 +1179,8 @@
             "title": "Place a test order",
             "hint": "Verify checkout end to end."
           }
-        }
+        },
+        "viewChecklist": "View checklist"
       },
       "segments": {
         "title": "Customer segments",
@@ -4204,6 +4206,30 @@
           }
         }
       }
+    },
+    "coupons2": {
+      "stats": {
+        "active": "ACTIVE COUPONS",
+        "redemptions": "TOTAL REDEMPTIONS",
+        "revenue": "REVENUE GENERATED"
+      }
+    },
+    "home2": {
+      "stats": {
+        "ordersToday": "ORDERS TODAY",
+        "revenueToday": "REVENUE TODAY",
+        "pendingOrders": "PENDING ORDERS",
+        "inventoryAlerts": "INVENTORY ALERTS",
+        "ordersTrend": "+12.5% from yesterday",
+        "revenueTrend": "+5.2% from yesterday",
+        "pendingTrend": "Requires immediate fulfillment",
+        "inventoryTrend": "Items below safety threshold"
+      }
+    },
+    "storeInfo2": {
+      "subtitle": "Manage your brand identity, contact details, and localization settings.",
+      "seoTitle": "Settings - Store Info",
+      "customDomainPlaceholder": "e.g. shop.example.com"
     }
   },
   "admin": {

@@ -233,7 +233,8 @@
     "trustGroup": "الثقة والامتثال",
     "checkoutGroup": "إضافات الدفع",
     "catalogToolsGroup": "أدوات الكتالوج والعملاء",
-    "switchLanguage": "تغيير اللغة"
+    "switchLanguage": "تغيير اللغة",
+    "trialDaysLeft": "متبقي {n} يوم في الفترة التجريبية"
   },
   "home": {
     "hero": {
@@ -1177,7 +1178,8 @@
             "title": "جرّب طلبًا تجريبيًا",
             "hint": "تحقق من إتمام الشراء من البداية للنهاية."
           }
-        }
+        },
+        "viewChecklist": "عرض قائمة المهام"
       },
       "segments": {
         "title": "شرائح العملاء",
@@ -4203,6 +4205,30 @@
           }
         }
       }
+    },
+    "coupons2": {
+      "stats": {
+        "active": "القسائم النشطة",
+        "redemptions": "إجمالي الاستخدامات",
+        "revenue": "الإيرادات المحققة"
+      }
+    },
+    "home2": {
+      "stats": {
+        "ordersToday": "طلبات اليوم",
+        "revenueToday": "إيرادات اليوم",
+        "pendingOrders": "الطلبات المعلقة",
+        "inventoryAlerts": "تنبيهات المخزون",
+        "ordersTrend": "+12.5% عن الأمس",
+        "revenueTrend": "+5.2% عن الأمس",
+        "pendingTrend": "تحتاج إلى تنفيذ فوري",
+        "inventoryTrend": "عناصر أقل من حد الأمان"
+      }
+    },
+    "storeInfo2": {
+      "subtitle": "أدر هوية علامتك التجارية وبيانات التواصل وإعدادات التوطين.",
+      "seoTitle": "الإعدادات - معلومات المتجر",
+      "customDomainPlaceholder": "مثال: shop.example.com"
     }
   },
   "admin": {

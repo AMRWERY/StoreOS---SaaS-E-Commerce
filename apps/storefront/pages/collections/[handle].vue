@@ -102,5 +102,6 @@ useSeoMeta({
   title: () => (collection.value ? loc(collection.value.title) : t('shop.collections.notFoundTitle')),
   description: () => (collection.value ? loc(collection.value.description) : t('shop.seo.collectionsDesc')),
   ogTitle: () => (collection.value ? loc(collection.value.title) : t('shop.collections.title')),
+  robots: () => (collection.value ? 'index, follow' : 'noindex, nofollow'),
 })
 </script>

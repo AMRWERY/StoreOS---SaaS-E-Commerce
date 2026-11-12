@@ -151,6 +151,7 @@ useSeoMeta({
   ogTitle: () => (product.value ? loc(product.value.title) : ''),
   ogDescription: () => (product.value ? loc(product.value.description) : ''),
   ogType: 'website',
+  robots: () => (product.value ? 'index, follow' : 'noindex, nofollow'),
 })
 
 useHead(computed(() => {

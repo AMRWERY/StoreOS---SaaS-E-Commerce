@@ -9,6 +9,7 @@
         :value="modelValue"
         :disabled="disabled"
         :aria-invalid="!!error"
+        :aria-label="label ? undefined : ariaLabel"
         :class="[
           'w-full appearance-none bg-bg-primary border rounded-xl ps-4 pe-10 py-3 text-sm outline-none transition-colors duration-200 disabled:opacity-50',
           modelValue ? 'text-tx-primary' : 'text-tx-muted',
@@ -30,6 +31,7 @@ defineProps<{
   modelValue: string
   options: { value: string; label: string }[]
   label?: string
+  ariaLabel?: string
   placeholder?: string
   error?: string
   required?: boolean
