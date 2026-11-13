@@ -20,7 +20,7 @@
           v-html="wordReveal(`Connect 10+ carriers, auto-generate labels, calculate live rates at checkout, and manage returns — all from one unified shipping dashboard.`, { delay: 320, stagger: 40 })"
         />
         <div class="flex flex-wrap gap-4">
-          <LazyVButton to="/auth/register" label="Start shipping free" icon="ph:arrow-right-bold"
+          <LazyVButton to="/contact" label="Start shipping free" icon="ph:arrow-right-bold"
             className="px-7 py-3.5 rounded-xl shadow-lg shadow-brand/20" />
           <LazyVButton to="/integrations" label="View all carriers" variant="secondary"
             className="px-7 py-3.5 rounded-xl" />
@@ -229,7 +229,7 @@
           v-html="wordReveal(`Ready to streamline your shipping?`)"
         />
         <p class="text-tx-secondary mb-10">Set up in minutes. Your first 500 labels are free.</p>
-        <LazyVButton to="/auth/register" label="Get started free" icon="ph:arrow-right-bold"
+        <LazyVButton to="/contact" label="Get started free" icon="ph:arrow-right-bold"
           className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
       </div>
     </section>

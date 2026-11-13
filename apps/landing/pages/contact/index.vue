@@ -141,7 +141,6 @@ const submit = async () => {
 const channels = [
   { icon: 'ph:envelope-bold', title: 'Email us', description: 'For general inquiries and partnerships.', cta: 'hello@storeos.io', href: 'mailto:hello@storeos.io' },
   { icon: 'ph:headset-bold', title: 'Support', description: 'Technical issues and billing questions.', cta: 'support@storeos.io', href: 'mailto:support@storeos.io' },
-  { icon: 'ph:chat-circle-dots-bold', title: 'Live chat', description: 'Available inside your dashboard for paid plans.', cta: 'Open dashboard', href: '/auth' },
 ]
 
 useSeoMeta({

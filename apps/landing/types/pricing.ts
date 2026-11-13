@@ -1,4 +1,4 @@
-import type { Plan } from "./auth";
+export type Plan = "free" | "starter" | "growth" | "enterprise";
 
 export type Tier = {
   name: string;

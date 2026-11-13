@@ -47,7 +47,7 @@
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
           <LazyVButton
             variant="none"
-            to="/auth/register"
+            to="/contact"
             className="bg-brand hover:bg-brand-hover px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-brand/20 transition"
           >
             {{ t("home.hero.startFreeTrial") }}
@@ -155,12 +155,14 @@
     </section>
 
     <!-- Video Demo Dialog -->
-    <LazyVDialog v-model="isDemoOpen" maxWidth="5xl" hideHeader hideClose flush>
-      <!-- Video Player: fills the dialog edge to edge; letterboxed (not cropped) if the viewport is short -->
+    <LazyVDialog v-model="isDemoOpen" maxWidth="5xl" hideHeader flush>
+      <!-- Video Player: full dialog width at 16:9; height is capped to the visible viewport
+           (dvh = excludes mobile browser bars, minus the dialog's p-4/p-6 gutters) so it is
+           letterboxed, never cropped or overflowing, on short/landscape screens. -->
       <div class="bg-black">
         <video
           ref="videoRef"
-          class="block w-full aspect-video max-h-[calc(100vh-2rem)] object-contain"
+          class="block w-full aspect-video max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-3rem)] object-contain"
           controls
           autoplay
           playsinline

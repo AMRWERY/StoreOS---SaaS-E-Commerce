@@ -22,7 +22,7 @@
           v-html="wordReveal(`WhatsApp order confirmations, SMS alerts, live chat, and automated sequences — manage all customer communication from a single inbox.`, { delay: 480, stagger: 40 })"
         />
         <div class="flex flex-wrap gap-4">
-          <LazyVButton to="/auth/register" label="Connect your channels" icon="ph:arrow-right-bold"
+          <LazyVButton to="/contact" label="Connect your channels" icon="ph:arrow-right-bold"
             className="px-7 py-3.5 rounded-xl shadow-lg shadow-brand/20" />
           <LazyVButton to="/integrations" label="See all integrations" variant="secondary"
             className="px-7 py-3.5 rounded-xl" />
@@ -231,7 +231,7 @@
           v-html="wordReveal(`Start talking to your customers`)"
         />
         <p class="text-tx-secondary mb-10">Connect WhatsApp in 2 minutes. Free for 1,000 messages/month.</p>
-        <LazyVButton to="/auth/register" label="Get started free" icon="ph:arrow-right-bold"
+        <LazyVButton to="/contact" label="Get started free" icon="ph:arrow-right-bold"
           className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
       </div>
     </section>

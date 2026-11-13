@@ -397,7 +397,7 @@
 // Templates do not get Nuxt auto-imports on the client, so import it explicitly.
 import { wordReveal } from "#imports";
 import type { Tier } from "@/types/pricing";
-import type { Plan } from "@/types/auth";
+import type { Plan } from "@/types/pricing";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
@@ -423,7 +423,7 @@ const openTrialModal = (tier: Tier) => {
 const handleTierCta = async (tier: Tier) => {
   if (tier.free) {
     await navigateTo(
-      localePath({ path: "/auth/register", query: { plan: tier.plan } }),
+      localePath({ path: "/contact", query: { plan: tier.plan } }),
     );
     return;
   }
@@ -456,7 +456,7 @@ const startTrial = async () => {
   // itself is created on the register form, with the plan and email carried over.
   await navigateTo(
     localePath({
-      path: "/auth/register",
+      path: "/contact",
       query: {
         plan: selectedTier.value?.plan ?? "trial",
         email: trialEmail.value,
@@ -479,7 +479,7 @@ const tiers = computed(() => [
     free: true,
     trial: true,
     cta: t("home.pricing.tiers.free.cta"),
-    ctaRoute: "/auth/register",
+    ctaRoute: "/contact",
     featureGroups: [
       {
         label: t("home.pricing.ordersAndProducts"),
@@ -531,7 +531,7 @@ const tiers = computed(() => [
     free: false,
     trial: true,
     cta: t("home.pricing.tiers.starter.cta"),
-    ctaRoute: "/auth/register?plan=starter",
+    ctaRoute: "/contact?plan=starter",
     featureGroups: [
       {
         label: t("home.pricing.ordersAndProducts"),
@@ -583,7 +583,7 @@ const tiers = computed(() => [
     free: false,
     trial: true,
     cta: t("home.pricing.tiers.growth.cta"),
-    ctaRoute: "/auth/register?plan=growth",
+    ctaRoute: "/contact?plan=growth",
     featureGroups: [
       {
         label: t("home.pricing.ordersAndProducts"),

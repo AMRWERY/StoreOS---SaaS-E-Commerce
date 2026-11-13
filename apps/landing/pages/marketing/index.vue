@@ -22,7 +22,7 @@
           v-html="wordReveal(`Email campaigns, discount engines, ad catalog sync, and customer segmentation — the complete marketing toolkit built for e-commerce merchants.`, { delay: 400, stagger: 40 })"
         />
         <div class="flex flex-wrap gap-4">
-          <LazyVButton to="/auth/register" label="Launch your first campaign" icon="ph:arrow-right-bold"
+          <LazyVButton to="/contact" label="Launch your first campaign" icon="ph:arrow-right-bold"
             className="px-7 py-3.5 rounded-xl shadow-lg shadow-brand/20" />
           <LazyVButton to="/integrations" label="See integrations" variant="secondary"
             className="px-7 py-3.5 rounded-xl" />
@@ -205,7 +205,7 @@
           v-html="wordReveal(`Start growing your store today`)"
         />
         <p class="text-tx-secondary mb-10">Your first campaign is free. No credit card required.</p>
-        <LazyVButton to="/auth/register" label="Launch a campaign" icon="ph:arrow-right-bold"
+        <LazyVButton to="/contact" label="Launch a campaign" icon="ph:arrow-right-bold"
           className="px-8 py-4 rounded-xl shadow-lg shadow-brand/20" />
       </div>
     </section>

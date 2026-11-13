@@ -125,7 +125,7 @@
         <div class="flex items-center gap-3 shrink-0">
           <LazyVButton
             variant="none"
-            to="/auth/register"
+            to="/contact"
             className="bg-brand hover:bg-brand-hover text-white px-6 py-3 rounded-xl text-xs font-bold transition-all shadow-lg shadow-brand/20"
           >
             {{ t("home.integrations.requestIntegration") }}
