@@ -1,4 +1,4 @@
-import type { Product } from "@storeos/ui/types/v-product-card";
+import type { Product } from "@storeos/ui/types/VProductCard";
 
 export const useProductsStore = defineStore("products", () => {
   const activeFilter = ref("All");

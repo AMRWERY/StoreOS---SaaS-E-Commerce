@@ -4,7 +4,7 @@
     <shop-section-heading :title="t('shop.collections.title')" :subtitle="t('shop.collections.subtitle')" />
     <div v-if="catalog.collections.length" class="grid sm:grid-cols-2 gap-5 sm:gap-6">
       <nuxt-link-locale v-for="c in catalog.collections" :key="c.handle" :to="`/collections/${c.handle}`" class="group">
-        <product-visual :tone="c.tone" :icon="c.icon" ratio="aspect-[16/10]" icon-size="w-16 h-16" class="rounded-3xl border border-border-subtle">
+        <product-visual :tone="c.tone" :icon="c.icon" :image="c.image" ratio="aspect-[16/10]" icon-size="w-16 h-16" class="rounded-3xl border border-border-subtle">
           <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-bg-base/85 to-transparent">
             <h2 class="text-xl font-semibold text-tx-primary">{{ loc(c.title) }}</h2>
             <p class="text-sm text-tx-secondary mt-1">{{ loc(c.description) }}</p>

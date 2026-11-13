@@ -1,7 +1,7 @@
 <template>
   <li class="flex gap-4 py-5">
     <nuxt-link-locale :to="`/products/${item.product.handle}`" class="shrink-0" @click="emit('navigate')">
-      <product-visual :tone="item.product.tone" :icon="item.product.icon" :label="loc(item.product.title)" ratio="aspect-square" icon-size="w-7 h-7" class="w-20 sm:w-24 rounded-xl border border-border-subtle" />
+      <product-visual :tone="item.product.tone" :icon="item.product.icon" :image="item.product.image" :label="loc(item.product.title)" ratio="aspect-square" icon-size="w-7 h-7" class="w-20 sm:w-24 rounded-xl border border-border-subtle" />
     </nuxt-link-locale>
     <div class="flex-1 min-w-0 flex flex-col">
       <div class="flex items-start justify-between gap-3">

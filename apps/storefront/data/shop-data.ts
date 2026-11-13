@@ -3,17 +3,17 @@ import type { Category, Collection, ContentPage, GeoGovernorate, Localized, Prod
 const l = (en: string, ar: string): Localized => ({ en, ar })
 
 export const CATEGORIES: Category[] = [
-  { handle: 'apparel', title: l('Apparel', 'الملابس'), icon: 'lucide:shirt', tone: 0 },
-  { handle: 'home', title: l('Home & Living', 'المنزل والمعيشة'), icon: 'lucide:lamp', tone: 1 },
-  { handle: 'accessories', title: l('Accessories', 'الإكسسوارات'), icon: 'lucide:watch', tone: 2 },
-  { handle: 'beauty', title: l('Beauty', 'الجمال'), icon: 'lucide:sparkles', tone: 3 },
+  { handle: 'apparel', title: l('Apparel', 'الملابس'), icon: 'lucide:shirt', tone: 0, image: '/img/prod-01.png' },
+  { handle: 'home', title: l('Home & Living', 'المنزل والمعيشة'), icon: 'lucide:lamp', tone: 1, image: '/img/prod-04.png' },
+  { handle: 'accessories', title: l('Accessories', 'الإكسسوارات'), icon: 'lucide:watch', tone: 2, image: '/img/prod-08.png' },
+  { handle: 'beauty', title: l('Beauty', 'الجمال'), icon: 'lucide:sparkles', tone: 3, image: '/img/prod-06.png' },
 ]
 
 export const COLLECTIONS: Collection[] = [
-  { handle: 'all', title: l('All products', 'كل المنتجات'), description: l('Everything we make, in one place.', 'كل ما نقدمه في مكان واحد.'), tone: 0, icon: 'lucide:shopping-bag' },
-  { handle: 'new-arrivals', title: l('New arrivals', 'وصل حديثاً'), description: l('Fresh pieces added this week.', 'قطع جديدة أضيفت هذا الأسبوع.'), tone: 1, icon: 'lucide:sparkles' },
-  { handle: 'best-sellers', title: l('Best sellers', 'الأكثر مبيعاً'), description: l('The pieces our customers keep coming back for.', 'القطع التي يعود إليها عملاؤنا دائماً.'), tone: 2, icon: 'lucide:star' },
-  { handle: 'summer-edit', title: l('The summer edit', 'تشكيلة الصيف'), description: l('Light fabrics and easy colours for hot days.', 'أقمشة خفيفة وألوان هادئة للأيام الحارة.'), tone: 3, icon: 'lucide:sun' },
+  { handle: 'all', title: l('All products', 'كل المنتجات'), description: l('Everything we make, in one place.', 'كل ما نقدمه في مكان واحد.'), tone: 0, icon: 'lucide:shopping-bag', image: '/img/prod-02.png' },
+  { handle: 'new-arrivals', title: l('New arrivals', 'وصل حديثاً'), description: l('Fresh pieces added this week.', 'قطع جديدة أضيفت هذا الأسبوع.'), tone: 1, icon: 'lucide:sparkles', image: '/img/prod-03.png' },
+  { handle: 'best-sellers', title: l('Best sellers', 'الأكثر مبيعاً'), description: l('The pieces our customers keep coming back for.', 'القطع التي يعود إليها عملاؤنا دائماً.'), tone: 2, icon: 'lucide:star', image: '/img/prod-05.png' },
+  { handle: 'summer-edit', title: l('The summer edit', 'تشكيلة الصيف'), description: l('Light fabrics and easy colours for hot days.', 'أقمشة خفيفة وألوان هادئة للأيام الحارة.'), tone: 3, icon: 'lucide:sun', image: '/img/prod-09.png' },
 ]
 
 const SIZES: ProductOption = {
@@ -63,8 +63,13 @@ const seeds: Seed[] = [
   { id: 'p12', handle: 'clay-face-mask', title: l('Clay face mask', 'ماسك الطين للوجه'), description: l('Purifying kaolin clay mask that leaves skin soft and clear.', 'ماسك كاولين منقٍّ يترك البشرة ناعمة ونقية.'), price: 260, category: 'beauty', collections: ['all', 'new-arrivals', 'summer-edit'], options: [{ key: 'volume', label: l('Size', 'الحجم'), values: [{ value: '75', label: l('75 ml', '75 مل') }, { value: '150', label: l('150 ml', '150 مل') }] }], rating: 4.2, reviews: 51, tone: 5, icon: 'lucide:flower-2', isNew: true },
 ]
 
+/** Product images live in the core layer: prod-01.png … prod-09.png, prod-010.png. They cycle over all products. */
+const IMAGE_FILES = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '010']
+const productImage = (i: number) => `/img/prod-${IMAGE_FILES[i % IMAGE_FILES.length]}.png`
+
 export const PRODUCTS: Product[] = seeds.map((s, i) => ({
   ...s,
+  image: productImage(i),
   cod: s.cod ?? true,
   variants: build(s.id, s.price, s.options, i + 3),
 }))
@@ -134,19 +139,19 @@ export const MOCK_ORDERS: ShopOrder[] = [
   {
     id: 'SO-10482', placedAt: '2026-11-08', status: 'out_for_delivery', paymentMethod: 'cod',
     items: [
-      { title: PRODUCTS[0]!.title, variantLabel: 'M / Sand', qty: 1, unitPrice: 890, tone: 0, icon: 'lucide:shirt' },
-      { title: PRODUCTS[6]!.title, variantLabel: 'Tan', qty: 2, unitPrice: 380, tone: 0, icon: 'lucide:wallet' },
+      { title: PRODUCTS[0]!.title, variantLabel: 'M / Sand', qty: 1, unitPrice: 890, tone: 0, icon: 'lucide:shirt', image: PRODUCTS[0]!.image },
+      { title: PRODUCTS[6]!.title, variantLabel: 'Tan', qty: 2, unitPrice: 380, tone: 0, icon: 'lucide:wallet', image: PRODUCTS[6]!.image },
     ],
     subtotal: 1650, shipping: 0, discount: 0, total: 1650, address: 'Nasr City, Cairo', phone: '01012345678',
   },
   {
     id: 'SO-10377', placedAt: '2026-10-29', status: 'delivered', paymentMethod: 'card',
-    items: [{ title: PRODUCTS[3]!.title, variantLabel: 'Cream', qty: 1, unitPrice: 1650, tone: 3, icon: 'lucide:lamp' }],
+    items: [{ title: PRODUCTS[3]!.title, variantLabel: 'Cream', qty: 1, unitPrice: 1650, tone: 3, icon: 'lucide:lamp', image: PRODUCTS[3]!.image }],
     subtotal: 1650, shipping: 0, discount: 165, total: 1485, address: 'Sheikh Zayed, Giza', phone: '01012345678',
   },
   {
     id: 'SO-10291', placedAt: '2026-10-12', status: 'cancelled', paymentMethod: 'wallet',
-    items: [{ title: PRODUCTS[10]!.title, variantLabel: '100 ml', qty: 2, unitPrice: 310, tone: 4, icon: 'lucide:droplet' }],
+    items: [{ title: PRODUCTS[10]!.title, variantLabel: '100 ml', qty: 2, unitPrice: 310, tone: 4, icon: 'lucide:droplet', image: PRODUCTS[10]!.image }],
     subtotal: 620, shipping: 60, discount: 0, total: 680, address: 'Smouha, Alexandria', phone: '01012345678',
   },
 ]

@@ -84,7 +84,7 @@
         <ul class="space-y-4">
           <li v-for="item in cart.items" :key="item.variantId" class="flex items-center gap-3">
             <div class="relative shrink-0">
-              <product-visual :tone="item.product.tone" :icon="item.product.icon" ratio="aspect-square" icon-size="w-5 h-5" class="w-14 rounded-xl border border-border-subtle" />
+              <product-visual :tone="item.product.tone" :icon="item.product.icon" :image="item.product.image" ratio="aspect-square" icon-size="w-5 h-5" class="w-14 rounded-xl border border-border-subtle" />
               <span class="absolute -top-2 -end-2 min-w-[20px] h-5 px-1 rounded-full bg-tx-secondary text-bg-base text-[10px] font-mono font-semibold flex items-center justify-center">{{ item.qty }}</span>
             </div>
             <p class="flex-1 min-w-0 text-sm text-tx-primary truncate">{{ loc(item.product.title) }}</p>
@@ -174,7 +174,7 @@ async function placeOrder() {
     placedAt: new Date().toISOString().slice(0, 10),
     status: 'placed',
     paymentMethod: form.payment,
-    items: cart.items.map(i => ({ title: i.product.title, variantLabel: Object.values(i.variant.options).join(' / '), qty: i.qty, unitPrice: i.unitPrice, tone: i.product.tone, icon: i.product.icon })),
+    items: cart.items.map(i => ({ title: i.product.title, variantLabel: Object.values(i.variant.options).join(' / '), qty: i.qty, unitPrice: i.unitPrice, tone: i.product.tone, icon: i.product.icon, image: i.product.image })),
     subtotal: cart.subtotal,
     shipping: shipping.value,
     discount: cart.discount,

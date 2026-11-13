@@ -20,7 +20,7 @@
             <h2 class="text-base font-semibold text-tx-primary">{{ t('shop.orderStatus.items') }}</h2>
             <ul class="space-y-3">
               <li v-for="(i, idx) in order.items" :key="idx" class="flex items-center gap-3">
-                <product-visual :tone="i.tone" :icon="i.icon" ratio="aspect-square" icon-size="w-5 h-5" class="w-12 rounded-xl" />
+                <product-visual :tone="i.tone" :icon="i.icon" :image="i.image" ratio="aspect-square" icon-size="w-5 h-5" class="w-12 rounded-xl" />
                 <div class="flex-1 min-w-0">
                   <p class="text-sm text-tx-primary truncate">{{ loc(i.title) }}</p>
                   <p class="text-xs text-tx-muted font-mono">{{ i.qty }} x {{ formatMoney(i.unitPrice) }}</p>

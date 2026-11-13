@@ -1,7 +1,7 @@
 <template>
   <article class="group">
     <nuxt-link-locale :to="`/products/${product.handle}`" class="block">
-      <product-visual :tone="product.tone" :icon="product.icon" :label="loc(product.title)" class="rounded-2xl border border-border-subtle">
+      <product-visual :tone="product.tone" :icon="product.icon" :image="product.image" :label="loc(product.title)" class="rounded-2xl border border-border-subtle">
         <span v-if="product.isNew" class="absolute top-3 start-3 rounded-full bg-bg-base/80 text-tx-primary text-[10px] font-semibold px-2.5 py-1">
           {{ t('shop.product.new') }}
         </span>

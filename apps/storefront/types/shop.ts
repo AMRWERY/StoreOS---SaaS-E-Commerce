@@ -37,6 +37,7 @@ export interface Product {
   reviews: number
   tone: number
   icon: string
+  image: string
   isNew?: boolean
   cod: boolean
 }
@@ -46,6 +47,7 @@ export interface Category {
   title: Localized
   icon: string
   tone: number
+  image: string
 }
 
 export interface Collection {
@@ -54,6 +56,7 @@ export interface Collection {
   description: Localized
   tone: number
   icon: string
+  image: string
 }
 
 export interface CartLine {
@@ -78,6 +81,7 @@ export interface OrderItem {
   unitPrice: number
   tone: number
   icon: string
+  image: string
 }
 
 export interface ShopOrder {

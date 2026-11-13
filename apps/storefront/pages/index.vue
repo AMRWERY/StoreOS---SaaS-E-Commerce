@@ -14,8 +14,8 @@
           <p class="inline-flex items-center gap-2 text-xs text-tx-muted pt-2"><Icon name="lucide:banknote" class="w-4 h-4" />{{ t('shop.home.codNote') }}</p>
         </div>
         <div class="grid grid-cols-2 gap-4">
-          <product-visual :tone="0" icon="lucide:shirt" ratio="aspect-[3/4]" icon-size="w-20 h-20" class="rounded-3xl border border-border-subtle" />
-          <product-visual :tone="3" icon="lucide:lamp" ratio="aspect-[3/4]" icon-size="w-20 h-20" class="rounded-3xl border border-border-subtle mt-10" />
+          <product-visual :tone="0" icon="lucide:shirt" image="/img/prod-01.png" ratio="aspect-[3/4]" icon-size="w-20 h-20" class="rounded-3xl border border-border-subtle" />
+          <product-visual :tone="3" icon="lucide:lamp" image="/img/prod-04.png" ratio="aspect-[3/4]" icon-size="w-20 h-20" class="rounded-3xl border border-border-subtle mt-10" />
         </div>
       </div>
     </section>
@@ -33,7 +33,7 @@
       <shop-section-heading :title="t('shop.home.categoriesTitle')" :subtitle="t('shop.home.categoriesSubtitle')" />
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <nuxt-link-locale v-for="c in catalog.categories" :key="c.handle" :to="`/collections/all?category=${c.handle}`" class="group">
-          <product-visual :tone="c.tone" :icon="c.icon" ratio="aspect-square" icon-size="w-12 h-12" class="rounded-3xl border border-border-subtle">
+          <product-visual :tone="c.tone" :icon="c.icon" :image="c.image" ratio="aspect-square" icon-size="w-12 h-12" class="rounded-3xl border border-border-subtle">
             <div class="absolute inset-x-0 bottom-0 p-4 sm:p-5 flex items-center justify-between bg-gradient-to-t from-bg-base/80 to-transparent">
               <span class="text-sm font-semibold text-tx-primary">{{ loc(c.title) }}</span>
               <Icon name="lucide:arrow-right" class="w-4 h-4 text-tx-primary rtl:rotate-180 transition-transform duration-200 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />

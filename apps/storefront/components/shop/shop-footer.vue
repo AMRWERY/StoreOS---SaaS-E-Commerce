@@ -4,9 +4,13 @@
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
     >
       <div class="space-y-4">
-        <p class="text-base font-semibold text-tx-primary">
-          {{ t("shop.brand") }}
-        </p>
+        <img
+          src="/gif/storeose-logo-storefront.gif"
+          alt="StoreOS"
+          class="h-8 sm:h-12 w-auto object-contain"
+          width="117"
+          height="40"
+        />
         <p class="text-sm text-tx-secondary max-w-xs">
           {{ t("shop.footer.tagline") }}
         </p>
