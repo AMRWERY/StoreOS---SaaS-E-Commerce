@@ -45,13 +45,14 @@
         />
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-          <LazyVButton
-            variant="none"
-            to="/auth/register"
-            className="bg-brand hover:bg-brand-hover px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-brand/20 transition"
+          <a
+            href="https://storeos-store-builder.vercel.app/en/builder/home"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group bg-brand hover:bg-brand-hover px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-brand/20 transition text-center"
           >
             {{ t("home.hero.startFreeTrial") }}
-          </LazyVButton>
+          </a>
 
           <LazyVButton
             variant="none"
