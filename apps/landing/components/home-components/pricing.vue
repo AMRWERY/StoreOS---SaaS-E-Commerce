@@ -401,6 +401,10 @@ import type { Plan } from "@/types/pricing";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { dashboardUrl } = useAppUrls();
+// The dashboard is a separate deployment, so these are full-page navigations.
+const goToDashboard = (path: string, query: Record<string, string | undefined>) =>
+  navigateTo(dashboardUrl(path, query), { external: true });
 const billing = ref<"monthly" | "annual">("monthly");
 
 const isTrialOpen = ref(false);
@@ -422,9 +426,7 @@ const openTrialModal = (tier: Tier) => {
  */
 const handleTierCta = async (tier: Tier) => {
   if (tier.free) {
-    await navigateTo(
-      localePath({ path: "/contact", query: { plan: tier.plan } }),
-    );
+    await goToDashboard("/auth/register", { plan: tier.plan });
     return;
   }
   openTrialModal(tier);
@@ -454,15 +456,10 @@ const startTrial = async () => {
 
   // Trialling a tier grants exactly that tier's dashboard access for 14 days; the account
   // itself is created on the register form, with the plan and email carried over.
-  await navigateTo(
-    localePath({
-      path: "/contact",
-      query: {
-        plan: selectedTier.value?.plan ?? "trial",
-        email: trialEmail.value,
-      },
-    }),
-  );
+  await goToDashboard("/auth/register", {
+    plan: selectedTier.value?.plan ?? "trial",
+    email: trialEmail.value,
+  });
 };
 
 const tiers = computed(() => [

@@ -44,14 +44,32 @@
           "
         />
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+        <div
+          class="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-4 mb-16"
+        >
+          <!-- A: account first → dashboard register -->
           <a
-            href="https://storeos-store-builder.vercel.app/en/builder/home"
+            :href="dashboardUrl('/auth/register')"
             target="_blank"
             rel="noopener noreferrer"
             class="group bg-brand hover:bg-brand-hover px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-brand/20 transition text-center"
           >
             {{ t("home.hero.startFreeTrial") }}
+          </a>
+
+          <!-- B: builder first → try it with no account -->
+          <a
+            :href="builderUrl()"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group bg-bg-elevated hover:bg-white/10 border border-brand/40 text-tx-primary px-8 py-4 rounded-lg font-bold text-lg transition flex items-center justify-center gap-2"
+          >
+            <Icon
+              name="ph:paint-brush-bold"
+              class="text-xl text-brand"
+              aria-hidden="true"
+            />
+            {{ t("home.hero.tryBuilder") }}
           </a>
 
           <LazyVButton
@@ -182,6 +200,7 @@
 import { wordReveal } from "#imports";
 
 const { t } = useI18n();
+const { dashboardUrl, builderUrl } = useAppUrls();
 
 const { isDemoOpen, openDemo, closeDemo } = useDemoModal();
 

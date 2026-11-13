@@ -106,8 +106,8 @@
           </p>
         </div>
 
-        <button
-          type="button"
+        <a
+          :href="dashboardUrl('/auth/register', { plan: tier.plan })"
           :class="[
             'mb-5 flex w-full items-center justify-center rounded-xl py-3 text-xs font-bold transition-colors',
             tier.popular
@@ -116,10 +116,9 @@
                 ? 'border border-success/30 bg-success/15 text-success hover:bg-success/25'
                 : 'border border-border-default bg-bg-elevated text-tx-primary hover:bg-white/10',
           ]"
-          @click="planGateOpen = false"
         >
           {{ tier.cta }}
-        </button>
+        </a>
 
         <div class="flex-1 space-y-1">
           <div v-for="group in tier.featureGroups" :key="group.label" class="mb-4">
@@ -160,6 +159,8 @@ import { buildPricingTiers } from "@/data/pricing-tiers";
 const { t } = useI18n();
 const { planGateOpen } = useBuilderModals();
 const { hasFeature } = useAuth();
+// Plans are bought/registered in the merchant dashboard (separate deployment).
+const { dashboardUrl } = useAppUrls();
 
 const isTrialMode = computed(() => !hasFeature("builder"));
 const billing = ref<"monthly" | "annual">("monthly");

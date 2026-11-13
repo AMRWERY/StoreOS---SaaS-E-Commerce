@@ -117,6 +117,7 @@
     }
   },
   "nav": {
+    "log_in": "Log in",
     "features": "Features",
     "integrations": "Integrations",
     "pricing": "Pricing",
@@ -244,6 +245,7 @@
       "subtitle": "Replace messy WhatsApp threads and fragile Excel sheets with an operational powerhouse designed for high-growth commerce.",
       "startFreeTrial": "Start Free Trial",
       "watchDemo": "Watch Demo",
+      "tryBuilder": "Try the Store Builder",
       "storesRunning": "500+ STORES ALREADY RUNNING ON STOREOS",
       "fashion": "Fashion",
       "food": "Food",

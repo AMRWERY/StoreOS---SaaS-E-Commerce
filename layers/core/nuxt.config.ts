@@ -10,6 +10,13 @@ export default defineNuxtConfig({
     "@vee-validate/nuxt",
     "@nuxtjs/i18n",
   ],
+  runtimeConfig: {
+    public: {
+      // Override per environment: NUXT_PUBLIC_DASHBOARD_URL / NUXT_PUBLIC_BUILDER_URL (no trailing slash, no locale)
+      dashboardUrl: "https://storeos-merchant.vercel.app",
+      builderUrl: "https://storeos-store-builder.vercel.app",
+    },
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

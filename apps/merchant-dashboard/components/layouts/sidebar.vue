@@ -155,6 +155,20 @@
     </nav>
 
     <div class="mt-auto pt-6 space-y-2 border-t border-border-subtle">
+      <!-- Store Builder lives in its own app -->
+      <a
+        :href="builderHref"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-2 px-3 py-2 rounded-lg text-tx-secondary hover:text-tx-primary hover:bg-bg-elevated transition-all"
+      >
+        <Icon name="ph:paint-brush-fill" class="w-4 h-4 shrink-0" />
+        <span class="flex-1 truncate text-xs font-semibold">{{
+          t("nav.admin.store_builder")
+        }}</span>
+        <Icon name="ph:arrow-up-right-bold" class="w-3 h-3 text-tx-muted shrink-0" />
+      </a>
+
       <!-- Preview nudge: sign up to keep the store you build -->
       <nuxt-link-locale
         v-if="isGuest"
@@ -254,6 +268,8 @@
 
 <script lang="ts" setup>
 const { t } = useI18n();
+// Always the English builder entry: https://storeos-store-builder.vercel.app/en/builder/home
+const builderHref = `${String(useRuntimeConfig().public.builderUrl).replace(/\/$/, "")}/en/builder/home`;
 const route = useRoute();
 const localePath = useLocalePath();
 

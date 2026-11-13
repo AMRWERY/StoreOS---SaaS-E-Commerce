@@ -49,6 +49,14 @@
         <div class="flex items-center gap-1 sm:gap-3">
           <LazyThemeToggle />
 
+          <!-- Returning merchants → dashboard sign-in -->
+          <a
+            :href="dashboardUrl('/auth')"
+            class="hidden sm:inline-flex items-center px-3 py-1.5 rounded-md text-xs font-bold text-tx-primary border border-border-default hover:bg-bg-elevated transition-colors"
+          >
+            {{ t("nav.log_in") }}
+          </a>
+
           <!-- Locale toggle -->
           <LazyVButton
             type="button"
@@ -94,6 +102,12 @@
           >
             {{ item.label }}
           </button>
+          <a
+            :href="dashboardUrl('/auth')"
+            class="sm:hidden text-start px-3 py-3 rounded-md text-sm font-bold text-brand hover:bg-bg-elevated transition-colors"
+          >
+            {{ t("nav.log_in") }}
+          </a>
         </div>
       </Transition>
     </nav>
@@ -104,6 +118,7 @@
 
 <script lang="ts" setup>
 const { locale, t } = useI18n();
+const { dashboardUrl } = useAppUrls();
 const route = useRoute();
 
 const localePath = useLocalePath();
