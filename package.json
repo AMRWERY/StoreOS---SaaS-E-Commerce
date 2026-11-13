@@ -6,6 +6,7 @@
     "dev:admin": "turbo run dev --filter=@storeos/admin",
     "dev:storefront": "turbo run dev --filter=@storeos/storefront",
     "dev:landing": "turbo run dev --filter=@storeos/landing",
+    "dev:store-builder": "turbo run dev --filter=@storeos/store-builder",
     "build": "turbo run build --concurrency=1",
     "build:merchant": "turbo run build --filter=@storeos/merchant",
     "build:admin": "turbo run build --filter=@storeos/admin",

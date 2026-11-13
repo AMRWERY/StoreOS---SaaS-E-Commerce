@@ -108,7 +108,7 @@ const { createPageOpen, deletePageOpen, templatePickerOpen } =
 
 const onSelectPage = async (page: StorePage) => {
   store.switchPage(page.id);
-  await navigateTo(localePath(`/dashboard/builder/${page.slug}`));
+  await navigateTo(localePath(`/builder/${page.slug}`));
 };
 
 const pageTypeIcon = (type: StorePageType): string => {

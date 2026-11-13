@@ -138,7 +138,7 @@ const onCreate = async () => {
   });
   createPageOpen.value = false;
   resetForm();
-  await navigateTo(localePath(`/dashboard/builder/${newPage.slug}`));
+  await navigateTo(localePath(`/builder/${newPage.slug}`));
 };
 
 const close = () => {

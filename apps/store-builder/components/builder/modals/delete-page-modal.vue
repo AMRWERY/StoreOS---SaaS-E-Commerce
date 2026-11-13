@@ -71,7 +71,7 @@ const onDelete = async () => {
   deletePageOpen.value = false;
 
   if (nextPage) {
-    await navigateTo(localePath(`/dashboard/builder/${nextPage.slug}`));
+    await navigateTo(localePath(`/builder/${nextPage.slug}`));
   }
 };
 </script>

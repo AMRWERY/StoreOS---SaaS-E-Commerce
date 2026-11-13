@@ -41,12 +41,11 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s',
-      title: 'Merchant Dashboard',
+      title: 'StoreOS Store Builder',
       meta: [
-        { name: 'description', content: 'StoreOS — The all-in-one merchant dashboard. Manage orders, products, customers, and analytics in one place.' },
+        { name: 'description', content: 'StoreOS Store Builder — design and publish your storefront.' },
         { property: 'og:site_name', content: 'StoreOS' },
-        { property: 'og:type', content: 'merchantsite' },
-        { property: 'og:image', content: '/og-dashboard.jpg' },
+        { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'robots', content: 'noindex, nofollow' },
       ],

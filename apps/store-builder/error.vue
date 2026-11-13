@@ -73,7 +73,7 @@ const handleGoBack = () => {
 }
 
 const handleGoHome = () => {
-    clearError({ redirect: '/dashboard' })
+    clearError({ redirect: '/' })
 }
 
 useSeoPage({

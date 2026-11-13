@@ -452,7 +452,7 @@ export const useBuilderStore = defineStore('builder', () => {
     isSaving.value = false
 
     // Return the dedicated preview page URL
-    return '/dashboard/builder/preview'
+    return '/builder/preview'
   }
 
   function pushHistory() {

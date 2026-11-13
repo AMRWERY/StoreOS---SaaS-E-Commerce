@@ -1,10 +1,10 @@
 {
-  "name": "@storeos/merchant",
+  "name": "@storeos/store-builder",
   "type": "module",
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --port=3002",
+    "dev": "nuxt dev --port=3006",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "nuxt typecheck",
