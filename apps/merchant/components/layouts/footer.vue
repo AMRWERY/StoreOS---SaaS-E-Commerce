@@ -5,13 +5,14 @@
         <div class="grid md:grid-cols-5 gap-12 mb-16">
           <!-- Brand -->
           <div class="md:col-span-1">
-            <nuxt-link-locale
-              to="/"
-              class="flex items-center gap-2 font-bold text-lg mb-6"
-            >
-              <Icon name="ph:storefront-bold" class="text-brand w-5 h-5" />
-              StoreOS
-            </nuxt-link-locale>
+            <img
+              src="/gif/storeose-logo.gif"
+              alt="storeose-logo"
+              class="h-12 w-auto"
+              width="117"
+              height="40"
+            />
+
             <p class="text-tx-secondary text-sm leading-relaxed">
               {{ t("layout.footer.description") }}
             </p>
