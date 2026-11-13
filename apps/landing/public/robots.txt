@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /en/
+Allow: /ar/
+Disallow: /en/dashboard/
+Disallow: /ar/dashboard/
+Disallow: /en/auth/add-first-product/
+Disallow: /ar/auth/add-first-product/
+
+Sitemap: https://yourdomain.com/sitemap.xml
