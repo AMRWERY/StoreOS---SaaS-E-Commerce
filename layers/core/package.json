@@ -15,6 +15,7 @@
     "@vee-validate/nuxt": "^4.15.1",
     "@vee-validate/rules": "^4.15.1",
     "@vee-validate/zod": "^4.15.1",
+    "@vercel/speed-insights": "^2.1.0",
     "@vueuse/core": "^14.2.1",
     "@vueuse/nuxt": "^14.2.1",
     "chart.js": "^4.5.1",

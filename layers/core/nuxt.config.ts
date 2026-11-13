@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@vee-validate/nuxt",
     "@nuxtjs/i18n",
+    '@vercel/speed-insights'
   ],
   runtimeConfig: {
     public: {
