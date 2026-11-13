@@ -41,7 +41,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s',
-      title: 'Merchant Dashboard',
+      title: 'Landing',
       meta: [
         { name: 'description', content: 'StoreOS — The all-in-one merchant dashboard. Manage orders, products, customers, and analytics in one place.' },
         { property: 'og:site_name', content: 'StoreOS' },

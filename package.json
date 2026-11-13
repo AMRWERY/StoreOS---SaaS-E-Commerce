@@ -5,10 +5,12 @@
     "dev:merchant": "turbo run dev --filter=@storeos/merchant",
     "dev:admin": "turbo run dev --filter=@storeos/admin",
     "dev:storefront": "turbo run dev --filter=@storeos/storefront",
+    "dev:landing": "turbo run dev --filter=@storeos/landing",
     "build": "turbo run build --concurrency=1",
     "build:merchant": "turbo run build --filter=@storeos/merchant",
     "build:admin": "turbo run build --filter=@storeos/admin",
     "build:storefront": "turbo run build --filter=@storeos/storefront",
+    "build:landing": "turbo run build --filter=@storeos/landing",
     "lint": "turbo run lint",
     "clean": "turbo run clean"
   },
