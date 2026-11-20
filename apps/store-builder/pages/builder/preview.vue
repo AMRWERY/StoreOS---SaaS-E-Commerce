@@ -1,5 +1,9 @@
 <template>
-  <div class="min-h-screen bg-white font-sans antialiased">
+  <div
+    class="min-h-screen bg-white font-sans antialiased"
+    :dir="store.direction"
+    :lang="store.contentLocale"
+  >
     <!-- Preview bar -->
     <div
       class="sticky top-0 z-50 flex items-center justify-between gap-4 border-b border-neutral-200 bg-white px-6 py-2.5 shadow-sm print:hidden"
@@ -20,6 +24,27 @@
         </span>
       </div>
       <div class="flex items-center gap-3">
+        <div
+          v-if="store.isMultiLocale"
+          class="flex items-center rounded-lg border border-neutral-200 bg-neutral-50 p-0.5"
+          role="group"
+          aria-label="Language"
+        >
+          <button
+            v-for="code in store.locales"
+            :key="code"
+            type="button"
+            class="rounded-md px-2.5 py-1 text-[11px] font-bold transition-colors"
+            :class="
+              store.contentLocale === code
+                ? 'bg-indigo-600 text-white'
+                : 'text-neutral-600 hover:text-neutral-900'
+            "
+            @click="store.setContentLocale(code)"
+          >
+            {{ code === 'ar' ? 'العربية' : 'English' }}
+          </button>
+        </div>
         <span class="text-xs text-neutral-400">
           {{ visibleSections.length }} section{{
             visibleSections.length !== 1 ? "s" : ""

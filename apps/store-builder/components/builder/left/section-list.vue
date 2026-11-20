@@ -1,61 +1,5 @@
 ﻿<template>
   <div class="min-h-0 flex-1 space-y-1 overflow-y-auto p-3">
-    <!-- ── Global elements (Navbar + Footer) ── -->
-    <div class="mb-3">
-      <p
-        class="mb-1.5 px-2 text-[9px] font-black tracking-[0.2em] text-tx-muted"
-      >
-        Global
-      </p>
-      <div class="space-y-0.5">
-        <LazyVButton
-          variant="none"
-          type="button"
-          :className="`flex w-full items-center gap-3 rounded-md border border-transparent px-2 py-2.5 text-start text-[12px] font-medium transition-all ${
-            navbarActive
-              ? 'border-border-subtle bg-bg-elevated text-brand'
-              : 'text-tx-secondary hover:bg-bg-elevated/50'
-          }`"
-          @click="selectNavbar"
-        >
-          <Icon
-            name="ph:navigation-arrow-bold"
-            class="text-[13px] transition-colors"
-            :class="navbarActive ? 'text-brand' : 'text-tx-muted'"
-          />
-          <span class="min-w-0 flex-1 truncate">Navbar</span>
-          <span
-            class="shrink-0 rounded-full bg-bg-elevated px-1.5 py-0.5 text-[9px] font-bold text-tx-muted"
-          >
-            {{ store.navLinks.length }}
-          </span>
-        </LazyVButton>
-
-        <LazyVButton
-          variant="none"
-          type="button"
-          :className="`flex w-full items-center gap-3 rounded-md border border-transparent px-2 py-2.5 text-start text-[12px] font-medium transition-all ${
-            footerActive
-              ? 'border-border-subtle bg-bg-elevated text-brand'
-              : 'text-tx-secondary hover:bg-bg-elevated/50'
-          }`"
-          @click="selectFooter"
-        >
-          <Icon
-            name="ph:layout-bold"
-            class="text-[13px] transition-colors"
-            :class="footerActive ? 'text-brand' : 'text-tx-muted'"
-          />
-          <span class="min-w-0 flex-1 truncate">Footer</span>
-          <span
-            class="shrink-0 rounded-full bg-bg-elevated px-1.5 py-0.5 text-[9px] font-bold text-tx-muted"
-          >
-            {{ store.footerColumns.length }}
-          </span>
-        </LazyVButton>
-      </div>
-    </div>
-
     <!-- ── Page sections ── -->
     <div v-if="!isSystemPage">
       <p
@@ -63,10 +7,24 @@
       >
         Sections
       </p>
-      <div class="space-y-0.5">
-        <lazy-section-list-item v-for="s in ordered" :key="s.id" :section="s" />
-      </div>
+      <VueDraggable
+        v-model="orderedList"
+        group="sections"
+        handle=".sb-list-handle"
+        :animation="150"
+        ghost-class="sb-ghost"
+        class="min-h-[40px] space-y-0.5"
+      >
+        <lazy-section-list-item
+          v-for="s in orderedList"
+          :key="s.id"
+          :section="s"
+        />
+      </VueDraggable>
     </div>
+
+    <!-- Block library (drag onto the preview or the list above) -->
+    <block-library v-if="!isSystemPage" class="mt-5" />
 
     <!-- System page info (checkout / order confirmed) -->
     <div v-else class="mt-1">
@@ -91,6 +49,9 @@
 </template>
 
 <script lang="ts" setup>
+import { VueDraggable } from "vue-draggable-plus";
+import type { PageSection } from "@/types/sections";
+
 const { t } = useI18n();
 const store = useBuilderStore();
 
@@ -100,20 +61,9 @@ const isSystemPage = computed(
     store.currentPage?.type === "order_confirmed",
 );
 
-const navbarActive = computed(() => store.panelMode === "navbar-settings");
-const footerActive = computed(() => store.panelMode === "footer-settings");
+const orderedList = computed<PageSection[]>({
+  get: () => [...store.sections].sort((a, b) => a.sort_order - b.sort_order),
+  set: (next) => store.commitSections(next),
+});
 
-const ordered = computed(() =>
-  [...store.sections].sort((a, b) => a.sort_order - b.sort_order),
-);
-
-const selectNavbar = () => {
-  store.selectedId = null;
-  store.setPanelMode("navbar-settings");
-};
-
-const selectFooter = () => {
-  store.selectedId = null;
-  store.setPanelMode("footer-settings");
-};
 </script>

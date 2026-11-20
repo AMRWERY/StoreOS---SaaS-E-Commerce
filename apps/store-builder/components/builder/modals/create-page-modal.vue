@@ -52,6 +52,12 @@
             label="Page type"
             :options="typeOptions"
           />
+
+          <lazy-setting-select
+            v-model="templateId"
+            label="Start from"
+            :options="templateOptions"
+          />
         </div>
 
         <div class="mt-6 flex gap-3">
@@ -79,6 +85,7 @@
 </template>
 
 <script lang="ts" setup>
+import { PAGE_TEMPLATES } from "@/data/page-templates";
 import type { StorePageType } from "@/types/sections";
 
 const { t } = useI18n();
@@ -90,6 +97,20 @@ const localePath = useLocalePath();
 const title = ref("Untitled page");
 const slug = ref("untitled-page");
 const pageType = ref<StorePageType>("page");
+const templateId = ref("blank");
+
+const templateOptions = computed(() => [
+  { value: "blank", label: "Blank page" },
+  ...PAGE_TEMPLATES.filter(
+    (t) => t.id !== "blank" && t.pageType === pageType.value,
+  ).map((t) => ({ value: t.id, label: t.name })),
+]);
+
+// Keep the chosen template valid for the selected page type.
+watch(pageType, () => {
+  if (!templateOptions.value.some((o) => o.value === templateId.value))
+    templateId.value = "blank";
+});
 
 const typeOptions = [
   { value: "page", label: "Custom page" },
@@ -97,6 +118,8 @@ const typeOptions = [
   { value: "product", label: "Product template" },
   { value: "category", label: "Category template" },
   { value: "search", label: "Search" },
+  { value: "cart", label: "Cart" },
+  { value: "track", label: "Order tracking" },
   { value: "checkout", label: "Checkout" },
   { value: "order_confirmed", label: "Order confirmation" },
 ];
@@ -135,6 +158,7 @@ const onCreate = async () => {
     title: title.value.trim(),
     slug: slug.value,
     type: pageType.value,
+    template: templateId.value,
   });
   createPageOpen.value = false;
   resetForm();
@@ -150,5 +174,6 @@ const resetForm = () => {
   title.value = "Untitled page";
   slug.value = "untitled-page";
   pageType.value = "page";
+  templateId.value = "blank";
 };
 </script>

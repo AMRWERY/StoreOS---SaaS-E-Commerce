@@ -1,0 +1,51 @@
+/*
+ * Universal block shapes — driven by data attributes on the block wrapper
+ * (see data/shapes.ts). Selectors are more specific than Tailwind's single-class
+ * radius utilities, so they win without !important.
+ */
+
+/* ── Corners ─────────────────────────────────────────────────────── */
+[data-corners="sharp"] :is(.rounded, .rounded-sm, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl) {
+  border-radius: 0;
+}
+[data-corners="soft"] :is(.rounded, .rounded-sm, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl) {
+  border-radius: 6px;
+}
+[data-corners="round"] :is(.rounded, .rounded-sm, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl) {
+  border-radius: 24px;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+[data-buttons="square"] :is(button, a[class*="bg-"], a[class*="border"][class*="px-"]):not([class*="aspect-"]):not([class*="size-"]) {
+  border-radius: 0;
+}
+[data-buttons="pill"] :is(button, a[class*="bg-"], a[class*="border"][class*="px-"]):not([class*="aspect-"]):not([class*="size-"]) {
+  border-radius: 9999px;
+}
+
+/* ── Images ──────────────────────────────────────────────────────── */
+[data-images="square"] :is(img, [style*="background-image"], [class*="bg-cover"], [class*="bg-contain"]) {
+  border-radius: 0;
+}
+[data-images="rounded"] :is(img, [style*="background-image"], [class*="bg-cover"], [class*="bg-contain"]) {
+  border-radius: 16px;
+}
+[data-images="circle"] :is(img, [style*="background-image"], [class*="bg-cover"], [class*="bg-contain"]) {
+  border-radius: 9999px;
+}
+
+/* ── Cards (bordered, rounded containers) ────────────────────────── */
+[data-cards="flat"] :is(.rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl)[class*="border"] {
+  border-color: transparent;
+  box-shadow: none;
+  background-color: rgb(245 245 245);
+}
+[data-cards="outlined"] :is(.rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl)[class*="border"] {
+  border-color: rgb(23 23 23);
+  border-width: 1.5px;
+  box-shadow: none;
+}
+[data-cards="elevated"] :is(.rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl)[class*="border"] {
+  border-color: transparent;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 0.1);
+}

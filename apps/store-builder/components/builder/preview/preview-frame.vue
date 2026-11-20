@@ -2,6 +2,8 @@
   <div
     class="mx-auto flex h-full min-h-[520px] w-full flex-col overflow-hidden rounded-t-xl bg-white shadow-[0_24px_80px_rgba(0,0,0,0.45)] ring-1 ring-white/10 transition-[max-width] duration-300"
     :class="frameClass"
+    :dir="store.direction"
+    :lang="store.contentLocale"
   >
     <slot />
   </div>
@@ -11,6 +13,7 @@
 import type { DeviceMode } from "@/types/builder";
 
 const { t } = useI18n();
+const store = useBuilderStore();
 
 const props = defineProps<{
   device: DeviceMode;

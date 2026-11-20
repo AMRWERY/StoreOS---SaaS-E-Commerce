@@ -42,6 +42,8 @@ const { t } = useI18n();
 const props = defineProps<{
   modelValue: Record<string, unknown>[];
   label: string;
+  /** Template for a newly added row (defaults to a generic title/subtitle pair). */
+  newItem?: Record<string, unknown>;
 }>();
 
 const emit = defineEmits<{
@@ -51,7 +53,7 @@ const emit = defineEmits<{
 const add = () => {
   emit("update:modelValue", [
     ...props.modelValue,
-    { title: "New item", subtitle: "" },
+    { ...(props.newItem ?? { title: "New item", subtitle: "" }) },
   ]);
 };
 

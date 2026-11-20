@@ -2,6 +2,8 @@
   <div
     class="group relative cursor-pointer outline-none transition-opacity"
     :class="section.is_hidden ? 'opacity-[0.45]' : ''"
+    :style="blockStyle"
+    v-bind="shapeAttrs(section.settings)"
     role="button"
     tabindex="0"
     @click.stop="$emit('select')"
@@ -16,8 +18,10 @@
 
     <div
       v-show="selected || isHovered"
-      class="absolute start-0 top-0 z-20 rounded-br-md bg-brand/90 px-2 py-0.5 text-[9px] font-bold tracking-widest text-white"
+      class="sb-drag-handle absolute start-0 top-0 z-20 flex cursor-grab items-center gap-1 rounded-br-md bg-brand/90 px-2 py-0.5 text-[9px] font-bold tracking-widest text-white active:cursor-grabbing"
+      title="Drag to reorder"
     >
+      <Icon name="ph:dots-six-vertical-bold" class="text-[11px]" />
       {{ label }}
     </div>
 
@@ -995,17 +999,14 @@
 
     <!-- ── fallback ───────────────────────────────────────────────── -->
     <template v-else>
-      <div
-        class="flex min-h-[72px] items-center gap-3 border-t border-neutral-200 px-8 py-5"
-      >
-        <Icon name="ph:squares-four-bold" class="text-xl text-neutral-400" />
-        <span class="text-sm font-medium text-neutral-500">{{ label }}</span>
-      </div>
+      <lazy-section-render :section="section" editing />
     </template>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { localizeSection } from "@/data/localize";
+import { shapeAttrs } from "@/data/shapes";
 import type { PageSection } from "@/types/sections";
 import { SECTION_TYPE_LABELS } from "@/types/sections";
 
@@ -1024,16 +1025,33 @@ defineEmits<{
 
 const isHovered = ref(false);
 
+const builder = useBuilderStore();
+const localizedSettings = computed(
+  () => localizeSection(props.section, builder.contentLocale, builder.defaultLocale).settings,
+);
+
+/** Advanced settings (padding / background) also apply to the hand-built canvas blocks. */
+const blockStyle = computed(() => {
+  const st = props.section.settings;
+  const style: Record<string, string> = {};
+  const top = Number(st.padding_top ?? 0);
+  const bottom = Number(st.padding_bottom ?? 0);
+  if (top > 0) style.paddingTop = `${top}px`;
+  if (bottom > 0) style.paddingBottom = `${bottom}px`;
+  if (st.bg_enabled && st.bg_color) style.backgroundColor = String(st.bg_color);
+  return style;
+});
+
 const label = computed(
   () => SECTION_TYPE_LABELS[props.section.type] ?? props.section.type
 );
 
 const str = (key: string, fallback = "") => {
-  return String(props.section.settings[key] ?? fallback);
+  return String(localizedSettings.value[key] ?? fallback);
 };
 
 const num = (key: string, fallback: number) => {
-  return Number(props.section.settings[key] ?? fallback);
+  return Number(localizedSettings.value[key] ?? fallback);
 };
 
 const PRODUCT_IMGS = [

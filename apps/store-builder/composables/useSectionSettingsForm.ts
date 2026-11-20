@@ -1,15 +1,21 @@
+import { localizeSection, routePatch } from "@/data/localize"
+
 /**
  * Two-way fields bound to `selectedSection.settings` for non–hero-banner panels.
  */
 export function useSectionSettingsForm() {
   const store = useBuilderStore()
 
-  const section = computed(() => store.selectedSection)
+  /** The selected section as seen in the language being edited (translations laid over the base copy). */
+  const section = computed(() => {
+    const s = store.selectedSection
+    return s ? localizeSection(s, store.contentLocale, store.defaultLocale) : null
+  })
 
   function patch(p: Record<string, unknown>) {
-    const s = section.value
+    const s = store.selectedSection
     if (s)
-      store.updateSectionSettings(s.id, p)
+      store.updateSectionSettings(s.id, routePatch(s, p, store.contentLocale, store.defaultLocale))
   }
 
   function str(key: string, fallback = '') {

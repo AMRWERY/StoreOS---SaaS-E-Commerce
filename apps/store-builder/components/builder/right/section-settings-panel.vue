@@ -131,6 +131,63 @@
               </div>
             </lazy-setting-group>
 
+            <!-- Appearance -->
+            <lazy-setting-group title="Appearance" default-open>
+              <lazy-setting-color
+                v-model="adv_bgColor"
+                label="Background color"
+              />
+              <div class="mt-4">
+                <lazy-setting-toggle
+                  v-model="adv_bgEnabled"
+                  label="Use background color"
+                  hint="Off keeps the block's own background"
+                />
+              </div>
+              <div class="mt-4">
+                <lazy-setting-select
+                  v-model="adv_maxWidth"
+                  label="Content width"
+                  :options="[
+                    { value: 'full', label: 'Full width' },
+                    { value: 'wide', label: 'Wide (1280px)' },
+                    { value: 'boxed', label: 'Boxed (1024px)' },
+                    { value: 'narrow', label: 'Narrow (768px)' },
+                  ]"
+                />
+              </div>
+            </lazy-setting-group>
+
+            <!-- Shape (applies to every block) -->
+            <lazy-setting-group title="Shape" default-open>
+              <div class="space-y-4">
+                <lazy-setting-radio-cards
+                  v-for="g in SHAPE_GROUPS"
+                  :key="g.key"
+                  :model-value="shapeValue(g.key)"
+                  :label="g.label"
+                  :options="g.options"
+                  @update:model-value="(v: string) => setShape(g.key, v)"
+                />
+              </div>
+            </lazy-setting-group>
+
+            <!-- Responsive visibility -->
+            <lazy-setting-group title="Responsive visibility">
+              <lazy-setting-toggle
+                v-model="adv_hideMobile"
+                label="Hide on mobile"
+                hint="Screens narrower than 768px"
+              />
+              <div class="mt-4">
+                <lazy-setting-toggle
+                  v-model="adv_hideDesktop"
+                  label="Hide on desktop"
+                  hint="Screens 768px and wider"
+                />
+              </div>
+            </lazy-setting-group>
+
             <!-- Identity -->
             <lazy-setting-group title="Identity">
               <lazy-setting-text
@@ -206,6 +263,7 @@
 import type { Component } from 'vue'
 import type { SectionType } from '@/types/sections'
 import { SECTION_TYPE_LABELS } from '@/types/sections'
+import { SHAPE_GROUPS } from '@/data/shapes'
 import HeroBannerSettings from '@/components/builder/section-settings/hero-banner-settings.vue'
 import HeroSlideshowSettings from '@/components/builder/section-settings/hero-slideshow-settings.vue'
 import HeroSplitSettings from '@/components/builder/section-settings/hero-split-settings.vue'
@@ -230,7 +288,7 @@ import VideoEmbedSettings from '@/components/builder/section-settings/video-embe
 import SpacerSettings from '@/components/builder/section-settings/spacer-settings.vue'
 import DividerSettings from '@/components/builder/section-settings/divider-settings.vue'
 import CustomHTMLSettings from '@/components/builder/section-settings/custom-html-settings.vue'
-import GenericSectionSettings from '@/components/builder/section-settings/generic-section-settings.vue'
+import SchemaSectionSettings from '@/components/builder/section-settings/schema-section-settings.vue'
 
 const { t } = useI18n()
 
@@ -271,7 +329,7 @@ const selected = computed(() => store.selectedSection)
 const activeForm = computed(() => {
   const s = selected.value
   if (!s) return null
-  return formByType[s.type] ?? GenericSectionSettings
+  return formByType[s.type] ?? SchemaSectionSettings
 })
 const subtitle = computed(() => {
   const s = selected.value
@@ -310,6 +368,16 @@ const adv_hidden = computed<boolean>({
 })
 const adv_paddingTop    = sectionSetting<number>('padding_top', 0)
 const adv_paddingBottom = sectionSetting<number>('padding_bottom', 0)
+const shapeValue = (key: string) =>
+  String(selected.value?.settings?.[key] ?? 'default')
+const setShape = (key: string, v: string) => {
+  if (selected.value) store.updateSectionSettings(selected.value.id, { [key]: v })
+}
+const adv_bgColor       = sectionSetting<string>('bg_color', '#ffffff')
+const adv_bgEnabled     = sectionSetting<boolean>('bg_enabled', false)
+const adv_maxWidth      = sectionSetting<string>('max_width', 'full')
+const adv_hideMobile    = sectionSetting<boolean>('hide_mobile', false)
+const adv_hideDesktop   = sectionSetting<boolean>('hide_desktop', false)
 const adv_anchorId      = sectionSetting<string>('anchor_id', '')
 const adv_cssClass      = sectionSetting<string>('css_class', '')
 const adv_label         = sectionSetting<string>('builder_label', '')

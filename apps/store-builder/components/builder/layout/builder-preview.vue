@@ -54,28 +54,40 @@
                 @select="selectNavbar"
               />
 
-              <!-- Sections -->
-              <lazy-section-preview-block
-                v-for="section in store.sections"
-                :key="section.id"
-                :section="section"
-                :selected="store.selectedId === section.id"
-                @select="store.selectSection(section.id)"
-                @toolbar-action="onToolbar($event, section.id)"
-              />
+              <!-- Sections (drop zone: reorder + blocks dragged from the library) -->
+              <div class="relative">
+                <VueDraggable
+                  v-model="sectionList"
+                  group="sections"
+                  handle=".sb-drag-handle"
+                  :animation="180"
+                  ghost-class="sb-ghost"
+                  chosen-class="sb-chosen"
+                  class="min-h-[160px]"
+                >
+                  <lazy-section-preview-block
+                    v-for="section in sectionList"
+                    :key="section.id"
+                    :section="section"
+                    :selected="store.selectedId === section.id"
+                    @select="store.selectSection(section.id)"
+                    @toolbar-action="onToolbar($event, section.id)"
+                  />
+                </VueDraggable>
 
-              <div
-                v-if="store.sections.length === 0"
-                class="flex flex-col items-center justify-center py-24 text-center"
-              >
-                <Icon
-                  name="ph:squares-four-bold"
-                  class="text-4xl text-neutral-300"
-                />
-                <p class="mt-3 text-sm text-neutral-400">No sections yet</p>
-                <p class="text-xs text-neutral-300">
-                  Add a section from the left panel
-                </p>
+                <div
+                  v-if="store.sections.length === 0"
+                  class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center"
+                >
+                  <Icon
+                    name="ph:squares-four-bold"
+                    class="text-4xl text-neutral-300"
+                  />
+                  <p class="mt-3 text-sm text-neutral-400">No sections yet</p>
+                  <p class="text-xs text-neutral-300">
+                    Drag a block here from the left panel
+                  </p>
+                </div>
               </div>
 
               <!-- Persistent Footer -->
@@ -92,8 +104,17 @@
 </template>
 
 <script lang="ts" setup>
+import { VueDraggable } from "vue-draggable-plus";
+import type { PageSection } from "@/types/sections";
+
 const { t } = useI18n();
 const store = useBuilderStore();
+
+/** Drag & drop writes straight back to the store as one undoable step. */
+const sectionList = computed<PageSection[]>({
+  get: () => store.sections,
+  set: (next) => store.commitSections(next),
+});
 
 const navbarSelected = computed(() => store.panelMode === "navbar-settings");
 const footerSelected = computed(() => store.panelMode === "footer-settings");
@@ -128,3 +149,15 @@ const onToolbar = (action: string, sectionId: string) => {
   }
 };
 </script>
+
+<style>
+.sb-ghost {
+  opacity: 0.45;
+  outline: 2px dashed rgb(99 102 241);
+  outline-offset: -2px;
+  background: rgb(99 102 241 / 0.08);
+}
+.sb-chosen {
+  cursor: grabbing;
+}
+</style>

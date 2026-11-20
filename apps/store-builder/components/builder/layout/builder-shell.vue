@@ -18,6 +18,8 @@
 
     <lazy-template-picker-modal />
 
+    <lazy-locale-settings-modal />
+
     <lazy-plan-gate-overlay />
   </div>
 </template>

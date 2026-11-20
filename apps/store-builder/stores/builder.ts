@@ -1,4 +1,6 @@
 import type { DeviceMode, PanelMode } from '@/types/builder'
+import { buildTemplateSections } from '@/data/page-templates'
+import { localeDir, type StoreLocale } from '@/data/localize'
 import type { PageSection, StorePage, StorePageType } from '@/types/sections'
 
 export const useBuilderStore = defineStore('builder', () => {
@@ -7,6 +9,28 @@ export const useBuilderStore = defineStore('builder', () => {
   /** Sections keyed by page ID — the persistent source of truth. */
   const sectionsMap = ref<Record<string, PageSection[]>>({})
   const currentPageId = ref<string | null>(null)
+
+  // ── store languages ──────────────────────────────────────────────
+  /** Languages the storefront is published in. One entry = single-language store. */
+  const locales = ref<StoreLocale[]>(['en'])
+  const defaultLocale = ref<StoreLocale>('en')
+  /** Language currently being edited / previewed. */
+  const contentLocale = ref<StoreLocale>('en')
+  const isMultiLocale = computed(() => locales.value.length > 1)
+  const direction = computed(() => localeDir(contentLocale.value))
+
+  function setLocales(next: StoreLocale[], def: StoreLocale) {
+    const list = next.length ? [...new Set(next)] : [def]
+    if (!list.includes(def)) list.unshift(def)
+    locales.value = list
+    defaultLocale.value = def
+    if (!list.includes(contentLocale.value)) contentLocale.value = def
+    isDirty.value = true
+  }
+
+  function setContentLocale(code: StoreLocale) {
+    if (locales.value.includes(code)) contentLocale.value = code
+  }
 
   // ── global admin settings (not per-page) ────────────────────
   const storeName = ref('LUXE')
@@ -167,7 +191,7 @@ export const useBuilderStore = defineStore('builder', () => {
    * Create a new page with an empty section list, switch to it, and
    * return the new page object (so the caller can navigate to its slug).
    */
-  function createPage(data: { title: string; slug: string; type: StorePageType }): StorePage {
+  function createPage(data: { title: string; slug: string; type: StorePageType; template?: string }): StorePage {
     _flush()
     const storeId = currentPage.value?.store_id ?? 'demo-store'
     const newPage: StorePage = {
@@ -185,13 +209,14 @@ export const useBuilderStore = defineStore('builder', () => {
       nav_order: pages.value.length,
     }
     pages.value.push(newPage)
-    sectionsMap.value[newPage.id] = []
+    const seeded = data.template ? buildTemplateSections(data.template, newPage.id, storeId) : []
+    sectionsMap.value[newPage.id] = seeded
     currentPageId.value = newPage.id
-    sections.value = []
+    sections.value = _clone(seeded)
     selectedId.value = null
     panelMode.value = 'empty'
     isDirty.value = false
-    history.value = [[]]
+    history.value = [_clone(seeded)]
     historyIndex.value = 0
     return newPage
   }
@@ -269,7 +294,37 @@ export const useBuilderStore = defineStore('builder', () => {
         nav_label: null,
         nav_order: 2,
       },
+      ...([
+        ['page_product', 'product', 'product', 'Product', 'product-page'],
+        ['page_collection', 'category', 'collection', 'Collection', 'collection-page'],
+        ['page_cart', 'cart', 'cart', 'Cart', 'cart-page'],
+        ['page_search', 'search', 'search', 'Search', 'search-page'],
+        ['page_track', 'track', 'track-order', 'Track order', 'track-page'],
+      ] as const).map(([id, type, slug, title], i): StorePage => ({
+        id,
+        store_id: storeId,
+        type,
+        slug,
+        title,
+        seo_title: null,
+        seo_desc: null,
+        is_published: false,
+        is_system: true,
+        show_in_nav: false,
+        nav_label: null,
+        nav_order: 3 + i,
+      })),
     ]
+
+    for (const [id, template] of [
+      ['page_product', 'product-page'],
+      ['page_collection', 'collection-page'],
+      ['page_cart', 'cart-page'],
+      ['page_search', 'search-page'],
+      ['page_track', 'track-page'],
+    ] as const) {
+      sectionsMap.value[id] = buildTemplateSections(template, id, storeId)
+    }
 
     sectionsMap.value[pageId] = [
       {
@@ -332,6 +387,41 @@ export const useBuilderStore = defineStore('builder', () => {
     sections.value.push(section)
     reorderSortOrder()
     selectSection(section.id)
+    isDirty.value = true
+    pushHistory()
+  }
+
+  /** Insert after the given section (or at the end when `afterId` is missing/unknown). */
+  function insertSection(section: PageSection, afterId?: string | null) {
+    const idx = afterId ? sections.value.findIndex(s => s.id === afterId) : -1
+    if (idx < 0) sections.value.push(section)
+    else sections.value.splice(idx + 1, 0, section)
+    reorderSortOrder()
+    selectSection(section.id)
+    isDirty.value = true
+    pushHistory()
+  }
+
+  /**
+   * Commit a new section order coming from drag & drop (reorder, or a block dropped in
+   * from the library). Selects a newly added section; one undoable step.
+   */
+  function commitSections(next: PageSection[]) {
+    const known = new Set(sections.value.map(s => s.id))
+    const added = next.find(s => !known.has(s.id))
+    sections.value = next
+    reorderSortOrder()
+    if (added) selectSection(added.id)
+    isDirty.value = true
+    pushHistory()
+  }
+
+  /** Replace the current page's sections in one undoable step (page templates). */
+  function setSections(next: PageSection[]) {
+    sections.value = next
+    reorderSortOrder()
+    selectedId.value = null
+    panelMode.value = 'empty'
     isDirty.value = true
     pushHistory()
   }
@@ -400,6 +490,9 @@ export const useBuilderStore = defineStore('builder', () => {
       pages.value = (state.pages as typeof pages.value) ?? []
       sectionsMap.value = (state.sectionsMap as typeof sectionsMap.value) ?? {}
       storeName.value = (state.storeName as string) ?? 'LUXE'
+      locales.value = (state.locales as StoreLocale[] | undefined)?.length ? (state.locales as StoreLocale[]) : ['en']
+      defaultLocale.value = (state.defaultLocale as StoreLocale | undefined) ?? locales.value[0]
+      contentLocale.value = defaultLocale.value
       navbarStyle.value = (state.navbarStyle as typeof navbarStyle.value) ?? 'classic'
       footerStyle.value = (state.footerStyle as typeof footerStyle.value) ?? 'columns'
       navLinks.value = (state.navLinks as typeof navLinks.value) ?? []
@@ -437,6 +530,8 @@ export const useBuilderStore = defineStore('builder', () => {
         pages: pages.value,
         sectionsMap: sectionsMap.value,
         storeName: storeName.value,
+        locales: locales.value,
+        defaultLocale: defaultLocale.value,
         navbarStyle: navbarStyle.value,
         footerStyle: footerStyle.value,
         navLinks: navLinks.value,
@@ -489,6 +584,13 @@ export const useBuilderStore = defineStore('builder', () => {
 
   return {
     pages,
+    locales,
+    defaultLocale,
+    contentLocale,
+    isMultiLocale,
+    direction,
+    setLocales,
+    setContentLocale,
     storeName,
     navbarStyle,
     footerStyle,
@@ -528,6 +630,9 @@ export const useBuilderStore = defineStore('builder', () => {
     updateSectionSettings,
     setPanelMode,
     appendSection,
+    insertSection,
+    setSections,
+    commitSections,
     removeSection,
     duplicateSection,
     toggleSectionHidden,

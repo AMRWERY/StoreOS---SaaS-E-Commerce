@@ -8,7 +8,7 @@
   >
     <Icon
       name="ph:dots-six-vertical-bold"
-      class="text-tx-muted opacity-0 transition-opacity group-hover:opacity-100"
+      class="sb-list-handle cursor-grab text-tx-muted opacity-0 transition-opacity group-hover:opacity-100"
     />
     <span class="min-w-0 flex-1 truncate text-[12px] font-medium">{{
       label

@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   extends: ["@storeos/ui", "@storeos/core"],
   compatibilityDate: "2025-07-15",
+  css: ["~/assets/css/section-shapes.css"],
   vite: {
     build: {
       sourcemap: false,

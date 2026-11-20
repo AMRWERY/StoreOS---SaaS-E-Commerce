@@ -5,6 +5,7 @@ export function useBuilderModals() {
   const createPageOpen = useState('builder-modal-create-page', () => false)
   const deletePageOpen = useState('builder-modal-delete-page', () => false)
   const templatePickerOpen = useState('builder-modal-template-picker', () => false)
+  const localeSettingsOpen = useState('builder-modal-locale-settings', () => false)
   const planGateOpen = useState('builder-plan-gate', () => false)
 
   return {
@@ -13,6 +14,7 @@ export function useBuilderModals() {
     createPageOpen,
     deletePageOpen,
     templatePickerOpen,
+    localeSettingsOpen,
     planGateOpen,
   }
 }

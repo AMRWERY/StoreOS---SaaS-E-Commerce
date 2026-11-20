@@ -46,6 +46,8 @@
       </component>
     </div>
 
+    <lazy-global-elements v-if="activeTab === 'Sections'" />
+
     <lazy-pages-list />
 
     <div v-if="activeTab === 'Sections'" class="flex min-h-0 flex-1 flex-col">
