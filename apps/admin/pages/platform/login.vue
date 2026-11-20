@@ -57,7 +57,7 @@
       <!-- Step 2: two-factor code -->
       <form v-else class="space-y-5" novalidate @submit.prevent="submitCode">
         <div dir="ltr">
-          <LazyVOtp v-model="code" :length="6" :error="errors.code" :disabled="busy" />
+          <LazyVOtp v-model="code" :length="6" full-width :error="errors.code" :disabled="busy" />
         </div>
 
         <p class="rounded-md border border-border-subtle bg-bg-elevated px-3 py-2 text-[11px] text-tx-secondary">

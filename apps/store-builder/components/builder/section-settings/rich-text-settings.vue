@@ -1,5 +1,9 @@
 ﻿<template>
   <div class="space-y-6">
+    <lazy-setting-group title="Design" default-open>
+      <lazy-setting-radio-cards v-model="variant" label="Layout" :options="variantOptions" />
+    </lazy-setting-group>
+
     <lazy-setting-group title="Text block" default-open>
       <lazy-setting-text v-model="heading" label="Heading" />
       <div class="mt-4">
@@ -24,6 +28,12 @@
 <script lang="ts" setup>
 const { t } = useI18n();
 const { str } = useSectionSettingsForm();
+const variant = str("variant", "plain");
+const variantOptions = [
+  { value: "plain", label: "Plain", icon: "ph:text-aa-bold", description: "Simple text" },
+  { value: "card", label: "Card", icon: "ph:article-bold", description: "Boxed panel" },
+  { value: "columns", label: "Columns", icon: "ph:columns-bold", description: "Two text columns" },
+];
 
 const heading = str("heading", "");
 const body = str("body", "");

@@ -2,11 +2,20 @@
   <div class="min-h-0 flex-1 space-y-1 overflow-y-auto p-3">
     <!-- ── Page sections ── -->
     <div v-if="!isSystemPage">
-      <p
-        class="mb-1.5 px-2 text-[9px] font-black tracking-[0.2em] text-tx-muted"
-      >
-        Sections
-      </p>
+      <div class="mb-1.5 flex items-center justify-between px-2">
+        <p class="text-[9px] font-black tracking-[0.2em] text-tx-muted">
+          Sections
+        </p>
+        <button
+          v-if="store.clipboard.length"
+          type="button"
+          class="flex items-center gap-1 rounded-md border border-brand/30 bg-brand/10 px-2 py-0.5 text-[9px] font-bold text-brand transition-colors hover:bg-brand/20"
+          title="Paste the copied section after the selected one (Ctrl+V)"
+          @click="store.pasteSection()"
+        >
+          <Icon name="ph:clipboard-text-bold" /> Paste
+        </button>
+      </div>
       <VueDraggable
         v-model="orderedList"
         group="sections"

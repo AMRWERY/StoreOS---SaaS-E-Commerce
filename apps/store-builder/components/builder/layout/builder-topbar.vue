@@ -70,11 +70,13 @@
 
       <!-- Right -->
       <div class="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
-        <lazy-history-controls />
+        <div data-tour="undo-redo"><lazy-history-controls /></div>
 
-        <lazy-device-toggle v-model="store.device" />
+        <div data-tour="device-toggle"><lazy-device-toggle v-model="store.device" /></div>
 
-        <lazy-store-locale-control />
+        <div data-tour="languages"><lazy-store-locale-control /></div>
+
+        <lazy-topbar-actions />
 
         <LazyThemeToggle />
 
@@ -93,6 +95,7 @@
           :is="UiButton"
           variant="primary"
           type="button"
+          data-tour="publish-btn"
           class-name="shrink-0 px-4 py-1.5 text-[10px] font-black tracking-[0.12em] shadow-[0_0_14px_rgba(99,102,241,0.35)] sm:px-5 sm:text-[11px] sm:tracking-[0.1em]"
           @click="handlePublishClick"
         >

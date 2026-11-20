@@ -150,6 +150,8 @@ export interface StorePage {
   show_in_nav: boolean
   nav_label?: string | null
   nav_order: number
+  /** Per-language overrides of the page's text (multi-language stores). */
+  i18n?: Partial<Record<'en' | 'ar', { title?: string; nav_label?: string; seo_title?: string; seo_desc?: string }>>
 }
 
 export interface SectionRegistryEntry {

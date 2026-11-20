@@ -67,20 +67,20 @@
         </p>
         <LazyVInput
           type="text"
-          :model-value="store.footerTagline"
+          :model-value="store.localTagline"
           label="Tagline"
           placeholder="Short brand tagline…"
           input-class="!w-full !rounded-lg !border-border-default !bg-bg-elevated !px-3 !py-2 !text-xs !text-tx-primary focus:!border-brand focus:!outline-none"
-          @update:model-value="store.footerTagline = $event"
+          @update:model-value="store.setFooterTagline($event)"
         />
         <div class="mt-2">
           <LazyVInput
             type="text"
-            :model-value="store.footerCopyright"
+            :model-value="store.localCopyright"
             label="Copyright text"
             placeholder="© 2025 My Store…"
             input-class="!w-full !rounded-lg !border-border-default !bg-bg-elevated !px-3 !py-2 !text-xs !text-tx-primary focus:!border-brand focus:!outline-none"
-            @update:model-value="store.footerCopyright = $event"
+            @update:model-value="store.setFooterCopyright($event)"
           />
         </div>
       </div>
@@ -145,7 +145,7 @@
 
         <div v-else class="space-y-3">
           <div
-            v-for="(col, ci) in store.footerColumns"
+            v-for="(col, ci) in store.localFooterColumns"
             :key="ci"
             class="overflow-hidden rounded-xl border border-border-default bg-bg-elevated"
           >

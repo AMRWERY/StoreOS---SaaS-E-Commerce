@@ -24,6 +24,14 @@
             {{ modelValue ? "Replace" : "Upload" }}
           </button>
           <button
+            type="button"
+            class="rounded-md border border-border-subtle px-2 text-tx-secondary transition-colors hover:border-brand/40 hover:text-brand"
+            title="Choose from your media library"
+            @click="fromLibrary"
+          >
+            <Icon name="ph:images-bold" />
+          </button>
+          <button
             v-if="modelValue"
             type="button"
             class="rounded-md border border-border-subtle px-2 text-tx-muted transition-colors hover:border-red-400/40 hover:text-red-400"
@@ -56,6 +64,8 @@ const props = defineProps<{ modelValue: string; label?: string; hint?: string }>
 const emit = defineEmits<{ "update:modelValue": [value: string] }>();
 
 const { toDataUrl, error, busy } = useImageUpload();
+const { pick } = useMediaLibrary();
+const store = useBuilderStore();
 const picker = ref<HTMLInputElement | null>(null);
 const isData = computed(() => props.modelValue.startsWith("data:"));
 
@@ -65,6 +75,14 @@ const onPick = async (e: Event) => {
   input.value = "";
   if (!file) return;
   const url = await toDataUrl(file);
+  if (!url) return;
+  // Keep every upload in the shared media library so it can be reused.
+  store.addMedia([{ name: file.name.replace(/\.[^.]+$/, ""), url, size: Math.round(url.length * 0.75) }]);
+  emit("update:modelValue", url);
+};
+
+const fromLibrary = async () => {
+  const url = await pick();
   if (url) emit("update:modelValue", url);
 };
 </script>

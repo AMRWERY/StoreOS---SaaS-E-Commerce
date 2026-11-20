@@ -7,7 +7,15 @@
       </div>
     </lazy-setting-group>
 
-    <lazy-setting-repeater v-model="items" label="Questions">
+    <lazy-setting-group title="Design">
+      <lazy-setting-radio-cards
+        v-model="variant"
+        label="Design"
+        :options="variantOptions"
+      />
+    </lazy-setting-group>
+
+    <lazy-setting-repeater v-model="items" label="Questions" :new-item="{ q: 'New question', a: '' }">
       <template #default="{ item }">
         <lazy-setting-text
           :model-value="String(item.q ?? '')"
@@ -34,6 +42,13 @@ const { t } = useI18n();
 const { str, bool, patch, section } = useSectionSettingsForm();
 const heading = str("heading", "Common questions");
 const accordion = bool("accordion", true);
+const variant = str("variant", "classic");
+
+const variantOptions = [
+  { value: "classic", label: "Classic", icon: "ph:list-bold", description: "Divided list" },
+  { value: "cards", label: "Cards", icon: "ph:cards-bold", description: "Boxed questions" },
+  { value: "two_column", label: "Two column", icon: "ph:columns-bold", description: "Heading beside list" },
+];
 
 const items = computed({
   get: () => {

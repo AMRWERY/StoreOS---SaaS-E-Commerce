@@ -20,6 +20,12 @@
 
     <lazy-locale-settings-modal />
 
+    <lazy-media-library-modal />
+
+    <lazy-version-history-modal />
+
+    <tour-overlay />
+
     <lazy-plan-gate-overlay />
   </div>
 </template>
@@ -41,8 +47,12 @@ const hero = reactive<BuilderEditorHero>({
 
 provide(builderEditorHeroKey, hero);
 
-onMounted(() => {
-  store.loadPageBySlug(String(route.params.slug ?? "home"));
+const tour = useTour();
+
+onMounted(async () => {
+  // Restores the autosaved draft (if any), then opens the requested page.
+  await store.initBuilder(String(route.params.slug ?? "home"));
+  setTimeout(() => tour.maybeAutoStart(), 1200);
 });
 
 // When the user navigates to a different page slug via the URL or pages list

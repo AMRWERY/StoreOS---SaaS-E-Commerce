@@ -7,4 +7,6 @@ export interface LazyVOtpProps {
   disabled?: boolean;
   name?: string;
   boxClass?: string;
+  /** Stretch the boxes to fill the available width. */
+  fullWidth?: boolean;
 }

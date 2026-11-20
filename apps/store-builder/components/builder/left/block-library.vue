@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-tour="blocks-library">
     <div class="mb-3 rounded-lg border border-brand/30 bg-brand/10 p-2.5">
       <p class="flex items-center gap-1.5 text-[11px] font-bold text-brand">
         <Icon name="ph:hand-grabbing-bold" /> How to add a block

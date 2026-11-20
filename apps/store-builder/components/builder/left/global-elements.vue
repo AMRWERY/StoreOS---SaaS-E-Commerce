@@ -1,7 +1,7 @@
 <template>
   <div class="shrink-0 space-y-3 border-b border-border-subtle p-2">
     <!-- Website: name + language -->
-    <div>
+    <div data-tour="website">
       <p class="mb-1.5 px-2 text-[9px] font-black tracking-[0.2em] text-tx-muted">
         Website
       </p>
@@ -66,7 +66,7 @@
     </div>
 
     <!-- Global: navbar + footer -->
-    <div>
+    <div data-tour="global">
       <p class="mb-1.5 px-2 text-[9px] font-black tracking-[0.2em] text-tx-muted">
         Global
       </p>

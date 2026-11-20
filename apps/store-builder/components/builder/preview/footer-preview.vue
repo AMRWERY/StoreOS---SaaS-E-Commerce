@@ -35,36 +35,34 @@
         <div class="md:w-1/3">
           <brand-mark class="text-base font-bold text-white" />
           <p class="mt-2 text-sm leading-relaxed text-neutral-400">
-            {{ store.footerTagline }}
+            {{ store.localTagline }}
           </p>
           <div v-if="store.footerShowSocial" class="mt-4 flex gap-3 text-neutral-400">
             <Icon v-for="s in SOCIALS.slice(0, 3)" :key="s" :name="s" class="text-lg" />
           </div>
         </div>
         <div class="flex flex-wrap gap-10">
-          <div v-for="col in store.footerColumns" :key="col.title">
+          <div v-for="col in store.localFooterColumns" :key="col.title">
             <p class="text-xs font-bold tracking-wider text-neutral-400">{{ col.title }}</p>
             <div class="mt-3 space-y-2">
-              <p v-for="link in col.links" :key="link.label" class="text-sm text-neutral-500">
-                {{ link.label }}
-              </p>
+              <a v-for="link in col.links" :key="link.label" :href="link.href" class="block text-sm text-neutral-500" @click.prevent>{{ link.label }}</a>
             </div>
           </div>
         </div>
       </div>
       <div class="mt-8 border-t border-neutral-800 pt-5 text-xs text-neutral-600">
-        {{ store.footerCopyright }}
+        {{ store.localCopyright }}
       </div>
     </div>
 
     <!-- ── centered ──────────────────────────────────────────────── -->
     <div v-else-if="style === 'centered'" class="bg-neutral-50 px-8 py-12 text-center">
       <brand-mark class="text-xl font-black tracking-tight text-neutral-900" />
-      <p class="mt-2 text-sm text-neutral-500">{{ store.footerTagline }}</p>
+      <p class="mt-2 text-sm text-neutral-500">{{ store.localTagline }}</p>
       <nav
         class="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-neutral-600"
       >
-        <span v-for="link in allLinks" :key="link.key">{{ link.label }}</span>
+        <a v-for="link in allLinks" :key="link.key" :href="link.href" @click.prevent>{{ link.label }}</a>
       </nav>
       <div
         v-if="store.footerShowSocial"
@@ -73,7 +71,7 @@
         <Icon v-for="s in SOCIALS" :key="s" :name="s" class="text-xl" />
       </div>
       <div class="mt-8 border-t border-neutral-200 pt-5 text-xs text-neutral-400">
-        {{ store.footerCopyright }}
+        {{ store.localCopyright }}
       </div>
     </div>
 
@@ -82,11 +80,9 @@
       <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
         <div>
           <brand-mark class="text-base font-bold text-white" />
-          <p class="mt-2 text-sm text-neutral-400">{{ store.footerTagline }}</p>
+          <p class="mt-2 text-sm text-neutral-400">{{ store.localTagline }}</p>
           <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2">
-            <span v-for="link in allLinks" :key="link.key" class="text-sm text-neutral-500">{{
-              link.label
-            }}</span>
+            <a v-for="link in allLinks" :key="link.key" :href="link.href" class="text-sm text-neutral-500" @click.prevent>{{ link.label }}</a>
           </div>
         </div>
         <div class="shrink-0 rounded-2xl border border-neutral-700/60 bg-neutral-800 p-6 md:w-80">
@@ -108,7 +104,7 @@
         </div>
       </div>
       <div class="mt-8 border-t border-neutral-800 pt-5 text-xs text-neutral-600">
-        {{ store.footerCopyright }}
+        {{ store.localCopyright }}
       </div>
     </div>
 
@@ -117,13 +113,13 @@
       <div class="flex flex-wrap items-center justify-between gap-4">
         <brand-mark class="text-sm font-bold text-neutral-900" />
         <nav class="flex flex-wrap gap-x-6 gap-y-1.5 text-sm text-neutral-500">
-          <span v-for="link in allLinks" :key="link.key">{{ link.label }}</span>
+          <a v-for="link in allLinks" :key="link.key" :href="link.href" @click.prevent>{{ link.label }}</a>
         </nav>
         <div class="flex items-center gap-4">
           <div v-if="store.footerShowSocial" class="flex gap-2.5 text-neutral-400">
             <Icon v-for="s in SOCIALS.slice(0, 2)" :key="s" :name="s" />
           </div>
-          <p class="text-xs text-neutral-400">{{ store.footerCopyright }}</p>
+          <p class="text-xs text-neutral-400">{{ store.localCopyright }}</p>
         </div>
       </div>
     </div>
@@ -132,17 +128,15 @@
     <div v-else-if="style === 'big-brand'" class="overflow-hidden bg-neutral-900 px-8 pt-10">
       <div class="flex flex-wrap items-start justify-between gap-8">
         <div class="flex flex-wrap gap-10">
-          <div v-for="col in store.footerColumns" :key="col.title">
+          <div v-for="col in store.localFooterColumns" :key="col.title">
             <p class="text-xs font-bold tracking-wider text-neutral-400">{{ col.title }}</p>
             <div class="mt-3 space-y-2">
-              <p v-for="link in col.links" :key="link.label" class="text-sm text-neutral-500">
-                {{ link.label }}
-              </p>
+              <a v-for="link in col.links" :key="link.label" :href="link.href" class="block text-sm text-neutral-500" @click.prevent>{{ link.label }}</a>
             </div>
           </div>
         </div>
         <div class="max-w-xs text-sm text-neutral-400">
-          {{ store.footerTagline }}
+          {{ store.localTagline }}
           <div v-if="store.footerShowSocial" class="mt-4 flex gap-3 text-neutral-500">
             <Icon v-for="s in SOCIALS.slice(0, 3)" :key="s" :name="s" class="text-lg" />
           </div>
@@ -150,7 +144,7 @@
       </div>
       <brand-mark
         class="mt-10 whitespace-nowrap text-center text-[clamp(3rem,13vw,9rem)] font-black leading-[0.85] tracking-tighter text-white/90" />
-      <p class="py-4 text-center text-xs text-neutral-600">{{ store.footerCopyright }}</p>
+      <p class="py-4 text-center text-xs text-neutral-600">{{ store.localCopyright }}</p>
     </div>
 
     <!-- ── split ─────────────────────────────────────────────────── -->
@@ -158,7 +152,7 @@
       <div class="grid gap-10 md:grid-cols-2">
         <div>
           <brand-mark class="text-lg font-black tracking-tight text-neutral-900" />
-          <p class="mt-2 max-w-sm text-sm text-neutral-500">{{ store.footerTagline }}</p>
+          <p class="mt-2 max-w-sm text-sm text-neutral-500">{{ store.localTagline }}</p>
           <div class="mt-5 flex max-w-sm gap-2">
             <div
               class="flex-1 rounded-lg border border-neutral-200 px-3 py-2.5 text-xs text-neutral-400"
@@ -171,12 +165,10 @@
           </div>
         </div>
         <div class="flex flex-wrap gap-12 md:justify-end">
-          <div v-for="col in store.footerColumns" :key="col.title">
+          <div v-for="col in store.localFooterColumns" :key="col.title">
             <p class="text-xs font-bold tracking-wider text-neutral-900">{{ col.title }}</p>
             <div class="mt-3 space-y-2">
-              <p v-for="link in col.links" :key="link.label" class="text-sm text-neutral-500">
-                {{ link.label }}
-              </p>
+              <a v-for="link in col.links" :key="link.label" :href="link.href" class="block text-sm text-neutral-500" @click.prevent>{{ link.label }}</a>
             </div>
           </div>
         </div>
@@ -184,7 +176,7 @@
       <div
         class="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-neutral-200 pt-5 text-xs text-neutral-400"
       >
-        <span>{{ store.footerCopyright }}</span>
+        <span>{{ store.localCopyright }}</span>
         <div v-if="store.footerShowSocial" class="flex gap-3 text-base">
           <Icon v-for="s in SOCIALS.slice(0, 3)" :key="s" :name="s" />
         </div>
@@ -195,22 +187,20 @@
     <div v-else-if="style === 'cards'" class="bg-neutral-100 px-8 py-10">
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <div
-          v-for="col in store.footerColumns"
+          v-for="col in store.localFooterColumns"
           :key="col.title"
           class="rounded-2xl border border-neutral-200 bg-white p-5"
         >
           <p class="text-xs font-bold tracking-wider text-neutral-900">{{ col.title }}</p>
           <div class="mt-3 space-y-2">
-            <p v-for="link in col.links" :key="link.label" class="text-sm text-neutral-500">
-              {{ link.label }}
-            </p>
+            <a v-for="link in col.links" :key="link.label" :href="link.href" class="block text-sm text-neutral-500" @click.prevent>{{ link.label }}</a>
           </div>
         </div>
       </div>
       <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
         <div>
           <brand-mark class="text-sm font-bold text-neutral-900" />
-          <span class="ms-3 text-xs text-neutral-400">{{ store.footerCopyright }}</span>
+          <span class="ms-3 text-xs text-neutral-400">{{ store.localCopyright }}</span>
         </div>
         <div v-if="store.footerShowSocial" class="flex gap-3 text-neutral-500">
           <Icon v-for="s in SOCIALS.slice(0, 3)" :key="s" :name="s" class="text-lg" />
@@ -223,7 +213,7 @@
       <div class="flex flex-wrap items-center justify-between gap-4">
         <brand-mark class="text-sm font-black text-neutral-900" />
         <nav class="flex flex-wrap gap-x-6 gap-y-1.5 text-sm text-neutral-500">
-          <span v-for="link in allLinks" :key="link.key">{{ link.label }}</span>
+          <a v-for="link in allLinks" :key="link.key" :href="link.href" @click.prevent>{{ link.label }}</a>
         </nav>
       </div>
       <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
@@ -241,7 +231,7 @@
         </div>
       </div>
       <p class="mt-6 border-t border-neutral-200 pt-4 text-xs text-neutral-400">
-        {{ store.footerCopyright }}
+        {{ store.localCopyright }}
       </p>
     </div>
   </div>
@@ -279,8 +269,8 @@ const PAYMENTS = [
 
 /** Every footer link flattened (for the single-row designs). */
 const allLinks = computed(() =>
-  store.footerColumns.flatMap((col) =>
-    col.links.map((l) => ({ key: `${col.title}-${l.label}`, label: l.label })),
+  store.localFooterColumns.flatMap((col) =>
+    col.links.map((l) => ({ key: `${col.title}-${l.label}`, label: l.label, href: l.href })),
   ),
 );
 </script>

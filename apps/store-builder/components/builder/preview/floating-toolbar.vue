@@ -52,6 +52,7 @@ const actions = [
   { id: "up", title: "Move up", icon: "ph:arrow-up-bold" },
   { id: "down", title: "Move down", icon: "ph:arrow-down-bold" },
   { id: "dup", title: "Duplicate", icon: "ph:copy-bold" },
+  { id: "copy", title: "Copy (paste on any page with Ctrl+V)", icon: "ph:clipboard-text-bold" },
   { id: "hide", title: "Hide section", icon: "ph:eye-slash-bold" },
   { id: "del", title: "Delete", icon: "ph:trash-bold", danger: true },
 ] as const;

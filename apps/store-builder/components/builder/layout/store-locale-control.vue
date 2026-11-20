@@ -31,7 +31,7 @@
       @click="localeSettingsOpen = true"
     >
       <Icon name="ph:translate-bold" class="size-4 shrink-0" />
-      <span class="hidden lg:inline">{{ summary }}</span>
+      <span class="hidden whitespace-nowrap 2xl:inline">{{ summary }}</span>
     </button>
   </div>
 </template>

@@ -8,23 +8,28 @@
         placeholder="<div>…</div>"
       />
       <div class="mt-4">
-        <lazy-setting-toggle
-          v-model="sandbox"
-          label="Sandbox in preview (safer)"
+        <lazy-setting-range
+          v-model="height"
+          label="Frame height"
+          :min="40"
+          :max="1200"
+          :step="10"
+          unit="px"
         />
       </div>
     </lazy-setting-group>
 
     <p class="text-[11px] leading-relaxed text-tx-muted">
-      Raw HTML is rendered on the admin. Only paste trusted snippets.
+      Your markup is shown in a sandboxed frame: styles and layout work, but
+      scripts do not run.
     </p>
   </div>
 </template>
 
 <script lang="ts" setup>
 const { t } = useI18n();
-const { str, bool } = useSectionSettingsForm();
+const { str, num } = useSectionSettingsForm();
 
 const html = str("html", "");
-const sandbox = bool("sandbox_preview", true);
+const height = num("height", 240);
 </script>

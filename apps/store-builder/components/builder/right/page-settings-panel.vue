@@ -226,8 +226,8 @@ const page = computed(() => store.currentPage)
 
 // ── Main panel fields ───────────────────────────────────────────────
 const title = computed({
-  get: () => page.value?.title ?? '',
-  set: (v: string) => { if (page.value) page.value.title = v },
+  get: () => (page.value ? store.pageText(page.value, 'title') : ''),
+  set: (v: string) => { if (page.value) store.setPageText(page.value.id, 'title', v) },
 })
 const slug = computed({
   get: () => page.value?.slug ?? '',
@@ -238,12 +238,12 @@ const showNav = computed({
   set: (v: boolean) => { if (page.value) page.value.show_in_nav = v },
 })
 const seoTitle = computed({
-  get: () => page.value?.seo_title ?? '',
-  set: (v: string) => { if (page.value) page.value.seo_title = v || null },
+  get: () => (page.value ? store.pageText(page.value, 'seo_title') : ''),
+  set: (v: string) => { if (page.value) store.setPageText(page.value.id, 'seo_title', v) },
 })
 const seoDesc = computed({
-  get: () => page.value?.seo_desc ?? '',
-  set: (v: string) => { if (page.value) page.value.seo_desc = v || null },
+  get: () => (page.value ? store.pageText(page.value, 'seo_desc') : ''),
+  set: (v: string) => { if (page.value) store.setPageText(page.value.id, 'seo_desc', v) },
 })
 
 // ── Save logic ──────────────────────────────────────────────────────
@@ -265,8 +265,8 @@ const isPublished = computed({
   set: (v: boolean) => { if (page.value) page.value.is_published = v },
 })
 const navLabel = computed({
-  get: () => page.value?.nav_label ?? '',
-  set: (v: string) => { if (page.value) page.value.nav_label = v || null },
+  get: () => (page.value ? store.pageText(page.value, 'nav_label') : ''),
+  set: (v: string) => { if (page.value) store.setPageText(page.value.id, 'nav_label', v) },
 })
 // OG fields stored in seo_title/seo_desc as fallback (extend as needed)
 const ogTitle = computed({

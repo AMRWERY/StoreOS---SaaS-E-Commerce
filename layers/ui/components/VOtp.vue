@@ -126,7 +126,8 @@ const onPaste = (e: ClipboardEvent) => {
 };
 
 const boxClasses = computed(() => [
-  "w-11 h-12 text-center text-lg font-bold bg-bg-elevated border border-border-subtle rounded-md text-tx-primary outline-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
+  props.fullWidth ? "flex-1 min-w-0" : "w-11",
+  "h-12 text-center text-lg font-bold bg-bg-elevated border border-border-subtle rounded-md text-tx-primary outline-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
   props.error
     ? "border-red-500/50 focus:border-red-500"
     : "focus:border-brand focus:ring-2 focus:ring-brand-dim hover:border-border-default",

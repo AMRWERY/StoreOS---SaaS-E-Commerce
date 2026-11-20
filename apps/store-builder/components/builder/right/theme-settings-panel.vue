@@ -58,7 +58,7 @@
           </div>
 
           <div
-            v-for="(link, i) in store.navLinks"
+            v-for="(link, i) in store.localNavLinks"
             :key="i"
             class="rounded-lg border border-border-subtle bg-bg-elevated/60 p-3"
           >
@@ -78,6 +78,10 @@
                   label="URL"
                   placeholder="/collection"
                   input-class="!w-full !rounded-md !border-border-subtle !bg-bg-base !px-2.5 !py-1.5 !text-[11px] !text-tx-primary !outline-none !transition-colors focus:!border-brand"
+                  @update:model-value="store.updateNavLink(i, 'href', $event)"
+                />
+                <page-link-select
+                  :model-value="link.href"
                   @update:model-value="store.updateNavLink(i, 'href', $event)"
                 />
               </div>
@@ -107,6 +111,28 @@
               Add your first link
             </LazyVButton>
           </div>
+        </div>
+      </lazy-setting-group>
+
+      <!-- ── Presets ────────────────────────────────────────────── -->
+      <lazy-setting-group title="Ready-made themes" default-open>
+        <div class="grid grid-cols-3 gap-2">
+          <button
+            v-for="preset in THEME_PRESETS"
+            :key="preset.id"
+            type="button"
+            class="overflow-hidden rounded-lg border border-border-subtle text-start transition-colors hover:border-brand/50"
+            @click="store.setTheme(preset.theme)"
+          >
+            <span
+              class="flex h-10 items-end gap-1 p-1.5"
+              :style="{ backgroundColor: preset.theme.background }"
+            >
+              <i class="block h-3 w-5 rounded-sm" :style="{ backgroundColor: preset.theme.primary }" />
+              <i class="block h-2 w-3 rounded-sm" :style="{ backgroundColor: preset.theme.text }" />
+            </span>
+            <span class="block px-1.5 py-1 text-[10px] font-semibold text-tx-secondary">{{ preset.label }}</span>
+          </button>
         </div>
       </lazy-setting-group>
 
@@ -163,7 +189,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { SiteTheme } from "@/data/site-theme";
+import { THEME_PRESETS, type SiteTheme } from "@/data/site-theme";
 
 const { t } = useI18n();
 const store = useBuilderStore();

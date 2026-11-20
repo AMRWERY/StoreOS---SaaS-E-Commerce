@@ -1,5 +1,6 @@
 ﻿<template>
   <div
+    data-tour="settings-panel"
     class="flex w-full shrink-0 flex-col border-border-subtle transition-[width] duration-300 ease-out max-xl:border-t xl:overflow-hidden xl:border-s"
     :class="
       settingsPanelOpen

@@ -1,4 +1,5 @@
-import type { DeviceMode, PanelMode } from '@/types/builder'
+import type { DeviceMode, MediaItem, PanelMode, VersionMeta } from '@/types/builder'
+import { idbDel, idbGet, idbSet } from '@/composables/useBuilderStorage'
 import { buildTemplateSections } from '@/data/page-templates'
 import { localeDir, type StoreLocale } from '@/data/localize'
 import type { FooterStyle, NavbarStyle } from '@/data/chrome-styles'
@@ -81,11 +82,28 @@ export const useBuilderStore = defineStore('builder', () => {
   }
   const navbarStyle = ref<NavbarStyle>('classic')
   const footerStyle = ref<FooterStyle>('columns')
-  const navLinks = ref<Array<{ label: string; href: string }>>([
-    { label: 'Collection', href: '/collection' },
-    { label: 'Shop', href: '/shop' },
+
+  type Bag<T> = Partial<Record<StoreLocale, T>>
+  interface NavLink { label: string; href: string; i18n?: Bag<{ label?: string }> }
+  interface FooterLink { label: string; href: string; i18n?: Bag<{ label?: string }> }
+  interface FooterColumn { title: string; i18n?: Bag<{ title?: string }>; links: FooterLink[] }
+
+  const isDefaultLocale = computed(() => contentLocale.value === defaultLocale.value)
+
+  const navLinks = ref<NavLink[]>([
+    { label: 'Home', href: '/' },
+    { label: 'Shop', href: '/collection' },
     { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
   ])
+
+  /** Nav links with the language being edited / previewed applied. */
+  const localNavLinks = computed(() =>
+    navLinks.value.map(l => ({
+      ...l,
+      label: isDefaultLocale.value ? l.label : (l.i18n?.[contentLocale.value]?.label || l.label),
+    })),
+  )
 
   function addNavLink() {
     navLinks.value.push({ label: 'New link', href: '/' })
@@ -98,41 +116,74 @@ export const useBuilderStore = defineStore('builder', () => {
   }
 
   function updateNavLink(index: number, field: 'label' | 'href', value: string) {
-    if (navLinks.value[index]) {
-      navLinks.value[index][field] = value
-      isDirty.value = true
-    }
+    const link = navLinks.value[index]
+    if (!link) return
+    if (field === 'label' && !isDefaultLocale.value)
+      link.i18n = { ...link.i18n, [contentLocale.value]: { label: value } }
+    else link[field] = value
+    isDirty.value = true
   }
 
   // ── footer ───────────────────────────────────────────────────────
   const footerTagline = ref('Premium products for your lifestyle.')
   const footerCopyright = ref(`© ${new Date().getFullYear()} My Store. All rights reserved.`)
+  const footerTextI18n = ref<Bag<{ tagline?: string; copyright?: string }>>({})
   const footerShowSocial = ref(true)
-  const footerColumns = ref([
+  const footerColumns = ref<FooterColumn[]>([
     {
       title: 'Shop',
       links: [
-        { label: 'All Products', href: '/shop' },
-        { label: 'New Arrivals', href: '/new' },
-        { label: 'Sale', href: '/sale' },
+        { label: 'All Products', href: '/collection' },
+        { label: 'New Arrivals', href: '/collection' },
+        { label: 'Sale', href: '/collection' },
       ],
     },
     {
       title: 'Help',
       links: [
         { label: 'FAQ', href: '/faq' },
-        { label: 'Shipping', href: '/shipping' },
-        { label: 'Returns', href: '/returns' },
+        { label: 'Shipping', href: '/policies' },
+        { label: 'Returns', href: '/policies' },
+        { label: 'Track order', href: '/track-order' },
       ],
     },
     {
       title: 'Company',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Contact', href: '' },
+        { label: 'Contact', href: '/contact' },
       ],
     },
   ])
+
+  const localFooterColumns = computed(() =>
+    footerColumns.value.map(col => ({
+      ...col,
+      title: isDefaultLocale.value ? col.title : (col.i18n?.[contentLocale.value]?.title || col.title),
+      links: col.links.map(l => ({
+        ...l,
+        label: isDefaultLocale.value ? l.label : (l.i18n?.[contentLocale.value]?.label || l.label),
+      })),
+    })),
+  )
+  const localTagline = computed(() =>
+    isDefaultLocale.value ? footerTagline.value : (footerTextI18n.value[contentLocale.value]?.tagline || footerTagline.value),
+  )
+  const localCopyright = computed(() =>
+    isDefaultLocale.value ? footerCopyright.value : (footerTextI18n.value[contentLocale.value]?.copyright || footerCopyright.value),
+  )
+
+  function setFooterTagline(value: string) {
+    if (isDefaultLocale.value) footerTagline.value = value
+    else footerTextI18n.value = { ...footerTextI18n.value, [contentLocale.value]: { ...footerTextI18n.value[contentLocale.value], tagline: value } }
+    isDirty.value = true
+  }
+
+  function setFooterCopyright(value: string) {
+    if (isDefaultLocale.value) footerCopyright.value = value
+    else footerTextI18n.value = { ...footerTextI18n.value, [contentLocale.value]: { ...footerTextI18n.value[contentLocale.value], copyright: value } }
+    isDirty.value = true
+  }
 
   function addFooterColumn() {
     footerColumns.value.push({ title: 'New column', links: [] })
@@ -145,10 +196,11 @@ export const useBuilderStore = defineStore('builder', () => {
   }
 
   function updateFooterColumn(colIdx: number, title: string) {
-    if (footerColumns.value[colIdx]) {
-      footerColumns.value[colIdx].title = title
-      isDirty.value = true
-    }
+    const col = footerColumns.value[colIdx]
+    if (!col) return
+    if (!isDefaultLocale.value) col.i18n = { ...col.i18n, [contentLocale.value]: { title } }
+    else col.title = title
+    isDirty.value = true
   }
 
   function addFooterLink(colIdx: number) {
@@ -163,11 +215,69 @@ export const useBuilderStore = defineStore('builder', () => {
 
   function updateFooterLink(colIdx: number, linkIdx: number, field: 'label' | 'href', value: string) {
     const link = footerColumns.value[colIdx]?.links[linkIdx]
-    if (link) {
-      link[field] = value
-      isDirty.value = true
-    }
+    if (!link) return
+    if (field === 'label' && !isDefaultLocale.value)
+      link.i18n = { ...link.i18n, [contentLocale.value]: { label: value } }
+    else link[field] = value
+    isDirty.value = true
   }
+
+  // ── announcement + maintenance text (translatable) ───────────────
+  const localAnnouncementText = computed(() =>
+    isDefaultLocale.value
+      ? announcement.value.text
+      : (announcement.value.textI18n?.[contentLocale.value] || announcement.value.text),
+  )
+  function setAnnouncementText(value: string) {
+    if (isDefaultLocale.value) setAnnouncement({ text: value })
+    else setAnnouncement({ textI18n: { ...announcement.value.textI18n, [contentLocale.value]: value } })
+  }
+  const localMaintenanceMessage = computed(() =>
+    isDefaultLocale.value
+      ? siteSettings.value.maintenanceMessage
+      : (siteSettings.value.maintenanceMessageI18n?.[contentLocale.value] || siteSettings.value.maintenanceMessage),
+  )
+  function setMaintenanceMessage(value: string) {
+    if (isDefaultLocale.value) setSiteSettings({ maintenanceMessage: value })
+    else setSiteSettings({ maintenanceMessageI18n: { ...siteSettings.value.maintenanceMessageI18n, [contentLocale.value]: value } })
+  }
+
+  // ── page text (translatable) ─────────────────────────────────────
+  type PageTextKey = 'title' | 'nav_label' | 'seo_title' | 'seo_desc'
+  /** A page's text in the language being edited / previewed. */
+  function pageText(page: StorePage, key: PageTextKey): string {
+    const base = (page[key] ?? '') as string
+    return isDefaultLocale.value ? base : (page.i18n?.[contentLocale.value]?.[key] || base)
+  }
+  function setPageText(pageId: string, key: PageTextKey, value: string) {
+    const page = pages.value.find(p => p.id === pageId)
+    if (!page) return
+    if (isDefaultLocale.value) (page as unknown as Record<string, unknown>)[key] = value
+    else page.i18n = { ...page.i18n, [contentLocale.value]: { ...page.i18n?.[contentLocale.value], [key]: value } }
+    isDirty.value = true
+  }
+
+  // ── media library ────────────────────────────────────────────────
+  const media = ref<MediaItem[]>([])
+  function addMedia(items: { name: string; url: string; size: number }[]) {
+    const added = items.map(i => ({ ...i, id: `med_${crypto.randomUUID().slice(0, 8)}`, addedAt: Date.now() }))
+    media.value = [...added, ...media.value]
+    isDirty.value = true
+    return added
+  }
+  function removeMedia(id: string) {
+    media.value = media.value.filter(m => m.id !== id)
+    isDirty.value = true
+  }
+  function renameMedia(id: string, name: string) {
+    const m = media.value.find(x => x.id === id)
+    if (m) { m.name = name; isDirty.value = true }
+  }
+
+  // ── clipboard (copy / paste sections, also across pages) ─────────
+  const clipboard = ref<PageSection[]>([])
+
+  const versions = ref<VersionMeta[]>([])
 
   // ── working state (for the active page) ──────────────────────────
   const sections = ref<PageSection[]>([])
@@ -345,6 +455,10 @@ export const useBuilderStore = defineStore('builder', () => {
         ['page_cart', 'cart', 'cart', 'Cart', 'cart-page'],
         ['page_search', 'search', 'search', 'Search', 'search-page'],
         ['page_track', 'track', 'track-order', 'Track order', 'track-page'],
+        ['page_about', 'page', 'about', 'About', 'about-page'],
+        ['page_contact', 'page', 'contact', 'Contact', 'contact-page'],
+        ['page_faq', 'page', 'faq', 'FAQ', 'faq-page'],
+        ['page_policies', 'page', 'policies', 'Shipping & returns', 'policies-page'],
       ] as const).map(([id, type, slug, title], i): StorePage => ({
         id,
         store_id: storeId,
@@ -354,7 +468,7 @@ export const useBuilderStore = defineStore('builder', () => {
         seo_title: null,
         seo_desc: null,
         is_published: false,
-        is_system: true,
+        is_system: type !== 'page',
         show_in_nav: false,
         nav_label: null,
         nav_order: 3 + i,
@@ -367,6 +481,10 @@ export const useBuilderStore = defineStore('builder', () => {
       ['page_cart', 'cart-page'],
       ['page_search', 'search-page'],
       ['page_track', 'track-page'],
+      ['page_about', 'about-page'],
+      ['page_contact', 'contact-page'],
+      ['page_faq', 'faq-page'],
+      ['page_policies', 'policies-page'],
     ] as const) {
       sectionsMap.value[id] = buildTemplateSections(template, id, storeId)
     }
@@ -496,6 +614,26 @@ export const useBuilderStore = defineStore('builder', () => {
     pushHistory()
   }
 
+  function copySection(id: string) {
+    const s = sections.value.find(x => x.id === id)
+    if (s) clipboard.value = [_clone(s)]
+  }
+
+  /** Paste the copied section(s) after `afterId` (default: the selected section, else the end). */
+  function pasteSection(afterId?: string | null) {
+    const page = currentPage.value
+    if (!page || !clipboard.value.length) return
+    let anchor = afterId ?? selectedId.value
+    for (const src of clipboard.value) {
+      const copy = _clone(src)
+      copy.id = `sec_${crypto.randomUUID().slice(0, 8)}`
+      copy.page_id = page.id
+      copy.store_id = page.store_id
+      insertSection(copy, anchor)
+      anchor = copy.id
+    }
+  }
+
   function toggleSectionHidden(id: string) {
     const s = sections.value.find(x => x.id === id)
     if (s) {
@@ -516,6 +654,11 @@ export const useBuilderStore = defineStore('builder', () => {
     reorderSortOrder()
     isDirty.value = true
     pushHistory()
+  }
+
+  /** Sections of any page (the working copy for the page being edited, the saved copy for others). */
+  function sectionsFor(pageId: string): PageSection[] {
+    return pageId === currentPageId.value ? sections.value : (sectionsMap.value[pageId] ?? [])
   }
 
   // ── history ──────────────────────────────────────────────────────
@@ -545,6 +688,8 @@ export const useBuilderStore = defineStore('builder', () => {
       footerCopyright: footerCopyright.value,
       footerShowSocial: footerShowSocial.value,
       footerColumns: footerColumns.value,
+      footerTextI18n: footerTextI18n.value,
+      media: media.value,
       theme: theme.value,
       announcement: announcement.value,
       siteSettings: siteSettings.value,
@@ -568,6 +713,8 @@ export const useBuilderStore = defineStore('builder', () => {
     footerCopyright.value = (state.footerCopyright as string) ?? ''
     footerShowSocial.value = (state.footerShowSocial as boolean) ?? true
     footerColumns.value = (state.footerColumns as typeof footerColumns.value) ?? []
+    footerTextI18n.value = (state.footerTextI18n as typeof footerTextI18n.value) ?? {}
+    media.value = (state.media as MediaItem[] | undefined) ?? []
     theme.value = { ...DEFAULT_THEME, ...(state.theme as Partial<SiteTheme> | undefined) }
     announcement.value = { ...DEFAULT_ANNOUNCEMENT, ...(state.announcement as Partial<Announcement> | undefined) }
     siteSettings.value = {
@@ -585,14 +732,120 @@ export const useBuilderStore = defineStore('builder', () => {
     return true
   }
 
-  function hydrateFromStorage(): boolean {
-    try {
-      const raw = localStorage.getItem('storeos_builder_state')
-      if (!raw) return false
-      return applySnapshot(JSON.parse(raw) as Record<string, unknown>)
-    } catch {
-      return false
+  // ── persistence: draft autosave, published copy, version history ───
+
+  const plain = <T>(v: T): T => JSON.parse(JSON.stringify(v)) as T
+
+  const lastDraftAt = ref<number | null>(null)
+  let draftTimer: ReturnType<typeof setTimeout> | undefined
+  let autosaveStarted = false
+  let initialized = false
+
+  async function writeDraft() {
+    await idbSet('draft', plain(snapshot()))
+    lastDraftAt.value = Date.now()
+  }
+
+  /** Debounced draft write — called whenever any part of the design changes. */
+  function scheduleDraft() {
+    if (!initialized) return
+    clearTimeout(draftTimer)
+    draftTimer = setTimeout(() => { void writeDraft() }, 1200)
+  }
+
+  function startAutosave() {
+    if (autosaveStarted || typeof window === 'undefined') return
+    autosaveStarted = true
+    watch(
+      () => [
+        sections.value, pages.value, navLinks.value, footerColumns.value, footerTagline.value,
+        footerCopyright.value, footerTextI18n.value, footerShowSocial.value, theme.value,
+        announcement.value, siteSettings.value, storeName.value, storeNameI18n.value,
+        navbarStyle.value, footerStyle.value, locales.value, defaultLocale.value, media.value,
+      ],
+      scheduleDraft,
+      { deep: true },
+    )
+  }
+
+  /** Open the builder: restore the autosaved draft (first time only), then show the requested page. */
+  async function initBuilder(slug: string) {
+    if (!initialized) {
+      const draft = await idbGet<Record<string, unknown>>('draft')
+      if (draft && applySnapshot(draft)) isDirty.value = false
+      initialized = true
+      startAutosave()
+      void loadVersions()
     }
+    loadPageBySlug(slug)
+  }
+
+  /** Throw away the autosaved draft and start again from the starter store. */
+  async function resetDesign() {
+    clearTimeout(draftTimer)
+    await idbDel('draft')
+    window.location.reload()
+  }
+
+  async function loadVersions() {
+    versions.value = (await idbGet<VersionMeta[]>('versions-index')) ?? []
+  }
+
+  /** Save the current design as a restorable version (keeps the newest 30). */
+  async function saveVersion(label: string, kind: VersionMeta['kind'] = 'manual') {
+    const snap = plain(snapshot())
+    const meta: VersionMeta = {
+      id: `v_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 5)}`,
+      createdAt: Date.now(),
+      label,
+      kind,
+      pages: snap.pages.length,
+      sections: Object.values(snap.sectionsMap).reduce((n, list) => n + list.length, 0),
+    }
+    await idbSet(`version:${meta.id}`, snap)
+    const next = [meta, ...versions.value]
+    const evicted = next.slice(30)
+    versions.value = next.slice(0, 30)
+    await idbSet('versions-index', plain(versions.value))
+    await Promise.all(evicted.map(v => idbDel(`version:${v.id}`)))
+    return meta
+  }
+
+  /** Restore a saved version. The current design is saved first as "Before restore". */
+  async function restoreVersion(id: string): Promise<boolean> {
+    const snap = await idbGet<Record<string, unknown>>(`version:${id}`)
+    if (!snap) return false
+    await saveVersion('Before restore', 'auto')
+    const ok = applySnapshot(snap)
+    if (ok) {
+      isDirty.value = true
+      scheduleDraft()
+    }
+    return ok
+  }
+
+  async function deleteVersion(id: string) {
+    versions.value = versions.value.filter(v => v.id !== id)
+    await idbSet('versions-index', plain(versions.value))
+    await idbDel(`version:${id}`)
+  }
+
+  async function renameVersion(id: string, label: string) {
+    const v = versions.value.find(x => x.id === id)
+    if (!v) return
+    v.label = label
+    await idbSet('versions-index', plain(versions.value))
+  }
+
+  /** Save the current design for the preview tab (does not publish). */
+  async function preparePreview() {
+    await idbSet('preview', plain(snapshot()))
+  }
+
+  /** Load the design for the preview tab: the latest preview copy, else the last published one. */
+  async function hydrateFromStorage(): Promise<boolean> {
+    const state = (await idbGet<Record<string, unknown>>('preview')) ?? (await idbGet<Record<string, unknown>>('published'))
+    return state ? applySnapshot(state) : false
   }
 
   /** Download the whole design as a JSON backup. */
@@ -629,11 +882,11 @@ export const useBuilderStore = defineStore('builder', () => {
     pages.value.forEach(p => { p.is_published = true })
     isDirty.value = false
 
-    // Persist the entire builder state to localStorage so a full page reload
-    // (e.g. the new tab) can hydrate from it if needed in the future.
-    try {
-      localStorage.setItem('storeos_builder_state', JSON.stringify(snapshot()))
-    } catch (_) { /* storage quota exceeded — fail silently */ }
+    // The preview tab reads this copy; every publish is also kept as a restorable version.
+    await idbSet('published', plain(snapshot()))
+    await preparePreview()
+    await saveVersion(`Published ${new Date().toLocaleString()}`, 'publish')
+    await writeDraft()
 
     // Simulate async save round-trip for UX feedback
     await new Promise(resolve => setTimeout(resolve, 800))
@@ -740,6 +993,38 @@ export const useBuilderStore = defineStore('builder', () => {
     publish,
     saveSettings,
     hydrateFromStorage,
+    initBuilder,
+    sectionsFor,
+    preparePreview,
+    resetDesign,
+    lastDraftAt,
+    versions,
+    loadVersions,
+    saveVersion,
+    restoreVersion,
+    deleteVersion,
+    renameVersion,
+    media,
+    addMedia,
+    removeMedia,
+    renameMedia,
+    clipboard,
+    copySection,
+    pasteSection,
+    isDefaultLocale,
+    localNavLinks,
+    localFooterColumns,
+    localTagline,
+    localCopyright,
+    footerTextI18n,
+    setFooterTagline,
+    setFooterCopyright,
+    localAnnouncementText,
+    setAnnouncementText,
+    localMaintenanceMessage,
+    setMaintenanceMessage,
+    pageText,
+    setPageText,
     snapshot,
     applySnapshot,
     exportDesign,

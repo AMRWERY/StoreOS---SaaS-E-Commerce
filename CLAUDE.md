@@ -65,14 +65,27 @@ misleading elsewhere: `rules/*.md` calls the customer-facing storefront "admin",
 
 ### apps/store-builder: storefront builder
 
-The page builder is the one subsystem spanning many files. Adding or changing a section type means
-touching all of these:
+The page builder is registry-driven. A block ("section type") is two files plus a union member:
 
-- `types/sections.ts` — `SectionType` union + `SECTION_TYPE_LABELS` + `PageSection`/`StorePage`
-- `components/storefront/sections/section-<name>.vue` — the renderer (one per `SectionType`)
-- `components/builder/section-settings/` — the settings panel for that type
-- `data/builder-section-templates.ts` — default settings payload
-- `stores/builder.ts` — `sectionsMap` (sections keyed by page id), global navbar/footer settings, `isDirty`
+- `types/sections.ts` — add the type to the `SectionType` union + `SECTION_TYPE_LABELS`
+- `data/sections/<type-with-dashes>.ts` — default-exports a `SectionDefinition` (name, category, icon, `defaults`, and a
+  `groups` schema that drives the generic settings form incl. a `variant` "Design" picker). `data/section-registry.ts`
+  picks every file up via `import.meta.glob`; the original 24 blocks' metadata lives in `data/sections/_legacy.ts`.
+- `components/storefront/sections/section-<type-with-dashes>.vue` — the renderer. It is the **only** renderer: the editor canvas
+  (`section-preview-block.vue` wraps it) and the published preview both go through `section-render.vue`, which resolves the
+  component by file name, applies the Advanced settings (padding/background/width/shape/visibility) and the active language.
+  Read settings with `useSectionData(() => props.section)`. Use only the standard neutral/indigo Tailwind utilities — the theme
+  (`assets/css/section-shapes.css`, scoped to `.sb-site`) remaps them to the merchant's colors, dark backgrounds, radius and buttons.
+- The 24 original blocks keep hand-written forms in `components/builder/section-settings/`; new blocks need no form.
+
+Cross-cutting pieces (all in `stores/builder.ts` unless noted): `snapshot()`/`applySnapshot()` define what a saved design contains;
+the draft autosaves to IndexedDB (`composables/useBuilderStorage.ts`, not localStorage — images are large) and is restored by
+`initBuilder()`; publishing also writes a restorable version. Translations: block text lives in `settings.i18n.<locale>`
+(`data/localize.ts`); navbar/footer/page/announcement text have `*I18n` bags with `local*` getters. Theme, site settings, media
+library and clipboard are store state (`data/site-theme.ts`). The published preview (`pages/builder/preview.vue`) is a real
+multi-page site: `useSitePreview()` resolves links to pages, `useTracking()` injects analytics after cookie consent. The guided
+tour is `data/tour-steps.ts` + `components/builder/tour/`; elements it points at carry `data-tour="…"` attributes.
+Drag & drop uses `vue-draggable-plus` (SortableJS, forced pointer mode).
 
 These all live in `apps/store-builder` (the dashboard app has no builder). Routes are `pages/builder/*` (`/en/builder/home`)
 with a dedicated `builder` layout; `/` and `/builder` redirect to `/builder/home` via `redirect-builder-home`, and the global

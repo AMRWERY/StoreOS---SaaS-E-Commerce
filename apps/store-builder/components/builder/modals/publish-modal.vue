@@ -26,8 +26,7 @@
               Store is live!
             </h2>
             <p class="mt-2 text-sm leading-relaxed text-tx-secondary">
-              Your store has been published. The new tab should have opened
-              automatically.
+              Your whole store has been published and opened in a new tab — browse every page, add to cart and try the language switch. This version was also saved to your history.
             </p>
             <LazyVButton
               variant="none"
@@ -71,7 +70,7 @@
             >
               <span class="flex items-center gap-2">
                 <Icon name="ph:file-text-bold" class="text-tx-muted" />
-                {{ page.title }}
+                {{ store.pageText(page, "title") || page.title }}
               </span>
               <span
                 class="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[9px] font-black tracking-widest text-emerald-400"
@@ -125,10 +124,14 @@ const published = ref(false);
 const previewUrl = ref("");
 
 const handlePublish = async () => {
+  // Open the tab right away (inside the click) so popup blockers allow it.
+  const tab = window.open("about:blank", "_blank");
   const rawUrl = await store.publish();
-  previewUrl.value = localePath(rawUrl);
+  const slug = store.currentPage?.slug ?? "home";
+  previewUrl.value = `${localePath(rawUrl)}?page=${encodeURIComponent(slug)}`;
   published.value = true;
-  window.open(previewUrl.value, "_blank");
+  if (tab) tab.location.href = previewUrl.value;
+  else window.open(previewUrl.value, "_blank");
 };
 
 const openPreview = () => {

@@ -51,8 +51,8 @@ const announcement = computed({
   set: (v: boolean) => store.setAnnouncement({ enabled: v }),
 });
 const announcementText = computed({
-  get: () => store.announcement.text,
-  set: (v: string) => store.setAnnouncement({ text: v }),
+  get: () => store.localAnnouncementText,
+  set: (v: string) => store.setAnnouncementText(v),
 });
 const announcementBg = computed({
   get: () => store.announcement.bg,

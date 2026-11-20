@@ -25,6 +25,7 @@
           :is="UiButton"
           v-for="tab in panelTabs"
           :key="tab.id"
+          :data-tour="tab.id === 'Blocks' ? 'blocks-tab' : tab.id === 'Theme' ? 'theme-tab' : undefined"
           variant="none"
           type="button"
           :class-name="sidebarTabClass(tab.id)"
@@ -86,7 +87,11 @@ const panelTabs = [
   { id: "Theme", label: "Theme", icon: "ph:palette-bold" },
 ] as const;
 
-const activeTab = ref<(typeof panelTabs)[number]["id"]>("Sections");
+// Shared with the guided tour (it switches tabs for you).
+const activeTab = useState<(typeof panelTabs)[number]["id"]>(
+  "builder-left-tab",
+  () => "Sections",
+);
 
 // Keep the right panel in step with the tab and the selection. Clearing the selection
 // (e.g. to open Navbar / Footer / Site settings) must NOT reset the panel those buttons just chose.

@@ -7,13 +7,35 @@
       </div>
     </lazy-setting-group>
 
-    <lazy-setting-repeater v-model="items" label="Badges">
+    <lazy-setting-group title="Design">
+      <lazy-setting-radio-cards
+        v-model="variant"
+        label="Design"
+        :options="variantOptions"
+      />
+    </lazy-setting-group>
+
+    <lazy-setting-repeater v-model="items" label="Badges" :new-item="{ title: 'New badge', desc: '', icon: '' }">
       <template #default="{ item }">
         <lazy-setting-text
           :model-value="String(item.title ?? '')"
           label="Line"
           @update:model-value="(v: string) => updateItem(item, 'title', v)"
         />
+        <div class="mt-2">
+          <lazy-setting-text
+            :model-value="String(item.desc ?? '')"
+            label="Description"
+            @update:model-value="(v: string) => updateItem(item, 'desc', v)"
+          />
+        </div>
+        <div class="mt-2">
+          <lazy-setting-text
+            :model-value="String(item.icon ?? '')"
+            label="Icon (e.g. ph:truck-bold)"
+            @update:model-value="(v: string) => updateItem(item, 'icon', v)"
+          />
+        </div>
       </template>
     </lazy-setting-repeater>
   </div>
@@ -25,6 +47,13 @@ const { str, bool, patch, section } = useSectionSettingsForm();
 
 const heading = str("heading", "Why shop with us");
 const icons = bool("show_icons", true);
+const variant = str("variant", "grid");
+
+const variantOptions = [
+  { value: "grid", label: "Grid", icon: "ph:squares-four-bold", description: "Centered columns" },
+  { value: "inline", label: "Inline", icon: "ph:minus-bold", description: "One compact row" },
+  { value: "cards", label: "Cards", icon: "ph:cards-bold", description: "Bordered tiles" },
+];
 
 const items = computed({
   get: () => {

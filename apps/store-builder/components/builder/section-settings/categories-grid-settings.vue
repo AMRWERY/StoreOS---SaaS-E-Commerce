@@ -1,5 +1,9 @@
 ﻿<template>
   <div class="space-y-6">
+    <lazy-setting-group title="Design" default-open>
+      <lazy-setting-radio-cards v-model="variant" label="Layout" :options="variantOptions" />
+    </lazy-setting-group>
+
     <lazy-setting-group title="Categories" default-open>
       <lazy-setting-text v-model="heading" label="Heading" />
       <div class="mt-4">
@@ -29,6 +33,12 @@
 <script lang="ts" setup>
 const { t } = useI18n();
 const { str, num, bool } = useSectionSettingsForm();
+const variant = str("variant", "grid");
+const variantOptions = [
+  { value: "grid", label: "Grid", icon: "ph:grid-four-bold", description: "Even tiles" },
+  { value: "mosaic", label: "Mosaic", icon: "ph:layout-bold", description: "One big, three small" },
+  { value: "row", label: "Row", icon: "ph:arrows-left-right-bold", description: "Scrolling row" },
+];
 
 const heading = str("heading", "Shop by room");
 const columns = num("columns", 3);

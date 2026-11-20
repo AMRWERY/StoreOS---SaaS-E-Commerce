@@ -35,7 +35,7 @@
       class="px-4 py-2 text-center text-xs font-semibold"
       :style="{ backgroundColor: store.announcement.bg, color: store.announcement.color }"
     >
-      {{ store.announcement.text }}
+      {{ store.localAnnouncementText }}
     </div>
 
     <!-- ── classic ───────────────────────────────────────────────── -->
@@ -43,14 +43,14 @@
       v-if="style === 'classic'"
       class="flex items-center justify-between border-b border-neutral-100 bg-white px-8 py-4"
     >
-      <brand-mark class="text-base font-bold tracking-[0.15em] text-neutral-900" />
+      <a href="/" class="text-base font-bold tracking-[0.15em] text-neutral-900" @click.prevent><brand-mark /></a>
       <nav class="hidden gap-8 text-sm text-neutral-600 md:flex">
-        <span v-for="link in links" :key="link.label">{{ link.label }}</span>
+        <a v-for="link in links" :key="link.label" :href="link.href" class="transition-opacity hover:opacity-70" @click.prevent>{{ link.label }}</a>
         <span v-if="!links.length" class="italic text-neutral-300">No links</span>
       </nav>
       <div class="flex items-center gap-3 text-neutral-500">
-        <Icon name="ph:magnifying-glass-bold" />
-        <Icon name="ph:bag-bold" />
+        <a href="/search" class="inline-flex" aria-label="Search" @click.prevent><Icon name="ph:magnifying-glass-bold" /></a>
+        <a href="/cart" class="inline-flex" aria-label="Cart" @click.prevent><Icon name="ph:bag-bold" /></a>
       </div>
     </div>
 
@@ -58,17 +58,17 @@
     <div v-else-if="style === 'centered'" class="border-b border-neutral-100 bg-white">
       <div class="flex items-center justify-between px-8 py-3">
         <div class="w-16 text-neutral-300">
-          <Icon name="ph:magnifying-glass-bold" class="text-sm" />
+          <a href="/search" class="inline-flex" aria-label="Search" @click.prevent><Icon name="ph:magnifying-glass-bold" class="text-sm" /></a>
         </div>
-        <brand-mark class="text-lg font-black tracking-[0.2em] text-neutral-900" />
+        <a href="/" class="text-lg font-black tracking-[0.2em] text-neutral-900" @click.prevent><brand-mark /></a>
         <div class="flex w-16 justify-end gap-3 text-neutral-500">
-          <Icon name="ph:bag-bold" />
+          <a href="/cart" class="inline-flex" aria-label="Cart" @click.prevent><Icon name="ph:bag-bold" /></a>
         </div>
       </div>
       <nav
         class="flex items-center justify-center gap-8 border-t border-neutral-100 py-2.5 text-sm text-neutral-600"
       >
-        <span v-for="link in links" :key="link.label">{{ link.label }}</span>
+        <a v-for="link in links" :key="link.label" :href="link.href" class="transition-opacity hover:opacity-70" @click.prevent>{{ link.label }}</a>
         <span v-if="!links.length" class="italic text-neutral-300">No links</span>
       </nav>
     </div>
@@ -78,15 +78,15 @@
       v-else-if="style === 'dark'"
       class="flex items-center justify-between bg-neutral-900 px-8 py-4"
     >
-      <brand-mark class="text-base font-bold tracking-[0.15em] text-white" />
+      <a href="/" class="text-base font-bold tracking-[0.15em] text-white" @click.prevent><brand-mark /></a>
       <nav class="hidden gap-8 text-sm text-neutral-300 md:flex">
-        <span v-for="link in links" :key="link.label">{{ link.label }}</span>
+        <a v-for="link in links" :key="link.label" :href="link.href" class="transition-opacity hover:opacity-70" @click.prevent>{{ link.label }}</a>
         <span v-if="!links.length" class="italic text-neutral-600">No links</span>
       </nav>
       <div class="flex items-center gap-4">
         <div class="flex gap-3 text-neutral-400">
-          <Icon name="ph:magnifying-glass-bold" />
-          <Icon name="ph:bag-bold" />
+          <a href="/search" class="inline-flex" aria-label="Search" @click.prevent><Icon name="ph:magnifying-glass-bold" /></a>
+          <a href="/cart" class="inline-flex" aria-label="Cart" @click.prevent><Icon name="ph:bag-bold" /></a>
         </div>
         <span class="rounded-lg bg-white px-4 py-1.5 text-xs font-bold text-neutral-900">
           Shop now
@@ -100,15 +100,15 @@
       class="border-b border-neutral-100 bg-white px-8 py-5"
     >
       <div class="flex items-center justify-between">
-        <brand-mark class="text-xl font-black tracking-tight text-neutral-900" />
+        <a href="/" class="text-xl font-black tracking-tight text-neutral-900" @click.prevent><brand-mark /></a>
         <div class="flex items-center gap-5">
           <nav class="hidden gap-7 text-sm font-medium text-neutral-500 md:flex">
-            <span v-for="link in links" :key="link.label">{{ link.label }}</span>
+            <a v-for="link in links" :key="link.label" :href="link.href" class="transition-opacity hover:opacity-70" @click.prevent>{{ link.label }}</a>
           </nav>
           <div class="flex items-center gap-2 text-neutral-400">
-            <Icon name="ph:magnifying-glass-bold" />
+            <a href="/search" class="inline-flex" aria-label="Search" @click.prevent><Icon name="ph:magnifying-glass-bold" /></a>
             <span class="relative">
-              <Icon name="ph:bag-bold" />
+              <a href="/cart" class="inline-flex" aria-label="Cart" @click.prevent><Icon name="ph:bag-bold" /></a>
               <span
                 class="absolute -end-1.5 -top-1.5 flex size-3.5 items-center justify-center rounded-full bg-indigo-600 text-[8px] font-bold text-white"
                 >2</span
@@ -124,15 +124,15 @@
       v-else-if="style === 'split'"
       class="flex items-center gap-6 border-b border-neutral-100 bg-white px-8 py-4"
     >
-      <brand-mark class="text-base font-black tracking-[0.12em] text-neutral-900" />
+      <a href="/" class="text-base font-black tracking-[0.12em] text-neutral-900" @click.prevent><brand-mark /></a>
       <nav class="hidden flex-1 items-center justify-center gap-8 text-sm text-neutral-600 md:flex">
-        <span v-for="link in links" :key="link.label">{{ link.label }}</span>
+        <a v-for="link in links" :key="link.label" :href="link.href" class="transition-opacity hover:opacity-70" @click.prevent>{{ link.label }}</a>
       </nav>
       <div class="ms-auto flex items-center gap-4 text-neutral-500">
-        <Icon name="ph:magnifying-glass-bold" />
+        <a href="/search" class="inline-flex" aria-label="Search" @click.prevent><Icon name="ph:magnifying-glass-bold" /></a>
         <Icon name="ph:user-bold" />
         <span class="relative">
-          <Icon name="ph:bag-bold" />
+          <a href="/cart" class="inline-flex" aria-label="Cart" @click.prevent><Icon name="ph:bag-bold" /></a>
           <span
             class="absolute -end-1.5 -top-1.5 flex size-3.5 items-center justify-center rounded-full bg-indigo-600 text-[8px] font-bold text-white"
             >2</span
@@ -149,14 +149,14 @@
       <div
         class="flex items-center justify-between gap-4 rounded-full bg-white px-6 py-3 shadow-lg ring-1 ring-black/5"
       >
-        <brand-mark class="text-sm font-black tracking-[0.15em] text-neutral-900" />
+        <a href="/" class="text-sm font-black tracking-[0.15em] text-neutral-900" @click.prevent><brand-mark /></a>
         <nav class="hidden gap-7 text-sm text-neutral-600 md:flex">
-          <span v-for="link in links" :key="link.label">{{ link.label }}</span>
+          <a v-for="link in links" :key="link.label" :href="link.href" class="transition-opacity hover:opacity-70" @click.prevent>{{ link.label }}</a>
         </nav>
         <div class="flex items-center gap-3 text-neutral-500">
-          <Icon name="ph:magnifying-glass-bold" />
+          <a href="/search" class="inline-flex" aria-label="Search" @click.prevent><Icon name="ph:magnifying-glass-bold" /></a>
           <span class="flex size-8 items-center justify-center rounded-full bg-neutral-900 text-white">
-            <Icon name="ph:bag-bold" class="text-sm" />
+            <a href="/cart" class="inline-flex" aria-label="Cart" @click.prevent><Icon name="ph:bag-bold" class="text-sm" /></a>
           </span>
         </div>
       </div>
@@ -168,16 +168,16 @@
         class="px-4 py-2 text-center text-xs font-semibold"
         :style="{ backgroundColor: store.announcement.bg, color: store.announcement.color }"
       >
-        {{ store.announcement.text }}
+        {{ store.localAnnouncementText }}
       </div>
       <div class="flex items-center justify-between border-b border-neutral-100 px-8 py-4">
-        <brand-mark class="text-base font-bold tracking-[0.15em] text-neutral-900" />
+        <a href="/" class="text-base font-bold tracking-[0.15em] text-neutral-900" @click.prevent><brand-mark /></a>
         <nav class="hidden gap-8 text-sm text-neutral-600 md:flex">
-          <span v-for="link in links" :key="link.label">{{ link.label }}</span>
+          <a v-for="link in links" :key="link.label" :href="link.href" class="transition-opacity hover:opacity-70" @click.prevent>{{ link.label }}</a>
         </nav>
         <div class="flex items-center gap-3 text-neutral-500">
-          <Icon name="ph:magnifying-glass-bold" />
-          <Icon name="ph:bag-bold" />
+          <a href="/search" class="inline-flex" aria-label="Search" @click.prevent><Icon name="ph:magnifying-glass-bold" /></a>
+          <a href="/cart" class="inline-flex" aria-label="Cart" @click.prevent><Icon name="ph:bag-bold" /></a>
         </div>
       </div>
     </div>
@@ -185,23 +185,23 @@
     <!-- ── search first ──────────────────────────────────────────── -->
     <div v-else-if="style === 'search'" class="border-b border-neutral-100 bg-white">
       <div class="flex items-center gap-4 px-8 py-3">
-        <brand-mark class="text-base font-black tracking-[0.12em] text-neutral-900" />
+        <a href="/" class="text-base font-black tracking-[0.12em] text-neutral-900" @click.prevent><brand-mark /></a>
         <div
           class="mx-auto flex max-w-xl flex-1 items-center gap-2 rounded-full bg-neutral-100 px-4 py-2 text-sm text-neutral-400"
         >
-          <Icon name="ph:magnifying-glass-bold" />
+          <a href="/search" class="inline-flex" aria-label="Search" @click.prevent><Icon name="ph:magnifying-glass-bold" /></a>
           Search products…
         </div>
         <div class="flex items-center gap-3 text-neutral-500">
           <Icon name="ph:heart-bold" />
           <Icon name="ph:user-bold" />
-          <Icon name="ph:bag-bold" />
+          <a href="/cart" class="inline-flex" aria-label="Cart" @click.prevent><Icon name="ph:bag-bold" /></a>
         </div>
       </div>
       <nav
         class="flex items-center justify-center gap-8 border-t border-neutral-100 py-2 text-sm text-neutral-600"
       >
-        <span v-for="link in links" :key="link.label">{{ link.label }}</span>
+        <a v-for="link in links" :key="link.label" :href="link.href" class="transition-opacity hover:opacity-70" @click.prevent>{{ link.label }}</a>
         <span v-if="!links.length" class="italic text-neutral-300">No links</span>
       </nav>
     </div>
@@ -211,13 +211,13 @@
       v-else
       class="flex items-center justify-between bg-gradient-to-b from-neutral-900 to-neutral-700 px-8 py-6"
     >
-      <brand-mark class="text-base font-black tracking-[0.2em] text-white" />
+      <a href="/" class="text-base font-black tracking-[0.2em] text-white" @click.prevent><brand-mark /></a>
       <nav class="hidden gap-8 text-sm text-white/80 md:flex">
-        <span v-for="link in links" :key="link.label">{{ link.label }}</span>
+        <a v-for="link in links" :key="link.label" :href="link.href" class="transition-opacity hover:opacity-70" @click.prevent>{{ link.label }}</a>
       </nav>
       <div class="flex items-center gap-3 text-white/80">
-        <Icon name="ph:magnifying-glass-bold" />
-        <Icon name="ph:bag-bold" />
+        <a href="/search" class="inline-flex" aria-label="Search" @click.prevent><Icon name="ph:magnifying-glass-bold" /></a>
+        <a href="/cart" class="inline-flex" aria-label="Cart" @click.prevent><Icon name="ph:bag-bold" /></a>
       </div>
     </div>
   </div>
@@ -233,5 +233,5 @@ const emit = defineEmits<{ select: [] }>();
 
 const store = useBuilderStore();
 const style = computed(() => store.navbarStyle);
-const links = computed(() => store.navLinks);
+const links = computed(() => store.localNavLinks);
 </script>

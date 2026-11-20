@@ -10,7 +10,7 @@
         <Icon name="ph:shopping-cart-simple-bold" class="text-4xl text-neutral-300" />
         <h2 class="mt-3 text-lg font-bold text-neutral-900">{{ str("emptyTitle") }}</h2>
         <p class="mt-1 text-sm text-neutral-500">{{ str("emptyText") }}</p>
-        <button type="button" class="mt-5 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white">
+        <button type="button" data-href="/collection" class="mt-5 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white">
           {{ str("emptyCta") }}
         </button>
       </div>
@@ -116,10 +116,10 @@
           </dl>
 
           <div :class="variant === 'compact' ? 'flex flex-col gap-2 sm:flex-row' : 'space-y-3'">
-            <button type="button" class="w-full rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white">
+            <button type="button" data-href="/checkout" class="w-full rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white">
               {{ str("checkoutLabel") }}
             </button>
-            <button type="button" class="w-full rounded-xl border border-neutral-200 px-6 py-3 text-sm font-semibold text-neutral-900">
+            <button type="button" data-href="/collection" class="w-full rounded-xl border border-neutral-200 px-6 py-3 text-sm font-semibold text-neutral-900">
               {{ str("continueLabel") }}
             </button>
           </div>

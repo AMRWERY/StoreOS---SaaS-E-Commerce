@@ -90,3 +90,21 @@ export interface BuilderEditorHero {
   subheadline: string
   buttonText: string
 }
+
+export interface MediaItem {
+  id: string
+  name: string
+  /** Data URL (resized client-side) or an external URL. */
+  url: string
+  size: number
+  addedAt: number
+}
+
+export interface VersionMeta {
+  id: string
+  createdAt: number
+  label: string
+  kind: 'publish' | 'manual' | 'auto'
+  pages: number
+  sections: number
+}

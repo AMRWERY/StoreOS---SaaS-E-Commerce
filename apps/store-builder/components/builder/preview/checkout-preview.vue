@@ -154,6 +154,7 @@
 
           <LazyVButton
             variant="none"
+            data-href="/order-confirmed"
             className="w-full rounded-2xl bg-indigo-600 py-4 text-sm font-bold text-white shadow-md hover:bg-indigo-700"
           >
             Place order — $275.00

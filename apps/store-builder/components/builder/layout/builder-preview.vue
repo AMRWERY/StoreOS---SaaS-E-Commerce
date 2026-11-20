@@ -1,5 +1,6 @@
 ﻿<template>
   <div
+    data-tour="preview"
     class="flex min-h-0 min-w-0 flex-col rounded-xl border border-border-subtle bg-[var(--builder-preview-bg,#0a0a12)] p-4 shadow-inner md:p-6 xl:h-full"
   >
     <p class="mb-3 text-[9px] font-medium tracking-[0.35em] text-tx-muted">
@@ -145,6 +146,9 @@ const onToolbar = (action: string, sectionId: string) => {
       break;
     case "dup":
       store.duplicateSection(sectionId);
+      break;
+    case "copy":
+      store.copySection(sectionId);
       break;
     case "hide":
       store.toggleSectionHidden(sectionId);

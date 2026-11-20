@@ -65,8 +65,19 @@
         <div class="space-y-4">
           <lazy-setting-text v-model="gaId" label="Google Analytics ID" placeholder="G-XXXXXXXXXX" />
           <lazy-setting-text v-model="pixelId" label="Meta Pixel ID" placeholder="1234567890" />
+          <lazy-setting-textarea
+            v-model="headScripts"
+            label="Custom JavaScript (advanced)"
+            placeholder="// runs on every page of your published store"
+            :rows="4"
+          />
+          <lazy-setting-toggle
+            v-model="cookieBanner"
+            label="Ask for cookie consent first"
+            hint="Analytics and custom scripts only load after the visitor accepts."
+          />
           <p class="text-[10px] leading-snug text-tx-muted">
-            Saved with your design. They go live when the store is published for real.
+            Loaded on the published store (try “Preview store”). Only add code you trust — it runs with full access to your site.
           </p>
         </div>
       </lazy-setting-group>
@@ -90,7 +101,29 @@
           hint="Visitors see the message below instead of your store."
         />
         <div class="mt-4">
-          <lazy-setting-textarea v-model="maintenanceMessage" label="Message" :rows="2" />
+          <lazy-setting-textarea v-model="maintenanceMessageLocal" label="Message" :rows="2" />
+        </div>
+      </lazy-setting-group>
+
+      <lazy-setting-group title="Media & history">
+        <div class="space-y-2.5">
+          <button
+            type="button"
+            class="flex w-full items-center justify-center gap-2 rounded-lg border border-border-subtle bg-bg-elevated px-3 py-2.5 text-[11px] font-bold text-tx-primary transition-colors hover:border-brand/40 hover:text-brand"
+            @click="openMedia"
+          >
+            <Icon name="ph:images-bold" /> Media library ({{ mediaCount }})
+          </button>
+          <button
+            type="button"
+            class="flex w-full items-center justify-center gap-2 rounded-lg border border-border-subtle bg-bg-elevated px-3 py-2.5 text-[11px] font-bold text-tx-primary transition-colors hover:border-brand/40 hover:text-brand"
+            @click="versionsOpen = true"
+          >
+            <Icon name="ph:clock-counter-clockwise-bold" /> Version history ({{ versionCount }})
+          </button>
+          <p class="text-[10px] leading-snug text-tx-muted">
+            Your work is saved automatically in this browser. Publish to also keep a restorable version.
+          </p>
         </div>
       </lazy-setting-group>
 
@@ -116,6 +149,15 @@
           <p class="text-[10px] leading-snug text-tx-muted">
             Importing replaces all pages, theme and settings. You cannot undo it, so export first.
           </p>
+          <button
+            type="button"
+            class="flex w-full items-center justify-center gap-2 rounded-lg border px-3 py-2.5 text-[11px] font-bold transition-colors"
+            :class="confirmReset ? 'border-red-400 bg-red-500/10 text-red-400' : 'border-border-subtle bg-bg-elevated text-tx-secondary hover:border-red-400/40 hover:text-red-400'"
+            @click="onStartOver"
+          >
+            <Icon name="ph:arrow-counter-clockwise-bold" />
+            {{ confirmReset ? "Click again to erase and start over" : "Start over from the starter store" }}
+          </button>
           <input ref="importer" type="file" accept="application/json,.json" class="hidden" @change="onImport" />
         </div>
       </lazy-setting-group>
@@ -153,7 +195,22 @@ const gaId = field("gaId");
 const pixelId = field("pixelId");
 const customCss = field("customCss");
 const maintenance = field("maintenance");
-const maintenanceMessage = field("maintenanceMessage");
+const headScripts = field("headScripts");
+const cookieBanner = field("cookieBanner");
+const maintenanceMessageLocal = computed({
+  get: () => store.localMaintenanceMessage,
+  set: (v: string) => store.setMaintenanceMessage(v),
+});
+
+const { browse: openMedia } = useMediaLibrary();
+const { versionsOpen } = useBuilderModals();
+const confirmReset = ref(false);
+const mediaCount = computed(() => store.media.length);
+const versionCount = computed(() => store.versions.length);
+const onStartOver = () => {
+  if (confirmReset.value) void store.resetDesign();
+  else confirmReset.value = true;
+};
 
 const instagram = social("instagram");
 const facebook = social("facebook");

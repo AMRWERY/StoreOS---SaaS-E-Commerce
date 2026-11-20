@@ -135,7 +135,7 @@
 
         <div v-else class="space-y-2">
           <div
-            v-for="(link, i) in store.navLinks"
+            v-for="(link, i) in store.localNavLinks"
             :key="i"
             class="group rounded-xl border border-border-subtle bg-bg-elevated/50 p-3 transition-colors hover:border-border-default"
           >
@@ -163,6 +163,10 @@
                   label="URL path"
                   placeholder="/collection"
                   input-class="!w-full !rounded-md !border-border-subtle !bg-bg-base !px-2.5 !py-1.5 !text-[11px] !text-tx-primary !outline-none !transition-colors focus:!border-brand"
+                  @update:model-value="store.updateNavLink(i, 'href', $event)"
+                />
+                <page-link-select
+                  :model-value="link.href"
                   @update:model-value="store.updateNavLink(i, 'href', $event)"
                 />
               </div>

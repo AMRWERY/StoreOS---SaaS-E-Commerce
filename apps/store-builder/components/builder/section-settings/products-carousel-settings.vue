@@ -1,5 +1,9 @@
 ﻿<template>
   <div class="space-y-6">
+    <lazy-setting-group title="Design" default-open>
+      <lazy-setting-radio-cards v-model="variant" label="Layout" :options="variantOptions" />
+    </lazy-setting-group>
+
     <lazy-setting-group title="Carousel" default-open>
       <lazy-setting-text v-model="heading" label="Heading" />
       <div class="mt-4">
@@ -32,6 +36,12 @@
 <script lang="ts" setup>
 const { t } = useI18n();
 const { str, num, bool } = useSectionSettingsForm();
+const variant = str("variant", "scroll");
+const variantOptions = [
+  { value: "scroll", label: "Scroll", icon: "ph:arrows-left-right-bold", description: "Row of product cards" },
+  { value: "spotlight", label: "Spotlight", icon: "ph:slideshow-bold", description: "Wide slides" },
+  { value: "minimal", label: "Minimal", icon: "ph:image-bold", description: "Image tiles with name" },
+];
 
 const heading = str("heading", "You may also like");
 const peek = num("peek_pct", 12);

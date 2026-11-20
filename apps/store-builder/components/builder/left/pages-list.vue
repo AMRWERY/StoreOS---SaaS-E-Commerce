@@ -1,5 +1,5 @@
 ﻿<template>
-  <div class="shrink-0 border-b border-border-subtle bg-bg-base/40">
+  <div data-tour="pages" class="shrink-0 border-b border-border-subtle bg-bg-base/40">
     <!-- Page list -->
     <div class="max-h-[180px] overflow-y-auto p-2">
       <p
@@ -27,7 +27,7 @@
           "
         />
         <span class="min-w-0 flex-1 truncate text-[11px] font-semibold">{{
-          page.title
+          store.pageText(page, "title") || page.title
         }}</span>
         <span
           v-if="page.id === store.currentPageId"
@@ -74,6 +74,7 @@
         type="button"
         className="rounded-md border border-border-subtle bg-bg-elevated px-2 py-1.5 text-[9px] font-black tracking-wider text-tx-secondary transition-colors hover:border-brand/40 hover:text-brand"
         title="Apply a template"
+        data-tour="template-btn"
         @click="templatePickerOpen = true"
       >
         Template
