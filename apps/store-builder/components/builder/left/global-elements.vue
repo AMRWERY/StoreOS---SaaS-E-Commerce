@@ -91,6 +91,19 @@
           <span class="min-w-0 flex-1 truncate">{{ item.label }}</span>
         </button>
       </div>
+      <button
+        type="button"
+        class="mt-1 flex w-full items-center gap-2 rounded-md border px-2.5 py-2 text-start text-[11px] font-semibold transition-all"
+        :class="
+          store.panelMode === 'site-settings'
+            ? 'border-border-subtle bg-bg-elevated text-brand'
+            : 'border-transparent text-tx-secondary hover:bg-bg-elevated/50'
+        "
+        @click="select('site-settings')"
+      >
+        <Icon name="ph:gear-six-bold" class="shrink-0 text-[13px] text-tx-muted" />
+        <span class="min-w-0 flex-1 truncate">Site settings</span>
+      </button>
     </div>
   </div>
 </template>
@@ -110,7 +123,7 @@ const languageSummary = computed(() => {
     : names[0];
 });
 
-const select = (mode: "navbar-settings" | "footer-settings") => {
+const select = (mode: "navbar-settings" | "footer-settings" | "site-settings") => {
   store.selectedId = null;
   store.setPanelMode(mode);
 };

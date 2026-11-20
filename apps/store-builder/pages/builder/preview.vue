@@ -1,6 +1,7 @@
 <template>
   <div
-    class="min-h-screen bg-white font-sans antialiased"
+    v-bind="siteRootAttrs"
+    class="sb-site min-h-screen font-sans antialiased"
     :dir="store.direction"
     :lang="store.contentLocale"
   >
@@ -62,6 +63,30 @@
       </div>
     </div>
 
+    <site-custom-css />
+
+    <!-- Maintenance mode: visitors would see this instead of the store -->
+    <div
+      v-if="hasState && store.siteSettings.maintenance && !bypassMaintenance"
+      class="flex min-h-[70vh] flex-col items-center justify-center gap-4 p-8 text-center"
+    >
+      <div class="flex size-20 items-center justify-center rounded-2xl border border-neutral-200 bg-neutral-50">
+        <Icon name="ph:wrench-bold" class="text-3xl text-neutral-400" />
+      </div>
+      <h2 class="text-2xl font-bold text-neutral-900">{{ store.displayName }}</h2>
+      <p class="max-w-md text-sm text-neutral-500">{{ store.siteSettings.maintenanceMessage }}</p>
+      <p class="rounded-full bg-amber-100 px-3 py-1 text-[11px] font-bold text-amber-700">
+        Maintenance mode is ON — this is what visitors see
+      </p>
+      <button
+        type="button"
+        class="rounded-lg border border-neutral-200 px-4 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-50"
+        @click="bypassMaintenance = true"
+      >
+        Preview the store anyway
+      </button>
+    </div>
+
     <!-- No state fallback -->
     <div
       v-if="!hasState"
@@ -89,7 +114,7 @@
     </div>
 
     <!-- Rendered store -->
-    <template v-else>
+    <template v-else-if="!store.siteSettings.maintenance || bypassMaintenance">
       <!-- Navbar (same component as the editor, read-only) -->
       <navbar-preview readonly />
 
@@ -110,9 +135,18 @@
 
 <script lang="ts" setup>
 const store = useBuilderStore();
+const { siteRootAttrs } = useSiteStyle();
 const localePath = useLocalePath();
 
 const hasState = ref(false);
+const bypassMaintenance = ref(false);
+
+useHead({
+  link: () =>
+    store.siteSettings.faviconUrl
+      ? [{ rel: "icon", href: store.siteSettings.faviconUrl }]
+      : [],
+});
 
 onMounted(() => {
   if (store.pages.length > 0 && store.sections.length > 0) {

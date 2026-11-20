@@ -8,6 +8,7 @@ export type PanelMode =
   | 'theme-settings'
   | 'navbar-settings'
   | 'footer-settings'
+  | 'site-settings'
   | 'empty'
 
 export interface HistoryEntry {

@@ -33,7 +33,7 @@
     <div v-if="style === 'columns'" class="bg-neutral-900 px-8 py-10">
       <div class="flex flex-col gap-8 md:flex-row md:justify-between">
         <div class="md:w-1/3">
-          <p class="text-base font-bold text-white">{{ store.displayName }}</p>
+          <brand-mark class="text-base font-bold text-white" />
           <p class="mt-2 text-sm leading-relaxed text-neutral-400">
             {{ store.footerTagline }}
           </p>
@@ -59,7 +59,7 @@
 
     <!-- ── centered ──────────────────────────────────────────────── -->
     <div v-else-if="style === 'centered'" class="bg-neutral-50 px-8 py-12 text-center">
-      <p class="text-xl font-black tracking-tight text-neutral-900">{{ store.displayName }}</p>
+      <brand-mark class="text-xl font-black tracking-tight text-neutral-900" />
       <p class="mt-2 text-sm text-neutral-500">{{ store.footerTagline }}</p>
       <nav
         class="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-neutral-600"
@@ -81,7 +81,7 @@
     <div v-else-if="style === 'newsletter'" class="bg-neutral-900 px-8 py-10">
       <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
         <div>
-          <p class="text-base font-bold text-white">{{ store.displayName }}</p>
+          <brand-mark class="text-base font-bold text-white" />
           <p class="mt-2 text-sm text-neutral-400">{{ store.footerTagline }}</p>
           <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2">
             <span v-for="link in allLinks" :key="link.key" class="text-sm text-neutral-500">{{
@@ -115,7 +115,7 @@
     <!-- ── minimal ───────────────────────────────────────────────── -->
     <div v-else-if="style === 'minimal'" class="border-t border-neutral-200 bg-white px-8 py-5">
       <div class="flex flex-wrap items-center justify-between gap-4">
-        <span class="text-sm font-bold text-neutral-900">{{ store.displayName }}</span>
+        <brand-mark class="text-sm font-bold text-neutral-900" />
         <nav class="flex flex-wrap gap-x-6 gap-y-1.5 text-sm text-neutral-500">
           <span v-for="link in allLinks" :key="link.key">{{ link.label }}</span>
         </nav>
@@ -148,11 +148,8 @@
           </div>
         </div>
       </div>
-      <p
-        class="mt-10 whitespace-nowrap text-center text-[clamp(3rem,13vw,9rem)] font-black leading-[0.85] tracking-tighter text-white/90"
-      >
-        {{ store.displayName }}
-      </p>
+      <brand-mark
+        class="mt-10 whitespace-nowrap text-center text-[clamp(3rem,13vw,9rem)] font-black leading-[0.85] tracking-tighter text-white/90" />
       <p class="py-4 text-center text-xs text-neutral-600">{{ store.footerCopyright }}</p>
     </div>
 
@@ -160,7 +157,7 @@
     <div v-else-if="style === 'split'" class="border-t border-neutral-200 bg-white px-8 py-12">
       <div class="grid gap-10 md:grid-cols-2">
         <div>
-          <p class="text-lg font-black tracking-tight text-neutral-900">{{ store.displayName }}</p>
+          <brand-mark class="text-lg font-black tracking-tight text-neutral-900" />
           <p class="mt-2 max-w-sm text-sm text-neutral-500">{{ store.footerTagline }}</p>
           <div class="mt-5 flex max-w-sm gap-2">
             <div
@@ -212,7 +209,7 @@
       </div>
       <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <span class="text-sm font-bold text-neutral-900">{{ store.displayName }}</span>
+          <brand-mark class="text-sm font-bold text-neutral-900" />
           <span class="ms-3 text-xs text-neutral-400">{{ store.footerCopyright }}</span>
         </div>
         <div v-if="store.footerShowSocial" class="flex gap-3 text-neutral-500">
@@ -224,7 +221,7 @@
     <!-- ── payments ──────────────────────────────────────────────── -->
     <div v-else class="border-t border-neutral-200 bg-white px-8 py-8">
       <div class="flex flex-wrap items-center justify-between gap-4">
-        <span class="text-sm font-black text-neutral-900">{{ store.displayName }}</span>
+        <brand-mark class="text-sm font-black text-neutral-900" />
         <nav class="flex flex-wrap gap-x-6 gap-y-1.5 text-sm text-neutral-500">
           <span v-for="link in allLinks" :key="link.key">{{ link.label }}</span>
         </nav>
@@ -251,6 +248,8 @@
 </template>
 
 <script lang="ts" setup>
+import { SOCIAL_ICONS } from "@/data/site-theme";
+
 withDefaults(defineProps<{ selected?: boolean; readonly?: boolean }>(), {
   selected: false,
   readonly: false,
@@ -261,12 +260,15 @@ const emit = defineEmits<{ select: [] }>();
 const store = useBuilderStore();
 const style = computed(() => store.footerStyle);
 
-const SOCIALS = [
-  "ph:instagram-logo-bold",
-  "ph:facebook-logo-bold",
-  "ph:twitter-logo-bold",
-  "ph:tiktok-logo-bold",
-];
+/** Icons for the social links the merchant filled in (demo icons until they add any). */
+const SOCIALS = computed(() => {
+  const set = (Object.keys(SOCIAL_ICONS) as (keyof typeof SOCIAL_ICONS)[])
+    .filter((k) => store.siteSettings.social[k]?.trim())
+    .map((k) => SOCIAL_ICONS[k]);
+  return set.length
+    ? set
+    : ["ph:instagram-logo-bold", "ph:facebook-logo-bold", "ph:x-logo-bold", "ph:tiktok-logo-bold"];
+});
 const PAYMENTS = [
   "ph:credit-card-bold",
   "ph:paypal-logo-bold",

@@ -9,7 +9,7 @@
       <div class="min-w-0 flex-1">
         <h2 class="text-sm font-bold tracking-wide text-tx-primary">Theme</h2>
         <p class="mt-1.5 text-[10px] font-bold tracking-[0.2em] text-tx-muted">
-          Global admin appearance
+          Colors, fonts &amp; shapes for the whole site
         </p>
       </div>
 
@@ -34,10 +34,10 @@
       <!-- ── Navbar ─────────────────────────────────────────────── -->
       <lazy-setting-group title="Navbar" default-open>
         <lazy-setting-text
-          :model-value="store.storeName"
+          :model-value="store.displayName"
           label="Store name"
           placeholder="My Store"
-          @update:model-value="store.storeName = $event"
+          @update:model-value="store.setStoreName($event)"
         />
 
         <div class="mt-5 space-y-2">
@@ -112,12 +112,15 @@
 
       <!-- ── Colors ─────────────────────────────────────────────── -->
       <lazy-setting-group title="Colors">
-        <lazy-setting-color v-model="primary" label="Primary" />
+        <lazy-setting-color v-model="primary" label="Primary (buttons, links, accents)" />
         <div class="mt-4">
-          <lazy-setting-color v-model="secondary" label="Secondary" />
+          <lazy-setting-color v-model="secondary" label="Secondary (dark areas)" />
         </div>
         <div class="mt-4">
-          <lazy-setting-color v-model="background" label="Background" />
+          <lazy-setting-color v-model="background" label="Page background" />
+        </div>
+        <div class="mt-4">
+          <lazy-setting-color v-model="textColor" label="Text color" />
         </div>
       </lazy-setting-group>
 
@@ -128,16 +131,6 @@
           <lazy-setting-font-picker v-model="bodyFont" label="Body font" />
         </div>
         
-        <div class="mt-4">
-          <lazy-setting-range
-            v-model="baseSize"
-            label="Base font size"
-            :min="12"
-            :max="20"
-            :step="1"
-            unit="px"
-          />
-        </div>
       </lazy-setting-group>
 
       <!-- ── Layout ─────────────────────────────────────────────── -->
@@ -147,6 +140,13 @@
           label="Corner radius"
           :options="radiusOptions"
         />
+        <div class="mt-4">
+          <lazy-setting-radio-cards
+            v-model="buttonStyle"
+            label="Button shape"
+            :options="buttonOptions"
+          />
+        </div>
       </lazy-setting-group>
 
       <LazyVButton
@@ -163,6 +163,8 @@
 </template>
 
 <script lang="ts" setup>
+import type { SiteTheme } from "@/data/site-theme";
+
 const { t } = useI18n();
 const store = useBuilderStore();
 
@@ -173,13 +175,27 @@ defineEmits<{
 const UiButton = resolveComponent("VButton");
 const { planGateOpen } = useBuilderModals();
 
-const primary = ref("#6366f1");
-const secondary = ref("#0ea5e9");
-const background = ref("#0c0c14");
-const headingFont = ref("Playfair Display");
-const bodyFont = ref("Inter");
-const baseSize = ref(16);
-const radius = ref("medium");
+/** Two-way bind a theme field to the store. */
+const bind = <K extends keyof SiteTheme>(key: K) =>
+  computed<SiteTheme[K]>({
+    get: () => store.theme[key],
+    set: (v) => store.setTheme({ [key]: v } as Partial<SiteTheme>),
+  });
+
+const primary = bind("primary");
+const secondary = bind("secondary");
+const background = bind("background");
+const textColor = bind("text");
+const headingFont = bind("headingFont");
+const bodyFont = bind("bodyFont");
+const radius = bind("radius");
+const buttonStyle = bind("buttonStyle");
+
+const buttonOptions = [
+  { value: "default", label: "Default", description: "As designed" },
+  { value: "square", label: "Square", description: "Sharp corners" },
+  { value: "pill", label: "Pill", description: "Fully rounded" },
+];
 
 const radiusOptions = [
   { value: "none", label: "None", description: "Sharp corners" },

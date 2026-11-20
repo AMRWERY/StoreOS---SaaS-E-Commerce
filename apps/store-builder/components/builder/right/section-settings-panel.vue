@@ -27,14 +27,33 @@
 
     <!-- Settings body -->
     <div class="max-h-[min(60vh,520px)] space-y-6 overflow-y-auto px-5 py-5 xl:max-h-[calc(100vh-14rem)]">
-      <p v-if="!selected" class="text-[13px] leading-relaxed text-tx-secondary">
-        Select a section in the list or in the preview to edit its settings.
-      </p>
+      <div v-if="!selected" class="space-y-3">
+        <p class="text-[13px] leading-relaxed text-tx-secondary">
+          Select a section to edit its content, design and advanced settings.
+        </p>
+        <ul v-if="store.sections.length" class="space-y-1">
+          <li v-for="s in store.sections" :key="s.id">
+            <button
+              type="button"
+              class="flex w-full items-center gap-2 rounded-lg border border-border-subtle bg-bg-elevated/40 px-3 py-2 text-start text-[12px] font-medium text-tx-primary transition-colors hover:border-brand/40 hover:bg-bg-elevated"
+              @click="store.selectSection(s.id)"
+            >
+              <Icon name="ph:cursor-click-bold" class="shrink-0 text-tx-muted" />
+              <span class="min-w-0 flex-1 truncate">{{ SECTION_TYPE_LABELS[s.type] }}</span>
+              <Icon name="ph:caret-right-bold" class="shrink-0 text-xs text-tx-muted rtl:rotate-180" />
+            </button>
+          </li>
+        </ul>
+        <p v-else class="rounded-lg border border-dashed border-border-subtle p-3 text-[12px] text-tx-muted">
+          This page has no sections yet. Open the <strong class="text-tx-secondary">Blocks</strong>
+          tab and drag one into the preview.
+        </p>
+      </div>
       <component :is="activeForm" v-else />
     </div>
 
-    <!-- Footer actions -->
-    <div class="border-t border-border-subtle p-4 space-y-2">
+    <!-- Footer actions (only when a section is selected) -->
+    <div v-if="selected" class="border-t border-border-subtle p-4 space-y-2">
       <!-- Save -->
       <component
         :is="UiButton"

@@ -34,8 +34,10 @@
 
           <!-- admin content -->
           <div
-            class="relative min-h-0 flex-1 overflow-y-auto bg-white text-neutral-900"
+            v-bind="siteRootAttrs"
+            class="sb-site relative min-h-0 flex-1 overflow-y-auto"
           >
+            <site-custom-css />
             <!-- ── Checkout page ───────────────────────────────────── -->
             <lazy-checkout-preview
               v-if="store.currentPage?.type === 'checkout'"
@@ -112,6 +114,7 @@ import type { PageSection } from "@/types/sections";
 
 const { t } = useI18n();
 const store = useBuilderStore();
+const { siteRootAttrs } = useSiteStyle();
 
 /** Drag & drop writes straight back to the store as one undoable step. */
 const sectionList = computed<PageSection[]>({

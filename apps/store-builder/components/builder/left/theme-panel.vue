@@ -15,13 +15,19 @@
         hint="Shown above the navbar"
       />
 
-      <div class="mt-2">
-        <lazy-setting-text
-          v-model="announcementText"
-          label="Bar text"
-          placeholder="Free shipping this week"
-        />
-      </div>
+      <template v-if="announcement">
+        <div class="mt-2">
+          <lazy-setting-text
+            v-model="announcementText"
+            label="Bar text"
+            placeholder="Free shipping this week"
+          />
+        </div>
+        <div class="mt-3 grid grid-cols-2 gap-3">
+          <lazy-setting-color v-model="announcementBg" label="Background" />
+          <lazy-setting-color v-model="announcementColor" label="Text" />
+        </div>
+      </template>
     </div>
 
     <LazyVButton
@@ -37,9 +43,23 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n();
+const store = useBuilderStore();
 const { planGateOpen } = useBuilderModals();
 
-const announcement = ref(false);
-const announcementText = ref("Free shipping on orders over $50");
+const announcement = computed({
+  get: () => store.announcement.enabled,
+  set: (v: boolean) => store.setAnnouncement({ enabled: v }),
+});
+const announcementText = computed({
+  get: () => store.announcement.text,
+  set: (v: string) => store.setAnnouncement({ text: v }),
+});
+const announcementBg = computed({
+  get: () => store.announcement.bg,
+  set: (v: string) => store.setAnnouncement({ bg: v }),
+});
+const announcementColor = computed({
+  get: () => store.announcement.color,
+  set: (v: string) => store.setAnnouncement({ color: v }),
+});
 </script>

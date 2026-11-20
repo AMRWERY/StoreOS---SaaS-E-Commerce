@@ -50,12 +50,19 @@
     @update:model-value="(v: string) => $emit('update:modelValue', v)"
   />
 
+  <image-upload-field
+    v-else-if="field.type === 'image'"
+    :model-value="String(modelValue ?? '')"
+    :label="field.label"
+    @update:model-value="(v: string) => $emit('update:modelValue', v)"
+  />
+
   <lazy-setting-text
     v-else
     :model-value="String(modelValue ?? '')"
     :label="field.label"
     :placeholder="placeholder"
-    :input-type="field.type === 'url' || field.type === 'image' ? 'url' : 'text'"
+    :input-type="field.type === 'url' ? 'url' : 'text'"
     @update:model-value="(v: string) => $emit('update:modelValue', v)"
   />
 </template>
@@ -65,10 +72,8 @@ import type { SimpleFieldDef } from "@/types/sections";
 
 const props = defineProps<{ field: SimpleFieldDef; modelValue: unknown }>();
 
-const placeholder = computed(() => {
-  const f = props.field;
-  if (f.type === "image") return "https://… or /img/photo.png";
-  return "placeholder" in f ? f.placeholder : undefined;
-});
+const placeholder = computed(() =>
+  "placeholder" in props.field ? props.field.placeholder : undefined,
+);
 defineEmits<{ "update:modelValue": [value: unknown] }>();
 </script>

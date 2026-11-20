@@ -30,6 +30,7 @@ import type { BuilderEditorHero } from "@/types/builder";
 const { t } = useI18n();
 const route = useRoute();
 const store = useBuilderStore();
+useBuilderShortcuts();
 
 const hero = reactive<BuilderEditorHero>({
   headline: "Redefining Minimalist Design.",

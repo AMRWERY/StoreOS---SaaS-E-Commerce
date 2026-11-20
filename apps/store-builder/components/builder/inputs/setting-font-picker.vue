@@ -8,6 +8,8 @@
 </template>
 
 <script lang="ts" setup>
+import { FONT_OPTIONS } from "@/data/site-theme";
+
 const { t } = useI18n();
 
 defineProps<{
@@ -19,11 +21,5 @@ defineEmits<{
   "update:modelValue": [value: string];
 }>();
 
-const fontOptions = [
-  { value: "Inter", label: "Inter" },
-  { value: "DM Sans", label: "DM Sans" },
-  { value: "Playfair Display", label: "Playfair Display" },
-  { value: "Space Grotesk", label: "Space Grotesk" },
-  { value: "system-ui", label: "System UI" },
-] as const;
+const fontOptions = FONT_OPTIONS;
 </script>

@@ -88,11 +88,15 @@ const panelTabs = [
 
 const activeTab = ref<(typeof panelTabs)[number]["id"]>("Sections");
 
+// Keep the right panel in step with the tab and the selection. Clearing the selection
+// (e.g. to open Navbar / Footer / Site settings) must NOT reset the panel those buttons just chose.
 watch(
   () => [activeTab.value, store.selectedId] as const,
-  () => {
-    if (activeTab.value === "Theme") store.setPanelMode("theme-settings");
-    else store.setPanelMode(store.selectedId ? "section-settings" : "empty");
+  ([tab, selected], previous) => {
+    if (tab === "Theme") return store.setPanelMode("theme-settings");
+    const tabChanged = !previous || tab !== previous[0];
+    if (selected) store.setPanelMode("section-settings");
+    else if (tabChanged) store.setPanelMode("empty");
   },
   { immediate: true },
 );

@@ -26,6 +26,11 @@
         @collapse="settingsPanelOpen = false"
       />
 
+      <lazy-site-settings-panel
+        v-else-if="store.panelMode === 'site-settings'"
+        @collapse="settingsPanelOpen = false"
+      />
+
       <lazy-page-settings-panel
         v-else-if="store.panelMode === 'page-settings'"
         @collapse="settingsPanelOpen = false"

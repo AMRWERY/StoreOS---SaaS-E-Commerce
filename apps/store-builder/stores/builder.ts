@@ -2,6 +2,14 @@ import type { DeviceMode, PanelMode } from '@/types/builder'
 import { buildTemplateSections } from '@/data/page-templates'
 import { localeDir, type StoreLocale } from '@/data/localize'
 import type { FooterStyle, NavbarStyle } from '@/data/chrome-styles'
+import {
+  DEFAULT_ANNOUNCEMENT,
+  DEFAULT_SITE_SETTINGS,
+  DEFAULT_THEME,
+  type Announcement,
+  type SiteSettings,
+  type SiteTheme,
+} from '@/data/site-theme'
 import type { PageSection, StorePage, StorePageType } from '@/types/sections'
 
 export const useBuilderStore = defineStore('builder', () => {
@@ -31,6 +39,28 @@ export const useBuilderStore = defineStore('builder', () => {
 
   function setContentLocale(code: StoreLocale) {
     if (locales.value.includes(code)) contentLocale.value = code
+  }
+
+  // ── theme, announcement bar, brand & site settings ───────────────
+  const theme = ref<SiteTheme>({ ...DEFAULT_THEME })
+  const announcement = ref<Announcement>({ ...DEFAULT_ANNOUNCEMENT })
+  const siteSettings = ref<SiteSettings>(JSON.parse(JSON.stringify(DEFAULT_SITE_SETTINGS)))
+
+  function setTheme(patch: Partial<SiteTheme>) {
+    theme.value = { ...theme.value, ...patch }
+    isDirty.value = true
+  }
+  function setAnnouncement(patch: Partial<Announcement>) {
+    announcement.value = { ...announcement.value, ...patch }
+    isDirty.value = true
+  }
+  function setSiteSettings(patch: Partial<SiteSettings>) {
+    siteSettings.value = { ...siteSettings.value, ...patch }
+    isDirty.value = true
+  }
+  function setSocial(key: keyof SiteSettings['social'], value: string) {
+    siteSettings.value = { ...siteSettings.value, social: { ...siteSettings.value.social, [key]: value } }
+    isDirty.value = true
   }
 
   // ── global admin settings (not per-page) ────────────────────
@@ -497,31 +527,91 @@ export const useBuilderStore = defineStore('builder', () => {
    * when it opens in a new tab where the Pinia store is empty).
    * Returns true if state was found and applied.
    */
+  /** Everything that makes up the store design — used by publish, export and import. */
+  function snapshot() {
+    _flush()
+    return {
+      version: 1,
+      pages: pages.value,
+      sectionsMap: sectionsMap.value,
+      storeName: storeName.value,
+      storeNameI18n: storeNameI18n.value,
+      locales: locales.value,
+      defaultLocale: defaultLocale.value,
+      navbarStyle: navbarStyle.value,
+      footerStyle: footerStyle.value,
+      navLinks: navLinks.value,
+      footerTagline: footerTagline.value,
+      footerCopyright: footerCopyright.value,
+      footerShowSocial: footerShowSocial.value,
+      footerColumns: footerColumns.value,
+      theme: theme.value,
+      announcement: announcement.value,
+      siteSettings: siteSettings.value,
+    }
+  }
+
+  /** Load a snapshot (from storage or an imported file). Returns false when it isn't a valid design. */
+  function applySnapshot(state: Record<string, unknown>): boolean {
+    if (!Array.isArray(state.pages) || typeof state.sectionsMap !== 'object' || !state.sectionsMap) return false
+    pages.value = state.pages as typeof pages.value
+    sectionsMap.value = state.sectionsMap as typeof sectionsMap.value
+    storeName.value = (state.storeName as string) ?? 'LUXE'
+    storeNameI18n.value = (state.storeNameI18n as typeof storeNameI18n.value) ?? {}
+    locales.value = (state.locales as StoreLocale[] | undefined)?.length ? (state.locales as StoreLocale[]) : ['en']
+    defaultLocale.value = (state.defaultLocale as StoreLocale | undefined) ?? locales.value[0]
+    contentLocale.value = defaultLocale.value
+    navbarStyle.value = (state.navbarStyle as typeof navbarStyle.value) ?? 'classic'
+    footerStyle.value = (state.footerStyle as typeof footerStyle.value) ?? 'columns'
+    navLinks.value = (state.navLinks as typeof navLinks.value) ?? []
+    footerTagline.value = (state.footerTagline as string) ?? ''
+    footerCopyright.value = (state.footerCopyright as string) ?? ''
+    footerShowSocial.value = (state.footerShowSocial as boolean) ?? true
+    footerColumns.value = (state.footerColumns as typeof footerColumns.value) ?? []
+    theme.value = { ...DEFAULT_THEME, ...(state.theme as Partial<SiteTheme> | undefined) }
+    announcement.value = { ...DEFAULT_ANNOUNCEMENT, ...(state.announcement as Partial<Announcement> | undefined) }
+    siteSettings.value = {
+      ...JSON.parse(JSON.stringify(DEFAULT_SITE_SETTINGS)),
+      ...(state.siteSettings as Partial<SiteSettings> | undefined),
+    }
+    const firstPage = pages.value[0]
+    if (firstPage) {
+      currentPageId.value = firstPage.id
+      sections.value = _clone(sectionsMap.value[firstPage.id] ?? [])
+      selectedId.value = null
+      history.value = [_clone(sections.value)]
+      historyIndex.value = 0
+    }
+    return true
+  }
+
   function hydrateFromStorage(): boolean {
     try {
       const raw = localStorage.getItem('storeos_builder_state')
       if (!raw) return false
-      const state = JSON.parse(raw) as Record<string, unknown>
-      pages.value = (state.pages as typeof pages.value) ?? []
-      sectionsMap.value = (state.sectionsMap as typeof sectionsMap.value) ?? {}
-      storeName.value = (state.storeName as string) ?? 'LUXE'
-      storeNameI18n.value = (state.storeNameI18n as typeof storeNameI18n.value) ?? {}
-      locales.value = (state.locales as StoreLocale[] | undefined)?.length ? (state.locales as StoreLocale[]) : ['en']
-      defaultLocale.value = (state.defaultLocale as StoreLocale | undefined) ?? locales.value[0]
-      contentLocale.value = defaultLocale.value
-      navbarStyle.value = (state.navbarStyle as typeof navbarStyle.value) ?? 'classic'
-      footerStyle.value = (state.footerStyle as typeof footerStyle.value) ?? 'columns'
-      navLinks.value = (state.navLinks as typeof navLinks.value) ?? []
-      footerTagline.value = (state.footerTagline as string) ?? ''
-      footerCopyright.value = (state.footerCopyright as string) ?? ''
-      footerShowSocial.value = (state.footerShowSocial as boolean) ?? true
-      footerColumns.value = (state.footerColumns as typeof footerColumns.value) ?? []
-      const firstPage = pages.value[0]
-      if (firstPage) {
-        currentPageId.value = firstPage.id
-        sections.value = _clone(sectionsMap.value[firstPage.id] ?? [])
-      }
-      return true
+      return applySnapshot(JSON.parse(raw) as Record<string, unknown>)
+    } catch {
+      return false
+    }
+  }
+
+  /** Download the whole design as a JSON backup. */
+  function exportDesign() {
+    const blob = new Blob([JSON.stringify(snapshot(), null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${storeName.value.replace(/[^a-z0-9]+/gi, '-').toLowerCase() || 'store'}-design.json`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  /** Replace the design with a previously exported file. */
+  async function importDesign(file: File): Promise<boolean> {
+    try {
+      const ok = applySnapshot(JSON.parse(await file.text()) as Record<string, unknown>)
+      if (ok) isDirty.value = true
+      return ok
     } catch {
       return false
     }
@@ -542,21 +632,7 @@ export const useBuilderStore = defineStore('builder', () => {
     // Persist the entire builder state to localStorage so a full page reload
     // (e.g. the new tab) can hydrate from it if needed in the future.
     try {
-      localStorage.setItem('storeos_builder_state', JSON.stringify({
-        pages: pages.value,
-        sectionsMap: sectionsMap.value,
-        storeName: storeName.value,
-        storeNameI18n: storeNameI18n.value,
-        locales: locales.value,
-        defaultLocale: defaultLocale.value,
-        navbarStyle: navbarStyle.value,
-        footerStyle: footerStyle.value,
-        navLinks: navLinks.value,
-        footerTagline: footerTagline.value,
-        footerCopyright: footerCopyright.value,
-        footerShowSocial: footerShowSocial.value,
-        footerColumns: footerColumns.value,
-      }))
+      localStorage.setItem('storeos_builder_state', JSON.stringify(snapshot()))
     } catch (_) { /* storage quota exceeded — fail silently */ }
 
     // Simulate async save round-trip for UX feedback
@@ -664,5 +740,16 @@ export const useBuilderStore = defineStore('builder', () => {
     publish,
     saveSettings,
     hydrateFromStorage,
+    snapshot,
+    applySnapshot,
+    exportDesign,
+    importDesign,
+    theme,
+    announcement,
+    siteSettings,
+    setTheme,
+    setAnnouncement,
+    setSiteSettings,
+    setSocial,
   }
 })

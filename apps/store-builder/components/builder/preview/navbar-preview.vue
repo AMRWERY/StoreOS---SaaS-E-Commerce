@@ -29,14 +29,21 @@
       Navbar
     </div>
 
+    <!-- Global announcement bar (Theme → Announcement) -->
+    <div
+      v-if="store.announcement.enabled && style !== 'announcement'"
+      class="px-4 py-2 text-center text-xs font-semibold"
+      :style="{ backgroundColor: store.announcement.bg, color: store.announcement.color }"
+    >
+      {{ store.announcement.text }}
+    </div>
+
     <!-- ── classic ───────────────────────────────────────────────── -->
     <div
       v-if="style === 'classic'"
       class="flex items-center justify-between border-b border-neutral-100 bg-white px-8 py-4"
     >
-      <span class="text-base font-bold tracking-[0.15em] text-neutral-900">{{
-        store.displayName
-      }}</span>
+      <brand-mark class="text-base font-bold tracking-[0.15em] text-neutral-900" />
       <nav class="hidden gap-8 text-sm text-neutral-600 md:flex">
         <span v-for="link in links" :key="link.label">{{ link.label }}</span>
         <span v-if="!links.length" class="italic text-neutral-300">No links</span>
@@ -53,9 +60,7 @@
         <div class="w-16 text-neutral-300">
           <Icon name="ph:magnifying-glass-bold" class="text-sm" />
         </div>
-        <span class="text-lg font-black tracking-[0.2em] text-neutral-900">{{
-          store.displayName
-        }}</span>
+        <brand-mark class="text-lg font-black tracking-[0.2em] text-neutral-900" />
         <div class="flex w-16 justify-end gap-3 text-neutral-500">
           <Icon name="ph:bag-bold" />
         </div>
@@ -73,9 +78,7 @@
       v-else-if="style === 'dark'"
       class="flex items-center justify-between bg-neutral-900 px-8 py-4"
     >
-      <span class="text-base font-bold tracking-[0.15em] text-white">{{
-        store.displayName
-      }}</span>
+      <brand-mark class="text-base font-bold tracking-[0.15em] text-white" />
       <nav class="hidden gap-8 text-sm text-neutral-300 md:flex">
         <span v-for="link in links" :key="link.label">{{ link.label }}</span>
         <span v-if="!links.length" class="italic text-neutral-600">No links</span>
@@ -97,9 +100,7 @@
       class="border-b border-neutral-100 bg-white px-8 py-5"
     >
       <div class="flex items-center justify-between">
-        <span class="text-xl font-black tracking-tight text-neutral-900">{{
-          store.displayName
-        }}</span>
+        <brand-mark class="text-xl font-black tracking-tight text-neutral-900" />
         <div class="flex items-center gap-5">
           <nav class="hidden gap-7 text-sm font-medium text-neutral-500 md:flex">
             <span v-for="link in links" :key="link.label">{{ link.label }}</span>
@@ -123,9 +124,7 @@
       v-else-if="style === 'split'"
       class="flex items-center gap-6 border-b border-neutral-100 bg-white px-8 py-4"
     >
-      <span class="text-base font-black tracking-[0.12em] text-neutral-900">{{
-        store.displayName
-      }}</span>
+      <brand-mark class="text-base font-black tracking-[0.12em] text-neutral-900" />
       <nav class="hidden flex-1 items-center justify-center gap-8 text-sm text-neutral-600 md:flex">
         <span v-for="link in links" :key="link.label">{{ link.label }}</span>
       </nav>
@@ -150,9 +149,7 @@
       <div
         class="flex items-center justify-between gap-4 rounded-full bg-white px-6 py-3 shadow-lg ring-1 ring-black/5"
       >
-        <span class="text-sm font-black tracking-[0.15em] text-neutral-900">{{
-          store.displayName
-        }}</span>
+        <brand-mark class="text-sm font-black tracking-[0.15em] text-neutral-900" />
         <nav class="hidden gap-7 text-sm text-neutral-600 md:flex">
           <span v-for="link in links" :key="link.label">{{ link.label }}</span>
         </nav>
@@ -167,13 +164,14 @@
 
     <!-- ── announcement bar + classic ────────────────────────────── -->
     <div v-else-if="style === 'announcement'" class="bg-white">
-      <div class="bg-indigo-600 px-4 py-2 text-center text-xs font-semibold text-white">
-        Free shipping on orders over $50 · Use code WELCOME10
+      <div
+        class="px-4 py-2 text-center text-xs font-semibold"
+        :style="{ backgroundColor: store.announcement.bg, color: store.announcement.color }"
+      >
+        {{ store.announcement.text }}
       </div>
       <div class="flex items-center justify-between border-b border-neutral-100 px-8 py-4">
-        <span class="text-base font-bold tracking-[0.15em] text-neutral-900">{{
-          store.displayName
-        }}</span>
+        <brand-mark class="text-base font-bold tracking-[0.15em] text-neutral-900" />
         <nav class="hidden gap-8 text-sm text-neutral-600 md:flex">
           <span v-for="link in links" :key="link.label">{{ link.label }}</span>
         </nav>
@@ -187,9 +185,7 @@
     <!-- ── search first ──────────────────────────────────────────── -->
     <div v-else-if="style === 'search'" class="border-b border-neutral-100 bg-white">
       <div class="flex items-center gap-4 px-8 py-3">
-        <span class="text-base font-black tracking-[0.12em] text-neutral-900">{{
-          store.displayName
-        }}</span>
+        <brand-mark class="text-base font-black tracking-[0.12em] text-neutral-900" />
         <div
           class="mx-auto flex max-w-xl flex-1 items-center gap-2 rounded-full bg-neutral-100 px-4 py-2 text-sm text-neutral-400"
         >
@@ -215,9 +211,7 @@
       v-else
       class="flex items-center justify-between bg-gradient-to-b from-neutral-900 to-neutral-700 px-8 py-6"
     >
-      <span class="text-base font-black tracking-[0.2em] text-white">{{
-        store.displayName
-      }}</span>
+      <brand-mark class="text-base font-black tracking-[0.2em] text-white" />
       <nav class="hidden gap-8 text-sm text-white/80 md:flex">
         <span v-for="link in links" :key="link.label">{{ link.label }}</span>
       </nav>

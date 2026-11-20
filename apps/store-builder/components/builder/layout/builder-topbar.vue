@@ -70,6 +70,8 @@
 
       <!-- Right -->
       <div class="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
+        <lazy-history-controls />
+
         <lazy-device-toggle v-model="store.device" />
 
         <lazy-store-locale-control />
