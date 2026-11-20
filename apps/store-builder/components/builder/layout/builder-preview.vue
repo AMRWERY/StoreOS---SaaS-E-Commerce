@@ -9,7 +9,7 @@
     <div class="min-h-0 flex-1 overflow-auto rounded-lg">
       <lazy-preview-frame :device="store.device">
         <div
-          class="flex h-full min-h-[520px] flex-col overflow-hidden rounded-t-xl bg-white"
+          class="flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-xl bg-white"
         >
           <!-- Browser chrome -->
           <div
@@ -63,6 +63,9 @@
                   :animation="180"
                   ghost-class="sb-ghost"
                   chosen-class="sb-chosen"
+                  :force-fallback="true"
+                  fallback-class="sb-fallback"
+                  :fallback-on-body="true"
                   class="min-h-[160px]"
                 >
                   <lazy-section-preview-block
@@ -159,5 +162,32 @@ const onToolbar = (action: string, sectionId: string) => {
 }
 .sb-chosen {
   cursor: grabbing;
+}
+/* A block dragged in from the library: show a clear "drop here" slot instead of the tile. */
+.sb-ghost[data-lib-tile] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+  width: 100%;
+  opacity: 1;
+  border: 2px dashed rgb(99 102 241);
+  background: rgb(99 102 241 / 0.1);
+  color: rgb(79 70 229);
+}
+.sb-ghost[data-lib-tile] > * {
+  display: none;
+}
+.sb-ghost[data-lib-tile]::before {
+  content: "Drop block here";
+  font-size: 12px;
+  font-weight: 700;
+}
+/* Floating copy that follows the cursor. */
+.sb-fallback {
+  opacity: 0.9 !important;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.35);
+  border-radius: 10px;
+  z-index: 9999;
 }
 </style>

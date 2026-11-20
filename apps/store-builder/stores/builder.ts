@@ -1,6 +1,7 @@
 import type { DeviceMode, PanelMode } from '@/types/builder'
 import { buildTemplateSections } from '@/data/page-templates'
 import { localeDir, type StoreLocale } from '@/data/localize'
+import type { FooterStyle, NavbarStyle } from '@/data/chrome-styles'
 import type { PageSection, StorePage, StorePageType } from '@/types/sections'
 
 export const useBuilderStore = defineStore('builder', () => {
@@ -34,8 +35,22 @@ export const useBuilderStore = defineStore('builder', () => {
 
   // ── global admin settings (not per-page) ────────────────────
   const storeName = ref('LUXE')
-  const navbarStyle = ref<'classic' | 'centered' | 'dark' | 'minimal'>('classic')
-  const footerStyle = ref<'columns' | 'centered' | 'newsletter' | 'minimal'>('columns')
+  /** Website name per language (multi-language stores). Falls back to `storeName`. */
+  const storeNameI18n = ref<Partial<Record<StoreLocale, string>>>({})
+  /** Name shown in the language currently being edited / previewed. */
+  const displayName = computed(() =>
+    contentLocale.value === defaultLocale.value
+      ? storeName.value
+      : storeNameI18n.value[contentLocale.value] || storeName.value,
+  )
+
+  function setStoreName(value: string) {
+    if (contentLocale.value === defaultLocale.value) storeName.value = value
+    else storeNameI18n.value = { ...storeNameI18n.value, [contentLocale.value]: value }
+    isDirty.value = true
+  }
+  const navbarStyle = ref<NavbarStyle>('classic')
+  const footerStyle = ref<FooterStyle>('columns')
   const navLinks = ref<Array<{ label: string; href: string }>>([
     { label: 'Collection', href: '/collection' },
     { label: 'Shop', href: '/shop' },
@@ -490,6 +505,7 @@ export const useBuilderStore = defineStore('builder', () => {
       pages.value = (state.pages as typeof pages.value) ?? []
       sectionsMap.value = (state.sectionsMap as typeof sectionsMap.value) ?? {}
       storeName.value = (state.storeName as string) ?? 'LUXE'
+      storeNameI18n.value = (state.storeNameI18n as typeof storeNameI18n.value) ?? {}
       locales.value = (state.locales as StoreLocale[] | undefined)?.length ? (state.locales as StoreLocale[]) : ['en']
       defaultLocale.value = (state.defaultLocale as StoreLocale | undefined) ?? locales.value[0]
       contentLocale.value = defaultLocale.value
@@ -530,6 +546,7 @@ export const useBuilderStore = defineStore('builder', () => {
         pages: pages.value,
         sectionsMap: sectionsMap.value,
         storeName: storeName.value,
+        storeNameI18n: storeNameI18n.value,
         locales: locales.value,
         defaultLocale: defaultLocale.value,
         navbarStyle: navbarStyle.value,
@@ -592,6 +609,9 @@ export const useBuilderStore = defineStore('builder', () => {
     setLocales,
     setContentLocale,
     storeName,
+    storeNameI18n,
+    displayName,
+    setStoreName,
     navbarStyle,
     footerStyle,
     navLinks,

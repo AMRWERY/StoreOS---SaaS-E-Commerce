@@ -19,8 +19,10 @@
           Store languages
         </h2>
         <p class="mt-2 text-sm text-tx-secondary">
-          Choose the language your storefront is published in, or offer several
-          and let customers switch.
+          This is the language your <strong>customers</strong> see on your
+          website. Pick one language, or offer several and let customers switch.
+          (The globe icon in the top bar only changes the builder's own
+          interface.)
         </p>
 
         <div class="mt-5 grid grid-cols-2 gap-2">

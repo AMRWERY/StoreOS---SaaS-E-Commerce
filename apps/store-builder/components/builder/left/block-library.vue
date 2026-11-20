@@ -1,11 +1,16 @@
 <template>
   <div>
-    <p class="mb-1.5 px-2 text-[9px] font-black tracking-[0.2em] text-tx-muted">
-      Blocks
-    </p>
-    <p class="mb-2 px-2 text-[10px] leading-snug text-tx-muted">
-      Drag a block onto the page, or click to add it.
-    </p>
+    <div class="mb-3 rounded-lg border border-brand/30 bg-brand/10 p-2.5">
+      <p class="flex items-center gap-1.5 text-[11px] font-bold text-brand">
+        <Icon name="ph:hand-grabbing-bold" /> How to add a block
+      </p>
+      <ol class="mt-1.5 list-inside list-decimal space-y-0.5 text-[10px] leading-snug text-tx-secondary">
+        <li>Press and hold a block below</li>
+        <li>Drag it into the preview on the right</li>
+        <li>Release where you want it</li>
+      </ol>
+      <p class="mt-1.5 text-[10px] text-tx-muted">Or just click a block to add it after the selected section.</p>
+    </div>
 
     <div class="relative mb-3 px-1">
       <Icon
@@ -48,6 +53,9 @@
         :sort="false"
         :animation="150"
         :clone="cloneBlock"
+        :force-fallback="true"
+        fallback-class="sb-fallback"
+        :fallback-on-body="true"
         class="mt-1 grid grid-cols-2 gap-1.5"
         ghost-class="sb-ghost"
         @start="dragging = true"
@@ -57,6 +65,7 @@
           v-for="item in group.items"
           :key="item.id"
           type="button"
+          data-lib-tile
           class="flex cursor-grab flex-col items-center gap-1.5 rounded-lg border border-border-subtle bg-bg-elevated/40 px-1.5 py-2.5 text-center transition-colors hover:border-brand/40 hover:bg-bg-elevated active:cursor-grabbing"
           :title="definitionOf(item.type)?.description"
           @click="addByClick(item.type)"

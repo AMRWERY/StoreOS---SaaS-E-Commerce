@@ -35,7 +35,7 @@
               class="mb-2.5 w-full overflow-hidden rounded-lg border border-border-subtle"
               :class="style.dark ? 'bg-neutral-900' : 'bg-neutral-50'"
             >
-              <component :is="style.sketch" />
+              <chrome-sketch kind="footer" :variant="style.value" />
             </div>
             <p
               class="text-[11px] font-bold"
@@ -237,98 +237,10 @@
 </template>
 
 <script lang="ts" setup>
+import { FOOTER_STYLE_OPTIONS } from "@/data/chrome-styles";
+
+const FOOTER_STYLES = FOOTER_STYLE_OPTIONS;
 const { t } = useI18n();
 const store = useBuilderStore();
 
-const FOOTER_STYLES = [
-  {
-    value: "columns" as const,
-    label: "Columns",
-    description: "Dark · multi-column links",
-    dark: true,
-    sketch: {
-      template: `<div class="bg-neutral-900 px-2 py-2.5">
-        <div class="flex justify-between">
-          <div class="space-y-1">
-            <div class="h-1.5 w-8 rounded bg-white/80" />
-            <div class="h-1 w-12 rounded bg-neutral-600" />
-          </div>
-          <div class="flex gap-2">
-            <div class="space-y-1">
-              <div class="h-1 w-5 rounded bg-neutral-600" />
-              <div class="h-1 w-7 rounded bg-neutral-700" />
-              <div class="h-1 w-5 rounded bg-neutral-700" />
-            </div>
-            <div class="space-y-1">
-              <div class="h-1 w-5 rounded bg-neutral-600" />
-              <div class="h-1 w-7 rounded bg-neutral-700" />
-              <div class="h-1 w-5 rounded bg-neutral-700" />
-            </div>
-          </div>
-        </div>
-      </div>`,
-    },
-  },
-  {
-    value: "centered" as const,
-    label: "Centered",
-    description: "Light · all centered",
-    dark: false,
-    sketch: {
-      template: `<div class="bg-neutral-50 px-2 py-2.5 text-center">
-        <div class="mx-auto h-2 w-10 rounded bg-neutral-800" />
-        <div class="mx-auto mt-1.5 h-1 w-16 rounded bg-neutral-300" />
-        <div class="mx-auto mt-2 flex justify-center gap-1.5">
-          <div class="h-1 w-5 rounded bg-neutral-300" />
-          <div class="h-1 w-4 rounded bg-neutral-300" />
-          <div class="h-1 w-5 rounded bg-neutral-300" />
-        </div>
-      </div>`,
-    },
-  },
-  {
-    value: "newsletter" as const,
-    label: "Newsletter",
-    description: "Dark · email signup form",
-    dark: true,
-    sketch: {
-      template: `<div class="bg-neutral-900 px-2 py-2.5">
-        <div class="flex gap-2">
-          <div class="flex-1 space-y-1">
-            <div class="h-1.5 w-8 rounded bg-white/80" />
-            <div class="flex gap-1">
-              <div class="h-1 w-4 rounded bg-neutral-700" />
-              <div class="h-1 w-4 rounded bg-neutral-700" />
-              <div class="h-1 w-4 rounded bg-neutral-700" />
-            </div>
-          </div>
-          <div class="w-16 rounded-lg border border-neutral-700 bg-neutral-800 p-1.5">
-            <div class="h-1 w-full rounded bg-neutral-600" />
-            <div class="mt-1.5 flex gap-1">
-              <div class="h-2.5 flex-1 rounded bg-neutral-700" />
-              <div class="h-2.5 w-5 rounded bg-indigo-600" />
-            </div>
-          </div>
-        </div>
-      </div>`,
-    },
-  },
-  {
-    value: "minimal" as const,
-    label: "Minimal",
-    description: "Light · single bar",
-    dark: false,
-    sketch: {
-      template: `<div class="flex items-center justify-between border-t border-neutral-200 bg-white px-2 py-1.5">
-        <div class="h-1.5 w-8 rounded bg-neutral-800" />
-        <div class="flex gap-1.5">
-          <div class="h-1 w-5 rounded bg-neutral-300" />
-          <div class="h-1 w-4 rounded bg-neutral-300" />
-          <div class="h-1 w-5 rounded bg-neutral-300" />
-        </div>
-        <div class="h-1 w-12 rounded bg-neutral-200" />
-      </div>`,
-    },
-  },
-];
 </script>

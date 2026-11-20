@@ -63,7 +63,7 @@
               class="mb-2.5 w-full overflow-hidden rounded-lg border border-border-subtle bg-white"
               :class="style.dark ? 'bg-neutral-900' : 'bg-white'"
             >
-              <component :is="style.sketch" />
+              <chrome-sketch kind="navbar" :variant="style.value" />
             </div>
             <p
               class="text-[11px] font-bold"
@@ -92,11 +92,11 @@
       <div>
         <LazyVInput
           type="text"
-          :model-value="store.storeName"
+          :model-value="store.displayName"
           label="Store name / Logo text"
           placeholder="My Store"
           input-class="!w-full !rounded-lg !border-border-subtle !bg-bg-elevated !px-3 !py-2.5 !text-sm !font-semibold !text-tx-primary !outline-none !transition-colors focus:!border-brand"
-          @update:model-value="store.storeName = $event"
+          @update:model-value="store.setStoreName($event)"
         />
         <p class="mt-1.5 text-[10px] text-tx-muted">
           Displayed in the top-left of every page.
@@ -199,6 +199,7 @@
 </template>
 
 <script lang="ts" setup>
+import { NAVBAR_STYLE_OPTIONS } from "@/data/chrome-styles";
 const { t } = useI18n();
 
 defineEmits<{
@@ -206,84 +207,7 @@ defineEmits<{
 }>();
 
 const UiButton = resolveComponent("VButton");
+const NAVBAR_STYLES = NAVBAR_STYLE_OPTIONS;
 const store = useBuilderStore();
 
-const NAVBAR_STYLES = [
-  {
-    value: "classic" as const,
-    label: "Classic",
-    description: "Logo · links · icons",
-    dark: false,
-    sketch: {
-      template: `<div class="flex items-center justify-between px-2 py-1.5">
-        <div class="h-2 w-8 rounded bg-neutral-800" />
-        <div class="flex gap-1.5">
-          <div class="h-1.5 w-4 rounded bg-neutral-300" />
-          <div class="h-1.5 w-4 rounded bg-neutral-300" />
-          <div class="h-1.5 w-4 rounded bg-neutral-300" />
-        </div>
-        <div class="flex gap-1">
-          <div class="size-2 rounded-full bg-neutral-300" />
-          <div class="size-2 rounded-full bg-neutral-300" />
-        </div>
-      </div>`,
-    },
-  },
-  {
-    value: "centered" as const,
-    label: "Centered",
-    description: "Logo centered · links below",
-    dark: false,
-    sketch: {
-      template: `<div>
-        <div class="flex justify-center px-2 py-1.5">
-          <div class="h-2 w-10 rounded bg-neutral-800" />
-        </div>
-        <div class="flex justify-center gap-1.5 border-t border-neutral-100 px-2 pb-1.5 pt-1">
-          <div class="h-1.5 w-4 rounded bg-neutral-300" />
-          <div class="h-1.5 w-4 rounded bg-neutral-300" />
-          <div class="h-1.5 w-4 rounded bg-neutral-300" />
-        </div>
-      </div>`,
-    },
-  },
-  {
-    value: "dark" as const,
-    label: "Dark",
-    description: "Dark bg · white text · CTA",
-    dark: true,
-    sketch: {
-      template: `<div class="flex items-center justify-between bg-neutral-900 px-2 py-1.5">
-        <div class="h-2 w-8 rounded bg-white" />
-        <div class="flex gap-1.5">
-          <div class="h-1.5 w-4 rounded bg-neutral-600" />
-          <div class="h-1.5 w-4 rounded bg-neutral-600" />
-        </div>
-        <div class="h-2.5 w-8 rounded bg-white" />
-      </div>`,
-    },
-  },
-  {
-    value: "minimal" as const,
-    label: "Minimal",
-    description: "Bold logo · subtle links",
-    dark: false,
-    sketch: {
-      template: `<div class="flex items-center justify-between px-2 py-2">
-        <div class="h-2.5 w-10 rounded bg-neutral-900" />
-        <div class="flex items-center gap-2">
-          <div class="flex gap-1">
-            <div class="h-1.5 w-3 rounded bg-neutral-200" />
-            <div class="h-1.5 w-3 rounded bg-neutral-200" />
-            <div class="h-1.5 w-3 rounded bg-neutral-200" />
-          </div>
-          <div class="flex gap-1">
-            <div class="size-2 rounded-full bg-neutral-300" />
-            <div class="size-2 rounded-full bg-neutral-300" />
-          </div>
-        </div>
-      </div>`,
-    },
-  },
-];
 </script>

@@ -27,7 +27,7 @@
     <button
       type="button"
       class="flex items-center gap-1.5 rounded-md border border-border-subtle px-2.5 py-1.5 text-[11px] font-semibold text-tx-secondary transition-colors hover:bg-bg-elevated hover:text-tx-primary"
-      title="Store languages"
+      title="Website language — the language(s) your store is published in"
       @click="localeSettingsOpen = true"
     >
       <Icon name="ph:translate-bold" class="size-4 shrink-0" />
@@ -47,8 +47,7 @@ const nameOf = (code: StoreLocale) =>
 
 const summary = computed(() =>
   store.isMultiLocale
-    ? "Multi-language"
-    : (STORE_LOCALES.find((l) => l.code === store.defaultLocale)?.label ??
-      "Language"),
+    ? "Site: EN + AR"
+    : `Site: ${STORE_LOCALES.find((l) => l.code === store.defaultLocale)?.label ?? "Language"}`,
 );
 </script>

@@ -11,6 +11,9 @@
         v-model="orderedList"
         group="sections"
         handle=".sb-list-handle"
+        :force-fallback="true"
+        fallback-class="sb-fallback"
+        :fallback-on-body="true"
         :animation="150"
         ghost-class="sb-ghost"
         class="min-h-[40px] space-y-0.5"
@@ -23,8 +26,6 @@
       </VueDraggable>
     </div>
 
-    <!-- Block library (drag onto the preview or the list above) -->
-    <block-library v-if="!isSystemPage" class="mt-5" />
 
     <!-- System page info (checkout / order confirmed) -->
     <div v-else class="mt-1">

@@ -56,6 +56,10 @@
       <lazy-add-section-button />
     </div>
 
+    <div v-else-if="activeTab === 'Blocks'" class="min-h-0 flex-1 overflow-y-auto p-3">
+      <lazy-block-library />
+    </div>
+
     <div v-else class="flex min-h-0 flex-1 flex-col">
       <lazy-theme-panel />
     </div>
@@ -78,6 +82,7 @@ const store = useBuilderStore();
 
 const panelTabs = [
   { id: "Sections", label: "Sections", icon: "ph:stack-bold" },
+  { id: "Blocks", label: "Blocks", icon: "ph:squares-four-bold" },
   { id: "Theme", label: "Theme", icon: "ph:palette-bold" },
 ] as const;
 
