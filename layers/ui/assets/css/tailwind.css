@@ -1,6 +1,103 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-rtl";
+
+/* Tailwind v4 does not scan node_modules (where layers are linked), so list layer sources explicitly.
+   App files are detected automatically from each app's root. */
+@source "../../components";
+@source "../../../core/composables";
+@source "../../../core/utils";
+@source "../../../core/types";
+
+/* Previous config used darkMode: "class" */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Colors map to the RGB-triplet variables defined in main.css (per html[data-theme]).
+   `inline` keeps utilities pointing at the live variables instead of copying values to :root. */
+@theme inline {
+  --color-bg-base: rgb(var(--bg-base-rgb));
+  --color-bg-primary: rgb(var(--bg-primary-rgb));
+  --color-bg-elevated: rgb(var(--bg-elevated-rgb));
+  --color-bg-overlay: rgb(var(--bg-overlay-rgb));
+
+  --color-border-subtle: rgb(var(--border-subtle-rgb));
+  --color-border-default: rgb(var(--border-default-rgb));
+
+  --color-brand: rgb(var(--brand-rgb));
+  --color-brand-hover: rgb(var(--brand-hover-rgb));
+  --color-brand-dim: var(--color-brand-dim);
+
+  --color-accent: rgb(var(--accent-rgb));
+  --color-accent-hover: rgb(var(--accent-hover-rgb));
+  --color-accent-dim: var(--color-accent-dim);
+
+  --color-success: rgb(var(--success-rgb));
+  --color-success-dim: var(--color-success-dim);
+  --color-warning: rgb(var(--warning-rgb));
+  --color-warning-dim: var(--color-warning-dim);
+  --color-danger: rgb(var(--danger-rgb));
+  --color-danger-dim: var(--color-danger-dim);
+  --color-info: rgb(var(--info-rgb));
+  --color-info-dim: var(--color-info-dim);
+
+  --color-status-purple: rgb(var(--status-purple-rgb));
+  --color-status-purple-dim: var(--color-status-purple-dim);
+  --color-status-yellow: rgb(var(--status-yellow-rgb));
+  --color-status-yellow-dim: var(--color-status-yellow-dim);
+
+  --color-tx-primary: rgb(var(--text-primary-rgb));
+  --color-tx-secondary: rgb(var(--text-secondary-rgb));
+  --color-tx-muted: rgb(var(--text-muted-rgb));
+}
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 14px;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --animate-fade-up: fadeUp 0.3s ease-out forwards;
+  --animate-pulse-dot: pulseDot 1.5s ease-in-out infinite;
+  --animate-spin-slow: spinSlow 3s linear infinite;
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+/* v3 -> v4 compatibility: keep the previous defaults */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 @layer base {
 

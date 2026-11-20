@@ -3,7 +3,6 @@ export default defineNuxtConfig({
     transpile: ["@vuepic/vue-datepicker"],
   },
   modules: [
-    "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "@nuxt/icon",
     "@vueuse/nuxt",
@@ -16,12 +15,6 @@ export default defineNuxtConfig({
       // Override per environment: NUXT_PUBLIC_DASHBOARD_URL / NUXT_PUBLIC_BUILDER_URL (no trailing slash, no locale)
       dashboardUrl: "https://storeos-merchant.vercel.app",
       builderUrl: "https://storeos-store-builder.vercel.app",
-    },
-  },
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
     },
   },
   i18n: {
