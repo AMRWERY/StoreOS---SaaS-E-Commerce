@@ -58,13 +58,6 @@ const actions = [
 ] as const;
 
 const handleAction = (id: string) => {
-  // Invert 'up' and 'down' so Move Up actually moves the section up and Move Down moves it down
-  if (id === "up") {
-    emit("action", "down");
-  } else if (id === "down") {
-    emit("action", "up");
-  } else {
-    emit("action", id);
-  }
+  emit("action", id);
 };
 </script>
