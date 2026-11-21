@@ -41,7 +41,7 @@ so Tailwind can apply alpha. **Dark is the default** (also when `data-theme` is 
 - `useAppTheme()` (`layers/core/composables/useAppTheme.ts`) holds `"dark" | "light"` in `useState('app-theme')`.
   It is **memory-only**: every page load/refresh resets to dark.
 - `layers/core/plugins/theme.ts` writes `data-theme` onto `<html>`.
-- `ThemeToggle.vue` in `layers/ui/components` is the UI control.
+- `VThemeToggle.vue` in `layers/ui/components` is the UI control.
 - `tailwind.config.ts` has `darkMode: "class"`, but theming is driven by `data-theme` and CSS variables, so
   **don't use `dark:` variants** — use the semantic tokens below.
 
@@ -175,7 +175,7 @@ full / rounded-full: pills, badges
 
 ### Shared Vue components (`layers/ui/components`, auto-imported with `pathPrefix: false`, use `Lazy` prefix for heavy ones)
 
-`ThemeToggle`, `VAccordion`, `VAlertBanner`, `VBackButton`, `VBreadcrumb`, `VButton`, `VColorInput`, `VDatePicker`,
+`VThemeToggle`, `VAccordion`, `VAlertBanner`, `VBackButton`, `VBreadcrumb`, `VButton`, `VColorInput`, `VDatePicker`,
 `VDialog`, `VDropdownMenu`, `VFileUpload`, `VFormWrapper`, `VInput`, `VLoadingSpinner`, `VLocaleSwitch`, `VOtp`,
 `VOverlay`, `VPagination`, `VProductCard`, `VProgressBar`, `VRangeInput`, `VSearchInput`, `VSelectInput`,
 `VSidePanel`, `VStatCard`, `VSwitchButton`, `VTable`, `VTabs`, `VTextareaInput`.

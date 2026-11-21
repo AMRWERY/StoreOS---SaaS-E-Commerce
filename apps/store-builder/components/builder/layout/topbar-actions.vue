@@ -20,7 +20,11 @@
       :disabled="opening"
       @click="openPreview"
     >
-      <Icon :name="opening ? 'ph:spinner-gap-bold' : 'ph:arrow-square-out-bold'" :class="opening ? 'animate-spin' : ''" class="size-4 shrink-0" />
+      <Icon
+        :name="opening ? 'ph:spinner-gap-bold' : 'ph:arrow-square-out-bold'"
+        :class="opening ? 'animate-spin' : ''"
+        class="size-4 shrink-0"
+      />
       <span class="hidden whitespace-nowrap 2xl:inline">Preview store</span>
     </button>
   </div>

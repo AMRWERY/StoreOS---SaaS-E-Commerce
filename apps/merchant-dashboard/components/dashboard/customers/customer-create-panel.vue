@@ -1,5 +1,5 @@
 <template>
-  <VSidePanel
+  <LazyVSidePanel
     :model-value="isOpen"
     :title="t('dashboard.customers.addCustomer')"
     :subtitle="t('dashboard.customers.addCustomerSubtitle')"

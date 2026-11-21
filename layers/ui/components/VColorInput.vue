@@ -42,9 +42,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { LazyVColorInputProps } from "../types/VColorInput";
+import type { ColorInputProps } from "../types/VColorInput";
 
-const props = defineProps<LazyVColorInputProps>();
+const props = defineProps<ColorInputProps>();
 
 const emit = defineEmits<{
   "update:modelValue": [value: string];

@@ -1,4 +1,4 @@
-export interface LazyVTextareaInputProps {
+export interface VTextareaInputProps {
   modelValue?: string;
   label?: string;
   placeholder?: string;

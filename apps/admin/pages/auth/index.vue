@@ -6,7 +6,7 @@
     <header
       class="w-full flex items-center justify-end gap-2.5 sm:gap-3 p-3 sm:p-4 md:px-8"
     >
-      <LazyThemeToggle />
+      <LazyVThemeToggle />
 
       <LazyVLocaleSwitch />
     </header>

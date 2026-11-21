@@ -42,6 +42,7 @@
           >
             Delete page
           </LazyVButton>
+
           <LazyVButton
             variant="none"
             type="button"
@@ -66,10 +67,8 @@ const localePath = useLocalePath();
 const onDelete = async () => {
   const pageId = store.currentPageId;
   if (!pageId) return;
-
   const nextPage = store.deletePage(pageId);
   deletePageOpen.value = false;
-
   if (nextPage) {
     await navigateTo(localePath(`/builder/${nextPage.slug}`));
   }

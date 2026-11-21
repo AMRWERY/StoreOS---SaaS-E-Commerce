@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-bg-base text-tx-primary flex flex-col">
     <header class="flex items-center justify-end gap-3 px-4 py-4 md:px-8">
-      <LazyThemeToggle />
+      <LazyVThemeToggle />
       
       <LazyVLocaleSwitch />
     </header>

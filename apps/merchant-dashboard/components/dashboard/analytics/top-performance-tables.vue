@@ -2,9 +2,7 @@
   <div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- Top Products -->
-      <div
-        class="card overflow-hidden"
-      >
+      <div class="card overflow-hidden">
         <div
           class="p-6 border-b border-border-subtle flex justify-between items-center"
         >
@@ -51,9 +49,7 @@
       </div>
 
       <!-- Top Customers -->
-      <div
-        class="card overflow-hidden"
-      >
+      <div class="card overflow-hidden">
         <div
           class="p-6 border-b border-border-subtle flex justify-between items-center"
         >
@@ -100,7 +96,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { TableHeader } from "@storeos/ui/types/v-table";
+import type { TableHeader } from "@storeos/ui/types/VTable";
 import type { Product, Customer } from "@/types/analytics";
 
 defineProps<{

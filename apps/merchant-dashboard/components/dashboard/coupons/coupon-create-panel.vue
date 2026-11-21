@@ -1,5 +1,5 @@
 ﻿<template>
-  <VSidePanel
+  <LazyVSidePanel
     :model-value="isOpen"
     :title="t('dashboard.coupons.createNewCoupon')"
     :subtitle="t('dashboard.coupons.configureSettings')"

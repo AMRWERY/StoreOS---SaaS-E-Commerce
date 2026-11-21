@@ -25,6 +25,7 @@
         </div>
         <div class="mt-3 grid grid-cols-2 gap-3">
           <lazy-setting-color v-model="announcementBg" label="Background" />
+
           <lazy-setting-color v-model="announcementColor" label="Text" />
         </div>
       </template>
@@ -50,14 +51,17 @@ const announcement = computed({
   get: () => store.announcement.enabled,
   set: (v: boolean) => store.setAnnouncement({ enabled: v }),
 });
+
 const announcementText = computed({
   get: () => store.localAnnouncementText,
   set: (v: string) => store.setAnnouncementText(v),
 });
+
 const announcementBg = computed({
   get: () => store.announcement.bg,
   set: (v: string) => store.setAnnouncement({ bg: v }),
 });
+
 const announcementColor = computed({
   get: () => store.announcement.color,
   set: (v: string) => store.setAnnouncement({ color: v }),

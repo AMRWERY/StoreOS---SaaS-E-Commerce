@@ -1,4 +1,4 @@
-export interface LazyVColorInputProps {
+export interface ColorInputProps {
   modelValue?: string;
   label?: string;
   error?: string;

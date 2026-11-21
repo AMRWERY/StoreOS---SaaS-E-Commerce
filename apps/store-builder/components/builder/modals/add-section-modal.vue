@@ -105,9 +105,7 @@
               >
                 {{ group.label }}
               </h3>
-              <div
-                class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
-              >
+              <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 <button
                   v-for="item in group.items"
                   :key="item.type"
@@ -211,7 +209,9 @@ const visible = computed(() => {
   }
 
   return allGroups.value
-    .filter((g) => q || activeTab.value === "all" || g.category === activeTab.value)
+    .filter(
+      (g) => q || activeTab.value === "all" || g.category === activeTab.value,
+    )
     .map((g) => ({
       category: g.category as string,
       label: SECTION_CATEGORY_LABELS[g.category],

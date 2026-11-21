@@ -1,5 +1,8 @@
 ﻿<template>
-  <div data-tour="pages" class="shrink-0 border-b border-border-subtle bg-bg-base/40">
+  <div
+    data-tour="pages"
+    class="shrink-0 border-b border-border-subtle bg-bg-base/40"
+  >
     <!-- Page list -->
     <div class="max-h-[180px] overflow-y-auto p-2">
       <p
@@ -60,6 +63,7 @@
       >
         Settings
       </LazyVButton>
+
       <LazyVButton
         variant="none"
         type="button"
@@ -69,6 +73,7 @@
       >
         + New
       </LazyVButton>
+
       <LazyVButton
         variant="none"
         type="button"
@@ -79,6 +84,7 @@
       >
         Template
       </LazyVButton>
+
       <LazyVButton
         v-if="
           store.pages.length > 1 &&

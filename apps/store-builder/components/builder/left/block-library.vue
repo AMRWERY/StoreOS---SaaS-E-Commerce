@@ -4,12 +4,16 @@
       <p class="flex items-center gap-1.5 text-[11px] font-bold text-brand">
         <Icon name="ph:hand-grabbing-bold" /> How to add a block
       </p>
-      <ol class="mt-1.5 list-inside list-decimal space-y-0.5 text-[10px] leading-snug text-tx-secondary">
+      <ol
+        class="mt-1.5 list-inside list-decimal space-y-0.5 text-[10px] leading-snug text-tx-secondary"
+      >
         <li>Press and hold a block below</li>
         <li>Drag it into the preview on the right</li>
         <li>Release where you want it</li>
       </ol>
-      <p class="mt-1.5 text-[10px] text-tx-muted">Or just click a block to add it after the selected section.</p>
+      <p class="mt-1.5 text-[10px] text-tx-muted">
+        Or just click a block to add it after the selected section.
+      </p>
     </div>
 
     <div class="relative mb-3 px-1">
@@ -71,7 +75,9 @@
             :name="definitionOf(item.type)?.icon ?? 'ph:squares-four-bold'"
             class="text-lg text-tx-secondary"
           />
-          <span class="line-clamp-2 text-[10px] font-medium leading-tight text-tx-primary">
+          <span
+            class="line-clamp-2 text-[10px] font-medium leading-tight text-tx-primary"
+          >
             {{ definitionOf(item.type)?.name ?? item.type }}
           </span>
         </button>
@@ -87,7 +93,11 @@ import {
   definitionsByCategory,
   getSectionDefinition,
 } from "@/data/section-registry";
-import type { PageSection, SectionCategory, SectionType } from "@/types/sections";
+import type {
+  PageSection,
+  SectionCategory,
+  SectionType,
+} from "@/types/sections";
 import { SECTION_CATEGORY_LABELS } from "@/types/sections";
 
 const store = useBuilderStore();

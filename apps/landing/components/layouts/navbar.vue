@@ -47,7 +47,7 @@
         </div>
 
         <div class="flex items-center gap-1 sm:gap-3">
-          <LazyThemeToggle />
+          <LazyVThemeToggle />
 
           <!-- Returning merchants → dashboard sign-in -->
           <a

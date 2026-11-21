@@ -1,8 +1,6 @@
 ﻿<template>
   <div>
-    <section
-      class="card overflow-hidden shadow-2xl"
-    >
+    <section class="card overflow-hidden shadow-2xl">
       <LazyVTable :headers="headers" :items="paginatedCustomers">
         <!-- Customer Info -->
         <template #cell(customer)="{ item }">
@@ -114,7 +112,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { TableHeader } from "@storeos/ui/types/v-table";
+import type { TableHeader } from "@storeos/ui/types/VTable";
 
 const props = defineProps<{
   customers: any[];

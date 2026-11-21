@@ -6,7 +6,7 @@
       <div class="border-b border-border-subtle px-4 py-3">
         <h3 class="text-sm font-bold">{{ t('platform.staff.members') }}</h3>
       </div>
-      <v-table v-if="store.staff.length" :headers="staffHeaders" :items="store.staff">
+      <LazyVTable v-if="store.staff.length" :headers="staffHeaders" :items="store.staff">
         <template #cell(name)="{ item }">
           <p class="text-xs font-semibold text-tx-primary">{{ item.name }}</p>
           <p class="font-mono text-[10px] text-tx-muted">{{ item.email }}</p>
@@ -23,7 +23,7 @@
         <template #cell(lastActive)="{ item }">
           <span class="font-mono text-xs text-tx-secondary">{{ item.lastActive }}</span>
         </template>
-      </v-table>
+      </LazyVTable>
       <platform-empty-state v-else :title="t('platform.staff.empty')" icon="ph:users-three" />
     </section>
 
@@ -32,7 +32,7 @@
         <h3 class="text-sm font-bold">{{ t('platform.staff.auditLog') }}</h3>
         <p class="text-[11px] text-tx-muted">{{ t('platform.staff.auditHint') }}</p>
       </div>
-      <v-table v-if="store.audit.length" :headers="auditHeaders" :items="store.audit">
+      <LazyVTable v-if="store.audit.length" :headers="auditHeaders" :items="store.audit">
         <template #cell(date)="{ item }">
           <span class="font-mono text-xs text-tx-secondary">{{ item.date }}</span>
         </template>
@@ -48,7 +48,7 @@
         <template #cell(ip)="{ item }">
           <span class="font-mono text-xs text-tx-muted">{{ item.ip }}</span>
         </template>
-      </v-table>
+      </LazyVTable>
       <platform-empty-state v-else :title="t('platform.staff.auditEmpty')" icon="ph:scroll" />
     </section>
   </div>

@@ -1,4 +1,4 @@
-export interface LazyVOtpProps {
+export interface VOtpProps {
   modelValue?: string;
   /** Number of digit boxes. Supports 4–6. Defaults to 6. */
   length?: 4 | 5 | 6;

@@ -94,8 +94,10 @@
           </div>
 
           <div class="flex items-center gap-3">
-            <ThemeToggle />
+            <LazyVThemeToggle />
+
             <LazyVLocaleSwitch />
+            
             <LazyVDropdownMenu align="end" width="w-60">
               <template #trigger>
                 <div

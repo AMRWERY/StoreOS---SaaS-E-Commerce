@@ -2,13 +2,17 @@
   <div class="shrink-0 space-y-3 border-b border-border-subtle p-2">
     <!-- Website: name + language -->
     <div data-tour="website">
-      <p class="mb-1.5 px-2 text-[9px] font-black tracking-[0.2em] text-tx-muted">
+      <p
+        class="mb-1.5 px-2 text-[9px] font-black tracking-[0.2em] text-tx-muted"
+      >
         Website
       </p>
 
       <div class="space-y-1.5 px-1">
         <label class="block">
-          <span class="mb-1 flex items-center gap-1.5 px-1 text-[10px] font-semibold text-tx-secondary">
+          <span
+            class="mb-1 flex items-center gap-1.5 px-1 text-[10px] font-semibold text-tx-secondary"
+          >
             Website name
             <span
               v-if="store.isMultiLocale"
@@ -23,7 +27,9 @@
             placeholder="My Store"
             :dir="store.direction"
             class="w-full rounded-md border border-border-subtle bg-bg-primary px-2.5 py-2 text-[12px] font-semibold text-tx-primary outline-none transition-colors placeholder:text-tx-muted focus:border-brand"
-            @input="store.setStoreName(($event.target as HTMLInputElement).value)"
+            @input="
+              store.setStoreName(($event.target as HTMLInputElement).value)
+            "
           />
         </label>
 
@@ -32,10 +38,18 @@
           class="flex w-full items-center gap-2 rounded-md border border-border-subtle bg-bg-primary px-2.5 py-2 text-start transition-colors hover:border-brand/40 hover:bg-bg-elevated"
           @click="localeSettingsOpen = true"
         >
-          <Icon name="ph:translate-bold" class="shrink-0 text-[13px] text-tx-muted" />
+          <Icon
+            name="ph:translate-bold"
+            class="shrink-0 text-[13px] text-tx-muted"
+          />
           <span class="min-w-0 flex-1">
-            <span class="block text-[10px] font-semibold text-tx-secondary">Website language</span>
-            <span class="block truncate text-[11px] font-bold text-tx-primary">{{ languageSummary }}</span>
+            <span class="block text-[10px] font-semibold text-tx-secondary"
+              >Website language</span
+            >
+            <span
+              class="block truncate text-[11px] font-bold text-tx-primary"
+              >{{ languageSummary }}</span
+            >
           </span>
           <span class="text-[10px] font-bold text-brand">Change</span>
         </button>
@@ -44,7 +58,9 @@
           v-if="store.isMultiLocale"
           class="flex items-center gap-1.5 rounded-md bg-bg-elevated/50 px-2 py-1.5"
         >
-          <span class="text-[10px] font-semibold text-tx-secondary">Editing:</span>
+          <span class="text-[10px] font-semibold text-tx-secondary"
+            >Editing:</span
+          >
           <div class="flex flex-1 gap-1">
             <button
               v-for="code in store.locales"
@@ -67,7 +83,9 @@
 
     <!-- Global: navbar + footer -->
     <div data-tour="global">
-      <p class="mb-1.5 px-2 text-[9px] font-black tracking-[0.2em] text-tx-muted">
+      <p
+        class="mb-1.5 px-2 text-[9px] font-black tracking-[0.2em] text-tx-muted"
+      >
         Global
       </p>
       <div class="grid grid-cols-2 gap-1">
@@ -101,7 +119,10 @@
         "
         @click="select('site-settings')"
       >
-        <Icon name="ph:gear-six-bold" class="shrink-0 text-[13px] text-tx-muted" />
+        <Icon
+          name="ph:gear-six-bold"
+          class="shrink-0 text-[13px] text-tx-muted"
+        />
         <span class="min-w-0 flex-1 truncate">Site settings</span>
       </button>
     </div>
@@ -123,7 +144,9 @@ const languageSummary = computed(() => {
     : names[0];
 });
 
-const select = (mode: "navbar-settings" | "footer-settings" | "site-settings") => {
+const select = (
+  mode: "navbar-settings" | "footer-settings" | "site-settings",
+) => {
   store.selectedId = null;
   store.setPanelMode(mode);
 };

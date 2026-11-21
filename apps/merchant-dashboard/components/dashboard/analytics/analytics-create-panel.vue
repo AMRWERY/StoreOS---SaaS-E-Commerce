@@ -1,5 +1,5 @@
 <template>
-  <VSidePanel
+  <LazyVSidePanel
     :model-value="isOpen"
     :title="t('dashboard.analytics.createReport')"
     :subtitle="t('dashboard.analytics.createReportSubtitle')"

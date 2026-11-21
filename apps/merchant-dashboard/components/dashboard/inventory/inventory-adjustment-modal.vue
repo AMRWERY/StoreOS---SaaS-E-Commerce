@@ -1,5 +1,5 @@
 ﻿<template>
-  <VSidePanel
+  <LazyVSidePanel
     :model-value="modelValue"
     :title="t('dashboard.inventory.stockAdjustment')"
     @update:model-value="$emit('update:modelValue', $event)"

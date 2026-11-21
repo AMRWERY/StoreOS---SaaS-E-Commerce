@@ -1,7 +1,7 @@
-﻿<template>
+<template>
   <div
     data-tour="preview"
-    class="flex min-h-0 min-w-0 flex-col rounded-xl border border-border-subtle bg-[var(--builder-preview-bg,#0a0a12)] p-4 shadow-inner md:p-6 xl:h-full"
+    class="flex min-h-0 min-w-0 flex-col rounded-xl border border-border-subtle bg-[var(--builder-preview-bg,#0a0a12)] p-2 sm:p-4 md:p-6 shadow-inner xl:h-full"
   >
     <p class="mb-3 text-[9px] font-medium tracking-[0.35em] text-tx-muted">
       Preview
@@ -164,9 +164,11 @@ const onToolbar = (action: string, sectionId: string) => {
   outline-offset: -2px;
   background: rgb(99 102 241 / 0.08);
 }
+
 .sb-chosen {
   cursor: grabbing;
 }
+
 /* A block dragged in from the library: show a clear "drop here" slot instead of the tile. */
 .sb-ghost[data-lib-tile] {
   display: flex;
@@ -179,14 +181,17 @@ const onToolbar = (action: string, sectionId: string) => {
   background: rgb(99 102 241 / 0.1);
   color: rgb(79 70 229);
 }
+
 .sb-ghost[data-lib-tile] > * {
   display: none;
 }
+
 .sb-ghost[data-lib-tile]::before {
   content: "Drop block here";
   font-size: 12px;
   font-weight: 700;
 }
+
 /* Floating copy that follows the cursor. */
 .sb-fallback {
   opacity: 0.9 !important;

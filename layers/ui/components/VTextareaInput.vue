@@ -34,9 +34,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { LazyVTextareaInputProps } from "../types/VTextareaInput";
+import type { VTextareaInputProps } from "../types/VTextareaInput";
 
-const props = withDefaults(defineProps<LazyVTextareaInputProps>(), {
+const props = withDefaults(defineProps<VTextareaInputProps>(), {
   rows: 4,
 });
 

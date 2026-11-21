@@ -103,20 +103,23 @@
           {{ t('platform.overview.signups.viewAll') }}
         </nuxt-link-locale>
       </div>
-      <v-table :headers="headers" :items="recentSignups" table-class="cursor-pointer" @row-click="openMerchant">
+      <LazyVTable :headers="headers" :items="recentSignups" table-class="cursor-pointer" @row-click="openMerchant">
         <template #cell(store)="{ item }">
           <span class="text-xs font-semibold text-tx-primary">{{ item.store }}</span>
         </template>
+
         <template #cell(owner)="{ item }">
           <span class="text-xs text-tx-secondary">{{ item.owner }}</span>
         </template>
+
         <template #cell(plan)="{ item }">
           <platform-status-pill :label="t(`platform.plan.${item.plan}`)" :tone="tones.plan(item.plan)" />
         </template>
+        
         <template #cell(signupDate)="{ item }">
           <span class="font-mono text-xs text-tx-secondary">{{ item.signupDate }}</span>
         </template>
-      </v-table>
+      </LazyVTable>
     </section>
   </div>
 </template>

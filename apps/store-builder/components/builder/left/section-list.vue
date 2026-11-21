@@ -32,7 +32,6 @@
       </VueDraggable>
     </div>
 
-
     <!-- System page info (checkout / order confirmed) -->
     <div v-else class="mt-1">
       <p
@@ -72,5 +71,4 @@ const orderedList = computed<PageSection[]>({
   get: () => [...store.sections].sort((a, b) => a.sort_order - b.sort_order),
   set: (next) => store.commitSections(next),
 });
-
 </script>

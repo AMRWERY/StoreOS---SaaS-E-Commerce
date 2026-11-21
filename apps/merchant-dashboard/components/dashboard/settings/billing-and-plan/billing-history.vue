@@ -1,8 +1,6 @@
 <template>
   <div>
-    <section
-      class="lg:col-span-12 card overflow-hidden"
-    >
+    <section class="lg:col-span-12 card overflow-hidden">
       <!-- Section header -->
       <div
         class="px-4 py-3.5 flex justify-between items-center border-b border-border-subtle"
@@ -52,9 +50,7 @@
             }}</span>
           </template>
           <template #cell(status)="{ item }">
-            <span
-              class="badge bg-success-dim text-success"
-            >
+            <span class="badge bg-success-dim text-success">
               {{ item.status }}
             </span>
           </template>
@@ -79,7 +75,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { TableHeader } from "@storeos/ui/types/v-table";
+import type { TableHeader } from "@storeos/ui/types/VTable";
 
 const { t } = useI18n();
 

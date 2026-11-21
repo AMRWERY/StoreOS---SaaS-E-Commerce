@@ -40,9 +40,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { LazyVOtpProps } from "../types/VOtp";
+import type { VOtpProps } from "../types/VOtp";
 
-const props = withDefaults(defineProps<LazyVOtpProps>(), {
+const props = withDefaults(defineProps<VOtpProps>(), {
   length: 6,
 });
 

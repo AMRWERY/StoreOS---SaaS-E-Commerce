@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex h-screen max-h-screen flex-col overflow-hidden bg-bg-base text-tx-primary"
+    class="flex h-screen h-dvh max-h-screen max-h-dvh flex-col overflow-hidden bg-bg-base text-tx-primary"
     :style="cssVars"
   >
     <lazy-builder-topbar @toggle-sidebar="isSidebarOpen = true" />
@@ -11,7 +11,7 @@
         @close="isSidebarOpen = false"
       />
 
-      <div class="flex min-h-0 min-w-0 flex-1 overflow-hidden ms-4">
+      <div class="flex min-h-0 min-w-0 flex-1 overflow-hidden lg:ms-4">
         <slot />
       </div>
     </div>

@@ -8,7 +8,10 @@
       aria-labelledby="locale-settings-title"
       @keydown.esc="close"
     >
-      <div class="absolute inset-0 bg-black/65 backdrop-blur-sm" @click="close" />
+      <div
+        class="absolute inset-0 bg-black/65 backdrop-blur-sm"
+        @click="close"
+      />
       <div
         class="relative w-full max-w-md rounded-2xl border border-border-subtle bg-bg-primary p-6 shadow-2xl"
       >
@@ -58,7 +61,12 @@
             :key="l.code"
             class="flex cursor-pointer items-center gap-3 rounded-lg border border-border-subtle bg-bg-elevated/40 px-3 py-2.5"
           >
-            <input v-model="single" type="radio" :value="l.code" class="accent-[#6366f1]" />
+            <input
+              v-model="single"
+              type="radio"
+              :value="l.code"
+              class="accent-[#6366f1]"
+            />
             <span class="flex-1 text-[13px] font-medium text-tx-primary">
               {{ l.label }}
               <span class="ms-1 text-tx-muted">{{ l.native }}</span>
@@ -109,8 +117,8 @@
             </button>
           </div>
           <p class="text-[11px] leading-snug text-tx-muted">
-            Write your content in the default language first. Then switch the
-            EN / AR toggle in the top bar to translate each block. Anything not
+            Write your content in the default language first. Then switch the EN
+            / AR toggle in the top bar to translate each block. Anything not
             translated falls back to the default language.
           </p>
         </div>
@@ -124,6 +132,7 @@
           >
             Cancel
           </LazyVButton>
+
           <LazyVButton
             variant="none"
             type="button"

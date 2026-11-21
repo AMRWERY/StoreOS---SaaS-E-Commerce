@@ -1,8 +1,6 @@
 ﻿<template>
   <div>
-    <section
-      class="card overflow-hidden shadow-2xl"
-    >
+    <section class="card overflow-hidden shadow-2xl">
       <div
         class="px-4 py-3.5 flex justify-between items-center bg-bg-elevated border-b border-border-subtle"
       >
@@ -97,7 +95,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { TableHeader } from "@storeos/ui/types/v-table";
+import type { TableHeader } from "@storeos/ui/types/VTable";
 import type { ShippingZone } from "@/types/shipping-logistics";
 
 const { t } = useI18n();

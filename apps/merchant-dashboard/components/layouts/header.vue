@@ -80,7 +80,7 @@
           >
         </button>
 
-        <LazyThemeToggle />
+        <LazyVThemeToggle />
         <!-- Locale Switcher -->
         <LazyVButton
           @click="switchLocale"

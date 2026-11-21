@@ -26,7 +26,9 @@
               Store is live!
             </h2>
             <p class="mt-2 text-sm leading-relaxed text-tx-secondary">
-              Your whole store has been published and opened in a new tab — browse every page, add to cart and try the language switch. This version was also saved to your history.
+              Your whole store has been published and opened in a new tab —
+              browse every page, add to cart and try the language switch. This
+              version was also saved to your history.
             </p>
             <LazyVButton
               variant="none"
@@ -34,9 +36,13 @@
               className="mt-6 w-full rounded-lg bg-brand px-5 py-2.5 text-[11px] font-black tracking-wider text-white shadow-lg shadow-brand/25 flex items-center justify-center gap-2"
               @click="openPreview"
             >
-              <Icon name="ph:arrow-square-out-bold" class="icon-nudge-diagonal" />
+              <Icon
+                name="ph:arrow-square-out-bold"
+                class="icon-nudge-diagonal"
+              />
               Open Store Preview
             </LazyVButton>
+
             <LazyVButton
               variant="none"
               type="button"
@@ -96,6 +102,7 @@
               <Icon v-else name="ph:rocket-launch-bold" />
               {{ isSaving ? "Publishing…" : "Publish now" }}
             </LazyVButton>
+
             <LazyVButton
               variant="none"
               type="button"

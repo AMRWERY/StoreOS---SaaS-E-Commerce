@@ -63,8 +63,11 @@
         >
           <Icon name="lucide:search" class="w-5 h-5" />
         </nuxt-link-locale>
-        <LazyThemeToggle />
+        
+        <LazyVThemeToggle />
+        
         <LazyVLocaleSwitch />
+        
         <nuxt-link-locale
           :to="account.isAuthenticated ? '/account' : '/auth/login'"
           class="hidden sm:flex w-10 h-10 items-center justify-center text-tx-primary hover:text-brand transition-colors duration-200"
