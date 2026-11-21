@@ -24,7 +24,7 @@ const def: SectionDefinition = {
     measure_heading: 'How to measure',
     steps: [
       { icon: 'ph:ruler-bold', title: 'Chest', text: 'Measure around the fullest part of your chest.' },
-      { icon: 'ph:tape-bold', title: 'Waist', text: 'Measure around your natural waistline.' },
+      { icon: 'ph:pencil-ruler-bold', title: 'Waist', text: 'Measure around your natural waistline.' },
       { icon: 'ph:person-simple-bold', title: 'Hip', text: 'Measure around the fullest part of your hips.' },
     ],
   },
