@@ -66,9 +66,6 @@
                   :animation="180"
                   ghost-class="sb-ghost"
                   chosen-class="sb-chosen"
-                  :force-fallback="true"
-                  fallback-class="sb-fallback"
-                  :fallback-on-body="true"
                   class="min-h-[160px]"
                 >
                   <lazy-section-preview-block
