@@ -95,7 +95,7 @@ const headers = computed(() => [
   { key: 'status', label: t('dashboard.ops.common.statusLabel') },
 ])
 
-function submit() {
+const submit = () => {
   if (!form.name.trim()) return
   store.addCompany({
     name: form.name.trim(),

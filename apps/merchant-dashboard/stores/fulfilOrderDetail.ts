@@ -6,7 +6,7 @@ export const useFulfilOrderDetailStore = defineStore('fulfilOrderDetail', () => 
   const refunded = ref<Record<string, number>>({})
 
   /** Seeds demo history the first time an order is opened. */
-  function ensure(orderId: string) {
+  const ensure = (orderId: string) => {
     if (events.value[orderId]) return
     events.value[orderId] = [
       { id: 'e4', type: 'confirmed', actor: 'Sarah J.', at: '2026-10-24 11:30' },
@@ -20,7 +20,7 @@ export const useFulfilOrderDetailStore = defineStore('fulfilOrderDetail', () => 
     ]
   }
 
-  function addNote(orderId: string, text: string) {
+  const addNote = (orderId: string, text: string) => {
     ensure(orderId)
     const at = '2026-11-12 12:00'
     const id = `${Date.now()}`
@@ -28,7 +28,7 @@ export const useFulfilOrderDetailStore = defineStore('fulfilOrderDetail', () => 
     events.value[orderId]!.unshift({ id: `e-${id}`, type: 'note', actor: 'You', at, note: text })
   }
 
-  function addRefund(orderId: string, payload: RefundPayload) {
+  const addRefund = (orderId: string, payload: RefundPayload) => {
     ensure(orderId)
     refunded.value[orderId] = (refunded.value[orderId] ?? 0) + payload.total
     events.value[orderId]!.unshift({

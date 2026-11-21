@@ -116,7 +116,7 @@ const cart = useDemoCart();
 
 const variant = computed(() => str("variant", "split"));
 
-function resolveProduct(id: string): DemoProduct | undefined {
+const resolveProduct = (id: string): DemoProduct | undefined => {
   if (!id) return undefined;
   const direct = DEMO_PRODUCTS.find((p) => p.id === id || p.handle === id);
   if (direct) return direct;
@@ -146,7 +146,7 @@ const ctaText = computed(() => str("cta_text", "Add to cart"));
 
 const added = ref(false);
 let timer: ReturnType<typeof setTimeout> | undefined;
-function add() {
+const add = () => {
   if (product.value) cart.add(product.value.id);
   added.value = true;
   if (timer) clearTimeout(timer);

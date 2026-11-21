@@ -118,12 +118,12 @@ const pendingCount = computed(() => entries.value.filter((e) => !e.notified).len
 const activeEntry = computed(() => entries.value.find((e) => e.id === activeId.value))
 const activeSubscribers = computed(() => subscribers.value.filter((s) => s.entryId === activeId.value))
 
-function openDetail(id: string) {
+const openDetail = (id: string) => {
   activeId.value = id
   detailOpen.value = true
 }
 
-function send() {
+const send = () => {
   store.notifyAll()
   confirmOpen.value = false
 }

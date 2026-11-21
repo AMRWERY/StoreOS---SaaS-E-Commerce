@@ -89,7 +89,7 @@ const tierHeaders = computed(() => [
   { key: 'price', label: t('dashboard.ops.b2b.priceLists.price') },
 ])
 
-function assign(listId: string) {
+const assign = (listId: string) => {
   const name = picks[listId]
   if (!name) return
   store.assignCompany(listId, name)

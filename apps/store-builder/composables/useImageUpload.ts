@@ -2,11 +2,11 @@
  * Turn a chosen image file into a compact data URL (resized, JPEG/PNG/WebP kept small)
  * so uploads stay light enough to store with the design.
  */
-export function useImageUpload() {
+export const useImageUpload = () => {
   const error = ref('')
   const busy = ref(false)
 
-  async function toDataUrl(file: File, maxSide = 1600, quality = 0.84): Promise<string | null> {
+  const toDataUrl = async (file: File, maxSide = 1600, quality = 0.84): Promise<string | null> => {
     error.value = ''
     if (!file.type.startsWith('image/')) {
       error.value = 'Please choose an image file.'

@@ -545,11 +545,11 @@ export const PAGE_TEMPLATES: PageTemplate[] = [
 export const getPageTemplate = (id: string) => PAGE_TEMPLATES.find((t) => t.id === id)
 
 /** Materialize a template into concrete sections for a page. */
-export function buildTemplateSections(
+export const buildTemplateSections = (
   templateId: string,
   pageId: string,
   storeId: string,
-): PageSection[] {
+): PageSection[] => {
   const template = getPageTemplate(templateId)
   if (!template) return []
   return template.sections.map((s, i) => ({

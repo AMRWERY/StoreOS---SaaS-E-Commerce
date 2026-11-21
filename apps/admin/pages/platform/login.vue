@@ -124,7 +124,7 @@ const errors = reactive({ email: "", password: "", code: "" });
 
 const emailValue = computed(() => String(email.value ?? "").trim());
 
-function submitCredentials() {
+const submitCredentials = () => {
   errors.email = "";
   errors.password = "";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue.value))
@@ -135,14 +135,14 @@ function submitCredentials() {
   step.value = "twofactor";
 }
 
-function backToCredentials() {
+const backToCredentials = () => {
   step.value = "credentials";
   code.value = "";
   errors.code = "";
 }
 
 /** Only allow redirects back into the console (never to another path or origin). */
-function safeRedirect(): string {
+const safeRedirect = (): string => {
   const r = route.query.redirect;
   const target = Array.isArray(r) ? r[0] : r;
   return typeof target === "string" &&
@@ -152,7 +152,7 @@ function safeRedirect(): string {
     : "/platform";
 }
 
-async function submitCode() {
+const submitCode = async () => {
   errors.code = "";
   if (code.value !== DEMO_CODE) {
     errors.code = t("platform.login.errors.code");

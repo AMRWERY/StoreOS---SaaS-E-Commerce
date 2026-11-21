@@ -145,7 +145,7 @@ const eta = computed(() => {
   return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
 });
 
-function submit() {
+const submit = () => {
   if (!orderNo.value.trim() || !email.value.trim()) {
     error.value = true;
     result.value = "";

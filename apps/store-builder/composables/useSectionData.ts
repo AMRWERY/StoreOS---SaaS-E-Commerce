@@ -5,7 +5,7 @@ import { getSectionDefaults } from '@/data/section-registry'
  * Read helpers for storefront section renderers.
  * Value lookup order: section.settings → registry defaults → explicit fallback.
  */
-export function useSectionData(section: MaybeRefOrGetter<PageSection>) {
+export const useSectionData = (section: MaybeRefOrGetter<PageSection>) => {
   const settings = computed<Record<string, unknown>>(() => {
     const s = toValue(section)
     return { ...getSectionDefaults(s.type), ...s.settings }

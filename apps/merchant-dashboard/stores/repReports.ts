@@ -11,18 +11,18 @@ export const useRepReportsStore = defineStore('repReports', () => {
   ])
   let seq = 10
 
-  function saveReport(r: Omit<SavedReport, 'id' | 'updatedAt'>) {
+  const saveReport = (r: Omit<SavedReport, 'id' | 'updatedAt'>) => {
     seq += 1
     saved.value.unshift({ ...r, id: `RPT-${seq}`, updatedAt: '2026-11-12' })
   }
-  function removeReport(id: string) {
+  const removeReport = (id: string) => {
     saved.value = saved.value.filter((r) => r.id !== id)
   }
-  function addSchedule(s: Omit<ScheduledReport, 'id' | 'status' | 'nextRun'>) {
+  const addSchedule = (s: Omit<ScheduledReport, 'id' | 'status' | 'nextRun'>) => {
     seq += 1
     scheduled.value.unshift({ ...s, id: `SCH-${seq}`, status: 'active', nextRun: '2026-11-13' })
   }
-  function toggleSchedule(id: string) {
+  const toggleSchedule = (id: string) => {
     const s = scheduled.value.find((x) => x.id === id)
     if (s) s.status = s.status === 'active' ? 'paused' : 'active'
   }

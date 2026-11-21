@@ -134,7 +134,7 @@ const { jobs, issues } = storeToRefs(store)
 const parsedRows = ref(0)
 const fileName = ref('')
 
-function onFile(file: File | null) {
+const onFile = (file: File | null) => {
   if (!file) {
     parsedRows.value = 0
     fileName.value = ''
@@ -145,14 +145,14 @@ function onFile(file: File | null) {
   parsedRows.value = store.mockParse()
 }
 
-function runImport() {
+const runImport = () => {
   store.addJob('import', fileName.value, parsedRows.value)
 }
 
 const columns = ['title', 'sku', 'price', 'stock', 'vendor', 'tags'] as const
 const selectedColumns = ref<string[]>(['title', 'sku', 'price', 'stock'])
 
-function runExport() {
+const runExport = () => {
   store.addJob('export', 'products-export.csv', 1180)
 }
 

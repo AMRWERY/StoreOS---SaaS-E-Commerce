@@ -33,7 +33,7 @@ export const useCartStore = defineStore('shop-cart', () => {
   const freeShippingRemaining = computed(() => Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal.value))
   const freeShippingProgress = computed(() => Math.min(100, Math.round(subtotal.value / FREE_SHIPPING_THRESHOLD * 100)))
 
-  function add(productId: string, variantId: string, qty = 1) {
+  const add = (productId: string, variantId: string, qty = 1) => {
     const stock = catalog.getProduct(catalog.products.find(p => p.id === productId)?.handle ?? '')?.variants.find(v => v.id === variantId)?.stock ?? 0
     if (stock <= 0 || !(qty > 0)) return
     const next = [...lines.value]
@@ -44,29 +44,29 @@ export const useCartStore = defineStore('shop-cart', () => {
     drawerOpen.value = true
   }
 
-  function setQty(variantId: string, qty: number) {
+  const setQty = (variantId: string, qty: number) => {
     if (qty <= 0) return remove(variantId)
     lines.value = lines.value.map(l => (l.variantId === variantId ? { ...l, qty: Math.min(qty, 20) } : l))
   }
 
-  function remove(variantId: string) {
+  const remove = (variantId: string) => {
     lines.value = lines.value.filter(l => l.variantId !== variantId)
   }
 
-  function clear() {
+  const clear = () => {
     lines.value = []
     couponCode.value = ''
   }
 
   /** Returns true when the code is valid and applied. */
-  function applyCoupon(code: string) {
+  const applyCoupon = (code: string) => {
     const normalized = code.trim().toUpperCase()
     if (!DISCOUNT_CODES[normalized]) return false
     couponCode.value = normalized
     return true
   }
 
-  function removeCoupon() {
+  const removeCoupon = () => {
     couponCode.value = ''
   }
 

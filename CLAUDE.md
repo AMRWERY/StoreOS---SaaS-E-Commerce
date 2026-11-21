@@ -102,6 +102,12 @@ with a dedicated `builder` layout; `/` and `/builder` redirect to `/builder/home
 
 ## Conventions
 
+**Arrow functions only — no `function` declarations.** In every `.vue`, `.ts`, `.js` and `.mjs` file (including
+`<script setup>`, composables, stores, middleware, server handlers and utilities) write
+`const name = (args): Ret => { … }` / `export const name = async () => { … }`, never `function name() {}` or
+`function () {}` callbacks. Details in [rules/code-style.md](rules/code-style.md). Applies to all new code and to any
+function you touch.
+
 **Design tokens — never hardcode colors.** [layers/ui/assets/css/main.css](layers/ui/assets/css/main.css) defines RGB-triplet CSS
 variables under `html[data-theme="dark"]` (default) and `html[data-theme="light"]`;
 [layers/ui/tailwind.config.ts](layers/ui/tailwind.config.ts) maps them to classes. Use those classes:

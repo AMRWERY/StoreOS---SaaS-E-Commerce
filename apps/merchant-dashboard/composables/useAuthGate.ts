@@ -5,7 +5,7 @@
  * visitor may proceed, or opens the `<auth-required-dialog>` and returns `false`.
  * State lives in `useState` so route middleware can open the dialog before render.
  */
-export function useAuthGate() {
+export const useAuthGate = () => {
   const { isAuthenticated, isGuest, hasFeature, canWrite } = useAuth()
 
   const isGateOpen = useState<boolean>('auth-gate-open', () => false)

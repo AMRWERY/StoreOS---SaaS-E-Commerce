@@ -164,7 +164,7 @@ const distribution = computed(() =>
   }),
 );
 
-function submitDraft() {
+const submitDraft = () => {
   if (!draftTitle.value && !draftBody.value) return;
   submitted.value.unshift({
     id: `s${Date.now()}`,

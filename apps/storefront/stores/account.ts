@@ -19,32 +19,32 @@ export const useShopAccountStore = defineStore('shop-account', () => {
   const orders = ref<ShopOrder[]>([])
   const addresses = ref<ShopAddress[]>([])
 
-  function login(email: string) {
+  const login = (email: string) => {
     isAuthenticated.value = true
     user.value = { name: 'Sara Ahmed', email, phone: '01012345678' }
     orders.value = MOCK_ORDERS.map(o => ({ ...o }))
     addresses.value = DEMO_ADDRESSES.map(a => ({ ...a }))
   }
 
-  function register(name: string, email: string, phone: string) {
+  const register = (name: string, email: string, phone: string) => {
     isAuthenticated.value = true
     user.value = { name, email, phone }
     orders.value = []
     addresses.value = []
   }
 
-  function logout() {
+  const logout = () => {
     isAuthenticated.value = false
     user.value = null
     orders.value = []
     addresses.value = []
   }
 
-  function updateProfile(patch: Partial<ShopUser>) {
+  const updateProfile = (patch: Partial<ShopUser>) => {
     if (user.value) user.value = { ...user.value, ...patch }
   }
 
-  function saveAddress(address: Omit<ShopAddress, 'id'> & { id?: string }) {
+  const saveAddress = (address: Omit<ShopAddress, 'id'> & { id?: string }) => {
     const id = address.id ?? `a${Date.now()}`
     const entry = { ...address, id } as ShopAddress
     if (entry.isDefault || !addresses.value.length) {
@@ -56,11 +56,11 @@ export const useShopAccountStore = defineStore('shop-account', () => {
     else addresses.value.push(entry)
   }
 
-  function removeAddress(id: string) {
+  const removeAddress = (id: string) => {
     addresses.value = addresses.value.filter(a => a.id !== id)
   }
 
-  function addOrder(order: ShopOrder) {
+  const addOrder = (order: ShopOrder) => {
     orders.value = [order, ...orders.value]
   }
 

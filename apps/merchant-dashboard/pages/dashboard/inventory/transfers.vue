@@ -106,7 +106,7 @@ const headers = computed(() => [
   { key: 'actions', label: '', align: 'end' as const },
 ])
 
-function submit() {
+const submit = () => {
   const items = Number(form.items)
   if (!form.from || !form.to || sameLocation.value || !items) return
   store.add({ from: form.from, to: form.to, items })

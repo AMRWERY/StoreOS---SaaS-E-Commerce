@@ -113,7 +113,7 @@ const open = ref<Set<number>>(new Set([0]));
 
 const isOpen = (i: number) => open.value.has(i);
 
-function toggle(i: number) {
+const toggle = (i: number) => {
   const next = new Set(accordion.value ? [] : open.value);
   if (!open.value.has(i)) next.add(i);
   else if (!accordion.value) next.delete(i);

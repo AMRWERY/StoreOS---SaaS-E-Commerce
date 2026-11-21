@@ -22,7 +22,7 @@ export const useCatxBulkEditorStore = defineStore('catxBulkEditor', () => {
   const original = ref<CatxBulkRow[]>(seed())
   const history = ref<UndoEntry[]>([])
 
-  function isDirty(id: string, field: CatxEditableField) {
+  const isDirty = (id: string, field: CatxEditableField) => {
     const row = rows.value.find((r) => r.id === id)
     const base = original.value.find((r) => r.id === id)
     return !!row && !!base && row[field] !== base[field]
@@ -32,26 +32,26 @@ export const useCatxBulkEditorStore = defineStore('catxBulkEditor', () => {
     rows.value.reduce((sum, row) => sum + FIELDS.filter((f) => isDirty(row.id, f)).length, 0),
   )
 
-  function setValue(id: string, field: CatxEditableField, value: string | number) {
+  const setValue = (id: string, field: CatxEditableField, value: string | number) => {
     const row = rows.value.find((r) => r.id === id) as Record<string, any> | undefined
     if (!row || row[field] === value) return
     history.value.push({ id, field, prev: row[field] })
     row[field] = value
   }
 
-  function undo() {
+  const undo = () => {
     const last = history.value.pop()
     if (!last) return
     const row = rows.value.find((r) => r.id === last.id) as Record<string, any> | undefined
     if (row) row[last.field] = last.prev
   }
 
-  function save() {
+  const save = () => {
     original.value = rows.value.map((r) => ({ ...r }))
     history.value = []
   }
 
-  function discard() {
+  const discard = () => {
     rows.value = original.value.map((r) => ({ ...r }))
     history.value = []
   }

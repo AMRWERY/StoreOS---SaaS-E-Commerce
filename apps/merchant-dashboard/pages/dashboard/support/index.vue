@@ -158,7 +158,7 @@ const priorityOptions = computed(() =>
   (['low', 'normal', 'high'] as const).map((p) => ({ value: p, label: t(`dashboard.ops.support.priority.${p}`) })),
 )
 
-function submit() {
+const submit = () => {
   store.createTicket(draft.subject.trim(), draft.priority)
   draft.subject = ''
   draft.message = ''

@@ -163,15 +163,15 @@ const jobHeaders = computed(() => [
   { key: 'status', label: t('dashboard.ops.common.statusLabel') },
 ])
 
-function onFile(file: File | null) {
+const onFile = (file: File | null) => {
   fileName.value = file ? file.name : ''
 }
 
-function startImport() {
+const startImport = () => {
   store.addJob('import', fileName.value, previewRows.value.length)
 }
 
-function startExport() {
+const startExport = () => {
   store.addJob('export', `customers-${exportFilter.value}.csv`, 0)
 }
 </script>

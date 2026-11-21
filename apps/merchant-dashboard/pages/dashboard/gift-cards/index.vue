@@ -127,7 +127,7 @@ const headers = computed(() => [
   { key: 'actions', label: '', align: 'end' as const },
 ])
 
-function submit() {
+const submit = () => {
   const amount = Number(form.initial)
   if (!form.recipient.trim() || !amount || !form.expiresAt) return
   store.issue({ recipient: form.recipient.trim(), initial: amount, expiresAt: form.expiresAt })

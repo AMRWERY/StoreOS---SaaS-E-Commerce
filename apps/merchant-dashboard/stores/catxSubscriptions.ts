@@ -28,11 +28,11 @@ export const useCatxSubscriptionsStore = defineStore('catxSubscriptions', () => 
     ),
   )
 
-  function addPlan(payload: { name: string; interval: PlanInterval; discount: number; price: number }) {
+  const addPlan = (payload: { name: string; interval: PlanInterval; discount: number; price: number }) => {
     plans.value.unshift({ id: `PLN-${String(plans.value.length + 1).padStart(2, '0')}`, products: 0, subscribers: 0, ...payload })
   }
 
-  function setStatus(id: string, status: SubscriberStatus) {
+  const setStatus = (id: string, status: SubscriberStatus) => {
     const s = subscribers.value.find((x) => x.id === id)
     if (s) s.status = status
   }

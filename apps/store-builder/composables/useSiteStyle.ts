@@ -4,7 +4,7 @@ import { RADIUS_TO_CORNERS, googleFontsHref, isDarkColor, themeStyleVars } from 
  * Binds the merchant's theme to the storefront root element:
  * `<div v-bind="siteRootAttrs">` — plus loads the chosen Google Fonts and favicon.
  */
-export function useSiteStyle() {
+export const useSiteStyle = () => {
   const store = useBuilderStore()
 
   const siteRootAttrs = computed(() => ({

@@ -227,7 +227,7 @@ const isOpen = ref(false)
 const form = reactive({ name: '', price: '' as string | number, stock: 10 as string | number })
 const qty = reactive<Record<string, number>>({})
 
-function step(id: string, d: number) {
+const step = (id: string, d: number) => {
   qty[id] = Math.max(0, (qty[id] ?? 0) + d)
 }
 
@@ -243,7 +243,7 @@ const draftDiscount = computed(() =>
   draftSum.value ? Math.max(0, Math.round(((draftSum.value - finalPrice.value) / draftSum.value) * 100)) : 0,
 )
 
-function submit() {
+const submit = () => {
   if (!form.name.trim() || !selectedItems.value.length) return
   store.addBundle({
     name: form.name.trim(),
@@ -267,7 +267,7 @@ const placementOptions = computed(() =>
 )
 const ruleForm = reactive({ triggerId: 'p1', offeredId: 'p2', placement: 'product' as UpsellPlacement })
 
-function submitRule() {
+const submitRule = () => {
   if (ruleForm.triggerId === ruleForm.offeredId) return
   store.addRule({ ...ruleForm })
 }

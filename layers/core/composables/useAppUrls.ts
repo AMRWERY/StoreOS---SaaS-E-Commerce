@@ -3,7 +3,7 @@
  * deployments, so these are absolute URLs; base URLs come from runtimeConfig and the
  * current locale is carried over so an Arabic visitor stays on /ar.
  */
-export function useAppUrls() {
+export const useAppUrls = () => {
   const { public: cfg } = useRuntimeConfig()
   const { locale } = useI18n()
 

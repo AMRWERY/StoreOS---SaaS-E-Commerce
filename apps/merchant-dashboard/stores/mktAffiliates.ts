@@ -14,7 +14,7 @@ export const useMktAffiliatesStore = defineStore('mktAffiliates', () => {
     { id: 'PO-303', affiliate: 'ياسمين طارق', amount: 8000, date: '2026-11-01', method: 'wallet', status: 'pending' },
   ])
 
-  function setStatus(id: string, status: AffiliateStatus) {
+  const setStatus = (id: string, status: AffiliateStatus) => {
     const a = affiliates.value.find((x) => x.id === id)
     if (a) a.status = status
   }

@@ -258,7 +258,7 @@ const headers = computed(() => [
 
 // Clipboard
 const copiedId = ref('')
-async function copy(id: string, text: string) {
+const copy = async (id: string, text: string) => {
   try {
     await navigator.clipboard.writeText(text)
   } catch {
@@ -294,14 +294,14 @@ const productOptionalOptions = computed(() => [
 
 const canSave = computed(() => !!draft.name.trim() && (draft.amountMode === 'open' || draft.amount > 0))
 
-function openPanel() {
+const openPanel = () => {
   clearLast()
   created.value = null
   expiry.value = null
   Object.assign(draft, { name: '', amountMode: 'fixed', amount: 0, product: '', oneTime: false, note: '' })
   panelOpen.value = true
 }
-function submit() {
+const submit = () => {
   if (!canSave.value) return
   created.value = createLink({
     ...draft,

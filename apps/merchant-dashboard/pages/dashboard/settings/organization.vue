@@ -125,7 +125,7 @@ const panelOpen = ref(false)
 const draftName = ref('')
 const draftDomain = ref('')
 
-function submit() {
+const submit = () => {
   orgStore.addStore(draftName.value.trim(), draftDomain.value.trim().toLowerCase().replace(/\s+/g, '-'))
   draftName.value = ''
   draftDomain.value = ''

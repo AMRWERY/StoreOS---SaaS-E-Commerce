@@ -29,7 +29,7 @@ export const useTrustKycStore = defineStore('trustKyc', () => {
     { key: 'taxCard', status: 'approved', fileName: 'tax-card.pdf', reason: '' },
   ])
 
-  function setDoc(key: KycDocKey, fileName: string | null) {
+  const setDoc = (key: KycDocKey, fileName: string | null) => {
     const doc = documents.value.find((d) => d.key === key)
     if (!doc) return
     doc.fileName = fileName ?? ''
@@ -37,7 +37,7 @@ export const useTrustKycStore = defineStore('trustKyc', () => {
     doc.reason = ''
   }
 
-  function resubmit() {
+  const resubmit = () => {
     documents.value.forEach((d) => {
       if (d.status === 'rejected') {
         d.status = 'missing'
@@ -49,7 +49,7 @@ export const useTrustKycStore = defineStore('trustKyc', () => {
     step.value = 2
   }
 
-  function submit() {
+  const submit = () => {
     documents.value.forEach((d) => {
       if (d.status === 'uploaded') d.status = 'in_review'
     })

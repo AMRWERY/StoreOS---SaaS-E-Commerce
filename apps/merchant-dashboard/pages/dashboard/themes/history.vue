@@ -149,17 +149,17 @@ const headers = computed(() => [
   { key: 'actions', label: '', align: 'end' as const },
 ])
 
-function confirmRestore() {
+const confirmRestore = () => {
   if (pending.value) store.restore(pending.value)
   pending.value = null
 }
 
-function generate() {
+const generate = () => {
   link.value = `https://preview.storeos.app/p/${Math.random().toString(36).slice(2, 10)}?exp=${expiry.value}`
   copied.value = false
 }
 
-async function copy() {
+const copy = async () => {
   try {
     await navigator.clipboard.writeText(link.value)
   } catch {

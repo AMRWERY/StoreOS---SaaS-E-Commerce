@@ -1,5 +1,5 @@
 /** Shared modal visibility for builder chrome (Nuxt useState = shared across layout + shell). */
-export function useBuilderModals() {
+export const useBuilderModals = () => {
   const addSectionOpen = useState('builder-modal-add-section', () => false)
   const publishOpen = useState('builder-modal-publish', () => false)
   const createPageOpen = useState('builder-modal-create-page', () => false)

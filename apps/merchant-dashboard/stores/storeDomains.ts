@@ -37,7 +37,7 @@ export const useStoreDomainsStore = defineStore('storeDomains', () => {
   const selectedId = ref('d1')
   const selected = computed(() => domains.value.find((d) => d.id === selectedId.value))
 
-  function add(host: string) {
+  const add = (host: string) => {
     const clean = host.trim().toLowerCase()
     if (!clean) return
     const id = `d${Date.now()}`
@@ -54,10 +54,10 @@ export const useStoreDomainsStore = defineStore('storeDomains', () => {
     })
     selectedId.value = id
   }
-  function setPrimary(id: string) {
+  const setPrimary = (id: string) => {
     domains.value.forEach((d) => (d.primary = d.id === id))
   }
-  function remove(id: string) {
+  const remove = (id: string) => {
     domains.value = domains.value.filter((d) => d.id !== id)
     if (selectedId.value === id) selectedId.value = domains.value[0]?.id ?? ''
   }

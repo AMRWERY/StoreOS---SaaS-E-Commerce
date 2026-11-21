@@ -187,7 +187,7 @@ const tabs = computed(() => [
 const confirmOpen = ref(false)
 const pendingId = ref('')
 
-function complete(id: string, type: DataRequestType) {
+const complete = (id: string, type: DataRequestType) => {
   if (type === 'delete') {
     pendingId.value = id
     confirmOpen.value = true
@@ -195,14 +195,14 @@ function complete(id: string, type: DataRequestType) {
   }
   setStatus(id, 'completed')
 }
-function confirmDelete() {
+const confirmDelete = () => {
   setStatus(pendingId.value, 'completed')
   confirmOpen.value = false
 }
 
 const typeTones: Record<string, Tone> = { export: 'info', delete: 'danger', correct: 'purple' }
 const statusTones: Record<string, Tone> = { open: 'warning', processing: 'info', completed: 'success' }
-function slaTone(daysLeft: number): Tone {
+const slaTone = (daysLeft: number): Tone => {
   if (daysLeft < 0) return 'danger'
   return daysLeft <= 7 ? 'warning' : 'success'
 }

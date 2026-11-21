@@ -24,13 +24,13 @@ export const useMktBundlesStore = defineStore('mktBundles', () => {
   const bundleSum = (b: Pick<Bundle, 'items'>) =>
     b.items.reduce((s, i) => s + (products.find((p) => p.id === i.productId)?.price ?? 0) * i.qty, 0)
 
-  function addBundle(b: Omit<Bundle, 'id'>) {
+  const addBundle = (b: Omit<Bundle, 'id'>) => {
     bundles.value.unshift({ id: `BND-${String(bundles.value.length + 1).padStart(2, '0')}`, ...b })
   }
-  function addRule(r: Omit<UpsellRule, 'id'>) {
+  const addRule = (r: Omit<UpsellRule, 'id'>) => {
     rules.value.push({ id: `UP-${rules.value.length + 1}`, ...r })
   }
-  function removeRule(id: string) {
+  const removeRule = (id: string) => {
     rules.value = rules.value.filter((r) => r.id !== id)
   }
 

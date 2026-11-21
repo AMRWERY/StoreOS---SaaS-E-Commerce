@@ -5217,7 +5217,6 @@
       "back": "Back",
       "verify": "Verify and sign in",
       "statusLink": "View platform status",
-      "footer": "StoreOS platform console. Authorized operators only.",
       "errors": {
         "email": "Enter a valid email address.",
         "password": "Password must be at least 8 characters.",

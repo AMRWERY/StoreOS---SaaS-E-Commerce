@@ -159,12 +159,12 @@ const hasPrimary = computed(() => domains.value.some((d) => d.primary))
 const verifyTones: Record<string, Tone> = { pending: 'warning', verified: 'success', failed: 'danger' }
 const sslTones: Record<string, Tone> = { issuing: 'warning', active: 'success', expired: 'danger' }
 
-function submit() {
+const submit = () => {
   add(newHost.value)
   newHost.value = ''
   panelOpen.value = false
 }
-function copy(value: string) {
+const copy = (value: string) => {
   if (import.meta.client) navigator.clipboard?.writeText(value).catch(() => {})
 }
 

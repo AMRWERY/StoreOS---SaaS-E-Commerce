@@ -1,5 +1,5 @@
 /** Money and number formatting for the storefront. Catalog prices are EGP; pass `currency` for another market. */
-export function useShopFormat() {
+export const useShopFormat = () => {
   const { locale } = useI18n()
   const { formatMoney: money } = useCurrency('EGP')
 

@@ -198,7 +198,7 @@ const savings = computed(() => {
   return p?.compareAt ? Math.round((1 - p.price / p.compareAt) * 100) : 0;
 });
 
-function addToCart() {
+const addToCart = () => {
   if (!product.value) return;
   cart.add(product.value.id, qty.value, {
     color: color.value || undefined,

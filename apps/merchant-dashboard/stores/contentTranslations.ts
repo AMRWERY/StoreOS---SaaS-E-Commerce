@@ -11,13 +11,13 @@ export const useContentTranslationsStore = defineStore('contentTranslations', ()
     { id: 't7', kind: 'page', nameEn: 'Contact', nameAr: 'اتصل بنا', descriptionStatus: 'translated', completeness: 100 },
   ])
 
-  function setArabic(id: string, value: string) {
+  const setArabic = (id: string, value: string) => {
     const r = rows.value.find((x) => x.id === id)
     if (!r) return
     r.nameAr = value
     r.completeness = Math.max(r.completeness, value.trim() ? 50 : 0)
   }
-  function markStatus(id: string, status: TranslationStatus) {
+  const markStatus = (id: string, status: TranslationStatus) => {
     const r = rows.value.find((x) => x.id === id)
     if (!r) return
     r.descriptionStatus = status

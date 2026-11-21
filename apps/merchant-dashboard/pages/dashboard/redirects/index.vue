@@ -156,12 +156,12 @@ const notFoundHeaders = computed(() => [
   { key: 'actions', label: '', align: 'end' as const },
 ])
 
-function openCreate(from = '') {
+const openCreate = (from = '') => {
   Object.assign(form, { from, to: '', type: '301' })
   isOpen.value = true
 }
 
-function submit() {
+const submit = () => {
   const from = form.from.trim()
   const to = form.to.trim()
   if (!from || !to) return
@@ -172,7 +172,7 @@ function submit() {
   isOpen.value = false
 }
 
-function runImport() {
+const runImport = () => {
   store.importCsv(5)
   importedMsg.value = t('dashboard.ops.redirects.imported', { n: 5 })
   importOpen.value = false

@@ -394,11 +394,11 @@ const orderEvents = computed(() => detailStore.events[orderId.value] ?? []);
 const orderNotes = computed(() => detailStore.notes[orderId.value] ?? []);
 const refundOpen = ref(false);
 
-function onAddNote(text: string) {
+const onAddNote = (text: string) => {
   detailStore.addNote(orderId.value, text);
 }
 
-function onRefund(payload: RefundPayload) {
+const onRefund = (payload: RefundPayload) => {
   detailStore.addRefund(orderId.value, payload);
 }
 const createdAt = "March 15, 2026, 10:45 AM";

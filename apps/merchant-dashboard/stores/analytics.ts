@@ -42,7 +42,7 @@ export const useAnalyticsStore = defineStore('analytics', () => {
     { name: 'Cancelled', count: '23 units', color: 'bg-red-500', stroke: '#ef4444', offset: 95, dash: 5 },
   ])
 
-  function handleExport() {
+  const handleExport = () => {
     console.log('Exporting report for', activeTimeframe.value)
   }
 

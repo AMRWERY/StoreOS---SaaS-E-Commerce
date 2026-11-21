@@ -122,7 +122,7 @@ const wrapClass = computed(() => {
   return `grid gap-3 sm:gap-4 ${COLS[n]}`;
 });
 
-function itemClass(i: number) {
+const itemClass = (i: number) => {
   if (variant.value === "mosaic") return i === 0 ? "col-span-2 row-span-2" : "";
   if (variant.value === "row") {
     if (tileStyle.value === "split") return "w-72 shrink-0";
@@ -133,7 +133,7 @@ function itemClass(i: number) {
   return "";
 }
 
-function catHref(c: DemoCategory) {
+const catHref = (c: DemoCategory) => {
   return `/collections/${c.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
 }
 </script>

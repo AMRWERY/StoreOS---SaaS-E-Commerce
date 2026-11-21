@@ -4,6 +4,6 @@
  */
 const loaders = import.meta.glob('../components/storefront/sections/section-*.vue')
 
-export function getSectionLoader(type: string) {
+export const getSectionLoader = (type: string) => {
   return loaders[`../components/storefront/sections/section-${type.replace(/_/g, '-')}.vue`]
 }

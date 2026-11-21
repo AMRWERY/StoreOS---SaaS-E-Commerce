@@ -63,7 +63,7 @@ export const useFulfilTrackingStore = defineStore('fulfilTracking', () => {
     },
   ])
 
-  function setState(id: string, state: TrackingState, label: string) {
+  const setState = (id: string, state: TrackingState, label: string) => {
     const s = shipments.value.find((x) => x.id === id)
     if (!s) return
     s.state = state
@@ -71,7 +71,7 @@ export const useFulfilTrackingStore = defineStore('fulfilTracking', () => {
   }
 
   /** Retry delivery: the courier re-dispatches the parcel. */
-  function retry(id: string) {
+  const retry = (id: string) => {
     const s = shipments.value.find((x) => x.id === id)
     if (!s) return
     s.attempts += 1
@@ -79,7 +79,7 @@ export const useFulfilTrackingStore = defineStore('fulfilTracking', () => {
   }
 
   /** Return to sender. */
-  function returnToSender(id: string) {
+  const returnToSender = (id: string) => {
     setState(id, 'rto', 'returning')
   }
 

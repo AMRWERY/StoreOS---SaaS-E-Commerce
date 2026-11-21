@@ -31,7 +31,7 @@ const isActive = (to: string) => {
   return to === '/account' ? route.path === target : route.path.startsWith(target)
 }
 
-function logout() {
+const logout = () => {
   account.logout()
   router.push(localePath('/'))
 }

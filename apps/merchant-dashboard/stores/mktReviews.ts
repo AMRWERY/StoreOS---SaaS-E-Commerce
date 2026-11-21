@@ -10,11 +10,11 @@ export const useMktReviewsStore = defineStore('mktReviews', () => {
     { id: 'RV-506', product: 'Cotton Abaya', customer: 'هدى سالم', rating: 1, text: 'تقييم يحتوي على ألفاظ غير لائقة.', hasPhoto: false, status: 'rejected', date: '2026-10-20', reply: '' },
   ])
 
-  function setStatus(id: string, status: ReviewStatus) {
+  const setStatus = (id: string, status: ReviewStatus) => {
     const r = reviews.value.find((x) => x.id === id)
     if (r) r.status = status
   }
-  function reply(id: string, text: string) {
+  const reply = (id: string, text: string) => {
     const r = reviews.value.find((x) => x.id === id)
     if (r) r.reply = text
   }

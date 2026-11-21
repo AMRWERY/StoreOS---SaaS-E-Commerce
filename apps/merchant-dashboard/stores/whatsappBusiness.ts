@@ -17,7 +17,7 @@ export const useWhatsappBusinessStore = defineStore('whatsappBusiness', () => {
   })
   const stats = { optedInRate: 78, messagesSent: 3420, conversationCost: 1865 }
 
-  function addTemplate(tpl: Omit<WaTemplate, 'id' | 'status'>) {
+  const addTemplate = (tpl: Omit<WaTemplate, 'id' | 'status'>) => {
     templates.value.unshift({ ...tpl, id: `tpl-${Date.now()}`, status: 'pending' })
   }
 

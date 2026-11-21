@@ -250,7 +250,7 @@ const seoDesc = computed({
 const saveSuccess = ref(false)
 let saveTimer: ReturnType<typeof setTimeout> | null = null
 
-async function handleSave() {
+const handleSave = async () => {
   await store.saveSettings()
   saveSuccess.value = true
   if (saveTimer) clearTimeout(saveTimer)
@@ -278,7 +278,7 @@ const ogDesc = computed({
   set: (v: string) => { if (page.value) (page.value as any).og_desc = v || null },
 })
 
-async function handleSaveAndClose() {
+const handleSaveAndClose = async () => {
   await store.saveSettings()
   advancedOpen.value = false
 }

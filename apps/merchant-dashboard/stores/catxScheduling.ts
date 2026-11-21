@@ -13,11 +13,11 @@ export const useCatxSchedulingStore = defineStore('catxScheduling', () => {
     changes.value.filter((c) => c.status === 'pending').sort((a, b) => a.at.localeCompare(b.at)),
   )
 
-  function add(payload: { product: string; action: ScheduleAction; at: string; channel: ScheduleChannel }) {
+  const add = (payload: { product: string; action: ScheduleAction; at: string; channel: ScheduleChannel }) => {
     changes.value.unshift({ id: `SCH-${String(changes.value.length + 1).padStart(2, '0')}`, status: 'pending', ...payload })
   }
 
-  function cancel(id: string) {
+  const cancel = (id: string) => {
     const c = changes.value.find((x) => x.id === id)
     if (c) c.status = 'cancelled'
   }

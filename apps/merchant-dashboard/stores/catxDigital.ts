@@ -15,12 +15,12 @@ export const useCatxDigitalStore = defineStore('catxDigital', () => {
     { id: 'DL-04', product: 'برنامج إدارة المخزون', customer: 'أحمد حسن', at: '2026-11-09 15:30', ip: '41.33.9.54' },
   ])
 
-  function addFiles(id: string, count: number) {
+  const addFiles = (id: string, count: number) => {
     const p = products.value.find((x) => x.id === id)
     if (p) p.files += count
   }
 
-  function toggleLicense(id: string, value: boolean) {
+  const toggleLicense = (id: string, value: boolean) => {
     const p = products.value.find((x) => x.id === id)
     if (p) p.licenseKeys = value
   }

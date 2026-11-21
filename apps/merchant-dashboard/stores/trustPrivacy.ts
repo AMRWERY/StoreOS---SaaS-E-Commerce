@@ -24,7 +24,7 @@ export const useTrustPrivacyStore = defineStore('trustPrivacy', () => {
     { id: 'p4', name: 'Twilio', purpose: 'messaging', region: 'US' },
   ])
 
-  function setStatus(id: string, status: DataRequestStatus) {
+  const setStatus = (id: string, status: DataRequestStatus) => {
     const r = requests.value.find((x) => x.id === id)
     if (r) r.status = status
   }

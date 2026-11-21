@@ -164,7 +164,7 @@ const icons: Record<string, string> = {
 }
 const tones: Record<string, Tone> = { image: 'info', video: 'purple', document: 'neutral' }
 
-function formatSize(kb: number) {
+const formatSize = (kb: number) => {
   return kb >= 1024 ? `${(kb / 1024).toFixed(1)} MB` : `${kb} KB`
 }
 

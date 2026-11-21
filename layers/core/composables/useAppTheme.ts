@@ -4,16 +4,16 @@ import type { AppColorScheme } from "@/types/useAppTheme";
  * App-wide light/dark theme. Always starts dark on every page load.
  * State lives only in memory — closing/refreshing the browser resets to dark.
  */
-export function useAppTheme() {
+export const useAppTheme = () => {
   const colorScheme = useState<AppColorScheme>("app-theme", () => "dark");
 
   const isDark = computed(() => colorScheme.value === "dark");
 
-  function setTheme(mode: AppColorScheme) {
+  const setTheme = (mode: AppColorScheme) => {
     colorScheme.value = mode;
   }
 
-  function toggleTheme() {
+  const toggleTheme = () => {
     colorScheme.value = colorScheme.value === "dark" ? "light" : "dark";
   }
 

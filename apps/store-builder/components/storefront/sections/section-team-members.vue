@@ -84,7 +84,7 @@ const gridClass = computed(
     })[num("columns", 3)] ?? "grid-cols-1 sm:grid-cols-3",
 );
 
-function initials(name: unknown): string {
+const initials = (name: unknown): string => {
   return (
     String(name ?? "")
       .trim()

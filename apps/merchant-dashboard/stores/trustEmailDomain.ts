@@ -20,16 +20,16 @@ export const useTrustEmailDomainStore = defineStore('trustEmailDomain', () => {
 
   const stats = ref({ sent: 12480, bounceRate: 1.2, complaintRate: 0.04 })
 
-  function verify() {
+  const verify = () => {
     records.value.forEach((r) => {
       if (r.status === 'pending') r.status = 'verified'
       else if (r.status === 'failed') r.status = 'pending'
     })
   }
-  function removeSuppressed(id: string) {
+  const removeSuppressed = (id: string) => {
     suppression.value = suppression.value.filter((s) => s.id !== id)
   }
-  function addSuppressed(address: string, reason: SuppressionReason) {
+  const addSuppressed = (address: string, reason: SuppressionReason) => {
     const a = address.trim()
     if (!a) return
     suppression.value.unshift({ id: `s${Date.now()}`, address: a, reason, date: new Date().toISOString().slice(0, 10) })

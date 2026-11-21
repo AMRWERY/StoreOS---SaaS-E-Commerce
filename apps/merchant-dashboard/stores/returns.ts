@@ -9,7 +9,7 @@ export const useReturnsStore = defineStore('returns', () => {
     { id: 'RMA-1030', orderId: 'ORD-8611', customer: 'Mona Samir', reason: 'changed_mind', items: 3, amount: 760, status: 'rejected', createdAt: '2026-11-03' },
   ])
 
-  function setStatus(id: string, status: ReturnStatus) {
+  const setStatus = (id: string, status: ReturnStatus) => {
     const r = returns.value.find((x) => x.id === id)
     if (r) r.status = status
   }

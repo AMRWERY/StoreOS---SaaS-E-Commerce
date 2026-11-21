@@ -190,10 +190,10 @@ const reasonOptions = computed(() =>
   })),
 )
 
-function copy(value: string) {
+const copy = (value: string) => {
   if (import.meta.client) navigator.clipboard?.writeText(value).catch(() => {})
 }
-function addEntry() {
+const addEntry = () => {
   addSuppressed(newAddress.value, newReason.value)
   newAddress.value = ''
 }

@@ -159,7 +159,7 @@ const headers = computed(() => [
   { key: 'status', label: t('dashboard.ops.common.statusLabel') },
 ])
 
-function submit() {
+const submit = () => {
   if (!form.name.trim() || !form.startsAt || !form.endsAt) return
   store.add({
     name: form.name.trim(),

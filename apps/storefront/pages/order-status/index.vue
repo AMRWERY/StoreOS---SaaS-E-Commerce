@@ -27,7 +27,7 @@ const phone = ref('')
 const errors = reactive<Record<string, string>>({})
 const notFound = ref(false)
 
-function submit() {
+const submit = () => {
   errors.order = orderNumber.value.trim() ? '' : t('shop.validation.required')
   errors.phone = normalizePhone(phone.value) ? '' : t('shop.validation.phone')
   notFound.value = false

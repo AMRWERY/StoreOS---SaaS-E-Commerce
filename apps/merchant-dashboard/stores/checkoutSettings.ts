@@ -18,12 +18,12 @@ export const useCheckoutSettingsStore = defineStore('checkoutSettings', () => {
   const depositPercent = ref('20')
   const allowedGovernorates = ref<string[]>(EG_GOVERNORATES.slice(0, 12))
 
-  function toggleGovernorate(g: string) {
+  const toggleGovernorate = (g: string) => {
     allowedGovernorates.value = allowedGovernorates.value.includes(g)
       ? allowedGovernorates.value.filter((x) => x !== g)
       : [...allowedGovernorates.value, g]
   }
-  function normalize(raw: string) {
+  const normalize = (raw: string) => {
     const d = raw.replace(/\D/g, '')
     if (!d) return ''
     if (d.startsWith('0020')) return '+20' + d.slice(4)

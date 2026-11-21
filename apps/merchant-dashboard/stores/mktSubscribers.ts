@@ -10,7 +10,7 @@ export const useMktSubscribersStore = defineStore('mktSubscribers', () => {
     { id: 'SUB-006', contact: 'khaled.mansour@example.com', source: 'popup', consent: 'opted_in', subscribedAt: '2026-10-05', tags: ['new'] },
   ])
 
-  function unsubscribe(id: string) {
+  const unsubscribe = (id: string) => {
     const s = subscribers.value.find((x) => x.id === id)
     if (s) s.consent = 'unsubscribed'
   }

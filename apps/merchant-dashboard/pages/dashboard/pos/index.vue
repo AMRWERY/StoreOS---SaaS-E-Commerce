@@ -239,14 +239,14 @@ const pct = computed(() => Math.min(100, Math.max(0, Number(discountPct.value) |
 const discountAmount = computed(() => Math.round((subtotal.value * pct.value) / 100))
 const total = computed(() => subtotal.value - discountAmount.value)
 
-function scan() {
+const scan = () => {
   const code = String(barcode.value).trim()
   const hit = products.find((p) => p.barcode === code)
   if (hit) store.add(hit)
   barcode.value = ''
 }
 
-function charge() {
+const charge = () => {
   if (!cart.value.length) return
   receipt.value = {
     id: `POS-${String(salesToday.value + 1).padStart(4, '0')}`,

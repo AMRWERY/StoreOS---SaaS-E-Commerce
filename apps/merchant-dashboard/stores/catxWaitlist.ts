@@ -20,7 +20,7 @@ export const useCatxWaitlistStore = defineStore('catxWaitlist', () => {
 
   const countFor = (id: string) => subscribers.value.filter((s) => s.entryId === id).length
 
-  function notifyAll() {
+  const notifyAll = () => {
     entries.value.forEach((e) => (e.notified = true))
   }
 

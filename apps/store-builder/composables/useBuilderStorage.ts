@@ -9,7 +9,7 @@ const STORE = 'kv'
 
 let dbPromise: Promise<IDBDatabase> | null = null
 
-function openDb(): Promise<IDBDatabase> {
+const openDb = (): Promise<IDBDatabase> => {
   if (!dbPromise) {
     dbPromise = new Promise((resolve, reject) => {
       const req = indexedDB.open(DB_NAME, 1)
@@ -21,7 +21,7 @@ function openDb(): Promise<IDBDatabase> {
   return dbPromise
 }
 
-async function run<T>(mode: IDBTransactionMode, fn: (store: IDBObjectStore) => IDBRequest<T>): Promise<T | undefined> {
+const run = async <T,>(mode: IDBTransactionMode, fn: (store: IDBObjectStore) => IDBRequest<T>): Promise<T | undefined> => {
   if (typeof indexedDB === 'undefined') return undefined
   try {
     const db = await openDb()

@@ -4,7 +4,7 @@ import { ARAB_CURRENCY_CODES } from '../utils/currencies'
  * Locale-aware money formatting for all Arab currencies, built on vue-i18n `n()`.
  * Named formats live in `i18n/i18n.config.ts`; any other ISO code falls back to an inline currency format.
  */
-export function useCurrency(defaultCurrency = 'EGP') {
+export const useCurrency = (defaultCurrency = 'EGP') => {
   const { n } = useI18n()
 
   const isKnown = (code: string) => (ARAB_CURRENCY_CODES as string[]).includes(code)

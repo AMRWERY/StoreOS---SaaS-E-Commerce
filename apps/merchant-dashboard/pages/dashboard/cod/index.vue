@@ -240,7 +240,7 @@ const reasonOptions = computed(() =>
   })),
 )
 
-function addBlock() {
+const addBlock = () => {
   if (!blockPhone.value.trim()) return
   store.block(blockPhone.value.trim(), blockReason.value)
   blockPhone.value = ''

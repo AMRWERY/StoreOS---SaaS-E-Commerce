@@ -22,7 +22,7 @@ export const useChkLinksStore = defineStore('chkLinks', () => {
 
   const lastCreated = ref<PaymentLink | null>(null)
 
-  function createLink(draft: {
+  const createLink = (draft: {
     name: string
     amountMode: PaymentLinkAmountMode
     amount: number
@@ -30,7 +30,7 @@ export const useChkLinksStore = defineStore('chkLinks', () => {
     expiresAt: string
     oneTime: boolean
     note: string
-  }) {
+  }) => {
     const slug = Math.random().toString(36).slice(2, 8)
     const link: PaymentLink = {
       ...draft,
@@ -43,12 +43,12 @@ export const useChkLinksStore = defineStore('chkLinks', () => {
     lastCreated.value = link
     return link
   }
-  function toggleStatus(id: string) {
+  const toggleStatus = (id: string) => {
     const l = links.value.find((x) => x.id === id)
     if (!l || l.status === 'expired') return
     l.status = l.status === 'active' ? 'disabled' : 'active'
   }
-  function clearLast() {
+  const clearLast = () => {
     lastCreated.value = null
   }
 

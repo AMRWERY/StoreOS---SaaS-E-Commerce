@@ -191,22 +191,22 @@ export const useInventoryStore = defineStore("inventory", () => {
     () => stockList.value.filter((s) => s.current === 0).length,
   );
 
-  function openAdjustmentModal(item?: StockItem) {
+  const openAdjustmentModal = (item?: StockItem) => {
     selectedItem.value = item ?? filteredStockList.value[0] ?? null;
     isAdjustmentModalOpen.value = true;
   }
 
-  function handleQuickAdjust(item: StockItem, change: number) {
+  const handleQuickAdjust = (item: StockItem, change: number) => {
     item.current = Math.max(0, item.current + change);
   }
 
-  function saveAdjustment(payload: {
+  const saveAdjustment = (payload: {
     item: StockItem;
     type: string;
     qty: number;
     reason: string;
     notes: string;
-  }) {
+  }) => {
     const prevStock = payload.item.current;
     const qty = payload.qty;
 

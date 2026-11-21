@@ -274,13 +274,13 @@ const newBlock = (type: EmailBlockType): EmailBlock => ({
 })
 const blocks = ref<EmailBlock[]>((['header', 'text', 'products', 'button', 'footer'] as EmailBlockType[]).map(newBlock))
 
-function addBlock(type: EmailBlockType) {
+const addBlock = (type: EmailBlockType) => {
   blocks.value.push(newBlock(type))
 }
-function removeBlock(id: string) {
+const removeBlock = (id: string) => {
   blocks.value = blocks.value.filter((b) => b.id !== id)
 }
-function move(i: number, dir: -1 | 1) {
+const move = (i: number, dir: -1 | 1) => {
   const j = i + dir
   const list = blocks.value
   const a = list[i]
@@ -302,7 +302,7 @@ const reviewRows = computed(() => [
   },
 ])
 
-function finish(status: CampaignStatus) {
+const finish = (status: CampaignStatus) => {
   const today = new Date().toISOString().slice(0, 10)
   store.add({
     name: form.subject.trim() || t('dashboard.ops.campaignBuilder.untitled'),

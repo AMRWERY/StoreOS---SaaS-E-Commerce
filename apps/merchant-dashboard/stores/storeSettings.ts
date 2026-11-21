@@ -20,7 +20,7 @@ export const useStoreSettingsStore = defineStore('storeSettings', () => {
     language: 'English (International)'
   })
 
-  function saveSettings() {
+  const saveSettings = () => {
     console.log('Saving settings...', storeData.value)
   }
 

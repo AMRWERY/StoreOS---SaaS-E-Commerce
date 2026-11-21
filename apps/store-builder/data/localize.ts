@@ -19,7 +19,7 @@ const NON_TEXT_KEY = /(color|colour|url|href|link|image|img|src|icon|align|style
  * Only copy a setting is translated when it is text (or a repeater of text).
  * Uses the block's schema when it has one, otherwise a key-name heuristic (legacy blocks).
  */
-export function isTranslatableKey(type: SectionType, key: string, value: unknown): boolean {
+export const isTranslatableKey = (type: SectionType, key: string, value: unknown): boolean => {
   if (key === 'i18n') return false
   const def = getSectionDefinition(type)
   const field = def?.groups?.flatMap((g) => g.fields).find((f) => f.key === key)
@@ -29,7 +29,7 @@ export function isTranslatableKey(type: SectionType, key: string, value: unknown
 }
 
 /** Section with the chosen locale's translations laid over its base settings. */
-export function localizeSection(section: PageSection, locale: StoreLocale, defaultLocale: StoreLocale): PageSection {
+export const localizeSection = (section: PageSection, locale: StoreLocale, defaultLocale: StoreLocale): PageSection => {
   if (locale === defaultLocale) return section
   const overrides = (section.settings.i18n as I18nBag | undefined)?.[locale]
   if (!overrides) return section
@@ -37,12 +37,12 @@ export function localizeSection(section: PageSection, locale: StoreLocale, defau
 }
 
 /** Split a settings patch into base keys and per-locale translations. */
-export function routePatch(
+export const routePatch = (
   section: PageSection,
   patch: Record<string, unknown>,
   locale: StoreLocale,
   defaultLocale: StoreLocale,
-): Record<string, unknown> {
+): Record<string, unknown> => {
   if (locale === defaultLocale) return patch
   const base: Record<string, unknown> = {}
   const translated: Record<string, unknown> = {}

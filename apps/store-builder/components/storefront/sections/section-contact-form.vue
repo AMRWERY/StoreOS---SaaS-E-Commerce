@@ -155,7 +155,7 @@ const inputClass = (err: string) =>
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-function onSubmit() {
+const onSubmit = () => {
   errors.name = form.name.trim() ? "" : "Please enter your name.";
   errors.email = !form.email.trim()
     ? "Please enter your email address."
@@ -167,7 +167,7 @@ function onSubmit() {
   submitted.value = true;
 }
 
-function reset() {
+const reset = () => {
   Object.assign(form, { name: "", email: "", phone: "", message: "" });
   submitted.value = false;
 }

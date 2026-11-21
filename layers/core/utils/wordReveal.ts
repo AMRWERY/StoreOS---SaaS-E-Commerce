@@ -38,10 +38,10 @@ const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (c) => ESCAPES[c
  * Words are split on spaces only, so Arabic words keep their letters joined.
  * All text and class names are HTML-escaped.
  */
-export function wordReveal(
+export const wordReveal = (
   lines: string | (string | WordRevealLine)[],
   { delay = 0, stagger = 80 }: WordRevealOptions = {},
-): string {
+): string => {
   const list = Array.isArray(lines) ? lines : [lines];
   let index = 0;
 

@@ -44,24 +44,24 @@ export const useChkOffersStore = defineStore('chkOffers', () => {
 
   const productById = (id: string) => products.value.find((p) => p.value === id)
 
-  function discountedPrice(offer: Pick<CheckoutOffer, 'offeredProductId' | 'discountType' | 'discountValue'>) {
+  const discountedPrice = (offer: Pick<CheckoutOffer, 'offeredProductId' | 'discountType' | 'discountValue'>) => {
     const base = productById(offer.offeredProductId)?.price ?? 0
     const off = offer.discountType === 'percent' ? (base * offer.discountValue) / 100 : offer.discountValue
     return Math.max(0, Math.round(base - off))
   }
 
-  function byKind(kind: OfferKind) {
+  const byKind = (kind: OfferKind) => {
     return offers.value.filter((o) => o.kind === kind)
   }
 
-  function addOffer(draft: Omit<CheckoutOffer, 'id' | 'views' | 'conversions' | 'revenue' | 'enabled'>) {
+  const addOffer = (draft: Omit<CheckoutOffer, 'id' | 'views' | 'conversions' | 'revenue' | 'enabled'>) => {
     offers.value.unshift({ ...draft, id: `of-${Date.now()}`, views: 0, conversions: 0, revenue: 0, enabled: true })
   }
-  function toggle(id: string) {
+  const toggle = (id: string) => {
     const o = offers.value.find((x) => x.id === id)
     if (o) o.enabled = !o.enabled
   }
-  function remove(id: string) {
+  const remove = (id: string) => {
     offers.value = offers.value.filter((o) => o.id !== id)
   }
 

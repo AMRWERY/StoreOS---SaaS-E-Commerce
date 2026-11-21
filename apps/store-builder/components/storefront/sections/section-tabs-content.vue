@@ -69,7 +69,7 @@ const paragraphs = computed(() =>
     .filter(Boolean),
 );
 
-function tabClass(isActive: boolean): string {
+const tabClass = (isActive: boolean): string => {
   if (pills.value) {
     return `rounded-full px-4 py-2 ${isActive ? "bg-indigo-600 text-white" : "text-neutral-600 hover:bg-neutral-100"}`;
   }

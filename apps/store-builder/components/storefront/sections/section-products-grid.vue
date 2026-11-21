@@ -274,7 +274,7 @@ const titleAlign = computed(() => {
   return a === "center" ? "text-center" : a === "right" || a === "end" ? "text-end" : "text-start";
 });
 
-function resolveProduct(id: string): DemoProduct | undefined {
+const resolveProduct = (id: string): DemoProduct | undefined => {
   if (!id) return undefined;
   const direct = DEMO_PRODUCTS.find((p) => p.id === id || p.handle === id);
   if (direct) return direct;
@@ -291,7 +291,7 @@ const products = computed<DemoProduct[]>(() => {
   return Array.from({ length: limit }, (_, i) => ordered[i % ordered.length]);
 });
 
-function styleFor(i: number) {
+const styleFor = (i: number) => {
   if (variant.value === "list") return "list";
   if (variant.value === "featured" && i === 0) return "hero";
   return cardStyle.value;
@@ -315,18 +315,18 @@ const wrapClass = computed(() => {
   return `grid gap-3 sm:gap-5 ${COLS[n]}`;
 });
 
-function badgeFor(p: DemoProduct) {
+const badgeFor = (p: DemoProduct) => {
   if (p.compareAt) return `-${Math.round((1 - p.price / p.compareAt) * 100)}%`;
   return p.badge || "";
 }
 
-function productHref(p: DemoProduct) {
+const productHref = (p: DemoProduct) => {
   return `/products/${p.handle}`;
 }
 
 const addedId = ref("");
 let addedTimer: ReturnType<typeof setTimeout> | undefined;
-function add(p: DemoProduct) {
+const add = (p: DemoProduct) => {
   cart.add(p.id);
   addedId.value = p.id;
   if (addedTimer) clearTimeout(addedTimer);

@@ -8,7 +8,7 @@ export const useCatalogSegmentsStore = defineStore('catalogSegments', () => {
     { id: 'SEG-04', name: 'عملاء غير نشطين', rules: [{ field: 'last_order_days', operator: 'gt', value: '90' }], customers: 274, status: 'draft' },
   ])
 
-  function add(name: string, rules: SegmentRule[]) {
+  const add = (name: string, rules: SegmentRule[]) => {
     segments.value.unshift({
       id: `SEG-${String(segments.value.length + 1).padStart(2, '0')}`,
       name,

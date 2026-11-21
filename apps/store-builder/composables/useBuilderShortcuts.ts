@@ -5,7 +5,7 @@
  *  Delete remove section · Alt+↑/↓ move section · Esc deselect
  * Ignored while typing in a field.
  */
-export function useBuilderShortcuts() {
+export const useBuilderShortcuts = () => {
   const store = useBuilderStore()
   const { addSectionOpen, publishOpen, createPageOpen, deletePageOpen, templatePickerOpen, localeSettingsOpen, versionsOpen } = useBuilderModals()
   const { open: mediaOpen } = useMediaLibrary()
@@ -16,13 +16,13 @@ export function useBuilderShortcuts() {
     || deletePageOpen.value || templatePickerOpen.value || localeSettingsOpen.value
     || versionsOpen.value || mediaOpen.value || tourActive.value
 
-  function isTyping(target: EventTarget | null) {
+  const isTyping = (target: EventTarget | null) => {
     const el = target as HTMLElement | null
     if (!el) return false
     return el.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName)
   }
 
-  function onKeydown(e: KeyboardEvent) {
+  const onKeydown = (e: KeyboardEvent) => {
     const mod = e.ctrlKey || e.metaKey
     const key = e.key.toLowerCase()
 

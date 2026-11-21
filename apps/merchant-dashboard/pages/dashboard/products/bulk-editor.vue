@@ -136,27 +136,27 @@ const headers = computed(() => [
   { key: 'tags', label: t('dashboard.ops.bulkEditor.cols.tags') },
 ])
 
-function cellClass(id: string, field: CatxEditableField) {
+const cellClass = (id: string, field: CatxEditableField) => {
   return [
     'w-full rounded border px-2 py-1 text-xs text-tx-primary outline-none transition-colors focus:border-brand',
     store.isDirty(id, field) ? 'bg-warning-dim border-warning' : 'bg-transparent border-transparent hover:border-border-default',
   ]
 }
 
-function toggle(id: string) {
+const toggle = (id: string) => {
   selected.value = selected.value.includes(id) ? selected.value.filter((x) => x !== id) : [...selected.value, id]
 }
 
-function onText(id: string, field: CatxEditableField, e: Event) {
+const onText = (id: string, field: CatxEditableField, e: Event) => {
   store.setValue(id, field, (e.target as HTMLInputElement | HTMLSelectElement).value)
 }
 
-function onNum(id: string, field: CatxEditableField, e: Event) {
+const onNum = (id: string, field: CatxEditableField, e: Event) => {
   const n = Number((e.target as HTMLInputElement).value)
   store.setValue(id, field, Number.isFinite(n) ? n : 0)
 }
 
-function applyPercent(sign: 1 | -1) {
+const applyPercent = (sign: 1 | -1) => {
   const p = Number(percent.value)
   if (!Number.isFinite(p) || p <= 0) return
   for (const row of rows.value.filter((r) => selected.value.includes(r.id))) {
@@ -164,11 +164,11 @@ function applyPercent(sign: 1 | -1) {
   }
 }
 
-function applyStatus() {
+const applyStatus = () => {
   for (const id of selected.value) store.setValue(id, 'status', bulkStatus.value)
 }
 
-function applyTag() {
+const applyTag = () => {
   const tag = bulkTag.value.trim()
   if (!tag) return
   for (const row of rows.value.filter((r) => selected.value.includes(r.id))) {

@@ -51,33 +51,33 @@ export const useFulfilBoardStore = defineStore('fulfilBoard', () => {
     },
   ])
 
-  function byId(id: string) {
+  const byId = (id: string) => {
     return orders.value.find((o) => o.id === id)
   }
 
-  function setStatus(id: string, status: FulfilStatus) {
+  const setStatus = (id: string, status: FulfilStatus) => {
     const o = byId(id)
     if (o) o.status = status
   }
 
-  function togglePick(id: string, sku: string) {
+  const togglePick = (id: string, sku: string) => {
     const line = byId(id)?.lines.find((l) => l.sku === sku)
     if (line) line.picked = !line.picked
   }
 
-  function markPacked(id: string) {
+  const markPacked = (id: string) => {
     const o = byId(id)
     if (!o || o.status !== 'toPack') return
     o.lines.forEach((l) => (l.picked = true))
     o.status = 'packed'
   }
 
-  function remaining(o: FulfilOrder) {
+  const remaining = (o: FulfilOrder) => {
     return o.lines.reduce((s, l) => s + (l.qty - l.shippedQty), 0)
   }
 
   /** Creates one package. Order becomes shipped only when every unit is on a package (partial fulfillment otherwise). */
-  function createShipment(id: string, input: FulfilShipmentInput) {
+  const createShipment = (id: string, input: FulfilShipmentInput) => {
     const o = byId(id)
     if (!o) return null
     const picked = input.lines.filter((l) => l.qty > 0)
@@ -104,7 +104,7 @@ export const useFulfilBoardStore = defineStore('fulfilBoard', () => {
   }
 
   /** Bulk "Buy labels": ships every remaining unit of each order in one Bosta package. */
-  function buyLabels(ids: string[]) {
+  const buyLabels = (ids: string[]) => {
     let count = 0
     for (const id of ids) {
       const o = byId(id)

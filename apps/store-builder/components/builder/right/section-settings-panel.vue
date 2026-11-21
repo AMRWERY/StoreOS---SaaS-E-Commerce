@@ -360,7 +360,7 @@ const subtitle = computed(() => {
 const saveSuccess = ref(false)
 let saveTimer: ReturnType<typeof setTimeout> | null = null
 
-async function handleSave() {
+const handleSave = async () => {
   await store.saveSettings()
   saveSuccess.value = true
   if (saveTimer) clearTimeout(saveTimer)
@@ -371,7 +371,7 @@ async function handleSave() {
 const advancedOpen = ref(false)
 
 /** Bind section settings fields two-way through updateSectionSettings */
-function sectionSetting<T>(key: string, fallback: T) {
+const sectionSetting = <T,>(key: string, fallback: T) => {
   return computed<T>({
     get: () => (selected.value?.settings?.[key] as T) ?? fallback,
     set: (v: T) => {
@@ -401,7 +401,7 @@ const adv_anchorId      = sectionSetting<string>('anchor_id', '')
 const adv_cssClass      = sectionSetting<string>('css_class', '')
 const adv_label         = sectionSetting<string>('builder_label', '')
 
-async function handleSaveAndClose() {
+const handleSaveAndClose = async () => {
   await store.saveSettings()
   advancedOpen.value = false
 }

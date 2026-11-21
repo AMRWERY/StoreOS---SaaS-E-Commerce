@@ -36,17 +36,17 @@ export const useChanInboxStore = defineStore('chanInbox', () => {
   const quickReplyKeys = ['greeting', 'inStock', 'shipping', 'codInfo', 'thanks'] as const
   let seq = 100
 
-  function markRead(id: string) {
+  const markRead = (id: string) => {
     const c = conversations.value.find((x) => x.id === id)
     if (c) c.unread = false
   }
-  function send(id: string, text: string) {
+  const send = (id: string, text: string) => {
     const c = conversations.value.find((x) => x.id === id)
     if (!c || !text.trim()) return
     seq += 1
     c.messages.push({ id: `m${seq}`, kind: 'agent', text: text.trim(), time: '10:05' })
   }
-  function addDraft(id: string): string {
+  const addDraft = (id: string): string => {
     const c = conversations.value.find((x) => x.id === id)
     seq += 1
     const draftId = `DRF-${seq}`

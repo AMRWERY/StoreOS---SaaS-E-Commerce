@@ -18,7 +18,7 @@ export const useCouponsStore = defineStore('coupons', () => {
     { code: 'VIP2026', type: 'FIXED', value: '$ 150', minOrder: '$ 1,000', usage: 24, color: 'bg-purple-500' },
   ])
 
-  function addCoupon(coupon: Coupon) {
+  const addCoupon = (coupon: Coupon) => {
     coupons.value.unshift(coupon)
   }
 

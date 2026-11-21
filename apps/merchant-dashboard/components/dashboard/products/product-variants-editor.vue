@@ -92,7 +92,7 @@ const options = ref<VariantOption[]>([
 const drafts = ref<string[]>(['', ''])
 const variants = ref<ProductVariant[]>([])
 
-function cartesian(lists: string[][]): string[][] {
+const cartesian = (lists: string[][]): string[][] => {
   return lists.reduce<string[][]>((acc, list) => acc.flatMap((a) => list.map((v) => [...a, v])), [[]])
 }
 
@@ -125,16 +125,16 @@ watch(
 
 watch(variants, (v) => emit('update:variants', v), { deep: true, immediate: true })
 
-function addValue(i: number) {
+const addValue = (i: number) => {
   const v = (drafts.value[i] ?? '').trim()
   if (v && !options.value[i].values.includes(v)) options.value[i].values.push(v)
   drafts.value[i] = ''
 }
-function addOption() {
+const addOption = () => {
   options.value.push({ name: '', values: [] })
   drafts.value.push('')
 }
-function removeOption(i: number) {
+const removeOption = (i: number) => {
   options.value.splice(i, 1)
   drafts.value.splice(i, 1)
 }

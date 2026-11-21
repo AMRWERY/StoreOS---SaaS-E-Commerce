@@ -32,12 +32,12 @@ export const useCatalogStore = defineStore('shop-catalog', () => {
       .concat(products.value.filter(x => x.id !== p.id && x.category !== p.category))
       .slice(0, limit)
 
-  function priceBounds() {
+  const priceBounds = () => {
     const prices = products.value.map(p => p.price)
     return { min: Math.min(...prices), max: Math.max(...prices) }
   }
 
-  function search(q: CatalogQuery, locale: 'en' | 'ar' = 'en'): Product[] {
+  const search = (q: CatalogQuery, locale: 'en' | 'ar' = 'en'): Product[] => {
     let list = products.value.slice()
     if (q.collection && q.collection !== 'all') list = list.filter(p => p.collections.includes(q.collection!))
     if (q.category) list = list.filter(p => p.category === q.category)
@@ -66,7 +66,7 @@ export const useCatalogStore = defineStore('shop-catalog', () => {
   }
 
   /** Filterable option facets (key -> values) across the given products. */
-  function facets(list: Product[]) {
+  const facets = (list: Product[]) => {
     const map = new Map<string, { key: string; label: Product['title']; values: Map<string, Product['title']> }>()
     for (const p of list) {
       for (const o of p.options) {

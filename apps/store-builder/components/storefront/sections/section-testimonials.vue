@@ -157,17 +157,17 @@ const current = computed(() => {
   return items.value[index.value % items.value.length];
 });
 
-function go(d: 1 | -1) {
+const go = (d: 1 | -1) => {
   const n = items.value.length;
   index.value = (index.value + d + n) % n;
 }
 
 let timer: ReturnType<typeof setInterval> | undefined;
-function stop() {
+const stop = () => {
   if (timer) clearInterval(timer);
   timer = undefined;
 }
-function start() {
+const start = () => {
   stop();
   if (typeof window === "undefined") return;
   if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;

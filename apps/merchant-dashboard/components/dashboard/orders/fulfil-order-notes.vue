@@ -48,7 +48,7 @@ const emit = defineEmits<{ add: [text: string] }>()
 const { t } = useI18n()
 const draft = ref('')
 
-function submit() {
+const submit = () => {
   const text = draft.value.trim()
   if (!text) return
   emit('add', text)

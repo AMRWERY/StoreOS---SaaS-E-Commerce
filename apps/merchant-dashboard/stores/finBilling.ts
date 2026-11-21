@@ -11,7 +11,7 @@ export const useFinBillingStore = defineStore('finBilling', () => {
   const card = ref({ brand: 'Visa', last4: '4242', expiry: '08/27' })
   const planPrices: Record<string, number> = { guest: 0, free: 0, trial: 0, starter: 499, growth: 1299, enterprise: 3999 }
 
-  function updateCard(last4: string, expiry: string) {
+  const updateCard = (last4: string, expiry: string) => {
     card.value = { brand: 'Visa', last4, expiry }
     invoices.value = invoices.value.map((i) => (i.status === 'failed' ? { ...i, status: 'due' as const } : i))
   }

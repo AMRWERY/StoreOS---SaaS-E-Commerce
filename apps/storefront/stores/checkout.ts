@@ -8,11 +8,11 @@ export const useShopOrdersStore = defineStore('shop-orders', () => {
   const all = computed(() => [...placed.value, ...MOCK_ORDERS])
   const find = (id: string) => all.value.find(o => o.id.toLowerCase() === id.trim().toLowerCase())
 
-  function place(order: ShopOrder) {
+  const place = (order: ShopOrder) => {
     placed.value = [order, ...placed.value]
   }
 
-  function nextOrderId() {
+  const nextOrderId = () => {
     return `SO-${10500 + placed.value.length + 1}`
   }
 

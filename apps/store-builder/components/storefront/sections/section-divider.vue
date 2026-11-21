@@ -59,7 +59,7 @@ const widthClass = computed(() => {
   }
 });
 
-function lineStyleObj(kind: string) {
+const lineStyleObj = (kind: string) => {
   return {
     borderTopWidth: `${thickness.value}px`,
     borderTopStyle: kind === "dashed" || kind === "dotted" ? kind : "solid",

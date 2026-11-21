@@ -203,15 +203,15 @@ const removeOpen = computed({
 const priceLabel = (price: number) =>
   price === 0 ? t('dashboard.ops.appsMarket.free') : `${money(price)} ${t('dashboard.ops.appsMarket.perMonth')}`
 
-function startInstall(app: EcoAppItem) {
+const startInstall = (app: EcoAppItem) => {
   consent.value = false
   installing.value = app
 }
-function confirmInstall() {
+const confirmInstall = () => {
   if (installing.value && consent.value) store.install(installing.value.id)
   installing.value = null
 }
-function confirmRemove() {
+const confirmRemove = () => {
   if (removing.value) store.uninstall(removing.value.id)
   removing.value = null
 }

@@ -136,7 +136,7 @@ const mutedClass = computed(() =>
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-function onSubmit() {
+const onSubmit = () => {
   const v = email.value.trim();
   if (!v) {
     error.value = "Please enter your email address.";

@@ -179,12 +179,12 @@ const activeId = ref('')
 const replyText = ref('')
 const activeReview = computed(() => reviews.value.find((r) => r.id === activeId.value))
 
-function openReply(id: string) {
+const openReply = (id: string) => {
   activeId.value = id
   replyText.value = reviews.value.find((r) => r.id === id)?.reply ?? ''
   replyOpen.value = true
 }
-function sendReply() {
+const sendReply = () => {
   if (!replyText.value.trim()) return
   store.reply(activeId.value, replyText.value.trim())
   replyOpen.value = false

@@ -144,7 +144,7 @@ const channelIcons: Record<string, string> = {
 }
 
 const saved = ref(false)
-function save() {
+const save = () => {
   saved.value = true
   setTimeout(() => (saved.value = false), 3000)
 }

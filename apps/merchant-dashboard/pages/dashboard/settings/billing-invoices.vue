@@ -168,7 +168,7 @@ const headers = computed(() => [
 const cardOpen = ref(false)
 const cardForm = reactive({ number: '', expiry: '', cvc: '' })
 
-function submitCard() {
+const submitCard = () => {
   const digits = cardForm.number.replace(/\D/g, '')
   if (digits.length < 12 || !cardForm.expiry || !cardForm.cvc) return
   store.updateCard(digits.slice(-4), cardForm.expiry)

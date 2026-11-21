@@ -135,16 +135,16 @@ const grouped = computed(() =>
 
 watch(query, () => (active.value = 0))
 
-function move(step: number) {
+const move = (step: number) => {
   if (!results.value.length) return
   active.value = (active.value + step + results.value.length) % results.value.length
 }
 
-function close() {
+const close = () => {
   open.value = false
 }
 
-async function choose(r?: SearchEntity) {
+const choose = async (r?: SearchEntity) => {
   if (!r) return
   close()
   await navigateTo(localePath(r.to))

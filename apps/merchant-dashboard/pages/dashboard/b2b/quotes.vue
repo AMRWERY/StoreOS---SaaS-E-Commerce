@@ -137,7 +137,7 @@ const lineHeaders = computed(() => [
 const subtotalOf = (q: EcoQuote) => q.lines.reduce((s, l) => s + l.qty * l.unitPrice, 0)
 const totalOf = (q: EcoQuote) => Math.round(subtotalOf(q) * (1 - q.discountPct / 100))
 
-function send() {
+const send = () => {
   if (selected.value) store.sendQuote(selected.value.id, pct.value)
 }
 </script>

@@ -24,7 +24,7 @@ const cart = useCartStore()
 const code = ref('')
 const invalid = ref(false)
 
-function apply() {
+const apply = () => {
   if (!code.value.trim()) return
   invalid.value = !cart.applyCoupon(code.value)
   if (!invalid.value) code.value = ''

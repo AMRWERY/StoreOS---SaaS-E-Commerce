@@ -122,13 +122,13 @@ const qty = ref(1)
 watch(variant, () => { qty.value = 1 })
 
 // A value is available if some in-stock variant has it with the other current selections.
-function optionAvailable(key: string, value: string) {
+const optionAvailable = (key: string, value: string) => {
   return !!product.value?.variants.some(v =>
     v.stock > 0 && v.options[key] === value
     && Object.entries(selected).every(([k, val]) => k === key || v.options[k] === val))
 }
 
-function addToCart() {
+const addToCart = () => {
   if (product.value && variant.value && variant.value.stock > 0) cart.add(product.value.id, variant.value.id, qty.value)
 }
 

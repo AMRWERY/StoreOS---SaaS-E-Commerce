@@ -27,7 +27,7 @@ const email = ref('')
 const password = ref('')
 const errors = reactive<Record<string, string>>({})
 
-function submit() {
+const submit = () => {
   errors.email = /^\S+@\S+\.\S+$/.test(email.value) ? '' : t('shop.validation.email')
   errors.password = password.value.length >= 6 ? '' : t('shop.validation.password')
   if (errors.email || errors.password) return

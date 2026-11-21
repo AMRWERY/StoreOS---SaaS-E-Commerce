@@ -195,7 +195,7 @@ const removeAction = (aid: string) => {
   wf.actions = wf.actions.filter((a) => a.id !== aid)
 }
 
-function save() {
+const save = () => {
   // Mock save: persist into the in-memory store only.
   const target = store.getById(wf.id)
   const copy: Workflow = { ...wf, conditions: [...wf.conditions], actions: [...wf.actions] }

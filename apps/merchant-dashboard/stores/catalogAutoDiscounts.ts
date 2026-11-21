@@ -8,7 +8,7 @@ export const useCatalogAutoDiscountsStore = defineStore('catalogAutoDiscounts', 
     { id: 'AD-04', name: 'اشترِ 2 واحصل على 1', type: 'bxgy', value: 0, eligibility: 'all', combinable: false, startsAt: '2026-08-01', endsAt: '2026-09-01', status: 'expired' },
   ])
 
-  function add(d: Omit<AutoDiscount, 'id' | 'status'>) {
+  const add = (d: Omit<AutoDiscount, 'id' | 'status'>) => {
     discounts.value.unshift({ ...d, id: `AD-${String(discounts.value.length + 1).padStart(2, '0')}`, status: 'active' })
   }
 

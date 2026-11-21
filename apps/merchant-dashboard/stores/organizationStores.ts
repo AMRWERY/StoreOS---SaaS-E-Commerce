@@ -9,7 +9,7 @@ export const useOrganizationStoresStore = defineStore('organizationStores', () =
     { id: 'st-2', name: 'Cairo Gadgets', domain: 'cairogadgets.storeos.app', plan: 'starter', role: 'admin' },
   ])
 
-  function addStore(name: string, domain: string) {
+  const addStore = (name: string, domain: string) => {
     stores.value.push({ id: `st-${Date.now()}`, name, domain: `${domain}.storeos.app`, plan: 'free', role: 'owner' })
   }
 

@@ -8,7 +8,7 @@ export const useCollectionsStore = defineStore('collections', () => {
     { id: 'COL-004', title: 'Black Friday', type: 'manual', products: 0, status: 'draft', updatedAt: '2026-11-12' },
   ])
 
-  function addCollection(c: Pick<Collection, 'title' | 'type' | 'rule'>) {
+  const addCollection = (c: Pick<Collection, 'title' | 'type' | 'rule'>) => {
     collections.value.unshift({
       id: `COL-${String(collections.value.length + 1).padStart(3, '0')}`,
       products: 0,
@@ -17,7 +17,7 @@ export const useCollectionsStore = defineStore('collections', () => {
       ...c,
     })
   }
-  function removeCollection(id: string) {
+  const removeCollection = (id: string) => {
     collections.value = collections.value.filter((c) => c.id !== id)
   }
 

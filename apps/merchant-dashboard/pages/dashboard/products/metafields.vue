@@ -147,7 +147,7 @@ const previewRows = computed(() =>
   }),
 )
 
-function submit() {
+const submit = () => {
   if (!form.name.trim() || !form.key.trim() || !form.namespace.trim()) return
   store.add({
     name: form.name.trim(),

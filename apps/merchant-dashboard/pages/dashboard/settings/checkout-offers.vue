@@ -250,7 +250,7 @@ const draft = reactive<{
   placement: 'in_checkout',
 })
 
-function openPanel() {
+const openPanel = () => {
   Object.assign(draft, {
     name: '',
     triggerType: 'product',
@@ -275,7 +275,7 @@ watch(
 
 const canSave = computed(() => !!draft.name.trim() && !!draft.trigger && !!draft.offeredProductId)
 
-function submit() {
+const submit = () => {
   if (!canSave.value) return
   addOffer({ ...draft, name: draft.name.trim(), kind: kind.value })
   panelOpen.value = false

@@ -114,7 +114,7 @@ const headers = computed(() => [
   { key: 'status', label: t('dashboard.ops.common.statusLabel') },
 ])
 
-function submit() {
+const submit = () => {
   if (!form.product.trim() || !form.expectedDate) return
   store.add({
     product: form.product.trim(),

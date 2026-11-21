@@ -154,7 +154,7 @@ const localePath = useLocalePath();
 const abuse = usePlatformAbuseStore();
 const { operatorEmail, operatorName, operatorInitials, signOut } = usePlatformAuth();
 
-async function handleSignOut() {
+const handleSignOut = async () => {
   signOut();
   await navigateTo(localePath("/platform/login"), { replace: true });
 }

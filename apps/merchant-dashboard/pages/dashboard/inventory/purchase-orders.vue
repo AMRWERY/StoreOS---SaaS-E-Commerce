@@ -144,7 +144,7 @@ const headers = computed(() => [
   { key: 'actions', label: '', align: 'end' as const },
 ])
 
-function submit() {
+const submit = () => {
   const supplier = form.supplier || supplierOptions.value[0]?.value
   const items = Number(form.items)
   const total = Number(form.total)

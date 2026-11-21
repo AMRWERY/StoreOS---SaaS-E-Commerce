@@ -93,7 +93,7 @@ const measures = computed(() => [
   { key: "hip", label: str("col_hip") },
 ]);
 
-function conv(v: unknown) {
+const conv = (v: unknown) => {
   const n = Number(v);
   if (!Number.isFinite(n)) return String(v ?? "");
   return unit.value === "cm" ? String(n) : (n / 2.54).toFixed(1);

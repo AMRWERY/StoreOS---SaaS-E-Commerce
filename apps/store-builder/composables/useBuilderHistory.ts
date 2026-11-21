@@ -1,4 +1,4 @@
-export function useBuilderHistory() {
+export const useBuilderHistory = () => {
   const store = useBuilderStore()
   return {
     undo: () => store.undo(),

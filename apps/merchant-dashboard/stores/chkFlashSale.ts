@@ -27,11 +27,11 @@ export const useChkFlashSaleStore = defineStore('chkFlashSale', () => {
     { id: 'support', done: false },
   ])
 
-  function toggleReadiness(id: string) {
+  const toggleReadiness = (id: string) => {
     const r = readiness.value.find((x) => x.id === id)
     if (r) r.done = !r.done
   }
-  function removeSale(id: string) {
+  const removeSale = (id: string) => {
     sales.value = sales.value.filter((s) => s.id !== id)
   }
 

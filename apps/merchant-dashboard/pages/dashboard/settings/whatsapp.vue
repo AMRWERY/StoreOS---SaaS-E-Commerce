@@ -212,7 +212,7 @@ const languageOptions = computed(() => [
 const samples = ['Sara', 'ORD-8841', '1,250']
 const fillSample = (body: string) => body.replace(/\{\{(\d+)\}\}/g, (_, n: string) => samples[Number(n) - 1] ?? '')
 
-function submit() {
+const submit = () => {
   store.addTemplate({ name: draft.name.trim(), category: draft.category, language: draft.language, body: draft.body })
   draft.name = ''
   draft.body = ''

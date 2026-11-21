@@ -85,7 +85,7 @@ const activeStore = computed(() => stores.value.find((s) => s.id === activeStore
 const limit = computed(() => (plan.value === 'enterprise' ? Infinity : plan.value === 'growth' ? 3 : 1))
 const canCreate = computed(() => stores.value.length < limit.value)
 
-function select(id: string, close: () => void) {
+const select = (id: string, close: () => void) => {
   activeStoreId.value = id
   close()
 }

@@ -14,11 +14,11 @@ export const useProfileStore = defineStore('profile', () => {
     { device: 'Windows Workstation', meta: 'Osaka, Japan • 10.0.0.42', status: '4 DAYS AGO', current: false, icon: 'ph:monitor-bold' },
   ])
 
-  function saveProfile() {
+  const saveProfile = () => {
     console.log('Saving profile...', profile.value)
   }
 
-  function revokeSession(device: string) {
+  const revokeSession = (device: string) => {
     const index = sessions.value.findIndex(s => s.device === device && !s.current)
     if (index !== -1) sessions.value.splice(index, 1)
   }

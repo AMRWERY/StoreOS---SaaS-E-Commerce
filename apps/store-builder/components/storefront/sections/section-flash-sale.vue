@@ -156,7 +156,7 @@ const units = computed(() => {
 
 const addedId = ref("");
 const btnLabel = (id: string) => (addedId.value === id ? str("added_label") : str("button_label"));
-function add(id: string) {
+const add = (id: string) => {
   cart.add(id);
   addedId.value = id;
   setTimeout(() => {

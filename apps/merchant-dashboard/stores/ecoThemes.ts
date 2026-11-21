@@ -20,11 +20,11 @@ export const useEcoThemesStore = defineStore('ecoThemes', () => {
   const installed = computed(() => themes.value.filter((x) => x.status === 'installed'))
   const starters = computed(() => themes.value.filter((x) => x.status === 'starter'))
 
-  function install(id: string) {
+  const install = (id: string) => {
     const th = themes.value.find((x) => x.id === id)
     if (th && th.status === 'starter') th.status = 'installed'
   }
-  function activate(id: string) {
+  const activate = (id: string) => {
     const th = themes.value.find((x) => x.id === id)
     if (!th || th.status !== 'installed') return
     const cur = published.value
@@ -32,7 +32,7 @@ export const useEcoThemesStore = defineStore('ecoThemes', () => {
     th.status = 'published'
     th.publishedAt = '2026-11-12 10:00'
   }
-  function restore(id: string) {
+  const restore = (id: string) => {
     const cur = versions.value.find((v) => v.status === 'published')
     const target = versions.value.find((v) => v.id === id)
     if (!target || target.status === 'published') return

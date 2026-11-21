@@ -19,7 +19,7 @@ export const useCatxMetafieldsStore = defineStore('catxMetafields', () => {
     { id: 'V5', product: 'حقيبة جلد القاهرة', metafieldId: 'MF-04', value: 'true' },
   ])
 
-  function add(payload: Omit<CatxMetafield, 'id'>) {
+  const add = (payload: Omit<CatxMetafield, 'id'>) => {
     metafields.value.unshift({ id: `MF-${String(metafields.value.length + 1).padStart(2, '0')}`, ...payload })
   }
 

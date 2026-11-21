@@ -14,14 +14,14 @@ export const useChkWalletsStore = defineStore('chkWallets', () => {
     { id: 'contact', kind: 'bnpl', icon: 'ph:calendar-check-bold', connection: 'not_connected', enabled: false, minAmount: 1000, maxAmount: 200000, feePercent: 5, plans: [3, 6, 12], enabledPlans: [6, 12] },
   ])
 
-  function byKind(kind: WalletProvider['kind']) {
+  const byKind = (kind: WalletProvider['kind']) => {
     return providers.value.filter((p) => p.kind === kind)
   }
-  function connect(id: string) {
+  const connect = (id: string) => {
     const p = providers.value.find((x) => x.id === id)
     if (p) p.connection = 'connected'
   }
-  function togglePlan(id: string, months: number) {
+  const togglePlan = (id: string, months: number) => {
     const p = providers.value.find((x) => x.id === id)
     if (!p) return
     p.enabledPlans = p.enabledPlans.includes(months)

@@ -157,7 +157,7 @@ const statusOptions = computed(() =>
 )
 
 /** Inserts markdown markers around the current selection (or at the caret). */
-function insert(before: string, after: string) {
+const insert = (before: string, after: string) => {
   const el = contentEl.value
   const start = el?.selectionStart ?? form.content.length
   const end = el?.selectionEnd ?? form.content.length
@@ -170,7 +170,7 @@ function insert(before: string, after: string) {
   })
 }
 
-function submit() {
+const submit = () => {
   if (!form.title.trim()) return
   emit('save', {
     id: props.article?.id ?? `a${Date.now()}`,

@@ -73,7 +73,7 @@ const tabs = computed(() => [
   { id: "shipping", title: str("shippingTitle") },
 ]);
 
-function tabClass(id: string) {
+const tabClass = (id: string) => {
   const on = active.value === id;
   if (variant.value === "pills") {
     return [

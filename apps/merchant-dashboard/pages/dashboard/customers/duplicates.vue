@@ -117,13 +117,13 @@ const statusTones: Record<string, Tone> = { open: 'warning', merged: 'success', 
 const active = computed(() => groups.value.find((g) => g.id === activeId.value))
 const openCount = computed(() => groups.value.filter((g) => g.status === 'open').length)
 
-function openReview(id: string) {
+const openReview = (id: string) => {
   activeId.value = id
   fields.forEach((f) => (choice[f] = 0))
   panelOpen.value = true
 }
 
-function doMerge() {
+const doMerge = () => {
   if (activeId.value) store.setStatus(activeId.value, 'merged')
   confirmOpen.value = false
   panelOpen.value = false

@@ -1,5 +1,5 @@
 /** Theme read/write + CSS variables – replace with API calls + injection. */
-export function useStoreTheme() {
+export const useStoreTheme = () => {
   const theme = ref<unknown>(null)
   return { theme }
 }

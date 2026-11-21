@@ -140,11 +140,11 @@ const sheets = computed(() => {
 })
 
 /** Decorative bar widths derived from the tracking number (mock barcode). */
-function bars(code: string) {
+const bars = (code: string) => {
   return Array.from(code.replace(/\D/g, '').padEnd(10, '7')).flatMap((d) => [(Number(d) % 3) + 1, (Number(d) % 2) + 1])
 }
 
-function print() {
+const print = () => {
   window.print()
 }
 </script>

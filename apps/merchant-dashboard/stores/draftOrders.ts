@@ -13,10 +13,10 @@ export const useDraftOrdersStore = defineStore('draftOrders', () => {
     { id: 'AC-509', customer: 'Tarek Salah', contact: '+20 122 555 0102', items: 4, total: 4100, stage: 'cart', recovered: true, abandonedAt: '2026-11-10' },
   ])
 
-  function removeDraft(id: string) {
+  const removeDraft = (id: string) => {
     drafts.value = drafts.value.filter((d) => d.id !== id)
   }
-  function markRecovered(id: string) {
+  const markRecovered = (id: string) => {
     const a = abandoned.value.find((x) => x.id === id)
     if (a) a.recovered = true
   }

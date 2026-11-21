@@ -270,7 +270,7 @@ const scheduleHeaders = computed(() => [
   { key: 'actions', label: '', align: 'end' as const },
 ])
 
-function toggleMetric(m: ReportMetric) {
+const toggleMetric = (m: ReportMetric) => {
   if (metrics.value.includes(m)) {
     if (metrics.value.length > 1) metrics.value = metrics.value.filter((x) => x !== m)
   } else {
@@ -278,7 +278,7 @@ function toggleMetric(m: ReportMetric) {
   }
 }
 
-function save() {
+const save = () => {
   if (!reportName.value.trim()) return
   store.saveReport({
     name: reportName.value.trim(),
@@ -290,14 +290,14 @@ function save() {
   reportName.value = ''
 }
 
-function load(r: SavedReport) {
+const load = (r: SavedReport) => {
   metrics.value = [...r.metrics]
   dimension.value = r.dimension
   range.value = r.range
   view.value = r.view
 }
 
-function submitSchedule() {
+const submitSchedule = () => {
   const report = saved.value.find((r) => r.id === form.reportId) ?? saved.value[0]
   const recipients = form.recipients
     .split(',')

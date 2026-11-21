@@ -11,11 +11,11 @@ export const useEcoAppsStore = defineStore('ecoApps', () => {
     { id: 'smsegypt', name: 'SMS Egypt', developer: 'Vodacom Tech', rating: 4.0, price: 0, category: 'marketing', icon: 'ph:chat-text-bold', installed: false, scopes: ['readCustomers'] },
   ])
 
-  function install(id: string) {
+  const install = (id: string) => {
     const a = apps.value.find((x) => x.id === id)
     if (a) a.installed = true
   }
-  function uninstall(id: string) {
+  const uninstall = (id: string) => {
     const a = apps.value.find((x) => x.id === id)
     if (a) a.installed = false
   }

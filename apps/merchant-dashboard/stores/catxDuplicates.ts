@@ -25,7 +25,7 @@ export const useCatxDuplicatesStore = defineStore('catxDuplicates', () => {
     },
   ])
 
-  function setStatus(id: string, status: DuplicateStatus) {
+  const setStatus = (id: string, status: DuplicateStatus) => {
     const g = groups.value.find((x) => x.id === id)
     if (g) g.status = status
   }

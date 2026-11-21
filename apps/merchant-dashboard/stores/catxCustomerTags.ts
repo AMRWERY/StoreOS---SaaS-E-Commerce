@@ -14,17 +14,17 @@ export const useCatxCustomerTagsStore = defineStore('catxCustomerTags', () => {
     { id: 'NT-03', customer: 'هالة إبراهيم', note: 'تم الاتفاق على استبدال المنتج التالف.', author: 'Salma', date: '2026-11-05' },
   ])
 
-  function addTag(name: string, color: CatxTagColor) {
+  const addTag = (name: string, color: CatxTagColor) => {
     tags.value.push({ id: `TG-${String(tags.value.length + 1).padStart(2, '0')}`, name, color, customers: 0 })
   }
-  function renameTag(id: string, name: string) {
+  const renameTag = (id: string, name: string) => {
     const tag = tags.value.find((x) => x.id === id)
     if (tag && name.trim()) tag.name = name.trim()
   }
-  function removeTag(id: string) {
+  const removeTag = (id: string) => {
     tags.value = tags.value.filter((x) => x.id !== id)
   }
-  function addNote(customer: string, note: string) {
+  const addNote = (customer: string, note: string) => {
     notes.value.unshift({ id: `NT-${String(notes.value.length + 1).padStart(2, '0')}`, customer, note, author: 'Amr', date: '2026-11-12' })
   }
 

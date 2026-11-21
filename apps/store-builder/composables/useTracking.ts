@@ -4,7 +4,7 @@
  */
 interface ScriptTag { key: string; src?: string; async?: boolean; innerHTML?: string }
 
-export function useTracking() {
+export const useTracking = () => {
   const store = useBuilderStore()
   const consent = useState<'unknown' | 'granted' | 'denied'>('site-consent', () => 'unknown')
 
@@ -18,7 +18,7 @@ export function useTracking() {
     catch { /* storage blocked — banner just shows every time */ }
   })
 
-  function setConsent(value: 'granted' | 'denied') {
+  const setConsent = (value: 'granted' | 'denied') => {
     consent.value = value
     try { localStorage.setItem(KEY, value) } catch { /* ignore */ }
   }

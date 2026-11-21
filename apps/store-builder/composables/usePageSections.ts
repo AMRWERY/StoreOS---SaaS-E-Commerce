@@ -1,5 +1,5 @@
 /** CRUD for `page_sections` – replace with API calls. */
-export function usePageSections() {
+export const usePageSections = () => {
   return {
     list: async (_pageId: string) => [],
     create: async () => null,

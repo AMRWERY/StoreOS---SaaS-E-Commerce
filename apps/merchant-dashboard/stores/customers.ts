@@ -134,7 +134,7 @@ export const useCustomersStore = defineStore('customers', () => {
     { label: 'Last Order', value: 'Feb 24, 2026', prefix: '' },
   ])
 
-  function addNote(text: string) {
+  const addNote = (text: string) => {
     customerDetailNotes.value.unshift({
       id: Date.now(),
       date: 'Just now',
@@ -143,7 +143,7 @@ export const useCustomersStore = defineStore('customers', () => {
     })
   }
 
-  function updateContact(phone: string, email: string) {
+  const updateContact = (phone: string, email: string) => {
     customerDetail.value.phone = phone
     customerDetail.value.email = email
   }

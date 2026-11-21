@@ -60,7 +60,7 @@ const containerClass = computed(() => {
   return `grid gap-8 ${grid}`;
 });
 
-function itemClass(i: number): string {
+const itemClass = (i: number): string => {
   if (rows.value) {
     // Alternate image side on wide screens; text always reads start-aligned.
     return `flex flex-col gap-6 text-start md:items-center ${i % 2 ? "md:flex-row-reverse" : "md:flex-row"}`;

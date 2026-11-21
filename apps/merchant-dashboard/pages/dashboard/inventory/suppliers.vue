@@ -84,7 +84,7 @@ const headers = computed(() => [
   { key: 'status', label: t('dashboard.ops.common.statusLabel') },
 ])
 
-function submit() {
+const submit = () => {
   const leadDays = Number(form.leadDays)
   if (!form.name.trim() || !form.contact.trim() || !form.phone.trim() || !form.city.trim() || !leadDays) return
   store.add({

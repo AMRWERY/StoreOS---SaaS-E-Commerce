@@ -20,7 +20,7 @@ const props = defineProps<{ seed: string }>()
 const { t } = useI18n()
 const SIZE = 21
 
-function inFinder(r: number, c: number) {
+const inFinder = (r: number, c: number) => {
   const corners: [number, number][] = [[0, 0], [0, SIZE - 7], [SIZE - 7, 0]]
   return corners.some(([cr, cc]) => {
     const rr = r - cr
@@ -31,7 +31,7 @@ function inFinder(r: number, c: number) {
     return ring || core
   })
 }
-function inFinderZone(r: number, c: number) {
+const inFinderZone = (r: number, c: number) => {
   return (r < 8 && c < 8) || (r < 8 && c > SIZE - 9) || (r > SIZE - 9 && c < 8)
 }
 

@@ -1,7 +1,7 @@
 import type { Localized } from '@/types/shop'
 
 /** Picks the active-locale string from mock data shaped `{ en, ar }`. */
-export function useLocalized() {
+export const useLocalized = () => {
   const { locale } = useI18n()
   const loc = (value: Localized | undefined | null) => (value ? (locale.value === 'ar' ? value.ar : value.en) : '')
   return { loc }

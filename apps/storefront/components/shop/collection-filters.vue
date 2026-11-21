@@ -60,7 +60,7 @@ const active = computed(() =>
 
 const patch = (p: Partial<FilterState>) => emit('update:modelValue', { ...props.modelValue, ...p })
 const isOn = (key: string, value: string) => props.modelValue.options[key]?.includes(value) ?? false
-function toggle(key: string, value: string) {
+const toggle = (key: string, value: string) => {
   const current = props.modelValue.options[key] ?? []
   const next = current.includes(value) ? current.filter(v => v !== value) : [...current, value]
   patch({ options: { ...props.modelValue.options, [key]: next } })

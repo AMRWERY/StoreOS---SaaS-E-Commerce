@@ -8,7 +8,7 @@ export const useCatalogSuppliersStore = defineStore('catalogSuppliers', () => {
     { id: 'SUP-04', name: 'الإسكندرية للتعبئة', contact: 'هبة رضا', phone: '+20 109 333 2211', city: 'Alexandria', leadDays: 4, status: 'inactive' },
   ])
 
-  function add(s: Omit<Supplier, 'id' | 'status'>) {
+  const add = (s: Omit<Supplier, 'id' | 'status'>) => {
     suppliers.value.unshift({ ...s, id: `SUP-${String(suppliers.value.length + 1).padStart(2, '0')}`, status: 'active' })
   }
 

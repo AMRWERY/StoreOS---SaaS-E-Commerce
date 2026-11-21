@@ -146,7 +146,7 @@ const ledgerHeaders = computed(() => [
   { key: 'actor', label: t('dashboard.ops.storeCredit.actor') },
 ])
 
-function submit() {
+const submit = () => {
   const amount = Number(form.amount)
   if (!form.customerId || !(amount > 0)) return
   store.adjust(form.customerId, form.type, amount)

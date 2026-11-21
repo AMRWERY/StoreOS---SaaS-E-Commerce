@@ -135,7 +135,7 @@ const links = [
   { to: "/pages/about", label: "shop.header.about" },
 ];
 
-function submitSearch() {
+const submitSearch = () => {
   router.push(
     localePath({ path: "/search", query: { q: query.value.trim() } }),
   );

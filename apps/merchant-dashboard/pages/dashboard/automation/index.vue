@@ -96,7 +96,7 @@ const store = useAutomationWorkflowsStore()
 const { workflows, templates } = storeToRefs(store)
 const { toggle } = store
 
-async function applyTemplate(tpl: Workflow & { nameKey: string }) {
+const applyTemplate = async (tpl: Workflow & { nameKey: string }) => {
   const id = store.addFromTemplate(tpl, t(`dashboard.ops.automation.templateNames.${tpl.nameKey}`))
   await navigateTo(localePath(`/dashboard/automation/${id}`))
 }

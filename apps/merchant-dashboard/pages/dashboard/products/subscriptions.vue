@@ -182,7 +182,7 @@ const subHeaders = computed(() => [
   { key: 'actions', label: '' },
 ])
 
-function submit() {
+const submit = () => {
   if (!form.name.trim()) return
   store.addPlan({
     name: form.name.trim(),

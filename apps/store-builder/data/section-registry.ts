@@ -18,22 +18,22 @@ const byType = new Map<SectionType, SectionDefinition>(definitions.map((d) => [d
 
 export const SECTION_DEFINITIONS: readonly SectionDefinition[] = definitions
 
-export function getSectionDefinition(type: SectionType): SectionDefinition | undefined {
+export const getSectionDefinition = (type: SectionType): SectionDefinition | undefined => {
   return byType.get(type)
 }
 
-export function getSectionDefaults(type: SectionType): Record<string, unknown> {
+export const getSectionDefaults = (type: SectionType): Record<string, unknown> => {
   return byType.get(type)?.defaults ?? {}
 }
 
 /** Fresh, independent copy of a block's default settings. */
-export function createSectionSettings(type: SectionType): Record<string, unknown> {
+export const createSectionSettings = (type: SectionType): Record<string, unknown> => {
   return JSON.parse(JSON.stringify(getSectionDefaults(type)))
 }
 
-export function definitionsByCategory(
+export const definitionsByCategory = (
   pageType?: StorePageType,
-): { category: SectionCategory; items: SectionDefinition[] }[] {
+): { category: SectionCategory; items: SectionDefinition[] }[] => {
   const map = new Map<SectionCategory, SectionDefinition[]>()
   for (const d of definitions) {
     if (pageType && d.pages && !d.pages.includes(pageType)) continue

@@ -220,11 +220,11 @@ const slideStyle = computed(() =>
   variant.value === "spotlight" ? { flexBasis: `${100 - peek.value}%` } : undefined,
 );
 
-function badgeFor(p: DemoProduct) {
+const badgeFor = (p: DemoProduct) => {
   if (p.compareAt) return `-${Math.round((1 - p.price / p.compareAt) * 100)}%`;
   return p.badge || "";
 }
-function productHref(p: DemoProduct) {
+const productHref = (p: DemoProduct) => {
   return `/products/${p.handle}`;
 }
 
@@ -233,11 +233,11 @@ const track = ref<HTMLElement | null>(null);
 const atStart = ref(true);
 const atEnd = ref(false);
 
-function isRtl(el: HTMLElement) {
+const isRtl = (el: HTMLElement) => {
   return typeof window !== "undefined" && window.getComputedStyle(el).direction === "rtl";
 }
 
-function updateEdges() {
+const updateEdges = () => {
   const el = track.value;
   if (!el) return;
   const max = el.scrollWidth - el.clientWidth;
@@ -246,7 +246,7 @@ function updateEdges() {
   atEnd.value = pos >= max - 2;
 }
 
-function scrollByDir(dir: 1 | -1) {
+const scrollByDir = (dir: 1 | -1) => {
   const el = track.value;
   if (!el || typeof window === "undefined") return;
   const rtl = isRtl(el);
@@ -278,7 +278,7 @@ onBeforeUnmount(() => {
 // Add to cart
 const addedId = ref("");
 let addedTimer: ReturnType<typeof setTimeout> | undefined;
-function add(p: DemoProduct) {
+const add = (p: DemoProduct) => {
   cart.add(p.id);
   addedId.value = p.id;
   if (addedTimer) clearTimeout(addedTimer);

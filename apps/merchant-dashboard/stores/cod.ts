@@ -20,17 +20,17 @@ export const useCodStore = defineStore('cod', () => {
     { id: 'BL-2', phone: '+20 112 555 0777', reason: 'fake_orders', refusals: 2, addedAt: '2026-10-21' },
   ])
 
-  function setConfirmation(orderId: string, status: CodConfirmationStatus) {
+  const setConfirmation = (orderId: string, status: CodConfirmationStatus) => {
     const c = confirmations.value.find((x) => x.orderId === orderId)
     if (c) {
       c.status = status
       if (status === 'no_answer') c.attempts++
     }
   }
-  function block(phone: string, reason: BlockedContact['reason']) {
+  const block = (phone: string, reason: BlockedContact['reason']) => {
     blocklist.value.unshift({ id: `BL-${Date.now()}`, phone, reason, refusals: 0, addedAt: new Date().toISOString().slice(0, 10) })
   }
-  function unblock(id: string) {
+  const unblock = (id: string) => {
     blocklist.value = blocklist.value.filter((b) => b.id !== id)
   }
 

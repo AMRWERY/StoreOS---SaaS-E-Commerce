@@ -12,7 +12,7 @@ export const useCatxPreordersStore = defineStore('catxPreorders', () => {
     { id: 'PRE-04', product: 'سجادة خان الخليلي', mode: 'backorder', limit: 20, sold: 3, expectedDate: '2026-12-05', status: 'paused' },
   ])
 
-  function add(payload: { product: string; mode: PreorderMode; limit: number; expectedDate: string }) {
+  const add = (payload: { product: string; mode: PreorderMode; limit: number; expectedDate: string }) => {
     items.value.unshift({ id: `PRE-${String(items.value.length + 1).padStart(2, '0')}`, sold: 0, status: 'active', ...payload })
   }
 

@@ -70,14 +70,14 @@ const areaOptions = computed(() => (city.value?.areas ?? []).map(a => ({ value: 
 watch(() => form.governorate, (_n, old) => { if (old !== undefined) { form.city = ''; form.area = '' } })
 watch(() => form.city, (_n, old) => { if (old !== undefined) form.area = '' })
 
-function areaLabel(a: ShopAddress) {
+const areaLabel = (a: ShopAddress) => {
   const g = GOVERNORATES.find(x => x.value === a.governorate)
   const c = g?.cities.find(x => x.value === a.city)
   const ar = c?.areas.find(x => x.value === a.area)
   return [loc(ar?.label), loc(c?.label), loc(g?.label)].filter(Boolean).join(', ')
 }
 
-function openForm(a?: ShopAddress) {
+const openForm = (a?: ShopAddress) => {
   for (const k of Object.keys(errors)) delete errors[k]
   editingId.value = a?.id ?? null
   Object.assign(form, a ? { label: a.label, name: a.name, phone: a.phone, governorate: a.governorate, city: a.city, area: a.area, street: a.street, landmark: a.landmark, isDefault: a.isDefault } : blank())
@@ -88,7 +88,7 @@ function openForm(a?: ShopAddress) {
   formOpen.value = true
 }
 
-function save() {
+const save = () => {
   for (const k of Object.keys(errors)) delete errors[k]
   const req = t('shop.validation.required')
   for (const k of ['label', 'name', 'governorate', 'city', 'area', 'street'] as const) if (!String(form[k]).trim()) errors[k] = req

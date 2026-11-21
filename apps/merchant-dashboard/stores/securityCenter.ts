@@ -10,13 +10,13 @@ export const useSecurityCenterStore = defineStore('securityCenter', () => {
     '4821-7730', '1093-5567', '8842-1019', '3356-9004', '7710-2288', '6195-4431', '2074-8856', '9908-3342',
   ])
 
-  function generateCodes() {
+  const generateCodes = () => {
     backupCodes.value = Array.from({ length: 8 }, () =>
       `${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`,
     )
   }
 
-  function revoke(id: string) {
+  const revoke = (id: string) => {
     devices.value = devices.value.filter((d) => d.id !== id || d.current)
   }
 

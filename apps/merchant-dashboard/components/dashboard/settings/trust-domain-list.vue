@@ -60,7 +60,7 @@ const { t } = useI18n()
 
 const draft = ref<string | number | boolean | undefined>('')
 
-function submit() {
+const submit = () => {
   const value = String(draft.value ?? '').trim()
   if (!value) return
   emit('add', value)

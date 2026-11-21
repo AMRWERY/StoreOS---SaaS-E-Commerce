@@ -1,5 +1,5 @@
 /** CRUD for `store_pages` – replace with API calls. */
-export function useStorePages() {
+export const useStorePages = () => {
   return {
     list: async (_storeId: string) => [],
     getBySlug: async (_storeId: string, _slug: string) => null,

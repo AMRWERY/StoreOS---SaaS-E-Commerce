@@ -8,7 +8,7 @@ export const useGiftCardsStore = defineStore('giftCards', () => {
     { code: 'GC-4C6P-31WR', recipient: 'Karim Fathy', initial: 750, balance: 750, status: 'expired', expiresAt: '2026-10-01' },
   ])
 
-  function issue(card: Pick<GiftCard, 'recipient' | 'initial' | 'expiresAt'>) {
+  const issue = (card: Pick<GiftCard, 'recipient' | 'initial' | 'expiresAt'>) => {
     const rand = () => Math.random().toString(36).slice(2, 6).toUpperCase()
     giftCards.value.unshift({
       code: `GC-${rand()}-${rand()}`,
@@ -17,7 +17,7 @@ export const useGiftCardsStore = defineStore('giftCards', () => {
       ...card,
     })
   }
-  function disable(code: string) {
+  const disable = (code: string) => {
     const c = giftCards.value.find((x) => x.code === code)
     if (c) c.status = 'disabled'
   }

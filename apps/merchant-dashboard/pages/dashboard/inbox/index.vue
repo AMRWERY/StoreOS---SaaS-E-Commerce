@@ -208,25 +208,25 @@ const lastText = (c: InboxConversation) => {
   return last?.text ?? ''
 }
 
-function select(id: string) {
+const select = (id: string) => {
   activeId.value = id
   store.markRead(id)
 }
 if (activeId.value) store.markRead(activeId.value)
 
-function send() {
+const send = () => {
   if (!activeId.value) return
   store.send(activeId.value, draft.value)
   draft.value = ''
 }
 
-function changeQty(id: string, delta: number) {
+const changeQty = (id: string, delta: number) => {
   qty[id] = Math.max(0, (qty[id] ?? 0) + delta)
 }
 const subtotal = computed(() => products.value.reduce((s, pr) => s + pr.price * (qty[pr.id] ?? 0), 0))
 const shipping = computed(() => (subtotal.value ? 60 : 0))
 
-function createDraft() {
+const createDraft = () => {
   if (!activeId.value || !subtotal.value) return
   store.addDraft(activeId.value)
   for (const k of Object.keys(qty)) delete qty[k]

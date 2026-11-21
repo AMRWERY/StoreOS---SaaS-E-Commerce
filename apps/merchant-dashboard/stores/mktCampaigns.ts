@@ -10,7 +10,7 @@ export const useMktCampaignsStore = defineStore('mktCampaigns', () => {
     { id: 'CMP-1047', name: 'Cart Reminder Promo', channel: 'whatsapp', audience: 'Abandoned carts', date: '2026-11-25', sent: 0, openRate: 0, clickRate: 0, revenue: 0, status: 'scheduled' },
   ])
 
-  function add(c: Omit<Campaign, 'id'>) {
+  const add = (c: Omit<Campaign, 'id'>) => {
     campaigns.value.unshift({ id: `CMP-${1048 + campaigns.value.length}`, ...c })
   }
 

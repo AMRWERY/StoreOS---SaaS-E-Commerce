@@ -21,7 +21,7 @@ const form = reactive({ name: account.user?.name ?? '', email: account.user?.ema
 const errors = reactive<Record<string, string>>({})
 const saved = ref(false)
 
-function save() {
+const save = () => {
   errors.name = form.name.trim() ? '' : t('shop.validation.required')
   errors.email = /^\S+@\S+\.\S+$/.test(form.email) ? '' : t('shop.validation.email')
   errors.phone = normalizePhone(form.phone) ? '' : t('shop.validation.phone')

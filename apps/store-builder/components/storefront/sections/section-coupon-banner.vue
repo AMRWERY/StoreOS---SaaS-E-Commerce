@@ -74,7 +74,7 @@ const btnClass =
 const copied = ref(false);
 let timer: ReturnType<typeof setTimeout> | undefined;
 
-async function copy() {
+const copy = async () => {
   try {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
       await navigator.clipboard.writeText(str("code"));

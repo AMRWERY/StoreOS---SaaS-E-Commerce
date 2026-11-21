@@ -135,7 +135,7 @@ const wrapClass = computed(() => {
 
 const MASONRY_RATIOS = ["aspect-[3/4]", "aspect-square", "aspect-[4/5]", "aspect-[4/3]", "aspect-[3/4]", "aspect-square"];
 
-function tileClass(i: number) {
+const tileClass = (i: number) => {
   if (variant.value === "masonry") return `mb-3 break-inside-avoid ${MASONRY_RATIOS[i % MASONRY_RATIOS.length]}`;
   if (variant.value === "featured") return i === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-square";
   return "aspect-square";
@@ -144,22 +144,22 @@ function tileClass(i: number) {
 // Lightbox
 const openIndex = ref<number | null>(null);
 
-function onKey(e: KeyboardEvent) {
+const onKey = (e: KeyboardEvent) => {
   if (openIndex.value === null) return;
   if (e.key === "Escape") close();
   else if (e.key === "ArrowRight") step(1);
   else if (e.key === "ArrowLeft") step(-1);
 }
 
-function openAt(i: number) {
+const openAt = (i: number) => {
   openIndex.value = i;
   if (typeof window !== "undefined") window.addEventListener("keydown", onKey);
 }
-function close() {
+const close = () => {
   openIndex.value = null;
   if (typeof window !== "undefined") window.removeEventListener("keydown", onKey);
 }
-function step(d: 1 | -1) {
+const step = (d: 1 | -1) => {
   if (openIndex.value === null) return;
   const n = images.value.length;
   openIndex.value = (openIndex.value + d + n) % n;

@@ -15,12 +15,12 @@ export const useEcoPosStore = defineStore('ecoPos', () => {
   const cart = ref<EcoPosCartLine[]>([])
   const held = ref<EcoPosCartLine[][]>([])
 
-  function add(p: EcoPosProduct) {
+  const add = (p: EcoPosProduct) => {
     const line = cart.value.find((l) => l.id === p.id)
     if (line) line.qty += 1
     else cart.value.push({ id: p.id, name: p.name, price: p.price, qty: 1 })
   }
-  function setQty(id: string, qty: number) {
+  const setQty = (id: string, qty: number) => {
     if (qty <= 0) {
       cart.value = cart.value.filter((l) => l.id !== id)
       return
@@ -28,19 +28,19 @@ export const useEcoPosStore = defineStore('ecoPos', () => {
     const line = cart.value.find((l) => l.id === id)
     if (line) line.qty = qty
   }
-  function hold() {
+  const hold = () => {
     if (!cart.value.length) return
     held.value.push(cart.value)
     cart.value = []
   }
-  function resume(index: number) {
+  const resume = (index: number) => {
     const next = held.value.splice(index, 1)[0]
     if (!next) return
     // Park the current sale instead of discarding it.
     if (cart.value.length) held.value.push(cart.value)
     cart.value = next
   }
-  function clear() {
+  const clear = () => {
     cart.value = []
   }
 

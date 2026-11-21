@@ -16,10 +16,10 @@ export const useStoreTaxesStore = defineStore('storeTaxes', () => {
     { id: 'apparel', exempt: false },
   ])
 
-  function removeOverride(id: string) {
+  const removeOverride = (id: string) => {
     overrides.value = overrides.value.filter((o) => o.id !== id)
   }
-  function addOverride() {
+  const addOverride = () => {
     overrides.value.push({ id: `r${Date.now()}`, region: 'New region', governorates: 'Alexandria', rate: 14 })
   }
 

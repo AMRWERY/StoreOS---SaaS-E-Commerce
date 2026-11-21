@@ -2,7 +2,7 @@ import { TOUR_STEPS, type TourAction, type TourStep } from '@/data/tour-steps'
 
 const STORAGE_KEY = 'storeos_builder_tour_done'
 
-function readDone(): boolean {
+const readDone = (): boolean => {
   try {
     return localStorage.getItem(STORAGE_KEY) === '1'
   } catch {
@@ -10,7 +10,7 @@ function readDone(): boolean {
   }
 }
 
-function writeDone(): void {
+const writeDone = (): void => {
   try {
     localStorage.setItem(STORAGE_KEY, '1')
   } catch {
@@ -18,7 +18,7 @@ function writeDone(): void {
   }
 }
 
-export function useTour() {
+export const useTour = () => {
   const active = useState<boolean>('builder-tour-active', () => false)
   const index = useState<number>('builder-tour-index', () => 0)
   const steps = useState<TourStep[]>('builder-tour-steps', () => TOUR_STEPS)
@@ -29,7 +29,7 @@ export function useTour() {
   const isFirst = computed(() => index.value === 0)
   const isLast = computed(() => index.value === steps.value.length - 1)
 
-  async function runAction(action?: TourAction): Promise<void> {
+  const runAction = async (action?: TourAction): Promise<void> => {
     if (action) {
       if (action.startsWith('tab:')) {
         leftTab.value = action.slice(4)
@@ -48,39 +48,39 @@ export function useTour() {
     await new Promise<void>((resolve) => setTimeout(resolve, 120))
   }
 
-  async function goTo(i: number): Promise<void> {
+  const goTo = async (i: number): Promise<void> => {
     const clamped = Math.min(Math.max(i, 0), steps.value.length - 1)
     index.value = clamped
     await runAction(steps.value[clamped]?.action)
   }
 
-  async function start(): Promise<void> {
+  const start = async (): Promise<void> => {
     index.value = 0
     active.value = true
     await runAction(steps.value[0]?.action)
   }
 
-  async function next(): Promise<void> {
+  const next = async (): Promise<void> => {
     if (isLast.value) return finish()
     await goTo(index.value + 1)
   }
 
-  async function prev(): Promise<void> {
+  const prev = async (): Promise<void> => {
     if (isFirst.value) return
     await goTo(index.value - 1)
   }
 
-  function skip(): void {
+  const skip = (): void => {
     active.value = false
     writeDone()
   }
 
-  function finish(): void {
+  const finish = (): void => {
     active.value = false
     writeDone()
   }
 
-  function maybeAutoStart(): void {
+  const maybeAutoStart = (): void => {
     if (!import.meta.client || active.value || readDone()) return
     void start()
   }

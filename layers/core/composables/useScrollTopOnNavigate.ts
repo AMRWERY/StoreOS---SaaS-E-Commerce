@@ -7,7 +7,7 @@
  * once the new page has replaced the old one, so the old page never visibly
  * jumps while it is still fading out.
  */
-export function useScrollTopOnNavigate(target: Ref<HTMLElement | null>) {
+export const useScrollTopOnNavigate = (target: Ref<HTMLElement | null>) => {
   const route = useRoute();
   const nuxtApp = useNuxtApp();
   let lastPath = route.path;

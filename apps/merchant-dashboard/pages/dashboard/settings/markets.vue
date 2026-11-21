@@ -159,7 +159,7 @@ const priceHeaders = computed(() => [
   ...foreignMarkets.value.map((m) => ({ key: m.code, label: `${m.currency} (${m.code})` })),
 ])
 
-function convert(base: number, m: Market): string {
+const convert = (base: number, m: Market): string => {
   const raw = base * m.rate
   let v = raw
   if (m.rounding === 'whole') v = Math.round(raw)
@@ -210,12 +210,12 @@ watch(
   },
 )
 
-function openPanel() {
+const openPanel = () => {
   form.code = availableCountries.value[0] ?? ''
   isOpen.value = true
 }
 
-function submit() {
+const submit = () => {
   const code = form.code as MarketCode
   const rate = Number(form.rate)
   if (!MARKET_DEFAULTS[code] || !rate) return

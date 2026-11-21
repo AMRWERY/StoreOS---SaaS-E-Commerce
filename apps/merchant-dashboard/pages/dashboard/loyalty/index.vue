@@ -210,7 +210,7 @@ const memberHeaders = computed(() => [
 ])
 
 const copied = ref(false)
-async function copyLink() {
+const copyLink = async () => {
   try {
     await navigator.clipboard.writeText(referral.value.link)
   } catch {

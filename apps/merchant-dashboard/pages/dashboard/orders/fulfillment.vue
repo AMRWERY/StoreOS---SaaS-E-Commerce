@@ -333,11 +333,11 @@ const allSelected = computed(
   () => filtered.value.length > 0 && filtered.value.every((o) => selected.value.includes(o.id)),
 )
 
-function toggleAll() {
+const toggleAll = () => {
   selected.value = allSelected.value ? [] : filtered.value.map((o) => o.id)
 }
 
-function toggleOne(id: string) {
+const toggleOne = (id: string) => {
   selected.value = selected.value.includes(id)
     ? selected.value.filter((x) => x !== id)
     : [...selected.value, id]
@@ -377,14 +377,14 @@ const headers = computed(() => [
   { key: 'actions', label: '', align: 'end' as const },
 ])
 
-function printSlips() {
+const printSlips = () => {
   navigateTo({
     path: localePath('/dashboard/orders/packing-slips'),
     query: { ids: selected.value.join(',') },
   })
 }
 
-function bulkLabels() {
+const bulkLabels = () => {
   const n = store.buyLabels(selected.value)
   notice.value = t('dashboard.ops.fulfillment.labelsBought', { n })
   selected.value = []
@@ -406,24 +406,24 @@ const form = reactive({
   qty: {} as Record<string, number>,
 })
 
-function resetQty() {
+const resetQty = () => {
   form.qty = Object.fromEntries(shippable.value.map((l) => [l.sku, l.qty - l.shippedQty]))
 }
 
-function openPanel(id: string) {
+const openPanel = (id: string) => {
   activeId.value = id
   resetQty()
   panelOpen.value = true
 }
 
-function setQty(line: FulfilLine, v: string | number | boolean) {
+const setQty = (line: FulfilLine, v: string | number | boolean) => {
   const max = line.qty - line.shippedQty
   form.qty[line.sku] = Math.min(max, Math.max(0, Math.floor(Number(v) || 0)))
 }
 
 const packageUnits = computed(() => Object.values(form.qty).reduce((s, q) => s + q, 0))
 
-function createShipment() {
+const createShipment = () => {
   if (!active.value || !packageUnits.value) return
   const pkg = store.createShipment(active.value.id, {
     courier: form.courier,

@@ -45,14 +45,14 @@ export const useAutomationWorkflowsStore = defineStore('automationWorkflows', ()
     { id: 'run-8998', at: '2026-11-11 17:05', target: 'ORD-8821', status: 'skipped', durationMs: 12 },
   ])
 
-  function getById(id: string) {
+  const getById = (id: string) => {
     return workflows.value.find((w) => w.id === id)
   }
-  function toggle(id: string) {
+  const toggle = (id: string) => {
     const w = getById(id)
     if (w) w.enabled = !w.enabled
   }
-  function addFromTemplate(tpl: Workflow, name: string): string {
+  const addFromTemplate = (tpl: Workflow, name: string): string => {
     const id = `wf-${Date.now()}`
     workflows.value.unshift({
       ...tpl,

@@ -31,7 +31,7 @@ const phone = ref('')
 const password = ref('')
 const errors = reactive<Record<string, string>>({})
 
-function submit() {
+const submit = () => {
   errors.name = name.value.trim() ? '' : t('shop.validation.required')
   errors.email = /^\S+@\S+\.\S+$/.test(email.value) ? '' : t('shop.validation.email')
   errors.phone = normalizePhone(phone.value) ? '' : t('shop.validation.phone')

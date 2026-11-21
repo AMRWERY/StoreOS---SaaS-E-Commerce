@@ -28,7 +28,7 @@ const colors = (...vals: [string, string, string][]): ProductOption => ({
   values: vals.map(([value, en, ar]) => ({ value, label: l(en, ar) })),
 })
 
-function build(id: string, price: number, options: ProductOption[], seed: number): ProductVariant[] {
+const build = (id: string, price: number, options: ProductOption[], seed: number): ProductVariant[] => {
   let combos: Record<string, string>[] = [{}]
   for (const o of options) {
     combos = combos.flatMap(c => o.values.map(v => ({ ...c, [o.key]: v.value })))

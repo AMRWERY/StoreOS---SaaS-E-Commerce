@@ -50,7 +50,7 @@ const itemClass = computed(() => {
 });
 
 // Divided band: vertical separators between items (reset at each row start on small screens).
-function dividerClass(i: number): string {
+const dividerClass = (i: number): string => {
   if (variant.value !== "divided-band" || i === 0) return "";
   const color = dark.value ? "sm:border-neutral-700" : "sm:border-neutral-200";
   return `sm:border-s ${color}`;
@@ -60,7 +60,7 @@ function dividerClass(i: number): string {
 const progress = ref(1);
 let raf = 0;
 
-function display(value: unknown): string {
+const display = (value: unknown): string => {
   const n = Number(value);
   if (!Number.isFinite(n)) return String(value ?? "");
   return Math.round(n * progress.value).toLocaleString("en-US");

@@ -36,12 +36,12 @@ export const useTrustCustomCodeStore = defineStore('trustCustomCode', () => {
     return parts.join(';\n')
   })
 
-  function addDomain(kind: keyof CspDomains, value: string) {
+  const addDomain = (kind: keyof CspDomains, value: string) => {
     const v = value.trim()
     if (!v || domains.value[kind].includes(v)) return
     domains.value[kind].push(v)
   }
-  function removeDomain(kind: keyof CspDomains, value: string) {
+  const removeDomain = (kind: keyof CspDomains, value: string) => {
     domains.value[kind] = domains.value[kind].filter((d) => d !== value)
   }
 

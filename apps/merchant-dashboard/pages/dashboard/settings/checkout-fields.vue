@@ -156,13 +156,13 @@ const draft = reactive<{
   enabled: boolean
 }>({ labelEn: '', labelAr: '', type: 'text', placement: 'contact', required: false, codOnly: false, enabled: true })
 
-function openNew() {
+const openNew = () => {
   editingId.value = ''
   optionsText.value = ''
   Object.assign(draft, { labelEn: '', labelAr: '', type: 'text', placement: 'contact', required: false, codOnly: false, enabled: true })
   panelOpen.value = true
 }
-function openEdit(f: CheckoutField) {
+const openEdit = (f: CheckoutField) => {
   editingId.value = f.id
   optionsText.value = f.options.join('\n')
   Object.assign(draft, {
@@ -179,7 +179,7 @@ function openEdit(f: CheckoutField) {
 
 const canSave = computed(() => !!draft.labelEn.trim() || !!draft.labelAr.trim())
 
-function submit() {
+const submit = () => {
   if (!canSave.value) return
   const options =
     draft.type === 'select'

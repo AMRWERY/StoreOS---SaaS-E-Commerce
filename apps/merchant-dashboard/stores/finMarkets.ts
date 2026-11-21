@@ -17,7 +17,7 @@ export const useFinMarketsStore = defineStore('finMarkets', () => {
     { id: 'P-4', name: 'Linen Summer Shirt', base: 520 },
   ])
 
-  function addMarket(m: Omit<Market, 'primary' | 'shipping' | 'payment' | 'domain'>) {
+  const addMarket = (m: Omit<Market, 'primary' | 'shipping' | 'payment' | 'domain'>) => {
     markets.value.push({
       ...m,
       primary: false,
@@ -26,7 +26,7 @@ export const useFinMarketsStore = defineStore('finMarkets', () => {
       payment: ['card'],
     })
   }
-  function toggleMethod(code: MarketCode, kind: 'shipping' | 'payment', value: string) {
+  const toggleMethod = (code: MarketCode, kind: 'shipping' | 'payment', value: string) => {
     const m = markets.value.find((x) => x.code === code)
     if (!m) return
     const list = m[kind] as string[]

@@ -12,17 +12,17 @@ export const useEcoRedirectsStore = defineStore('ecoRedirects', () => {
     { path: '/blog/eid-offers', hits: 41, lastSeen: '2026-11-10' },
   ])
 
-  function add(from: string, to: string, type: 301 | 302) {
+  const add = (from: string, to: string, type: 301 | 302) => {
     redirects.value.unshift({ id: `r${Date.now()}${redirects.value.length}`, from, to, type, hits: 0 })
   }
-  function remove(id: string) {
+  const remove = (id: string) => {
     redirects.value = redirects.value.filter((r) => r.id !== id)
   }
-  function fixNotFound(path: string, to: string, type: 301 | 302 = 301) {
+  const fixNotFound = (path: string, to: string, type: 301 | 302 = 301) => {
     add(path, to, type)
     notFounds.value = notFounds.value.filter((n) => n.path !== path)
   }
-  function importCsv(count: number) {
+  const importCsv = (count: number) => {
     for (let i = 0; i < count; i++) add(`/imported-${i + 1}`, '/products', 301)
   }
 

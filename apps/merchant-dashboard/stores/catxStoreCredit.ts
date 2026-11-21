@@ -20,7 +20,7 @@ export const useCatxStoreCreditStore = defineStore('catxStoreCredit', () => {
     ledger.value.filter((l) => l.type === 'add' && l.date.startsWith('2026-11')).reduce((s, l) => s + l.amount, 0),
   )
 
-  function adjust(customerId: string, type: 'add' | 'deduct', amount: number) {
+  const adjust = (customerId: string, type: 'add' | 'deduct', amount: number) => {
     const b = balances.value.find((x) => x.id === customerId)
     if (!b || amount <= 0) return
     b.balance = Math.max(0, b.balance + (type === 'add' ? amount : -amount))

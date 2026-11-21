@@ -4,7 +4,7 @@ import type { StorePage } from '@/types/sections'
  * Navigation inside the published preview: turns a link href (`/collection`, `/products/x`, `/`)
  * into one of the merchant's pages, and keeps the current page in the URL (?page=slug).
  */
-export function useSitePreview() {
+export const useSitePreview = () => {
   const store = useBuilderStore()
   const route = useRoute()
   const router = useRouter()
@@ -27,7 +27,7 @@ export function useSitePreview() {
   }
 
   /** The page a link points at, or null when none matches (→ 404). */
-  function resolve(href: string): StorePage | null {
+  const resolve = (href: string): StorePage | null => {
     const path = href
       .split('#')[0]!.split('?')[0]!
       .replace(/^https?:\/\/[^/]+/i, '')
@@ -46,7 +46,7 @@ export function useSitePreview() {
     return type ? (store.pages.find(p => p.type === type) ?? null) : null
   }
 
-  function go(target: string) {
+  const go = (target: string) => {
     slug.value = target
     if (import.meta.client) {
       window.scrollTo({ top: 0 })
@@ -55,7 +55,7 @@ export function useSitePreview() {
   }
 
   /** Follow a link; unknown destinations show the preview's "page not found". */
-  function navigate(href: string) {
+  const navigate = (href: string) => {
     const found = resolve(href)
     go(found ? found.slug : '__404__')
   }

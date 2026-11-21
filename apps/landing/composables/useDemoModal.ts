@@ -1,11 +1,11 @@
 const isDemoOpen = ref(false)
 
-export function useDemoModal() {
-  function openDemo() {
+export const useDemoModal = () => {
+  const openDemo = () => {
     isDemoOpen.value = true
   }
 
-  function closeDemo() {
+  const closeDemo = () => {
     isDemoOpen.value = false
   }
 

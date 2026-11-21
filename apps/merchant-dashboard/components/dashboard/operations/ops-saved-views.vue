@@ -82,12 +82,12 @@ const emit = defineEmits<{
 const { t } = useI18n()
 const name = ref('')
 
-function apply(v: OpsSavedView) {
+const apply = (v: OpsSavedView) => {
   emit('update:modelValue', v.id)
   emit('apply', v)
 }
 
-function submit(close: () => void) {
+const submit = (close: () => void) => {
   emit('save', name.value.trim())
   name.value = ''
   close()

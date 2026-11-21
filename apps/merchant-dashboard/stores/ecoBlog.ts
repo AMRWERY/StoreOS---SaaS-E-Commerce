@@ -19,12 +19,12 @@ export const useEcoBlogStore = defineStore('ecoBlog', () => {
     },
   ])
 
-  function save(a: EcoArticle) {
+  const save = (a: EcoArticle) => {
     const i = articles.value.findIndex((x) => x.id === a.id)
     if (i >= 0) articles.value[i] = a
     else articles.value.unshift(a)
   }
-  function remove(id: string) {
+  const remove = (id: string) => {
     articles.value = articles.value.filter((x) => x.id !== id)
   }
 

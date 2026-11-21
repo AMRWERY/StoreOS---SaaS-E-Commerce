@@ -172,7 +172,7 @@ const shipping = computed(() =>
   cart.items.value.length === 0 || cart.total.value >= threshold.value ? 0 : num("shippingFee", 8),
 );
 
-function apply() {
+const apply = () => {
   if (!code.value.trim()) {
     cart.applyCoupon("");
     couponState.value = "idle";

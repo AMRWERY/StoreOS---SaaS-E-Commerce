@@ -192,7 +192,7 @@ const payoutHeaders = computed(() => [
 ])
 
 const saved = ref(false)
-function saveSettings() {
+const saveSettings = () => {
   saved.value = true
   setTimeout(() => (saved.value = false), 2500)
 }

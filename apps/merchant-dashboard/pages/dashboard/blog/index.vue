@@ -81,15 +81,15 @@ const headers = computed(() => [
   { key: 'publishDate', label: t('dashboard.ops.blog.publishDate') },
 ])
 
-function openNew() {
+const openNew = () => {
   editing.value = null
   isOpen.value = true
 }
-function openEdit(a: EcoArticle) {
+const openEdit = (a: EcoArticle) => {
   editing.value = a
   isOpen.value = true
 }
-function onRemove(id: string) {
+const onRemove = (id: string) => {
   store.remove(id)
   isOpen.value = false
 }

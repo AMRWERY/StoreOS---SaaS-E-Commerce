@@ -1,4 +1,4 @@
-export function useGreeting() {
+export const useGreeting = () => {
   const now = useNow();
 
   const greetingData = computed(() => {

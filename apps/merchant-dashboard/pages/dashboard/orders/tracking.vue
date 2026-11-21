@@ -198,7 +198,7 @@ const headers = computed(() => [
 const panelOpen = ref(false)
 const activeId = ref('')
 const active = computed(() => shipments.value.find((s) => s.id === activeId.value))
-function openEvents(id: string) {
+const openEvents = (id: string) => {
   activeId.value = id
   panelOpen.value = true
 }

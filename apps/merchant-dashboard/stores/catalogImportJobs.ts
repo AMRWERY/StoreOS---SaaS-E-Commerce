@@ -9,7 +9,7 @@ export const useCatalogImportJobsStore = defineStore('catalogImportJobs', () => 
 
   const issues = ref<ImportIssue[]>([])
 
-  function mockParse(): number {
+  const mockParse = (): number => {
     issues.value = [
       { row: 4, field: 'price', error: 'invalid_price' },
       { row: 11, field: 'sku', error: 'duplicate_sku' },
@@ -19,11 +19,11 @@ export const useCatalogImportJobsStore = defineStore('catalogImportJobs', () => 
     return 120
   }
 
-  function clearIssues() {
+  const clearIssues = () => {
     issues.value = []
   }
 
-  function addJob(kind: ImportJobKind, file: string, rows: number) {
+  const addJob = (kind: ImportJobKind, file: string, rows: number) => {
     jobs.value.unshift({
       id: `JOB-${311 + jobs.value.length - 3}`,
       kind,

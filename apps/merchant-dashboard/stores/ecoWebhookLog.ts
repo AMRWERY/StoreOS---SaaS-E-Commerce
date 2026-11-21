@@ -31,14 +31,14 @@ export const useEcoWebhookLogStore = defineStore('ecoWebhookLog', () => {
     { attempt: 5, delay: '2h' },
   ]
 
-  function retry(id: string) {
+  const retry = (id: string) => {
     const d = deliveries.value.find((x) => x.id === id)
     if (!d) return
     d.attempts += 1
     d.status = 'delivered'
     d.statusCode = 200
   }
-  function replay(id: string) {
+  const replay = (id: string) => {
     const d = deliveries.value.find((x) => x.id === id)
     if (!d) return
     deliveries.value.unshift({ ...d, id: `${d.id}_r${deliveries.value.length}`, attempts: 1, status: 'delivered', statusCode: 200, time: '2026-11-12 10:00:00' })

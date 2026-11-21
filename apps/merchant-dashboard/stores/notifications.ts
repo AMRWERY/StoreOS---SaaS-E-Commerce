@@ -92,11 +92,11 @@ export const useNotificationsStore = defineStore('notifications', () => {
     return notifications.value.filter(n => n.type === activeTab.value)
   })
 
-  function markAllAsRead() {
+  const markAllAsRead = () => {
     notifications.value.forEach(n => (n.read = true))
   }
 
-  function markAsRead(id: number) {
+  const markAsRead = (id: number) => {
     const n = notifications.value.find(n => n.id === id)
     if (n) n.read = true
   }

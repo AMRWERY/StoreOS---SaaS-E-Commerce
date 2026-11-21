@@ -127,7 +127,7 @@ const headers = computed(() => [
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
-function submit() {
+const submit = () => {
   if (!form.product.trim() || !when.value) return
   const d = when.value
   store.add({

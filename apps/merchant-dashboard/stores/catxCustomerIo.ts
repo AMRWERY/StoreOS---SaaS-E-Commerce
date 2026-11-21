@@ -21,7 +21,7 @@ export const useCatxCustomerIoStore = defineStore('catxCustomerIo', () => {
     { id: 'E4', row: 24, field: 'email', reason: 'duplicate' },
   ]
 
-  function addJob(kind: 'import' | 'export', file: string, rows: number) {
+  const addJob = (kind: 'import' | 'export', file: string, rows: number) => {
     jobs.value.unshift({ id: `JOB-${String(jobs.value.length + 1).padStart(2, '0')}`, kind, file, rows, date: '2026-11-12', status: 'processing' })
   }
 

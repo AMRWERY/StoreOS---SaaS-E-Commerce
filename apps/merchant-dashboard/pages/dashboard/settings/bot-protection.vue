@@ -196,15 +196,15 @@ const kindOptions = computed(() =>
   (['ip', 'country'] as const).map((k) => ({ value: k, label: t(`dashboard.ops.botProtection.kinds.${k}`) })),
 )
 
-function setSensitivity(v: number | [number, number]) {
+const setSensitivity = (v: number | [number, number]) => {
   sensitivity.value = Array.isArray(v) ? v[0] : v
 }
-function addEntry() {
+const addEntry = () => {
   addBlocked(newKind.value, newValue.value)
   newValue.value = ''
 }
 const saved = ref(false)
-function save() {
+const save = () => {
   // mock save: settings live in the store only
   saved.value = true
 }

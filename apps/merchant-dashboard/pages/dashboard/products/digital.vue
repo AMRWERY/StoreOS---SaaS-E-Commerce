@@ -123,12 +123,12 @@ const isOpen = ref(false)
 const activeId = ref<string | null>(null)
 const active = computed(() => products.value.find((p) => p.id === activeId.value))
 
-function openPanel(id: string) {
+const openPanel = (id: string) => {
   activeId.value = id
   isOpen.value = true
 }
 
-function onFile(file: File | null) {
+const onFile = (file: File | null) => {
   if (file && activeId.value) store.addFiles(activeId.value, 1)
 }
 

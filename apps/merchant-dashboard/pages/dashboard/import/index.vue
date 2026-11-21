@@ -192,24 +192,24 @@ const mapHeaders = computed(() => [
   { key: 'target', label: t('dashboard.ops.importer.targetField') },
 ])
 
-function stopTimer() {
+const stopTimer = () => {
   if (timer) clearInterval(timer)
   timer = null
 }
 
-function pick(id: EcoImportSourceId) {
+const pick = (id: EcoImportSourceId) => {
   source.value = id
   reset(false)
 }
 
-function reset(clearSource = true) {
+const reset = (clearSource = true) => {
   stopTimer()
   step.value = 1
   progress.value = 0
   if (clearSource) source.value = null
 }
 
-function start() {
+const start = () => {
   step.value = 4
   progress.value = 0
   stopTimer()

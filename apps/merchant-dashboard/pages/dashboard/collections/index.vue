@@ -108,7 +108,7 @@ const headers = computed(() => [
   { key: 'actions', label: '', align: 'end' as const },
 ])
 
-function submit() {
+const submit = () => {
   if (!form.title.trim()) return
   store.addCollection({
     title: form.title.trim(),

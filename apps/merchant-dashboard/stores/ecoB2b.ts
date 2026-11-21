@@ -34,14 +34,14 @@ export const useEcoB2bStore = defineStore('ecoB2b', () => {
     },
   ])
 
-  function addCompany(c: Omit<EcoCompany, 'id' | 'status'>) {
+  const addCompany = (c: Omit<EcoCompany, 'id' | 'status'>) => {
     companies.value.unshift({ id: `c${Date.now()}`, status: 'pending', ...c })
   }
-  function assignCompany(listId: string, company: string) {
+  const assignCompany = (listId: string, company: string) => {
     const l = priceLists.value.find((x) => x.id === listId)
     if (l && !l.companies.includes(company)) l.companies.push(company)
   }
-  function sendQuote(id: string, discountPct: number) {
+  const sendQuote = (id: string, discountPct: number) => {
     const q = quotes.value.find((x) => x.id === id)
     if (!q) return
     q.discountPct = discountPct

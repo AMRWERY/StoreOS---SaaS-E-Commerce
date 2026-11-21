@@ -14,7 +14,7 @@ export const useSupportCenterStore = defineStore('supportCenter', () => {
     { id: 'TKT-2011', subject: 'Domain SSL certificate', priority: 'low', status: 'resolved', updatedAt: '2026-11-02' },
   ])
 
-  function createTicket(subject: string, priority: SupportTicket['priority']) {
+  const createTicket = (subject: string, priority: SupportTicket['priority']) => {
     const n = 2042 + tickets.value.length
     tickets.value.unshift({ id: `TKT-${n}`, subject, priority, status: 'open', updatedAt: '2026-11-12' })
   }

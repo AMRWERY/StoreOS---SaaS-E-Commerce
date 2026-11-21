@@ -18,10 +18,10 @@ export const useChanChannelsStore = defineStore('chanChannels', () => {
     { id: 'FI-6', product: 'Wool Scarf', channel: 'google', issue: 'shortTitle', severity: 'info' },
   ])
 
-  function find(key: ChannelKey) {
+  const find = (key: ChannelKey) => {
     return channels.value.find((c) => c.key === key)
   }
-  function connect(key: ChannelKey) {
+  const connect = (key: ChannelKey) => {
     const c = find(key)
     if (!c) return
     c.status = 'connected'
@@ -29,7 +29,7 @@ export const useChanChannelsStore = defineStore('chanChannels', () => {
     c.lastSync = '2026-11-12 10:00'
     if (!c.products) c.products = 120
   }
-  function disconnect(key: ChannelKey) {
+  const disconnect = (key: ChannelKey) => {
     const c = find(key)
     if (!c) return
     c.status = 'disconnected'
@@ -39,7 +39,7 @@ export const useChanChannelsStore = defineStore('chanChannels', () => {
     c.publish = { products: false, inventory: false, prices: false }
     issues.value = issues.value.filter((i) => i.channel !== key)
   }
-  function syncNow(key: ChannelKey) {
+  const syncNow = (key: ChannelKey) => {
     const c = find(key)
     if (c && c.status !== 'disconnected') {
       c.lastSync = '2026-11-12 10:00'

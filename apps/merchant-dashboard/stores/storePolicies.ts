@@ -19,15 +19,15 @@ export const useStorePoliciesStore = defineStore('storePolicies', () => {
     { key: 'terms', body: POLICY_TEMPLATES.terms, published: false, updatedAt: '2026-09-02' },
   ])
 
-  function get(key: PolicyKey): StorePolicy {
+  const get = (key: PolicyKey): StorePolicy => {
     return policies.value.find((p) => p.key === key) ?? policies.value[0]!
   }
-  function generate(key: PolicyKey) {
+  const generate = (key: PolicyKey) => {
     const p = get(key)
     p.body = POLICY_TEMPLATES[key]
     p.updatedAt = new Date().toISOString().slice(0, 10)
   }
-  function save(key: PolicyKey) {
+  const save = (key: PolicyKey) => {
     get(key).updatedAt = new Date().toISOString().slice(0, 10)
   }
 

@@ -40,20 +40,20 @@ export const useNavigationStore = defineStore('navigation', () => {
 
   const selected = computed(() => menus.value.find((m) => m.id === selectedId.value) ?? menus.value[0])
 
-  function listFor(parent?: NavItem): NavItem[] {
+  const listFor = (parent?: NavItem): NavItem[] => {
     return parent ? parent.children : (selected.value?.items ?? [])
   }
-  function addItem(parent?: NavItem) {
+  const addItem = (parent?: NavItem) => {
     listFor(parent).push({ id: uid(), label: '', url: '', children: [] })
     dirty.value = true
   }
-  function removeItem(item: NavItem, parent?: NavItem) {
+  const removeItem = (item: NavItem, parent?: NavItem) => {
     const list = listFor(parent)
     const i = list.findIndex((x) => x.id === item.id)
     if (i >= 0) list.splice(i, 1)
     dirty.value = true
   }
-  function move(item: NavItem, dir: -1 | 1, parent?: NavItem) {
+  const move = (item: NavItem, dir: -1 | 1, parent?: NavItem) => {
     const list = listFor(parent)
     const i = list.findIndex((x) => x.id === item.id)
     const j = i + dir
@@ -64,7 +64,7 @@ export const useNavigationStore = defineStore('navigation', () => {
     list[j] = a
     dirty.value = true
   }
-  function save() {
+  const save = () => {
     dirty.value = false
     lastSaved.value = new Date().toISOString().slice(0, 16).replace('T', ' ')
   }

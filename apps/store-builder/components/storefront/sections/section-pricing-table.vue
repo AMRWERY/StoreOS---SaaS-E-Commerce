@@ -95,7 +95,7 @@ const containerClass = computed(() => {
   return `grid ${isMinimal.value ? "gap-0 gap-y-8" : "gap-6"} ${grid}`;
 });
 
-function cardClass(highlighted: unknown, index: number): string {
+const cardClass = (highlighted: unknown, index: number): string => {
   if (isRows.value) {
     return `flex flex-col gap-4 rounded-2xl border bg-white p-6 sm:flex-row sm:items-center sm:gap-8 ${
       highlighted ? "border-indigo-600 ring-1 ring-indigo-600" : "border-neutral-200"
@@ -111,7 +111,7 @@ function cardClass(highlighted: unknown, index: number): string {
   }`;
 }
 
-function buttonClass(highlighted: unknown): string {
+const buttonClass = (highlighted: unknown): string => {
   if (isMinimal.value) {
     return highlighted
       ? "rounded-xl bg-indigo-600 px-4 py-2.5 text-white hover:bg-indigo-700"
@@ -122,13 +122,13 @@ function buttonClass(highlighted: unknown): string {
     : "rounded-xl border border-neutral-200 px-4 py-2.5 text-neutral-900 hover:bg-neutral-50";
 }
 
-function priceFor(price: unknown): string {
+const priceFor = (price: unknown): string => {
   const monthly = Number(price) || 0;
   const value = billing.value === "yearly" ? monthly * (1 - discount.value / 100) : monthly;
   return Number.isInteger(value) ? String(value) : value.toFixed(2);
 }
 
-function featuresOf(text: unknown): string[] {
+const featuresOf = (text: unknown): string[] => {
   return String(text ?? "")
     .split("\n")
     .map((l) => l.trim())

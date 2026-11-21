@@ -108,7 +108,7 @@ export const useOrdersStore = defineStore('orders', () => {
     orders.value.length > 0 && selectedOrders.value.length === orders.value.length
   )
 
-  function toggleSelection(id: number) {
+  const toggleSelection = (id: number) => {
     const index = selectedOrders.value.indexOf(id)
     if (index === -1) {
       selectedOrders.value.push(id)
@@ -117,7 +117,7 @@ export const useOrdersStore = defineStore('orders', () => {
     }
   }
 
-  function toggleSelectAll() {
+  const toggleSelectAll = () => {
     if (isAllSelected.value) {
       selectedOrders.value = []
     } else {

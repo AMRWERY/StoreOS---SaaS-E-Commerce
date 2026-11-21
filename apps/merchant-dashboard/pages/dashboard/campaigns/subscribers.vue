@@ -167,17 +167,17 @@ const importOpen = ref(false)
 const pendingFile = ref<File | null>(null)
 const importedFile = ref('')
 
-function onFile(file: File | null) {
+const onFile = (file: File | null) => {
   pendingFile.value = file
 }
-function confirmImport() {
+const confirmImport = () => {
   if (!pendingFile.value) return
   importedFile.value = pendingFile.value.name
   pendingFile.value = null
   importOpen.value = false
 }
 
-function exportCsv() {
+const exportCsv = () => {
   const rows = [
     'contact,source,consent,subscribed_at,tags',
     ...subscribers.value.map((s) => [s.contact, s.source, s.consent, s.subscribedAt, s.tags.join('|')].join(',')),

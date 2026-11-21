@@ -165,7 +165,7 @@ const headers = computed(() => [
   { key: 'actions', label: '', align: 'end' as const },
 ])
 
-function submit() {
+const submit = () => {
   if (!form.orderId.trim() || !form.customer.trim() || !form.returnedItem.trim() || !form.replacementItem.trim()) return
   store.create({
     orderId: form.orderId.trim(),

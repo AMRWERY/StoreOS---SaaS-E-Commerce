@@ -48,8 +48,8 @@ export const EDITORIAL_ARTICLES: EditorialArticle[] = [
   },
 ];
 
-export function getEditorialArticleById(
+export const getEditorialArticleById = (
   id: string,
-): EditorialArticle | undefined {
+): EditorialArticle | undefined => {
   return EDITORIAL_ARTICLES.find((a) => a.id === id);
 }

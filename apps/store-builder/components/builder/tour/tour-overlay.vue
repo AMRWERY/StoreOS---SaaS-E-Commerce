@@ -45,7 +45,7 @@ const stepLabel = computed(() =>
   t(TOUR_UI.stepOf).replace('{n}', String(index.value + 1)).replace('{total}', String(total.value)),
 )
 
-function findTarget(): HTMLElement | null {
+const findTarget = (): HTMLElement | null => {
   const sel = current.value?.target
   if (!sel) return null
   try {
@@ -58,14 +58,14 @@ function findTarget(): HTMLElement | null {
   }
 }
 
-function physicalSide(p: TourPlacement | undefined): Side | null {
+const physicalSide = (p: TourPlacement | undefined): Side | null => {
   if (!p || p === 'center') return null
   if (p === 'start') return isAr.value ? 'right' : 'left'
   if (p === 'end') return isAr.value ? 'left' : 'right'
   return p
 }
 
-function space(s: Side, b: Box): number {
+const space = (s: Side, b: Box): number => {
   switch (s) {
     case 'top': return b.top - MARGIN
     case 'bottom': return vh.value - (b.top + b.height) - MARGIN
@@ -74,17 +74,17 @@ function space(s: Side, b: Box): number {
   }
 }
 
-function needed(s: Side): number {
+const needed = (s: Side): number => {
   return (s === 'left' || s === 'right' ? CARD_W : cardH.value) + GAP
 }
 
 const OPPOSITE: Record<Side, Side> = { top: 'bottom', bottom: 'top', left: 'right', right: 'left' }
 
-function clamp(v: number, min: number, max: number): number {
+const clamp = (v: number, min: number, max: number): number => {
   return Math.max(min, Math.min(v, Math.max(min, max)))
 }
 
-function compute(): void {
+const compute = (): void => {
   vw.value = window.innerWidth
   vh.value = window.innerHeight
   cardH.value = cardRef.value?.offsetHeight || cardH.value
@@ -135,12 +135,12 @@ function compute(): void {
   else arrow.value = { left: b.left - mid, top: clamp(cy, top + 28, top + cardH.value - 28), rot: 90 }
 }
 
-function stopPoll(): void {
+const stopPoll = (): void => {
   if (pollId) cancelAnimationFrame(pollId)
   pollId = 0
 }
 
-function startPoll(): void {
+const startPoll = (): void => {
   stopPoll()
   pollUntil = performance.now() + 600
   const tick = (): void => {
@@ -151,7 +151,7 @@ function startPoll(): void {
   pollId = requestAnimationFrame(tick)
 }
 
-async function onStepChange(): Promise<void> {
+const onStepChange = async (): Promise<void> => {
   await nextTick()
   const el = findTarget()
   if (el) {
@@ -168,7 +168,7 @@ async function onStepChange(): Promise<void> {
   primaryRef.value?.focus({ preventScroll: true })
 }
 
-function onKeydown(e: KeyboardEvent): void {
+const onKeydown = (e: KeyboardEvent): void => {
   if (!active.value) return
   // The tour can only be left with "Skip tour" or by finishing it — Esc is deliberately ignored.
   if (e.key === 'Escape') {
@@ -205,18 +205,18 @@ function onKeydown(e: KeyboardEvent): void {
   }
 }
 
-function onResize(): void {
+const onResize = (): void => {
   compute()
 }
 
-function attach(): void {
+const attach = (): void => {
   previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
   window.addEventListener('keydown', onKeydown, true)
   window.addEventListener('resize', onResize)
   window.addEventListener('scroll', onResize, true)
 }
 
-function detach(): void {
+const detach = (): void => {
   window.removeEventListener('keydown', onKeydown, true)
   window.removeEventListener('resize', onResize)
   window.removeEventListener('scroll', onResize, true)

@@ -12,7 +12,7 @@ export const useTrustLegalStore = defineStore('trustLegal', () => {
     { id: 'h2', doc: 'tos', version: '2026-03', acceptedBy: 'Amr Mohamed', acceptedAt: '2026-03-12 09:02:11', ip: '41.33.120.8' },
   ])
 
-  function accept(key: LegalDocument['key'], by: string) {
+  const accept = (key: LegalDocument['key'], by: string) => {
     const d = documents.value.find((x) => x.key === key)
     if (!d || d.accepted) return
     const at = new Date().toISOString().slice(0, 19).replace('T', ' ')

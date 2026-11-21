@@ -144,7 +144,7 @@ const headers = computed(() => [
   { key: 'status', label: t('dashboard.ops.common.statusLabel') },
 ])
 
-function summary(rules: SegmentRule[]) {
+const summary = (rules: SegmentRule[]) => {
   return rules
     .map(
       (r) =>
@@ -153,11 +153,11 @@ function summary(rules: SegmentRule[]) {
     .join(` ${t('dashboard.ops.segments.and')} `)
 }
 
-function addRule() {
+const addRule = () => {
   form.rules.push(blankRule())
 }
 
-function submit() {
+const submit = () => {
   if (!form.name.trim()) return
   const rules = form.rules.filter((r) => r.value.trim())
   if (!rules.length) return

@@ -143,7 +143,7 @@ watch(() => form.city, () => { form.area = '' })
 
 const normalizedPhone = computed(() => normalizePhone(form.phone))
 
-function shippingFor(method: string) {
+const shippingFor = (method: string) => {
   if (cart.coupon?.type === 'shipping' && method !== 'pickup') return method === 'express' ? Math.max(0, EXPRESS_SHIPPING - STANDARD_SHIPPING) : 0
   if (method === 'pickup') return 0
   if (method === 'express') return EXPRESS_SHIPPING
@@ -152,7 +152,7 @@ function shippingFor(method: string) {
 const shipping = computed(() => shippingFor(form.delivery))
 const total = computed(() => Math.max(0, cart.subtotal - cart.discount + shipping.value))
 
-function validate() {
+const validate = () => {
   for (const k of Object.keys(errors)) delete errors[k]
   const req = t('shop.validation.required')
   if (!/^\S+@\S+\.\S+$/.test(form.email)) errors.email = t('shop.validation.email')
@@ -165,7 +165,7 @@ function validate() {
   return Object.keys(errors).length === 0
 }
 
-async function placeOrder() {
+const placeOrder = async () => {
   if (!validate()) return
   submitting.value = true
   const id = orders.nextOrderId()

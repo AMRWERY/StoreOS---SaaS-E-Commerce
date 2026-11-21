@@ -114,14 +114,14 @@ const discountRate = computed(() =>
 const savings = computed(() => subtotal.value * discountRate.value);
 const total = computed(() => subtotal.value - savings.value);
 
-function toggle(id: string) {
+const toggle = (id: string) => {
   const next = new Set(selected.value);
   if (next.has(id)) next.delete(id);
   else next.add(id);
   selected.value = next;
 }
 
-function addBundle() {
+const addBundle = () => {
   chosen.value.forEach((p) => cart.add(p.id));
   added.value = true;
   setTimeout(() => (added.value = false), 2000);

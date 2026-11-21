@@ -13,10 +13,10 @@ export const useMediaFilesStore = defineStore('mediaFiles', () => {
 
   const usedKb = computed(() => files.value.reduce((s, f) => s + f.sizeKb, 0))
 
-  function remove(id: string) {
+  const remove = (id: string) => {
     files.value = files.value.filter((f) => f.id !== id)
   }
-  function addFromUpload(file: File | null) {
+  const addFromUpload = (file: File | null) => {
     if (!file) return
     const type: MediaFileType = file.type.startsWith('image/')
       ? 'image'

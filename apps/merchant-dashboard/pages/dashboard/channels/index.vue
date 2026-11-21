@@ -171,7 +171,7 @@ const issueHeaders = computed(() => [
 
 const channelName = (key: ChannelKey) => channels.value.find((c) => c.key === key)?.name ?? key
 
-function setPublish(key: ChannelKey, field: keyof SalesChannel['publish'], value: boolean) {
+const setPublish = (key: ChannelKey, field: keyof SalesChannel['publish'], value: boolean) => {
   const c = channels.value.find((x) => x.key === key)
   if (c && c.status !== 'disconnected') c.publish[field] = value
 }

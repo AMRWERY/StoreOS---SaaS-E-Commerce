@@ -144,23 +144,23 @@ const noteHeaders = computed(() => [
   { key: 'date', label: t('dashboard.ops.common.date') },
 ])
 
-function createTag() {
+const createTag = () => {
   if (!newName.value.trim()) return
   store.addTag(newName.value.trim(), newColor.value)
   newName.value = ''
 }
 
-function startRename(id: string, name: string) {
+const startRename = (id: string, name: string) => {
   editingId.value = id
   editName.value = name
 }
 
-function saveRename(id: string) {
+const saveRename = (id: string) => {
   store.renameTag(id, editName.value)
   editingId.value = null
 }
 
-function submitNote() {
+const submitNote = () => {
   if (!noteForm.customer.trim() || !noteForm.note.trim()) return
   store.addNote(noteForm.customer.trim(), noteForm.note.trim())
   noteForm.customer = ''

@@ -65,7 +65,7 @@ export const SHAPE_GROUPS: ShapeGroup[] = [
 ]
 
 /** `data-*` attributes for a block wrapper; `default` values are omitted. */
-export function shapeAttrs(settings: Record<string, unknown>): Record<string, string> {
+export const shapeAttrs = (settings: Record<string, unknown>): Record<string, string> => {
   const attrs: Record<string, string> = {}
   for (const g of SHAPE_GROUPS) {
     const v = settings[g.key]

@@ -130,7 +130,7 @@ const reasonOptions = computed(() =>
   })),
 )
 
-function reset() {
+const reset = () => {
   rows.value = props.lines.map((l) => ({ ...l, max: l.qty, qty: 0, amount: 0 }))
   shipping.value = 0
   reason.value = 'customer'
@@ -145,13 +145,13 @@ watch(
   { immediate: true },
 )
 
-function setQty(row: Row, v: string | number | boolean) {
+const setQty = (row: Row, v: string | number | boolean) => {
   const q = Math.min(row.max, Math.max(0, Math.floor(Number(v) || 0)))
   row.qty = q
   row.amount = Math.round(q * row.unitPrice * 100) / 100
 }
 
-function setAmount(row: Row, v: string | number | boolean) {
+const setAmount = (row: Row, v: string | number | boolean) => {
   row.amount = Math.max(0, Number(v) || 0)
 }
 
@@ -160,7 +160,7 @@ const itemsTotal = computed(() => rows.value.reduce((s, r) => s + r.amount, 0))
 const shippingNum = computed(() => Math.min(props.shippingPaid, Math.max(0, Number(shipping.value) || 0)))
 const total = computed(() => itemsTotal.value + shippingNum.value)
 
-function confirm() {
+const confirm = () => {
   if (total.value <= 0) return
   emit('confirm', {
     lines: rows.value.filter((r) => r.qty > 0 || r.amount > 0).map((r) => ({ sku: r.sku, qty: r.qty, amount: r.amount })),

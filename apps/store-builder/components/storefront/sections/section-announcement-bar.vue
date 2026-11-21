@@ -51,13 +51,13 @@ const index = ref(0);
 const visible = ref(true);
 const current = computed(() => messages.value[index.value % messages.value.length] ?? {});
 
-function step(dir: number) {
+const step = (dir: number) => {
   const n = messages.value.length;
   if (n) index.value = (index.value + dir + n) % n;
 }
 
 let timer: ReturnType<typeof setInterval> | undefined;
-function restart() {
+const restart = () => {
   if (timer) clearInterval(timer);
   timer = undefined;
   if (bool("autoplay", true) && messages.value.length > 1) {

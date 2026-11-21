@@ -99,7 +99,7 @@ export const FONT_OPTIONS = [
 ]
 
 /** Google Fonts stylesheet for the fonts in use (null when only system fonts are used). */
-export function googleFontsHref(fonts: string[]): string | null {
+export const googleFontsHref = (fonts: string[]): string | null => {
   const families = [...new Set(fonts)].filter((f) => f && f !== 'system-ui')
   if (!families.length) return null
   return (
@@ -112,7 +112,7 @@ export function googleFontsHref(fonts: string[]): string | null {
 const stack = (font: string) => (font === 'system-ui' ? 'system-ui, sans-serif' : `'${font}', system-ui, sans-serif`)
 
 /** True when a #rrggbb color is dark enough that light text should sit on it. */
-export function isDarkColor(hex: string): boolean {
+export const isDarkColor = (hex: string): boolean => {
   const m = /^#?([0-9a-f]{6})$/i.exec(hex.trim())
   if (!m) return false
   const n = parseInt(m[1], 16)
@@ -139,7 +139,7 @@ export const THEME_PRESETS: ThemePreset[] = [
 ]
 
 /** CSS custom properties applied on the site root (`.sb-site`). */
-export function themeStyleVars(t: SiteTheme): Record<string, string> {
+export const themeStyleVars = (t: SiteTheme): Record<string, string> => {
   return {
     '--site-surface': `color-mix(in srgb, ${t.background} 90%, ${t.text})`,
     '--site-surface-2': `color-mix(in srgb, ${t.background} 82%, ${t.text})`,

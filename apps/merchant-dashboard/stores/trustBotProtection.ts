@@ -24,7 +24,7 @@ export const useTrustBotProtectionStore = defineStore('trustBotProtection', () =
     { id: 'e4', ip: '41.130.22.17', route: '/api/auth/register', reason: 'blocklist', at: '2026-11-11 21:02:10' },
   ])
 
-  function addBlocked(kind: 'ip' | 'country', value: string) {
+  const addBlocked = (kind: 'ip' | 'country', value: string) => {
     const v = value.trim()
     if (!v) return
     blocklist.value.unshift({
@@ -34,7 +34,7 @@ export const useTrustBotProtectionStore = defineStore('trustBotProtection', () =
       addedAt: new Date().toISOString().slice(0, 10),
     })
   }
-  function removeBlocked(id: string) {
+  const removeBlocked = (id: string) => {
     blocklist.value = blocklist.value.filter((b) => b.id !== id)
   }
 
