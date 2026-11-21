@@ -26,11 +26,11 @@
 ## 2. TITLE PATTERN
 
 ```
-storefront:   {Page Title} | StoreOS Store      (titleTemplate in apps/storefront/nuxt.config.ts)
+storefront:   {Page Title} | StoreOS      (titleTemplate in apps/storefront/nuxt.config.ts)
 landing:      {Page Title}                       (titleTemplate '%s'; pages write the full title)
 merchant:     {Page Title}                       (titleTemplate '%s')
 store-builder:{Page Title}                       (titleTemplate '%s')
-admin:        {Page Title} | StoreOS Store      (see Known issues — inherited from storefront)
+admin:        {Page Title} | StoreOS      (see Known issues — inherited from storefront)
 ```
 
 Each page sets its title with `useSeoMeta({ title })`. Dashboard pages in `apps/merchant-dashboard`
@@ -50,7 +50,7 @@ Global fallback descriptions (`app.head.meta` in each app's `nuxt.config.ts`):
 | --- | --- |
 | storefront | "Shop the latest collection with cash on delivery across Egypt." |
 | landing / merchant-dashboard | "StoreOS — The all-in-one merchant dashboard. Manage orders, products, customers, and analytics in one place." |
-| store-builder | "StoreOS Store Builder — design and publish your storefront." |
+| store-builder | "StoreOS Builder — design and publish your storefront." |
 | admin | "Shop the latest collection. Free shipping on orders over $50. New arrivals every week." (storefront copy, see Known issues) |
 
 Storefront pages take their copy from i18n keys `shop.seo.*` in `layers/core/i18n/locales/{en,ar}.json`
@@ -64,10 +64,10 @@ Storefront pages take their copy from i18n keys `shop.seo.*` in `layers/core/i18
 
 | App | `og:site_name` | `og:type` | `og:image` | `twitter:card` |
 | --- | --- | --- | --- | --- |
-| storefront | StoreOS Store | `website` | `/og-default.jpg` | `summary_large_image` |
+| storefront | StoreOS | `website` | `/og-default.jpg` | `summary_large_image` |
 | landing / merchant-dashboard | StoreOS | `merchantsite` ⚠ | `/og-dashboard.jpg` | `summary_large_image` |
 | store-builder | StoreOS | `website` | — | `summary_large_image` |
-| admin | StoreOS Store | `merchantsite` ⚠ | `/og-default.jpg` | `summary_large_image` |
+| admin | StoreOS | `merchantsite` ⚠ | `/og-default.jpg` | `summary_large_image` |
 
 - ⚠ `merchantsite` is **not a valid Open Graph type**. Use `website` (or `product` / `article`). Fix in
   `apps/landing`, `apps/merchant-dashboard`, `apps/admin` configs.
@@ -299,7 +299,7 @@ Public / indexable by design: storefront home, `/collections`, `/collections/[ha
 1. `og:type` value `merchantsite` is invalid (landing, merchant-dashboard, admin configs).
 2. `/og-default.jpg` and `/og-dashboard.jpg` are referenced but absent from every `public/` folder.
 3. `apps/admin/nuxt.config.ts` carries the storefront's shopper-facing head defaults (title "Shop Online",
-   `| StoreOS Store`, shipping-offer description, `robots: index, follow`) — wrong for an operator console.
+   `| StoreOS`, shipping-offer description, `robots: index, follow`) — wrong for an operator console.
    Admin `/`, `/terms`, `/privacy` therefore inherit them.
 4. `apps/admin/public/robots.txt` still lists storefront paths (`/cart`, `/checkout`, `/orders/`) and a placeholder sitemap.
 5. `apps/landing/nuxt.config.ts` has a dead `robots: noindex, nofollow` default and title `Landing`.

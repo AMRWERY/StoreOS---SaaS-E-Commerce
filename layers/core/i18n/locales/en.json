@@ -5225,7 +5225,7 @@
     }
   },
   "shop": {
-    "brand": "StoreOS Store",
+    "brand": "StoreOS",
     "currency": "EGP",
     "announcement": {
       "shipping": "Free shipping on orders over {amount} EGP",
@@ -5266,7 +5266,7 @@
       "returnsPolicy": "Returns & exchanges",
       "privacy": "Privacy policy",
       "language": "Language",
-      "rights": "© {year} StoreOS Store. All rights reserved."
+      "rights": "© {year} StoreOS. All rights reserved."
     },
     "seo": {
       "homeTitle": "Everyday essentials, delivered across Egypt",

@@ -42,9 +42,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s',
-      title: 'StoreOS Store Builder',
+      title: 'StoreOS Builder',
       meta: [
-        { name: 'description', content: 'StoreOS Store Builder — design and publish your storefront.' },
+        { name: 'description', content: 'StoreOS Builder — design and publish your storefront.' },
         { property: 'og:site_name', content: 'StoreOS' },
         { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' },

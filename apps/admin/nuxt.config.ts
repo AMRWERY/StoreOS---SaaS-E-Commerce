@@ -40,11 +40,11 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      titleTemplate: '%s | StoreOS Store',
+      titleTemplate: '%s | StoreOS',
       title: 'Shop Online',
       meta: [
         { name: 'description', content: 'Shop the latest collection. Free shipping on orders over $50. New arrivals every week.' },
-        { property: 'og:site_name', content: 'StoreOS Store' },
+        { property: 'og:site_name', content: 'StoreOS' },
         { property: 'og:type', content: 'merchantsite' },
         { property: 'og:image', content: '/og-default.jpg' },
         { name: 'twitter:card', content: 'summary_large_image' },

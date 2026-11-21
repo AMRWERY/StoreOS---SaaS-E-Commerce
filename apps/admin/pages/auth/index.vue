@@ -1,26 +1,49 @@
 <template>
-  <div>
-    <div
-      class="flex flex-col items-center justify-center p-6 text-white selection:bg-indigo-500/30 mt-12"
+  <div
+    class="min-h-dvh w-full bg-bg-base text-tx-primary flex flex-col justify-between selection:bg-brand/20"
+  >
+    <!-- Header with controls -->
+    <header
+      class="w-full flex items-center justify-end gap-2.5 sm:gap-3 p-3 sm:p-4 md:px-8"
+    >
+      <LazyThemeToggle />
+
+      <LazyVLocaleSwitch />
+    </header>
+
+    <!-- Main Content Area -->
+    <main
+      class="w-full flex-1 flex flex-col items-center justify-center px-4 py-6 sm:px-6 sm:py-8 md:py-10"
     >
       <div
-        class="w-full max-w-[440px] rounded-2xl px-4 py-3.5 md:px-6 md:py-5 shadow-2xl border bg-bg-primary border-border-subtle"
+        class="w-full max-w-[420px] sm:max-w-[440px] rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 shadow-xl sm:shadow-2xl border bg-bg-primary border-border-subtle transition-all"
       >
         <!-- Header -->
-        <div class="flex flex-col items-center text-center mb-6">
+        <div class="flex flex-col items-center text-center mb-5 sm:mb-6">
           <img
             src="/gif/storeose-logo.gif"
             alt="storeose-logo"
-            class="h-14 w-auto"
+            class="h-10 sm:h-12 md:h-14 w-auto max-w-full object-contain mb-2 sm:mb-3"
             width="117"
             height="40"
           />
-          <h1 class="text-xl font-bold mb-2">{{ t("auth.title") }}</h1>
-          <p class="text-sm text-tx-secondary">{{ t("auth.subtitle") }}</p>
+          <h1
+            class="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 text-tx-primary tracking-tight"
+          >
+            {{ t("auth.title") }}
+          </h1>
+          <p
+            class="text-xs sm:text-sm text-tx-secondary max-w-xs sm:max-w-sm mx-auto"
+          >
+            {{ t("auth.subtitle") }}
+          </p>
         </div>
 
         <!-- Form -->
-        <LazyVFormWrapper formClass="!space-y-5" @submit="handleSubmit">
+        <LazyVFormWrapper
+          formClass="!space-y-4 sm:!space-y-5"
+          @submit="handleSubmit"
+        >
           <LazyVInput
             type="email"
             :label="t('auth.email')"
@@ -35,7 +58,9 @@
             v-model="password"
           >
             <template #label-right>
-              <span class="text-xs text-brand hover:underline cursor-pointer">
+              <span
+                class="text-xs text-brand hover:underline cursor-pointer select-none whitespace-nowrap"
+              >
                 {{ t("auth.forgot_password") }}
               </span>
             </template>
@@ -45,7 +70,7 @@
             type="submit"
             variant="none"
             :disabled="isLoading"
-            className="w-full flex items-center justify-center bg-brand hover:bg-brand-hover disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-lg font-bold transition shadow-lg shadow-indigo-500/10"
+            className="w-full min-h-[42px] sm:min-h-[46px] flex items-center justify-center bg-brand hover:bg-brand-hover active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed text-white py-2.5 sm:py-3 rounded-lg font-semibold sm:font-bold text-sm sm:text-base transition-all shadow-md shadow-brand/20"
           >
             <LazyVLoadingSpinner v-if="isLoading" size="sm" />
             <span v-else>{{ t("auth.sign_in") }}</span>
@@ -53,14 +78,14 @@
         </LazyVFormWrapper>
 
         <!-- Divider -->
-        <div class="relative my-8">
+        <div class="relative my-5 sm:my-6 md:my-7">
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-border-subtle"></div>
           </div>
           <div
-            class="relative flex justify-center text-[10px] tracking-widest font-bold"
+            class="relative flex justify-center text-[10px] sm:text-xs tracking-widest font-bold uppercase"
           >
-            <span class="px-4 text-tx-muted bg-bg-primary">
+            <span class="px-3 sm:px-4 text-tx-muted bg-bg-primary select-none">
               {{ t("auth.or_continue_with") }}
             </span>
           </div>
@@ -69,15 +94,15 @@
         <!-- Social -->
         <LazyVButton
           variant="none"
-          className="w-full py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-3 transition border bg-transparent hover:bg-bg-elevated border-border-default text-tx-primary"
+          className="w-full min-h-[42px] sm:min-h-[46px] py-2.5 sm:py-3 px-4 rounded-lg font-medium text-xs sm:text-sm flex items-center justify-center gap-2.5 sm:gap-3 transition-colors border bg-transparent hover:bg-bg-elevated border-border-default text-tx-primary active:scale-[0.99]"
         >
-          <Icon name="devicon:google" class="w-4 h-4" />
-          {{ t("auth.sign_in_with_google") }}
+          <Icon name="devicon:google" class="w-4 h-4 shrink-0" />
+          <span class="truncate">{{ t("auth.sign_in_with_google") }}</span>
         </LazyVButton>
 
         <!-- Register CTA -->
-        <div class="mt-8 text-center">
-          <p class="text-sm text-tx-secondary mb-1">
+        <div class="mt-6 sm:mt-7 text-center">
+          <p class="text-xs sm:text-sm text-tx-secondary mb-1">
             {{ t("auth.no_account") }}
           </p>
           <div
@@ -87,7 +112,7 @@
               type="button"
               variant="none"
               @click="showTrialModal = true"
-              className="text-brand font-medium hover:text-brand-hover hover:underline transition"
+              className="text-xs sm:text-sm text-brand font-semibold hover:text-brand-hover hover:underline transition"
             >
               {{ t("auth.start_free_trial") }}
             </LazyVButton>
@@ -96,11 +121,14 @@
       </div>
 
       <lazy-start-trial-modal v-model="showTrialModal" />
+    </main>
 
-      <p class="mt-8 text-[10px] tracking-wider text-tx-muted">
+    <!-- Footer -->
+    <footer class="w-full py-4 text-center px-4">
+      <p class="text-[10px] sm:text-xs tracking-wider text-tx-muted">
         {{ t("auth.copyright") }}
       </p>
-    </div>
+    </footer>
   </div>
 </template>
 

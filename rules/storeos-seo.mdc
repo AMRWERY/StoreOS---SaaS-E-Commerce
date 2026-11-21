@@ -17,12 +17,12 @@ Full spec in `/seo.md`. Apply these rules to every page file.
 useSeoMeta({
   title: 'Page Title',                          // shown in <title> tag
   description: 'Description 120–155 chars.',    // meta description
-  ogTitle: 'Page Title | StoreOS Store',
+  ogTitle: 'Page Title | StoreOS',
   ogDescription: 'Same as description.',
   ogType: 'merchantsite',
   ogImage: '/og-default.jpg',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Page Title | StoreOS Store',
+  twitterTitle: 'Page Title | StoreOS',
   twitterDescription: 'Same as description.',
   twitterImage: '/og-default.jpg',
 })
@@ -87,7 +87,7 @@ Do NOT add manual `<link rel="alternate">` tags — they are auto-generated.
 ## Title pattern
 
 ```
-admin:  '{Page Title} | StoreOS Store'   ← set by titleTemplate in nuxt.config
+admin:  '{Page Title} | StoreOS'   ← set by titleTemplate in nuxt.config
 Dashboard:   '{Page Title} — StoreOS'         ← set by titleTemplate in nuxt.config
 
 Just pass the page title: useSeoMeta({ title: 'Orders' })
