@@ -135,6 +135,11 @@ with `useLocalePath()` / `<nuxt-link-locale>`, never a bare path. Locale files a
 `common`) — add keys to **both** files. `ar` is RTL; `tailwindcss-rtl` is installed, so prefer its
 logical utilities (`ms-`/`me-`, `ps-`/`pe-`) over `ml-`/`mr-`.
 
+**`layers/ui/components` is only for components used by 2+ apps.** A component used by a single app belongs in that
+app's `components/` (e.g. `apps/merchant-dashboard/components/common/`), together with its types and any npm
+dependency it needs. When a second app starts using it, move it into the layer. Check usage across all apps (and
+other layer components) before adding to or moving out of the layer.
+
 **Components** are auto-imported with `pathPrefix: false` in both the `ui` layer and each app, so nested
 files register under their bare filename — `components/dashboard/orders/orders-table.vue` is
 `<orders-table>`. Names are therefore globally unique across the whole app; kebab-case files, kebab-case

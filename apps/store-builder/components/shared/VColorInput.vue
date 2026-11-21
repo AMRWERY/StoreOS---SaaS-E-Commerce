@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ColorInputProps } from "../types/VColorInput";
+import type { ColorInputProps } from "@/types/VColorInput";
 
 const props = defineProps<ColorInputProps>();
 

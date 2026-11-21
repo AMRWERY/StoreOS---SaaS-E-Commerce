@@ -98,7 +98,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { VFileUploadProps } from "../types/VFileUpload";
+import type { VFileUploadProps } from "@/types/VFileUpload";
 
 const props = withDefaults(defineProps<VFileUploadProps>(), {
   icon: "ic:twotone-cloud-upload",

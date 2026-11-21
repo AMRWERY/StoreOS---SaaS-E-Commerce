@@ -1,12 +1,12 @@
-<script setup lang="ts">
-import { TOUR_UI } from '@/data/tour-steps'
+<script lang="ts" setup>
+import { TOUR_UI } from "@/data/tour-steps";
 
-const { start } = useTour()
-const { locale } = useI18n()
+const { start } = useTour();
+const { locale } = useI18n();
 
-const lang = computed<'en' | 'ar'>(() => (locale.value === 'ar' ? 'ar' : 'en'))
-const label = computed(() => TOUR_UI.guide[lang.value])
-const title = computed(() => TOUR_UI.guideTitle[lang.value])
+const lang = computed<"en" | "ar">(() => (locale.value === "ar" ? "ar" : "en"));
+const label = computed(() => TOUR_UI.guide[lang.value]);
+const title = computed(() => TOUR_UI.guideTitle[lang.value]);
 </script>
 
 <template>

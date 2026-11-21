@@ -55,7 +55,7 @@
         />
       </div>
     </template>
-  </VSidePanel>
+  </LazyVSidePanel>
 </template>
 
 <script lang="ts" setup>

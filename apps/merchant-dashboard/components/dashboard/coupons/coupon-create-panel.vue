@@ -141,7 +141,7 @@
         {{ t("dashboard.coupons.createCoupon") }}
       </LazyVButton>
     </template>
-  </VSidePanel>
+  </LazyVSidePanel>
 </template>
 
 <script lang="ts" setup>

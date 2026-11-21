@@ -11,17 +11,17 @@
 
 StoreOS is a pnpm/Turborepo workspace of **five Nuxt 4 apps and two layers** sharing one brand and **one token system**:
 
-| App | Audience | Aesthetic |
-| --- | --- | --- |
-| `apps/merchant-dashboard` | Store owners & staff | Dark, dense, data-rich — Bloomberg Terminal meets Linear |
-| `apps/admin` | Platform operators (`/platform/*`, `/status`) | Same dark operational look as the dashboard |
-| `apps/store-builder` | Merchants building a storefront (`/builder/*`) | Same tokens as the dashboard |
-| `apps/landing` | Marketing visitors | Same tokens; marketing layout (`.page-shell`, `.text-kicker`) |
-| `apps/storefront` | Shoppers | Customer-facing store, built from the same `V*` components and tokens |
+| App                       | Audience                                       | Aesthetic                                                             |
+| ------------------------- | ---------------------------------------------- | --------------------------------------------------------------------- |
+| `apps/merchant-dashboard` | Store owners & staff                           | Dark, dense, data-rich — Bloomberg Terminal meets Linear              |
+| `apps/admin`              | Platform operators (`/platform/*`, `/status`)  | Same dark operational look as the dashboard                           |
+| `apps/store-builder`      | Merchants building a storefront (`/builder/*`) | Same tokens as the dashboard                                          |
+| `apps/landing`            | Marketing visitors                             | Same tokens; marketing layout (`.page-shell`, `.text-kicker`)         |
+| `apps/storefront`         | Shoppers                                       | Customer-facing store, built from the same `V*` components and tokens |
 
-| Layer | Package | Contents |
-| --- | --- | --- |
-| `layers/ui` | `@storeos/ui` | CSS tokens, `tailwind.config.ts`, `V*` components |
+| Layer         | Package         | Contents                                             |
+| ------------- | --------------- | ---------------------------------------------------- |
+| `layers/ui`   | `@storeos/ui`   | CSS tokens, `tailwind.config.ts`, `V*` components    |
 | `layers/core` | `@storeos/core` | Nuxt modules, i18n, theme plugin, shared composables |
 
 > **Drift:** an earlier version of this doc described a separate light "storefront" palette (`--sf-*` tokens,
@@ -77,14 +77,14 @@ purple #7C3AED | yellow #CA8A04      (-dim alphas are 0.10–0.12)
 
 ### Using tokens in markup (Tailwind names)
 
-| Token | Tailwind utility |
-| --- | --- |
-| Backgrounds | `bg-bg-base`, `bg-bg-primary`, `bg-bg-elevated`, `bg-bg-overlay` |
-| Borders | `border-border-subtle`, `border-border-default` |
-| Text | `text-tx-primary`, `text-tx-secondary`, `text-tx-muted` |
-| Brand | `bg-brand`, `hover:bg-brand-hover`, `bg-brand-dim` |
-| Orange accent | `accent`, `accent-hover`, `accent-dim` — **named `accent` in Tailwind, `--orange` as a CSS variable** |
-| Status | `success`, `warning`, `danger`, `info` (+ `-dim`), `status-purple`, `status-yellow` (+ `-purple-dim`, `-yellow-dim`) |
+| Token         | Tailwind utility                                                                                                     |
+| ------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Backgrounds   | `bg-bg-base`, `bg-bg-primary`, `bg-bg-elevated`, `bg-bg-overlay`                                                     |
+| Borders       | `border-border-subtle`, `border-border-default`                                                                      |
+| Text          | `text-tx-primary`, `text-tx-secondary`, `text-tx-muted`                                                              |
+| Brand         | `bg-brand`, `hover:bg-brand-hover`, `bg-brand-dim`                                                                   |
+| Orange accent | `accent`, `accent-hover`, `accent-dim` — **named `accent` in Tailwind, `--orange` as a CSS variable**                |
+| Status        | `success`, `warning`, `danger`, `info` (+ `-dim`), `status-purple`, `status-yellow` (+ `-purple-dim`, `-yellow-dim`) |
 
 Never hardcode hex values in components; use the tokens so both themes work.
 
@@ -159,26 +159,28 @@ full / rounded-full: pills, badges
 
 ### Shared component classes (`layers/ui/assets/css/tailwind.css`, `@layer components`)
 
-| Class | Purpose |
-| --- | --- |
-| `.card` | `bg-bg-primary border border-border-subtle rounded-2xl` — pair with a padding utility |
-| `.badge` | `rounded-full px-2 py-0.5 text-[10px] font-semibold` — pair with a color utility (`bg-success-dim text-success`) |
-| `.page-shell` | full-page wrapper: `bg-bg-base min-h-screen text-tx-primary pb-32` |
-| `.text-eyebrow` | 10px / 600 muted label above a section |
-| `.text-kicker` | marketing-page section kicker (uppercase, wide tracking) |
-| `.icon-tile` | 48px rounded-xl square, `bg-bg-elevated` |
-| `.overlay-backdrop` | fixed full-screen `bg-bg-overlay/60 backdrop-blur-sm` |
-| `.status-dot` | 6px dot |
-| `.transition-base` / `-slow` / `-spring` | 150ms / 250ms / 250ms spring |
-| `.icon-nudge-{end,start,diagonal,up,down}`, `.icon-spin-hover` | icon hover motion, RTL-aware |
-| `.hide-scrollbar`, `.select-scrollbar` | scrollbar/select helpers (`main.css`) |
+| Class                                                          | Purpose                                                                                                          |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `.card`                                                        | `bg-bg-primary border border-border-subtle rounded-2xl` — pair with a padding utility                            |
+| `.badge`                                                       | `rounded-full px-2 py-0.5 text-[10px] font-semibold` — pair with a color utility (`bg-success-dim text-success`) |
+| `.page-shell`                                                  | full-page wrapper: `bg-bg-base min-h-screen text-tx-primary pb-32`                                               |
+| `.text-eyebrow`                                                | 10px / 600 muted label above a section                                                                           |
+| `.text-kicker`                                                 | marketing-page section kicker (uppercase, wide tracking)                                                         |
+| `.icon-tile`                                                   | 48px rounded-xl square, `bg-bg-elevated`                                                                         |
+| `.overlay-backdrop`                                            | fixed full-screen `bg-bg-overlay/60 backdrop-blur-sm`                                                            |
+| `.status-dot`                                                  | 6px dot                                                                                                          |
+| `.transition-base` / `-slow` / `-spring`                       | 150ms / 250ms / 250ms spring                                                                                     |
+| `.icon-nudge-{end,start,diagonal,up,down}`, `.icon-spin-hover` | icon hover motion, RTL-aware                                                                                     |
+| `.hide-scrollbar`, `.select-scrollbar`                         | scrollbar/select helpers (`main.css`)                                                                            |
 
 ### Shared Vue components (`layers/ui/components`, auto-imported with `pathPrefix: false`, use `Lazy` prefix for heavy ones)
 
-`VThemeToggle`, `VAccordion`, `VAlertBanner`, `VBackButton`, `VBreadcrumb`, `VButton`, `VColorInput`, `VDatePicker`,
-`VDialog`, `VDropdownMenu`, `VFileUpload`, `VFormWrapper`, `VInput`, `VLoadingSpinner`, `VLocaleSwitch`, `VOtp`,
-`VOverlay`, `VPagination`, `VProductCard`, `VProgressBar`, `VRangeInput`, `VSearchInput`, `VSelectInput`,
-`VSidePanel`, `VStatCard`, `VSwitchButton`, `VTable`, `VTabs`, `VTextareaInput`.
+`VThemeToggle`, `VAccordion`, `VAlertBanner`, `VBreadcrumb`, `VButton`, `VDialog`, `VDropdownMenu`,
+`VFormWrapper`, `VInput`, `VLoadingSpinner`, `VLocaleSwitch`, `VOtp`, `VOverlay`, `VPagination`, `VProgressBar`,
+`VRangeInput`, `VSearchInput`, `VSelectInput`, `VSidePanel`, `VStatCard`, `VSwitchButton`, `VTable`, `VTabs`, `VTextareaInput`.
+
+Only components used by **2+ apps** live in `layers/ui`. App-specific ones stay in their app: merchant-dashboard has
+`VBackButton`, `VDatePicker`, `VFileUpload`, `VProductCard` in `components/common/`; store-builder has `VColorInput` in `components/common/`.
 Prefer these over hand-rolled equivalents.
 
 ### Buttons — `VButton`
@@ -326,7 +328,7 @@ treat them as roadmap, not current behavior. Capacitor is not a dependency of th
 
 ```
 TECH STACK
-  Framework: Nuxt 4 (Vue 3 Composition API, <script setup lang="ts">), flat layout (no app/ srcDir)
+  Framework: Nuxt 4 (Vue 3 Composition API, <script lang="ts" setup>), flat layout (no app/ srcDir)
   Styling:   Tailwind CSS + CSS-variable tokens (layers/ui); plugins: forms, typography, aspect-ratio,
              container-queries, tailwindcss-rtl
   State:     Pinia setup stores with mock data (no backend yet)

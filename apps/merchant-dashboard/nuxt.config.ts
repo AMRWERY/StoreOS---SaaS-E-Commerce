@@ -1,5 +1,9 @@
 export default defineNuxtConfig({
   extends: ["@storeos/ui", "@storeos/core"],
+  css: ["@vuepic/vue-datepicker/dist/main.css"],
+  build: {
+    transpile: ["@vuepic/vue-datepicker"],
+  },
   compatibilityDate: "2025-07-15",
   vite: {
     build: {

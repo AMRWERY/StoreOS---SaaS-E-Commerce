@@ -20,8 +20,6 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.5",
-    "@vuepic/vue-datepicker": "^14.0.0",
-    "date-fns": "^4.4.0",
     "tailwindcss": "^4.3.5",
     "tailwindcss-rtl": "^1.0.0"
   }

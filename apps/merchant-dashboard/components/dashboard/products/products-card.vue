@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Product } from "@storeos/ui/types/VProductCard";
+import type { Product } from "@/types/VProductCard";
 
 withDefaults(
   defineProps<{

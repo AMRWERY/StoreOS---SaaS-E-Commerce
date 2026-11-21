@@ -14,6 +14,8 @@
   "dependencies": {
     "@storeos/core": "workspace:*",
     "@storeos/ui": "workspace:*",
+    "@vuepic/vue-datepicker": "^14.0.0",
+    "date-fns": "^4.4.0",
     "nuxt": "^4.6.4",
     "vue": "^3.5.46",
     "vue-router": "^5.5.1"
