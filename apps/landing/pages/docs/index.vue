@@ -60,7 +60,7 @@
             <div v-if="activeDoc === doc.id">
               <h2 class="text-xl font-bold mb-2">{{ doc.title }}</h2>
               <p class="text-xs text-tx-muted mb-6">Last updated {{ doc.updated }}</p>
-              <div class="prose prose-sm max-w-none space-y-4 text-tx-secondary text-sm leading-relaxed">
+              <div class="max-w-none space-y-4 text-tx-secondary text-sm leading-relaxed">
                 <p v-for="(para, i) in doc.content" :key="i">{{ para }}</p>
               </div>
               <div class="mt-8 pt-6 border-t border-border-subtle flex items-center justify-between">

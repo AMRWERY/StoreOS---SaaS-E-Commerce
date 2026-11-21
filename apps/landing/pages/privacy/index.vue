@@ -33,7 +33,7 @@
           <div class="lg:col-span-3 space-y-16">
             <section v-for="s in sections" :key="s.id" :id="s.id" class="scroll-mt-32">
               <h2 class="text-2xl font-bold mb-6 text-tx-primary">{{ s.title }}</h2>
-              <div class="prose prose-invert prose-sm max-w-none text-tx-secondary leading-relaxed space-y-4">
+              <div class="max-w-none text-tx-secondary leading-relaxed space-y-4">
                 <p v-for="(p, i) in s.paragraphs" :key="i">{{ p }}</p>
                 <ul v-if="s.list" class="list-disc ps-5 mt-4 space-y-2">
                   <li v-for="item in s.list" :key="item">{{ item }}</li>
