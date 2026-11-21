@@ -13,22 +13,31 @@
           class="mb-3 inline-flex items-center gap-1 rounded-full bg-danger-dim px-2 py-0.5 text-[10px] font-semibold text-danger"
         >
           <Icon name="ph:shield-warning-bold" class="text-xs" />
-          {{ t('platform.badge') }}
+          {{ t("platform.badge") }}
         </span>
         <h1 class="text-xl font-bold">
-          {{ step === 'credentials' ? t('platform.login.title') : t('platform.login.twoFactorTitle') }}
+          {{
+            step === "credentials"
+              ? t("platform.login.title")
+              : t("platform.login.twoFactorTitle")
+          }}
         </h1>
         <p class="mt-1 text-sm text-tx-secondary">
           {{
-            step === 'credentials'
-              ? t('platform.login.subtitle')
-              : t('platform.login.twoFactorSubtitle', { email })
+            step === "credentials"
+              ? t("platform.login.subtitle")
+              : t("platform.login.twoFactorSubtitle", { email })
           }}
         </p>
       </div>
 
       <!-- Step 1: credentials -->
-      <form v-if="step === 'credentials'" class="space-y-5" novalidate @submit.prevent="submitCredentials">
+      <form
+        v-if="step === 'credentials'"
+        class="space-y-5"
+        novalidate
+        @submit.prevent="submitCredentials"
+      >
         <LazyVInput
           v-model="email"
           type="email"
@@ -57,13 +66,23 @@
       <!-- Step 2: two-factor code -->
       <form v-else class="space-y-5" novalidate @submit.prevent="submitCode">
         <div dir="ltr">
-          <LazyVOtp v-model="code" :length="6" full-width :error="errors.code" :disabled="busy" />
+          <LazyVOtp
+            v-model="code"
+            :length="6"
+            full-width
+            :error="errors.code"
+            :disabled="busy"
+          />
         </div>
 
-        <p class="rounded-md border border-border-subtle bg-bg-elevated px-3 py-2 text-[11px] text-tx-secondary">
+        <p
+          class="rounded-md border border-border-subtle bg-bg-elevated px-3 py-2 text-[11px] text-tx-secondary"
+        >
           <Icon name="ph:info-bold" class="me-1 align-middle" />
-          {{ t('platform.login.demoHint') }}
-          <span class="font-mono font-semibold text-tx-primary">{{ DEMO_CODE }}</span>
+          {{ t("platform.login.demoHint") }}
+          <span class="font-mono font-semibold text-tx-primary">{{
+            DEMO_CODE
+          }}</span>
         </p>
 
         <div class="flex items-center gap-3">
@@ -83,71 +102,74 @@
         </div>
       </form>
     </div>
-
-    <p class="mt-4 text-center text-[11px] text-tx-muted">
-      <nuxt-link-locale to="/status" class="hover:text-tx-primary underline-offset-2 hover:underline">
-        {{ t('platform.login.statusLink') }}
-      </nuxt-link-locale>
-    </p>
   </div>
 </template>
 
 <script lang="ts" setup>
-definePageMeta({ layout: 'platform-auth' })
-
-const { t } = useI18n()
-const route = useRoute()
-const localePath = useLocalePath()
-const { signIn } = usePlatformAuth()
-
-useSeoMeta({ title: () => t('platform.login.title'), robots: 'noindex, nofollow' })
+const { t } = useI18n();
+const route = useRoute();
+const localePath = useLocalePath();
+const { signIn } = usePlatformAuth();
 
 // Mock-only second factor: replace with a server-verified TOTP check.
-const DEMO_CODE = '123456'
+const DEMO_CODE = "123456";
 
-const step = ref<'credentials' | 'twofactor'>('credentials')
-const email = ref<string | number | boolean | undefined>('')
-const password = ref<string | number | boolean | undefined>('')
-const code = ref('')
-const busy = ref(false)
-const errors = reactive({ email: '', password: '', code: '' })
+const step = ref<"credentials" | "twofactor">("credentials");
+const email = ref<string | number | boolean | undefined>("");
+const password = ref<string | number | boolean | undefined>("");
+const code = ref("");
+const busy = ref(false);
+const errors = reactive({ email: "", password: "", code: "" });
 
-const emailValue = computed(() => String(email.value ?? '').trim())
+const emailValue = computed(() => String(email.value ?? "").trim());
 
 function submitCredentials() {
-  errors.email = ''
-  errors.password = ''
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue.value)) errors.email = t('platform.login.errors.email')
-  if (String(password.value ?? '').length < 8) errors.password = t('platform.login.errors.password')
-  if (errors.email || errors.password) return
-  step.value = 'twofactor'
+  errors.email = "";
+  errors.password = "";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue.value))
+    errors.email = t("platform.login.errors.email");
+  if (String(password.value ?? "").length < 8)
+    errors.password = t("platform.login.errors.password");
+  if (errors.email || errors.password) return;
+  step.value = "twofactor";
 }
 
 function backToCredentials() {
-  step.value = 'credentials'
-  code.value = ''
-  errors.code = ''
+  step.value = "credentials";
+  code.value = "";
+  errors.code = "";
 }
 
 /** Only allow redirects back into the console (never to another path or origin). */
 function safeRedirect(): string {
-  const r = route.query.redirect
-  const target = Array.isArray(r) ? r[0] : r
-  return typeof target === 'string' && /^\/platform(\/|$)/.test(target) && !target.startsWith('//')
+  const r = route.query.redirect;
+  const target = Array.isArray(r) ? r[0] : r;
+  return typeof target === "string" &&
+    /^\/platform(\/|$)/.test(target) &&
+    !target.startsWith("//")
     ? target
-    : '/platform'
+    : "/platform";
 }
 
 async function submitCode() {
-  errors.code = ''
+  errors.code = "";
   if (code.value !== DEMO_CODE) {
-    errors.code = t('platform.login.errors.code')
-    code.value = ''
-    return
+    errors.code = t("platform.login.errors.code");
+    code.value = "";
+    return;
   }
-  busy.value = true
-  signIn(emailValue.value)
-  await navigateTo(localePath(safeRedirect()), { replace: true })
-  busy.value = false
+  busy.value = true;
+  signIn(emailValue.value);
+  await navigateTo(localePath(safeRedirect()), { replace: true });
+  busy.value = false;
 }
+
+definePageMeta({
+  layout: "platform-auth",
+});
+
+useSeoMeta({
+  title: () => t("platform.login.title"),
+  robots: "noindex, nofollow",
+});
 </script>
