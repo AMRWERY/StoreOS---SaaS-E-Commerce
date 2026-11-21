@@ -9,6 +9,7 @@
     <div class="space-y-5">
       <LazyVInput
         :label="t('dashboard.profile.currentPassword')"
+        :placeholder="t('auth.register.passwordPlaceholder')"
         type="password"
         modelValue="********"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3"
@@ -16,12 +17,14 @@
 
       <LazyVInput
         :label="t('dashboard.profile.newPassword')"
+        :placeholder="t('auth.register.passwordPlaceholder')"
         type="password"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3"
       />
 
       <LazyVInput
         :label="t('dashboard.profile.confirmNewPassword')"
+        :placeholder="t('auth.register.passwordPlaceholder')"
         type="password"
         inputClass="bg-bg-primary border-border-default rounded-xl px-5 py-3"
         class="pb-6 border-b border-border-subtle"

@@ -8,7 +8,7 @@
       <shop-field v-model="name" autocomplete="name" :label="t('shop.checkout.fullName')" :error="errors.name" required />
       <shop-field v-model="email" type="email" inputmode="email" dir="ltr" autocomplete="email" :label="t('shop.checkout.email')" :error="errors.email" required />
       <shop-field v-model="phone" type="tel" inputmode="tel" mono dir="ltr" autocomplete="tel" :label="t('shop.checkout.phone')" :hint="t('shop.checkout.phoneHint')" :error="errors.phone" required />
-      <shop-field v-model="password" type="password" autocomplete="new-password" :label="t('shop.auth.password')" :error="errors.password" required />
+      <shop-field v-model="password" type="password" autocomplete="new-password" placeholder="••••••••" :label="t('shop.auth.password')" :error="errors.password" required />
       <v-button type="submit" :label="t('shop.auth.register')" class="w-full rounded-full py-3" />
     </form>
     <p class="mt-6 text-center text-sm text-tx-secondary">

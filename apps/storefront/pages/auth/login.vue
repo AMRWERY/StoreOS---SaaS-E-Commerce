@@ -6,7 +6,7 @@
     </div>
     <form class="rounded-3xl bg-bg-primary border border-border-subtle p-6 space-y-5" novalidate @submit.prevent="submit">
       <shop-field v-model="email" type="email" inputmode="email" dir="ltr" autocomplete="email" :label="t('shop.checkout.email')" :error="errors.email" required />
-      <shop-field v-model="password" type="password" autocomplete="current-password" :label="t('shop.auth.password')" :error="errors.password" required />
+      <shop-field v-model="password" type="password" autocomplete="current-password" placeholder="••••••••" :label="t('shop.auth.password')" :error="errors.password" required />
       <v-button type="submit" :label="t('shop.auth.login')" class="w-full rounded-full py-3" />
       <p class="text-xs text-tx-muted text-center">{{ t('shop.auth.demoNote') }}</p>
     </form>

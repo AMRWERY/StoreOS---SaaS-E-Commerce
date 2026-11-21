@@ -31,6 +31,7 @@
           <LazyVInput
             type="password"
             :label="t('auth.password')"
+            :placeholder="t('auth.register.passwordPlaceholder')"
             v-model="password"
           >
             <template #label-right>

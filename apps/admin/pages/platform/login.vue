@@ -52,6 +52,7 @@
           type="password"
           name="password"
           :label="t('platform.login.password')"
+          :placeholder="t('auth.register.passwordPlaceholder')"
           :error="errors.password"
           autocomplete="current-password"
         />
